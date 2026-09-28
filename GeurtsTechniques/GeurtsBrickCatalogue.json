@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.23.2",
-  "publishedUtc": "2026-09-26T13:48:44Z",
+  "packageVersion": "0.23.3",
+  "publishedUtc": "2026-09-28T12:25:31Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.documentation",
@@ -157,13 +157,13 @@
     {
       "id": "com.geurts.gameforge.userinterface",
       "name": "Geurts Game Forge User Interface Foundations",
-      "description": "Preview: editable UI Toolkit menus, modal navigation and shared appearance with corrected heading, body and button font choices. Native input and visual validation remain pending.",
+      "description": "Preview: editable UI Toolkit menus, common menu actions, player Quit confirmation and a local-only Settings demo, with shared colors and fonts. Native input and visual validation remain pending.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface",
-      "version": "0.1.2",
+      "version": "0.2.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#fb5f2a6f179cb4b8e4f888cfa784fa625fb99ba4",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#e27ed1b2b776c5cc47ca1a1572993bd4aa4dca46",
       "minimumUnity": "6000.3",
       "maximumUnity": "6000.3",
       "requiredTools": [
