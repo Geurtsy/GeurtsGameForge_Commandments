@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.9.0
+**Version:** 0.9.1
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers and compatible Unity integrations
@@ -28,6 +28,7 @@ Use a host-provided pending automation objective only after the user explicitly 
 
 - Implement requested project changes when implementation is authorized; answer informational questions without unrelated mutation.
 - Inspect the relevant project files and documentation before creating replacements.
+- Follow the Technical Technique's Windows development and build workflow: work on Windows for Windows with Unity and Codex, use Windows-compatible host commands, and verify CRLF in authored text while preserving each file owner's mutation boundary.
 - Reuse or extend suitable project systems and established folder conventions when doing so fits the project evidence.
 - Work in small, reversible increments and validate after meaningful changes.
 - Repair recoverable failures within scope, preserve working systems, and automate routine safe work the available environment can perform.
