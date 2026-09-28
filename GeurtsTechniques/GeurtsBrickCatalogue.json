@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.23.3",
-  "publishedUtc": "2026-09-28T12:25:31Z",
+  "packageVersion": "0.23.4",
+  "publishedUtc": "2026-09-28T20:55:06Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.documentation",
@@ -26,11 +26,11 @@
       "name": "Geurts Game Forge God",
       "description": "Game Forge God package management, installed brick menus, Build Forge setup, optional Documentation integration, lifecycle, settings and optional scene-startup/input cooperation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.14.1",
+      "version": "0.14.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#2d5507072a5cc70e8b6e67775e5db6d209c9e3c3",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#9c25456d31f64c8f04972da2690d7dad8a2754b7",
       "minimumUnity": "6000.3",
       "maximumUnity": "6000.3",
       "requiredTools": [
