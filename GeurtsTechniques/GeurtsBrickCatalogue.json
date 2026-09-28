@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.23.6",
-  "publishedUtc": "2026-09-28T21:31:58Z",
+  "packageVersion": "0.23.7",
+  "publishedUtc": "2026-09-28T22:08:49Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.documentation",
@@ -65,15 +65,15 @@
     {
       "id": "com.geurts.gameforge.settings",
       "name": "Geurts Game Forge Settings System",
-      "description": "Shared configuration and settings.",
-      "website": "https://github.com/Geurtsy/GeurtsGameForge#existing-work-and-scope",
-      "version": "",
-      "released": false,
+      "description": "Starter package with an Editor main menu describing planned shared configuration and settings. Runtime settings functionality is not implemented.",
+      "website": "https://github.com/Geurtsy/com.geurts.gameforge.settings",
+      "version": "0.1.0",
+      "released": true,
       "developmentOnly": false,
-      "sourceKind": "",
-      "source": "",
-      "minimumUnity": "",
-      "maximumUnity": "",
+      "sourceKind": "git",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#49e2dd0b66abfab63d20ca2b2c74cf049b0b76d6",
+      "minimumUnity": "6000.3",
+      "maximumUnity": "6000.3",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console"
@@ -81,7 +81,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": ""
+          "minimumVersion": "0.14.2"
         }
       ]
     },
@@ -111,15 +111,15 @@
     {
       "id": "com.geurts.gameforge.saveload",
       "name": "Geurts Game Forge Save and Load",
-      "description": "Shared saving and loading support.",
-      "website": "https://github.com/Geurtsy/GeurtsGameForge#existing-work-and-scope",
-      "version": "",
-      "released": false,
+      "description": "Starter package with an Editor main menu describing planned shared saving and loading support. Runtime save and load functionality is not implemented.",
+      "website": "https://github.com/Geurtsy/com.geurts.gameforge.saveload",
+      "version": "0.1.0",
+      "released": true,
       "developmentOnly": false,
-      "sourceKind": "",
-      "source": "",
-      "minimumUnity": "",
-      "maximumUnity": "",
+      "sourceKind": "git",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#6d7fa8f197468651e6d36d6aa3aa77d2bb5885c3",
+      "minimumUnity": "6000.3",
+      "maximumUnity": "6000.3",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console"
@@ -127,22 +127,22 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": ""
+          "minimumVersion": "0.14.2"
         }
       ]
     },
     {
       "id": "com.geurts.gameforge.audio",
       "name": "Geurts Game Forge Audio",
-      "description": "Shared audio support.",
-      "website": "https://github.com/Geurtsy/GeurtsGameForge#existing-work-and-scope",
-      "version": "",
-      "released": false,
+      "description": "Starter package with an Editor main menu describing planned shared audio playback and management. Runtime audio functionality is not implemented.",
+      "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
+      "version": "0.1.0",
+      "released": true,
       "developmentOnly": false,
-      "sourceKind": "",
-      "source": "",
-      "minimumUnity": "",
-      "maximumUnity": "",
+      "sourceKind": "git",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#ed18bdcab73d37bf30d2e64ead56bf3679bc4c69",
+      "minimumUnity": "6000.3",
+      "maximumUnity": "6000.3",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console"
@@ -150,7 +150,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": ""
+          "minimumVersion": "0.14.2"
         }
       ]
     },
@@ -180,15 +180,15 @@
     {
       "id": "com.geurts.gameforge.objectpooling",
       "name": "Geurts Game Forge Object Pooling",
-      "description": "Reusable object pools.",
-      "website": "https://github.com/Geurtsy/GeurtsGameForge#existing-work-and-scope",
-      "version": "",
-      "released": false,
+      "description": "Starter package with an Editor main menu describing planned reusable object pools. Runtime pooling functionality is not implemented.",
+      "website": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling",
+      "version": "0.1.0",
+      "released": true,
       "developmentOnly": false,
-      "sourceKind": "",
-      "source": "",
-      "minimumUnity": "",
-      "maximumUnity": "",
+      "sourceKind": "git",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#8158f3e2c46b7754edf45a6d12258c5d6b969ea7",
+      "minimumUnity": "6000.3",
+      "maximumUnity": "6000.3",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console"
@@ -196,7 +196,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": ""
+          "minimumVersion": "0.14.2"
         }
       ]
     }
