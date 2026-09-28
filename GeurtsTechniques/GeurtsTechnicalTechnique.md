@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.12.10
+**Version:** 0.12.11
 **Unity target:** Unity 6.3 LTS (6000.3)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -58,6 +58,18 @@ These priorities are not equal. A higher priority wins over a lower priority wit
 For multiplayer systems, **network efficiency overrides all other priorities**.
 
 Cross-document applicability and conflicts defer to the manifest. This technique's priority order applies only to actual technical trade-offs within its assigned subject.
+
+---
+
+## Windows Development and Build Workflow
+
+Develop, test and build **on Windows for Windows, using Unity and Codex**. Windows is the supported development host and player target for Geurts Game Forge solutions. Use the project's supported Unity Editor on Windows, Codex for assisted implementation and validation, and Windows PowerShell-compatible commands for host automation. Do not introduce another host or player target unless the user explicitly changes this requirement.
+
+Select the intended **Windows Build Profile**, scene list, architecture and scripting backend explicitly. Validate the affected behavior in the Windows Editor and, for runtime or build changes, in the resulting Windows player. Keep the actual project settings authoritative; this workflow does not authorize changing unrelated profiles, settings or open scenes.
+
+Use **CRLF** (carriage return followed by line feed, `\r\n`) for new and edited first-party text files, including C#, Markdown, JSON, PowerShell and batch files. Keep authored files consistently CRLF rather than mixing line endings. Record the policy in the owning source repository's Git attributes; this documentation repository uses `* text=auto eol=crlf`. Verify the affected working-tree files before delivery. Git's normalized text storage and LF-normalized hashes are internal representations and do not change the Windows authoring requirement.
+
+Apply this rule within the owning file's mutation contract. Preserve binary files, third-party assets, generated output and Unity-owned serialization through their supported tools. Do not reformat untouched files or overwrite protected existing content just to change newlines. Managed archive snapshots and exact template copies retain their source bytes; existing user-owned regions and create-if-missing targets retain their specified byte-preservation rules. Keep the comprehensive approved `.gitignore` payload intact; defensive exclusions for other tools and platforms do not establish supported development hosts or player targets.
 
 ---
 
@@ -122,7 +134,7 @@ Read the [Unity 6.3 upgrade guide](https://docs.unity3d.com/6000.3/Documentation
 - Review modified Adaptive Performance packages against its move into an Editor module; do not keep duplicate implementations.
 - Replace obsolete `UPM_NPM_CACHE_PATH` configuration with an appropriate `UPM_CACHE_ROOT` configuration when present.
 
-Review platform and package-specific changes only where those systems are used. Use the selected patch's bundled platform toolchain and release notes to check Android templates, native plugins, graphics features, and other affected integrations. A rename or API Updater pass alone is not evidence of unchanged behavior.
+Review platform and package-specific changes only where those systems are used. Use the selected patch's Windows build toolchain and release notes to check native plugins, graphics features, scripting backends and other affected integrations. A rename or API Updater pass alone is not evidence of unchanged behavior.
 
 ### Verification and evidence
 

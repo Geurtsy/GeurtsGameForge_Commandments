@@ -1,0 +1,3 @@
+# Version: 1.0.0
+# Keep authored text in Windows working trees on CRLF; Git stores normalized text.
+* text=auto eol=crlf

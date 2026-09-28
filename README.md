@@ -25,7 +25,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.23.4
+**Version:** 0.23.5
 **Unity target:** Unity 6.3 LTS (6000.3)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -60,11 +60,13 @@ The manifest is the single resolver for package-file selection, versions, subjec
 
 ## Unity Target
 
+Develop, test and build **on Windows for Windows, using Unity and Codex**, with **CRLF** line endings in authored text. The [Windows workflow](GeurtsTechniques/GeurtsTechnicalTechnique.md#windows-development-and-build-workflow) defines build validation and file-preservation boundaries. This repository's `.gitattributes` enforces CRLF in text checkouts; normalized Git/archive content and exact managed copies retain their own representation. The comprehensive approved `.gitignore` remains intact, including defensive exclusions for other tools and platforms.
+
 New and modified Unity code and examples target **Unity 6.3 LTS (6000.3)**. The manifest-selected [Technical Technique](GeurtsTechniques/GeurtsTechnicalTechnique.md#unity-63-lts-compatibility-baseline) owns Editor patch selection, compatible stable dependencies, C#/.NET limits, current APIs, migration checks, and validation requirements. Follow that baseline when updating consuming projects; newer Unity release lines do not silently change this target.
 
 Within its declared implementation scope, the Technical Technique requires licensed, Unity 6.3-compatible Odin Inspector and Quantum Console dependencies and requires meaningful use of their authoring, validation, inspection, command, logging, and diagnostics capabilities. Missing dependencies are implementation blockers. The independent Documentation Companion also requires these separately installed licensed assemblies while retaining no God or other Unity Package Manager package dependency; this documentation source repository contains no commercial tool assets.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package remains the v0.23.4 draft; the Technical Technique is v0.12.10.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package remains the v0.23.5 draft; the Technical Technique is v0.12.11.
 
 ## Mandatory Forge Editor theme
 
@@ -91,6 +93,7 @@ The project-local fetched copy contains the complete supported Git-tracked sourc
 
 ```text
 <ProjectRoot>/GeurtsGameForgeDocumentation/
+â”œâ”€â”€ .gitattributes
 â”œâ”€â”€ AI_READ_FIRST.md
 â”œâ”€â”€ GeurtsTechniqueManifest.md
 â”œâ”€â”€ GeurtsTechniques/
@@ -198,6 +201,12 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 The current verified companion package is 0.9.2; use its immutable source from the catalogue. In Geurts Documentation, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.23.5 — Windows development and CRLF authoring
+
+- Defines development, testing and builds on Windows for Windows with Unity and Codex in Technical 0.12.11, and routes Automation 0.9.1 through that workflow.
+- Adds Git attributes for CRLF text checkouts while preserving canonical hashes, archive copies, protected existing content and Unity-owned serialization.
+- Keeps the complete approved `.gitignore` payload, all brick pins and the companion schema unchanged.
 
 ### v0.23.4 — Explain blocked refresh and Update actions
 
