@@ -13,7 +13,7 @@ The [Settings System](https://github.com/Geurtsy/com.geurts.gameforge.settings),
 
 God 0.15.0 and standalone Diagnostics 0.6.1 follow the shared logging and session contracts governed by the [Diagnostics Technique](GeurtsTechniques/GeurtsDiagnosticsTechnique.md). Diagnostics retains the resizable performance overlay with a font-safe ASCII resize grip and formats Help so every command name has its own line with indented details. Its Editor window and owned inspectors reuse God's shared theme; install or update God to 0.14.0 or newer before Diagnostics 0.6.1.
 
-God 0.16.0 adds multiple game design document imports in Build Forge. Add Markdown files or drop a batch, review the queue, choose an initial primary, then select **Import selected documents**. Further imports retain that primary; **Make primary** explicitly chooses another imported document. Existing content and manual manifest notes are preserved. Documentation 0.25.0 defines the imported-document routing list alongside the existing primary and managed table.
+God 0.16.0 adds multiple game design document imports in Build Forge. Add Markdown files or drop a batch, review the queue, choose an initial primary, then select **Import selected documents**. Further imports retain that primary; **Make primary** explicitly chooses another imported document. God 0.17.0 additionally offers **Overwrite documents** after a warning listing the existing files that would be replaced. Cancel keeps the whole batch unchanged; identical files need no warning. Manual manifest notes and unlisted files are preserved. Documentation 0.26.0 defines the imported-document routing list alongside the existing primary and managed table.
 
 God 0.12.0 adds **Installed Brick Menus**. Only installed packages appear, including disabled bricks and packages missing from the catalogue. God's entry opens Build Forge; Documentation, Diagnostics and Scene Loading open their existing windows. Every other installed brick has an Information page, and missing or failed menus also show information with an explanation. New bricks can supply a primary Editor opener with `BrickEditorMenuAttribute`, requiring God 0.12.0 or newer. The [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md#installed-brick-menus) defines the registration, fallback and installation checks without adding optional package dependencies.
 
@@ -29,7 +29,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.25.0
+**Version:** 0.26.0
 **Unity target:** Unity 6.3 LTS (6000.3)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -72,7 +72,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 Games made with Geurts Game Forge should use **FMOD for sound design and game audio**. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this requirement and its game-audio integration scope.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package remains the v0.25.0 draft; the Technical Technique is v0.12.13.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package remains the v0.26.0 draft; the Technical Technique is v0.12.13.
 
 ## Mandatory Forge Editor theme
 
@@ -207,6 +207,11 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 The current verified companion package is 0.9.2; use its immutable source from the catalogue. In Geurts Documentation, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.26.0 — Confirmed game design document replacement
+
+- God 0.17.0 allows manual reimport of changed documents after one cancel-default warning naming the exact overwrite targets.
+- Preserve the full batch on cancellation, reject edits made during confirmation, and report any changes retained after a partial write failure.
 
 ### v0.25.0 — Multiple game design imports
 

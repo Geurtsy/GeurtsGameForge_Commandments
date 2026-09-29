@@ -2,7 +2,7 @@
 # Geurts Game Design Documentation Technique
 
 **Game Design Documentation Discovery - AI and Human Developer Reference**  
-**Version:** 0.12.0
+**Version:** 0.13.0
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -91,13 +91,21 @@ The import must:
 
 - Create only missing `Docs/` and `Docs/GameDesign/` directories needed for this explicit import, under the Folder Structure Technique's narrow exception. Preserve existing folders and do not run general project setup.
 - Accept `.md` only and preserve the selected source bytes without adding metadata, converting content, or inventing game facts.
-- Copy the selected file into `Docs/GameDesign/` without overwriting any existing file. Selecting an existing safe document in that directory uses its current project-relative path. An existing destination with identical bytes is an idempotent reuse; different bytes at the same destination are a conflict.
+- Copy the selected file into `Docs/GameDesign/` without silently overwriting any existing file. God 0.17.0 may replace differing destinations only after the manual overwrite confirmation below. Selecting an existing safe document in that directory uses its current project-relative path. An existing destination with identical bytes is an idempotent reuse; different bytes at the same destination require explicit confirmation. Callers without that confirmation remain non-overwriting.
 - Create a missing `GameDesignManifest.md` from the installed documentation's existing create-if-missing scaffold. Preserve existing manifest text, encoding, and bytes outside the primary and imported-document sections. Support UTF-8, UTF-8-BOM, UTF-16LE-BOM and UTF-16BE-BOM; reject invalid text and UTF-32 without mutation.
 - Preflight every selected document and every destination before copying any file. Reject differing documents that map to the same destination, including case-only collisions on Windows. Repeated selections of identical content are idempotent. Require an explicit initial primary from the selected batch; do not silently replace a missing primary.
 - Add the primary section when absent or replace only one valid supported primary section. Preserve every existing managed table row and all other project notes. Duplicate, malformed, unsupported or nested primary markers are conflicts and must not be repaired by discarding content.
 - Keep the existing managed document table format at v0.7.0. Do not scan unrelated design documents or invoke `UpdateGameDesignManifest.ps1` or native-entry setup as an import side effect. The explicit primary and imported-document sections provide registration without changing the managed table.
-- Validate source and target containment, regular-file status and reparse-point boundaries before mutation. Revalidate destination absence or exact expected bytes and the manifest's original raw bytes immediately before writing, rejecting concurrent changes. Preserve the original source and existing project files on failure, and report any newly copied document retained after a later routing failure.
+- Validate source and target containment, regular-file status and reparse-point boundaries before mutation. Revalidate destination absence or exact expected bytes and the manifest's original raw bytes immediately before writing, rejecting concurrent changes. Preserve the original source and every unapproved project file. Report every newly copied or overwritten document retained after a later failure; do not claim rollback.
 - Report the selected project-relative path and current primary selection on success, or the failure and any retained newly copied content. Display why an unavailable import action is unavailable and how to resolve it.
+
+### Manual overwrite warning
+
+When an explicit import batch would replace existing content, preflight the entire batch and manifest before showing one warning listing the exact changed project-relative destinations and the project root. Explain that existing contents and local edits will be lost, no backup or rollback is created, and Cancel leaves the entire batch unchanged. **Cancel** is initially focused; Escape, Enter, closing the warning and cancellation do not authorize replacement. **Overwrite documents** grants one-time consent only for the displayed files and selected source bytes. This consent is never saved, inferred from an earlier import, or supplied by God's automatic package/documentation updates.
+
+Identical content is reused without a warning. Two different selected files targeting the same destination remain a conflict even when overwrite is supported; do not silently choose a winner. Read-only destinations, invalid content, malformed routing and unsafe/linked paths fail before confirmation.
+
+After affirmative confirmation, revalidate every source, destination and the original raw manifest bytes before any batch write. Reject content, existence or path changes while the warning was open; consent does not cover concurrent edits. Each replacement also retains the existing atomic expected-byte and containment checks at its final write boundary. Cancellation creates no files or directories, changes no routing, and leaves selected files queued for review. A later failure may leave earlier copied or overwritten files; report their exact paths and outcomes without claiming the entire batch was rolled back.
 
 ### Imported-document routing section
 

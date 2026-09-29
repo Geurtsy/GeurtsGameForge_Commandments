@@ -2,7 +2,7 @@
 # Geurts Folder Structure Technique
 
 **Unity Project Structure - AI-First Automation and Human Developer Reference**
-**Version:** 0.13.2
+**Version:** 0.13.3
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -140,7 +140,7 @@ ProjectRoot/
 
 ### Explicit Game Design Document import
 
-As a separate narrow operation, a user-selected Build Forge **Import selected documents** or legacy **Import primary Game Design Document** action may create only missing `Docs/` and `Docs/GameDesign/` parents for its explicitly selected Markdown documents and project manifest. This exception is owned by the Game Design Documentation Technique and does not invoke a generic folder-creation profile, expand the native-entry manager, or grant the Documentation Companion any project-design access. Preserve every existing directory and file. Validate containment and the complete path chain for reparse points before accepting or creating either parent. Build Forge owns its setup checklist and completion criteria; this folder permission does not define them.
+As a separate narrow operation, a user-selected Build Forge **Import selected documents** or legacy **Import primary Game Design Document** action may create only missing `Docs/` and `Docs/GameDesign/` parents for its explicitly selected Markdown documents and project manifest. This exception is owned by the Game Design Documentation Technique and does not invoke a generic folder-creation profile, expand the native-entry manager, or grant the Documentation Companion any project-design access. Preserve every existing directory and every file outside the explicitly confirmed import targets. Only the Game Design Documentation Technique's manual overwrite warning can authorize replacing selected document files. Validate containment and the complete path chain for reparse points before accepting or creating either parent. Build Forge owns its setup checklist and completion criteria; this folder permission does not define them.
 
 ---
 
