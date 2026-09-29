@@ -1,9 +1,9 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Documentation Companion Technique
 
-**Version:** 2.1.2
+**Version:** 2.2.0
 **Contract schema:** 2.0.0
-**Package version:** 0.23.11
+**Package version:** 0.24.1
 **Status:** Draft normative technique
 **Primary audience:** Geurts Documentation Companion implementers and package maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -31,9 +31,17 @@ There is no external installer, Windows bootstrap, batch-driven setup, or separa
 
 God may be installed before this companion. Its **Game Forge God** interface may install or update the optional companion through Unity Package Manager and separately expose **Update Geurts Game Forge Documentation** through the companion's public Editor integration. God must remain usable when the companion is absent or its integration API is incompatible. The companion remains independent of God; no reverse dependency, duplicate updater, or bundled generic documentation is introduced.
 
-The package and documentation content have independent versions and update actions. A companion package update does not replace the project-local documentation content. A content Update invoked from Game Forge God uses this technique's same exact action, confirmation, source, validation and closed mutation boundary. It must show the one cancel-default confirmation before archive acquisition, including on the first content installation. God does not add an earlier preview, another confirmation, additional automatic checks, or an automatic content Update after package installation or Update All.
+The package and documentation content have independent versions and update actions. A companion package update does not replace the project-local documentation content. A content Update invoked from Game Forge God uses this technique's same exact action, confirmation, source, validation and closed mutation boundary. It must show the one cancel-default confirmation before archive acquisition, including on the first manual content installation. God does not add an earlier preview, another confirmation, additional automatic checks, or an automatic content Update after manual package installation or Update All. The explicitly opted-in God-opening exception is defined below.
 
 The companion may expose its current busy state and explanatory operation status to Game Forge God so both interfaces report the same work and prevent conflicting package/content operations. A missing integration API must produce an actionable companion-update message, not a second implementation of this lifecycle. Neither the integration nor busy-state presentation grants access to any additional project path or script.
+
+### Explicit saved consent for automatic God-opening updates
+
+God 0.15.0 may expose **Auto-update everything when God opens**, off by default. Before saving this project opt-in, God explains and obtains affirmative consent for the same four exact managed targets, loss of local edits with no backup or rollback, and preservation of every unlisted path including `Docs/GameDesign/`. Cancel leaves the preference off. This saved consent is the sole exception to the per-invocation manual confirmation requirement; it does not change the schema-2.0.0 contract, archive validation, replacement order or target boundary. The following sections describe standalone startup and manual Update unless this narrow opt-in explicitly applies.
+
+Documentation 0.10.0 exposes `DocumentationIntegration.UpdateDocumentationAutomaticallyAsync(Func<bool> stillAuthorized)` for that host. God calls it only during an opted-in window opening, after package work, with a live callback that remains true only while God stays open and its saved preference is enabled. The companion checks metadata and acquires a candidate only if content needs an update. Recheck consent and conflicting host/Editor operations after download and before the first replacement. Closing God, disabling the option or encountering an operation conflict stops pending replacement. Current content requires no download. Failed checks do not trigger acquisition.
+
+Use the existing validated exact-commit archive pipeline and report progress/failure through the same status. Do not add an independent updater, background timer, automatic retry, rollback or recovery mechanism. An interrupted operation requires another deliberate God opening with the option enabled, or manual Update. Standalone companion startup remains metadata-only and its manual Update retains one cancel-default confirmation.
 
 ## 2. Closed Data Contract
 
@@ -137,7 +145,7 @@ Validation must finish before the first destructive project mutation. After muta
 
 ## 7. Forbidden Behavior
 
-Documentation Update must not:
+Outside the explicit saved-consent God-opening exception above, Documentation Update must not:
 
 - automatically download, install, replace, repair, or synchronize documentation or AI routes on Unity open;
 - scan for or execute `.bat`, `.cmd`, `.ps1`, or any other script from either the documentation package or the Unity project;
@@ -174,4 +182,4 @@ A conforming companion:
 
 ## Separate Codex guide installation
 
-The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. The current verified companion is 0.9.2 in the catalogue; schema-2.0.0 support was introduced in 0.7.0 and the schema compatibility boundary is unchanged.
+The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. The current verified companion is 0.10.0 in the catalogue; schema-2.0.0 support was introduced in 0.7.0 and the schema compatibility boundary is unchanged.
