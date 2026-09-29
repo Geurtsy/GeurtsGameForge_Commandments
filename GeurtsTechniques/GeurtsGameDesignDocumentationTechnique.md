@@ -2,7 +2,7 @@
 # Geurts Game Design Documentation Technique
 
 **Game Design Documentation Discovery - AI and Human Developer Reference**  
-**Version:** 0.11.1
+**Version:** 0.12.0
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -85,20 +85,42 @@ A missing primary section preserves existing manifest-driven discovery. A missin
 
 ## Explicit Build Forge Import
 
-Build Forge may provide a separate, user-selected **Import primary Game Design Document** action. Selecting a Markdown file explicitly authorizes copying that document and setting its primary game-context pointer. This is not the Documentation Companion's Update, ordinary startup discovery, native-entry installation, or general manifest maintenance.
+Build Forge provides an explicit **Import selected documents** action. Users may queue multiple Markdown files by adding files or dropping a batch, review the selection, and choose the initial primary. Later imports preserve the primary unless the user selects **Make primary** on an imported document. Selecting or queuing files alone must not copy files or change routing. The legacy single-primary import remains a supported explicit primary-selection operation. This is not the Documentation Companion's Update, ordinary startup discovery, native-entry installation, or general manifest maintenance.
 
 The import must:
 
 - Create only missing `Docs/` and `Docs/GameDesign/` directories needed for this explicit import, under the Folder Structure Technique's narrow exception. Preserve existing folders and do not run general project setup.
 - Accept `.md` only and preserve the selected source bytes without adding metadata, converting content, or inventing game facts.
 - Copy the selected file into `Docs/GameDesign/` without overwriting any existing file. Selecting an existing safe document in that directory uses its current project-relative path. An existing destination with identical bytes is an idempotent reuse; different bytes at the same destination are a conflict.
-- Create a missing `GameDesignManifest.md` from the installed documentation's existing create-if-missing scaffold. Preserve existing manifest text, encoding, and bytes outside the primary section. Support UTF-8, UTF-8-BOM, UTF-16LE-BOM and UTF-16BE-BOM; reject invalid text and UTF-32 without mutation.
+- Create a missing `GameDesignManifest.md` from the installed documentation's existing create-if-missing scaffold. Preserve existing manifest text, encoding, and bytes outside the primary and imported-document sections. Support UTF-8, UTF-8-BOM, UTF-16LE-BOM and UTF-16BE-BOM; reject invalid text and UTF-32 without mutation.
+- Preflight every selected document and every destination before copying any file. Reject differing documents that map to the same destination, including case-only collisions on Windows. Repeated selections of identical content are idempotent. Require an explicit initial primary from the selected batch; do not silently replace a missing primary.
 - Add the primary section when absent or replace only one valid supported primary section. Preserve every existing managed table row and all other project notes. Duplicate, malformed, unsupported or nested primary markers are conflicts and must not be repaired by discarding content.
-- Keep the existing managed document table format at v0.7.0. Do not scan unrelated design documents or invoke `UpdateGameDesignManifest.ps1` or native-entry setup as an import side effect. The explicit primary section is sufficient registration for this import.
+- Keep the existing managed document table format at v0.7.0. Do not scan unrelated design documents or invoke `UpdateGameDesignManifest.ps1` or native-entry setup as an import side effect. The explicit primary and imported-document sections provide registration without changing the managed table.
 - Validate source and target containment, regular-file status and reparse-point boundaries before mutation. Revalidate destination absence or exact expected bytes and the manifest's original raw bytes immediately before writing, rejecting concurrent changes. Preserve the original source and existing project files on failure, and report any newly copied document retained after a later routing failure.
 - Report the selected project-relative path and current primary selection on success, or the failure and any retained newly copied content. Display why an unavailable import action is unavailable and how to resolve it.
 
-The generic manifest maintainer owns only its existing managed table and preserves the primary section byte-for-byte outside that table. It must not retarget the primary pointer merely because it detects a rename, move or removal; choosing a different primary document requires an explicit import or authorized primary-selection edit. When the pointer becomes stale, report the missing primary source before work that needs game context.
+### Imported-document routing section
+
+God 0.16.0 registers batch imports using the following separate exact v1.0.0 section, outside both the primary section and the existing managed table:
+
+```markdown
+<!-- GEURTS-GDD-IMPORTS-BEGIN version="1.0.0" -->
+## Imported Game Design Documents
+
+These selected documents supplement the primary game context. Import does not assign design authority or classification.
+
+- `Docs/GameDesign/SelectedDocument.md`
+- `Docs/GameDesign/SupportingDocument.md`
+<!-- GEURTS-GDD-IMPORTS-END -->
+```
+
+The paths are examples only. Each list contains unique safe project-relative Markdown paths, rendered in ordinal path order; the importer preserves all earlier entries and an existing legacy primary when adding a batch. No recursive scan is permitted. Absence of this section preserves primary-only compatibility. Duplicate, malformed, unsupported, nested or modified sections are conflicts; preserve user notes outside the markers and never repair ambiguity by discarding bytes.
+
+Read this lightweight list alongside the primary and managed table when routing game-context work. Imported paths have unprovided classification and precedence until the project explicitly supplies them; import does not invent design facts or override managed-table metadata. The one primary remains explicit. Select only relevant supporting documents for the current task and surface unresolved design conflicts under the manifest rules.
+
+Build Forge lists these registered documents, identifies the primary, and offers **Open document** and **Make primary** actions. Revalidate a document before opening or choosing it. Missing or invalid supporting documents remain visible with a repair explanation and disabled actions. A missing supporting document does not silently retarget the primary. Setup completion still requires a valid primary; malformed import routing must be reported as a conflict. Monitor only registered paths and their parent chains while the UI is open, without enumerating unrelated design files. Pending selections may survive a script reload; an import starts only after explicit selection of the import action.
+
+The generic manifest maintainer owns only its existing managed table and preserves the primary and imported-document sections byte-for-byte outside that table. It must not retarget the primary pointer merely because it detects a rename, move or removal; choosing a different primary document requires an explicit import or authorized primary-selection edit. When the pointer becomes stale, report the missing primary source before work that needs game context.
 
 ---
 
@@ -248,7 +270,7 @@ The managed table is bounded by matching `GEURTS-GDD-MANIFEST-BEGIN` and `GEURTS
 
 New documents without reliable metadata receive `RequiresClassification`. Unsupported files are reported and must not be silently treated as design authority. Duplicate identifiers are conflicts: do not choose a winner or overwrite the manifest silently.
 
-A compatible host may detect imports or debounced file-watcher events, invalidate cached discovery data, report manifest drift, and offer a user-approved handoff to the external maintainer. Those passive events must not invoke the maintainer automatically or write project GDD content. The separately user-selected Build Forge import above has its own limited copy and primary-pointer authority. The Documentation Companion is not such a host: its startup metadata check and confirmed Update must not inspect `Docs/GameDesign/` at all.
+A compatible host may detect imports or debounced file-watcher events, invalidate cached discovery data, report manifest drift, and offer a user-approved handoff to the external maintainer. Those passive events must not invoke the maintainer automatically or write project GDD content. The separately user-selected Build Forge import above has its own limited copy, primary-pointer and imported-list authority. The Documentation Companion is not such a host: its startup metadata check and confirmed Update must not inspect `Docs/GameDesign/` at all.
 
 ### Design Document Conflicts
 
