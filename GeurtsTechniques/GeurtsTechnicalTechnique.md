@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.12.12
+**Version:** 0.12.13
 **Unity target:** Unity 6.3 LTS (6000.3)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -291,6 +291,14 @@ For new custom UXML controls, use `[UxmlElement]` on a partial class and `[UxmlA
 
 ---
 
+## Game Audio and Sound Design
+
+Games made with **Geurts Game Forge should use FMOD for sound design and game audio**, including sound effects, music and ambience. Use the project's compatible FMOD Unity integration and route new game-audio work through it. Inspect and preserve existing audio content and references when planning an integration or migration, and validate affected playback in the Windows Editor and Windows player.
+
+Reuse or extend suitable Geurts bricks for FMOD integration when their installed versions provide the required audio capabilities. An informational starter or planned feature does not establish a working audio implementation. Keep FMOD dependencies within the game-audio implementation or a dedicated integration; this game standard does not add a mandatory FMOD dependency to God, unrelated bricks, Editor-only documentation tooling or this documentation repository.
+
+---
+
 ## Code Documentation Standards
 
 ### Purpose
@@ -552,6 +560,7 @@ A generated or modified Unity C# script is complete only when it:
 - Avoids expensive logic inside `Update()` unless justified.
 - Uses Odin Inspector meaningfully for applicable serialized configuration, validation, diagnostics, and safe Editor actions, with its installed compatible version recorded.
 - Makes every affected Forge-owned Editor surface conform to the manifest-selected Editor UI Theme Technique, with shared implementation reuse, readable states and the required visual evidence.
+- Uses FMOD for applicable game-audio and sound-design work under the Game Audio and Sound Design standard above.
 - Integrates project-wide Diagnostics output and applicable developer operations with Quantum Console, with its installed compatible version and developer-console validation recorded.
 - Routes all project logging through Diagnostics whenever its logging service is available, including captured Unity and third-party output, and verifies unavailable-service fallback without duplicate messages or recursive forwarding. Reports any source that cannot be captured as an integration gap.
 - Preserves multiplayer network efficiency where relevant.
