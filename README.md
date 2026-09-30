@@ -239,7 +239,7 @@ The current verified companion package is 0.11.0; use its immutable source from 
 ### v0.35.0 - Module enable and disable switches
 
 - Publish God 0.25.0 with visible module checkboxes in installed menu rows and folded catalogue cards.
-- Publish independent Documentation Companion 0.12.0 with a module preference that pauses new checks and setup/content work without removing installed guidance.
+- Publish independent Documentation Companion 0.12.1 with a module preference that pauses new checks and setup/content work without removing installed guidance.
 - Retain packages and settings, coordinate dependent modules, and explain locked core, busy or unavailable controls.
 ### v0.34.2 - Lowercase ID names with underscores
 
