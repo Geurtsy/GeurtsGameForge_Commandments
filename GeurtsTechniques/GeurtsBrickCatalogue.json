@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.36.2",
-  "publishedUtc": "2026-09-30T23:19:13Z",
+  "packageVersion": "0.36.3",
+  "publishedUtc": "2026-09-30T23:27:04Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.documentation",
-      "name": "Geurts Game Forge Documentation",
-      "description": "Documentation dashboard and explicit updates of the authoritative AI development guidance.",
+      "name": "Geurts Game Forge Documentation Companion",
+      "description": "Independent Documentation Companion Editor dashboard and explicit updates of the authoritative AI development guidance.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.documentation",
-      "version": "0.13.0",
+      "version": "0.13.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.documentation.git#ae3e4da5d3634adb7e881927f547a13942cf7df9",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.documentation.git#595dc004d72f2a10890a48ab6b2ea6ebcf8df799",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -24,13 +24,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, optional Documentation integration, lifecycle, settings and optional scene-startup/input cooperation.",
+      "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, optional Documentation Companion integration, lifecycle, settings and optional scene-startup/input cooperation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.26.1",
+      "version": "0.26.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#09f675878a922ffbed9d56d08f2e8b9f6401c0a0",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#0acba4be378d23b432a7cf8adc2eb65454ccf25d",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [

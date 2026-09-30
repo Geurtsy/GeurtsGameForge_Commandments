@@ -15,13 +15,13 @@ God is maintained in its own [com.geurts.gameforge.god repository](https://githu
 
 Audio 0.5.0 and Object Pooling 0.4.0 require **God 0.24.0** for the neutral pool participant contracts and Unity **6000.6.3f1**. God is the only mandatory Geurts dependency of those core bricks. Licensed Odin Inspector and Quantum Console and each package's declared Unity dependencies still apply. FMOD is required only for the FMOD-specific Audio implementation; it is not required for Forge or built-in audio projects. Exact validation revisions and limitations are recorded in each package's validation guide. The preceding Unity 6000.6 migration resolved all packages from Git, completed focused Edit Mode and Play Mode tests and a Windows player smoke run, and visually checked Build Forge's sixth step. Those historical checks do not certify the new Audio setup layout. Listening and physical input remain unverified.
 
-[Save and Load 0.2.0](https://github.com/Geurtsy/com.geurts.gameforge.saveload) remains an informational starter with no runtime saving system. Documentation Companion 0.11.0 and Diagnostics 0.7.0 target Unity 6000.6.3f1. The private repositories require Git access. Open **Game Forge God**, select **Refresh Catalogue**, then **Check for Updates** and the desired **Update** actions. Catalogue publication makes the newer packages available; it does not update the project's installed packages.
+[Save and Load 0.2.0](https://github.com/Geurtsy/com.geurts.gameforge.saveload) remains an informational starter with no runtime saving system. Documentation Companion 0.13.1 and Diagnostics 0.7.0 target Unity 6000.6.3f1. The private repositories require Git access. Open **Game Forge God**, select **Refresh Catalogue**, then **Check for Updates** and the desired **Update** actions. Catalogue publication makes the newer packages available; it does not update the project's installed packages.
 
 God 0.15.0 and standalone Diagnostics 0.6.1 follow the shared logging and session contracts governed by the [Diagnostics Technique](GeurtsTechniques/GeurtsDiagnosticsTechnique.md). Diagnostics retains the resizable performance overlay with a font-safe ASCII resize grip and formats Help so every command name has its own line with indented details. Its Editor window and owned inspectors reuse God's shared theme; install or update God to 0.14.0 or newer before Diagnostics 0.6.1.
 
 God 0.16.0 adds multiple game design document imports in Build Forge. Add Markdown files or drop a batch, review the queue, choose an initial primary, then select **Import selected documents**. Further imports retain that primary; **Make primary** explicitly chooses another imported document. God 0.17.0 additionally offers **Overwrite documents** after a warning listing the existing files that would be replaced. Cancel keeps the whole batch unchanged; identical files need no warning. Manual manifest notes and unlisted files are preserved. Documentation 0.26.0 defines the imported-document routing list alongside the existing primary and managed table.
 
-God **0.26.0** displays selected **Installed Brick Menus** inside God with a pinned **Back to God** button. Dashboard and update controls are hidden while viewing a brick. God's entry displays Build Forge, and Documentation **0.13.0** provides embedded tools without update controls or an opening check. Other bricks retain their existing tools; missing or incompatible providers display Information inside God. Only installed packages appear, including disabled and uncatalogued packages. Independent standalone windows remain available. The [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md#installed-brick-menus) defines local registration and view ownership without adding optional dependencies.
+God **0.26.0** displays selected **Installed Brick Menus** inside God with a pinned **Back to God** button. Dashboard and update controls are hidden while viewing a brick. God's entry displays Build Forge, and Documentation Companion **0.13.0** provides embedded tools without update controls or an opening check. Other bricks retain their existing tools; missing or incompatible providers display Information inside God. Only installed packages appear, including disabled and uncatalogued packages. Independent standalone windows remain available. The [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md#installed-brick-menus) defines local registration and view ownership without adding optional dependencies.
 
 [Scene Loading and Bootstrap](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading) provides persistent bootstrap-first startup, scene groups, unload-before-replacement and additive operations, configurable transitions and loading screens, scene-readiness hooks, and retry/safe-scene recovery. Editor Play loads bootstrap before gameplay scenes; temporary copies preserve dirty or untitled originals, and stopping Play restores the original Editor scene arrangement. Copies use different runtime paths, so path-sensitive code should use the brick's logical scene identity. Multiplayer integration points are framework-independent; a concrete networking adapter is not included. Install God 0.22.0 first, then use this brick's exact catalogue source. The repository is private, so Git access to it is required.
 
@@ -37,7 +37,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.36.2
+**Version:** 0.36.3
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -46,11 +46,11 @@ Game Forge God distinguishes **Planned**, **Available** and **Installed** indepe
 
 ## Installing God or switching an existing installation
 
-Import licensed Odin Inspector and Quantum Console into a Unity 6000.6.3f1 project, then install God 0.22.0 through Unity Package Manager. Documentation is optional and does not need to be installed first. Select **Add package from Git URL** and use God's verified exact `source` from the [current catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json). God is the package at its repository root, so its source has no `?path=/Packages/...` suffix. The package identifier, assembly names and asset GUIDs remain unchanged.
+Import licensed Odin Inspector and Quantum Console into a Unity 6000.6.3f1 project, then install God from the current catalogue through Unity Package Manager. Documentation Companion is optional and does not need to be installed first. Select **Add package from Git URL** and use God's verified exact `source` from the [current catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json). God is the package at its repository root, so its source has no `?path=/Packages/...` suffix. The package identifier, assembly names and asset GUIDs remain unchanged.
 
 Open **Game Forge God** to install the Documentation Companion from its package card. Package **Update** updates the Unity companion; **Update Geurts Game Forge Documentation** separately installs or replaces the actual `GeurtsGameForgeDocumentation/` content through the companion. The content action keeps the companion's one cancel-default confirmation covering the documentation folder and three AI routes. Updating a package or selecting package **Update All** does not silently replace documentation content. If a compatible companion is missing, the interface explains which package to install or update. God remains usable without it.
 
-Each brick opens its own larger Editor window, including Game Forge God, Build Forge, Documentation, Diagnostics, Scene Loading and User Interface Foundations. New floating windows target 1000 × 760 Editor points, reduced to fit the main Editor area where space permits, and remain resizable and dockable. Each supported minimum stays in force, so a smaller main Editor area may not fully contain the window. Opening an existing window preserves its size, position and docking layout. The independent Documentation Companion retains no God dependency.
+Standalone brick menus open their own larger Editor windows, including Game Forge God, Build Forge, Documentation Companion, Diagnostics, Scene Loading and User Interface Foundations. New floating windows target 1000 × 760 Editor points, reduced to fit the main Editor area where space permits, and remain resizable and dockable. Each supported minimum stays in force, so a smaller main Editor area may not fully contain the window. Opening an existing window preserves its size, position and docking layout. The independent Documentation Companion retains no God dependency.
 
 All catalogue entries and the main **Dependencies** section start collapsed. Click a catalogue heading or arrow to expand or collapse that card independently. Collapsed cards keep the package name, installation/lifecycle state and update status visible; expand a card to view its details and package actions. Each window retains its expansion choices through searches, filters, catalogue refreshes and script reloads.
 
@@ -84,7 +84,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.36.2; the Technical Technique is v0.13.4.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.36.3; the Technical Technique is v0.13.4.
 
 ## ID Naming
 
@@ -100,13 +100,13 @@ Use the [combined Unity CLI and Editor workflow](GeurtsTechniques/GeurtsTechnica
 
 ## Mandatory Forge Editor theme
 
-The [Editor UI Theme Technique](GeurtsTechniques/GeurtsEditorUIThemeTechnique.md) makes the dark sci-fi theme with green accents mandatory for every existing and future Forge brick's Editor UI. It covers Game Forge God, Build Forge, Diagnostics, Documentation, settings and custom inspector presentation. Shared surfaces, typography, spacing, focus states and readable status messages keep the interface consistent; warnings stay yellow, errors stay red, and disabled actions explain the reason and next step.
+The [Editor UI Theme Technique](GeurtsTechniques/GeurtsEditorUIThemeTechnique.md) makes the dark sci-fi theme with green accents mandatory for every existing and future Forge brick's Editor UI. It covers Game Forge God, Build Forge, Diagnostics, Documentation Companion, settings and custom inspector presentation. Shared surfaces, typography, spacing, focus states and readable status messages keep the interface consistent; warnings stay yellow, errors stay red, and disabled actions explain the reason and next step.
 
 God owns the shared `ForgeEditorTheme` API and USS. Dependent bricks reuse them; the independent Documentation Companion uses a generated copy checked for parity without depending on God. New custom Editor UI retains the UI Toolkit standard and existing Odin configuration remains supported. Runtime and project-authored game UI are outside this Editor-only theme. Source validators check the documented standard and its routes; actual visual review and behavior checks remain required before publication.
 
 ## Source and Ownership Boundary
 
-This repository and its `main` branch are the sole primary source and authority for all generic Geurts Game Forge documentation. All Geurts techniques are sourced, versioned, and updated here. The separate Editor-only Geurts Documentation Companion consumes this repository but does not own or embed its content. A documentation release requires a companion-package release only when the machine-readable contract schema itself changes incompatibly.
+This repository and its `main` branch are the sole primary source and authority for all generic Geurts Game Forge documentation. All Geurts techniques are sourced, versioned, and updated here. The separate Editor-only Geurts Game Forge Documentation Companion consumes this repository but does not own or embed its content. A documentation release requires a companion-package release only when the machine-readable contract schema itself changes incompatibly.
 
 The relevant locations have different owners:
 
@@ -137,6 +137,8 @@ Those are the current tracked top-level entries, not an installation allowlist. 
 
 ## Independent Unity Editor Companion
 
+The brick is named **Geurts Game Forge Documentation Companion** (`GeurtsGameForgeDocumentationCompanion`). Open **Tools > Geurts Game Forge > Documentation Companion** for its dashboard. Its Unity package identity remains `com.geurts.gameforge.documentation`. The actual documentation keeps the separate **Geurts Game Forge Documentation** name and `GeurtsGameForgeDocumentation/` folder; package updates and documentation-content updates remain distinct.
+
 The Windows-only, Editor-only companion is installed into an existing Unity project from its separate Git repository through Unity Package Manager, either directly or through Game Forge God's package card. That is the only companion installation mechanism. It requires licensed Odin Inspector and Quantum Console installations. There is no external installer, Windows bootstrap, batch-driven setup, separate setup action, or dependency on Geurts Game Forge God or Game Forge Intelligence.
 
 After importing the licensed tools, in Unity Package Manager choose **Add package from Git URL** and use the companion repository's merged Windows package source:
@@ -145,7 +147,7 @@ After importing the licensed tools, in Unity Package Manager choose **Add packag
 https://github.com/Geurtsy/com.geurts.gameforge.documentation.git#main
 ```
 
-Unity startup and restored windows perform no remote update check, catalogue refresh or update popup. A deliberate Documentation menu opening or manual check may request the authoritative repository's current `main` head commit and compare it with a companion-owned last-successful commit value scoped to that Unity project and stored outside the project and installed package. One project's value must never suppress another project's update signal. The check must not download an archive, inspect the managed documentation folder or AI routes, mutate the project, execute setup work, or synchronize content. A skipped or failed check is non-blocking. Ordinary AI/session initialization performs no additional remote check.
+Unity startup and restored windows perform no remote update check, catalogue refresh or update popup. A deliberate Documentation Companion menu opening or manual check may request the authoritative repository's current `main` head commit and compare it with a companion-owned last-successful commit value scoped to that Unity project and stored outside the project and installed package. One project's value must never suppress another project's update signal. The check must not download an archive, inspect the managed documentation folder or AI routes, mutate the project, execute setup work, or synchronize content. A skipped or failed check is non-blocking. Ordinary AI/session initialization performs no additional remote check.
 
 The UI exposes one action labelled `Update Geurts Game Forge Documentation`. Selecting it immediately shows one confirmation dialog, with Cancel as the initially focused default. There is no earlier preview or dry run and no second confirmation. Cancelling or dismissing the dialog causes no network or filesystem change from the Update action.
 
@@ -234,9 +236,16 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 
 ## Codex guide installation
 
-The current verified companion package is 0.13.0; use its immutable source from the catalogue. In Geurts Documentation, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
+The current verified companion package is 0.13.1; use its immutable source from the catalogue. In the Documentation Companion dashboard, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.36.3 - Documentation Companion brick name
+
+- Rename the Unity brick to Geurts Game Forge Documentation Companion and distinguish its package, menu and module labels from the actual Geurts Game Forge Documentation content.
+- Catalogue Documentation Companion 0.13.1 and God 0.26.2 at their verified immutable Git sources. Retain the explicit Unity package dependencies introduced in God 0.26.1. Catalogue publication remains separate from consumer installation and documentation-content updates.
+- Keep the existing UPM identity, repository, APIs, saved settings, managed documentation folder and schema-2.0.0 content-update boundary compatible.
+- Advance Brick Contract to 1.12.1 and Companion Technique to 2.4.1 while preserving embedded panels, independent module controls, Settings authoring, Scene Loading action assets, explicit Unity package dependencies and Audio integrations.
 
 ### v0.36.2 - God Unity package dependencies
 
