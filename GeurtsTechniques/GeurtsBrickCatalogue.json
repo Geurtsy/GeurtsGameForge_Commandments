@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.32.0",
-  "publishedUtc": "2026-09-30T19:14:54Z",
+  "packageVersion": "0.32.1",
+  "publishedUtc": "2026-09-30T20:04:20Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.documentation",
@@ -134,7 +134,7 @@
     {
       "id": "com.geurts.gameforge.audio",
       "name": "Geurts Game Forge Audio",
-      "description": "FMOD playback ownership, bank preparation, reusable sound definitions and optional transactional Settings volume controls. Requires FMOD Unity 2.03.14; listening and physical device-loss acceptance remain pending.",
+      "description": "Opt-in FMOD-specific Audio 0.4.0 release: playback, banks, sound definitions and optional Settings volume controls. This release requires FMOD Unity 2.03.14; Forge does not. Future Audio releases will default to built-in audio with optional FMOD. Listening and device-loss acceptance remain pending.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
       "version": "0.4.0",
       "released": true,

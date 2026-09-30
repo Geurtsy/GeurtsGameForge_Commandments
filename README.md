@@ -9,11 +9,11 @@ God is maintained in its own [com.geurts.gameforge.god repository](https://githu
 
 [Settings System 0.3.0](https://github.com/Geurtsy/com.geurts.gameforge.settings) provides typed settings, a shared pending draft, explicit Apply and Cancel, authored defaults, persistence and recovery, display confirmation, and optional owner-provided settings. [User Interface Foundations 0.9.0](https://github.com/Geurtsy/com.geurts.gameforge.userinterface) adds controls and dialogs for that shared draft while retaining editable UI Toolkit menus, creation drafts, ordered controls, themes and appearance. Settings and UI Foundations each work without the other. Existing customized menus remain intact; adopt the Settings bindings explicitly.
 
-[Audio 0.4.0](https://github.com/Geurtsy/com.geurts.gameforge.audio) owns FMOD event playback, explicit bank preparation, reusable sound definitions and category preferences. Its optional Settings provider exposes the six authored category VCA gains with native readback and restoration. When Settings owns those controls, it also owns their persistence; Audio's standalone writer is suspended. FMOD Unity 2.03.14 and the project's authored banks remain required. This release does not claim a listening review or physical device-loss testing.
+[Audio 0.4.0](https://github.com/Geurtsy/com.geurts.gameforge.audio) owns FMOD event playback, explicit bank preparation, reusable sound definitions and category preferences. Its optional Settings provider exposes the six authored category VCA gains with native readback and restoration. When Settings owns those controls, it also owns their persistence; Audio's standalone writer is suspended. Audio 0.4.0 is an opt-in FMOD-specific release: its playback requires FMOD Unity 2.03.14 and the project's authored banks. FMOD is not a general Forge requirement. Future Audio updates will support Unity's built-in audio and use it by default, with FMOD as an optional integration. This release does not claim a listening review or physical device-loss testing.
 
 [Object Pooling 0.3.0](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling) provides reusable prefab pools, generation-checked leases, prewarming, reset and completion handling, diagnostics and optional scene lifecycle cooperation. [Scene Loading and Bootstrap 0.3.0](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading) supplies the corresponding neutral lifecycle integration. The optional FMOD completion adapter **0.2.0** is a separate God catalogue entry inside Object Pooling's repository. Install it explicitly through God when needed; the core pool requires neither Audio nor FMOD.
 
-These releases require **God 0.22.0** for the shared contracts and Unity **6000.6.3f1**. God is the only mandatory Geurts dependency of those core bricks. The optional FMOD adapter additionally requires Object Pooling 0.3.0. Licensed Odin Inspector and Quantum Console, FMOD for Audio and the adapter, and each package's declared Unity dependencies still apply. The exact published Git commits resolved and compiled together in an isolated Unity 6000.6.3f1 project; focused Edit Mode and Play Mode tests, a Windows player build and a short player smoke run were completed there. Build Forge's sixth step received a native visual check. Listening, physical input and the live consuming project's upgrade remain unverified; its open Editor and unsaved state were preserved.
+These releases require **God 0.22.0** for the shared contracts and Unity **6000.6.3f1**. God is the only mandatory Geurts dependency of those core bricks. The optional FMOD adapter additionally requires Object Pooling 0.3.0. Licensed Odin Inspector and Quantum Console and each package's declared Unity dependencies still apply. FMOD is required only when opting into the currently published FMOD-specific Audio release or the separate FMOD adapter; it is not required for Forge or built-in audio projects. The exact published Git commits resolved and compiled together in an isolated Unity 6000.6.3f1 project; focused Edit Mode and Play Mode tests, a Windows player build and a short player smoke run were completed there. Build Forge's sixth step received a native visual check. Listening, physical input and the live consuming project's upgrade remain unverified; its open Editor and unsaved state were preserved.
 
 [Save and Load 0.2.0](https://github.com/Geurtsy/com.geurts.gameforge.saveload) remains an informational starter with no runtime saving system. Documentation Companion 0.11.0 and Diagnostics 0.7.0 target Unity 6000.6.3f1. The private repositories require Git access. Open **Game Forge God**, select **Refresh Catalogue**, then **Check for Updates** and the desired **Update** actions. Catalogue publication makes the newer packages available; it does not update the project's installed packages.
 
@@ -35,7 +35,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.32.0
+**Version:** 0.32.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -58,9 +58,9 @@ Existing immutable pins to God in `Geurtsy/GeurtsGameForge` remain valid in that
 
 God 0.14.2 keeps a requested refresh pending until Unity can complete the catalogue refresh and package checks; repeated check requests share that work. A deferred Update that cannot start shows the reason and asks the user to select it again when ready. Cards distinguish the catalogue release from the verified update target and the installed version; source verification, compatibility checks and confirmation still apply. Publishing a catalogue entry does not install that release into an existing project.
 
-## FMOD line-ending setup
+## Optional FMOD line-ending setup
 
-The [Git Attributes Technique](GeurtsTechniques/GeurtsGitAttributesTechnique.md) supplies the two FMOD LF rules for project-root `.gitattributes`. God 0.22.0 includes **Install FMOD .gitattributes** as step 6 in Build Forge. Update the installed documentation to 0.28.1 or later first. The action creates a missing file or appends the final rule pair, preserving existing bytes. Verified files remain untouched on rerun. Documentation Update copies the template as reference content and does not install project attributes. The released God window was visually checked in an isolated Unity 6000.6.3f1 Editor.
+FMOD setup is optional and applies only to projects that choose FMOD. The [Git Attributes Technique](GeurtsTechniques/GeurtsGitAttributesTechnique.md) supplies the two FMOD LF rules for project-root `.gitattributes`. God 0.22.0 includes **Install FMOD .gitattributes** as step 6 in Build Forge. Update the installed documentation to 0.28.1 or later first. The action creates a missing file or appends the final rule pair, preserving existing bytes. Verified files remain untouched on rerun. Documentation Update copies the template as reference content and does not install project attributes. The released God window was visually checked in an isolated Unity 6000.6.3f1 Editor.
 
 ## Audience tags
 
@@ -80,9 +80,9 @@ New and modified Unity code and examples target **Unity 6.6 (6000.6.3f1)**. The 
 
 Within its declared implementation scope, the Technical Technique requires licensed, Unity 6000.6.3f1-compatible Odin Inspector and Quantum Console dependencies and requires meaningful use of their authoring, validation, inspection, command, logging, and diagnostics capabilities. Missing dependencies are implementation blockers. The independent Documentation Companion also requires these separately installed licensed assemblies while retaining no God or other Unity Package Manager package dependency; this documentation source repository contains no commercial tool assets.
 
-Games made with Geurts Game Forge should use **FMOD for sound design and game audio**. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this requirement and its game-audio integration scope.
+**FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.32.0; the Technical Technique is v0.13.0.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.32.1; the Technical Technique is v0.13.1.
 
 ## Unity CLI and Editor validation
 
@@ -221,6 +221,11 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 The current verified companion package is 0.11.0; use its immutable source from the catalogue. In Geurts Documentation, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.32.1 - Optional FMOD and future built-in audio default
+
+- Remove the general FMOD sound-design requirement. Specify completely optional FMOD integration and Unity built-in audio as the supported default required for future Audio brick releases.
+- Preserve the current Audio 0.4.0 release's actual FMOD prerequisites and the existing optional adapter, source-control templates and published package pins.
 
 ### v0.32.0 — Publish Unity 6000.6.3f1 package catalogue
 

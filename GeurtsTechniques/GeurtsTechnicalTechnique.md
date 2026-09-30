@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.13.0
+**Version:** 0.13.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -316,9 +316,13 @@ For new custom UXML controls, use `[UxmlElement]` on a partial class and `[UxmlA
 
 ## Game Audio and Sound Design
 
-Games made with **Geurts Game Forge should use FMOD for sound design and game audio**, including sound effects, music and ambience. Use the project's compatible FMOD Unity integration and route new game-audio work through it. Inspect and preserve existing audio content and references when planning an integration or migration, and validate affected playback in the Windows Editor and Windows player.
+**FMOD is completely optional** for games made with Geurts Game Forge. It is not a required feature, standard sound-design tool or prerequisite for using Forge. Projects may use Unity's built-in audio for sound effects, music and ambience without installing FMOD. Add an FMOD integration only when the project explicitly opts in; do not install it automatically or treat its absence as a general Forge setup blocker.
 
-Reuse or extend suitable Geurts bricks for FMOD integration when their installed versions provide the required audio capabilities. An informational starter or planned feature does not establish a working audio implementation. Use the manifest-selected Git Attributes Technique for the two FMOD LF exceptions in project-root `.gitattributes`. Build Forge installs its validated template only on an explicit action, preserving existing attributes. These vendor exceptions coexist with first-party CRLF authoring. Keep FMOD dependencies within the game-audio implementation or a dedicated integration; this game standard does not add a mandatory FMOD dependency to God, unrelated bricks, Editor-only documentation tooling or this documentation repository.
+**Future updates to the Audio brick must support Unity's built-in audio and use it by default.** FMOD must remain an optional, explicitly selected backend or separate integration. The default Audio implementation must compile, initialize and provide playback without FMOD installed; FMOD-specific assemblies, assets, bank preparation and configuration must be isolated to the opted-in integration.
+
+Check the installed Audio version before planning reuse. The currently catalogued Audio 0.4.0 is an FMOD-specific release and still requires FMOD Unity 2.03.14 and authored banks for its playback. The built-in default is a requirement for future Audio releases, not a claim that this published version already implements it. Projects that do not opt into FMOD should use Unity's built-in audio and suitable available Geurts capabilities until a compatible Audio release provides that default. Preserve existing audio content and references, and validate affected playback in the Windows Editor and Windows player when implementing or migrating audio.
+
+FMOD-specific source-control guidance applies only when an FMOD integration is chosen. The manifest-selected Git Attributes Technique supplies the two vendor LF exceptions, installed only by an explicit action while preserving existing attributes. The comprehensive Git Ignore template may retain passive FMOD exclusions for compatibility; those patterns do not require installing FMOD. First-party CRLF authoring remains unchanged. Keep opted-in FMOD dependencies within their audio integration; they must not become dependencies of God, unrelated bricks, Editor-only documentation tooling or this documentation repository.
 
 ---
 
@@ -583,7 +587,7 @@ A generated or modified Unity C# script is complete only when it:
 - Avoids expensive logic inside `Update()` unless justified.
 - Uses Odin Inspector meaningfully for applicable serialized configuration, validation, diagnostics, and safe Editor actions, with its installed compatible version recorded.
 - Makes every affected Forge-owned Editor surface conform to the manifest-selected Editor UI Theme Technique, with shared implementation reuse, readable states and the required visual evidence.
-- Uses FMOD for applicable game-audio and sound-design work under the Game Audio and Sound Design standard above.
+- Keeps FMOD completely optional and follows the built-in audio default required for future Audio brick releases under the Game Audio and Sound Design standard above, checking the actual installed release capabilities.
 - Integrates project-wide Diagnostics output and applicable developer operations with Quantum Console, with its installed compatible version and developer-console validation recorded.
 - Routes all project logging through Diagnostics whenever its logging service is available, including captured Unity and third-party output, and verifies unavailable-service fallback without duplicate messages or recursive forwarding. Reports any source that cannot be captured as an integration gap.
 - Preserves multiplayer network efficiency where relevant.
