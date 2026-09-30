@@ -7,7 +7,7 @@ Adds the manifest-selected [brick contract](GeurtsTechniques/GeurtsBrickContract
 
 God is maintained in its own [com.geurts.gameforge.god repository](https://github.com/Geurtsy/com.geurts.gameforge.god). The catalogue supplies immutable Git sources for nine packages across independently maintained repositories. All brick installations, including isolated candidate validation, use Git. Develop in separate source checkouts, publish and validate a strictly newer release on its repository's main branch, and retain the consuming project's previous Git version until the user updates through God. A local commit or an unpublished branch does not complete a release.
 
-[Settings System 0.3.0](https://github.com/Geurtsy/com.geurts.gameforge.settings) provides typed settings, a shared pending draft, explicit Apply and Cancel, authored defaults, persistence and recovery, display confirmation, and optional owner-provided settings. [User Interface Foundations 0.9.0](https://github.com/Geurtsy/com.geurts.gameforge.userinterface) adds controls and dialogs for that shared draft while retaining editable UI Toolkit menus, creation drafts, ordered controls, themes and appearance. Settings and UI Foundations each work without the other. Existing customized menus remain intact; adopt the Settings bindings explicitly.
+[Settings System 0.4.0](https://github.com/Geurtsy/com.geurts.gameforge.settings) adds a three-step beginner Editor setup: create a setting, include it in a runtime list, and check setup before testing in Play Mode. Simple starters and concise fields lead the screen; advanced Odin configuration remains available. It provides typed settings, a shared pending draft, explicit Apply and Cancel, authored defaults, persistence and recovery, display confirmation, and optional owner-provided settings. [User Interface Foundations 0.9.0](https://github.com/Geurtsy/com.geurts.gameforge.userinterface) adds controls and dialogs for that shared draft while retaining editable UI Toolkit menus, creation drafts, ordered controls, themes and appearance. Settings and UI Foundations each work without the other. Existing customized menus remain intact; adopt the Settings bindings explicitly.
 
 [Audio 0.5.0](https://github.com/Geurtsy/com.geurts.gameforge.audio) owns FMOD event playback, explicit bank preparation, reusable sound definitions, category preferences and optional FMOD pool completion. Its optional Settings provider exposes the six authored category VCA gains with native readback and restoration. When Settings owns those controls, it also owns their persistence; Audio's standalone writer is suspended. Audio 0.5.0 continues the opt-in FMOD-specific implementation: its playback requires FMOD Unity 2.03.14 and the project's authored banks. FMOD is not a general Forge requirement. Future Audio updates will support Unity's built-in audio and use it by default, with FMOD as an optional integration. This release does not claim a listening review or physical device-loss testing.
 
@@ -35,7 +35,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.35.1
+**Version:** 0.35.2
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -82,7 +82,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.35.1; the Technical Technique is v0.13.4.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.35.2; the Technical Technique is v0.13.4.
 
 ## ID Naming
 
@@ -235,6 +235,11 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 The current verified companion package is 0.11.0; use its immutable source from the catalogue. In Geurts Documentation, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.35.2 - Beginner Settings authoring
+
+- Catalogue the verified immutable Settings 0.4.0 release with the guided Editor setup and current-state completion checks. Native visual and physical-input checks remain unverified under the user's desktop-control waiver.
+- Keep the existing consumer release and all other catalogue entries intact. Catalogue availability does not install or update a consumer.
 
 ### v0.35.1 - Audio-owned FMOD pooling
 
