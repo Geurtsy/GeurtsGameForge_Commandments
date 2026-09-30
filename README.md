@@ -5,7 +5,7 @@
 
 Adds the manifest-selected [brick contract](GeurtsTechniques/GeurtsBrickContract.md) and [machine-readable catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json). AI-assisted Unity development must use a suitable available Geurts brick before recreating its functionality. God owns package management, lifecycle, shared contracts and settings. God, dependent bricks and the optional Documentation Companion require separately installed licensed Odin Inspector and Quantum Console assemblies. The companion remains independent without God or other Unity Package Manager package dependencies. Documentation-interface implementation remains in its separately maintained repository.
 
-God is maintained in its own [com.geurts.gameforge.god repository](https://github.com/Geurtsy/com.geurts.gameforge.god). The catalogue publishes nine immutable package sources: **God 0.19.0**, **Scene Loading and Bootstrap 0.1.4**, **Documentation Companion 0.10.1**, **Diagnostics 0.6.1**, the **User Interface Foundations 0.7.0 preview**, and **0.1.0 starter packages** for **Settings System**, **Save and Load**, **Audio** and **Object Pooling**. God 0.11.0 removes the Developer Mode option, banner, red outline and mode-specific catalogue and local-source controls. Use Unity Package Manager to install packages from disk for development. God 0.14.1 keeps a concise Activity panel pinned above the scrolling dashboard, with current phase/status and available actions visible. Full current-operation details and up to the latest eight completed results remain available through foldouts that start collapsed on opening and after a script reload. Status text stays on the left beside a larger animated forge on the right. It retains optional scene-startup and shared gameplay-input cooperation, God-first installation and optional Documentation integration. Scene Loading and Bootstrap 0.1.4 and Diagnostics 0.6.1 require God 0.14.0 for the shared window opener. The four starter releases provide installable package identities, lifecycle registration and informational Editor main menus. Their planned runtime systems are not implemented.
+God is maintained in its own [com.geurts.gameforge.god repository](https://github.com/Geurtsy/com.geurts.gameforge.god). The catalogue publishes nine immutable package sources: **God 0.19.0**, **Scene Loading and Bootstrap 0.1.4**, **Documentation Companion 0.10.2**, **Diagnostics 0.6.1**, the **User Interface Foundations 0.7.0 preview**, and **0.1.0 starter packages** for **Settings System**, **Save and Load**, **Audio** and **Object Pooling**. God 0.11.0 removes the Developer Mode option, banner, red outline and mode-specific catalogue and local-source controls. Use Unity Package Manager to install packages from disk for development. God 0.14.1 keeps a concise Activity panel pinned above the scrolling dashboard, with current phase/status and available actions visible. Full current-operation details and up to the latest eight completed results remain available through foldouts that start collapsed on opening and after a script reload. Status text stays on the left beside a larger animated forge on the right. It retains optional scene-startup and shared gameplay-input cooperation, God-first installation and optional Documentation integration. Scene Loading and Bootstrap 0.1.4 and Diagnostics 0.6.1 require God 0.14.0 for the shared window opener. The four starter releases provide installable package identities, lifecycle registration and informational Editor main menus. Their planned runtime systems are not implemented.
 
 The [Settings System](https://github.com/Geurtsy/com.geurts.gameforge.settings), [Save and Load](https://github.com/Geurtsy/com.geurts.gameforge.saveload), [Audio](https://github.com/Geurtsy/com.geurts.gameforge.audio) and [Object Pooling](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling) starters each have a separate repository and a main menu with a short description of the planned work. Settings System will provide shared configuration and settings; Save and Load will provide shared saving and loading support; Audio will provide shared audio playback and management; Object Pooling will provide reusable object pools. Version 0.1.0 supplies information and package lifecycle only: it does not change settings, save game data, play audio or create pools. Each starter requires God 0.14.2 and the separately licensed tools. The repositories are private, so installation and updates require Git access. After installing a starter, open it from **Installed Brick Menus** in Game Forge God or its own **Tools > Geurts Game Forge** menu. Use **Refresh Catalogue**, then the package's **Install** or **Check for Updates / Update** controls for present and future releases. Catalogue publication makes these operations available but does not install a starter into an existing project. The starter packages passed 12 focused Editor checks. Native visual review currently covers Object Pooling at normal size in the dark theme at 100% scale; the remaining visual matrix is unverified.
 
@@ -29,7 +29,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.27.0
+**Version:** 0.27.1
 **Unity target:** Unity 6.3 LTS (6000.3)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -72,7 +72,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 Games made with Geurts Game Forge should use **FMOD for sound design and game audio**. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this requirement and its game-audio integration scope.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package remains the v0.27.0 draft; the Technical Technique is v0.12.14.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package remains the v0.27.1 draft; the Technical Technique is v0.12.14.
 
 ## Unity CLI and Editor validation
 
@@ -208,9 +208,16 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 
 ## Codex guide installation
 
-The current verified companion package is 0.9.2; use its immutable source from the catalogue. In Geurts Documentation, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
+The current verified companion package is 0.10.2; use its immutable source from the catalogue. In Geurts Documentation, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.27.1 — FMOD ignore template
+
+- Append FMOD's recommended Unity cache, log, generated StreamingAssets bank and Studio work-folder rules to Git Ignore Technique 1.0.1, keeping all 376 original template lines.
+- Keep FMOD integration libraries, including nested architecture folders, and Editor resources tracked; document source audio and authoritative bank handling.
+- Catalogue Documentation Companion 0.10.2, which accepts both approved template versions without replacing an existing project ignore file.
+- Synchronize package metadata, template fingerprints, consumer compatibility and validation guards.
 
 ### v0.27.0
 
