@@ -1144,7 +1144,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         "Documentation companion closed contract",
         "Companion schema forward compatibility",
         "Documentation companion architecture boundary",
-        "God-first optional Documentation boundary",
+        "God-first optional Documentation Companion boundary",
         "Installed brick menu contract",
         "God documentation content integration",
         "No Unity companion implementation in documentation source",
@@ -1208,7 +1208,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     $godEntry.dependencies = @([pscustomobject]@{ id = "com.geurts.gameforge.documentation"; minimumVersion = "0.8.1" })
     Write-Utf8 -Path $godCataloguePath -Text ($godCatalogue | ConvertTo-Json -Depth 10)
     $godDependencyRun = Invoke-TestScript -Path $validatorScript -Arguments @('-RepositoryRoot', $godDependencyFixture)
-    Assert-True ($godDependencyRun.Code -ne 0 -and $godDependencyRun.Output.Contains('[FAIL] God-first optional Documentation boundary')) "Validator rejects reintroducing Documentation as a required God catalogue dependency"
+    Assert-True ($godDependencyRun.Code -ne 0 -and $godDependencyRun.Output.Contains('[FAIL] God-first optional Documentation Companion boundary')) "Validator rejects reintroducing Documentation Companion as a required God catalogue dependency"
 
     $godContentFixture = New-StaticValidationFixture -Parent $testRoot -Name "static-god-content-confirmation"
     $godContentPath = Join-Path $godContentFixture "GeurtsTechniques/GeurtsDocumentationCompanionTechnique.md"
