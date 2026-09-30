@@ -27,6 +27,8 @@ God **0.26.0** displays selected **Installed Brick Menus** inside God with a pin
 
 Scene Loading and Bootstrap 0.1.2 adds Odin file pickers filtered to Unity scene files for the bootstrap scene, destination scene lists and main scene, and per-scene presentation overrides. Selections retain project-relative paths with forward slashes and the `.unity` extension; existing saved paths remain compatible.
 
+Scene Loading 0.4.0 adds **Scene Load Action** and reusable **Loading Presentation** ScriptableObjects for scene changes after startup. The action owns its scene/group; the presentation selects fade/custom transitions, loading screen and input policy. UI Foundations can call `SceneLoadAction.Invoke()` through a `UiAction` asset's Game callbacks, then use that action in a button's Invoke Action binding. Neither brick gains a required peer dependency. Follow the [asset-to-button guide](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/main/Documentation~/GettingStarted.md#load-another-scene-from-ui-foundations) after manually updating the package through God.
+
 Diagnostics 0.6.0 separates runtime Quantum Console **Channel** (Player/Developer), **Window controls** (Fullscreen/Restore), **Views** and **Logs** actions, with dark surfaces and green interaction accents. Views are Logs, Filters, Health, Inspect, Metrics, History and Session; the renamed Filters and Metrics controls retain their existing topic/severity and overlay behavior. Fullscreen keeps native zoom available, and Restore returns to the previous window layout within the current display. Audience classification, command permissions and the separate Editor-only theme standard remain unchanged.
 
 Diagnostics 0.6.0 includes **Background transparency** in Metrics and the same saved preference in Odin settings: 0% is solid, 100% is clear, and the 12% default preserves the previous appearance. Only the overlay background fades; text and movement/resize handles retain their opacity. Layout reset leaves transparency unchanged.
@@ -35,7 +37,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.36.0
+**Version:** 0.36.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -82,7 +84,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.36.0; the Technical Technique is v0.13.4.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.36.1; the Technical Technique is v0.13.4.
 
 ## ID Naming
 
@@ -235,6 +237,12 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 The current verified companion package is 0.13.0; use its immutable source from the catalogue. In Geurts Documentation, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.36.1 - Scene-load action assets
+
+- Catalogue Scene Loading 0.4.0 with asset-authored later scene changes and reusable loading presentations, using its exact immutable published Git source.
+- Document the existing UI Foundations asset-callback connection without adding a required peer dependency. Native Editor and Windows IL2CPP checks cover the saved callback and operation-owned effects; actual normal/narrow/docked inspectors were reviewed separately.
+- Retain all current Settings, God, Documentation, Audio, pooling and other package sources. Consumer installation remains a separate user action.
 
 ### v0.36.0 - Brick panels inside God
 
