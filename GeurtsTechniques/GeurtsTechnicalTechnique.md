@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.13.2
+**Version:** 0.13.3
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -285,6 +285,24 @@ AI decision logic should be inspectable, testable, and separated from presentati
 ---
 
 ## Coding Standards
+
+### ID Names
+
+**All freely authored ID names must use `lower_snake_case`: lowercase words separated by a single underscore (`_`), never a hyphen (`-`).** This applies throughout first-party games and Geurts bricks, including UI Foundations element IDs, screen and control IDs, and authored content, settings, action and event IDs.
+
+Use meaningful names composed of lowercase letters and digits, with single underscores between words. ID values must match `^[a-z0-9]+(?:_[a-z0-9]+)*$`: no uppercase letters, spaces, hyphens, repeated underscores, or leading/trailing underscores.
+
+| Intended name | Required ID value | Invalid alternatives |
+|---|---|---|
+| Main Menu Button | `main_menu_button` | `main-menu-button`, `MainMenuButton`, `Main Menu Button` |
+| Master Volume | `master_volume` | `master-volume`, `Master_Volume` |
+| Player 1 Spawn | `player_1_spawn` | `player-1-spawn`, `Player1Spawn` |
+
+This rule governs machine-readable ID **values**, not display labels, C# symbol names, or file/folder names. For example, a C# property named `ElementId` keeps its code naming convention while its authored value is `main_menu_button`. Preserve required formats for GUIDs, hashes, vendor/protocol IDs, UPM package names, and fixed versioned schema tokens; do not rewrite those identities by globally replacing hyphens or changing case. New freely authored IDs follow this standard.
+
+Validate the format and uniqueness within the owning ID scope during authoring and before use, observing that system's length limits and reserved names. Report invalid or duplicate IDs with an actionable message. Different labels can produce the same ID; do not silently overwrite another entry, append an arbitrary suffix, or normalize a persisted value behind the user's back.
+
+When an existing first-party ID must change, inspect and update every affected lookup, binding, reference and persisted value together through a scoped, versioned migration. Preserve Unity asset GUIDs and unrelated user content, and verify resolution and persistence after the rename. Older brick releases may accept or generate legacy ID formats; that does not waive this rule for new freely authored IDs or establish that their tools already enforce it. Package-defined element names and existing serialized IDs retain their exact values until the owning component's coordinated migration updates their contracts and consumers. Adding this documentation standard does not itself migrate installed bricks, menus or project assets.
 
 ### Variables
 
@@ -597,7 +615,7 @@ A generated or modified Unity C# script is complete only when it:
 - Includes the compliance header only when it is a reusable cross-game Geurts Game Forge framework, library, or tooling component under the scope above.
 - Uses the correct folder location according to `GeurtsTechniques/GeurtsFolderStructureTechnique.md`.
 - Uses bootstrap-scene ownership for persistent runtime objects, avoids direct and indirect `DontDestroyOnLoad`, and verifies the affected startup, transition, and teardown behaviour.
-- Follows naming conventions.
+- Follows naming conventions, including lowercase underscore-separated authored ID values, with format, uniqueness and affected-reference validation.
 - Includes tooltips for all `[SerializeField]` fields.
 - Includes XML summaries for public methods.
 - Avoids unnecessary per-frame allocations.
