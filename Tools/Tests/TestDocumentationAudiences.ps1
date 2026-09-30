@@ -1,4 +1,4 @@
-# Version: 1.0.0
+# Version: 1.0.1
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
@@ -77,7 +77,7 @@ Shared ending.
     $technicalForge = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsTechnicalTechnique.md' -Mode ForgeDevelopment
     Assert-Audience (-not $technical.Content.Contains('## Reusable Framework Compliance Header') -and $technicalForge.Content.Contains('## Reusable Framework Compliance Header') -and $technical.Content.Contains('## Technical Priority Order') -and $technical.Content.Contains('All code suggestions,')) 'Framework header is conditional; shared technical priorities and obligations survive'
     $brick = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsBrickContract.md'
-    Assert-Audience ($brick.Content.Contains('## Use existing bricks') -and $brick.Content.Contains('Odin Inspector and Quantum Console') -and $brick.Content.Contains('losing local edits') -and $brick.Content.Contains('Install is explicit.') -and $brick.Content.Contains('Only `released: true` entries') -and -not $brick.Content.Contains('Implement `IBrick`')) 'Game consumers retain reuse, tools, release sources, confirmation and overwrite guidance'
+    Assert-Audience ($brick.Content.Contains('## Use existing bricks') -and $brick.Content.Contains('Odin Inspector and Quantum Console') -and $brick.Content.Contains('Only after remote verification') -and $brick.Content.Contains('Never overwrite a brick source folder or offer a downgrade') -and $brick.Content.Contains('Install is explicit.') -and $brick.Content.Contains('Only `released: true` entries') -and -not $brick.Content.Contains('Implement `IBrick`')) 'Game consumers retain reuse, tools, release sources, Git delivery and downgrade guidance'
     $readmeGame = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'README.md'
     $readmeForge = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'README.md' -Mode ForgeDevelopment
     Assert-Audience ($readmeGame.Content.Trim().Length -eq 0 -and $readmeForge.Content.Contains('## Maintenance') -and -not $readmeForge.Content.Contains('## Changelog')) 'README walkthroughs/history skip by default; source maintenance is Forge-only'
