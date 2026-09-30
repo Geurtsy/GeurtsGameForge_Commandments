@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.29.0",
-  "publishedUtc": "2026-09-30T12:11:59Z",
+  "packageVersion": "0.30.0",
+  "publishedUtc": "2026-09-30T14:29:16Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.documentation",
@@ -65,13 +65,13 @@
     {
       "id": "com.geurts.gameforge.settings",
       "name": "Geurts Game Forge Settings System",
-      "description": "Starter package with an Editor main menu describing planned shared configuration and settings. Runtime settings functionality is not implemented.",
+      "description": "Typed settings with shared pending edits, Apply and Cancel, authored defaults, persistence, recovery and optional owner providers.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.settings",
-      "version": "0.1.0",
+      "version": "0.2.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#49e2dd0b66abfab63d20ca2b2c74cf049b0b76d6",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#a4fa2ccce4391b6421526c96c942e32f77116f71",
       "minimumUnity": "6000.3",
       "maximumUnity": "6000.3",
       "requiredTools": [
@@ -81,20 +81,20 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.14.2"
+          "minimumVersion": "0.20.0"
         }
       ]
     },
     {
       "id": "com.geurts.gameforge.sceneloading",
       "name": "Geurts Game Forge Scene Loading and Bootstrap",
-      "description": "Persistent bootstrap-first startup, scene groups, transitions, loading screens, readiness and recovery with framework-independent multiplayer integration points.",
+      "description": "Persistent bootstrap-first startup, scene groups, transitions, readiness and recovery, with optional neutral pooling lifecycle and framework-independent multiplayer integration points.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading",
-      "version": "0.1.4",
+      "version": "0.2.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#5da198a2202c0138b2af9d202adbd57468ce7981",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#86fd7c731dfa46083a08950658d2ebfbf2b352f0",
       "minimumUnity": "6000.3",
       "maximumUnity": "6000.3",
       "requiredTools": [
@@ -104,7 +104,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.14.0"
+          "minimumVersion": "0.20.0"
         }
       ]
     },
@@ -134,36 +134,37 @@
     {
       "id": "com.geurts.gameforge.audio",
       "name": "Geurts Game Forge Audio",
-      "description": "Preview: FMOD audio ownership, explicit bank preparation and reusable sound definitions. Unity/player and audible acceptance remain incomplete; requires FMOD Unity 2.03.14.",
+      "description": "FMOD playback ownership, bank preparation, reusable sound definitions and optional transactional Settings volume controls. Requires FMOD Unity 2.03.14; listening and physical device-loss acceptance remain pending.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
-      "version": "0.2.2",
+      "version": "0.3.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#dec45be7137cd87d93ec0e5cb1727450209c028c",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#85ba7a0f07ba3f7947ccbc04075e40857349198e",
       "minimumUnity": "6000.3",
       "maximumUnity": "6000.3",
       "requiredTools": [
         "Odin Inspector",
-        "Quantum Console"
+        "Quantum Console",
+        "FMOD Unity 2.03.14"
       ],
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.18.0"
+          "minimumVersion": "0.20.0"
         }
       ]
     },
     {
       "id": "com.geurts.gameforge.userinterface",
       "name": "Geurts Game Forge User Interface Foundations",
-      "description": "Preview: editable UI Toolkit menus, ordered Settings demos and shared appearance. Prepare and edit Theme, Menu, Screen, Action, value and Panel Settings drafts before creating files. Native input and visual validation remain pending.",
+      "description": "Preview: editable UI Toolkit menus, creation drafts, shared appearance and optional Settings controls and dialogs. Native input and visual acceptance remain pending.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface",
-      "version": "0.7.0",
+      "version": "0.8.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#8721309eb5c305ab55bc0ec8f9eebd504294fbe9",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#d0369a6a5bfa8951db37d774734ed77dc9e31cc4",
       "minimumUnity": "6000.3",
       "maximumUnity": "6000.3",
       "requiredTools": [
@@ -173,20 +174,20 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.14.0"
+          "minimumVersion": "0.20.0"
         }
       ]
     },
     {
       "id": "com.geurts.gameforge.objectpooling",
       "name": "Geurts Game Forge Object Pooling",
-      "description": "Starter package with an Editor main menu describing planned reusable object pools. Runtime pooling functionality is not implemented.",
+      "description": "Reusable prefab pools with generation-checked leases, prewarming, reset and completion handling, diagnostics and optional scene lifecycle cooperation. FMOD completion is a separate optional integration.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling",
-      "version": "0.1.0",
+      "version": "0.2.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#8158f3e2c46b7754edf45a6d12258c5d6b969ea7",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#26182db6e6215c4c103211c78429872d12007f33",
       "minimumUnity": "6000.3",
       "maximumUnity": "6000.3",
       "requiredTools": [
@@ -196,7 +197,35 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.14.2"
+          "minimumVersion": "0.20.0"
+        }
+      ]
+    },
+    {
+      "id": "com.geurts.gameforge.objectpooling.fmod",
+      "name": "Geurts Game Forge Object Pooling FMOD Integration",
+      "description": "Optional lease-owned FMOD completion handling for pooled objects. Install explicitly alongside Object Pooling; requires FMOD Unity 2.03.14.",
+      "website": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/tree/main/Integrations~/FMOD",
+      "version": "0.1.1",
+      "released": true,
+      "developmentOnly": false,
+      "sourceKind": "git",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git?path=/Integrations~/FMOD#26182db6e6215c4c103211c78429872d12007f33",
+      "minimumUnity": "6000.3",
+      "maximumUnity": "6000.3",
+      "requiredTools": [
+        "Odin Inspector",
+        "Quantum Console",
+        "FMOD Unity 2.03.14"
+      ],
+      "dependencies": [
+        {
+          "id": "com.geurts.gameforge.god",
+          "minimumVersion": "0.20.0"
+        },
+        {
+          "id": "com.geurts.gameforge.objectpooling",
+          "minimumVersion": "0.2.1"
         }
       ]
     }
