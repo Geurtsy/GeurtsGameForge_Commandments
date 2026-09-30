@@ -29,7 +29,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.26.1
+**Version:** 0.26.2
 **Unity target:** Unity 6.3 LTS (6000.3)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -72,7 +72,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 Games made with Geurts Game Forge should use **FMOD for sound design and game audio**. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this requirement and its game-audio integration scope.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package remains the v0.26.1 draft; the Technical Technique is v0.12.13.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package remains the v0.26.2 draft; the Technical Technique is v0.12.13.
 
 ## Mandatory Forge Editor theme
 
@@ -207,6 +207,13 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 The current verified companion package is 0.9.2; use its immutable source from the catalogue. In Geurts Documentation, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.26.2 — Codex merge and computer-control policy
+
+- Advances Automation to 0.9.2: Codex always merges completed, appropriately validated work to the owning repository's main unless the user explicitly specifies otherwise, while preserving required checks, branch protections and unrelated work.
+- Avoids interactive control of the user's computer for tests by default; background/API/headless checks remain available, and unavailable interactive evidence is reported honestly.
+- Uses the user's PC interactively for implementation only when absolutely necessary, with scoped control and preservation of live work. This does not authorize incidental interactive tests.
+- Synchronizes documentation release metadata and tool guards. Published brick pins, contract schemas and managed route payloads retain their existing identities.
 
 ### v0.26.1 — Offline startup
 
