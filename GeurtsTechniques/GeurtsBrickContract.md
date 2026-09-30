@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.10.0
+**Version:** 1.11.0
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -116,3 +116,9 @@ After package success (or no eligible package work), God uses the optional Docum
 ## God Editor layout
 
 God 0.23.0 places **Apply Forge layout** and **Apply layout when God opens** above the pinned activity panel. The project-owned layout preference defaults on, including existing God settings without the field, and does not reset dependencies or either automatic update preference. The button applies the packaged Unity layout; the checkbox applies it on a deliberate God menu opening, before opted-in opening work. Restoring windows at startup and reloading scripts do not apply it. Layout changes are blocked during active Forge work, Play Mode, compilation, imports and builds, with an explanation and an available manual retry when idle. Unity's guarded layout loader retains the main window's location and owns window closure checks. Loading the layout transfers current opening progress to the restored God window, avoiding repeated layout application and duplicate update work. Scene contents and project settings are preserved; panel arrangement is replaced.
+
+## Module switches
+
+God 0.24.0 shows a **Module enabled** checkbox in each installed menu row and installed catalogue card, including folded cards. Uninstalled entries have no switch. Switching off stops the registered module and its owned capabilities and subscriptions through the existing lifecycle; its package and settings stay installed. Required consumers wait until the provider resumes, without changing their own enabled preferences. Switching on uses retained settings and exposes startup failure or dependency waiting truthfully. God stays on as the core manager. Active operations, Play Mode, compilation and imports block changes with a visible reason, checked again before dispatch. Missing registrations are explained rather than pretending the module is running. Disabled module menus remain available.
+
+Documentation 0.12.0 exposes an independent module preference through its public Editor API. God uses optional reflection without a package or assembly dependency. Older companions explain the required update. The Documentation switch pauses new checks, content updates and setup actions, retains installed guidance, and remains reachable in its own window without God. Package management through God remains available for disabled modules. Merely enabling a module does not start an update or acquire content.

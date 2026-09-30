@@ -1,9 +1,9 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Documentation Companion Technique
 
-**Version:** 2.2.2
+**Version:** 2.3.0
 **Contract schema:** 2.0.0
-**Package version:** 0.34.1
+**Package version:** 0.35.0
 **Status:** Draft normative technique
 **Primary audience:** Geurts Documentation Companion implementers and package maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -183,3 +183,7 @@ A conforming companion:
 ## Separate Codex guide installation
 
 The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. The current verified companion is 0.10.2 in the catalogue; schema-2.0.0 support was introduced in 0.7.0 and the schema compatibility boundary is unchanged.
+
+## Independent module preference
+
+Documentation 0.12.0 exposes **Module enabled** in its window and public **ModuleEnabled**, **SetModuleEnabled(bool)** and **ModuleToggleUnavailableReason** Editor integration members. God 0.24.0 may use these members without introducing a dependency in either direction. The preference defaults on and is keyed by the normalized Unity project root in Editor preference storage, outside the project filesystem and installed package. It is independent of the last-successful commit signal and automatic-update consent. Turning it off blocks new metadata checks, content updates and setup writes, including queued window actions; installed package, guidance, routes and existing saved preferences remain untouched. Active Documentation, host or Unity work must finish before switching; do not cancel in-flight work or introduce cleanup/deletion. Its window remains reachable for information and re-enabling. Turning it on starts no network or installation work. Preserve the normal explicit menu/check actions and all Update consent, validation and four-target boundaries. This preference changes neither contract schema 2.0.0 nor the Update target set.
