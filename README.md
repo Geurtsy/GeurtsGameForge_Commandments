@@ -29,7 +29,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.28.0
+**Version:** 0.28.1
 **Unity target:** Unity 6.3 LTS (6000.3)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -54,7 +54,7 @@ God 0.14.2 keeps a requested refresh pending until Unity can complete the catalo
 
 ## FMOD line-ending setup
 
-The [Git Attributes Technique](GeurtsTechniques/GeurtsGitAttributesTechnique.md) supplies the two FMOD LF rules for project-root `.gitattributes`. God 0.20.0 adds **Install FMOD .gitattributes** as step 6 in Build Forge. Update the installed documentation to 0.28.0 or later first. The action creates a missing file or appends the final rule pair, preserving existing bytes. Verified files remain untouched on rerun. Documentation Update copies the template as reference content and does not install project attributes. God 0.20.0 remains an untagged preview pending the native visual acceptance matrix; existing catalogue pins remain unchanged.
+The [Git Attributes Technique](GeurtsTechniques/GeurtsGitAttributesTechnique.md) supplies the two FMOD LF rules for project-root `.gitattributes`. God 0.21.0 adds **Install FMOD .gitattributes** as step 6 in Build Forge. Update the installed documentation to 0.28.1 or later first. The action creates a missing file or appends the final rule pair, preserving existing bytes. Verified files remain untouched on rerun. Documentation Update copies the template as reference content and does not install project attributes. God 0.21.0 remains an untagged preview pending the native visual acceptance matrix; existing catalogue pins remain unchanged.
 
 ## Audience tags
 
@@ -76,7 +76,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 Games made with Geurts Game Forge should use **FMOD for sound design and game audio**. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this requirement and its game-audio integration scope.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package remains the v0.28.0 draft; the Technical Technique is v0.12.15.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package remains the v0.28.1 draft; the Technical Technique is v0.12.15.
 
 ## Unity CLI and Editor validation
 
@@ -216,10 +216,14 @@ The current verified companion package is 0.10.2; use its immutable source from 
 
 ## Changelog
 
+### v0.28.1 — FMOD installer release alignment
+
+- Align the installer contract with God 0.21.0 and Git Attributes Technique 1.0.1, preserving the exact two-rule payload and existing catalogue pins.
+
 ### v0.28.0 — FMOD Git attributes template
 
 - Adds the manifest-selected Git Attributes Technique and exact FMOD LF rule pair from the vendor guidance.
-- Defines the explicit, append-only sixth Build Forge step in God 0.20.0, including preservation, validation and conservative final-rule checks.
+- Defines the explicit, append-only sixth Build Forge step in God 0.21.0, including preservation, validation and conservative final-rule checks.
 - Extends source validation and automation tests while retaining the existing companion schema, replacement targets, brick release pins and Git ignore payload.
 
 ### v0.27.1 — FMOD ignore template
@@ -429,7 +433,7 @@ God **0.15.0** adds **Auto-update everything when God opens**, off by default an
 - Retains Documentation Companion 0.9.1 and Diagnostics 0.6.0 pins, all five remaining planned bricks, technique rules, companion schema 2.0.0 and folder definition 0.11.0. Synchronizes documentation release metadata and tool guards.
 - Catalogue publication does not update or install packages or documentation in an existing Unity project; those remain separate explicit actions.
 
-### v0.20.0 — Select and copy console text
+### v0.21.0 — Select and copy console text
 
 - Advances Diagnostics Technique to 0.3.0 with an explicit Select text / Exit selection mode in runtime Quantum Console and the Forge Diagnostics Editor console, supporting selection across the current filtered, loaded log page and Ctrl+A/C.
 - Requires a stable read-only snapshot, plain literal message text, expanded-only source/context details, continued capture independent of log pause, and clearing selection when audience, view, page, settings or service scope changes.
