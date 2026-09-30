@@ -1,9 +1,9 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Documentation Companion Technique
 
-**Version:** 2.2.1
+**Version:** 2.2.2
 **Contract schema:** 2.0.0
-**Package version:** 0.26.3
+**Package version:** 0.27.0
 **Status:** Draft normative technique
 **Primary audience:** Geurts Documentation Companion implementers and package maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -37,7 +37,7 @@ The companion may expose its current busy state and explanatory operation status
 
 ### Explicit saved consent for automatic God-opening updates
 
-God 0.15.0 may expose **Auto-update everything when God opens**, off by default. Before saving this project opt-in, God explains and obtains affirmative consent for the same four exact managed targets, loss of local edits with no backup or rollback, and preservation of every unlisted path including `Docs/GameDesign/`. Cancel leaves the preference off. This saved consent is the sole exception to the per-invocation manual confirmation requirement; it does not change the schema-2.0.0 contract, archive validation, replacement order or target boundary. The following sections describe standalone startup and manual Update unless this narrow opt-in explicitly applies.
+God 0.19.0 exposes **Automatically update packages and documentation**, off by default. A separate default-off **Automatically refresh the catalogue** setting controls catalogue acquisition and does not grant documentation-update consent. Both options apply only to deliberate God menu openings, never restored windows or Unity startup. Before saving the updates project opt-in, God explains and obtains affirmative consent for the same four exact managed targets, loss of local edits with no backup or rollback, and preservation of every unlisted path including `Docs/GameDesign/`. Cancel leaves the preference off. This saved consent is the sole exception to the per-invocation manual confirmation requirement; it does not change the schema-2.0.0 contract, archive validation, replacement order or target boundary. The following sections describe standalone startup and manual Update unless this narrow opt-in explicitly applies.
 
 Documentation 0.10.0 exposes `DocumentationIntegration.UpdateDocumentationAutomaticallyAsync(Func<bool> stillAuthorized)` for that host. God 0.17.1 calls it only during an opted-in deliberate menu opening, never when restoring its window at Unity startup, after package work, with a live callback that remains true only while God stays open and its saved preference is enabled. The companion checks metadata and acquires a candidate only if content needs an update. Recheck consent and conflicting host/Editor operations after download and before the first replacement. Closing God, disabling the option or encountering an operation conflict stops pending replacement. Current content requires no download. Failed checks do not trigger acquisition.
 
