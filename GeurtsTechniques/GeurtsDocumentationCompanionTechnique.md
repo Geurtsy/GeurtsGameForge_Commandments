@@ -1,9 +1,9 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Documentation Companion Technique
 
-**Version:** 2.2.0
+**Version:** 2.2.1
 **Contract schema:** 2.0.0
-**Package version:** 0.26.0
+**Package version:** 0.26.1
 **Status:** Draft normative technique
 **Primary audience:** Geurts Documentation Companion implementers and package maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -39,9 +39,9 @@ The companion may expose its current busy state and explanatory operation status
 
 God 0.15.0 may expose **Auto-update everything when God opens**, off by default. Before saving this project opt-in, God explains and obtains affirmative consent for the same four exact managed targets, loss of local edits with no backup or rollback, and preservation of every unlisted path including `Docs/GameDesign/`. Cancel leaves the preference off. This saved consent is the sole exception to the per-invocation manual confirmation requirement; it does not change the schema-2.0.0 contract, archive validation, replacement order or target boundary. The following sections describe standalone startup and manual Update unless this narrow opt-in explicitly applies.
 
-Documentation 0.10.0 exposes `DocumentationIntegration.UpdateDocumentationAutomaticallyAsync(Func<bool> stillAuthorized)` for that host. God calls it only during an opted-in window opening, after package work, with a live callback that remains true only while God stays open and its saved preference is enabled. The companion checks metadata and acquires a candidate only if content needs an update. Recheck consent and conflicting host/Editor operations after download and before the first replacement. Closing God, disabling the option or encountering an operation conflict stops pending replacement. Current content requires no download. Failed checks do not trigger acquisition.
+Documentation 0.10.0 exposes `DocumentationIntegration.UpdateDocumentationAutomaticallyAsync(Func<bool> stillAuthorized)` for that host. God 0.17.1 calls it only during an opted-in deliberate menu opening, never when restoring its window at Unity startup, after package work, with a live callback that remains true only while God stays open and its saved preference is enabled. The companion checks metadata and acquires a candidate only if content needs an update. Recheck consent and conflicting host/Editor operations after download and before the first replacement. Closing God, disabling the option or encountering an operation conflict stops pending replacement. Current content requires no download. Failed checks do not trigger acquisition.
 
-Use the existing validated exact-commit archive pipeline and report progress/failure through the same status. Do not add an independent updater, background timer, automatic retry, rollback or recovery mechanism. An interrupted operation requires another deliberate God opening with the option enabled, or manual Update. Standalone companion startup remains metadata-only and its manual Update retains one cancel-default confirmation.
+Use the existing validated exact-commit archive pipeline and report progress/failure through the same status. Do not add an independent updater, background timer, automatic retry, rollback or recovery mechanism. An interrupted operation requires another deliberate God opening with the option enabled, or manual Update. Standalone companion startup remains offline and its manual Update retains one cancel-default confirmation.
 
 ## 2. Closed Data Contract
 
@@ -95,9 +95,9 @@ Every other project path is outside the lifecycle. In particular, the companion 
 
 Merely copying the scoped game-design instruction template to its listed target does not authorize access to any path matched by that template.
 
-## 4. Unity-Open Metadata Check
+## 4. Offline Startup and Explicit Metadata Checks
 
-On each normal Unity project launch or open, the companion may perform at most one lightweight metadata-only request for the official repository's current `main` head commit. If it does, it compares that remote commit ID with one persistent companion-owned last-successful-installed commit value for this Unity project, held outside the Unity project filesystem and outside the installed UPM package, for example in host or Editor preference storage. The value must be keyed by a Unity-provided project identity or normalized project-root path derived without reading project content; a value for one project must never suppress availability in another. The companion must not create a project file or project path for this value. The check must not download an archive, inspect the managed documentation copy, inspect any AI target, mutate a managed project target, execute setup work, or synchronize content. A skipped, failed, or unavailable request is non-blocking.
+On each normal Unity project launch or open, the companion must not check remote metadata, refresh a catalogue or open an update popup. Restoring a dashboard must not schedule checks. A deliberate Documentation menu opening or explicit metadata check may request the official repository's current `main` head commit; it compares that remote commit ID with one persistent companion-owned last-successful-installed commit value for this Unity project, held outside the Unity project filesystem and outside the installed UPM package, for example in host or Editor preference storage. The value must be keyed by a Unity-provided project identity or normalized project-root path derived without reading project content; a value for one project must never suppress availability in another. The companion must not create a project file or project path for this value. The check must not download an archive, inspect the managed documentation copy, inspect any AI target, mutate a managed project target, execute setup work, or synchronize content. A skipped, failed, or unavailable request is non-blocking.
 
 An Update is available when the last-successful-installed commit value is missing or differs from the remote `main` head commit. Matching values mean only that the authoritative source has not advanced since the last fully successful companion Update; they do not validate or certify mutable local files. When the remote commit is unavailable, availability is unknown. The explicit Update action remains available in every state.
 
@@ -170,7 +170,7 @@ An AI tool must support the applicable native instruction file or be explicitly 
 A conforming companion:
 
 - is an independent Windows-only, Editor-only UPM package implemented outside this repository, with no God or other Unity Package Manager package dependency or Game Forge Intelligence dependency, while retaining its separately installed licensed Odin Inspector and Quantum Console assemblies;
-- performs at most one metadata-only official-`main` check per Unity open and never mutates during that check;
+- performs no remote checks or catalogue refresh at Unity startup or when restoring a window; explicit metadata checks never mutate managed targets;
 - reports an Update available when its comparison-only last-successful-installed commit value is missing or differs from the remote head, and attempts to write that value only after all four managed targets verify successfully;
 - exposes the one exact in-Editor Update action and one cancel-default confirmation listing the documentation folder and three AI files;
 - acquires and validates one exact-commit archive only after confirmation;
@@ -182,4 +182,4 @@ A conforming companion:
 
 ## Separate Codex guide installation
 
-The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. The current verified companion is 0.10.0 in the catalogue; schema-2.0.0 support was introduced in 0.7.0 and the schema compatibility boundary is unchanged.
+The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. The current verified companion is 0.10.1 in the catalogue; schema-2.0.0 support was introduced in 0.7.0 and the schema compatibility boundary is unchanged.

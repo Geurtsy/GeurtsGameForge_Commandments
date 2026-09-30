@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge AI Entry Point
 
-**Version:** 0.26.0
+**Version:** 0.26.1
 **Purpose:** First documentation entry and session boundary, before manifest resolution.
 **Required package path:** `AI_READ_FIRST.md`
 
@@ -53,7 +53,7 @@ Package membership and any integration lifecycle are outside this router's subje
 
 ## Session Boundary
 
-Before implementation, use one current source checkout or project-local fetched copy and record its commit when available. On Unity launch/open, the independent companion may perform its one remote metadata-only update check. That check must not download documentation, inspect project files, or mutate the project. Ordinary AI/session initialization reads the existing local copy and performs no additional remote check or update. For manual Update, the companion performs replacement only after the user selects Update and accepts one confirmation, with Cancel as the default, covering the exact managed documentation and AI-route targets listed by its contract. The manifest-selected Companion Technique also owns the narrow, default-off saved-consent exception for automatic updates when God opens. There is no earlier preview or dry run and no second confirmation. When a documentation integration is involved, follow the manifest-selected integration technique; a direct source-repository AI session or another host does not require the companion. Do not inspect or select project GDD files here; the manifest first decides whether the GDD Technique applies.
+Before implementation, use one current source checkout or project-local fetched copy and record its commit when available. On Unity launch/open, God and the independent companion perform no remote update check or catalogue refresh. Restored windows load local cached state only. Explicit menu openings and manual actions follow their selected owner; saved automatic God consent applies only to deliberate menu openings. Ordinary AI/session initialization reads the existing local copy and performs no additional remote check or update. For manual Update, the companion performs replacement only after the user selects Update and accepts one confirmation, with Cancel as the default, covering the exact managed documentation and AI-route targets listed by its contract. The manifest-selected Companion Technique also owns the narrow, default-off saved-consent exception for automatic updates when God opens. There is no earlier preview or dry run and no second confirmation. When a documentation integration is involved, follow the manifest-selected integration technique; a direct source-repository AI session or another host does not require the companion. Do not inspect or select project GDD files here; the manifest first decides whether the GDD Technique applies.
 
 ## Pre-Code Lock
 
