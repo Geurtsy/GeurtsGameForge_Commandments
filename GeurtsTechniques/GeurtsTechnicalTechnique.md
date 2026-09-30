@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.12.14
+**Version:** 0.12.15
 **Unity target:** Unity 6.3 LTS (6000.3)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -317,7 +317,7 @@ For new custom UXML controls, use `[UxmlElement]` on a partial class and `[UxmlA
 
 Games made with **Geurts Game Forge should use FMOD for sound design and game audio**, including sound effects, music and ambience. Use the project's compatible FMOD Unity integration and route new game-audio work through it. Inspect and preserve existing audio content and references when planning an integration or migration, and validate affected playback in the Windows Editor and Windows player.
 
-Reuse or extend suitable Geurts bricks for FMOD integration when their installed versions provide the required audio capabilities. An informational starter or planned feature does not establish a working audio implementation. Keep FMOD dependencies within the game-audio implementation or a dedicated integration; this game standard does not add a mandatory FMOD dependency to God, unrelated bricks, Editor-only documentation tooling or this documentation repository.
+Reuse or extend suitable Geurts bricks for FMOD integration when their installed versions provide the required audio capabilities. An informational starter or planned feature does not establish a working audio implementation. Use the manifest-selected Git Attributes Technique for the two FMOD LF exceptions in project-root `.gitattributes`. Build Forge installs its validated template only on an explicit action, preserving existing attributes. These vendor exceptions coexist with first-party CRLF authoring. Keep FMOD dependencies within the game-audio implementation or a dedicated integration; this game standard does not add a mandatory FMOD dependency to God, unrelated bricks, Editor-only documentation tooling or this documentation repository.
 
 ---
 

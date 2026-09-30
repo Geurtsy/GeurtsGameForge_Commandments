@@ -29,7 +29,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.27.1
+**Version:** 0.28.0
 **Unity target:** Unity 6.3 LTS (6000.3)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -52,6 +52,10 @@ Existing immutable pins to God in `Geurtsy/GeurtsGameForge` remain valid in that
 
 God 0.14.2 keeps a requested refresh pending until Unity can complete the catalogue refresh and package checks; repeated check requests share that work. A deferred Update that cannot start shows the reason and asks the user to select it again when ready. Cards distinguish the catalogue release from the verified update target and the installed version; source verification, compatibility checks and confirmation still apply. Publishing a catalogue entry does not install that release into an existing project.
 
+## FMOD line-ending setup
+
+The [Git Attributes Technique](GeurtsTechniques/GeurtsGitAttributesTechnique.md) supplies the two FMOD LF rules for project-root `.gitattributes`. God 0.20.0 adds **Install FMOD .gitattributes** as step 6 in Build Forge. Update the installed documentation to 0.28.0 or later first. The action creates a missing file or appends the final rule pair, preserving existing bytes. Verified files remain untouched on rerun. Documentation Update copies the template as reference content and does not install project attributes. God 0.20.0 remains an untagged preview pending the native visual acceptance matrix; existing catalogue pins remain unchanged.
+
 ## Audience tags
 
 Documentation now labels material as **AI-READ**, **HUMAN-ONLY**, or **FORGE-DEVELOPMENT-ONLY**. AI reads shared rules, skips human walkthroughs and history, and includes Forge implementation details only when developing Forge itself. Making a game with Forge stays in GameUse mode. The manifest defines the tags and the bundled read-only section reader; no AI tool is assumed to obey tags automatically. Humans can read every section normally.
@@ -72,7 +76,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 Games made with Geurts Game Forge should use **FMOD for sound design and game audio**. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this requirement and its game-audio integration scope.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package remains the v0.27.1 draft; the Technical Technique is v0.12.14.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package remains the v0.28.0 draft; the Technical Technique is v0.12.15.
 
 ## Unity CLI and Editor validation
 
@@ -211,6 +215,12 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 The current verified companion package is 0.10.2; use its immutable source from the catalogue. In Geurts Documentation, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.28.0 — FMOD Git attributes template
+
+- Adds the manifest-selected Git Attributes Technique and exact FMOD LF rule pair from the vendor guidance.
+- Defines the explicit, append-only sixth Build Forge step in God 0.20.0, including preservation, validation and conservative final-rule checks.
+- Extends source validation and automation tests while retaining the existing companion schema, replacement targets, brick release pins and Git ignore payload.
 
 ### v0.27.1 — FMOD ignore template
 
