@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.30.0",
-  "publishedUtc": "2026-09-30T14:29:16Z",
+  "packageVersion": "0.30.1",
+  "publishedUtc": "2026-09-30T18:01:17Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.documentation",
       "name": "Geurts Game Forge Documentation",
       "description": "Documentation dashboard and explicit updates of the authoritative AI development guidance.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.documentation",
-      "version": "0.10.2",
+      "version": "0.10.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.documentation.git#b389e4beddbb5e4ca3a7ce719452bc047947d3e9",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.documentation.git#eb8204df8383266fc0c15136dcaaae489001e1b4",
       "minimumUnity": "6000.3",
       "maximumUnity": "6000.3",
       "requiredTools": [
