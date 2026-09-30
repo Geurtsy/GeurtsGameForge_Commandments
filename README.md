@@ -35,7 +35,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.33.0
+**Version:** 0.34.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -82,7 +82,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.33.0; the Technical Technique is v0.13.1.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.34.0; the Technical Technique is v0.13.1.
 
 ## Unity CLI and Editor validation
 
@@ -227,6 +227,11 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 The current verified companion package is 0.11.0; use its immutable source from the catalogue. In Geurts Documentation, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.34.0 - God Editor layout
+
+- Publish God 0.23.0 with pinned layout controls and a default-on per-project menu-opening preference.
+- Document idle guards, script-reload/startup boundaries and preservation of unsaved scenes and opening progress.
 
 ### v0.33.0 - Reusable game folder template
 
@@ -713,3 +718,5 @@ When a package file changes, update the manifest registry and affected migration
 <!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->
 God 0.19.0 opening options were validated with 86 passing focused Unity Editor tests and native checkbox interaction in floating, narrow and docked windows. Documentation 0.27.0 passes its full 221-test automation suite. Light host skin and high display scaling were unavailable; see God's package-specific validation report for limits. Publication does not install the new package into a running project.
 <!-- GEURTS-SECTION:END -->
+
+God 0.23.0 adds **Apply Forge layout** at the top of its window. **Apply layout when God opens** defaults on and is saved for the project. Turn it off to retain your arrangement on menu openings; you can still apply the layout with the button. Active operations block layout changes until idle. Restored startup windows and script reloads keep the current arrangement.
