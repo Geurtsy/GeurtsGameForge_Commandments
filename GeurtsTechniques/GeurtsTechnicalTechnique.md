@@ -2,8 +2,8 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.12.15
-**Unity target:** Unity 6.3 LTS (6000.3)
+**Version:** 0.13.0
+**Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -48,7 +48,7 @@ When a decision requires a trade-off, apply this priority order:
 1. **Extendibility** - Code must be modular and easy to expand.
 2. **Efficiency** - Avoid unnecessary runtime cost; when efficiency genuinely conflicts with readability, runtime efficiency wins.
 3. **Readability** - Code should remain clear to humans and AI agents without imposing avoidable runtime cost.
-4. **Updated** - Use current stable APIs and practices supported by Unity 6.3 LTS and the project's compatible dependencies, subject to the compatibility baseline below.
+4. **Updated** - Use supported, non-deprecated APIs and practices in Unity 6000.6.3f1 and the project's compatible dependencies, subject to the compatibility baseline below.
 5. **Documented** - Major components, public APIs, and serialized fields must be clear and documented.
 
 These priorities are not equal. A higher priority wins over a lower priority within this technique's subject. A package change must be selected and versioned through the manifest rather than inferred from a stray copy.
@@ -91,65 +91,66 @@ For a CLI run:
 - Batch mode cannot open a project already open in another Unity Editor instance. Preserve the user's live session and unsaved scenes/settings: use a separate validation project with the intended source and resolved dependencies when isolation is needed. Record its source revision and relevant differences; validation of saved/copied content does not prove unsaved live content. Do not close or save the user's Editor merely to run a check.
 - Reuse established validation entry points and run proportionate checks after meaningful changes. Group compatible checks where useful to reduce repeated startup/import work, without losing separate results or mixing incompatible test requirements. CLI reduces manual steps and supports repeatability; claim a time saving only when measured.
 
-Use the versioned [Unity 6.3 Editor command-line reference](https://docs.unity3d.com/6000.3/Documentation/Manual/EditorCommandLineArguments.html), [command-line build guidance](https://docs.unity3d.com/6000.3/Documentation/Manual/build-command-line.html), and the [Unity Test Framework command-line reference](https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/reference-command-line.html) for the installed compatible package version. These method choices retain the existing Windows workflow, Unity API serialization boundary and subject-specific acceptance gates.
+Use the versioned [Unity 6.6 Editor command-line reference](https://docs.unity.com/en-us/engine/6000.6/manual/unity-editor/command-line-arguments/editor), command-line build guidance, and the [Unity Test Framework command-line reference](https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/reference-command-line.html) for the installed compatible package version. These method choices retain the existing Windows workflow, Unity API serialization boundary and subject-specific acceptance gates.
 
 ---
 
-## Unity 6.3 LTS Compatibility Baseline
+## Unity 6000.6.3f1 Compatibility Baseline
 
 ### Editor and dependency selection
 
-Target **Unity 6.3 LTS (6000.3)** for new and modified Geurts Unity code, Editor tooling, and C# examples. This technique owns the compatibility baseline; entry files and native AI routes continue to defer to the manifest. The documentation package version is independent of the Unity Editor version.
+Target **Unity 6.6 (6000.6.3f1)** for all new and modified Geurts Unity code, Editor tooling, tests, automation and C# examples. This technique owns the compatibility baseline; entry files and native AI routes continue to defer to the manifest. The documentation package version is independent of the Unity Editor version.
 
 Before Unity implementation, read `ProjectSettings/ProjectVersion.txt`, `Packages/manifest.json`, and `Packages/packages-lock.json` when available, then inspect the installed packages, assembly definitions, render pipeline, build targets, and scripting backend relevant to the task. Record the exact Editor patch and resolved dependency versions used for validation. In this documentation-only repository these Unity project files do not exist; do not fabricate them or claim that another repository's code has been upgraded. This implementation preflight does not expand the Documentation Companion's closed startup or Update permissions.
 
-Use the latest stable **6000.3.x** patch compatible with the project's platforms and dependencies when establishing or updating its Editor baseline. Check the [Unity release archive](https://unity.com/releases/editor/archive) and that patch's release notes when doing the work; do not freeze a moving "latest patch" number in generic guidance. Commit the exact selected `ProjectVersion.txt` and package manifest/lockfile in the consuming project. A project pinned to an older Editor requires an explicit, validated migration; do not silently open it in another Editor or report it as 6.3-compatible without evidence. Later Unity update releases and previews do not replace this 6.3 LTS target automatically.
+Use exactly **6000.6.3f1** when establishing or updating the Editor baseline. Review its [release notes](https://unity.com/releases/editor/whats-new/6000.6.3f1), then commit the exact `ProjectVersion.txt` and package manifest/lockfile in the consuming project after a validated migration. A project pinned to an older Editor requires that migration; do not silently open it in another Editor or report it as 6000.6.3f1-compatible without evidence. A later Unity release does not replace this target automatically.
 
-Use the newest stable package release verified compatible with **6000.3** and the actual dependency graph. Review [Package Manager version history](https://docs.unity3d.com/6000.3/Documentation/Manual/upm-ui-update.html), compatibility information, changelogs, and installed source before changing APIs. Update required dependencies together through supported package workflows and retain reproducible versions; do not blindly select `latest`, preview/experimental releases, or dependencies requiring a later Editor. A compatible stable API takes precedence over a newer incompatible API.
+Use the newest stable package release verified compatible with **6000.6.3f1** and the actual dependency graph. Review package compatibility information, changelogs, and installed source before changing APIs. Update required dependencies together through supported package workflows and retain reproducible versions; do not blindly select `latest`, preview/experimental releases, or dependencies requiring a later Editor. A compatible stable API takes precedence over a newer incompatible API.
 
-**Odin Inspector and Quantum Console are required dependencies** for Geurts gameplay, reusable framework, runtime-system, and developer-tool implementation. Use current stable releases compatible with Unity 6.3 LTS and the project's target platforms. Verify Odin was acquired through a licensed distribution and Quantum Console through its supported distribution; do not copy, vendor, or redistribute either package without the applicable rights. Missing dependencies are implementation blockers. If either dependency is missing, incompatible, or unlicensed, report that concrete blocker and do not create a fallback inspector, serializer, command console, or parallel diagnostics framework to bypass the requirement.
+**Odin Inspector and Quantum Console are required dependencies** for Geurts gameplay, reusable framework, runtime-system, and developer-tool implementation. Use current stable releases compatible with Unity 6.6 and the project's target platforms. Verify Odin was acquired through a licensed distribution and Quantum Console through its supported distribution; do not copy, vendor, or redistribute either package without the applicable rights. Missing dependencies are implementation blockers. If either dependency is missing, incompatible, or unlicensed, report that concrete blocker and do not create a fallback inspector, serializer, command console, or parallel diagnostics framework to bypass the requirement.
 
 Use both dependencies wherever their supported features improve configuration, validation, inspection, diagnostics, tuning, or developer operation. "Use as much as possible" means meaningful adoption across applicable Geurts-owned code, not decorating every member, serializing unsupported data unnecessarily, exposing unsafe commands, or adding runtime work without a benefit. Preserve established project data and behavior while migrating duplicate custom tooling onto these required systems.
 
 The dependency requirement excludes this documentation-only repository, its host-side PowerShell utilities, project-authored design documents, and third-party or generated code. The independent Documentation Companion also requires separately installed licensed Odin Inspector and Quantum Console assemblies. Its independence means no God or other Unity Package Manager package dependency; it is not an exemption from the licensed external assembly requirements. A separately selected legacy compatibility contract remains frozen unless its owning document explicitly permits a change.
 
-For a separately maintained UPM package that requires this baseline, declare `"unity": "6000.3"` in its `package.json`; add `unityRelease` only when a specific patch is the verified minimum. This field declares a minimum, not a promise of support for every later Editor. Consult the [package manifest reference](https://docs.unity3d.com/6000.3/Documentation/Manual/upm-manifestPkg.html). Do not add a Unity package manifest to this documentation repository or change the companion's closed JSON schema to carry Editor requirements.
+For a separately maintained UPM package migrated and verified against this baseline, declare `"unity": "6000.6"` and `"unityRelease": "3f1"` in its `package.json`. These fields declare the minimum Editor version; they do not prove compatibility without compilation and relevant tests in 6000.6.3f1. Consult the [package manifest reference](https://docs.unity.com/en-us/engine/6000.6/manual/packages-list/cus-pkg-lp/cus-pkg-development/cus-pkg-manifest/upm-manifest-pkg). Do not add a Unity package manifest to this documentation repository or change the companion's closed JSON schema to carry Editor requirements.
 
 ### C# and .NET
 
-- Use **C# 9.0**, within Unity's documented supported subset. Do not assume C# 10+ features such as file-scoped namespaces, global using directives, record structs, required members, or collection expressions are available. Avoid unsupported C# 9 features such as covariant return types, module initializers, and init-only setters in baseline examples. Do not add compiler shims or change the language version just to use newer syntax. See the [Unity 6.3 compiler reference](https://docs.unity3d.com/6000.3/Documentation/Manual/csharp-compiler.html).
-- Prefer **.NET Standard 2.1** for new reusable code; respect an existing project's API compatibility level. Unity also offers the **.NET Framework 4.8** profile, but this does not make .NET 5+ or .NET Core-only APIs available. Check managed libraries on the actual target and scripting backend, including IL2CPP/AOT and stripping when used. See [Unity's .NET API compatibility levels](https://docs.unity3d.com/6000.3/Documentation/Manual/dotnet-profile-support.html).
+- Use **C# 9.0**, within Unity's documented supported subset. Do not assume C# 10+ features such as file-scoped namespaces, global using directives, record structs, required members, or collection expressions are available. Avoid unsupported C# 9 features such as covariant return types, module initializers, and init-only setters in baseline examples. Do not add compiler shims or change the language version just to use newer syntax. See the [Unity 6.6 compiler reference](https://docs.unity.com/en-us/engine/6000.6/manual/scripting/environment-and-tools/overview-of-dot-net-in-unity/csharp-compiler).
+- Prefer **.NET Standard 2.1** for new reusable code; respect an existing project's API compatibility level. Unity also offers the **.NET Framework 4.8** profile, but this does not make .NET 5+ or .NET Core-only APIs available. Check managed libraries on the actual target and scripting backend, including IL2CPP/AOT and stripping when used. See Unity's .NET API compatibility levels.
 - Keep Unity-serialized data in supported fields and types; do not use records as Unity-serialized data models. Apply `[SerializeField]` to fields, not properties or methods. If an existing auto-property deliberately serializes its backing field, use `[field: SerializeField]` and a field-targeted tooltip. Preserve serialized identity when refactoring and validate existing asset values in the Editor.
 
 ### Current API choices
 
-Prefer serialized references, explicit dependency wiring, and cached component access over scene-wide discovery. When discovery is necessary, use `Object.FindFirstObjectByType<T>()`, `Object.FindAnyObjectByType<T>()`, or `Object.FindObjectsByType<T>()` instead of obsolete `FindObjectOfType`/`FindObjectsOfType`. Choose first versus arbitrary results deliberately, specify inactive-object handling, and use `FindObjectsSortMode.None` only when callers do not depend on ordering. See [object discovery](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Object.FindObjectsByType.html).
+Never use a Unity or dependency API marked deprecated or obsolete in 6000.6.3f1 in new or updated code, tests, tools or examples. Replace deprecated calls with supported APIs while preserving their behavior. Treat compiler deprecation warnings as failures for first-party code; do not suppress them or keep a deprecated call merely because it still compiles. Review the installed API documentation and compile in the exact target Editor before release.
+
+Prefer serialized references, explicit dependency wiring, and cached component access over scene-wide discovery. When discovery is necessary, use `Object.FindAnyObjectByType<T>()` for an arbitrary match or `Object.FindObjectsByType<T>()` for all matches. Specify inactive-object handling deliberately. In Unity 6000.6, `FindFirstObjectByType` and the `FindObjectsByType` overloads taking `FindObjectsSortMode` are deprecated because their instance-ID ordering cannot be maintained. Never use them. See [object discovery](https://docs.unity.com/en-us/engine/6000.6/script-reference/unityengine/object/findobjectsbytype).
 
 This method-body fragment performs an intentional one-time scan of active colliders; it is not an `Update()` pattern or a complete component:
 
 ```csharp
 UnityEngine.Collider[] colliders = UnityEngine.Object.FindObjectsByType<UnityEngine.Collider>(
-    UnityEngine.FindObjectsInactive.Exclude,
-    UnityEngine.FindObjectsSortMode.None);
+    UnityEngine.FindObjectsInactive.Exclude);
 ```
 
-For `Rigidbody` and `Rigidbody2D`, use `linearVelocity`, `linearDamping`, and `angularDamping` in new or migrated code instead of their obsolete velocity/drag names. Preserve the existing simulation behavior: these names do not justify setting velocity every frame, changing force modes, or making kinematic bodies behave dynamically. See [3D velocity](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Rigidbody-linearVelocity.html), [2D velocity](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Rigidbody2D-linearVelocity.html), [3D damping](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Rigidbody-linearDamping.html), and [2D damping](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Rigidbody2D-linearDamping.html).
+For `Rigidbody` and `Rigidbody2D`, use `linearVelocity`, `linearDamping`, and `angularDamping` in new or migrated code instead of their obsolete velocity/drag names. Preserve the existing simulation behavior: these names do not justify setting velocity every frame, changing force modes, or making kinematic bodies behave dynamically. See 3D velocity, 2D velocity, 3D damping, and 2D damping.
 
-Use the **Input System** package and input actions for new input work. Inspect the existing input architecture and Active Input Handling setting; integrate or migrate bindings deliberately and test devices, rebinding, and UI navigation relevant to the project. Do not introduce legacy `UnityEngine.Input` polling into new examples, silently change existing controls, or enable both input backends as an unexplained workaround. See [Unity 6.3 input guidance](https://docs.unity3d.com/6000.3/Documentation/Manual/Input.html).
+Use the **Input System** package and input actions for new input work. Inspect the existing input architecture and Active Input Handling setting; integrate or migrate bindings deliberately and test devices, rebinding, and UI navigation relevant to the project. Do not introduce legacy `UnityEngine.Input` polling into new examples, silently change existing controls, or enable both input backends as an unexplained workaround. See Unity 6.6 input guidance.
 
-Use **Build Profiles** for new build configuration guidance and select the intended profile, scene list, platform, and scripting defines explicitly in automation. Do not assume legacy Build Settings instructions or one shared scene list describe every build. Existing supported build APIs may remain when they meet the same requirements. See [Build Profiles](https://docs.unity3d.com/6000.3/Documentation/Manual/build-profiles.html).
+Use **Build Profiles** for new build configuration guidance and select the intended profile, scene list, platform, and scripting defines explicitly in automation. Do not assume legacy Build Settings instructions or one shared scene list describe every build. Existing supported build APIs may remain when they meet the same requirements. See Build Profiles.
 
 ### Async and lifecycle
 
-For Unity-oriented async operations, prefer `UnityEngine.Awaitable` where appropriate. Await each pooled instance only once. Preserve `Task` for suitable .NET/library interoperation and coroutines for appropriate existing frame-based workflows. Do not mechanically convert working code. Observe cancellation and exceptions, cancel work when its owner or application exits, and return to the main thread before using Unity APIs that require it. Do not hide failures in unobserved fire-and-forget work. See [Awaitable](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Awaitable.html) and the [async programming guide](https://docs.unity3d.com/6000.3/Documentation/Manual/async-await-support.html).
+For Unity-oriented async operations, prefer `UnityEngine.Awaitable` where appropriate. Await each pooled instance only once. Preserve `Task` for suitable .NET/library interoperation and coroutines for appropriate existing frame-based workflows. Do not mechanically convert working code. Observe cancellation and exceptions, cancel work when its owner or application exits, and return to the main thread before using Unity APIs that require it. Do not hide failures in unobserved fire-and-forget work. See Awaitable and the async programming guide.
 
-Respect the project's Enter Play Mode settings. When domain reload is disabled, reset owned static state deliberately and prevent duplicate event subscriptions across play sessions. Release subscriptions and resources at the appropriate runtime or Editor lifecycle boundary; Editor tools must account for assembly reload and window teardown. Test repeated entry and exit with the settings the project actually uses. See [domain reload behavior](https://docs.unity3d.com/6000.3/Documentation/Manual/domain-reloading.html).
+Respect the project's Enter Play Mode settings. When domain reload is disabled, reset owned static state deliberately and prevent duplicate event subscriptions across play sessions. Release subscriptions and resources at the appropriate runtime or Editor lifecycle boundary; Editor tools must account for assembly reload and window teardown. Test repeated entry and exit with the settings the project actually uses. See domain reload behavior.
 
-### Unity 6.3 migration checks
+### Unity 6.6 migration checks
 
-Read the [Unity 6.3 upgrade guide](https://docs.unity3d.com/6000.3/Documentation/Manual/UpgradeGuideUnity63.html) and all intervening upgrade guides when migrating older projects. For affected systems:
+Read the [Unity 6.6 upgrade guide](https://docs.unity.com/en-us/engine/6000.6/manual/upgrade-guides/upgrade-guide-unity66) and all intervening upgrade guides when migrating older projects. For affected systems:
 
-- URP custom passes must use Render Graph. The 6.3 guide removes normal Compatibility Mode support; `URP_COMPATIBILITY_MODE` is a temporary conversion aid, not a shipping solution. Do not change the project's render pipeline merely to modernize examples.
+- URP custom passes must use Render Graph. The earlier Unity 6.3 guide removes normal Compatibility Mode support; `URP_COMPATIBILITY_MODE` is a temporary conversion aid, not a shipping solution. Do not change the project's render pipeline merely to modernize examples.
 - Replace `AccessibilityNode.selected` with `invoked`; use a single `AccessibilityRole`, and review enum-size assumptions and precompiled assemblies.
 - Review native-facing code and precompiled assemblies for the `SceneHandle` and `EntityId` type changes; rebuild affected assemblies against the selected Editor.
 - Resolve invalid USS syntax and unsupported selectors rather than suppressing importer errors.
@@ -160,7 +161,7 @@ Review platform and package-specific changes only where those systems are used. 
 
 ### Verification and evidence
 
-For changed Unity implementation, compile in the exact selected **6000.3.x** Editor, resolve newly introduced errors and obsolete-API warnings, run relevant Edit Mode and Play Mode tests, and exercise affected behavior. Build and test the affected target player/backend when runtime compatibility is involved; Editor success does not prove IL2CPP, platform, or player compatibility. Report remaining third-party warnings or blockers separately.
+For changed Unity implementation, compile in the exact selected **6000.6.3f1** Editor, resolve newly introduced errors and obsolete-API warnings, run relevant Edit Mode and Play Mode tests, and exercise affected behavior. Build and test the affected target player/backend when runtime compatibility is involved; Editor success does not prove IL2CPP, platform, or player compatibility. Report remaining third-party warnings or blockers separately.
 
 For documentation-only changes, verify examples against versioned Unity and package references and run this repository's validator and isolated PowerShell automation suite. Report whether examples were actually compiled in Unity. These checks do not certify separate game or companion repositories. If the required Editor, package, platform module, or project is unavailable, state the exact unverified surface rather than claiming full compatibility.
 
@@ -175,7 +176,7 @@ Every Geurts Unity project must contain the following two scenes. The Folder Str
 | 0 | `SCN_BigBang` | Project entry scene for booting and initialisation. |
 | 1 | `SCN_DevPlayground` | Initial development and testing scene. |
 
-Both scenes must be enabled in the effective scene list for each game Build Profile, with `SCN_BigBang` first and `SCN_DevPlayground` second. Additional enabled scenes follow at index 2 or later. If a profile overrides the global scene list, its override must retain the same two starting entries. Scene indices are zero-based build indices, not positions in the Editor hierarchy. See Unity's [Scene List guidance](https://docs.unity3d.com/6000.3/Documentation/Manual/build-profile-scene-list.html) and [scene build-index reference](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/SceneManagement.Scene-buildIndex.html).
+Both scenes must be enabled in the effective scene list for each game Build Profile, with `SCN_BigBang` first and `SCN_DevPlayground` second. Additional enabled scenes follow at index 2 or later. If a profile overrides the global scene list, its override must retain the same two starting entries. Scene indices are zero-based build indices, not positions in the Editor hierarchy. See Unity's Scene List guidance and scene build-index reference.
 
 Project setup must verify that both entries refer to real scene assets at their required paths and that neither is missing, disabled, duplicated or assigned the wrong index. Use supported Unity Editor scene and Build Profile APIs for changes; preserve existing scene contents, references and unrelated scene-list entries. Do not overwrite an existing scene to satisfy the baseline. The folder-creation script alone does not establish scene compliance.
 
@@ -309,7 +310,7 @@ Use UI Toolkit for new Geurts UI work. Inspect the existing UI before changing i
 
 All existing and future Forge-owned Editor UI must comply with the manifest-selected [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md). Reuse God's shared `ForgeEditorTheme` API and `ForgeEditorTheme.uss` for dark sci-fi surfaces and green accents; the independent Documentation Companion uses the technique's generated, parity-checked copy without acquiring a God dependency. Preserve meaningful Odin configuration and use UI Toolkit for new custom Editor UI. This Editor-only standard does not change runtime or player-facing game UI.
 
-For new custom UXML controls, use `[UxmlElement]` on a partial class and `[UxmlAttribute]` for exposed attributes, following the [Unity 6.3 UxmlElement reference](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/UIElements.UxmlElementAttribute.html). Avoid new `UxmlFactory`/`UxmlTraits` implementations. Use supported UXML/USS and verify data binding and lifecycle cleanup in the actual runtime or Editor context.
+For new custom UXML controls, use `[UxmlElement]` on a partial class and `[UxmlAttribute]` for exposed attributes, following the Unity 6.6 UxmlElement reference. Avoid new `UxmlFactory`/`UxmlTraits` implementations. Use supported UXML/USS and verify data binding and lifecycle cleanup in the actual runtime or Editor context.
 
 ---
 
@@ -364,7 +365,7 @@ Comments must be updated when behaviour changes.
 
 ## Odin Inspector Usage
 
-Odin Inspector is required within the implementation scope defined by the Unity 6.3 dependency baseline. Confirm a current stable Unity 6-compatible release is installed, licensed, and referenced by each applicable assembly definition before implementing or modifying scoped code. Use the [official Odin patch notes](https://odininspector.com/patch-notes) to verify compatibility; record the installed version in implementation evidence rather than pinning a moving release in this technique.
+Odin Inspector is required within the implementation scope defined by the Unity 6000.6.3f1 dependency baseline. Confirm a current stable Unity 6-compatible release is installed, licensed, and referenced by each applicable assembly definition before implementing or modifying scoped code. Use the [official Odin patch notes](https://odininspector.com/patch-notes) to verify compatibility; record the installed version in implementation evidence rather than pinning a moving release in this technique.
 
 Use Odin attributes as the default authoring layer for Geurts-owned components and ScriptableObjects. Prefer Odin's declarative drawers, validation, buttons, tables, and grouping over new one-off custom inspectors when they express the workflow clearly. Keep ordinary Unity serialization when it supports the required data. Use Odin serialization only for an intentional unsupported data shape or polymorphic contract, and test prefab overrides, asset persistence, domain reload behavior, IL2CPP/AOT, and stripping where applicable.
 
@@ -393,7 +394,7 @@ Runtime debugging and logging are comprehensive and filterable. The selected Dia
 
 ### Required Quantum Console Use
 
-Quantum Console is the required runtime developer console within the implementation scope defined by the Unity 6.3 dependency baseline. Confirm a current stable compatible release is installed and referenced by applicable assembly definitions. Use its `QFSW.QC` APIs, `[Command]`, `[CommandDescription]`, supported-platform controls, command processor, logging integration, and console lifecycle events instead of building a parallel runtime command or console system. Follow the [official getting-started guide](https://www.qfsw.co.uk/docs/QC/articles/quickstart/quickstart.html) and [command documentation](https://www.qfsw.co.uk/docs/QC/articles/docs/commands.html).
+Quantum Console is the required runtime developer console within the implementation scope defined by the Unity 6000.6.3f1 dependency baseline. Confirm a current stable compatible release is installed and referenced by applicable assembly definitions. Use its `QFSW.QC` APIs, `[Command]`, `[CommandDescription]`, supported-platform controls, command processor, logging integration, and console lifecycle events instead of building a parallel runtime command or console system. Follow the [official getting-started guide](https://www.qfsw.co.uk/docs/QC/articles/quickstart/quickstart.html) and [command documentation](https://www.qfsw.co.uk/docs/QC/articles/docs/commands.html).
 
 Every gameplay project must include a validated developer-console setup reachable in Play Mode and development builds, and the selected full Diagnostics console remains available in release builds. Provide the required EventSystem, use Quantum Console's SRP-compatible prefab/theme when the selected render pipeline requires it, and integrate its activate/deactivate events with the Input System so gameplay input does not continue unintentionally while the console has focus. Opening the console does not pause simulation. Follow the manifest-selected Diagnostics Technique for all-build access, classification and gameplay-session guards.
 
@@ -557,7 +558,7 @@ Apply this guidance only within the five-priority order defined above and the ap
 ## Multiplayer Efficiency Rule
 
 - Use Unity Netcode for GameObjects only when it is already installed or selected as the project's networking framework. Do not introduce or install it merely because this technique mentions it; inspect the project and use the selected networking equivalent.
-- When Netcode for GameObjects is selected, target a stable compatible **2.x** release; 1.x is deprecated for the 6.3 baseline. Prefer its universal `[Rpc]` API over legacy `[ServerRpc]`/`[ClientRpc]` in new code, with explicit targets and intentional ownership, authority, delivery, and validation rules. Review `NetworkTransform.Update` migrations for authority versus non-authority behavior. Use the [versioned RPC documentation](https://docs.unity3d.com/Packages/com.unity.netcode.gameobjects@2.7/manual/advanced-topics/message-system/rpc.html) for the installed release; this reference is not a universal package-version pin.
+- When Netcode for GameObjects is selected, target a stable compatible **2.x** release; 1.x is deprecated for this baseline. Prefer its universal `[Rpc]` API over legacy `[ServerRpc]`/`[ClientRpc]` in new code, with explicit targets and intentional ownership, authority, delivery, and validation rules. Review `NetworkTransform.Update` migrations for authority versus non-authority behavior. Use the [versioned RPC documentation](https://docs.unity3d.com/Packages/com.unity.netcode.gameobjects@2.7/manual/advanced-topics/message-system/rpc.html) for the installed release; this reference is not a universal package-version pin.
 - Minimise RPC calls.
 - Batch updates where possible.
 - Sync only the data required for gameplay correctness.
@@ -572,7 +573,7 @@ The multiplayer network-efficiency override applies regardless of the selected n
 A generated or modified Unity C# script is complete only when it:
 
 - Addresses the applicable Codex compatibility requirements above through discoverable interfaces, documentation and proportionate repeatable verification.
-- Meets the Unity 6.3 LTS compatibility baseline above, with the exact Editor patch, resolved packages, and relevant compile/test/build evidence recorded; unavailable validation is explicitly reported.
+- Meets the Unity 6.6 compatibility baseline above, with the exact Editor patch, resolved packages, and relevant compile/test/build evidence recorded; unavailable validation is explicitly reported.
 - Includes the compliance header only when it is a reusable cross-game Geurts Game Forge framework, library, or tooling component under the scope above.
 - Uses the correct folder location according to `GeurtsTechniques/GeurtsFolderStructureTechnique.md`.
 - Follows naming conventions.
