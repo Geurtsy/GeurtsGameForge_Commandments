@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "packageVersion": "0.36.0",
-  "publishedUtc": "2026-09-30T22:06:03Z",
+  "publishedUtc": "2026-09-30T22:28:24Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.documentation",
@@ -65,13 +65,13 @@
     {
       "id": "com.geurts.gameforge.settings",
       "name": "Geurts Game Forge Settings System",
-      "description": "Typed settings with shared pending edits, Apply and Cancel, authored defaults, persistence, recovery and optional owner providers.",
+      "description": "Preview: three-step beginner Editor setup with simple starters, current-state completion checks and advanced Odin configuration, plus transactional settings, explicit Apply/Cancel, persistence and optional providers. Native visual/input acceptance remains pending.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.settings",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#a1c2725aa014c17a9e822f6fab4cf4bcc33e9490",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#1696c613a1aff611e2802eef7a5fdf7e014d79eb",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [

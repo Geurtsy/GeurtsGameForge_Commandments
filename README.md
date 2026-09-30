@@ -7,7 +7,7 @@ Adds the manifest-selected [brick contract](GeurtsTechniques/GeurtsBrickContract
 
 God is maintained in its own [com.geurts.gameforge.god repository](https://github.com/Geurtsy/com.geurts.gameforge.god). The catalogue supplies immutable Git sources for nine packages across independently maintained repositories. All brick installations, including isolated candidate validation, use Git. Develop in separate source checkouts, publish and validate a strictly newer release on its repository's main branch, and retain the consuming project's previous Git version until the user updates through God. A local commit or an unpublished branch does not complete a release.
 
-[Settings System 0.3.0](https://github.com/Geurtsy/com.geurts.gameforge.settings) provides typed settings, a shared pending draft, explicit Apply and Cancel, authored defaults, persistence and recovery, display confirmation, and optional owner-provided settings. [User Interface Foundations 0.9.0](https://github.com/Geurtsy/com.geurts.gameforge.userinterface) adds controls and dialogs for that shared draft while retaining editable UI Toolkit menus, creation drafts, ordered controls, themes and appearance. Settings and UI Foundations each work without the other. Existing customized menus remain intact; adopt the Settings bindings explicitly.
+[Settings System 0.4.0](https://github.com/Geurtsy/com.geurts.gameforge.settings) adds a three-step beginner Editor setup: create a setting, include it in a runtime list, and check setup before testing in Play Mode. Simple starters and concise fields lead the screen; advanced Odin configuration remains available. It provides typed settings, a shared pending draft, explicit Apply and Cancel, authored defaults, persistence and recovery, display confirmation, and optional owner-provided settings. [User Interface Foundations 0.9.0](https://github.com/Geurtsy/com.geurts.gameforge.userinterface) adds controls and dialogs for that shared draft while retaining editable UI Toolkit menus, creation drafts, ordered controls, themes and appearance. Settings and UI Foundations each work without the other. Existing customized menus remain intact; adopt the Settings bindings explicitly.
 
 [Audio 0.5.0](https://github.com/Geurtsy/com.geurts.gameforge.audio) owns FMOD event playback, explicit bank preparation, reusable sound definitions, category preferences and optional FMOD pool completion. Its optional Settings provider exposes the six authored category VCA gains with native readback and restoration. When Settings owns those controls, it also owns their persistence; Audio's standalone writer is suspended. Audio 0.5.0 continues the opt-in FMOD-specific implementation: its playback requires FMOD Unity 2.03.14 and the project's authored banks. FMOD is not a general Forge requirement. Future Audio updates will support Unity's built-in audio and use it by default, with FMOD as an optional integration. This release does not claim a listening review or physical device-loss testing.
 
@@ -241,6 +241,11 @@ The current verified companion package is 0.13.0; use its immutable source from 
 - Publish God 0.26.0 and Documentation 0.13.0 with independently owned embedded brick tools and a fixed Back button.
 - Hide dashboard and brick update controls while viewing tools; preserve standalone windows and running engines.
 - Advance Brick Contract to 1.12.0, Theme to 1.3.0 and Companion Technique to 2.4.0; keep dependency and content-update boundaries unchanged.
+
+### v0.35.2 - Beginner Settings authoring
+
+- Catalogue the verified immutable Settings 0.4.0 release with the guided Editor setup and current-state completion checks. Native visual and physical-input checks remain unverified under the user's desktop-control waiver.
+- Keep the existing consumer release and all other catalogue entries intact. Catalogue availability does not install or update a consumer.
 
 ### v0.35.1 - Audio-owned FMOD pooling
 
