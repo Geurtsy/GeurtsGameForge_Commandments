@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.12.13
+**Version:** 0.12.14
 **Unity target:** Unity 6.3 LTS (6000.3)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -70,6 +70,28 @@ Select the intended **Windows Build Profile**, scene list, architecture and scri
 Use **CRLF** (carriage return followed by line feed, `\r\n`) for new and edited first-party text files, including C#, Markdown, JSON, PowerShell and batch files. Keep authored files consistently CRLF rather than mixing line endings. Record the policy in the owning source repository's Git attributes; this documentation repository uses `* text=auto eol=crlf`. Verify the affected working-tree files before delivery. Git's normalized text storage and LF-normalized hashes are internal representations and do not change the Windows authoring requirement.
 
 Apply this rule within the owning file's mutation contract. Preserve binary files, third-party assets, generated output and Unity-owned serialization through their supported tools. Do not reformat untouched files or overwrite protected existing content just to change newlines. Managed archive snapshots and exact template copies retain their source bytes; existing user-owned regions and create-if-missing targets retain their specified byte-preservation rules. Keep the comprehensive approved `.gitignore` payload intact; defensive exclusions for other tools and platforms do not establish supported development hosts or player targets.
+
+### Combined Unity CLI and Editor workflow
+
+Use Unity's built-in command-line interface (CLI) as the default for repeatable imports, compilation checks, automated Edit Mode and Play Mode tests, builds and scripted validation when it can verify the affected behavior correctly. Use the Unity Editor or target player for the visual, interaction and gameplay checks that require them. Combine these methods according to the evidence each check needs; a successful batch run does not establish visual or interactive correctness. The [Automation Technique's computer-control policy](GeurtsGameForgeAutomationTechnique.md#computer-control-during-implementation-and-tests) still requires explicit user authorization for interactive testing on the user's computer.
+
+| Work | Preferred method | Evidence |
+|---|---|---|
+| Import and compilation checks | Background Unity CLI batch run in the selected Editor version. | Completed process, exit code and full Editor log, including compiler errors and warnings. |
+| Repeatable Edit Mode and Play Mode tests | Unity Test Framework CLI with the intended test platform and focused suite. | Test result XML, pass/fail/skip counts and Editor log. |
+| Windows builds and scripted validation | Unity CLI with the intended Windows Build Profile or supported static Editor method. | Build or validation report, exit code and log; exercise the resulting player when required. |
+| Visual layout, input/focus behavior and live gameplay | Relevant Editor or Windows player inspection, using supported APIs or isolated fixtures where they provide sufficient evidence. | Actual rendered/behavior evidence for the affected surface; report any unavailable interactive check. |
+
+For a CLI run:
+
+- Select the exact supported Editor patch from the project's baseline and resolved dependencies. Invoke its `Unity.exe`; built-in Editor automation does not require installing a separate CLI product or a live connector.
+- Set `-projectPath`, use `-batchmode` for unattended work, and save the full log with `-logFile`. Use `-nographics` only for checks that do not require graphics; rendering or GPU-dependent behavior must retain graphics support.
+- For tests, use the installed compatible Unity Test Framework's `-runTests`, `-testPlatform` and `-testResults` arguments. Do not add `-quit` to an asynchronous test run: let the test runner finish and exit. For custom work, `-executeMethod` calls an existing supported static method in an Editor script; a synchronous run may use `-quit`, while asynchronous work must exit only after completion.
+- Check process completion, exit code, full logs and the expected result files together. Missing results, skipped coverage, compiler errors or an incomplete run must not be reported as a pass. Do not suppress compiler failures to make validation appear successful.
+- Batch mode cannot open a project already open in another Unity Editor instance. Preserve the user's live session and unsaved scenes/settings: use a separate validation project with the intended source and resolved dependencies when isolation is needed. Record its source revision and relevant differences; validation of saved/copied content does not prove unsaved live content. Do not close or save the user's Editor merely to run a check.
+- Reuse established validation entry points and run proportionate checks after meaningful changes. Group compatible checks where useful to reduce repeated startup/import work, without losing separate results or mixing incompatible test requirements. CLI reduces manual steps and supports repeatability; claim a time saving only when measured.
+
+Use the versioned [Unity 6.3 Editor command-line reference](https://docs.unity3d.com/6000.3/Documentation/Manual/EditorCommandLineArguments.html), [command-line build guidance](https://docs.unity3d.com/6000.3/Documentation/Manual/build-command-line.html), and the [Unity Test Framework command-line reference](https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/reference-command-line.html) for the installed compatible package version. These method choices retain the existing Windows workflow, Unity API serialization boundary and subject-specific acceptance gates.
 
 ---
 
