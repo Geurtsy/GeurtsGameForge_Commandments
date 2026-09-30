@@ -82,7 +82,11 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.35.0; the Technical Technique is v0.13.2.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.35.0; the Technical Technique is v0.13.3.
+
+## ID Naming
+
+All freely authored ID names use **lowercase words separated by underscores**, including UI Foundations element IDs: `Main Menu Button` becomes `main_menu_button`, never `main-menu-button`. The [Technical Technique's ID standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#id-names) defines validation, identity boundaries and safe migrations of existing IDs.
 
 ## Bootstrap Scene Persistence
 
@@ -234,9 +238,14 @@ The current verified companion package is 0.11.0; use its immutable source from 
 
 ### v0.35.0 - Module enable and disable switches
 
-- Publish God 0.24.0 with visible module checkboxes in installed menu rows and folded catalogue cards.
+- Publish God 0.25.0 with visible module checkboxes in installed menu rows and folded catalogue cards.
 - Publish independent Documentation Companion 0.12.0 with a module preference that pauses new checks and setup/content work without removing installed guidance.
 - Retain packages and settings, coordinate dependent modules, and explain locked core, busy or unavailable controls.
+### v0.34.2 - Lowercase ID names with underscores
+
+- Require lower_snake_case for all freely authored ID names in first-party games and Geurts bricks, including UI Foundations element IDs, with clear valid and invalid examples.
+- Define format and uniqueness validation, preserve required external and fixed contract identities, and require coordinated, versioned migrations for existing IDs.
+- Update the Technical Technique to v0.13.3; package schemas, folder registry, catalogue brick releases and installed consumers remain unchanged.
 
 ### v0.34.1 - Bootstrap scenes instead of DontDestroyOnLoad
 
