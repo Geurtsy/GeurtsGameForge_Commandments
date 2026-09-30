@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Git Attributes Technique
 
-**Version:** 1.0.0
+**Version:** 1.0.1
 **Status:** Approved normative technique
 **Required package path:** `GeurtsTechniques/GeurtsGitAttributesTechnique.md`
 **Target path:** `<ProjectRoot>/.gitattributes`
@@ -14,11 +14,11 @@ The two rules follow [FMOD's source-control guidance](https://fmod.com/docs/2.03
 
 ## Template contract
 
-Read the Markdown as strict UTF-8, permitting a leading BOM on the document only. Require exactly one begin marker, one end marker, and the immediately enclosed `gitattributes` fence below. The marked region ends the document, apart from its optional final newline. Copy only the enclosed payload. Normalize its newlines to LF for validation, with exactly one terminal LF. Its SHA-256 is `d051cf466ba5bffc055905a79ae76f93a60e27a3dbb8fcd16b968bb80c3e3d2d`, and it contains exactly two lines. Marker version, declared technique version and manifest registry version must all equal `1.0.0`. A missing, malformed, modified or unsupported template must preserve the target and explain that Documentation needs updating; there is no bundled fallback payload.
+Read the Markdown as strict UTF-8, permitting a leading BOM on the document only. Require exactly one begin marker, one end marker, and the immediately enclosed `gitattributes` fence below. The marked region ends the document, apart from its optional final newline. Copy only the enclosed payload. Normalize its newlines to LF for validation, with exactly one terminal LF. Its SHA-256 is `d051cf466ba5bffc055905a79ae76f93a60e27a3dbb8fcd16b968bb80c3e3d2d`, and it contains exactly two lines. Marker version, declared technique version and manifest registry version must all equal `1.0.1`. A missing, malformed, modified or unsupported template must preserve the target and explain that Documentation needs updating; there is no bundled fallback payload.
 
 ## Build Forge installation and verification
 
-God 0.20.0 adds **Install FMOD .gitattributes** as the sixth independently actionable Build Forge step. Opening the window, polling or selecting **Recheck** only verifies state. Installation requires an explicit step action and the installed documentation template; Documentation Update never installs project attributes.
+God 0.21.0 adds **Install FMOD .gitattributes** as the sixth independently actionable Build Forge step. Opening the window, polling or selecting **Recheck** only verifies state. Installation requires an explicit step action and the installed documentation template; Documentation Update never installs project attributes.
 
 - Create a missing project-root `.gitattributes` from the validated payload as UTF-8 without BOM with CRLF newlines.
 - For an existing valid UTF-8 file, preserve every existing byte, including BOM, comments, other rules and newline convention. Append the complete required rule pair after its contents, adding a separating newline only when needed. Prefer the existing CRLF or LF convention for the addition. An empty file uses CRLF.
@@ -30,7 +30,7 @@ Completion is derived from current files and a valid documentation template. Bot
 
 ## Approved payload
 
-<!-- GEURTS-GITATTRIBUTES-BEGIN version="1.0.0" target=".gitattributes" sha256="d051cf466ba5bffc055905a79ae76f93a60e27a3dbb8fcd16b968bb80c3e3d2d" -->
+<!-- GEURTS-GITATTRIBUTES-BEGIN version="1.0.1" target=".gitattributes" sha256="d051cf466ba5bffc055905a79ae76f93a60e27a3dbb8fcd16b968bb80c3e3d2d" -->
 ```gitattributes
 Assets/Plugins/FMOD/**/*.bundle text eol=lf
 Assets/Plugins/FMOD/**/Info.plist text eol=lf

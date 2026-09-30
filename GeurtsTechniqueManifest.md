@@ -126,7 +126,7 @@ Every path between the markers is part of the v0.29.0 repository package and mus
 | `GeurtsTechniques/GeurtsGameForgeIntelligenceIntegrationContract.md` | 2.0.0 | Non-normative compatibility redirect from the released legacy path; never selected as a second authority. |
 | `GeurtsTechniques/GeurtsAgentTechnique.md` | 1.0.0 | Sole AGENTS.md template and user-selected guide installation. |
 | `GeurtsTechniques/GeurtsGitIgnoreTechnique.md` | 1.0.1 | Normative approved project-root `.gitignore` payload, preserving the complete original template with appended FMOD rules. |
-| `GeurtsTechniques/GeurtsGitAttributesTechnique.md` | 1.0.0 | Normative FMOD LF attributes template and append-only Build Forge installer contract. |
+| `GeurtsTechniques/GeurtsGitAttributesTechnique.md` | 1.0.1 | Normative FMOD LF attributes template and append-only Build Forge installer contract. |
 | `GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.1.md` | 1.1 | Chat-only response technique; not an implementation standard. |
 | `Ideas/GameForgeIntelligenceIdeas.md` | 0.11.0 | Non-normative historical idea register and product-work pointer, explicitly subordinate to the companion contract. |
 | `Migrations/v0.11.0.md` | 0.11.0 | Non-normative transition guide for the independent companion and closed whole-file AI-route contract. |

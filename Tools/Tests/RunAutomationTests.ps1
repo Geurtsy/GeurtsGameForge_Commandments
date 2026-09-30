@@ -272,7 +272,7 @@ try {
     Assert-True ($repositoryGitIgnore.Valid -and $repositoryGitIgnore.LineCount -eq 404 -and $repositoryGitIgnore.EndsWithOneLf) "Approved custom .gitignore payload matches the normalized source"
 
     $attributesSource = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsGitAttributesTechnique.md'))
-    $attributesMatch = [regex]::Match($attributesSource.Replace("`r`n", "`n"), '(?ms)^<!-- GEURTS-GITATTRIBUTES-BEGIN version="1\.0\.0" target="\.gitattributes" sha256="d051cf466ba5bffc055905a79ae76f93a60e27a3dbb8fcd16b968bb80c3e3d2d" -->\n```gitattributes\n(?<Payload>.*?)^```\n<!-- GEURTS-GITATTRIBUTES-END -->\n?\z')
+    $attributesMatch = [regex]::Match($attributesSource.Replace("`r`n", "`n"), '(?ms)^<!-- GEURTS-GITATTRIBUTES-BEGIN version="1\.0\.1" target="\.gitattributes" sha256="d051cf466ba5bffc055905a79ae76f93a60e27a3dbb8fcd16b968bb80c3e3d2d" -->\n```gitattributes\n(?<Payload>.*?)^```\n<!-- GEURTS-GITATTRIBUTES-END -->\n?\z')
     $expectedAttributes = "Assets/Plugins/FMOD/**/*.bundle text eol=lf`nAssets/Plugins/FMOD/**/Info.plist text eol=lf`n"
     Assert-True ($attributesMatch.Success -and $attributesMatch.Groups['Payload'].Value -ceq $expectedAttributes) 'FMOD template contains the exact approved two-line rule pair'
     $attributesFixture = Join-Path $testRoot 'FmodAttributes'

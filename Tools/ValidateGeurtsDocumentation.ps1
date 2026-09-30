@@ -358,7 +358,7 @@ try {
         $attributesOffset = if ($attributesBytes.Length -ge 3 -and $attributesBytes[0] -eq 0xef -and $attributesBytes[1] -eq 0xbb -and $attributesBytes[2] -eq 0xbf) { 3 } else { 0 }
         $attributesUtf8 = New-Object System.Text.UTF8Encoding($false, $true)
         $attributesText = $attributesUtf8.GetString($attributesBytes, $attributesOffset, $attributesBytes.Length - $attributesOffset).Replace("`r`n", "`n").Replace("`r", "`n")
-        $attributesMatch = [regex]::Match($attributesText, '(?ms)^<!-- GEURTS-GITATTRIBUTES-BEGIN version="1\.0\.0" target="\.gitattributes" sha256="(?<Hash>[0-9a-f]{64})" -->\n```gitattributes\n(?<Payload>.*?)^```\n<!-- GEURTS-GITATTRIBUTES-END -->\n?\z')
+        $attributesMatch = [regex]::Match($attributesText, '(?ms)^<!-- GEURTS-GITATTRIBUTES-BEGIN version="1\.0\.1" target="\.gitattributes" sha256="(?<Hash>[0-9a-f]{64})" -->\n```gitattributes\n(?<Payload>.*?)^```\n<!-- GEURTS-GITATTRIBUTES-END -->\n?\z')
         $attributesPayload = $attributesMatch.Groups['Payload'].Value
         $attributesSha = [System.Security.Cryptography.SHA256]::Create()
         try { $attributesHash = ([System.BitConverter]::ToString($attributesSha.ComputeHash($attributesUtf8.GetBytes($attributesPayload)))).Replace('-', '').ToLowerInvariant() }
@@ -366,11 +366,11 @@ try {
         $attributesValid = $attributesMatch.Success -and $attributesHash -ceq 'd051cf466ba5bffc055905a79ae76f93a60e27a3dbb8fcd16b968bb80c3e3d2d' -and
             $attributesMatch.Groups['Hash'].Value -ceq $attributesHash -and [regex]::Matches($attributesText, 'GEURTS-GITATTRIBUTES-BEGIN').Count -eq 1 -and
             [regex]::Matches($attributesText, 'GEURTS-GITATTRIBUTES-END').Count -eq 1 -and [regex]::Matches($attributesPayload, "`n").Count -eq 2 -and
-            $attributesText -match '(?m)^\*\*Version:\*\* 1\.0\.0$' -and $manifestText.Contains('| `GeurtsTechniques/GeurtsGitAttributesTechnique.md` | 1.0.0 |') -and
+            $attributesText -match '(?m)^\*\*Version:\*\* 1\.0\.1$' -and $manifestText.Contains('| `GeurtsTechniques/GeurtsGitAttributesTechnique.md` | 1.0.1 |') -and
             $manifestText.Contains('| FMOD project-root `.gitattributes` template and explicit installation | `GeurtsTechniques/GeurtsGitAttributesTechnique.md` |')
     }
     catch { $attributesValid = $false }
-    Add-Check 'FMOD .gitattributes payload' $attributesValid 'The two-line UTF-8 payload, exact target/hash, 1.0.0 versions and manifest-selected owner agree.'
+    Add-Check 'FMOD .gitattributes payload' $attributesValid 'The two-line UTF-8 payload, exact target/hash, 1.0.1 versions and manifest-selected owner agree.'
 
     $requiredPathFailures = New-Object System.Collections.Generic.List[string]
     $legacyGfiRedirectRelative = "GeurtsTechniques/GeurtsGameForgeIntelligenceIntegrationContract.md"
