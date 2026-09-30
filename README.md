@@ -35,8 +35,8 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.30.1
-**Unity target:** Unity 6.3 LTS (6000.3)
+**Version:** 0.31.0
+**Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
 **Secondary audience:** AI maintaining the documentation source
@@ -60,7 +60,7 @@ God 0.14.2 keeps a requested refresh pending until Unity can complete the catalo
 
 ## FMOD line-ending setup
 
-The [Git Attributes Technique](GeurtsTechniques/GeurtsGitAttributesTechnique.md) supplies the two FMOD LF rules for project-root `.gitattributes`. God 0.21.0 adds **Install FMOD .gitattributes** as step 6 in Build Forge. Update the installed documentation to 0.28.1 or later first. The action creates a missing file or appends the final rule pair, preserving existing bytes. Verified files remain untouched on rerun. Documentation Update copies the template as reference content and does not install project attributes. God 0.21.0 remains an untagged preview pending the native visual acceptance matrix; existing catalogue pins remain unchanged.
+The [Git Attributes Technique](GeurtsTechniques/GeurtsGitAttributesTechnique.md) supplies the two FMOD LF rules for project-root `.gitattributes`. The God 0.22.0 source preview includes **Install FMOD .gitattributes** as step 6 in Build Forge. Update the installed documentation to 0.28.1 or later first. The action creates a missing file or appends the final rule pair, preserving existing bytes. Verified files remain untouched on rerun. Documentation Update copies the template as reference content and does not install project attributes. The God preview remains untagged pending its native visual acceptance matrix; existing catalogue pins remain unchanged.
 
 ## Audience tags
 
@@ -76,13 +76,13 @@ The manifest is the single resolver for package-file selection, versions, subjec
 
 Develop, test and build **on Windows for Windows, using Unity and Codex**, with **CRLF** line endings in authored text. The [Windows workflow](GeurtsTechniques/GeurtsTechnicalTechnique.md#windows-development-and-build-workflow) defines build validation and file-preservation boundaries. This repository's `.gitattributes` enforces CRLF in text checkouts; normalized Git/archive content and exact managed copies retain their own representation. The comprehensive approved `.gitignore` remains intact, including defensive exclusions for other tools and platforms.
 
-New and modified Unity code and examples target **Unity 6.3 LTS (6000.3)**. The manifest-selected [Technical Technique](GeurtsTechniques/GeurtsTechnicalTechnique.md#unity-63-lts-compatibility-baseline) owns Editor patch selection, compatible stable dependencies, C#/.NET limits, current APIs, migration checks, and validation requirements. Follow that baseline when updating consuming projects; newer Unity release lines do not silently change this target.
+New and modified Unity code and examples target **Unity 6.6 (6000.6.3f1)**. The manifest-selected [Technical Technique](GeurtsTechniques/GeurtsTechnicalTechnique.md#unity-600063f1-compatibility-baseline) owns Editor patch selection, compatible stable dependencies, C#/.NET limits, current APIs, migration checks, and validation requirements. Follow that baseline when updating consuming projects; newer Unity release lines do not silently change this target.
 
-Within its declared implementation scope, the Technical Technique requires licensed, Unity 6.3-compatible Odin Inspector and Quantum Console dependencies and requires meaningful use of their authoring, validation, inspection, command, logging, and diagnostics capabilities. Missing dependencies are implementation blockers. The independent Documentation Companion also requires these separately installed licensed assemblies while retaining no God or other Unity Package Manager package dependency; this documentation source repository contains no commercial tool assets.
+Within its declared implementation scope, the Technical Technique requires licensed, Unity 6000.6.3f1-compatible Odin Inspector and Quantum Console dependencies and requires meaningful use of their authoring, validation, inspection, command, logging, and diagnostics capabilities. Missing dependencies are implementation blockers. The independent Documentation Companion also requires these separately installed licensed assemblies while retaining no God or other Unity Package Manager package dependency; this documentation source repository contains no commercial tool assets.
 
 Games made with Geurts Game Forge should use **FMOD for sound design and game audio**. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this requirement and its game-audio integration scope.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package remains the v0.29.0 draft; the Technical Technique is v0.12.15.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.31.0; the Technical Technique is v0.13.0.
 
 ## Unity CLI and Editor validation
 
@@ -222,9 +222,15 @@ The current verified companion package is 0.10.3; use its immutable source from 
 
 ## Changelog
 
-### v0.30.1 - Fix documentation installation rate limits
+### v0.31.0 — Target Unity 6000.6.3f1
 
-- Catalogue Documentation Companion 0.10.3 at its immutable published Git commit. Documentation installation resolves main using Git HTTP reference discovery instead of the anonymous GitHub REST API, while preserving exact-commit downloads and the existing confirmation and validation safeguards.
+- Sets the exact Unity Editor target for new and updated Forge code, tests, tools and examples to 6000.6.3f1.
+- Requires supported APIs without deprecation or obsolete warnings in first-party code; updates the object-discovery example to the Unity 6.6 overload without sort mode.
+- Keeps existing catalogue release pins until each package has been migrated, validated and published independently.
+
+### v0.30.1 — Fix documentation installation rate limits
+
+- Catalogues Documentation Companion 0.10.3 at its immutable Git commit. It resolves main with Git HTTP reference discovery while retaining exact-commit downloads and confirmation safeguards.
 
 ### v0.30.0 — Publish Settings, UI bindings, Audio and Object Pooling
 
