@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "definitionVersion": "0.11.0",
-  "packageVersion": "0.32.1",
+  "definitionVersion": "0.12.0",
+  "packageVersion": "0.33.0",
   "canonicalPath": "GeurtsTechniques/GeurtsFolderStructureDefinition.json",
   "pathBase": "<ProjectRoot>",
   "pathSeparator": "/",
-  "managedFolderCount": 69,
-  "projectStructureFolderCount": 67,
+  "managedFolderCount": 78,
+  "projectStructureFolderCount": 76,
   "explanatoryAuthority": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
   "automationAuthority": "GeurtsTechniques/GeurtsFolderStructureDefinition.json",
   "contentCategories": [
@@ -20,7 +20,7 @@
     {
       "id": "full-project-structure",
       "owner": "folder-structure-tool",
-      "purpose": "Creates exactly the 67 project-structure folders historically managed by CreateGeurtsFolderStructure."
+      "purpose": "Creates exactly the 76 reusable project-structure folders declared by this definition."
     },
     {
       "id": "native-entry",
@@ -99,17 +99,57 @@
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
     },
     {
+      "path": "Tools/Build",
+      "requirement": "optional",
+      "purpose": "Host-side build and packaging scripts.",
+      "contentCategory": "tooling",
+      "parent": "Tools",
+      "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
+    },
+    {
+      "path": "Tools/Validation",
+      "requirement": "optional",
+      "purpose": "Host-side project validation and verification scripts.",
+      "contentCategory": "tooling",
+      "parent": "Tools",
+      "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
+    },
+    {
       "path": "External",
       "requirement": "optional",
-      "purpose": "Third-party or raw source material not yet integrated into Unity.",
+      "purpose": "Third-party vendor drops and reference material not yet integrated into Unity.",
       "contentCategory": "third-party-content",
       "parent": null,
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
     },
     {
+      "path": "SourceAssets",
+      "requirement": "optional",
+      "purpose": "First-party editable source files kept outside the Unity import pipeline.",
+      "contentCategory": "unity-project",
+      "parent": null,
+      "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
+    },
+    {
+      "path": "SourceAssets/Art",
+      "requirement": "optional",
+      "purpose": "Editable art originals and export inputs, such as DCC project files.",
+      "contentCategory": "unity-project",
+      "parent": "SourceAssets",
+      "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
+    },
+    {
+      "path": "SourceAssets/Audio",
+      "requirement": "optional",
+      "purpose": "Editable audio sessions and source recordings, independent of the selected audio backend.",
+      "contentCategory": "unity-project",
+      "parent": "SourceAssets",
+      "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
+    },
+    {
       "path": "Assets/_Project",
       "requirement": "required",
-      "purpose": "Root for first-party production assets.",
+      "purpose": "Root for first-party Unity-imported production assets.",
       "contentCategory": "unity-project",
       "parent": "Assets",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
@@ -125,7 +165,7 @@
     {
       "path": "Assets/_Addressables",
       "requirement": "optional",
-      "purpose": "Optional grouping layer for addressable-managed assets.",
+      "purpose": "Optional Addressables grouping and configuration metadata; source assets retain their owning folders.",
       "contentCategory": "unity-project",
       "parent": "Assets",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
@@ -149,7 +189,7 @@
     {
       "path": "Assets/_Project/Art",
       "requirement": "required",
-      "purpose": "First-party visual source assets and imported art.",
+      "purpose": "First-party art imported into the Unity asset pipeline; editable originals belong in SourceAssets/Art.",
       "contentCategory": "unity-project",
       "parent": "Assets/_Project",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
@@ -157,7 +197,7 @@
     {
       "path": "Assets/_Project/Art/2D",
       "requirement": "optional",
-      "purpose": "Two-dimensional art assets.",
+      "purpose": "Imported two-dimensional art that is neither a sprite nor a general texture.",
       "contentCategory": "unity-project",
       "parent": "Assets/_Project/Art",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
@@ -189,7 +229,7 @@
     {
       "path": "Assets/_Project/Art/Textures",
       "requirement": "optional",
-      "purpose": "Texture source and imported texture assets.",
+      "purpose": "General imported texture assets that are not owned as sprites.",
       "contentCategory": "unity-project",
       "parent": "Assets/_Project/Art",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
@@ -213,7 +253,7 @@
     {
       "path": "Assets/_Project/Audio/Music",
       "requirement": "optional",
-      "purpose": "Music tracks and music source assets.",
+      "purpose": "Imported music tracks; editable session originals belong in SourceAssets/Audio.",
       "contentCategory": "unity-project",
       "parent": "Assets/_Project/Audio",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
@@ -251,6 +291,14 @@
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
     },
     {
+      "path": "Assets/_Project/Localization",
+      "requirement": "optional",
+      "purpose": "Optional first-party locale, string-table, and translated-content assets.",
+      "contentCategory": "unity-project",
+      "parent": "Assets/_Project",
+      "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
+    },
+    {
       "path": "Assets/_Project/Data",
       "requirement": "required",
       "purpose": "ScriptableObjects and other structured first-party gameplay data.",
@@ -259,33 +307,17 @@
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
     },
     {
-      "path": "Assets/_Project/Data/Items",
+      "path": "Assets/_Project/Data/Definitions",
       "requirement": "optional",
-      "purpose": "Item definitions and item data.",
+      "purpose": "Structured content and gameplay definitions, including ScriptableObject assets.",
       "contentCategory": "unity-project",
       "parent": "Assets/_Project/Data",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
     },
     {
-      "path": "Assets/_Project/Data/Enemies",
+      "path": "Assets/_Project/Data/Tables",
       "requirement": "optional",
-      "purpose": "Enemy definitions and enemy data.",
-      "contentCategory": "unity-project",
-      "parent": "Assets/_Project/Data",
-      "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
-    },
-    {
-      "path": "Assets/_Project/Data/Weapons",
-      "requirement": "optional",
-      "purpose": "Weapon definitions and weapon data.",
-      "contentCategory": "unity-project",
-      "parent": "Assets/_Project/Data",
-      "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
-    },
-    {
-      "path": "Assets/_Project/Data/Progression",
-      "requirement": "optional",
-      "purpose": "Progression, reward, unlock, and economy data.",
+      "purpose": "Row-based or tabular gameplay datasets.",
       "contentCategory": "unity-project",
       "parent": "Assets/_Project/Data",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
@@ -315,9 +347,9 @@
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
     },
     {
-      "path": "Assets/_Project/Prefabs/Characters",
+      "path": "Assets/_Project/Prefabs/Entities",
       "requirement": "optional",
-      "purpose": "Character prefabs.",
+      "purpose": "Actor and entity root prefabs, such as characters, agents, or vehicles.",
       "contentCategory": "unity-project",
       "parent": "Assets/_Project/Prefabs",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
@@ -347,9 +379,9 @@
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
     },
     {
-      "path": "Assets/_Project/Prefabs/Weapons",
+      "path": "Assets/_Project/Prefabs/Gameplay",
       "requirement": "optional",
-      "purpose": "Weapon prefabs.",
+      "purpose": "Reusable gameplay objects, mechanics, and feature prefabs.",
       "contentCategory": "unity-project",
       "parent": "Assets/_Project/Prefabs",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
@@ -413,7 +445,7 @@
     {
       "path": "Assets/_Project/Scripts",
       "requirement": "required",
-      "purpose": "All first-party Unity code.",
+      "purpose": "Project-authored Unity code; shared Geurts brick code retains package ownership.",
       "contentCategory": "unity-project",
       "parent": "Assets/_Project",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
@@ -429,7 +461,7 @@
     {
       "path": "Assets/_Project/Scripts/Gameplay",
       "requirement": "optional",
-      "purpose": "Player, enemy, combat, objective, and gameplay-domain code.",
+      "purpose": "Game-specific mechanics and gameplay-domain code.",
       "contentCategory": "unity-project",
       "parent": "Assets/_Project/Scripts",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
@@ -485,17 +517,49 @@
     {
       "path": "Assets/_Project/Scripts/Testing",
       "requirement": "optional",
-      "purpose": "Automated tests and test helper code.",
+      "purpose": "Automated test code and test helpers with explicit test assembly boundaries.",
       "contentCategory": "tooling",
       "parent": "Assets/_Project/Scripts",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
     },
     {
+      "path": "Assets/_Project/Scripts/Testing/EditMode",
+      "requirement": "optional",
+      "purpose": "Edit Mode test code in explicitly configured test assemblies.",
+      "contentCategory": "tooling",
+      "parent": "Assets/_Project/Scripts/Testing",
+      "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
+    },
+    {
+      "path": "Assets/_Project/Scripts/Testing/PlayMode",
+      "requirement": "optional",
+      "purpose": "Play Mode test code in explicitly configured test assemblies.",
+      "contentCategory": "tooling",
+      "parent": "Assets/_Project/Scripts/Testing",
+      "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
+    },
+    {
       "path": "Assets/_Project/Settings",
       "requirement": "optional",
-      "purpose": "Configuration assets and project-level runtime settings.",
+      "purpose": "Project and service configuration assets, excluding mutable player save data.",
       "contentCategory": "unity-project",
       "parent": "Assets/_Project",
+      "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
+    },
+    {
+      "path": "Assets/_Project/Settings/Input",
+      "requirement": "optional",
+      "purpose": "First-party input action assets and input configuration.",
+      "contentCategory": "unity-project",
+      "parent": "Assets/_Project/Settings",
+      "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
+    },
+    {
+      "path": "Assets/_Project/Settings/Rendering",
+      "requirement": "optional",
+      "purpose": "First-party render pipeline, quality, and rendering configuration assets.",
+      "contentCategory": "unity-project",
+      "parent": "Assets/_Project/Settings",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
     },
     {
@@ -509,7 +573,7 @@
     {
       "path": "Assets/_Project/UI",
       "requirement": "required",
-      "purpose": "User-interface assets that are not stored in another domain folder.",
+      "purpose": "UI layouts, styles, fonts, icons, and screen assets; code and GameObject prefabs retain separate owners.",
       "contentCategory": "unity-project",
       "parent": "Assets/_Project",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
@@ -565,9 +629,17 @@
     {
       "path": "Assets/_Project/Testing",
       "requirement": "optional",
-      "purpose": "Test scenes, test data, mocks, and QA helpers.",
+      "purpose": "Non-code test assets and QA support; test scenes remain in Scenes/Test.",
       "contentCategory": "tooling",
       "parent": "Assets/_Project",
+      "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
+    },
+    {
+      "path": "Assets/_Project/Testing/Fixtures",
+      "requirement": "optional",
+      "purpose": "Non-code test fixtures, test data, and mock assets.",
+      "contentCategory": "tooling",
+      "parent": "Assets/_Project/Testing",
       "automation": { "mayCreate": true, "mayRemove": false, "owner": "folder-structure-tool", "creationProfiles": ["full-project-structure"] }
     },
     {
