@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.9.2
+**Version:** 0.10.0
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers and compatible Unity integrations
@@ -39,6 +39,12 @@ Use a host-provided pending automation objective only after the user explicitly 
 Codex must always merge completed, appropriately validated changes into the owning repository's `main` branch unless the current user explicitly specifies another destination or asks to leave the work unmerged. Do not stop at a local edit, feature branch, draft or open pull request when the authorized work can be safely completed and merged. The user's request for implementation supplies standing authorization for this delivery step; do not ask for redundant merge permission.
 
 Follow the repository's supported merge workflow, required checks and branch protections. Keep the merge scoped to the requested changes, preserve unrelated work and unsaved Unity state, and verify that the intended commit is present on remote `main` when a remote exists. This rule does not authorize force-pushing, bypassing failed checks or protections, or merging unrelated or incomplete work. If a real blocker prevents the merge, finish the safe work available and report the exact blocker and remaining delivery step without claiming a successful merge.
+
+### Remote publication and consumer installation
+
+Never report a local-only commit, local `main` merge or isolated checkout as completed delivery. Local commits are allowed as intermediate work, but the verified intended changes must reach remote `main` and their immutable higher-version Git release before completion unless the current user explicitly asks to leave work unpublished. Preserve incomplete work on a clearly identified remote candidate branch and report remaining acceptance gates; that branch is not a released or installed package.
+
+For every brick feature or maintenance change, follow the Brick Contract's publish-first sequence: keep the consuming project on its old Git version, develop and validate separately using Git candidate sources, publish the newer Git release and update the authoritative catalogue, then update and verify the consumer through Unity Package Manager. Do not install live local copies, overwrite source folders, downgrade packages or reuse a release version. Report source validation, remote publication/catalogue status and actual consumer installation separately, with exact versions and commits. Resolve simultaneous work against current remote state and preserve all intended changes before merging.
 
 ## Computer Control During Implementation and Tests
 
