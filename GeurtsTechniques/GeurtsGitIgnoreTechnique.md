@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Git Ignore Technique
 
-**Version:** 1.0.0
+**Version:** 1.0.1
 **Status:** Approved normative technique
 **Primary audience:** AI coding agents, automated development systems, and compatible setup integrations
 **Secondary audience:** Human developers and package maintainers
@@ -12,7 +12,7 @@
 
 ## Purpose and Authority
 
-This document owns the approved custom Unity project `.gitignore` payload consumed by compatible setup tools. The payload preserves the exact logical contents of the approved source template after newline normalization. The approved source was UTF-8 without a byte-order mark, used CRLF newlines, ended with a newline, and had raw SHA-256 `c8412a38435bccd89f1fefb855da3c24680612c27609341e64dcbaf99c0f88ab` before normalization.
+This document owns the approved custom Unity project `.gitignore` payload consumed by compatible setup tools. Version 1.0.1 retains the complete original template and appends FMOD source-control rules. The approved source is UTF-8 without a byte-order mark, uses CRLF newlines and ends with one newline. The metadata below identifies both that representation and its LF-normalized fingerprint.
 
 `GeurtsTechniqueManifest.md` selects this technique when the payload is needed. Prose and Markdown outside the marked payload below are explanatory only and must never be copied into a project `.gitignore`.
 
@@ -24,21 +24,23 @@ Decode the document as valid UTF-8, permitting a byte-order mark only at the beg
 
 | Field | Value |
 |---|---|
-| Template version | `1.0.0` |
+| Template version | `1.0.1` |
 | Target | `.gitignore` |
-| Logical line count | `376` |
-| Normalized SHA-256 | `7223a9449718942d3a5cad00cf4d4e0dee9c89eb64951541fa4ebfb803acb45b` |
-| Approved CRLF source SHA-256 | `c8412a38435bccd89f1fefb855da3c24680612c27609341e64dcbaf99c0f88ab` |
+| Logical line count | `404` |
+| Normalized SHA-256 | `4d9408d141d128225e02615c7e72031d53153f5dfcc9427305a6c651689008d4` |
+| Approved CRLF source SHA-256 | `1af49cb7916167b1dad80b762ba5e545fc727f609970a268069027f997658216` |
 
 If the marked documentation payload is missing or its metadata, fence structure, normalized line count, terminal newline, or hash does not match, fail safely and preserve the target exactly. Do not create a missing target from an invalid payload and do not copy a partial payload. This payload contract has `fallbackPolicy: none`; `com.gameforge.intelligence` must not bundle or substitute a plugin-owned copy of this Geurts payload.
 
 A compatible setup operation may act only with explicit user authorization for this `.gitignore` subject. When authorized, it may create `<ProjectRoot>/.gitignore` only when the target is missing and this marked payload validates exactly. An identical existing target is reported unchanged and without rewriting. If the target already exists and differs, preserve its bytes and timestamp exactly and report `preserved` or `conflict`; never append, merge, replace, or reformat it. There is no Git index mutation: never stage, unstage, add, remove, or otherwise change Git tracking state through this operation.
 
-The fenced bytes below are a literal imported compatibility source. Names and comments inside the fenced payload are preserved source content, not generic Geurts assumptions, and must not be edited to modernize prose.
+The fenced bytes below are versioned compatibility content. The original imported rules, names and comments remain intact. A payload change must update its technique version, manifest version, line count and both hashes, and have compatible consumer support before publication. Documentation Companion 0.10.2 supports this FMOD template and the original 1.0.0 template; update an older companion before provisioning 1.0.1.
+
+The FMOD additions follow the official [Unity ignore recommendations](https://ggj.fmod.com/docs/Development/Unity/unity-ignore.html) and [Studio project cache recommendations](https://ggj.fmod.com/docs/Audio/sharing-fmod-projects-with-audio-team-members.html#ignore). FMOD Studio work folders and the Unity cache/log are ignored, while integration libraries and Editor resources remain tracked. The library exception includes nested architecture folders so the original debug-file rules cannot hide FMOD integration files. The StreamingAssets bank rules cover generated copies: retain the source banks elsewhere in version control, or remove those two rules if StreamingAssets contains the authoritative bank input. Keep FMOD Studio projects, metadata and source audio tracked; large source audio may use Git LFS. These rules do not change already tracked files or authorize changing an existing project `.gitignore`.
 
 ## Approved Payload
 
-<!-- GEURTS-GITIGNORE-BEGIN version="1.0.0" target=".gitignore" sha256="7223a9449718942d3a5cad00cf4d4e0dee9c89eb64951541fa4ebfb803acb45b" -->
+<!-- GEURTS-GITIGNORE-BEGIN version="1.0.1" target=".gitignore" sha256="4d9408d141d128225e02615c7e72031d53153f5dfcc9427305a6c651689008d4" -->
 ```gitignore
 # =============================================================================
 # Siegefall / Geurts Unity Project .gitignore
@@ -416,5 +418,33 @@ plastic.workspace
 
 # GameForge Intelligence / Geurts synchronized documentation
 .geurts/
+
+
+# =============================================================================
+# FMOD Unity integration and Studio project generated state
+# =============================================================================
+# Recommended by FMOD; keep these entries after broader ignore rules.
+# https://ggj.fmod.com/docs/Development/Unity/unity-ignore.html
+# https://ggj.fmod.com/docs/Audio/sharing-fmod-projects-with-audio-team-members.html
+
+# Preserve integration libraries, gizmos and Editor resources.
+!/[Aa]ssets/Plugins/FMOD/**/lib/**
+!/[Aa]ssets/Gizmos/FMOD/*
+!/[Aa]ssets/Editor Default Resources/FMOD/*
+
+# Locally regenerated Unity integration cache and Editor log.
+/[Aa]ssets/Plugins/FMOD/Cache/*
+fmod_editor.log
+
+# FMOD Studio work folders, including Studio projects nested in this repository.
+**/.cache/
+**/.user/
+**/.unsaved/
+
+# Generated StreamingAssets bank copies; keep source banks elsewhere in Git.
+# Remove these two rules if StreamingAssets holds the authoritative bank input.
+/[Aa]ssets/StreamingAssets/**/*.bank
+/[Aa]ssets/StreamingAssets/**/*.bank.meta
+# Keep .fspro, Metadata/, source audio and source banks outside StreamingAssets.
 ```
 <!-- GEURTS-GITIGNORE-END -->
