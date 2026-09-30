@@ -1,9 +1,9 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Documentation Companion Technique
 
-**Version:** 2.2.1
+**Version:** 2.2.2
 **Contract schema:** 2.0.0
-**Package version:** 0.28.0
+**Package version:** 0.27.1
 **Status:** Draft normative technique
 **Primary audience:** Geurts Documentation Companion implementers and package maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -23,7 +23,7 @@ The companion is a small, Windows-only, Editor-only Unity package installed into
 GeurtsTechniques/GeurtsDocumentationCompanionContract.json
 ```
 
-This repository contains no Documentation Companion plugin code. A Geurts documentation release does not require a companion-package release unless the companion must add support for a changed contract schema.
+This repository contains no Documentation Companion plugin code. A Geurts documentation release does not require a companion-package release unless the companion must add support for a changed contract schema or a changed, exactly pinned Git Ignore Technique payload.
 
 There is no external installer, Windows bootstrap, batch-driven setup, or separate companion setup action. Installing the Editor package through Unity Package Manager is the only companion installation route defined here.
 
@@ -37,7 +37,7 @@ The companion may expose its current busy state and explanatory operation status
 
 ### Explicit saved consent for automatic God-opening updates
 
-God 0.15.0 may expose **Auto-update everything when God opens**, off by default. Before saving this project opt-in, God explains and obtains affirmative consent for the same four exact managed targets, loss of local edits with no backup or rollback, and preservation of every unlisted path including `Docs/GameDesign/`. Cancel leaves the preference off. This saved consent is the sole exception to the per-invocation manual confirmation requirement; it does not change the schema-2.0.0 contract, archive validation, replacement order or target boundary. The following sections describe standalone startup and manual Update unless this narrow opt-in explicitly applies.
+God 0.19.0 exposes **Automatically update packages and documentation**, off by default. A separate default-off **Automatically refresh the catalogue** setting controls catalogue acquisition and does not grant documentation-update consent. Both options apply only to deliberate God menu openings, never restored windows or Unity startup. Before saving the updates project opt-in, God explains and obtains affirmative consent for the same four exact managed targets, loss of local edits with no backup or rollback, and preservation of every unlisted path including `Docs/GameDesign/`. Cancel leaves the preference off. This saved consent is the sole exception to the per-invocation manual confirmation requirement; it does not change the schema-2.0.0 contract, archive validation, replacement order or target boundary. The following sections describe standalone startup and manual Update unless this narrow opt-in explicitly applies.
 
 Documentation 0.10.0 exposes `DocumentationIntegration.UpdateDocumentationAutomaticallyAsync(Func<bool> stillAuthorized)` for that host. God 0.17.1 calls it only during an opted-in deliberate menu opening, never when restoring its window at Unity startup, after package work, with a live callback that remains true only while God stays open and its saved preference is enabled. The companion checks metadata and acquires a candidate only if content needs an update. Recheck consent and conflicting host/Editor operations after download and before the first replacement. Closing God, disabling the option or encountering an operation conflict stops pending replacement. Current content requires no download. Failed checks do not trigger acquisition.
 
@@ -182,4 +182,4 @@ A conforming companion:
 
 ## Separate Codex guide installation
 
-The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. The current verified companion is 0.10.1 in the catalogue; schema-2.0.0 support was introduced in 0.7.0 and the schema compatibility boundary is unchanged.
+The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. The current verified companion is 0.10.2 in the catalogue; schema-2.0.0 support was introduced in 0.7.0 and the schema compatibility boundary is unchanged.
