@@ -15,7 +15,7 @@ God is maintained in its own [com.geurts.gameforge.god repository](https://githu
 
 These releases require **God 0.20.0** or newer for the shared contracts. God is the only mandatory Geurts dependency of those core bricks. The optional FMOD adapter additionally requires Object Pooling 0.2.1. Licensed Odin Inspector and Quantum Console, FMOD for Audio and the adapter, and each package's declared Unity dependencies still apply. Native UI/input and listening checks remain outside the background-only validation authorized for this release. Package validation records distinguish automated evidence from those unverified checks. The release check also used God 0.20.0 to verify and install all five newer immutable Git releases from their previous versions in an isolated Unity project, including queued operations across script reloads. The live consuming project retained its previous package versions, settings and scenes.
 
-[Save and Load 0.1.0](https://github.com/Geurtsy/com.geurts.gameforge.saveload) remains an informational starter with no runtime saving system. Documentation Companion 0.10.2 and Diagnostics 0.6.1 retain their existing releases. The private repositories require Git access. Open **Game Forge God**, select **Refresh Catalogue**, then **Check for Updates** and the desired **Update** actions. Catalogue publication makes the newer packages available; it does not update the project's installed packages.
+[Save and Load 0.1.0](https://github.com/Geurtsy/com.geurts.gameforge.saveload) remains an informational starter with no runtime saving system. Documentation Companion 0.10.3 fixes documentation installation rate limits; Diagnostics 0.6.1 retains its existing release. The private repositories require Git access. Open **Game Forge God**, select **Refresh Catalogue**, then **Check for Updates** and the desired **Update** actions. Catalogue publication makes the newer packages available; it does not update the project's installed packages.
 
 God 0.15.0 and standalone Diagnostics 0.6.1 follow the shared logging and session contracts governed by the [Diagnostics Technique](GeurtsTechniques/GeurtsDiagnosticsTechnique.md). Diagnostics retains the resizable performance overlay with a font-safe ASCII resize grip and formats Help so every command name has its own line with indented details. Its Editor window and owned inspectors reuse God's shared theme; install or update God to 0.14.0 or newer before Diagnostics 0.6.1.
 
@@ -35,7 +35,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.30.0
+**Version:** 0.30.1
 **Unity target:** Unity 6.3 LTS (6000.3)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -218,9 +218,13 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 
 ## Codex guide installation
 
-The current verified companion package is 0.10.2; use its immutable source from the catalogue. In Geurts Documentation, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
+The current verified companion package is 0.10.3; use its immutable source from the catalogue. In Geurts Documentation, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.30.1 - Fix documentation installation rate limits
+
+- Catalogue Documentation Companion 0.10.3 at its immutable published Git commit. Documentation installation resolves main using Git HTTP reference discovery instead of the anonymous GitHub REST API, while preserving exact-commit downloads and the existing confirmation and validation safeguards.
 
 ### v0.30.0 — Publish Settings, UI bindings, Audio and Object Pooling
 
