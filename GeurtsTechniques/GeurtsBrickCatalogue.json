@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.28.1",
-  "publishedUtc": "2026-09-30T11:46:11Z",
+  "packageVersion": "0.29.0",
+  "publishedUtc": "2026-09-30T12:11:59Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.documentation",
@@ -26,11 +26,11 @@
       "name": "Geurts Game Forge God",
       "description": "Game Forge God package management, installed brick menus, Build Forge setup, optional Documentation integration, lifecycle, settings and optional scene-startup/input cooperation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.19.0",
+      "version": "0.20.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#2da4ec1da9bec8124eb668108fbca8c0adb37eea",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#ac5136fcf617fc69e43972a64132a537452ace9a",
       "minimumUnity": "6000.3",
       "maximumUnity": "6000.3",
       "requiredTools": [
@@ -134,13 +134,13 @@
     {
       "id": "com.geurts.gameforge.audio",
       "name": "Geurts Game Forge Audio",
-      "description": "Starter package with an Editor main menu describing planned shared audio playback and management. Runtime audio functionality is not implemented.",
+      "description": "Preview: FMOD audio ownership, explicit bank preparation and reusable sound definitions. Unity/player and audible acceptance remain incomplete; requires FMOD Unity 2.03.14.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
-      "version": "0.1.0",
+      "version": "0.2.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#ed18bdcab73d37bf30d2e64ead56bf3679bc4c69",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#dec45be7137cd87d93ec0e5cb1727450209c028c",
       "minimumUnity": "6000.3",
       "maximumUnity": "6000.3",
       "requiredTools": [
@@ -150,7 +150,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.14.2"
+          "minimumVersion": "0.18.0"
         }
       ]
     },

@@ -208,7 +208,7 @@ All code suggestions, refactoring, and automated completions must comply with th
 
 ### Provenance and authority
 
-Game Forge Intelligence `CODEX_ENGINEERING_RULES.md` v0.28.0 was reviewed as source material for this version. The reusable, non-conflicting guidance below is selectively adapted from that file and consolidated with existing Geurts rules. The source file is not a Geurts authority, and its broad catalogs or independent priority language do not override this technique.
+Game Forge Intelligence `CODEX_ENGINEERING_RULES.md` v0.29.0 was reviewed as source material for this version. The reusable, non-conflicting guidance below is selectively adapted from that file and consolidated with existing Geurts rules. The source file is not a Geurts authority, and its broad catalogs or independent priority language do not override this technique.
 
 The strict priorities and multiplayer exception defined above remain controlling. The source material did not add or reorder priorities.
 
