@@ -1,9 +1,9 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Documentation Companion Technique
 
-**Version:** 2.3.0
+**Version:** 2.4.0
 **Contract schema:** 2.0.0
-**Package version:** 0.35.0
+**Package version:** 0.36.0
 **Status:** Draft normative technique
 **Primary audience:** Geurts Documentation Companion implementers and package maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -34,6 +34,10 @@ God may be installed before this companion. Its **Game Forge God** interface may
 The package and documentation content have independent versions and update actions. A companion package update does not replace the project-local documentation content. A content Update invoked from Game Forge God uses this technique's same exact action, confirmation, source, validation and closed mutation boundary. It must show the one cancel-default confirmation before archive acquisition, including on the first manual content installation. God does not add an earlier preview, another confirmation, additional automatic checks, or an automatic content Update after manual package installation or Update All. The explicitly opted-in God-opening exception is defined below.
 
 The companion may expose its current busy state and explanatory operation status to Game Forge God so both interfaces report the same work and prevent conflicting package/content operations. A missing integration API must produce an actionable companion-update message, not a second implementation of this lifecycle. Neither the integration nor busy-state presentation grants access to any additional project path or script.
+
+### Embedded Documentation tools
+
+Documentation **0.13.0** exposes `DocumentationIntegration.CreateEmbeddedWindow(Action<string> navigate)` for God **0.26.0** or later. It returns an unshown, independent Editor window owned by the host. The embedded tools hide package/content update cards and update-check actions and start no opening check. The callback selects Build Forge inside God; it is navigation, not permission to install or update anything. Back or host closure destroys only this owned view and releases its subscriptions. Independent standalone Documentation windows retain their existing checks, tools and update controls. This API introduces no God dependency, extra project access or change to the closed Update contract.
 
 ### Explicit saved consent for automatic God-opening updates
 

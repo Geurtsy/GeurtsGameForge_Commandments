@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Editor UI Theme Technique
 
-**Version:** 1.2.0
+**Version:** 1.3.0
 **Status:** Normative mandatory standard
 **Primary audience:** Geurts Game Forge brick and Editor-tool maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -38,7 +38,8 @@ Severity colors remain semantic: Info is white, Warning is yellow and Error is r
 
 ## Layout and interaction
 
-- Open each primary brick or tool interface in its own resizable Editor window. New floating windows target **1000 × 760 Editor points**, reduced to fit the main Editor area where space permits. Each window's supported minimum takes precedence; a main Editor area smaller than that minimum cannot fully contain the window. Reopening an existing window preserves its size, position, docking layout and constraints; do not resize or undock a user-arranged window.
+- Standalone primary brick and tool interfaces use resizable Editor windows. New floating windows target **1000 × 760 Editor points**, reduced to fit the main Editor area where space permits. Each window's supported minimum takes precedence; a main Editor area smaller than that minimum cannot fully contain the window. Reopening an existing window preserves its size, position, docking layout and constraints; do not resize or undock a user-arranged window.
+- God **0.26.0** embeds selected installed brick tools in its own panel, with a fixed **Back to God** button and brick title above the scrolling content. Hide the dashboard and all update controls while a brick is selected; Back restores the dashboard. Retain the shared theme and meaningful existing Odin configuration. The host owns an independent hidden view, preserving every existing standalone window's geometry, docking and lifetime. Check this navigation at normal and narrow sizes.
 - Give each window a clear title and short purpose. Group related work into consistently padded section cards with descriptive headings, and place the most relevant action beside its context.
 - Use a deliberate hierarchy of title, section heading, body and supporting text. Use readable Editor fonts and the shared typography definitions; decorative sci-fi fonts must not replace ordinary controls or diagnostic content. Long values, paths and messages must wrap, scroll or expose their complete value.
 - Use shared spacing and control dimensions. Align related labels and buttons; keep card padding, section gaps and navigation consistent across bricks. Do not create one-off spacing systems for each window.
