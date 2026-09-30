@@ -248,7 +248,7 @@ The current verified companion package is 0.10.2; use its immutable source from 
 
 ### v0.26.3 — Combined Unity CLI and Editor workflow
 
-- Advances Technical to 0.12.15 with CLI defaults for repeatable imports, compilation checks, automated tests, builds and scripted validation, plus Editor/player checks for visual and interactive evidence.
+- Advances Technical to 0.12.14 with CLI defaults for repeatable imports, compilation checks, automated tests, builds and scripted validation, plus Editor/player checks for visual and interactive evidence.
 - Defines compatible Editor selection, graphics requirements, test completion, full logs/results, isolated validation and preservation of unsaved live work.
 - Retains the existing interactive-test authorization policy and acceptance gates; time-saving claims require measurement.
 - Synchronizes documentation package metadata and tool guards while preserving brick release pins, schemas and managed route payloads.
@@ -418,7 +418,9 @@ God **0.15.0** adds **Auto-update everything when God opens**, off by default an
 
 ### v0.21.0 — Remove Game Forge God's Developer Mode
 
-- Updates God to 0.11.0, removing its Developer Mode toggle, persistent warning banner, red outline and mode-specific test-catalogue and local-source controls. All brick installations, including isolated candidate validation, use Git. Develop in separate source checkouts and keep the consuming project on its previous Git version until the newer validated release is published and verified.
+These historical local-source instructions were superseded by the Git-only policy in documentation 0.29.0.
+
+- Updates God to 0.11.0, removing its Developer Mode toggle, persistent warning banner, red outline and mode-specific test-catalogue and local-source controls. Use Unity Package Manager to install packages from disk for development.
 - Retains published update checks for installed local packages, explicit overwrite warnings, cancellation, Git metadata preservation and protection for every path outside the named package folder.
 - Advances Brick Contract to 1.5.0 and Editor UI Theme to 1.1.0 for the revised package-development and presentation rules. Technical 0.12.1 and Diagnostics 0.3.1 remove obsolete God-mode cross-references; Diagnostics' Player/Developer tabs and restricted testing override retain their existing contracts.
 - Keeps Scene Loading and Bootstrap 0.1.2, Documentation Companion 0.9.1 and Diagnostics 0.6.0 pins, dependency minimums and contract schemas unchanged. Catalogue publication does not install or update packages or documentation in an existing Unity project.
