@@ -35,7 +35,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.32.1
+**Version:** 0.33.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -82,7 +82,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.32.1; the Technical Technique is v0.13.1.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.33.0; the Technical Technique is v0.13.1.
 
 ## Unity CLI and Editor validation
 
@@ -174,6 +174,12 @@ The manifest-selected `GeurtsTechniques/GeurtsDocumentationCompanionTechnique.md
 
 The former `GeurtsGameForgeIntelligenceIntegrationContract.md` is only a non-normative compatibility redirect for a released consumer. The manifest may select the renamed technique only for that bounded compatibility work; neither file owns current documentation setup or Update.
 
+## Reusable Game Folder Template
+
+The Folder Structure Technique 0.14.0 and definition 0.12.0 provide a genre-independent 76-folder project profile. They keep required scene paths, use general data and prefab categories, and separate imported assets from editable originals, tests, configuration, and host tooling. Read [the folder guide](GeurtsTechniques/GeurtsFolderStructureTechnique.md#use-existing-folders-and-add-new-ones) before adding content: reuse existing owners and create game-specific children only when needed.
+
+Update the whole documentation snapshot, then use Build Forge's **Create project folders**. Existing project directories and assets are preserved; the revised template does not migrate older layouts or install optional features.
+
 ## Legacy Manual Utilities (Not Companion Setup)
 
 Package scripts remain available under `GeurtsGameForgeDocumentation/Tools/` for legacy or separately authorized generic maintenance. They are not a supported alternative for provisioning or updating companion-managed documentation or AI routes in a companion project. Such a project uses only Unity Package Manager to install the companion and its confirmed in-Editor Update for those four targets. The scripts are inert documentation-package content, are not duplicated into project-root `Tools/`, and are not part of companion installation, setup, or Update. The companion must not scan for or execute `.bat`, `.cmd`, `.ps1`, or any other script. Always pass the Unity project root explicitly when deliberately invoking a project-mutating legacy utility outside that lifecycle.
@@ -221,6 +227,13 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 The current verified companion package is 0.11.0; use its immutable source from the catalogue. In Geurts Documentation, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.33.0 - Reusable game folder template
+
+- Replace fresh-template item, enemy, weapon, and progression assumptions with general definitions, tables, entities, and gameplay categories.
+- Add editable art/audio sources, localization placement, input/rendering settings, separate test-code and fixture folders, and host build/validation tooling: 76 full-profile paths and 78 total managed paths.
+- Explain how to inspect and reuse existing folders, add purposeful domain children, create folders safely in Unity, and configure Editor/test assembly boundaries. Existing project folders and content remain intact.
+- Advance Folder Structure to 0.14.0 and definition to 0.12.0, synchronizing package metadata, tool guards, and isolated fresh/upgrade validation. Preserve schema 1.0.0 and all published brick pins.
 
 ### v0.32.1 - Optional FMOD and future built-in audio default
 

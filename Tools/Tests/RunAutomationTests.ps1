@@ -1,5 +1,5 @@
 # RunAutomationTests.ps1
-# Version: 0.32.1
+# Version: 0.33.0
 
 [CmdletBinding()]
 param(
@@ -290,7 +290,7 @@ try {
     $draftManifestText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniqueManifest.md"))
     $draftReadmeText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "README.md"))
     $targetMigrationText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "Migrations/v0.11.0.md"))
-    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.32\.1\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.32\.1|package v0\.32\.1)[^\r\n]{0,80}(?:is|was|has been) released') "v0.32.1 remains a Draft target release with a planned snapshot rather than a completed-release claim"
+    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.33\.0\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.33\.0|package v0\.33\.0)[^\r\n]{0,80}(?:is|was|has been) released') "v0.33.0 remains a Draft target release with a planned snapshot rather than a completed-release claim"
 
     $gfiContractText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md"))
     Assert-True ($gfiContractText -match '(?i)sole primary source and authority for all Geurts Game Forge documentation' -and $gfiContractText.Contains("<PluginPackageRoot>/Documentation~/") -and $gfiContractText -match '(?i)must not ship a bundled or fallback copy of Geurts documentation') "Frozen GFI v2 keeps this repository authoritative and plugin Documentation~ plugin-specific"
@@ -328,9 +328,9 @@ try {
         ".github/instructions/geurts-unity.instructions.md|replace-complete-file",
         ".github/instructions/geurts-game-design.instructions.md|replace-complete-file"
     )
-    Assert-True ([string]$companionContract.schemaVersion -ceq "2.0.0" -and [string]$companionContract.packageVersion -ceq "0.32.1" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Documentation.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 2.0.0, package v0.32.1, and the official exact-main-commit archive source"
+    Assert-True ([string]$companionContract.schemaVersion -ceq "2.0.0" -and [string]$companionContract.packageVersion -ceq "0.33.0" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Documentation.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 2.0.0, package v0.33.0, and the official exact-main-commit archive source"
     Assert-True ([string]$companionContract.destination.projectRelativePath -ceq "GeurtsGameForgeDocumentation" -and [string]$companionContract.destination.replacement -ceq "complete-directory" -and [string]$companionContract.destination.access -ceq "logically-read-only") "Companion contract names the one logically-read-only complete documentation destination"
-    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 9) "Current companion contract names the exact nine unique package-v0.32.1 source-validation entries"
+    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 9) "Current companion contract names the exact nine unique package-v0.33.0 source-validation entries"
     Assert-True (($actualCompanionRoutes -join "|") -ceq ($expectedCompanionRoutes -join "|") -and ($actualConfirmationTargets -join "|") -ceq ($expectedConfirmationTargets -join "|") -and [string]$companionContract.updateUi.actionLabel -ceq "Update Geurts Game Forge Documentation" -and [string]$companionContract.updateUi.confirmationDefault -ceq "cancel" -and [string]$companionContract.updateUi.cancelResult -ceq "no-network-or-filesystem-change") "Companion contract fixes three template routes and one cancel-default four-target Update confirmation"
     Assert-True ($companionTechniqueText -match '(?i)one confirmation dialog' -and $companionTechniqueText -match '(?i)no earlier preview, dry run[^\r\n]{0,100}second confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set') "Confirmation uses the built-in schema-2.0.0 target set before acquisition and cannot authorize a changed downloaded target set"
     Assert-True ($companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release' -and $companionTechniqueText -match '(?i)schema-2\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative') "Schema 2.0.0 keeps package versions and safe validation entries forward-compatible while mutation routes remain fixed"
@@ -950,14 +950,14 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     Assert-True ($duplicateRun.Code -eq 2 -and $duplicateRun.Output.Contains("Conflicted:") -and (Get-FileSha -Path $gddManifestPath) -eq $beforeDuplicate) "Duplicate GDD identifiers report conflict and preserve the last valid manifest"
 
     # Definition consumption, profile selection, idempotence, and path collision safety.
-    # The production contract fixes the full profile at 67 entries. Use the source definition
+    # The production contract fixes the full profile at 76 entries. Use the source definition
     # for behavior tests.
     $definitionPath = Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsFolderStructureDefinition.json"
     $folderTechniqueContractText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsFolderStructureTechnique.md"))
     $folderDefinitionContract = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json
     $folderToolContractText = [System.IO.File]::ReadAllText($folderScript)
     $managerToolContractText = [System.IO.File]::ReadAllText($manageScript)
-    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.13\.4\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.11.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.32.1" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.11.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.11.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.11.0 in package v0.32.1"
+    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.14\.0\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.12.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.33.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.12.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.12.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.12.0 in package v0.33.0"
 
     $versionMismatchAuthority = Join-Path $testRoot "folder-version-mismatch-authority"
     New-Item -ItemType Directory -Path $versionMismatchAuthority | Out-Null
@@ -968,7 +968,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     Write-Utf8 -Path $versionMismatchDefinitionPath -Text ($versionMismatchDefinition | ConvertTo-Json -Depth 12)
     $versionMismatchProject = New-TestProject -Parent $testRoot -Name "folder-version-mismatch-project"
     $versionMismatchRun = Invoke-TestScript -Path $folderScript -Arguments @("-ProjectRoot", $versionMismatchProject, "-DefinitionPath", $versionMismatchDefinitionPath)
-    Assert-True ($versionMismatchRun.Code -ne 0 -and $versionMismatchRun.Output.Contains("Folder definition version must be 0.11.0") -and -not (Test-Path -LiteralPath (Join-Path $versionMismatchProject "Assets/_Project"))) "Folder creator rejects a v0.8.0 definition before project mutation"
+    Assert-True ($versionMismatchRun.Code -ne 0 -and $versionMismatchRun.Output.Contains("Folder definition version must be 0.12.0") -and -not (Test-Path -LiteralPath (Join-Path $versionMismatchProject "Assets/_Project"))) "Folder creator rejects a v0.8.0 definition before project mutation"
 
     $earlyExitProject = New-TestProject -Parent $testRoot -Name "barrier-early-exit-project"
     $earlyExitBarrierPath = Join-Path $testRoot "barrier-expected-early-exit"
@@ -977,13 +977,79 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     try { Wait-TestScriptBarrier -Run $earlyExitRun }
     catch { $earlyExitMessage = $_.Exception.Message }
     finally { Stop-TestScriptBarrier -Run $earlyExitRun }
-    Assert-True ($earlyExitMessage -match '(?i)exited before its write boundary.*Folder definition version must be 0\.11\.0' -and $earlyExitMessage -notmatch '(?i)No process is associated|disposed') "Barrier harness preserves the primary early-exit error without double wait or dispose"
+    Assert-True ($earlyExitMessage -match '(?i)exited before its write boundary.*Folder definition version must be 0\.12\.0' -and $earlyExitMessage -notmatch '(?i)No process is associated|disposed') "Barrier harness preserves the primary early-exit error without double wait or dispose"
 
     $folderProject = New-TestProject -Parent $testRoot -Name "folders"
     $folderRun = Invoke-TestScript -Path $folderScript -Arguments @("-ProjectRoot", $folderProject, "-DefinitionPath", $definitionPath)
-    Assert-True ($folderRun.Code -eq 0 -and $folderRun.Output.Contains("Skipped: .github") -and $folderRun.Output.Contains("definition 0.11.0") -and (Test-Path -LiteralPath (Join-Path $folderProject "Assets/_Project") -PathType Container) -and -not (Test-Path -LiteralPath (Join-Path $folderProject "GeurtsGameForgeDocumentation"))) "Folder tool consumes the exact definition while never creating the reserved documentation container"
+    Assert-True ($folderRun.Code -eq 0 -and $folderRun.Output.Contains("Skipped: .github") -and $folderRun.Output.Contains("definition 0.12.0") -and (Test-Path -LiteralPath (Join-Path $folderProject "Assets/_Project") -PathType Container) -and -not (Test-Path -LiteralPath (Join-Path $folderProject "GeurtsGameForgeDocumentation"))) "Folder tool consumes the exact definition while never creating the reserved documentation container"
+    $fullTemplatePaths = @($folderDefinitionContract.managedFolders | Where-Object { @($_.automation.creationProfiles) -contains "full-project-structure" } | ForEach-Object { [string]$_.path } | Sort-Object)
+    $createdTemplatePaths = @(Get-ChildItem -LiteralPath $folderProject -Directory -Recurse -Force | ForEach-Object { $_.FullName.Substring($folderProject.Length + 1).Replace('\', '/') } | Sort-Object)
+    Assert-True ($fullTemplatePaths.Count -eq 76 -and $createdTemplatePaths.Count -eq 76 -and ($createdTemplatePaths -join "|") -ceq ($fullTemplatePaths -join "|")) "Fresh folder creation produces exactly the expanded 76-folder full profile"
+    $newTemplatePaths = @(
+        "SourceAssets", "SourceAssets/Art", "SourceAssets/Audio",
+        "Assets/_Project/Localization", "Assets/_Project/Settings/Input", "Assets/_Project/Settings/Rendering",
+        "Assets/_Project/Scripts/Testing/EditMode", "Assets/_Project/Scripts/Testing/PlayMode", "Assets/_Project/Testing/Fixtures",
+        "Tools/Build", "Tools/Validation", "Assets/_Project/Data/Definitions", "Assets/_Project/Data/Tables",
+        "Assets/_Project/Prefabs/Entities", "Assets/_Project/Prefabs/Gameplay"
+    )
+    $missingReusableFolders = @($newTemplatePaths | Where-Object { -not (Test-Path -LiteralPath (Join-Path $folderProject $_) -PathType Container) })
+    Assert-True ($missingReusableFolders.Count -eq 0) "Reusable source, localization, configuration, tests, data, prefab and tooling folders are available in a fresh project"
+    $legacyGenrePaths = @(
+        "Assets/_Project/Data/Items", "Assets/_Project/Data/Enemies", "Assets/_Project/Data/Weapons", "Assets/_Project/Data/Progression",
+        "Assets/_Project/Prefabs/Characters", "Assets/_Project/Prefabs/Weapons"
+    )
+    $createdGenreFolders = @($legacyGenrePaths | Where-Object { Test-Path -LiteralPath (Join-Path $folderProject $_) })
+    Assert-True ($createdGenreFolders.Count -eq 0) "Fresh template creation does not assume items, enemies, weapons, characters or progression"
+    $unexpectedUnityFiles = @(Get-ChildItem -LiteralPath $folderProject -File -Recurse -Force | Where-Object { $_.Extension -in @(".unity", ".asmdef", ".meta") })
+    Assert-True ($unexpectedUnityFiles.Count -eq 0) "Host-side folder creation does not author Unity scenes, assembly definitions or metadata"
     $folderAgain = Invoke-TestScript -Path $folderScript -Arguments @("-ProjectRoot", $folderProject, "-DefinitionPath", $definitionPath)
-    Assert-True ($folderAgain.Code -eq 0 -and $folderAgain.Output.Contains("Exists")) "Folder creation is idempotent"
+    Assert-True ($folderAgain.Code -eq 0 -and $folderAgain.Output.Contains("Exists") -and $folderAgain.Output -notmatch '(?m)^Created: ') "Repeating expanded folder creation creates nothing"
+
+    # Reconstruct the previous 67-folder layout without invoking an obsolete creator or migrating content.
+    $legacyFolderProject = New-TestProject -Parent $testRoot -Name "folders-existing-legacy-template"
+    $legacyTemplatePaths = @($fullTemplatePaths | Where-Object { $_ -notin $newTemplatePaths }) + $legacyGenrePaths
+    Assert-True ($legacyTemplatePaths.Count -eq 67) "Preservation fixture represents the previous 67-folder template"
+    foreach ($legacyPath in $legacyTemplatePaths) {
+        New-Item -ItemType Directory -Path (Join-Path $legacyFolderProject $legacyPath) -Force | Out-Null
+    }
+    $legacyPreservedFiles = @()
+    $legacyPreservedDirectories = @()
+    $legacyCreatedUtc = [DateTime]::Parse("2022-02-03T04:05:06Z").ToUniversalTime()
+    $legacyWrittenUtc = [DateTime]::Parse("2023-03-04T05:06:07Z").ToUniversalTime()
+    foreach ($legacyPath in $legacyGenrePaths) {
+        $legacyDirectory = Join-Path $legacyFolderProject $legacyPath
+        $legacySentinel = Join-Path $legacyDirectory "user-owned.asset"
+        [System.IO.File]::WriteAllBytes($legacySentinel, [byte[]](0x00, 0xFF, 0x42, 0x0D, 0x0A, 0x10))
+        Write-Utf8 -Path ($legacySentinel + ".meta") -Text "fileFormatVersion: 2`r`nguid: 11111111111111111111111111111111`r`n"
+        Write-Utf8 -Path ($legacyDirectory + ".meta") -Text "fileFormatVersion: 2`r`nguid: 22222222222222222222222222222222`r`nfolderAsset: yes`r`n"
+        foreach ($preservedPath in @($legacySentinel, ($legacySentinel + ".meta"), ($legacyDirectory + ".meta"))) {
+            [System.IO.File]::SetCreationTimeUtc($preservedPath, $legacyCreatedUtc)
+            [System.IO.File]::SetLastWriteTimeUtc($preservedPath, $legacyWrittenUtc)
+            $legacyPreservedFiles += [pscustomobject]@{
+                Path = $preservedPath
+                Hash = Get-FileSha -Path $preservedPath
+                CreatedTicks = [System.IO.File]::GetCreationTimeUtc($preservedPath).Ticks
+                WrittenTicks = [System.IO.File]::GetLastWriteTimeUtc($preservedPath).Ticks
+            }
+        }
+        $legacyPreservedDirectories += [pscustomobject]@{
+            Path = $legacyDirectory
+            WrittenTicks = [System.IO.Directory]::GetLastWriteTimeUtc($legacyDirectory).Ticks
+        }
+    }
+    $legacyUpgradeRun = Invoke-TestScript -Path $folderScript -Arguments @("-ProjectRoot", $legacyFolderProject, "-DefinitionPath", $definitionPath)
+    $legacyUpgradeMissing = @($fullTemplatePaths | Where-Object { -not (Test-Path -LiteralPath (Join-Path $legacyFolderProject $_) -PathType Container) })
+    Assert-True ($legacyUpgradeRun.Code -eq 0 -and $legacyUpgradeMissing.Count -eq 0) "Updating a project with the old template creates the complete new profile without moving old content"
+    $legacyUpgradeAgain = Invoke-TestScript -Path $folderScript -Arguments @("-ProjectRoot", $legacyFolderProject, "-DefinitionPath", $definitionPath)
+    Assert-True ($legacyUpgradeAgain.Code -eq 0 -and $legacyUpgradeAgain.Output -notmatch '(?m)^Created: ') "Repeating the old-template update creates nothing and performs no migration"
+    $changedLegacyFiles = @($legacyPreservedFiles | Where-Object {
+        -not (Test-Path -LiteralPath $_.Path -PathType Leaf) -or (Get-FileSha -Path $_.Path) -cne $_.Hash -or
+        [System.IO.File]::GetCreationTimeUtc($_.Path).Ticks -ne $_.CreatedTicks -or [System.IO.File]::GetLastWriteTimeUtc($_.Path).Ticks -ne $_.WrittenTicks
+    })
+    $changedLegacyDirectories = @($legacyPreservedDirectories | Where-Object {
+        -not (Test-Path -LiteralPath $_.Path -PathType Container) -or [System.IO.Directory]::GetLastWriteTimeUtc($_.Path).Ticks -ne $_.WrittenTicks
+    })
+    Assert-True ($changedLegacyFiles.Count -eq 0 -and $changedLegacyDirectories.Count -eq 0) "Removed template entries retain existing directories, binary asset bytes, file and folder metadata, and original timestamps"
 
     $rawCandidateProject = New-TestProject -Parent $testRoot -Name "unselected-project-root-folder-definition"
     $rawCandidateDirectory = Join-Path $rawCandidateProject "GeurtsTechniques"
