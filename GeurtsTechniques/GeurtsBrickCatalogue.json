@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
   "packageVersion": "0.36.0",
-  "publishedUtc": "2026-09-30T22:28:24Z",
+  "publishedUtc": "2026-09-30T22:56:48Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.documentation",
       "name": "Geurts Game Forge Documentation",
       "description": "Documentation dashboard and explicit updates of the authoritative AI development guidance.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.documentation",
-      "version": "0.12.1",
+      "version": "0.13.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.documentation.git#eb4b5e1eb63f62545f5735d440de2e81e464c3eb",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.documentation.git#ae3e4da5d3634adb7e881927f547a13942cf7df9",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -24,13 +24,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "Game Forge God package management, installed brick menus, Build Forge setup, optional Documentation integration, lifecycle, settings and optional scene-startup/input cooperation.",
+      "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, optional Documentation integration, lifecycle, settings and optional scene-startup/input cooperation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.25.0",
+      "version": "0.26.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#335af4ee3f41a14144a9ab3375476a117b7ac382",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#999994da3d71c4362430760ff85e8a1edf07b330",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
