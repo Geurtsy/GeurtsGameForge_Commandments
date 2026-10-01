@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts AGENTS.md Technique
 
-**Version:** 1.0.0
+**Version:** 1.1.0
 **Required package path:** `GeurtsTechniques/GeurtsAgentTechnique.md`
 
 ## Purpose and ownership
@@ -12,7 +12,7 @@ This technique owns the only Codex guide template. The manifest selects it when 
 
 The independent Unity documentation companion exposes **Install Codex guide**. The user chooses the destination through a folder picker. The installer creates `AGENTS.md`, the filename Codex automatically discovers in the project instruction chain. Do not edit Codex configuration automatically or claim that any location affects every Codex task.
 
-Read the installed, manifest-registered technique and verify that the installed entry point exists before writing. Render the placeholder below as the absolute path to that Unity project's `GeurtsGameForgeDocumentation/AI_READ_FIRST.md`, using forward slashes. A guide outside the project must still point to that exact project copy. Moving the project requires reinstalling the guide.
+Read the installed, manifest-registered technique and verify that the installed entry point exists before writing. Render the placeholder below as the absolute path to that Unity project's `GeurtsGameForgeCommandments/AI_READ_FIRST.md`, using forward slashes. A guide outside the project must still point to that exact project copy. Moving the project requires reinstalling the guide.
 
 Show the exact destination and entry point before installation. Warn that installing will overwrite the selected existing guide and lose its local contents. Cancel is the default; Enter, Escape, closing either dialog and cancelling the folder picker must cause no write. Validate the source and selected destination, reject linked paths and directories in place of the file, and verify the final bytes. Use only the selected guide path. Never write inside the managed documentation copy or `Docs/GameDesign/`.
 
@@ -22,7 +22,7 @@ Do not keep a standalone AGENTS.md template in the documentation package. The fo
 
 ## Template
 
-<!-- GEURTS-CODEX-GUIDE-BEGIN version="1.0.0" -->
+<!-- GEURTS-CODEX-GUIDE-BEGIN version="1.1.0" -->
 ```markdown
 # Geurts Game Forge AI guide
 

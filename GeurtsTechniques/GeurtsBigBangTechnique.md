@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts BigBang Technique
 
-**Version:** 1.1.0
+**Version:** 1.1.1
 **Status:** Normative initial-installer boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
@@ -9,13 +9,13 @@ The manifest selects this owner for independent prerequisite preparation, initia
 
 ## Identity and completion
 
-Geurts Game Forge BigBang is `com.geurts.gameforge.bigbang`, an independent Windows Editor-only UPM package at the root of its own `Geurtsy/GeurtsGameForgeBigBang` Git repository. The supported baseline is Unity **6000.6.3f1**. Preview **0.2.0** is published at immutable commit `5647db93cd10a9bb3d2ac6f8bb64e5f9246a3cfd` and tag `v0.2.0`. Its [release validation](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.0/Documentation~/Validation.md) records 86 automated tests in three isolated environments, actual Git release discovery, native installation and restart/handoff. The user's explicit instruction to skip visual checks continues for this implementation; visual and keyboard acceptance remains incomplete. This exception does not relax future UI requirements. A remote candidate is not a released package. Future publication requires recorded acceptance gates or an explicit user-directed exception with truthful limitations.
+Geurts Game Forge BigBang is `com.geurts.gameforge.bigbang`, an independent Windows Editor-only UPM package at the root of its own `Geurtsy/GeurtsGameForgeBigBang` Git repository. The supported baseline is Unity **6000.6.3f1**. Preview **0.2.1** is published at immutable commit `1c48ea72995fc19727f89f96bd15025b2ecaf5c8` and tag `v0.2.1`. Its [release validation](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.1/Documentation~/Validation.md) records 86 passing tests in an isolated populated project, actual latest-release discovery and native installation of God 0.28.0, restart/handoff and preservation checks. The previous 0.2.0 evidence covers three isolated environments. The previously recorded visual/keyboard acceptance gap remains explicit; API execution does not prove physical UI acceptance. A remote candidate is not a released package. Future publication requires recorded acceptance gates or an explicit user-directed exception with truthful limitations.
 
-Completion means God is installed, compiled and available to open. BigBang does not establish scene, game, documentation or optional-brick setup. Runtime initialization and `SCN_BigBang` remain God-owned. God owns ongoing package management and its catalogue. The optional Documentation Companion owns documentation acquisition/replacement. Angels, project organization, project Git and the separate console migration remain outside this installer.
+Completion means God is installed, compiled and available to open. BigBang does not establish scene, game, documentation or optional-brick setup. Runtime initialization and `SCN_BigBang` remain God-owned. God owns ongoing package management and its catalogue. The optional Commandments Companion owns documentation acquisition/replacement. Angels, project organization, project Git and the separate console migration remain outside this installer.
 
 ## Narrow independent-installer exception
 
-BigBang must compile with God, Odin Inspector, Quantum Console, Input System, uGUI and TextMesh Pro absent, including with a stale `ODIN_INSPECTOR` symbol. Use an explicit Editor-only assembly, Unity Editor, UI Toolkit and supported .NET APIs. Do not implement `IBrick`, reference God/vendor assemblies or declare God in `package.json.dependencies`. Declare only required built-in modules; Test Framework references remain confined to test assemblies. This is a narrow initial-installer exception. Ordinary God, dependent bricks and the independent Documentation Companion retain their required licensed Odin Inspector and Quantum Console assemblies.
+BigBang must compile with God, Odin Inspector, Quantum Console, Input System, uGUI and TextMesh Pro absent, including with a stale `ODIN_INSPECTOR` symbol. Use an explicit Editor-only assembly, Unity Editor, UI Toolkit and supported .NET APIs. Do not implement `IBrick`, reference God/vendor assemblies or declare God in `package.json.dependencies`. Declare only required built-in modules; Test Framework references remain confined to test assemblies. This is a narrow initial-installer exception. Ordinary God, dependent bricks and the independent Commandments Companion retain their required licensed Odin Inspector and Quantum Console assemblies.
 
 Acquire commercial libraries separately through their licensed distribution. The installer offers verified acquisition links, supported My Assets guidance and native licensed `.unitypackage` import selection. Unity or the vendor owns purchasing, licensing, account login, download and import selection. Do not infer licence ownership from imported files, copy or redistribute commercial assets, alter vendor-supported paths, or invoke reflected internal Asset Store APIs. A project unable to compile needs a documented manual import/recovery route.
 
@@ -45,7 +45,7 @@ Store only narrowly scoped schema/session/frozen-target/stage/result data and th
 
 ## Handoff and presentation
 
-After verification, provide **Open Game Forge God**. Invoke the selected release's existing `Tools/Geurts Game Forge/Game Forge God` route through Unity's supported menu execution. Opening is explicit because God's normal layout and saved opening preferences may apply. Do not acquire a God compile dependency or modify God solely to add an opener. Keep a handoff error separate from installation success. Explain the next actions: refresh God's catalogue, install the optional Documentation Companion and acquire documentation through its existing action.
+After verification, provide **Open Game Forge God**. Invoke the selected release's existing `Tools/Geurts Game Forge/Game Forge God` route through Unity's supported menu execution. Opening is explicit because God's normal layout and saved opening preferences may apply. Do not acquire a God compile dependency or modify God solely to add an opener. Keep a handoff error separate from installation success. Explain the next actions: refresh God's catalogue, install the optional Commandments Companion and acquire documentation through its existing action.
 
 Follow the Editor UI Theme Technique's dark surfaces, green accents, severity colors, readable states and keyboard interaction. New floating windows target **1000 x 760** Editor points; reopening preserves arrangement. Use its generated dependency-free canonical subset, record source commit, exclude vendor conditionals regardless of symbols, and retain generator/parity tooling in BigBang maintenance. No consumer-time generator is introduced.
 
