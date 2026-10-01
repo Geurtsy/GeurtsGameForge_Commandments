@@ -13,7 +13,7 @@ Adds the manifest-selected [brick contract](GeurtsTechniques/GeurtsBrickContract
 
 God is maintained in its own [com.geurts.gameforge.god repository](https://github.com/Geurtsy/com.geurts.gameforge.god). The catalogue supplies immutable Git sources for ten packages across independently maintained repositories. All brick installations, including isolated candidate validation, use Git. Develop in separate source checkouts, publish and validate a strictly newer release on its repository's main branch, and retain the consuming project's previous Git version until the user updates through God. A local commit or an unpublished branch does not complete a release.
 
-[Settings System 0.5.0](https://github.com/Geurtsy/com.geurts.gameforge.settings) provides **Your Settings**, **Connections** and **Auto Settings Menu** in one beginner panel. Create a typed setting, connect supported serialized fields and their consumers, review the changes, then select **Create and Connect**. Authored defaults stay intact while the game consumes an owned runtime configuration copy. Advanced Odin configuration remains available. [UI Foundations 0.11.0](https://github.com/Geurtsy/com.geurts.gameforge.userinterface) supplies the real generated menu, selected-catalogue controls, isolated inline/pop-out previews and reviewed persistent menu wiring for both Panel Renderer and retained UI Document hosts. Both packages require God **0.29.0** and remain usable independently. Existing Settings Demo routes and unrelated callbacks are preserved. These are **Preview** releases: automated authoring, lifecycle and Mono/IL2CPP checks are recorded in the [Settings acceptance report](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/v0.5.0/Documentation~/SettingsUXValidation.md); native visual, focus, scaling and physical-input acceptance remains unverified. No desktop-control checks were performed.
+[Settings System 0.5.0](https://github.com/Geurtsy/com.geurts.gameforge.settings) provides **Your Settings**, **Connections** and **Auto Settings Menu** in one beginner panel. Create a typed setting, connect supported serialized fields and their consumers, review the changes, then select **Create and Connect**. Authored defaults stay intact while the game consumes an owned runtime configuration copy. Advanced Odin configuration remains available. [UI Foundations 0.11.0](https://github.com/Geurtsy/com.geurts.gameforge.userinterface) supplies the real generated menu, selected-catalogue controls, isolated inline/pop-out previews and reviewed persistent menu wiring for both Panel Renderer and retained UI Document hosts. Both packages require God **0.30.0** and remain usable independently. Existing Settings Demo routes and unrelated callbacks are preserved. These are **Preview** releases: automated authoring, lifecycle and Mono/IL2CPP checks are recorded in the [Settings acceptance report](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/v0.5.0/Documentation~/SettingsUXValidation.md); native visual, focus, scaling and physical-input acceptance remains unverified. No desktop-control checks were performed.
 
 The guided path is **Create Setting → choose type/default → Connect Target and consumers → Create and Connect → configure Auto Settings Menu → Refresh Preview → Connect to My Menu → check in the game**. Use the package's [authoring guide](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/v0.5.0/Documentation~/Authoring.md) for supported fields, consumer ownership and independent public APIs. Update packages manually through God; catalogue publication does not install them.
 
@@ -45,7 +45,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.40.3
+**Version:** 0.40.4
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -54,7 +54,7 @@ Game Forge God distinguishes **Planned**, **Available** and **Installed** indepe
 
 ## BigBang initial installation
 
-The independent [Geurts Game Forge BigBang](https://github.com/Geurtsy/GeurtsGameForgeBigBang) package prepares licensed Odin Inspector and Quantum Console, resolves the latest published compatible God release on explicit Check and again before Install, then freezes its verified commit. Opening stays offline and existing God is preserved. Preview **0.2.2** is published and catalogued at `9bb6b7ed718ae9febd6cf1c28f1f6d35bfefca7c`. It fixes compilation that could remain Running after Unity reloads, refreshes local readiness when Unity becomes idle, and still requires fresh successful evidence. Its 90 tests pass in three isolated environments; actual reload recovery and compiler failure/recovery preserve project contents. See the [BigBang Technique](GeurtsTechniques/GeurtsBigBangTechnique.md), [getting-started guide](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.2/Documentation~/GettingStarted.md) and [validation report](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.2/Documentation~/Validation.md). Physical visual/keyboard/scaling acceptance remains a recorded gap. BigBang does not configure scenes, project Git, Build Profiles or optional bricks. The independent optional Commandments Companion owns Commandments acquisition.
+The independent [Geurts Game Forge BigBang](https://github.com/Geurtsy/GeurtsGameForgeBigBang) package prepares licensed Odin Inspector and Quantum Console, resolves the latest published compatible God release on explicit Check and again before Install, then freezes its verified commit. Opening stays offline and existing God is preserved. Preview **0.2.3** is published and catalogued at immutable commit `727b5d522af98bbe9eb535b8f3207d27af14c5ac` and tag `v0.2.3`. It fixes long Windows input paths that kept successful compilation Unknown, reports fingerprint read errors and accepts successful cached-only incremental cycles without waiting for an unnecessary reload. Its **101 tests pass in each of three isolated environments**, and native compiler failure/recovery passes. The actual 0.2.2 failure was reproduced in the open project with all 765 pre-existing files preserved. The user chose manual updating, so 0.2.3 has not been verified in that project. See the [BigBang Technique](GeurtsTechniques/GeurtsBigBangTechnique.md), [getting-started guide](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.3/Documentation~/GettingStarted.md) and [validation report](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.3/Documentation~/Validation.md). Physical visual/keyboard/scaling acceptance remains a recorded gap. BigBang does not configure scenes, project Git, Build Profiles or optional bricks. The independent optional Commandments Companion owns Commandments acquisition.
 
 ## Installing God or switching an existing installation
 
@@ -96,7 +96,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.40.3; the Technical Technique is v0.16.0.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.40.4; the Technical Technique is v0.16.0.
 
 ## ID Naming
 
@@ -252,11 +252,15 @@ The current verified companion package is 0.13.2; use its immutable source from 
 
 ## Changelog
 
-### v0.40.3 - Settings authoring and Auto Settings Menu
+### v0.40.4 - Settings authoring and Auto Settings Menu
 
-- Catalogue Settings 0.5.0, UI Foundations 0.11.0 and God 0.29.0 through exact published main commits. Settings and UI retain God as their sole mandatory Geurts dependency.
+- Catalogue Settings 0.5.0, UI Foundations 0.11.0 and God 0.30.0 through exact published main commits. Settings and UI retain God as their sole mandatory Geurts dependency.
 - Document the complete no-code setup, reviewed consumer/menu connections, isolated synchronized preview and shared runtime renderer. Record automated acceptance separately from unverified native visual/input checks.
 - Preserve all upstream Commandments changes, existing package identities and manual consumer updates.
+
+### v0.40.3 - BigBang compilation evidence for live projects
+
+Defines long Windows compilation-input support, visible fingerprint errors and cached-only incremental completion for BigBang 0.2.3. Records 101 passing tests in each of three isolated environments, native compiler failure/recovery and the actual 0.2.2 live failure with all 765 existing files preserved. Real Git discovery selected God 0.28.1; explicit Check and Install still resolve the latest compatible release. The user retains manual consumer updates, and 0.2.3 verification in the open project remains unperformed. The catalogue selects the verified immutable BigBang 0.2.3 release. Documentation validation passed 63 checks and 241 automation tests.
 
 ### v0.40.2 - Audio workspace readability
 

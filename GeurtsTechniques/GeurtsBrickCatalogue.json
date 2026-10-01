@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.40.3",
-  "publishedUtc": "2026-10-01T06:58:15Z",
+  "packageVersion": "0.40.4",
+  "publishedUtc": "2026-10-01T07:53:00Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
       "name": "Geurts Game Forge BigBang",
-      "description": "Preview independent Editor prerequisite and initial God installer. Resolves the latest compatible published God release and freezes its verified commit. Recovers interrupted compilation tracking and refreshes local readiness after Unity becomes idle. Visual/keyboard acceptance remains incomplete under explicit user instruction.",
+      "description": "Preview independent Editor prerequisite and initial God installer. Resolves the latest compatible published God release and freezes its verified commit. Supports long Windows input paths, reports fingerprint read errors and completes cached-only incremental compilation without waiting for a reload. Visual/keyboard acceptance remains incomplete under explicit user instruction.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
-      "version": "0.2.2",
+      "version": "0.2.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#9bb6b7ed718ae9febd6cf1c28f1f6d35bfefca7c",
+      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#727b5d522af98bbe9eb535b8f3207d27af14c5ac",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [],
