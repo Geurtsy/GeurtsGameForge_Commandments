@@ -3,7 +3,7 @@
 
 **Version:** 3.0.0
 **Contract schema:** 3.0.0
-**Package version:** 0.39.0
+**Package version:** 0.40.0
 **Status:** Draft normative technique
 **Primary audience:** Geurts Commandments Companion implementers and package maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -31,7 +31,7 @@ There is no external installer, Windows bootstrap, batch-driven setup, or separa
 
 The Unity brick's display name is **Geurts Game Forge Commandments Companion**. Its primary menu is **Tools > Geurts Game Forge > Commandments Companion** and its dashboard title includes **Commandments Companion**. Use this name for package cards, package updates, module controls and package-specific status so users can distinguish the Editor tooling from the documentation content.
 
-The actual documentation remains **Geurts Game Forge Commandments**, maintained in `Geurtsy/GeurtsGameForge_Commandments` and installed at `GeurtsGameForgeCommandments/`. Its content action remains exactly **Update Geurts Game Forge Commandments**. The compatible brick rename retains UPM identity `com.geurts.gameforge.documentation`, its assemblies, integration APIs, module preference keys and asset GUIDs. Its renamed repository redirects the old URL. Schema 3 changes the managed content destination and source; see `Migrations/v0.39.0.md` for the exact migration and compatibility map. Existing installations upgrade through the same package identity.
+The actual documentation remains **Geurts Game Forge Commandments**, maintained in `Geurtsy/GeurtsGameForge_Commandments` and installed at `GeurtsGameForgeCommandments/`. Its content action remains exactly **Update Geurts Game Forge Commandments**. The compatible brick rename retains UPM identity `com.geurts.gameforge.documentation`, its assemblies, integration APIs, module preference keys and asset GUIDs. Its renamed repository redirects the old URL. Schema 3 changes the managed content destination and source; see `Migrations/v0.40.0.md` for the exact migration and compatibility map. Existing installations upgrade through the same package identity.
 
 ### Optional Game Forge God integration
 
