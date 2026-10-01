@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.14.0
+**Version:** 0.15.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -58,6 +58,30 @@ These priorities are not equal. A higher priority wins over a lower priority wit
 For multiplayer systems, **network efficiency overrides all other priorities**.
 
 Cross-document applicability and conflicts defer to the manifest. This technique's priority order applies only to actual technical trade-offs within its assigned subject.
+
+---
+
+## No-Code Module Use and Code Extensions
+
+**Every existing and future Geurts Game Forge module must support its normal intended use without requiring the user to write or edit code, with only narrow, documented special exceptions.** This is a core usability requirement for all bricks, foundational services and independent tools. It applies alongside the existing Technical Priority Order and multiplayer override; it does not reorder them. No-code describes how a module is consumed, not how its implementation is written.
+
+### Normal use through the Editor
+
+- Provide supported Unity Editor workflows for installation/setup, configuration, content authoring, connecting modules, invoking their standard behaviour, inspection and testing. Reuse meaningful Odin inspectors, existing Forge tools, components, ScriptableObjects, presets, asset references and serialized actions/events where they fit. Use clear labels, useful defaults, validation and actionable explanations for missing prerequisites.
+- Routine use must not require handwritten C#, source patches, manual UXML/USS/JSON edits, scripting, or undocumented calls. Expose the necessary references and bindings through supported controls; supplying a code sample alone does not satisfy the no-code path. Custom visual scripting is not a required dependency of this standard.
+- Keep authored configuration persistent, discoverable and editable. Preserve Unity asset identities, Undo and existing content where applicable. Runtime functionality must remain usable in the Windows player without Editor assemblies or Codex at runtime; Editor-only tools retain their Editor-only scope.
+
+### Code remains a supported first-class path
+
+Provide clear, documented public APIs and focused extension points so developers and Codex can also configure, invoke, compose and extend the module through code. Keep entry points, types, lifecycle/ownership, dependencies, validation, errors and side effects discoverable, with small version-accurate usage and extension examples. Prefer explicit interfaces, events and adapters over requiring edits to package internals, reflection into private implementation or copied module code.
+
+The Editor and code paths must use the same underlying services, configuration contracts and validation, preserving equivalent behaviour, operation guards and cleanup. Neither path may become a separate implementation with different rules. Codex should use supported configuration for standard behaviour and supported APIs/extensions when custom code is needed, following the existing Codex compatibility requirement. This does not add a live connector, runtime AI dependency or mandatory peer-brick dependency.
+
+### Special exceptions
+
+A code-required workflow is exceptional: limit it to genuinely new project-specific behaviour, a custom external integration that supported configuration cannot reasonably express, or an explicitly requested code-only workflow. Document the exact affected capability, the concrete reason a no-code path is insufficient, prerequisites, the minimum supported code/extension point, and the available Editor alternative or remaining limitation in the owning module's usage guide. Keep ordinary module use available without that exception. Missing routine setup controls, hidden bindings, unfinished authoring tools, or labelling a feature "advanced" are not exceptions.
+
+For new modules and materially changed workflows, verify a representative end-to-end setup and use from supported Editor controls without hand-authored code; also verify the affected public API or extension path and shared behaviour. Record prerequisites, results and any specific exception. Assess affected existing modules during maintenance and report actual usability gaps. This documentation requirement does not certify every released module, migrate installed projects, or authorize unrelated rewrites.
 
 ---
 
@@ -244,7 +268,7 @@ Prioritize **Codex compatibility** when designing, creating or maintaining all f
 Provide, in proportion to the component's scope:
 
 - Predictable file, asset and component structure under the selected folder authority, with clear responsibilities, names and entry points.
-- Discoverable supported APIs, extension points and configuration, documenting ownership, lifecycle, dependencies, constraints and failure behavior so callers do not have to infer hidden conventions.
+- Discoverable supported APIs, extension points and configuration, documenting ownership, lifecycle, dependencies, constraints and failure behavior so callers do not have to infer hidden conventions. Keep these APIs usable alongside the no-code module workflows defined above, so Codex can operate through supported code when needed.
 - Concise usage and extension examples tied to the actual supported version, plus documentation that makes the relevant implementation and existing Geurts bricks easy to find.
 - Repeatable checks, tests and useful inspection or diagnostic output with prerequisites and expected results, so Codex can verify changes and report unavailable validation accurately.
 
@@ -613,6 +637,7 @@ The multiplayer network-efficiency override applies regardless of the selected n
 A generated or modified Unity C# script is complete only when it:
 
 - Addresses the applicable Codex compatibility requirements above through discoverable interfaces, documentation and proportionate repeatable verification.
+- Provides the affected module's normal no-code workflow and supported code/extension path under the core standard above, with shared behaviour, representative verification and only specific documented exceptions.
 - Meets the Unity 6.6 compatibility baseline above, with the exact Editor patch, resolved packages, and relevant compile/test/build evidence recorded; unavailable validation is explicitly reported.
 - Includes the compliance header only when it is a reusable cross-game Geurts Game Forge framework, library, or tooling component under the scope above.
 - Uses the correct folder location according to `GeurtsTechniques/GeurtsFolderStructureTechnique.md`.

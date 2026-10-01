@@ -1,6 +1,12 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
 # Geurts Game Forge Documentation
 
+## Core requirement: use modules without code, extend them with code
+
+All existing and future Geurts Game Forge modules must support normal setup, configuration, connection and use without writing code. Provide usable Unity Editor/Inspector controls and authored assets, with clear defaults, validation and guidance. Only narrow special exceptions, such as genuinely custom behaviour or an integration that configuration cannot express, may require code; document their precise scope, reason and supported route.
+
+Keep public APIs and extension points easy for developers and Codex to discover, use and extend. The Editor and code paths share the same implementation and rules. Follow the [Technical Technique's core standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#no-code-module-use-and-code-extensions) and the Brick Contract. This is an authoring requirement, not certification that every current release has already been reviewed or updated.
+
 ## Geurts Game Forge God brick contract
 
 Adds the manifest-selected [brick contract](GeurtsTechniques/GeurtsBrickContract.md) and [machine-readable catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json). AI-assisted Unity development must use a suitable available Geurts brick before recreating its functionality. God owns package management, lifecycle, shared contracts and settings. God, dependent bricks and the optional Documentation Companion require separately installed licensed Odin Inspector and Quantum Console assemblies. The companion remains independent without God or other Unity Package Manager package dependencies. Documentation-interface implementation remains in its separately maintained repository.
@@ -37,7 +43,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.37.0
+**Version:** 0.38.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -88,7 +94,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.37.0; the Technical Technique is v0.14.0.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.38.0; the Technical Technique is v0.15.0.
 
 ## ID Naming
 
@@ -243,6 +249,13 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 The current verified companion package is 0.13.2; use its immutable source from the catalogue. In the Documentation Companion dashboard, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.38.0 - No-code module use and supported code extensions
+
+- Make normal no-code use a core requirement for all existing and future modules, with only specific documented special exceptions.
+- Require clear public APIs and extension points for developers and Codex, sharing implementation, validation and lifecycle with Editor workflows.
+- Define representative verification and truthful release-gap reporting without claiming existing packages have been migrated or audited.
+- Advance Technical Technique to 0.15.0 and Brick Contract to 1.14.0; preserve all released brick pins, templates and dependency boundaries.
 
 ### 0.37.0
 
