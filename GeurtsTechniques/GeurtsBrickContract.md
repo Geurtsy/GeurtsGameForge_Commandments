@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.14.0
+**Version:** 1.15.0
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -33,7 +33,7 @@ Codex compatibility is an authoring and usability expectation. It does not requi
 
 ## Independent BigBang initial installer
 
-`com.geurts.gameforge.bigbang` is an independent Editor-only initial installer, not a runtime brick. It does not implement `IBrick`, declare God as a package dependency, or reference God or vendor assemblies. This narrow exception enables preparation before the required libraries and God exist. It installs only its release-defined verified immutable God target through explicit UPM actions, after prerequisite checks. Existing installations are inspected and preserved; no automatic replacement or downgrade is permitted. Runtime initialization, `SCN_BigBang`, ongoing package management and shared settings remain God-owned. The optional Documentation Companion remains separate and retains its licensed tools. See the manifest-selected [BigBang Technique](GeurtsBigBangTechnique.md).
+`com.geurts.gameforge.bigbang` is an independent Editor-only initial installer, not a runtime brick. It does not implement `IBrick`, declare God as a package dependency, or reference God or vendor assemblies. This narrow exception enables preparation before the required libraries and God exist. It explicitly resolves the latest published compatible God release from the official Git repository, verifies its manifest, then installs its frozen exact commit through UPM after prerequisite checks. Failed resolution cannot authorize an old bundled or cached target. Existing installations are inspected and preserved; no automatic replacement or downgrade is permitted. Runtime initialization, `SCN_BigBang`, ongoing package management and shared settings remain God-owned. The optional Documentation Companion remains separate and retains its licensed tools. See the manifest-selected [BigBang Technique](GeurtsBigBangTechnique.md).
 
 ## Registration and lifecycle
 
