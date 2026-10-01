@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.42.0",
-  "publishedUtc": "2026-10-01T08:38:29Z",
+  "packageVersion": "0.42.1",
+  "publishedUtc": "2026-10-01T08:46:14Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
       "name": "Geurts Game Forge BigBang",
-      "description": "Preview independent Editor prerequisite and initial God installer. Resolves the latest compatible published God release and freezes its verified commit. Supports long Windows input paths, reports fingerprint read errors and completes cached-only incremental compilation without waiting for a reload. Hands over to God's built-in Commandments view without acquiring content. Visual/keyboard acceptance remains incomplete under explicit user instruction.",
+      "description": "Preview independent Editor prerequisite and initial God installer. Separate local Check prerequisites and Get Latest Git Source actions restore installation eligibility after compilation/reload. Resolves the latest compatible published God release and freezes its verified commit. Supports long Windows input paths, reports fingerprint read errors and completes cached-only incremental compilation without waiting for a reload. Hands over to God's built-in Commandments view without acquiring content. Visual/keyboard acceptance remains incomplete under explicit user instruction.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
-      "version": "0.2.4",
+      "version": "0.3.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#da6e1478e47a8eee6c3082cf72d0fb835d030b7d",
+      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#f8f6c7aeac145575fa308af8ac50a57564277d17",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [],

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
 # Geurts Game Forge Commandments
 
-God 0.29.0 includes the Commandments tools. Existing Companion users update to the passive 0.15.0 adapter; fresh projects need only God. BigBang 0.2.4 hands over to this built-in view. See the [0.41.0 migration guide](Migrations/v0.41.0.md) before updating existing integrations. Package updates never replace local content or AI routes; those retain their separate confirmation.
+God 0.29.0 includes the Commandments tools. Existing Companion users update to the passive 0.15.0 adapter; fresh projects need only God. BigBang 0.3.0 provides separate local prerequisite and Get Latest Git Source actions, then hands over to this built-in view. See the [0.41.0 migration guide](Migrations/v0.41.0.md) before updating existing integrations. Package updates never replace local content or AI routes; those retain their separate confirmation.
 
 ## Core requirement: use modules without code, extend them with code
 
@@ -47,7 +47,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.42.0
+**Version:** 0.42.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -98,7 +98,7 @@ God and its Commandments service retain required separately licensed Odin Inspec
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.42.0; the Technical Technique is v0.16.2.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.42.1; the Technical Technique is v0.16.2.
 
 ## Path Length for Codex Projects and GameForge
 
@@ -253,11 +253,15 @@ God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandmen
 
 ## Changelog
 
-### v0.42.0 - Settings authoring and Auto Settings Menu
+### v0.42.1 - Settings authoring and Auto Settings Menu
 
 - Catalogue Settings 0.5.0, UI Foundations 0.11.0 and God 0.30.0 from their exact published main commits. Settings and UI retain God as their sole mandatory Geurts dependency.
 - Document the complete no-code panel, explicit consumer connections, reviewed menu wiring and isolated synchronized preview. Record 242 Editor, 42 Play Mode, six God menu checks and executed Mono/IL2CPP Medium/High player assertions; native visual/input acceptance remains unverified.
-- Preserve the God-owned Commandments migration, passive Companion compatibility and BigBang 0.2.4 handoff. Consumers continue to update manually.
+- Preserve the God-owned Commandments migration, passive Companion compatibility and BigBang 0.3.0 source discovery. Consumers continue to update manually.
+
+### v0.42.0 - Separate BigBang source discovery
+
+BigBang 0.3.0 separates offline local prerequisite checking from the explicit Get Latest Git Source action. After successful compilation or reload, retrieve the latest compatible God release in step 3, then install. Installation rechecks the repository before freezing its target. The God-owned Commandments handoff and manual consumer updates remain unchanged. All 105 Editor tests passed in each of three isolates; real reload/source discovery enabled Install God without installing a package. Package documentation validation passed 63 checks and 241 automation tests before the final immutable catalogue pin; final static validation checks the pin and source-action contract.
 
 ### v0.41.1 - Short paths for Codex and GameForge
 
