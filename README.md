@@ -15,7 +15,9 @@ The manifest-selected [brick contract](GeurtsTechniques/GeurtsBrickContract.md) 
 
 God is maintained in its own [com.geurts.gameforge.god repository](https://github.com/Geurtsy/com.geurts.gameforge.god). The catalogue supplies immutable Git sources for ten packages across independently maintained repositories. All brick installations, including isolated candidate validation, use Git. Develop in separate source checkouts, publish and validate a strictly newer release on its repository's main branch, and retain the consuming project's previous Git version until the user updates through God. A local commit or an unpublished branch does not complete a release.
 
-[Settings System 0.4.1](https://github.com/Geurtsy/com.geurts.gameforge.settings) adds a three-step beginner Editor setup: create a setting, include it in a runtime list, and check setup before testing in Play Mode. Simple starters and concise fields lead the screen; advanced Odin configuration remains available. It provides typed settings, a shared pending draft, explicit Apply and Cancel, authored defaults, persistence and recovery, display confirmation, and optional owner-provided settings. [User Interface Foundations 0.10.0](https://github.com/Geurtsy/com.geurts.gameforge.userinterface) uses Unity Panel Renderer for new menus and offers an Undo-supported upgrade for existing hosts, while retaining controls and dialogs for that shared draft, editable UI Toolkit menus, creation drafts, ordered controls, themes and appearance. Settings and UI Foundations each work without the other. Existing customized menus remain intact; adopt the Settings bindings explicitly.
+[Settings System 0.5.0](https://github.com/Geurtsy/com.geurts.gameforge.settings) provides **Your Settings**, **Connections** and **Auto Settings Menu** in one beginner panel. Create a typed setting, connect supported serialized fields and their consumers, review the changes, then select **Create and Connect**. Authored defaults stay intact while the game consumes an owned runtime configuration copy. Advanced Odin configuration remains available. [UI Foundations 0.11.0](https://github.com/Geurtsy/com.geurts.gameforge.userinterface) supplies the real generated menu, selected-catalogue controls, isolated inline/pop-out previews and reviewed persistent menu wiring for both Panel Renderer and retained UI Document hosts. Both packages require God **0.30.0** and remain usable independently. Existing Settings Demo routes and unrelated callbacks are preserved. These are **Preview** releases: automated authoring, lifecycle and Mono/IL2CPP checks are recorded in the [Settings acceptance report](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/v0.5.0/Documentation~/SettingsUXValidation.md); native visual, focus, scaling and physical-input acceptance remains unverified. No desktop-control checks were performed.
+
+The guided path is **Create Setting → choose type/default → Connect Target and consumers → Create and Connect → configure Auto Settings Menu → Refresh Preview → Connect to My Menu → check in the game**. Use the package's [authoring guide](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/v0.5.0/Documentation~/Authoring.md) for supported fields, consumer ownership and independent public APIs. Update packages manually through God; catalogue publication does not install them.
 
 [Audio 0.6.3](https://github.com/Geurtsy/com.geurts.gameforge.audio) owns one playback service, shared sound identities, music/ambience/dialogue controllers, category volume controls and setup. New configurations use Unity AudioClips without FMOD. The Audio-maintained optional `com.geurts.gameforge.audio.fmod` 0.1.2 package supplies native events, banks, parameters, VCAs and Studio authoring inside that same Audio window, with no separate top-level catalogue entry. Installation and selection are explicit; events and clips are separate assignments, preserved when switching. Legacy FMOD configurations retain their selection and asset identities through a coordinated update using God's existing package queue. Audio 0.6.3 adds separate Unity/FMOD integration foldouts, numbered information callouts, green shared-theme accents and grouped volume controls. Five FMOD-absent and ten FMOD-present focused Editor checks passed. Listening, rendered setup, host skin/scaling and physical devices remain separate acceptance checks.
 
@@ -45,7 +47,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.42.0
+**Version:** 0.42.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -96,7 +98,7 @@ God and its Commandments service retain required separately licensed Odin Inspec
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.42.0; the Technical Technique is v0.16.2.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.42.1; the Technical Technique is v0.16.2.
 
 ## Path Length for Codex Projects and GameForge
 
@@ -250,6 +252,12 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandments view or Build Forge, choose a location and confirm the displayed entry point. The installer writes only the selected AGENTS.md for Codex discovery. The template remains in GeurtsAgentTechnique.md. Normal content updates do not manage a root Codex guide; replace an old guide only through the separately selected and confirmed action. The content-update contract remains schema 3.0.0. Existing custom guides are never rewritten by package migration.
 
 ## Changelog
+
+### v0.42.1 - Settings authoring and Auto Settings Menu
+
+- Catalogue Settings 0.5.0, UI Foundations 0.11.0 and God 0.30.0 from their exact published main commits. Settings and UI retain God as their sole mandatory Geurts dependency.
+- Document the complete no-code panel, explicit consumer connections, reviewed menu wiring and isolated synchronized preview. Record 242 Editor, 42 Play Mode, six God menu checks and executed Mono/IL2CPP Medium/High player assertions; native visual/input acceptance remains unverified.
+- Preserve the God-owned Commandments migration, passive Companion compatibility and BigBang 0.3.0 source discovery. Consumers continue to update manually.
 
 ### v0.42.0 - Separate BigBang source discovery
 

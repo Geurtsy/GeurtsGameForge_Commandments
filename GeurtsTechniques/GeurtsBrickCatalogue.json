@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.42.0",
-  "publishedUtc": "2026-10-01T08:25:40Z",
+  "packageVersion": "0.42.1",
+  "publishedUtc": "2026-10-01T08:46:14Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, built-in Commandments viewing and confirmed updates, lifecycle, settings and optional scene-startup/input cooperation.",
+      "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, built-in Commandments viewing and confirmed updates, lifecycle, settings and optional scene-startup/input cooperation. Supplies neutral optional Settings catalogue, menu-authoring and preview contracts with verified module eligibility.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.29.0",
+      "version": "0.30.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#4a8484b1c567d48155fd55a2feae3c77f1ea97a9",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#7b7e8b973b978f70b95f4f78c99712354cd8d5c2",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -78,13 +78,13 @@
     {
       "id": "com.geurts.gameforge.settings",
       "name": "Geurts Game Forge Settings System",
-      "description": "Preview: three-step beginner Editor setup with simple starters, current-state completion checks and advanced Odin configuration, plus transactional settings, explicit Apply/Cancel, persistence and optional providers. Native visual/input acceptance remains pending.",
+      "description": "Preview: no-code typed settings, reviewed field and consumer connections, owned runtime configuration copies, one central panel and isolated synchronized Auto Settings Menu previews. Automated authoring/lifecycle and Mono/IL2CPP acceptance passed; native visual/input acceptance remains unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.settings",
-      "version": "0.4.3",
+      "version": "0.5.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#8d25177d270fc5ab84eb93189ab0e1e4c192f7dc",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#f88fd1d90a628a80bdbaa7cb44ffefc304204307",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -94,7 +94,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.22.0"
+          "minimumVersion": "0.30.0"
         }
       ]
     },
@@ -170,13 +170,13 @@
     {
       "id": "com.geurts.gameforge.userinterface",
       "name": "Geurts Game Forge User Interface Foundations",
-      "description": "Preview: Panel Renderer menu hosts with explicit Undo-supported legacy upgrades, editable creation drafts, shared appearance and optional Settings controls. Native input and visual acceptance remain pending.",
+      "description": "Preview: Panel Renderer and retained UI Document menus with selected Settings catalogues, reviewed persistent menu connections and shared isolated preview rendering. Settings remains optional. Native visual/input acceptance remains unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface",
-      "version": "0.10.2",
+      "version": "0.11.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#7a6e4da154e73b0ba9f4391f2b88fd6610b249d9",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#c909487a8be594738fe3ee1f7a75db84d6b5dab2",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -186,7 +186,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.22.0"
+          "minimumVersion": "0.30.0"
         }
       ]
     },
