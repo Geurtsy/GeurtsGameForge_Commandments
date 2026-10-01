@@ -2,7 +2,7 @@
 # Geurts AI Agent Setup Technique
 
 **Native AI Instruction Setup - Copilot and supported scoped routes**
-**Version:** 2.0.2
+**Version:** 3.0.0
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -10,7 +10,7 @@
 
 ## Purpose and Manifest Boundary
 
-This technique owns the three exact native AI routes used by the Documentation Companion, the companion's whole-file replacement exception, and the separate optional manual manager's managed regions, exact-fingerprint legacy migration, and create-if-missing GDD scaffolds. `GeurtsTechniqueManifest.md` selects this file and version, determines its place in the package read order, and resolves cross-document applicability and conflicts.
+This technique owns the three exact native AI routes used by the Commandments Companion, the companion's whole-file replacement exception, and the separate optional manual manager's managed regions, exact-fingerprint legacy migration, and create-if-missing GDD scaffolds. `GeurtsTechniqueManifest.md` selects this file and version, determines its place in the package read order, and resolves cross-document applicability and conflicts.
 
 Native entries remain concise. They route an agent into the project-local fetched copy and do not duplicate package policy, integration lifecycle, technical priorities, game-design rules, or product behaviour.
 
@@ -19,12 +19,12 @@ Native entries remain concise. They route an agent into the project-local fetche
 Every Geurts-managed native AI entry routes first to:
 
 ```text
-GeurtsGameForgeDocumentation/AI_READ_FIRST.md
+GeurtsGameForgeCommandments/AI_READ_FIRST.md
 ```
 
 AI_READ_FIRST.md is the first documentation entry and routes to the package manifest. Routes must use that entry directly and must not bypass manifest selection by pointing to a technique.
 
-The Documentation Companion's closed whole-file mappings are:
+The Commandments Companion's closed whole-file mappings are:
 
 | Documentation-owned source template | Project-relative target |
 |---|---|
@@ -32,19 +32,19 @@ The Documentation Companion's closed whole-file mappings are:
 | `Tools/AIAgentInstructionTemplates/instructions/geurts-unity.instructions.md` | `.github/instructions/geurts-unity.instructions.md` |
 | `Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md` | `.github/instructions/geurts-game-design.instructions.md` |
 
-`GeurtsTechniques/GeurtsDocumentationCompanionContract.json` owns the machine-readable copy of this exact mapping. The companion must not infer or discover any additional route.
+`GeurtsTechniques/GeurtsCommandmentsCompanionContract.json` owns the machine-readable copy of this exact mapping. The companion must not infer or discover any additional route.
 
 The AGENT.md Technique owns the separately installed Codex guide. The legacy manual manager handles only the three Copilot routes and must leave Codex guide files untouched.
 
 These routes can guide only AI tools that support the applicable native instruction surface or have been explicitly instructed to read and follow `AI_READ_FIRST.md`. Creating the files does not make every AI product discover or obey the Geurts documentation automatically.
 
-Every v1.1.0 route template gives brick work the same concise rule: before planning or modifying any Geurts Game Forge brick code, read and follow `GeurtsGameForgeDocumentation/AI_READ_FIRST.md`, then treat the installed documentation selected through its manifest chain as the source of truth for that work.
+Every v1.2.0 route template gives brick work the same concise rule: before planning or modifying any Geurts Game Forge brick code, read and follow `GeurtsGameForgeCommandments/AI_READ_FIRST.md`, then treat the installed documentation selected through its manifest chain as the source of truth for that work.
 
-## Documentation Companion Whole-File Replacement
+## Commandments Companion Whole-File Replacement
 
 The independent Windows-only, Editor-only companion is installed from Git through Unity Package Manager. It has no God or other Unity Package Manager package dependency and does not depend on Game Forge Intelligence. Its separately installed licensed Odin Inspector and Quantum Console assemblies remain required. It has no external installer or bootstrap and must not execute a batch, PowerShell, or project script for setup or Update.
 
-When the user selects `Update Geurts Game Forge Documentation`, the companion immediately shows one confirmation that identifies the complete `GeurtsGameForgeDocumentation/` folder and all three exact route targets above as overwrite targets. Cancel is the initially focused default. There is no earlier preview or dry run and no second confirmation. After affirmative confirmation, the companion directly replaces each route as a complete file with the bytes of its mapped template from the same validated authoritative archive used for the documentation copy.
+When the user selects `Update Geurts Game Forge Commandments`, the companion immediately shows one confirmation that identifies the complete `GeurtsGameForgeCommandments/` folder and all three exact route targets above as overwrite targets. Cancel is the initially focused default. There is no earlier preview or dry run and no second confirmation. After affirmative confirmation, the companion directly replaces each route as a complete file with the bytes of its mapped template from the same validated authoritative archive used for the documentation copy.
 
 Confirmation intentionally authorizes discarding every existing byte in those three files. Companion replacement does not merge managed regions, preserve surrounding content, honor `GEURTS-MANAGED-OPT-OUT`, migrate legacy payloads, create per-file backups, or inspect files other than the three declared targets. It may create only missing `.github/` and `.github/instructions/` parent directories required for those targets and must leave every unlisted file and directory under those parents untouched.
 
@@ -89,10 +89,10 @@ The package tools live inside the documentation container. Invoke them from thei
 Example from any working directory:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeDocumentation/Tools/ManageGeurtsAgentInstructions.ps1" -ProjectRoot "<ProjectRoot>"
+powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeCommandments/Tools/ManageGeurtsAgentInstructions.ps1" -ProjectRoot "<ProjectRoot>"
 ```
 
-This legacy manual command changes supported native managed regions only. It is not required by, invoked by, equivalent to, or a supported alternative for the Documentation Companion's installation or Update. Documentation acquisition and whole-file companion replacement are outside this manager. GDD scaffolding and GDD manifest maintenance require the separate positive opt-ins below.
+This legacy manual command changes supported native managed regions only. It is not required by, invoked by, equivalent to, or a supported alternative for the Commandments Companion's installation or Update. Documentation acquisition and whole-file companion replacement are outside this manager. GDD scaffolding and GDD manifest maintenance require the separate positive opt-ins below.
 
 PowerShell 7 may use `pwsh` with the same script path and arguments. The retained batch file is only a compatibility launcher for a user who deliberately chooses the separate manual manager; it is not an external installer or bootstrap, and the companion must never scan for or execute it.
 
@@ -108,35 +108,35 @@ Native-entry creation or migration does not implicitly create or update `Docs/Ga
 <ProjectRoot>/Docs/GameDesign/GameDesignManifest.md
 ```
 
-It uses controlled templates under `GeurtsGameForgeDocumentation/Tools/AIAgentInstructionTemplates/GameDesign/`. Re-running the authorized scaffolding operation preserves every existing project-specific file. Templates identify unknown design decisions as unprovided and must not fabricate project design facts.
+It uses controlled templates under `GeurtsGameForgeCommandments/Tools/AIAgentInstructionTemplates/GameDesign/`. Re-running the authorized scaffolding operation preserves every existing project-specific file. Templates identify unknown design decisions as unprovided and must not fabricate project design facts.
 
 Invoke that separate operation with:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeDocumentation/Tools/ManageGeurtsAgentInstructions.ps1" -ProjectRoot "<ProjectRoot>" -IncludeGameDesignScaffolding
+powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeCommandments/Tools/ManageGeurtsAgentInstructions.ps1" -ProjectRoot "<ProjectRoot>" -IncludeGameDesignScaffolding
 ```
 
 `-IncludeGameDesignScaffolding` creates missing scaffolds only; it does not update the GDD manifest. Manifest maintenance is a third independently authorized effect. Invoke it through the manager with the positive opt-in:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeDocumentation/Tools/ManageGeurtsAgentInstructions.ps1" -ProjectRoot "<ProjectRoot>" -UpdateGameDesignManifest
+powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeCommandments/Tools/ManageGeurtsAgentInstructions.ps1" -ProjectRoot "<ProjectRoot>" -UpdateGameDesignManifest
 ```
 
 The same independently authorized maintenance may invoke the copied maintainer directly:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeDocumentation/Tools/UpdateGameDesignManifest.ps1" -ProjectRoot "<ProjectRoot>"
+powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeCommandments/Tools/UpdateGameDesignManifest.ps1" -ProjectRoot "<ProjectRoot>"
 ```
 
 The Game Design Documentation Technique owns discovery, import, drift, and no-invention rules. This setup technique owns only safe invocation and create-if-missing scaffolding.
 
-These independent opt-ins describe optional manual manager use. The companion's `Update Geurts Game Forge Documentation` action must not invoke this manager; it applies the separately confirmed whole-file mappings defined above. Any separately invoked manual native-entry operation requires its own explicit user action and must apply the exact-fingerprint, preservation, conflict, backup, and opt-out rules above. It still must not create GDD scaffolding or update the GDD manifest without the separate explicit authorization above.
+These independent opt-ins describe optional manual manager use. The companion's `Update Geurts Game Forge Commandments` action must not invoke this manager; it applies the separately confirmed whole-file mappings defined above. Any separately invoked manual native-entry operation requires its own explicit user action and must apply the exact-fingerprint, preservation, conflict, backup, and opt-out rules above. It still must not create GDD scaffolding or update the GDD manifest without the separate explicit authorization above.
 
 ## Delegated Setup Subjects
 
 - Folder creation uses the copied `Tools/CreateGeurtsFolderStructure.ps1` with explicit `-ProjectRoot`; folder meaning and permitted creation remain owned by the manifest-selected Folder Structure Technique and Definition.
 - Project-root `.gitignore` payload and preservation behaviour remain owned by the manifest-selected Git Ignore Technique.
-- Documentation checking, acquisition, complete destination replacement, exact route mappings, and companion-specific reading remain owned exclusively by the manifest-selected Documentation Companion Technique and Contract. The frozen Game Forge Intelligence 2.0 technique exists only for released-consumer compatibility; its historical updater is non-applicable and it is not a companion dependency.
+- Documentation checking, acquisition, complete destination replacement, exact route mappings, and companion-specific reading remain owned exclusively by the manifest-selected Commandments Companion Technique and Contract. The frozen Game Forge Intelligence 2.0 technique exists only for released-consumer compatibility; its historical updater is non-applicable and it is not a companion dependency.
 
 ## Maintenance
 
@@ -144,4 +144,4 @@ When a managed template changes, update its version, normalized payload hash, mi
 
 ## Separate Codex guide installation
 
-The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. The current verified companion is 0.9.2 in the catalogue; schema-2.0.0 support was introduced in 0.7.0 and the schema compatibility boundary is unchanged.
+The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. The current verified companion is 0.9.2 in the catalogue; schema-3.0.0 support begins with Companion 0.14.0. See `Migrations/v0.39.0.md` before updating an existing installation.

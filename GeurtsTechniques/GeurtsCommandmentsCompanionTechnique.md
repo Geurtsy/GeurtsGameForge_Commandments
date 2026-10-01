@@ -1,61 +1,61 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
-# Geurts Documentation Companion Technique
+# Geurts Commandments Companion Technique
 
-**Version:** 2.4.2
-**Contract schema:** 2.0.0
+**Version:** 3.0.0
+**Contract schema:** 3.0.0
 **Package version:** 0.39.0
 **Status:** Draft normative technique
-**Primary audience:** Geurts Documentation Companion implementers and package maintainers
+**Primary audience:** Geurts Commandments Companion implementers and package maintainers
 **Secondary audience:** AI coding agents and human developers
-**Required package path:** `GeurtsTechniques/GeurtsDocumentationCompanionTechnique.md`
+**Required package path:** `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md`
 
 ## 1. Scope and Ownership
 
-This technique defines the project-facing documentation lifecycle implemented by **Geurts Game Forge Documentation Companion** (compact name `GeurtsGameForgeDocumentationCompanion`). `GeurtsTechniqueManifest.md` selects this technique and remains the sole resolver for package-file selection, versions, subject ownership, applicability, reading order, and cross-document conflicts.
+This technique defines the project-facing documentation lifecycle implemented by **Geurts Game Forge Commandments Companion** (compact name `GeurtsGameForgeCommandmentsCompanion`). `GeurtsTechniqueManifest.md` selects this technique and remains the sole resolver for package-file selection, versions, subject ownership, applicability, reading order, and cross-document conflicts.
 
 The Update boundary below is separate from Install Codex guide, which the manifest-selected AGENTS.md Technique owns. That independent, user-confirmed action writes only the selected guide and does not acquire or replace documentation.
 
-The companion is a small, Windows-only, Editor-only Unity package installed into an existing Unity project through Unity Package Manager from its separate `Geurtsy/com.geurts.gameforge.documentation` Git repository. It has no God or other Unity Package Manager package dependency. It requires separately installed licensed Odin Inspector and Quantum Console assemblies (`QFSW.QC` and the applicable Sirenix assemblies); these commercially distributed tools are not bundled or declared through invented registry identifiers. It does not depend on Game Forge Intelligence. Its package repository owns its Unity code, package metadata, Editor UI, and implementation-specific documentation.
+The companion is a small, Windows-only, Editor-only Unity package installed into an existing Unity project through Unity Package Manager from its separate `Geurtsy/com.geurts.gameforge.commandments` Git repository. It has no God or other Unity Package Manager package dependency. It requires separately installed licensed Odin Inspector and Quantum Console assemblies (`QFSW.QC` and the applicable Sirenix assemblies); these commercially distributed tools are not bundled or declared through invented registry identifiers. It does not depend on Game Forge Intelligence. Its package repository owns its Unity code, package metadata, Editor UI, and implementation-specific documentation.
 
-`Geurtsy/GeurtsGameForge_Documentation` remains the sole source and authority for generic Geurts Game Forge documentation. This repository owns this technique and the closed machine-readable contract at:
+`Geurtsy/GeurtsGameForge_Commandments` remains the sole source and authority for generic Geurts Game Forge documentation. This repository owns this technique and the closed machine-readable contract at:
 
 ```text
-GeurtsTechniques/GeurtsDocumentationCompanionContract.json
+GeurtsTechniques/GeurtsCommandmentsCompanionContract.json
 ```
 
-This repository contains no Documentation Companion plugin code. A Geurts documentation release does not require a companion-package release unless the companion must add support for a changed contract schema or a changed, exactly pinned Git Ignore Technique payload.
+This repository contains no Commandments Companion plugin code. A Geurts documentation release does not require a companion-package release unless the companion must add support for a changed contract schema or a changed, exactly pinned Git Ignore Technique payload.
 
 There is no external installer, Windows bootstrap, batch-driven setup, or separate companion setup action. Installing the Editor package through Unity Package Manager is the only companion installation route defined here.
 
 ### Companion name and documentation identity
 
-The Unity brick's display name is **Geurts Game Forge Documentation Companion**. Its primary menu is **Tools > Geurts Game Forge > Documentation Companion** and its dashboard title includes **Documentation Companion**. Use this name for package cards, package updates, module controls and package-specific status so users can distinguish the Editor tooling from the documentation content.
+The Unity brick's display name is **Geurts Game Forge Commandments Companion**. Its primary menu is **Tools > Geurts Game Forge > Commandments Companion** and its dashboard title includes **Commandments Companion**. Use this name for package cards, package updates, module controls and package-specific status so users can distinguish the Editor tooling from the documentation content.
 
-The actual documentation remains **Geurts Game Forge Documentation**, maintained in `Geurtsy/GeurtsGameForge_Documentation` and installed at `GeurtsGameForgeDocumentation/`. Its content action remains exactly **Update Geurts Game Forge Documentation**. The compatible brick rename retains UPM identity `com.geurts.gameforge.documentation`, its existing Git repository, assemblies, integration APIs, saved preference keys and asset GUIDs; it does not rename the managed content folder or expand the Update contract. Existing installations upgrade through the same package identity.
+The actual documentation remains **Geurts Game Forge Commandments**, maintained in `Geurtsy/GeurtsGameForge_Commandments` and installed at `GeurtsGameForgeCommandments/`. Its content action remains exactly **Update Geurts Game Forge Commandments**. The compatible brick rename retains UPM identity `com.geurts.gameforge.documentation`, its assemblies, integration APIs, module preference keys and asset GUIDs. Its renamed repository redirects the old URL. Schema 3 changes the managed content destination and source; see `Migrations/v0.39.0.md` for the exact migration and compatibility map. Existing installations upgrade through the same package identity.
 
 ### Optional Game Forge God integration
 
-God may be installed before this companion. Its **Game Forge God** interface may install or update the optional companion through Unity Package Manager and separately expose **Update Geurts Game Forge Documentation** through the companion's public Editor integration. God must remain usable when the companion is absent or its integration API is incompatible. The companion remains independent of God; no reverse dependency, duplicate updater, or bundled generic documentation is introduced.
+God may be installed before this companion. Its **Game Forge God** interface may install or update the optional companion through Unity Package Manager and separately expose **Update Geurts Game Forge Commandments** through the companion's public Editor integration. God must remain usable when the companion is absent or its integration API is incompatible. The companion remains independent of God; no reverse dependency, duplicate updater, or bundled generic documentation is introduced.
 
 The package and documentation content have independent versions and update actions. A companion package update does not replace the project-local documentation content. A content Update invoked from Game Forge God uses this technique's same exact action, confirmation, source, validation and closed mutation boundary. It must show the one cancel-default confirmation before archive acquisition, including on the first manual content installation. God does not add an earlier preview, another confirmation, additional automatic checks, or an automatic content Update after manual package installation or Update All. The explicitly opted-in God-opening exception is defined below.
 
 The companion may expose its current busy state and explanatory operation status to Game Forge God so both interfaces report the same work and prevent conflicting package/content operations. A missing integration API must produce an actionable companion-update message, not a second implementation of this lifecycle. Neither the integration nor busy-state presentation grants access to any additional project path or script.
 
-### Embedded Documentation Companion tools
+### Embedded Commandments Companion tools
 
-Documentation Companion **0.13.2** exposes `DocumentationIntegration.CreateEmbeddedWindow(Action<string> navigate)` for God **0.26.0** or later. It returns an unshown, independent Editor window owned by the host. The embedded view shows the full Companion dashboard: explicit update checking, both package/content version and update cards, dependencies, setup navigation and source details. Opening, resizing or scrolling the panel starts no check or update. Explicit actions reuse the existing update lifecycle, module/operation guards and cancel-default content confirmation. This full Companion dashboard is the narrow exception to the host's filtering of other embedded brick package-management controls. The callback selects Build Forge inside God; it is navigation, not permission to install or update anything. Back or host closure destroys only this owned view and releases its subscriptions. Independent standalone Documentation Companion windows retain their existing checks, tools and update controls. This API introduces no God dependency, extra project access or change to the closed Update contract.
+Commandments Companion **0.13.2** exposes `DocumentationIntegration.CreateEmbeddedWindow(Action<string> navigate)` for God **0.26.0** or later. It returns an unshown, independent Editor window owned by the host. The embedded view shows the full Companion dashboard: explicit update checking, both package/content version and update cards, dependencies, setup navigation and source details. Opening, resizing or scrolling the panel starts no check or update. Explicit actions reuse the existing update lifecycle, module/operation guards and cancel-default content confirmation. This full Companion dashboard is the narrow exception to the host's filtering of other embedded brick package-management controls. The callback selects Build Forge inside God; it is navigation, not permission to install or update anything. Back or host closure destroys only this owned view and releases its subscriptions. Independent standalone Commandments Companion windows retain their existing checks, tools and update controls. This API introduces no God dependency, extra project access or change to the closed Update contract.
 
 ### Explicit saved consent for automatic God-opening updates
 
-God 0.19.0 exposes **Automatically update packages and documentation**, off by default. A separate default-off **Automatically refresh the catalogue** setting controls catalogue acquisition and does not grant documentation-update consent. Both options apply only to deliberate God menu openings, never restored windows or Unity startup. Before saving the updates project opt-in, God explains and obtains affirmative consent for the same four exact managed targets, loss of local edits with no backup or rollback, and preservation of every unlisted path including `Docs/GameDesign/`. Cancel leaves the preference off. This saved consent is the sole exception to the per-invocation manual confirmation requirement; it does not change the schema-2.0.0 contract, archive validation, replacement order or target boundary. The following sections describe standalone startup and manual Update unless this narrow opt-in explicitly applies.
+God 0.28.0 exposes **Automatically update packages and documentation**, off by default. A separate default-off **Automatically refresh the catalogue** setting controls catalogue acquisition and does not grant documentation-update consent. Both options apply only to deliberate God menu openings, never restored windows or Unity startup. Before saving the updates project opt-in, God explains and obtains affirmative consent for the same four exact managed targets, loss of local edits with no backup or rollback, and preservation of every unlisted path including `Docs/GameDesign/`. Cancel leaves the preference off. This saved consent is the sole exception to the per-invocation manual confirmation requirement; it does not change the schema-3.0.0 contract, archive validation, replacement order or target boundary. The following sections describe standalone startup and manual Update unless this narrow opt-in explicitly applies.
 
-Documentation Companion 0.10.0 exposes `DocumentationIntegration.UpdateDocumentationAutomaticallyAsync(Func<bool> stillAuthorized)` for that host. God 0.17.1 calls it only during an opted-in deliberate menu opening, never when restoring its window at Unity startup, after package work, with a live callback that remains true only while God stays open and its saved preference is enabled. The companion checks metadata and acquires a candidate only if content needs an update. Recheck consent and conflicting host/Editor operations after download and before the first replacement. Closing God, disabling the option or encountering an operation conflict stops pending replacement. Current content requires no download. Failed checks do not trigger acquisition.
+Commandments Companion 0.14.0 exposes `CommandmentsIntegration.UpdateCommandmentsAutomaticallyAsync(Func<bool> stillAuthorized)` for that host. God 0.28.0 calls it only during an opted-in deliberate menu opening, never when restoring its window at Unity startup, after package work, with a live callback that remains true only while God stays open and its saved preference is enabled. The companion checks metadata and acquires a candidate only if content needs an update. Recheck consent and conflicting host/Editor operations after download and before the first replacement. Closing God, disabling the option or encountering an operation conflict stops pending replacement. Current content requires no download. Failed checks do not trigger acquisition.
 
 Use the existing validated exact-commit archive pipeline and report progress/failure through the same status. Do not add an independent updater, background timer, automatic retry, rollback or recovery mechanism. An interrupted operation requires another deliberate God opening with the option enabled, or manual Update. Standalone companion startup remains offline and its manual Update retains one cancel-default confirmation.
 
 ## 2. Closed Data Contract
 
-`GeurtsDocumentationCompanionContract.json` is the smallest closed data contract for this lifecycle. It names only:
+`GeurtsCommandmentsCompanionContract.json` is the smallest closed data contract for this lifecycle. It names only:
 
 - the official source and exact archive selection;
 - the one project-local documentation destination;
@@ -65,16 +65,16 @@ Use the existing validated exact-commit archive pipeline and report progress/fai
 
 It is not a general setup-plan format, script manifest, extensible task engine, or permission catalogue. An implementation must reject an unsupported schema, a missing or unknown field, a duplicate mapping or target, an unsafe validation path, or any source, destination, template, target, action label, or confirmation behavior that differs from the supported schema contract. It must not discover additional work from repository contents.
 
-Because the confirmation occurs before archive acquisition, a schema-2.0.0 companion must carry this exact supported destination, four-target list, and three template-to-target mappings for the dialog and mutation boundary. After confirmation and download, it must parse the archive's contract and require the pre-approved source selection, destination, action, confirmation behavior, target paths and effects, template paths, target paths, and mapping order before the first project mutation. The earlier approval does not authorize a changed or expanded managed target set. `packageVersion` and `validationEntries` follow the forward-compatible rules in the next paragraph rather than being pinned to the initial v0.11.0 values.
+Because the confirmation occurs before archive acquisition, a schema-3.0.0 companion must carry this exact supported destination, four-target list, and three template-to-target mappings for the dialog and mutation boundary. After confirmation and download, it must parse the archive's contract and require the pre-approved source selection, destination, action, confirmation behavior, target paths and effects, template paths, target paths, and mapping order before the first project mutation. The earlier approval does not authorize a changed or expanded managed target set. `packageVersion` and `validationEntries` follow the forward-compatible rules in the next paragraph rather than being pinned to the initial v0.11.0 values.
 
-`packageVersion` is source-release metadata, not a companion compatibility gate: it must be a valid version and exactly match the package manifest in the same archive, but a later package version alone must not require a companion release while schema 2.0.0 remains supported. `validationEntries` is the archive's closed current completeness list; a schema-2.0.0 consumer may read a later list rather than pinning v0.11.0, but every entry must be unique, safe, readable, and archive-root-relative before mutation. Validation entries grant no project-read or project-write authority. Mapping `template` values are also archive-root-relative; `destination.projectRelativePath`, confirmation `path` values, and mapping `target` values are Unity-project-root-relative. All contract paths use `/` separators and contain no rooted path, empty segment, `.` segment, or `..` segment.
+`packageVersion` is source-release metadata, not a companion compatibility gate: it must be a valid version and exactly match the package manifest in the same archive, but a later package version alone must not require a companion release while schema 3.0.0 remains supported. `validationEntries` is the archive's closed current completeness list; a schema-3.0.0 consumer may read a later list rather than pinning v0.11.0, but every entry must be unique, safe, readable, and archive-root-relative before mutation. Validation entries grant no project-read or project-write authority. Mapping `template` values are also archive-root-relative; `destination.projectRelativePath`, confirmation `path` values, and mapping `target` values are Unity-project-root-relative. All contract paths use `/` separators and contain no rooted path, empty segment, `.` segment, or `..` segment.
 
 ## 3. Project and Source Boundaries
 
 The production source is:
 
 ```text
-Repository: https://github.com/Geurtsy/GeurtsGameForge_Documentation.git
+Repository: https://github.com/Geurtsy/GeurtsGameForge_Commandments.git
 Branch: main
 Selection: archive of the exact resolved main-head commit
 ```
@@ -82,7 +82,7 @@ Selection: archive of the exact resolved main-head commit
 The managed project-local documentation destination is exactly:
 
 ```text
-<ProjectRoot>/GeurtsGameForgeDocumentation/
+<ProjectRoot>/GeurtsGameForgeCommandments/
 ```
 
 The companion treats that destination as logically read-only managed content. Logical read-only status is a usage and ownership rule, not permission to set Windows read-only attributes. Users and automated tools should not maintain local changes there. A confirmed Update discards every local addition, deletion, and edit inside the destination without inspecting or preserving drift.
@@ -107,7 +107,7 @@ Merely copying the scoped game-design instruction template to its listed target 
 
 ## 4. Offline Startup and Explicit Metadata Checks
 
-On each normal Unity project launch or open, the companion must not check remote metadata, refresh a catalogue or open an update popup. Restoring a dashboard must not schedule checks. A deliberate Documentation Companion menu opening or explicit metadata check may request the official repository's current `main` head commit; it compares that remote commit ID with one persistent companion-owned last-successful-installed commit value for this Unity project, held outside the Unity project filesystem and outside the installed UPM package, for example in host or Editor preference storage. The value must be keyed by a Unity-provided project identity or normalized project-root path derived without reading project content; a value for one project must never suppress availability in another. The companion must not create a project file or project path for this value. The check must not download an archive, inspect the managed documentation copy, inspect any AI target, mutate a managed project target, execute setup work, or synchronize content. A skipped, failed, or unavailable request is non-blocking.
+On each normal Unity project launch or open, the companion must not check remote metadata, refresh a catalogue or open an update popup. Restoring a dashboard must not schedule checks. A deliberate Commandments Companion menu opening or explicit metadata check may request the official repository's current `main` head commit; it compares that remote commit ID with one persistent companion-owned last-successful-installed commit value for this Unity project, held outside the Unity project filesystem and outside the installed UPM package, for example in host or Editor preference storage. The value must be keyed by a Unity-provided project identity or normalized project-root path derived without reading project content; a value for one project must never suppress availability in another. The companion must not create a project file or project path for this value. The check must not download an archive, inspect the managed documentation copy, inspect any AI target, mutate a managed project target, execute setup work, or synchronize content. A skipped, failed, or unavailable request is non-blocking.
 
 An Update is available when the last-successful-installed commit value is missing or differs from the remote `main` head commit. Matching values mean only that the authoritative source has not advanced since the last fully successful companion Update; they do not validate or certify mutable local files. When the remote commit is unavailable, availability is unknown. The explicit Update action remains available in every state.
 
@@ -120,7 +120,7 @@ The last-successful-installed value contains only the exact commit ID selected b
 The companion exposes exactly one lifecycle action:
 
 ```text
-Update Geurts Game Forge Documentation
+Update Geurts Game Forge Commandments
 ```
 
 Selecting it immediately shows one confirmation dialog. There is no earlier preview, dry run, check phase, setup screen, or second confirmation. Cancel is the initially focused and default response. Closing or dismissing the dialog, pressing Escape, or otherwise declining must cause no network or filesystem change from the Update action.
@@ -128,7 +128,7 @@ Selecting it immediately shows one confirmation dialog. There is no earlier prev
 The confirmation must identify all four destructive targets and no implied broader scope:
 
 ```text
-GeurtsGameForgeDocumentation/                                                     entire folder replaced
+GeurtsGameForgeCommandments/                                                     entire folder replaced
 .github/copilot-instructions.md                                                   entire file replaced
 .github/instructions/geurts-unity.instructions.md                                 entire file replaced
 .github/instructions/geurts-game-design.instructions.md                           entire file replaced
@@ -144,8 +144,8 @@ After affirmative confirmation, the companion performs this bounded sequence:
 
 1. Resolve the official repository's current `main` head commit and capture its exact commit ID.
 2. Download an archive pinned to that exact commit into a temporary location outside the Unity project.
-3. Perform basic pre-mutation validation: confirm the configured official source, the selected exact commit, safe relative archive paths, supported regular-file and directory entries, absence of Git metadata, readability of every contract-listed validation entry, readable entry routing through `AI_READ_FIRST.md` and `GeurtsTechniqueManifest.md`, support for contract schema 2.0.0, and equality between the contract and manifest package versions.
-4. Delete any existing `<ProjectRoot>/GeurtsGameForgeDocumentation/` and directly materialize the complete validated archive tree at that exact destination. The result contains no `.git` metadata or continuing repository, worktree, branch, remote, or synchronization connection.
+3. Perform basic pre-mutation validation: confirm the configured official source, the selected exact commit, safe relative archive paths, supported regular-file and directory entries, absence of Git metadata, readability of every contract-listed validation entry, readable entry routing through `AI_READ_FIRST.md` and `GeurtsTechniqueManifest.md`, support for contract schema 3.0.0, and equality between the contract and manifest package versions.
+4. Delete any existing `<ProjectRoot>/GeurtsGameForgeCommandments/` and directly materialize the complete validated archive tree at that exact destination. The result contains no `.git` metadata or continuing repository, worktree, branch, remote, or synchronization connection.
 5. Directly replace each of the three AI target files with the bytes of its mapped template from the same validated candidate. Create only a missing `.github/` or `.github/instructions/` parent needed for those exact files.
 6. Verify that the complete documentation destination and all three mapped target files were written successfully.
 7. After every managed-target verification passes, report the content Update as successful and attempt to write the selected exact commit ID as the companion-owned last-successful-installed value. If that comparison-state write fails, report a warning and allow a later open to offer the Update again; do not reclassify, undo, or repair the successful four-target replacement.
@@ -169,7 +169,7 @@ The complete documentation tree is copied as inert content. The presence of tool
 
 ## 8. AI Routing Limitation
 
-The three managed AI files route supported tools to `GeurtsGameForgeDocumentation/AI_READ_FIRST.md`, which continues to the manifest-selected package chain. They do not make every AI product obey the documentation automatically.
+The three managed AI files route supported tools to `GeurtsGameForgeCommandments/AI_READ_FIRST.md`, which continues to the manifest-selected package chain. They do not make every AI product obey the documentation automatically.
 
 Each source template explicitly tells an agent to read that installed entry before planning or modifying any Geurts Game Forge brick code and to treat the installed, manifest-selected documentation as the source of truth for the work. The companion copies that instruction only through the three declared mappings and does not discover or alter any other agent configuration.
 
@@ -192,8 +192,8 @@ A conforming companion:
 
 ## Separate Codex guide installation
 
-The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. The current verified Documentation Companion is 0.13.2 in the catalogue; schema-2.0.0 support was introduced in 0.7.0 and the schema compatibility boundary is unchanged.
+The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. The current verified Commandments Companion is 0.13.2 in the catalogue; schema-3.0.0 support begins with Companion 0.14.0. Schema 2 consent is not valid for the renamed target.
 
 ## Independent module preference
 
-Documentation Companion 0.12.0 exposes **Module enabled** in its window and public **ModuleEnabled**, **SetModuleEnabled(bool)** and **ModuleToggleUnavailableReason** Editor integration members. God 0.24.0 may use these members without introducing a dependency in either direction. The preference defaults on and is keyed by the normalized Unity project root in Editor preference storage, outside the project filesystem and installed package. It is independent of the last-successful commit signal and automatic-update consent. Turning it off blocks new metadata checks, content updates and setup writes, including queued window actions; installed package, guidance, routes and existing saved preferences remain untouched. Active Documentation Companion, host or Unity work must finish before switching; do not cancel in-flight work or introduce cleanup/deletion. Its window remains reachable for information and re-enabling. Turning it on starts no network or installation work. Preserve the normal explicit menu/check actions and all Update consent, validation and four-target boundaries. This preference changes neither contract schema 2.0.0 nor the Update target set.
+Commandments Companion 0.12.0 exposes **Module enabled** in its window and public **ModuleEnabled**, **SetModuleEnabled(bool)** and **ModuleToggleUnavailableReason** Editor integration members. God 0.24.0 may use these members without introducing a dependency in either direction. The preference defaults on and is keyed by the normalized Unity project root in Editor preference storage, outside the project filesystem and installed package. It is independent of the last-successful commit signal and automatic-update consent. Turning it off blocks new metadata checks, content updates and setup writes, including queued window actions; installed package, guidance, routes and existing saved preferences remain untouched. Active Commandments Companion, host or Unity work must finish before switching; do not cancel in-flight work or introduce cleanup/deletion. Its window remains reachable for information and re-enabling. Turning it on starts no network or installation work. Preserve the normal explicit menu/check actions and all Update consent, validation and four-target boundaries. This preference changes neither contract schema 3.0.0 nor the Update target set.

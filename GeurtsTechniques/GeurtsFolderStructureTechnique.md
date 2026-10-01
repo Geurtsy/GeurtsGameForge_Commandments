@@ -2,7 +2,7 @@
 # Geurts Folder Structure Technique
 
 **Unity Project Structure - AI-First Automation and Human Developer Reference**
-**Version:** 0.14.0
+**Version:** 0.15.0
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -59,7 +59,7 @@ using:
 Tools/CreateGeurtsFolderStructure.ps1
 ```
 
-`Tools/CreateGeurtsFolderStructure.bat` is retained only as a compatibility launcher for a separately invoked manual folder operation. It must delegate folder selection to the PowerShell tool and must not contain an independent complete path list. It is not an external installer or bootstrap for the Documentation Companion.
+`Tools/CreateGeurtsFolderStructure.bat` is retained only as a compatibility launcher for a separately invoked manual folder operation. It must delegate folder selection to the PowerShell tool and must not contain an independent complete path list. It is not an external installer or bootstrap for the Commandments Companion.
 
 The definition has three creation profiles:
 
@@ -89,7 +89,7 @@ The Unity project root itself must not be a junction, symbolic link, or other re
 In a Unity project with a project-local fetched documentation copy, invoke the copied folder tool with the Unity root explicitly:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeDocumentation/Tools/CreateGeurtsFolderStructure.ps1" -ProjectRoot "<ProjectRoot>"
+powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeCommandments/Tools/CreateGeurtsFolderStructure.ps1" -ProjectRoot "<ProjectRoot>"
 ```
 
 From a documentation source checkout, the distinct maintainer invocation is:
@@ -100,9 +100,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ".\Tools\CreateGeurtsFolderS
 
 The tool prefers the project-local fetched definition when one exists. Update the complete managed documentation snapshot before using a newer tool; do not mix a newer script with an older definition. A maintainer testing a complete source package against an isolated project may deliberately pass `-DefinitionPath` for that source package. Without that override, the source-checkout path uses the script-adjacent definition only after checking for a project-local fetched definition. It never discovers an unselected `<ProjectRoot>/GeurtsTechniques/` definition implicitly; a deliberate alternative requires an explicit `-DefinitionPath`.
 
-The retained compatibility launcher at `GeurtsGameForgeDocumentation/Tools/CreateGeurtsFolderStructure.bat` likewise requires `-ProjectRoot <UnityProjectRoot>` as its first argument when a user deliberately invokes that manual operation. Documentation acquisition and replacement are outside the folder-definition contract, and optional manual native-entry setup is a separate AI Agent Setup responsibility. No copied tool may infer the Unity root from its documentation-container parent.
+The retained compatibility launcher at `GeurtsGameForgeCommandments/Tools/CreateGeurtsFolderStructure.bat` likewise requires `-ProjectRoot <UnityProjectRoot>` as its first argument when a user deliberately invokes that manual operation. Documentation acquisition and replacement are outside the folder-definition contract, and optional manual native-entry setup is a separate AI Agent Setup responsibility. No copied tool may infer the Unity root from its documentation-container parent.
 
-The independent Editor-only Documentation Companion never invokes either folder tool. Installing it through Unity Package Manager is the only companion installation route. Its confirmed Update may create only `.github/` and `.github/instructions/` when a missing parent is required for one of the contract's exact AI-route targets; it does not run a general setup or folder-structure plan.
+The independent Editor-only Commandments Companion never invokes either folder tool. Installing it through Unity Package Manager is the only companion installation route. Its confirmed Update may create only `.github/` and `.github/instructions/` when a missing parent is required for one of the contract's exact AI-route targets; it does not run a general setup or folder-structure plan.
 
 ---
 
@@ -115,7 +115,7 @@ ProjectRoot/
 ├── ProjectSettings/
 ├── UserSettings/
 ├── Docs/
-├── GeurtsGameForgeDocumentation/
+├── GeurtsGameForgeCommandments/
 ├── Builds/
 ├── Tools/
 ├── SourceAssets/
@@ -132,18 +132,18 @@ These paths are documented here but are not members of the `full-project-structu
 ProjectRoot/
 ├── .github/
 │   └── instructions/
-└── GeurtsGameForgeDocumentation/
+└── GeurtsGameForgeCommandments/
 ```
 
-- `.github/` and `.github/instructions/` may be created by the optional manual native-entry manager or by the Documentation Companion only as missing parents for its exact contract-listed AI routes. They also may hold unrelated GitHub-native repository configuration. The folder-structure tool must not create them as part of the 76-path project profile.
-- `GeurtsGameForgeDocumentation/` is the placement boundary for a detached project-local snapshot managed as logically read-only content, not a machine-readable managed folder. The folder-structure tool has no creation, replacement, or lifecycle authority for it. The manifest-selected Documentation Companion Technique and Contract own their explicit confirmed Update boundary.
-- Directories below `GeurtsGameForgeDocumentation/` are deliberately absent from the folder definition, so a new tracked source directory does not require a folder-schema change.
+- `.github/` and `.github/instructions/` may be created by the optional manual native-entry manager or by the Commandments Companion only as missing parents for its exact contract-listed AI routes. They also may hold unrelated GitHub-native repository configuration. The folder-structure tool must not create them as part of the 76-path project profile.
+- `GeurtsGameForgeCommandments/` is the placement boundary for a detached project-local snapshot managed as logically read-only content, not a machine-readable managed folder. The folder-structure tool has no creation, replacement, or lifecycle authority for it. The manifest-selected Commandments Companion Technique and Contract own their explicit confirmed Update boundary.
+- Directories below `GeurtsGameForgeCommandments/` are deliberately absent from the folder definition, so a new tracked source directory does not require a folder-schema change.
 - The native-entry manager may create its assigned `.github` paths but may never delete existing directories or user content through the folder-definition contract. A confirmed companion Update separately authorizes whole-file replacement of only its three contract-listed AI routes; every unlisted path inside `.github/` remains uninspected and untouched.
 - `Docs/` and `Docs/GameDesign/` remain members of the full project profile and additionally delegate the closed `gdd-scaffolding` profile to the native-entry manager, so missing GDD scaffolding can be created without granting that manager access to unrelated folders.
 
 ### Explicit Game Design Document import
 
-As a separate narrow operation, a user-selected Build Forge **Import selected documents** or legacy **Import primary Game Design Document** action may create only missing `Docs/` and `Docs/GameDesign/` parents for its explicitly selected Markdown documents and project manifest. This exception is owned by the Game Design Documentation Technique and does not invoke a generic folder-creation profile, expand the native-entry manager, or grant the Documentation Companion any project-design access. Preserve every existing directory and every file outside the explicitly confirmed import targets. Only the Game Design Documentation Technique's manual overwrite warning can authorize replacing selected document files. Validate containment and the complete path chain for reparse points before accepting or creating either parent. Build Forge owns its setup checklist and completion criteria; this folder permission does not define them.
+As a separate narrow operation, a user-selected Build Forge **Import selected documents** or legacy **Import primary Game Design Document** action may create only missing `Docs/` and `Docs/GameDesign/` parents for its explicitly selected Markdown documents and project manifest. This exception is owned by the Game Design Documentation Technique and does not invoke a generic folder-creation profile, expand the native-entry manager, or grant the Commandments Companion any project-design access. Preserve every existing directory and every file outside the explicitly confirmed import targets. Only the Game Design Documentation Technique's manual overwrite warning can authorize replacing selected document files. Validate containment and the complete path chain for reparse points before accepting or creating either parent. Build Forge owns its setup checklist and completion criteria; this folder permission does not define them.
 
 ---
 
@@ -160,17 +160,17 @@ Examples:
 - Onboarding notes.
 - Game design documentation under `Docs/GameDesign/`.
 
-Geurts source implementation techniques do not belong here. They are copied into `GeurtsGameForgeDocumentation/` as package content.
+Geurts source implementation techniques do not belong here. They are copied into `GeurtsGameForgeCommandments/` as package content.
 
-### GeurtsGameForgeDocumentation/
+### GeurtsGameForgeCommandments/
 
-Top-level placement for the detached, archive-sourced project-local snapshot of authoritative Geurts Game Forge documentation fetched from `Geurtsy/GeurtsGameForge_Documentation`.
+Top-level placement for the detached, archive-sourced project-local snapshot of authoritative Geurts Game Forge documentation fetched from `Geurtsy/GeurtsGameForge_Commandments`.
 
 Rules:
 
 - Treat this directory as logically read-only managed reference content. This is an ownership rule, not a requirement to set Windows read-only attributes. A confirmed companion Update discards and replaces its complete contents without inspecting or preserving local drift.
 - The folder-definition tool must not create, populate, update, replace, or remove it.
-- The manifest-selected Documentation Companion Technique and Contract own the companion's explicit fetch-and-replace operation. Normal Unity launch/open performs no remote metadata check or catalogue refresh; AI/session initialization receives no lifecycle authority from this folder technique.
+- The manifest-selected Commandments Companion Technique and Contract own the companion's explicit fetch-and-replace operation. Normal Unity launch/open performs no remote metadata check or catalogue refresh; AI/session initialization receives no lifecycle authority from this folder technique.
 - This path is outside the companion's UPM package. The package's own `Documentation~` may contain only companion-specific documentation and is not a Geurts source. The companion is independent of Geurts Game Forge God and Game Forge Intelligence, with no God or other Unity Package Manager package dependency. Its separately installed licensed Odin Inspector and Quantum Console assemblies remain required.
 - Do not store project-specific GDD files here.
 - Keep project-specific game design documentation under `Docs/GameDesign/`.
@@ -487,7 +487,7 @@ The template supplies stable ownership roots, not a fixed catalogue of every gam
 
 ### Start from the current template
 
-1. Update the complete managed documentation snapshot through the Documentation Companion's confirmed Update action. Do not hand-edit that snapshot or mix files from different package commits.
+1. Update the complete managed documentation snapshot through the Commandments Companion's confirmed Update action. Do not hand-edit that snapshot or mix files from different package commits.
 2. In Game Forge God's Build Forge setup, use **Create project folders** to create the selected full profile. For a separately chosen manual operation, use the copied PowerShell command above with the Unity project root explicitly supplied.
 3. Inspect the folders that already exist before placing content. Counts come from the selected definition, rather than historical package examples. The full profile creates 76 project paths; it does not create scene assets, assembly definitions, content, packages, or optional features.
 4. Re-running setup adds missing template directories. It preserves existing directories, assets, and `.meta` files, including old genre-specific paths no longer present in the fresh template.
@@ -564,7 +564,7 @@ The JSON `canonicalPath` property is a legacy serialized compatibility key. Pres
 
 Before creating folders, any compatible folder-creation consumer must:
 
-1. Load `GeurtsGameForgeDocumentation/GeurtsTechniques/GeurtsFolderStructureDefinition.json` from the active validated package.
+1. Load `GeurtsGameForgeCommandments/GeurtsTechniques/GeurtsFolderStructureDefinition.json` from the active validated package.
 2. Confirm supported `schemaVersion`, `definitionVersion`, and `packageVersion` values.
 3. Confirm `managedFolderCount` is 78 and `projectStructureFolderCount` is 76 for definition v0.12.0.
 4. Reject duplicate paths, absolute paths, traversal segments, backslashes, unknown content categories, missing parents, unknown profiles, or malformed automation objects.
@@ -705,7 +705,7 @@ Assets/_Project/
 
 Keep the required baseline in every project. Expand beyond it when search time, onboarding friction, or asset collisions become noticeable.
 
-The `full-project-structure` automation profile creates the complete 76-path structure. Teams may choose the minimal subset manually at the beginning of a small project; definition v0.12.0 does not define an automated minimal profile. A future profile must be versioned in both authorities and must preserve the no-deletion rule. The Documentation Companion does not select any profile.
+The `full-project-structure` automation profile creates the complete 76-path structure. Teams may choose the minimal subset manually at the beginning of a small project; definition v0.12.0 does not define an automated minimal profile. A future profile must be versioned in both authorities and must preserve the no-deletion rule. The Commandments Companion does not select any profile.
 
 ---
 

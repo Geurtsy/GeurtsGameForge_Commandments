@@ -2,7 +2,7 @@
 # Geurts Game Design Documentation Technique
 
 **Game Design Documentation Discovery - AI and Human Developer Reference**  
-**Version:** 0.13.0
+**Version:** 0.14.0
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -24,10 +24,10 @@ Interpret the rules deterministically. Literal paths, explicit metadata, stable 
 
 ## Documentation Boundary
 
-The sole Geurts Game Forge documentation source and authority is `Geurtsy/GeurtsGameForge_Documentation`. Its detached project-local fetched copy belongs at:
+The sole Geurts Game Forge documentation source and authority is `Geurtsy/GeurtsGameForge_Commandments`. Its detached project-local fetched copy belongs at:
 
 ```text
-<ProjectRoot>/GeurtsGameForgeDocumentation/
+<ProjectRoot>/GeurtsGameForgeCommandments/
 ```
 
 Project-specific game design documentation belongs at:
@@ -36,11 +36,11 @@ Project-specific game design documentation belongs at:
 <ProjectRoot>/Docs/GameDesign/
 ```
 
-The managed copy is outside the independent Documentation Companion's Unity Package Manager package. Companion-only `Documentation~` is not a source or duplicate of Geurts documentation. The companion is independent of Geurts Game Forge God and Game Forge Intelligence, with no God or other Unity Package Manager package dependency. Its separately installed licensed Odin Inspector and Quantum Console assemblies remain required. Never use a template or example inside `GeurtsGameForgeDocumentation/` as the target game's design authority.
+The managed copy is outside the independent Commandments Companion's Unity Package Manager package. Companion-only `Documentation~` is not a source or duplicate of Geurts documentation. The companion is independent of Geurts Game Forge God and Game Forge Intelligence, with no God or other Unity Package Manager package dependency. Its separately installed licensed Odin Inspector and Quantum Console assemblies remain required. Never use a template or example inside `GeurtsGameForgeCommandments/` as the target game's design authority.
 
-Never put Geurts source-package files in `Docs/GameDesign/` or project-specific GDD files in `GeurtsGameForgeDocumentation/`.
+Never put Geurts source-package files in `Docs/GameDesign/` or project-specific GDD files in `GeurtsGameForgeCommandments/`.
 
-After one confirmation, the companion's `Update Geurts Game Forge Documentation` action may replace the complete managed documentation folder and only the three project AI-route files declared by `GeurtsDocumentationCompanionContract.json`. It must not enumerate, inspect, create, validate, hash, modify, or delete any path under `Docs/GameDesign/`. Copying the exact scoped game-design route template to `.github/instructions/geurts-game-design.instructions.md` grants no access to the paths that template may later route an AI tool toward. GDD import, scaffolding and bounded manifest maintenance remain separate explicit operations under this technique and the AI Agent Setup Technique.
+After one confirmation, the companion's `Update Geurts Game Forge Commandments` action may replace the complete managed documentation folder and only the three project AI-route files declared by `GeurtsCommandmentsCompanionContract.json`. It must not enumerate, inspect, create, validate, hash, modify, or delete any path under `Docs/GameDesign/`. Copying the exact scoped game-design route template to `.github/instructions/geurts-game-design.instructions.md` grants no access to the paths that template may later route an AI tool toward. GDD import, scaffolding and bounded manifest maintenance remain separate explicit operations under this technique and the AI Agent Setup Technique.
 
 ---
 
@@ -62,7 +62,7 @@ Use this manifest as the design index when it exists:
 
 ## Primary Game Context
 
-The documentation routing chain is `GeurtsGameForgeDocumentation/AI_READ_FIRST.md`, then `GeurtsTechniqueManifest.md`, then this technique, then `Docs/GameDesign/GameDesignManifest.md`. The project manifest may declare one primary document using this separately managed section outside the existing `GEURTS-GDD-MANIFEST-BEGIN` table:
+The documentation routing chain is `GeurtsGameForgeCommandments/AI_READ_FIRST.md`, then `GeurtsTechniqueManifest.md`, then this technique, then `Docs/GameDesign/GameDesignManifest.md`. The project manifest may declare one primary document using this separately managed section outside the existing `GEURTS-GDD-MANIFEST-BEGIN` table:
 
 ```markdown
 <!-- GEURTS-GDD-PRIMARY-BEGIN version="1.0.0" -->
@@ -71,7 +71,7 @@ The documentation routing chain is `GeurtsGameForgeDocumentation/AI_READ_FIRST.m
 **Primary document:** `Docs/GameDesign/SelectedDocument.md`
 
 This document is the primary source of context about the game.
-Technical design and implementation guidance remains authoritative in `GeurtsGameForgeDocumentation/`, entered through `AI_READ_FIRST.md` and its manifest.
+Technical design and implementation guidance remains authoritative in `GeurtsGameForgeCommandments/`, entered through `AI_READ_FIRST.md` and its manifest.
 <!-- GEURTS-GDD-PRIMARY-END -->
 ```
 
@@ -79,13 +79,13 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
 
 The declared primary document is the primary source of context about the game. Read it when game context or player-facing design facts are needed, together with other relevant documents selected by the index. This explicit primary selection takes precedence over the managed table's `Authority` field for choosing primary game context only. A document does not need a table row to be the declared primary source. Do not infer mechanics, approval status or design facts from the import action or filename. Existing scoped design facts and material conflicts still follow the manifest's conflict-resolution rules.
 
-Technical design and implementation guidance remains authoritative in the manifest-selected techniques from `GeurtsGameForgeDocumentation/`. Technical passages in the imported GDD do not replace those techniques. Surface a material conflict between game requirements and technical guidance instead of silently changing either authority.
+Technical design and implementation guidance remains authoritative in the manifest-selected techniques from `GeurtsGameForgeCommandments/`. Technical passages in the imported GDD do not replace those techniques. Surface a material conflict between game requirements and technical guidance instead of silently changing either authority.
 
-A missing primary section preserves existing manifest-driven discovery. A missing primary file, malformed or duplicated primary markers, unsupported primary-section version, ambiguous pointer, or primary section nested inside the managed table is a conflict; do not silently select another document. A purely technical task may still proceed without unrelated game context. Project-specific pointers and GDD content must never be written into the replaceable `GeurtsGameForgeDocumentation/` snapshot.
+A missing primary section preserves existing manifest-driven discovery. A missing primary file, malformed or duplicated primary markers, unsupported primary-section version, ambiguous pointer, or primary section nested inside the managed table is a conflict; do not silently select another document. A purely technical task may still proceed without unrelated game context. Project-specific pointers and GDD content must never be written into the replaceable `GeurtsGameForgeCommandments/` snapshot.
 
 ## Explicit Build Forge Import
 
-Build Forge provides an explicit **Import selected documents** action. Users may queue multiple Markdown files by adding files or dropping a batch, review the selection, and choose the initial primary. Later imports preserve the primary unless the user selects **Make primary** on an imported document. Selecting or queuing files alone must not copy files or change routing. The legacy single-primary import remains a supported explicit primary-selection operation. This is not the Documentation Companion's Update, ordinary startup discovery, native-entry installation, or general manifest maintenance.
+Build Forge provides an explicit **Import selected documents** action. Users may queue multiple Markdown files by adding files or dropping a batch, review the selection, and choose the initial primary. Later imports preserve the primary unless the user selects **Make primary** on an imported document. Selecting or queuing files alone must not copy files or change routing. The legacy single-primary import remains a supported explicit primary-selection operation. This is not the Commandments Companion's Update, ordinary startup discovery, native-entry installation, or general manifest maintenance.
 
 The import must:
 
@@ -188,13 +188,13 @@ Rules:
 Installing the companion through Unity Package Manager and using its Update create no GDD paths and never invoke a script. Native-entry migration alone also creates no GDD paths. A separately authorized optional manual operation may use the copied manager with explicit project root and opt-in:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeDocumentation/Tools/ManageGeurtsAgentInstructions.ps1" -ProjectRoot "<ProjectRoot>" -IncludeGameDesignScaffolding
+powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeCommandments/Tools/ManageGeurtsAgentInstructions.ps1" -ProjectRoot "<ProjectRoot>" -IncludeGameDesignScaffolding
 ```
 
 The manual scaffolding opt-in does not update the manifest. Deterministic manifest maintenance requires another separate explicit manual operation, either the copied manager with `-UpdateGameDesignManifest` or the copied maintainer invocation below. The safe invocation contract is defined in `GeurtsTechniques/GeurtsAIAgentSetupTechnique.md`. None of these manual operations are part of the companion lifecycle.
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeDocumentation/Tools/ManageGeurtsAgentInstructions.ps1" -ProjectRoot "<ProjectRoot>" -UpdateGameDesignManifest
+powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeCommandments/Tools/ManageGeurtsAgentInstructions.ps1" -ProjectRoot "<ProjectRoot>" -UpdateGameDesignManifest
 ```
 
 ---
@@ -243,7 +243,7 @@ Do not infer purpose or authority from a filename when that inference is unrelia
 After explicit authorization, use the copied tool with the Unity root supplied explicitly:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeDocumentation/Tools/UpdateGameDesignManifest.ps1" -ProjectRoot "<ProjectRoot>"
+powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeCommandments/Tools/UpdateGameDesignManifest.ps1" -ProjectRoot "<ProjectRoot>"
 ```
 
 The maintainer must detect and report:
@@ -278,7 +278,7 @@ The managed table is bounded by matching `GEURTS-GDD-MANIFEST-BEGIN` and `GEURTS
 
 New documents without reliable metadata receive `RequiresClassification`. Unsupported files are reported and must not be silently treated as design authority. Duplicate identifiers are conflicts: do not choose a winner or overwrite the manifest silently.
 
-A compatible host may detect imports or debounced file-watcher events, invalidate cached discovery data, report manifest drift, and offer a user-approved handoff to the external maintainer. Those passive events must not invoke the maintainer automatically or write project GDD content. The separately user-selected Build Forge import above has its own limited copy, primary-pointer and imported-list authority. The Documentation Companion is not such a host: its startup metadata check and confirmed Update must not inspect `Docs/GameDesign/` at all.
+A compatible host may detect imports or debounced file-watcher events, invalidate cached discovery data, report manifest drift, and offer a user-approved handoff to the external maintainer. Those passive events must not invoke the maintainer automatically or write project GDD content. The separately user-selected Build Forge import above has its own limited copy, primary-pointer and imported-list authority. The Commandments Companion is not such a host: its startup metadata check and confirmed Update must not inspect `Docs/GameDesign/` at all.
 
 ### Design Document Conflicts
 

@@ -278,11 +278,11 @@ function Assert-UnityProjectRoot([string]$Root) {
 }
 
 function Get-CurrentNativeTemplateVersion($Entry) {
-    return "1.1.0"
+    return "1.2.0"
 }
 
 function Test-NativeTemplateRoute($Entry, [string]$Text) {
-    if (-not $Text.Contains("GeurtsGameForgeDocumentation/AI_READ_FIRST.md") -or $Text.Contains("GeurtsGameForgeDocumentation/AGENTS.md")) { return $false }
+    if (-not $Text.Contains("GeurtsGameForgeCommandments/AI_READ_FIRST.md") -or $Text.Contains("GeurtsGameForgeCommandments/AGENTS.md")) { return $false }
     if (-not $Text.Contains("Before planning or modifying any Geurts Game Forge brick code") -or -not $Text.Contains("installed, manifest-selected documentation") -or -not $Text.Contains("source of truth")) { return $false }
     return -not $Text.Contains("owns the complete documentation chain")
 }
@@ -306,9 +306,9 @@ function Invoke-ChildPowerShell([string]$ScriptPath, [string[]]$Arguments, [bool
 
 function Test-NativeMigrationCatalog($Catalog, [string]$Templates, [string]$Root) {
     $expected = @{
-        ".github/copilot-instructions.md" = @{ Template = "copilot-instructions.md"; Hashes = @{ "0.4.0" = "d72006b497ed12ae97ef3d4ef9248f634af7159b7011434987ea3bd60cbd8da7"; "0.5.0" = "d72006b497ed12ae97ef3d4ef9248f634af7159b7011434987ea3bd60cbd8da7"; "0.6.0" = "cfeb6826447b74d391c7afa40f07e19171086ee0f6e8a107887360fa4e6fd7e3" } }
-        ".github/instructions/geurts-unity.instructions.md" = @{ Template = "instructions/geurts-unity.instructions.md"; Hashes = @{ "0.4.0" = "27bff44e8cd8a26962b2b2890b3ca6c02a5a1ee6c0531c195514d70b9ffde92f"; "0.5.0" = "27bff44e8cd8a26962b2b2890b3ca6c02a5a1ee6c0531c195514d70b9ffde92f"; "0.6.0" = "799fe2cc0a720cd5e9f7f350b7480d219c0f92309a4a6201953e3a452faa0fa3" } }
-        ".github/instructions/geurts-game-design.instructions.md" = @{ Template = "instructions/geurts-game-design.instructions.md"; Hashes = @{ "0.4.0" = "724549bbd75e2ed1f83167992747f5b56adac9d0b4e40886085b65d497cddbd9"; "0.5.0" = "724549bbd75e2ed1f83167992747f5b56adac9d0b4e40886085b65d497cddbd9"; "0.6.0" = "2805d6be2804eff71668625a83725d02338070a9b6988bde20bc521d455d17c0" } }
+        ".github/copilot-instructions.md" = @{ Template = "copilot-instructions.md"; Hashes = @{ "1.1.0" = "6b727f9058bfe778592f11fd5b607d991d2f6538f1dbd66e6eedea15b3ec4835"; "0.4.0" = "d72006b497ed12ae97ef3d4ef9248f634af7159b7011434987ea3bd60cbd8da7"; "0.5.0" = "d72006b497ed12ae97ef3d4ef9248f634af7159b7011434987ea3bd60cbd8da7"; "0.6.0" = "cfeb6826447b74d391c7afa40f07e19171086ee0f6e8a107887360fa4e6fd7e3" } }
+        ".github/instructions/geurts-unity.instructions.md" = @{ Template = "instructions/geurts-unity.instructions.md"; Hashes = @{ "1.1.0" = "f0e8da9d1189320c45f2c68b319e5c831e881077d95c75fc23d6d4835d0270e0"; "0.4.0" = "27bff44e8cd8a26962b2b2890b3ca6c02a5a1ee6c0531c195514d70b9ffde92f"; "0.5.0" = "27bff44e8cd8a26962b2b2890b3ca6c02a5a1ee6c0531c195514d70b9ffde92f"; "0.6.0" = "799fe2cc0a720cd5e9f7f350b7480d219c0f92309a4a6201953e3a452faa0fa3" } }
+        ".github/instructions/geurts-game-design.instructions.md" = @{ Template = "instructions/geurts-game-design.instructions.md"; Hashes = @{ "1.1.0" = "4f39c1f5c96ae35140643aee53d673630c2439639d4d6930d1be9dc3d4627a71"; "0.4.0" = "724549bbd75e2ed1f83167992747f5b56adac9d0b4e40886085b65d497cddbd9"; "0.5.0" = "724549bbd75e2ed1f83167992747f5b56adac9d0b4e40886085b65d497cddbd9"; "0.6.0" = "2805d6be2804eff71668625a83725d02338070a9b6988bde20bc521d455d17c0" } }
     }
     if ([string]$Catalog.schemaVersion -cne "2.0.0" -or [string]$Catalog.normalization -cne "utf8-text-with-lf-newlines-and-terminal-lf" -or @($Catalog.entries).Count -ne 3) {
         throw "Migration catalog metadata does not match the exact v2.0.0 contract."
@@ -345,7 +345,7 @@ function Test-NativeMigrationCatalog($Catalog, [string]$Templates, [string]$Root
 
 function Get-ManagedFolderDefinition([string]$Root, [bool]$IncludeGameDesign) {
     $definitionCandidates = @(
-        (Join-Path $Root "GeurtsGameForgeDocumentation/GeurtsTechniques/GeurtsFolderStructureDefinition.json"),
+        (Join-Path $Root "GeurtsGameForgeCommandments/GeurtsTechniques/GeurtsFolderStructureDefinition.json"),
         (Join-Path (Split-Path -Parent $PSScriptRoot) "GeurtsTechniques/GeurtsFolderStructureDefinition.json")
     )
     $definitionPath = $definitionCandidates | Where-Object { Test-Path -LiteralPath $_ -PathType Leaf } | Select-Object -First 1
@@ -489,7 +489,7 @@ function Update-NativeEntry($Entry, [string]$Templates, [string]$Root) {
                 Add-Result "Conflicted" ([string]$Entry.targetPath) "Managed region '$($region.Id)' was edited; no content was overwritten." $null
                 return
             }
-            $supportedTargetVersions = @("0.7.0", "0.9.0", "1.0.0", "1.1.0")
+            $supportedTargetVersions = @("0.7.0", "0.9.0", "1.0.0", "1.1.0", "1.2.0")
             if ($supportedTargetVersions -notcontains $region.Version) {
                 Add-Result "Conflicted" ([string]$Entry.targetPath) "Managed region '$($region.Id)' uses unsupported version '$($region.Version)'; no downgrade or overwrite occurred." $null
                 return
