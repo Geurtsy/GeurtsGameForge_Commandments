@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.40.1",
-  "publishedUtc": "2026-10-01T06:37:10Z",
+  "packageVersion": "0.40.2",
+  "publishedUtc": "2026-10-01T06:58:15Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -149,13 +149,13 @@
     {
       "id": "com.geurts.gameforge.audio",
       "name": "Geurts Game Forge Audio",
-      "description": "Shared owned playback, Unity-default clips, sound definitions, music/ambience/dialogue, category controls and setup. Optional Audio-maintained FMOD integration supplies separate events/banks and native authoring inside Audio.",
+      "description": "Shared owned playback, Unity-default clips and separate optional FMOD events/banks. One Audio workspace with separate integration steps, information callouts, green accents, shared volume controls and native authoring. Focused Editor checks passed; rendered UI acceptance remains pending.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
-      "version": "0.6.2",
+      "version": "0.6.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#fce2b4196415d67b757f937d2eafb143ba8f5976",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#4278f28f9080b4950465cd782fb705802a55c3e6",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [

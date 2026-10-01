@@ -15,11 +15,11 @@ God is maintained in its own [com.geurts.gameforge.god repository](https://githu
 
 [Settings System 0.4.1](https://github.com/Geurtsy/com.geurts.gameforge.settings) adds a three-step beginner Editor setup: create a setting, include it in a runtime list, and check setup before testing in Play Mode. Simple starters and concise fields lead the screen; advanced Odin configuration remains available. It provides typed settings, a shared pending draft, explicit Apply and Cancel, authored defaults, persistence and recovery, display confirmation, and optional owner-provided settings. [User Interface Foundations 0.10.0](https://github.com/Geurtsy/com.geurts.gameforge.userinterface) uses Unity Panel Renderer for new menus and offers an Undo-supported upgrade for existing hosts, while retaining controls and dialogs for that shared draft, editable UI Toolkit menus, creation drafts, ordered controls, themes and appearance. Settings and UI Foundations each work without the other. Existing customized menus remain intact; adopt the Settings bindings explicitly.
 
-[Audio 0.6.0](https://github.com/Geurtsy/com.geurts.gameforge.audio) owns one playback service, shared sound identities, music/ambience/dialogue controllers, category volume controls and setup. New configurations use Unity AudioClips without FMOD. The Audio-maintained optional `com.geurts.gameforge.audio.fmod` 0.1.0 package supplies native events, banks, parameters, VCAs and Studio authoring inside that same Audio window, with no separate top-level catalogue entry. Installation and selection are explicit; events and clips are separate assignments, preserved when switching. Legacy FMOD configurations retain their selection and asset identities through a coordinated update using God's existing package queue. Listening, rendered setup and physical devices remain separate acceptance checks.
+[Audio 0.6.3](https://github.com/Geurtsy/com.geurts.gameforge.audio) owns one playback service, shared sound identities, music/ambience/dialogue controllers, category volume controls and setup. New configurations use Unity AudioClips without FMOD. The Audio-maintained optional `com.geurts.gameforge.audio.fmod` 0.1.2 package supplies native events, banks, parameters, VCAs and Studio authoring inside that same Audio window, with no separate top-level catalogue entry. Installation and selection are explicit; events and clips are separate assignments, preserved when switching. Legacy FMOD configurations retain their selection and asset identities through a coordinated update using God's existing package queue. Audio 0.6.3 adds separate Unity/FMOD integration foldouts, numbered information callouts, green shared-theme accents and grouped volume controls. Five FMOD-absent and ten FMOD-present focused Editor checks passed. Listening, rendered setup, host skin/scaling and physical devices remain separate acceptance checks.
 
 [Object Pooling 0.4.1](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling) remains independent and cooperates through neutral God lifecycle and completion contracts. Audio's shared completion component supports the selected backend; its optional FMOD package retains the legacy native completion component and original script GUID. Enable native FMOD pooling explicitly inside Audio only when that backend and Object Pooling are available. Keep the retired `com.geurts.gameforge.objectpooling.fmod` package removed to avoid duplicate script identities. [Scene Loading and Bootstrap 0.4.0](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading) retains independent neutral cooperation.
 
-Audio 0.6.0 and its optional integration 0.1.0 require **God 0.27.0** and Unity **6000.6.3f1**. God adds reusable grouped immutable Git installation to its existing queue without taking ownership of audio backend logic. [Settings System 0.4.1](https://github.com/Geurtsy/com.geurts.gameforge.settings) retains its neutral provider contract and updates its excluded native acceptance harness for the split. Licensed Odin Inspector, Quantum Console and declared Unity dependencies still apply; FMOD remains optional. Exact revisions, migration details, repeatable checks and backend limitations are recorded in Audio's release validation guide. Catalogue publication does not install packages or alter the running consumer project.
+Audio 0.6.3 and its optional integration 0.1.2 require **God 0.27.0** and Unity **6000.6.3f1**. God adds reusable grouped immutable Git installation to its existing queue without taking ownership of audio backend logic. [Settings System 0.4.1](https://github.com/Geurtsy/com.geurts.gameforge.settings) retains its neutral provider contract and updates its excluded native acceptance harness for the split. Licensed Odin Inspector, Quantum Console and declared Unity dependencies still apply; FMOD remains optional. Exact revisions, migration details, repeatable checks and backend limitations are recorded in Audio's release validation guide. Catalogue publication does not install packages or alter the running consumer project.
 
 [Save and Load 0.2.0](https://github.com/Geurtsy/com.geurts.gameforge.saveload) remains an informational starter with no runtime saving system. Commandments Companion 0.13.2 and Diagnostics 0.7.0 target Unity 6000.6.3f1. The private repositories require Git access. Open **Game Forge God**, select **Refresh Catalogue**, then **Check for Updates** and the desired **Update** actions. Catalogue publication makes the newer packages available; it does not update the project's installed packages.
 
@@ -43,7 +43,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.40.1
+**Version:** 0.40.2
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -94,7 +94,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.40.1; the Technical Technique is v0.16.0.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.40.2; the Technical Technique is v0.16.0.
 
 ## ID Naming
 
@@ -249,6 +249,12 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 The current verified companion package is 0.13.2; use its immutable source from the catalogue. In the Commandments Companion dashboard, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.40.2 - Audio workspace readability
+
+- Publish Audio 0.6.3 with optional FMOD integration 0.1.2, separate setup sections, numbered callouts and green shared-theme accents. Preserve backend selection and authored content; retain current Commandments, BigBang and FMOD standards.
+- Record passing focused Editor checks and pending rendered visual acceptance. Catalogue changes do not update consumer projects.
+
 
 ### v0.40.1 - BigBang compilation recovery
 
