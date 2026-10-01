@@ -1,9 +1,9 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Documentation Companion Technique
 
-**Version:** 2.4.1
+**Version:** 2.4.2
 **Contract schema:** 2.0.0
-**Package version:** 0.36.3
+**Package version:** 0.36.4
 **Status:** Draft normative technique
 **Primary audience:** Geurts Documentation Companion implementers and package maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -43,7 +43,7 @@ The companion may expose its current busy state and explanatory operation status
 
 ### Embedded Documentation Companion tools
 
-Documentation Companion **0.13.0** exposes `DocumentationIntegration.CreateEmbeddedWindow(Action<string> navigate)` for God **0.26.0** or later. It returns an unshown, independent Editor window owned by the host. The embedded tools hide package/content update cards and update-check actions and start no opening check. The callback selects Build Forge inside God; it is navigation, not permission to install or update anything. Back or host closure destroys only this owned view and releases its subscriptions. Independent standalone Documentation Companion windows retain their existing checks, tools and update controls. This API introduces no God dependency, extra project access or change to the closed Update contract.
+Documentation Companion **0.13.2** exposes `DocumentationIntegration.CreateEmbeddedWindow(Action<string> navigate)` for God **0.26.0** or later. It returns an unshown, independent Editor window owned by the host. The embedded view shows the full Companion dashboard: explicit update checking, both package/content version and update cards, dependencies, setup navigation and source details. Opening, resizing or scrolling the panel starts no check or update. Explicit actions reuse the existing update lifecycle, module/operation guards and cancel-default content confirmation. This full Companion dashboard is the narrow exception to the host's filtering of other embedded brick package-management controls. The callback selects Build Forge inside God; it is navigation, not permission to install or update anything. Back or host closure destroys only this owned view and releases its subscriptions. Independent standalone Documentation Companion windows retain their existing checks, tools and update controls. This API introduces no God dependency, extra project access or change to the closed Update contract.
 
 ### Explicit saved consent for automatic God-opening updates
 
@@ -192,7 +192,7 @@ A conforming companion:
 
 ## Separate Codex guide installation
 
-The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. The current verified Documentation Companion is 0.13.1 in the catalogue; schema-2.0.0 support was introduced in 0.7.0 and the schema compatibility boundary is unchanged.
+The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. The current verified Documentation Companion is 0.13.2 in the catalogue; schema-2.0.0 support was introduced in 0.7.0 and the schema compatibility boundary is unchanged.
 
 ## Independent module preference
 
