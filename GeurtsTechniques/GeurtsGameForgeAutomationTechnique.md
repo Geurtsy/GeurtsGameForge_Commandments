@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.10.0
+**Version:** 0.10.1
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers and compatible Unity integrations
@@ -33,6 +33,19 @@ Use a host-provided pending automation objective only after the user explicitly 
 - Work in small, reversible increments and validate after meaningful changes.
 - Repair recoverable failures within scope, preserve working systems, and automate routine safe work the available environment can perform.
 - Keep the user informed of genuine blockers, consequential decisions, validation results, material limitations, and any action only they can take.
+
+## Codex Project and GameForge Path Preflight
+
+The [Technical Technique's absolute path requirement](GeurtsTechnicalTechnique.md#absolute-path-length-and-workspace-roots) applies to **all Codex projects and Geurts Game Forge work**, including non-Unity Codex repositories, separate worktrees, isolated validation projects, dependencies, caches, temporary folders and generated output. Keep full absolute file and folder paths below 260 characters, with 259 as the maximum.
+
+Before selecting a new workspace root or creating, copying, extracting or moving content:
+
+1. Prefer a short writable root and shallow structure. Inspect the applicable project conventions without moving existing content.
+2. Resolve and measure the intended destinations and foreseeable dependency, cache, temporary and generated paths, including variable suffixes. Reserve room for these descendants; checking only the files being authored is insufficient.
+3. If a path is 260 characters or longer, report its exact absolute spelling and character count. Choose and check a shorter location for new task-owned work before proceeding. An existing user's project, file or folder must not be silently renamed or moved; report a proposed migration separately and require explicit authorization for it.
+4. Recheck concrete generated paths before the operation and when its layout or dependencies change. Record unresolved estimates honestly; a successful short-root check is not proof that every future generated path fits.
+
+Apply the preflight within existing access and mutation boundaries. It never authorizes scanning excluded content, rewriting consumer configuration or replacing the user's live project. This is an agent/workflow requirement; publication of this guidance does not install a new automatic path checker in Codex or released Forge tools.
 
 ## Codex Delivery to Main
 

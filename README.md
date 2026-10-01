@@ -47,7 +47,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.41.1
+**Version:** 0.42.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -98,7 +98,11 @@ God and its Commandments service retain required separately licensed Odin Inspec
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.41.1; the Technical Technique is v0.16.1.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.42.0; the Technical Technique is v0.16.2.
+
+## Path Length for Codex Projects and GameForge
+
+Keep full absolute file and folder paths **below 260 characters (259 maximum)** in both Codex projects and Geurts Game Forge. Use short project roots and shallow folders, with room for dependency, cache, temporary and generated paths. Check those foreseeable destinations before creating or moving content. If a path reaches the limit, report the exact path and length and choose a shorter location for new work; never silently rename or move existing user content. Follow the [Technical requirement](GeurtsTechniques/GeurtsTechnicalTechnique.md#absolute-path-length-and-workspace-roots), [Codex preflight](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#codex-project-and-gameforge-path-preflight) and [folder guidance](GeurtsTechniques/GeurtsFolderStructureTechnique.md#short-roots-and-path-length-headroom).
 
 ## ID Naming
 
@@ -249,11 +253,18 @@ God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandmen
 
 ## Changelog
 
-### v0.41.1 - Settings authoring and Auto Settings Menu
+### v0.42.0 - Settings authoring and Auto Settings Menu
 
 - Catalogue Settings 0.5.0, UI Foundations 0.11.0 and God 0.30.0 from their exact published main commits. Settings and UI retain God as their sole mandatory Geurts dependency.
 - Document the complete no-code panel, explicit consumer connections, reviewed menu wiring and isolated synchronized preview. Record 242 Editor, 42 Play Mode, six God menu checks and executed Mono/IL2CPP Medium/High player assertions; native visual/input acceptance remains unverified.
 - Preserve the God-owned Commandments migration, passive Companion compatibility and BigBang 0.2.4 handoff. Consumers continue to update manually.
+
+### v0.41.1 - Short paths for Codex and GameForge
+
+- Require full absolute paths below 260 characters for Codex projects and GameForge, including foreseeable dependency, cache, temporary and generated descendants.
+- Require short roots, shallow structures and preflight checks before creation or moves, with exact path/length reporting and no silent migration of existing user content.
+- Preserve folder registry paths, installed packages, managed-content contracts and historical release records.
+
 
 ### v0.41.0 - Commandments tools move into God
 
