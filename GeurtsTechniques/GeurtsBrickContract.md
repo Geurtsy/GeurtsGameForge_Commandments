@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.13.0
+**Version:** 1.14.0
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -9,6 +9,12 @@ This document owns the shared brick contract and catalogue schema. The manifest 
 ## Use existing bricks
 
 Codex and other AI coding agents must proactively inspect the installed brick inventory and this package's `GeurtsTechniques/GeurtsBrickCatalogue.json` before planning or implementing a Geurts Unity solution. Read the relevant brick documentation and supported interfaces, then reuse or extend suitable available Geurts Game Forge bricks instead of recreating covered functionality. Identify the concrete missing capability or incompatibility before choosing a custom substitute. A planned or catalogued entry alone is not an installed, usable capability: verify the actual installed version and the availability required by the task. Request installation as an explicit user action; do not silently install or enable dependencies. This obligation applies across all bricks, but only suitable bricks needed for the solution should be used.
+
+## Core module usability
+
+Every existing and future Geurts Game Forge brick/module must follow the Technical Technique's [No-Code Module Use and Code Extensions](GeurtsTechnicalTechnique.md#no-code-module-use-and-code-extensions) requirement. Normal setup, configuration, composition and use must be possible through supported Unity Editor controls and authored assets without user-written code. Only the narrow, documented special exceptions defined by that owner may require code. This includes foundational services and independent tools, while retaining their existing installation and dependency boundaries.
+
+Keep documented public APIs and extension points available for developers and Codex alongside the Editor workflow. Both paths reuse the same underlying implementation, validation and lifecycle rather than duplicating behaviour. Validate affected workflows and report current release gaps; this standard is not a claim that every catalogued brick already satisfies it.
 
 ## Design all bricks with Codex in mind
 
