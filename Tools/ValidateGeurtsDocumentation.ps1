@@ -947,6 +947,8 @@ try {
         'Runtime initialization and `SCN_BigBang` remain God-owned', 'Resolve the latest published compatible God release on every explicit check and again immediately before installation',
         'Do not patch God or maintain a second dependency planner', 'UPM success alone never means God ready',
         'Unknown native outcomes must be inspected before Retry', 'Library/GeurtsGameForgeBigBang/',
+        'Use a normal incremental compilation request', 'A successful cached-only cycle must not wait for a script reload',
+        'read inputs through supported extended-length paths', 'A fingerprint read failure leaves evidence Unknown and must show the affected path',
         'Removing BigBang through UPM must leave God and project content functional', 'missing coverage remains an explicit acceptance gap')) {
         if (-not $bigBangText.Contains($rule)) { $bigBangFailures.Add("BigBang requirement missing: $rule") | Out-Null }
     }
