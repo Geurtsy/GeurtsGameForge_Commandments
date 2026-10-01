@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge AI Entry Point
 
-**Version:** 0.40.1
+**Version:** 0.41.0
 **Purpose:** First documentation entry and session boundary, before manifest resolution.
 **Required package path:** `AI_READ_FIRST.md`
 
@@ -37,13 +37,13 @@ Bump each affected independently released package and the documentation package 
 
 ## Local Package Boundary
 
-`Geurtsy/GeurtsGameForge_Commandments` is the sole source and authority for all generic Geurts Game Forge documentation. The independent Unity Editor documentation companion may fetch an archive-based, project-local snapshot into:
+`Geurtsy/GeurtsGameForge_Commandments` is the sole source and authority for all generic Geurts Game Forge documentation. God's Editor Commandments service may fetch an archive-based, project-local snapshot into:
 
 ```text
 <ProjectRoot>/GeurtsGameForgeCommandments/
 ```
 
-The Windows-only **Geurts Game Forge Commandments Companion** brick is installed from Git through Unity Package Manager and lives in a separate repository. It has no God or other Unity Package Manager package dependency, while requiring separately installed licensed Odin Inspector and Quantum Console assemblies. It does not depend on Game Forge Intelligence. No companion implementation belongs in this documentation repository. Any `<PluginPackageRoot>/Documentation~/` contains companion-specific documentation only; it is not a source or duplicate of this package. Project-specific design documents remain separate under:
+God owns the Windows Editor Commandments service and requires separately installed licensed Odin Inspector and Quantum Console assemblies. The optional Companion 0.15.0 compatibility adapter has no God or other Unity Package Manager package dependency, no vendor references, no updater and no menus. It forwards existing Editor callers to God 0.29.0 or newer. Authoritative content remains independent and readable without God. No implementation belongs in this documentation repository; package Documentation~/ contains only implementation-specific guidance. Project-specific design documents remain separate under:
 
 ```text
 <ProjectRoot>/Docs/GameDesign/
@@ -53,7 +53,7 @@ Package membership and any integration lifecycle are outside this router's subje
 
 ## Session Boundary
 
-Before implementation, use one current source checkout or project-local fetched copy and record its commit when available. On Unity launch/open, God and the independent companion perform no remote update check or catalogue refresh. Restored windows load local cached state only. Explicit menu openings and manual actions follow their selected owner; saved automatic God consent applies only to deliberate menu openings. Ordinary AI/session initialization reads the existing local copy and performs no additional remote check or update. For manual Update, the companion performs replacement only after the user selects Update and accepts one confirmation, with Cancel as the default, covering the exact managed documentation and AI-route targets listed by its contract. The manifest-selected Companion Technique also owns the narrow, default-off saved-consent exception for automatic updates when God opens. There is no earlier preview or dry run and no second confirmation. When a documentation integration is involved, follow the manifest-selected integration technique; a direct source-repository AI session or another host does not require the companion. Do not inspect or select project GDD files here; the manifest first decides whether the GDD Technique applies.
+Before implementation, use one current source checkout or project-local fetched copy and record its commit when available. On Unity launch/open, God and its Commandments service perform no remote update check or catalogue refresh. Restored windows load local cached state only. Explicit menu openings and manual actions follow their selected owner; saved automatic God consent applies only to deliberate menu openings. Ordinary AI/session initialization reads the existing local copy and performs no additional remote check or update. For manual Update, the companion performs replacement only after the user selects Update and accepts one confirmation, with Cancel as the default, covering the exact managed documentation and AI-route targets listed by its contract. The manifest-selected Companion Technique also owns the narrow, default-off saved-consent exception for automatic updates when God opens. There is no earlier preview or dry run and no second confirmation. When a documentation integration is involved, follow the manifest-selected integration technique; a direct source-repository AI session or another host does not require the companion. Do not inspect or select project GDD files here; the manifest first decides whether the GDD Technique applies.
 
 ## Pre-Code Lock
 

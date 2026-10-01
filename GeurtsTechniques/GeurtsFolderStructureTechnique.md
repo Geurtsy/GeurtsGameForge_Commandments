@@ -2,7 +2,7 @@
 # Geurts Folder Structure Technique
 
 **Unity Project Structure - AI-First Automation and Human Developer Reference**
-**Version:** 0.15.0
+**Version:** 0.15.1
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -102,7 +102,7 @@ The tool prefers the project-local fetched definition when one exists. Update th
 
 The retained compatibility launcher at `GeurtsGameForgeCommandments/Tools/CreateGeurtsFolderStructure.bat` likewise requires `-ProjectRoot <UnityProjectRoot>` as its first argument when a user deliberately invokes that manual operation. Documentation acquisition and replacement are outside the folder-definition contract, and optional manual native-entry setup is a separate AI Agent Setup responsibility. No copied tool may infer the Unity root from its documentation-container parent.
 
-The independent Editor-only Commandments Companion never invokes either folder tool. Installing it through Unity Package Manager is the only companion installation route. Its confirmed Update may create only `.github/` and `.github/instructions/` when a missing parent is required for one of the contract's exact AI-route targets; it does not run a general setup or folder-structure plan.
+The God-owned Commandments service never invokes either folder tool. Installing God or its compatibility adapter is not permission to create the project folder structure. Its confirmed Update may create only `.github/` and `.github/instructions/` when a missing parent is required for one of the contract's exact AI-route targets; it does not run a general setup or folder-structure plan.
 
 ---
 
@@ -171,7 +171,7 @@ Rules:
 - Treat this directory as logically read-only managed reference content. This is an ownership rule, not a requirement to set Windows read-only attributes. A confirmed companion Update discards and replaces its complete contents without inspecting or preserving local drift.
 - The folder-definition tool must not create, populate, update, replace, or remove it.
 - The manifest-selected Commandments Companion Technique and Contract own the companion's explicit fetch-and-replace operation. Normal Unity launch/open performs no remote metadata check or catalogue refresh; AI/session initialization receives no lifecycle authority from this folder technique.
-- This path is outside the companion's UPM package. The package's own `Documentation~` may contain only companion-specific documentation and is not a Geurts source. The companion is independent of Geurts Game Forge God and Game Forge Intelligence, with no God or other Unity Package Manager package dependency. Its separately installed licensed Odin Inspector and Quantum Console assemblies remain required.
+God owns the Windows Editor Commandments service and requires separately installed licensed Odin Inspector and Quantum Console assemblies. The optional Companion 0.15.0 compatibility adapter has no God or other Unity Package Manager package dependency, no vendor references, no updater and no menus. It forwards existing Editor callers to God 0.29.0 or newer. Authoritative content remains independent and readable without God. The content action grants no additional project access. Never use a generic template as the target game's design authority.
 - Do not store project-specific GDD files here.
 - Keep project-specific game design documentation under `Docs/GameDesign/`.
 - Do not substitute a hidden, nested, or `Assets/` path for this required top-level placement.

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts BigBang Technique
 
-**Version:** 1.1.2
+**Version:** 1.1.3
 **Status:** Normative initial-installer boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
@@ -11,11 +11,11 @@ The manifest selects this owner for independent prerequisite preparation, initia
 
 Geurts Game Forge BigBang is `com.geurts.gameforge.bigbang`, an independent Windows Editor-only UPM package at the root of its own `Geurtsy/GeurtsGameForgeBigBang` Git repository. The supported baseline is Unity **6000.6.3f1**. Preview **0.2.2** is published at immutable commit `9bb6b7ed718ae9febd6cf1c28f1f6d35bfefca7c` and tag `v0.2.2`. Its [release validation](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.2/Documentation~/Validation.md) records 90 passing tests in each of three isolated environments, actual interrupted-state script reload recovery, automatic local readiness refresh, and real compiler failure/recovery. Existing God 0.27.0 was preserved during those checks while the official repository publishes 0.28.0. Earlier 0.2.1 evidence verifies fresh installation of God 0.28.0 and Commandments handoff. The previously recorded visual/keyboard acceptance gap remains explicit; API execution does not prove physical UI acceptance. A remote candidate is not a released package. Future publication requires recorded acceptance gates or an explicit user-directed exception with truthful limitations.
 
-Completion means God is installed, compiled and available to open. BigBang does not establish scene, game, documentation or optional-brick setup. Runtime initialization and `SCN_BigBang` remain God-owned. God owns ongoing package management and its catalogue. The optional Commandments Companion owns documentation acquisition/replacement. Angels, project organization, project Git and the separate console migration remain outside this installer.
+Completion means God is installed, compiled and available to open. BigBang does not establish scene, game, documentation or optional-brick setup. Runtime initialization and `SCN_BigBang` remain God-owned. God owns ongoing package management and its catalogue. God's Editor Commandments service owns documentation acquisition/replacement. Angels, project organization, project Git and the separate console migration remain outside this installer.
 
 ## Narrow independent-installer exception
 
-BigBang must compile with God, Odin Inspector, Quantum Console, Input System, uGUI and TextMesh Pro absent, including with a stale `ODIN_INSPECTOR` symbol. Use an explicit Editor-only assembly, Unity Editor, UI Toolkit and supported .NET APIs. Do not implement `IBrick`, reference God/vendor assemblies or declare God in `package.json.dependencies`. Declare only required built-in modules; Test Framework references remain confined to test assemblies. This is a narrow initial-installer exception. Ordinary God, dependent bricks and the independent Commandments Companion retain their required licensed Odin Inspector and Quantum Console assemblies.
+BigBang must compile with God, Odin Inspector, Quantum Console, Input System, uGUI and TextMesh Pro absent, including with a stale `ODIN_INSPECTOR` symbol. Use an explicit Editor-only assembly, Unity Editor, UI Toolkit and supported .NET APIs. Do not implement `IBrick`, reference God/vendor assemblies or declare God in `package.json.dependencies`. Declare only required built-in modules; Test Framework references remain confined to test assemblies. This is a narrow initial-installer exception. Ordinary God and dependent bricks retain their required licensed Odin Inspector and Quantum Console assemblies.
 
 Acquire commercial libraries separately through their licensed distribution. The installer offers verified acquisition links, supported My Assets guidance and native licensed `.unitypackage` import selection. Unity or the vendor owns purchasing, licensing, account login, download and import selection. Do not infer licence ownership from imported files, copy or redistribute commercial assets, alter vendor-supported paths, or invoke reflected internal Asset Store APIs. A project unable to compile needs a documented manual import/recovery route.
 
@@ -45,7 +45,7 @@ Store only narrowly scoped schema/session/frozen-target/stage/result data and th
 
 ## Handoff and presentation
 
-After verification, provide **Open Game Forge God**. Invoke the selected release's existing `Tools/Geurts Game Forge/Game Forge God` route through Unity's supported menu execution. Opening is explicit because God's normal layout and saved opening preferences may apply. Do not acquire a God compile dependency or modify God solely to add an opener. Keep a handoff error separate from installation success. Explain the next actions: refresh God's catalogue, install the optional Commandments Companion and acquire documentation through its existing action.
+After verification, provide **Open Game Forge God**. Invoke the selected release's existing `Tools/Geurts Game Forge/Game Forge God` route through Unity's supported menu execution. Opening is explicit because God's normal layout and saved opening preferences may apply. Do not acquire a God compile dependency or modify God solely to add an opener. Keep a handoff error separate from installation success. Explain the next actions: open God's built-in Commandments view (God 0.29.0 or newer) and acquire content only through its separately confirmed action. Update older God installations through God first; update any old Companion to its passive 0.15.0 adapter. BigBang never installs the adapter or invokes content acquisition.
 
 Follow the Editor UI Theme Technique's dark surfaces, green accents, severity colors, readable states and keyboard interaction. New floating windows target **1000 x 760** Editor points; reopening preserves arrangement. Use its generated dependency-free canonical subset, record source commit, exclude vendor conditionals regardless of symbols, and retain generator/parity tooling in BigBang maintenance. No consumer-time generator is introduced.
 

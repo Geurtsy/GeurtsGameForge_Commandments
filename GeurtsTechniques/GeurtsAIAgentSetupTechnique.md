@@ -2,7 +2,7 @@
 # Geurts AI Agent Setup Technique
 
 **Native AI Instruction Setup - Copilot and supported scoped routes**
-**Version:** 3.0.0
+**Version:** 3.0.1
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -42,7 +42,7 @@ Every v1.2.0 route template gives brick work the same concise rule: before plann
 
 ## Commandments Companion Whole-File Replacement
 
-The independent Windows-only, Editor-only companion is installed from Git through Unity Package Manager. It has no God or other Unity Package Manager package dependency and does not depend on Game Forge Intelligence. Its separately installed licensed Odin Inspector and Quantum Console assemblies remain required. It has no external installer or bootstrap and must not execute a batch, PowerShell, or project script for setup or Update.
+God owns the Windows Editor Commandments service and requires separately installed licensed Odin Inspector and Quantum Console assemblies. The optional Companion 0.15.0 compatibility adapter has no God or other Unity Package Manager package dependency, no vendor references, no updater and no menus. It forwards existing Editor callers to God 0.29.0 or newer. Authoritative content remains independent and readable without God. The content action grants no additional project access. Never use a generic template as the target game's design authority.
 
 When the user selects `Update Geurts Game Forge Commandments`, the companion immediately shows one confirmation that identifies the complete `GeurtsGameForgeCommandments/` folder and all three exact route targets above as overwrite targets. Cancel is the initially focused default. There is no earlier preview or dry run and no second confirmation. After affirmative confirmation, the companion directly replaces each route as a complete file with the bytes of its mapped template from the same validated authoritative archive used for the documentation copy.
 

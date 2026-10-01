@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.40.1",
+  "packageVersion": "0.41.0",
   "publishedUtc": "2026-10-01T06:37:10Z",
   "bricks": [
     {
@@ -8,7 +8,7 @@
       "name": "Geurts Game Forge BigBang",
       "description": "Preview independent Editor prerequisite and initial God installer. Resolves the latest compatible published God release and freezes its verified commit. Recovers interrupted compilation tracking and refreshes local readiness after Unity becomes idle. Visual/keyboard acceptance remains incomplete under explicit user instruction.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
-      "version": "0.2.2",
+      "version": "0.2.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
@@ -20,28 +20,26 @@
     },
     {
       "id": "com.geurts.gameforge.documentation",
-      "name": "Geurts Game Forge Commandments Companion",
-      "description": "Independent Commandments Companion Editor dashboard and explicit updates of the authoritative AI development guidance.",
+      "name": "Geurts Game Forge Commandments Compatibility",
+      "description": "Passive Editor API compatibility adapter for existing Companion installations. God 0.29.0 owns Commandments tools; fresh projects do not need this adapter.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.commandments",
-      "version": "0.14.1",
+      "version": "0.15.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
       "source": "https://github.com/Geurtsy/com.geurts.gameforge.commandments.git#cf07fdffb63e61b5c151b2e42745e179f1bf7c8c",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
-      "requiredTools": [
-        "Odin Inspector",
-        "Quantum Console"
-      ],
-      "dependencies": []
+      "requiredTools": [],
+      "dependencies": [],
+      "compatibilityOnly": true
     },
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
       "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, optional Commandments Companion integration, lifecycle, settings and optional scene-startup/input cooperation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.28.1",
+      "version": "0.29.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
