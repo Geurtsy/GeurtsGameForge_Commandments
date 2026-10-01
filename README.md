@@ -5,7 +5,7 @@
 
 Adds the manifest-selected [brick contract](GeurtsTechniques/GeurtsBrickContract.md) and [machine-readable catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json). AI-assisted Unity development must use a suitable available Geurts brick before recreating its functionality. God owns package management, lifecycle, shared contracts and settings. God, dependent bricks and the optional Documentation Companion require separately installed licensed Odin Inspector and Quantum Console assemblies. The companion remains independent without God or other Unity Package Manager package dependencies. Documentation-interface implementation remains in its separately maintained repository.
 
-God is maintained in its own [com.geurts.gameforge.god repository](https://github.com/Geurtsy/com.geurts.gameforge.god). The catalogue supplies immutable Git sources for nine packages across independently maintained repositories. All brick installations, including isolated candidate validation, use Git. Develop in separate source checkouts, publish and validate a strictly newer release on its repository's main branch, and retain the consuming project's previous Git version until the user updates through God. A local commit or an unpublished branch does not complete a release.
+God is maintained in its own [com.geurts.gameforge.god repository](https://github.com/Geurtsy/com.geurts.gameforge.god). The catalogue supplies immutable Git sources for ten packages across independently maintained repositories. All brick installations, including isolated candidate validation, use Git. Develop in separate source checkouts, publish and validate a strictly newer release on its repository's main branch, and retain the consuming project's previous Git version until the user updates through God. A local commit or an unpublished branch does not complete a release.
 
 [Settings System 0.4.1](https://github.com/Geurtsy/com.geurts.gameforge.settings) adds a three-step beginner Editor setup: create a setting, include it in a runtime list, and check setup before testing in Play Mode. Simple starters and concise fields lead the screen; advanced Odin configuration remains available. It provides typed settings, a shared pending draft, explicit Apply and Cancel, authored defaults, persistence and recovery, display confirmation, and optional owner-provided settings. [User Interface Foundations 0.10.0](https://github.com/Geurtsy/com.geurts.gameforge.userinterface) uses Unity Panel Renderer for new menus and offers an Undo-supported upgrade for existing hosts, while retaining controls and dialogs for that shared draft, editable UI Toolkit menus, creation drafts, ordered controls, themes and appearance. Settings and UI Foundations each work without the other. Existing customized menus remain intact; adopt the Settings bindings explicitly.
 
@@ -37,12 +37,16 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.36.6
+**Version:** 0.37.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
 **Secondary audience:** AI maintaining the documentation source
 **Documentation source repository:** `Geurtsy/GeurtsGameForge_Documentation`
+
+## BigBang initial installation
+
+The independent [Geurts Game Forge BigBang](https://github.com/Geurtsy/GeurtsGameForgeBigBang) package prepares licensed Odin Inspector and Quantum Console, installs its verified immutable God target and offers an explicit handoff after successful compilation. It compiles in a clean project before those libraries and God exist. Preview **0.1.0** is published and catalogued at `cc6d2c1bc5a321044605e9fa47b14851346f42d4`, targeting God **0.27.0**. Its 58 tests pass in three isolated environments, with native installation, compiler recovery, handoff and removal evidence. The user explicitly skipped visual and keyboard acceptance; their coverage remains incomplete. See the [BigBang Technique](GeurtsTechniques/GeurtsBigBangTechnique.md), [getting-started guide](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.1.0/Documentation~/GettingStarted.md) and [validation report](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.1.0/Documentation~/Validation.md). BigBang does not configure scenes, project Git, Build Profiles or optional bricks. The Documentation Companion remains an independent optional package and owns documentation acquisition.
 
 ## Installing God or switching an existing installation
 
@@ -84,7 +88,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.36.6; the Technical Technique is v0.13.5.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.37.0; the Technical Technique is v0.14.0.
 
 ## ID Naming
 
@@ -239,6 +243,10 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 The current verified companion package is 0.13.2; use its immutable source from the catalogue. In the Documentation Companion dashboard, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### 0.37.0
+
+Registers and catalogues BigBang 0.1.0's verified immutable Git release, preserves ordinary God/brick/Companion licensed-library requirements, and defines generated dependency-free theme subset maintenance and validation. Records the user's release-specific instruction to skip visual and keyboard acceptance without claiming that coverage passed. No consumer packages or managed snapshots are changed by this source release.
 
 ### v0.36.6 - UI Foundations Panel Renderer
 

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.12.2
+**Version:** 1.13.0
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -24,6 +24,10 @@ Codex compatibility is an authoring and usability expectation. It does not requi
 - Odin Inspector and Quantum Console are required for God, its dependent Unity bricks and the independent Documentation Companion. These commercially distributed assets must be imported separately through their licensed distribution. Do not invent registry package identifiers, bundle their assets, or represent them as optional compile dependencies. Reference actual assemblies (`QFSW.QC` and installed Sirenix assemblies) and document setup. The companion has no God or other Unity Package Manager package dependency; its licensed external assembly requirements remain mandatory. This documentation-only repository and its PowerShell tools are excluded from those assembly requirements.
 - Unity package manifests use semantic versions for required package dependencies. Git URLs belong in the consuming project's manifest. Install God first from its real Git source, then install the optional Documentation Companion package through Game Forge God's catalogue interface when needed. Never place a Git URL into `package.json.dependencies`.
 - God has no Disable action. Removal uses Unity's dependency graph: remove dependent bricks first. God does not recursively delete shared dependencies or embedded source folders.
+
+## Independent BigBang initial installer
+
+`com.geurts.gameforge.bigbang` is an independent Editor-only initial installer, not a runtime brick. It does not implement `IBrick`, declare God as a package dependency, or reference God or vendor assemblies. This narrow exception enables preparation before the required libraries and God exist. It installs only its release-defined verified immutable God target through explicit UPM actions, after prerequisite checks. Existing installations are inspected and preserved; no automatic replacement or downgrade is permitted. Runtime initialization, `SCN_BigBang`, ongoing package management and shared settings remain God-owned. The optional Documentation Companion remains separate and retains its licensed tools. See the manifest-selected [BigBang Technique](GeurtsBigBangTechnique.md).
 
 ## Registration and lifecycle
 
