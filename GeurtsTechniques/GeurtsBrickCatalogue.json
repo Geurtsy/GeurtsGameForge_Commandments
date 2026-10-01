@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.36.3",
+  "packageVersion": "0.36.4",
   "publishedUtc": "2026-09-30T23:27:04Z",
   "bricks": [
     {
@@ -8,11 +8,11 @@
       "name": "Geurts Game Forge Documentation Companion",
       "description": "Independent Documentation Companion Editor dashboard and explicit updates of the authoritative AI development guidance.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.documentation",
-      "version": "0.13.1",
+      "version": "0.13.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.documentation.git#595dc004d72f2a10890a48ab6b2ea6ebcf8df799",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.documentation.git#87c99f79d27b4cc223b4dc43f6055a5ffb4a27d8",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [

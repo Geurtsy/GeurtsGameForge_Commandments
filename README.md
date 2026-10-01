@@ -15,13 +15,13 @@ God is maintained in its own [com.geurts.gameforge.god repository](https://githu
 
 Audio 0.5.0 and Object Pooling 0.4.0 require **God 0.24.0** for the neutral pool participant contracts and Unity **6000.6.3f1**. God is the only mandatory Geurts dependency of those core bricks. Licensed Odin Inspector and Quantum Console and each package's declared Unity dependencies still apply. FMOD is required only for the FMOD-specific Audio implementation; it is not required for Forge or built-in audio projects. Exact validation revisions and limitations are recorded in each package's validation guide. The preceding Unity 6000.6 migration resolved all packages from Git, completed focused Edit Mode and Play Mode tests and a Windows player smoke run, and visually checked Build Forge's sixth step. Those historical checks do not certify the new Audio setup layout. Listening and physical input remain unverified.
 
-[Save and Load 0.2.0](https://github.com/Geurtsy/com.geurts.gameforge.saveload) remains an informational starter with no runtime saving system. Documentation Companion 0.13.1 and Diagnostics 0.7.0 target Unity 6000.6.3f1. The private repositories require Git access. Open **Game Forge God**, select **Refresh Catalogue**, then **Check for Updates** and the desired **Update** actions. Catalogue publication makes the newer packages available; it does not update the project's installed packages.
+[Save and Load 0.2.0](https://github.com/Geurtsy/com.geurts.gameforge.saveload) remains an informational starter with no runtime saving system. Documentation Companion 0.13.2 and Diagnostics 0.7.0 target Unity 6000.6.3f1. The private repositories require Git access. Open **Game Forge God**, select **Refresh Catalogue**, then **Check for Updates** and the desired **Update** actions. Catalogue publication makes the newer packages available; it does not update the project's installed packages.
 
 God 0.15.0 and standalone Diagnostics 0.6.1 follow the shared logging and session contracts governed by the [Diagnostics Technique](GeurtsTechniques/GeurtsDiagnosticsTechnique.md). Diagnostics retains the resizable performance overlay with a font-safe ASCII resize grip and formats Help so every command name has its own line with indented details. Its Editor window and owned inspectors reuse God's shared theme; install or update God to 0.14.0 or newer before Diagnostics 0.6.1.
 
 God 0.16.0 adds multiple game design document imports in Build Forge. Add Markdown files or drop a batch, review the queue, choose an initial primary, then select **Import selected documents**. Further imports retain that primary; **Make primary** explicitly chooses another imported document. God 0.17.0 additionally offers **Overwrite documents** after a warning listing the existing files that would be replaced. Cancel keeps the whole batch unchanged; identical files need no warning. Manual manifest notes and unlisted files are preserved. Documentation 0.26.0 defines the imported-document routing list alongside the existing primary and managed table.
 
-God **0.26.0** displays selected **Installed Brick Menus** inside God with a pinned **Back to God** button. Dashboard and update controls are hidden while viewing a brick. God's entry displays Build Forge, and Documentation Companion **0.13.0** provides embedded tools without update controls or an opening check. Other bricks retain their existing tools; missing or incompatible providers display Information inside God. Only installed packages appear, including disabled and uncatalogued packages. Independent standalone windows remain available. The [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md#installed-brick-menus) defines local registration and view ownership without adding optional dependencies.
+God **0.26.0** displays selected **Installed Brick Menus** inside God with a pinned **Back to God** button. God's dashboard and update controls are hidden while viewing a brick. God's entry displays Build Forge, and Documentation Companion **0.13.2** shows its full dashboard inside God, including manual checks and both version/update cards. Opening that panel remains offline; explicit actions retain their existing confirmations and operation guards. Other bricks retain their existing tools; missing or incompatible providers display Information inside God. Only installed packages appear, including disabled and uncatalogued packages. Independent standalone windows remain available. The [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md#installed-brick-menus) defines local registration and view ownership without adding optional dependencies.
 
 [Scene Loading and Bootstrap](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading) provides persistent bootstrap-first startup, scene groups, unload-before-replacement and additive operations, configurable transitions and loading screens, scene-readiness hooks, and retry/safe-scene recovery. Editor Play loads bootstrap before gameplay scenes; temporary copies preserve dirty or untitled originals, and stopping Play restores the original Editor scene arrangement. Copies use different runtime paths, so path-sensitive code should use the brick's logical scene identity. Multiplayer integration points are framework-independent; a concrete networking adapter is not included. Install God 0.22.0 first, then use this brick's exact catalogue source. The repository is private, so Git access to it is required.
 
@@ -37,7 +37,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.36.3
+**Version:** 0.36.4
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -84,7 +84,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.36.3; the Technical Technique is v0.13.4.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.36.4; the Technical Technique is v0.13.4.
 
 ## ID Naming
 
@@ -236,9 +236,15 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 
 ## Codex guide installation
 
-The current verified companion package is 0.13.1; use its immutable source from the catalogue. In the Documentation Companion dashboard, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
+The current verified companion package is 0.13.2; use its immutable source from the catalogue. In the Documentation Companion dashboard, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.36.4 - Full embedded Documentation Companion dashboard
+
+- Catalogue Documentation Companion 0.13.2 and document its complete dashboard inside God, including manual checking and both package/content version and update cards.
+- Keep embedded opening offline, preserve independent standalone windows, and retain the existing confirmations, operation guards and closed update boundary.
+- Advance Brick Contract to 1.12.2, Companion Technique to 2.4.2 and Editor UI Theme to 1.2.1; other embedded brick package controls remain filtered.
 
 ### v0.36.3 - Documentation Companion brick name
 
