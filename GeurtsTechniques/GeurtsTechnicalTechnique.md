@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.16.1
+**Version:** 0.16.2
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -94,6 +94,16 @@ Select the intended **Windows Build Profile**, scene list, architecture and scri
 Use **CRLF** (carriage return followed by line feed, `\r\n`) for new and edited first-party text files, including C#, Markdown, JSON, PowerShell and batch files. Keep authored files consistently CRLF rather than mixing line endings. Record the policy in the owning source repository's Git attributes; this documentation repository uses `* text=auto eol=crlf`. Verify the affected working-tree files before delivery. Git's normalized text storage and LF-normalized hashes are internal representations and do not change the Windows authoring requirement.
 
 Apply this rule within the owning file's mutation contract. Preserve binary files, third-party assets, generated output and Unity-owned serialization through their supported tools. Do not reformat untouched files or overwrite protected existing content just to change newlines. Managed archive snapshots and exact template copies retain their source bytes; existing user-owned regions and create-if-missing targets retain their specified byte-preservation rules. Keep the comprehensive approved `.gitignore` payload intact; defensive exclusions for other tools and platforms do not establish supported development hosts or player targets.
+
+### Absolute path length and workspace roots
+
+Keep **every full absolute file and folder path below 260 characters: 259 characters maximum**. This requirement applies to both **Codex projects** and **Geurts Game Forge projects**, including repositories, worktrees, Unity projects, validation fixtures and supporting tooling. Count the resolved drive or network-share prefix, all separators, folder names, filename and extension; a short project-relative path alone does not establish compliance. A path of exactly 260 characters is already invalid. Windows long-path support does not waive this project requirement.
+
+Use short project roots and shallow folder structures from the start, for example `C:/Dev/Game` or `C:/Dev/Task`. Leave room for dependency extraction, package caches, temporary work, generated code, build intermediates and final outputs. Include Unity `Library/PackageCache`, `Library/Bee` and `Temp` paths, package/version/hash suffixes, and the selected toolchain's generated descendants when applicable. Check the actual locations used by each tool, including caches or temporary directories outside the project root; do not assume they inherit the short root.
+
+Before creating, copying, extracting or moving content, evaluate the intended absolute destinations and foreseeable generated paths. Combine each selected root with the deepest known dependency or output suffix and allow for variable version, hash and temporary-name lengths. Recheck when dependencies, build settings or generation layouts change. A proposed root is suitable only when its descendants retain sufficient room below the limit; do not wait for a file operation to fail. Where generated names are not yet known, state the estimate and reserved allowance, then verify the concrete paths before generation or extraction.
+
+If any intended path reaches or exceeds 260 characters, report the **exact full path and its character count**, choose a shorter location for new task-owned content, and recheck the resulting paths before proceeding. Do not silently rename or move existing user content, shorten established package or asset identities, or change user-owned roots/settings. If shortening requires an existing-content migration, report the exact conflict and proposed shorter destination; perform that migration only with explicit authorization and the owning file/asset preservation rules. Path checks grant no access to otherwise excluded files or folders.
 
 ### Combined Unity CLI and Editor workflow
 
