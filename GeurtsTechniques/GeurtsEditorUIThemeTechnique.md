@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Editor UI Theme Technique
 
-**Version:** 1.3.0
+**Version:** 1.4.0
 **Status:** Normative mandatory standard
 **Primary audience:** Geurts Game Forge brick and Editor-tool maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -69,6 +69,8 @@ God's public `ForgeThemedEditor` is the shared `OdinEditor` base for Forge-owned
 The independent optional Documentation Companion must remain usable without God and must not gain a God dependency for styling. It retains its separately installed licensed Odin Inspector and Quantum Console assemblies; the generated theme adds no new dependency. It consumes a **generator-produced, namespaced copy** of the same canonical theme source and stylesheet. The generator and parity validator belong to source-maintenance tooling; they are not a Unity-open or Documentation Update action. Record the generation provenance, preserve required namespace/asset-path adaptation and reject source or stylesheet drift with the parity validator. Do not maintain its visual tokens manually or execute copied documentation tools to regenerate it in a user's project.
 
 God's `Tools~/SyncEditorTheme.ps1` generates the companion copy; its `-Check` mode validates source and stylesheet parity. Run it from the owning source-maintenance workflow with the intended companion checkout explicitly selected. The namespaced generated C# source and identical USS are companion implementation assets; no Unity implementation files belong in this documentation repository.
+
+The independent BigBang initial installer also remains free of God and vendor assembly dependencies. It consumes a **generator-produced dependency-free subset** of the canonical tokens, primary window opener and UI Toolkit stylesheet/application method. Exclude all IMGUI/Odin/vendor integration regardless of define symbols; a stale `ODIN_INSPECTOR` symbol must still compile without Odin. Record the canonical source commit, keep generation and parity checking in BigBang source-maintenance tooling, and reject source/stylesheet drift. The first release generates from God `3f3c7795ecf01202ec97fcb91ec0db910adbeb2b`; canonical implementation standard 1.2.0 is distinct from this technique version. The same geometry, accessibility, semantic states and actual visual acceptance gates apply. This exception neither relaxes ordinary brick reuse nor removes the Companion's required licensed assemblies.
 
 Keep the theme's IMGUI/Odin and UI Toolkit representations consistent. Use the shared USS and supported UI Toolkit controls for new custom Editor UI, as required by the Technical Technique. Preserve meaningful Odin configuration, grouping, validation, serialized fields and existing inspector workflows. Existing Odin or IMGUI windows may adopt the shared theme without a forced framework conversion; do not replace working Odin configuration with bespoke controls merely to restyle it.
 

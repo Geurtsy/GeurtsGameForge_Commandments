@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.13.5
+**Version:** 0.14.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -112,6 +112,8 @@ Use the newest stable package release verified compatible with **6000.6.3f1** an
 Use both dependencies wherever their supported features improve configuration, validation, inspection, diagnostics, tuning, or developer operation. "Use as much as possible" means meaningful adoption across applicable Geurts-owned code, not decorating every member, serializing unsupported data unnecessarily, exposing unsafe commands, or adding runtime work without a benefit. Preserve established project data and behavior while migrating duplicate custom tooling onto these required systems.
 
 The dependency requirement excludes this documentation-only repository, its host-side PowerShell utilities, project-authored design documents, and third-party or generated code. The independent Documentation Companion also requires separately installed licensed Odin Inspector and Quantum Console assemblies. Its independence means no God or other Unity Package Manager package dependency; it is not an exemption from the licensed external assembly requirements. A separately selected legacy compatibility contract remains frozen unless its owning document explicitly permits a change.
+
+**BigBang is the narrow independent initial-installer exception.** `com.geurts.gameforge.bigbang` compiles before God, Odin Inspector and Quantum Console exist, without vendor, God, Input System, uGUI or TextMesh Pro assembly references and without `IBrick` registration. It uses an explicit Editor-only assembly and supported Unity Editor/UI Toolkit APIs to prepare the licensed libraries, install one verified immutable God target and hand over after successful compilation. Its missing-library UI is acquisition assistance, not a fallback inspector, serializer or console. Ordinary God, dependent bricks and the Documentation Companion retain all required licensed-library rules. The manifest-selected [BigBang Technique](GeurtsBigBangTechnique.md) owns this initial-installation boundary; runtime initialization and `SCN_BigBang` remain owned by God.
 
 For a separately maintained UPM package migrated and verified against this baseline, declare `"unity": "6000.6"` and `"unityRelease": "3f1"` in its `package.json`. These fields declare the minimum Editor version; they do not prove compatibility without compilation and relevant tests in 6000.6.3f1. Consult the [package manifest reference](https://docs.unity.com/en-us/engine/6000.6/manual/packages-list/cus-pkg-lp/cus-pkg-development/cus-pkg-manifest/upm-manifest-pkg). Do not add a Unity package manifest to this documentation repository or change the companion's closed JSON schema to carry Editor requirements.
 
