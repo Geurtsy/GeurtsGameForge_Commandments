@@ -9,7 +9,7 @@ The manifest selects this owner for independent prerequisite preparation, initia
 
 ## Identity and completion
 
-Geurts Game Forge BigBang is `com.geurts.gameforge.bigbang`, an independent Windows Editor-only UPM package at the root of its own `Geurtsy/GeurtsGameForgeBigBang` Git repository. The supported baseline is Unity **6000.6.3f1**. Its initial implementation candidate is **0.1.0**; a remote candidate is not a released package. Publication and catalogue installation actions require the package's actual recorded acceptance gates to pass.
+Geurts Game Forge BigBang is `com.geurts.gameforge.bigbang`, an independent Windows Editor-only UPM package at the root of its own `Geurtsy/GeurtsGameForgeBigBang` Git repository. The supported baseline is Unity **6000.6.3f1**. Initial preview **0.1.0** is published at immutable commit `cc6d2c1bc5a321044605e9fa47b14851346f42d4` and tag `v0.1.0`. Its [release validation](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.1.0/Documentation~/Validation.md) records automated/native API checks and the user's explicit instruction to skip visual and keyboard acceptance. That coverage remains incomplete; this release-specific exception does not relax future UI requirements. A remote candidate is not a released package. Future publication requires recorded acceptance gates or an explicit user-directed exception with truthful limitations.
 
 Completion means God is installed, compiled and available to open. BigBang does not establish scene, game, documentation or optional-brick setup. Runtime initialization and `SCN_BigBang` remain God-owned. God owns ongoing package management and its catalogue. The optional Documentation Companion owns documentation acquisition/replacement. Angels, project organization, project Git and the separate console migration remain outside this installer.
 
@@ -21,7 +21,7 @@ Acquire commercial libraries separately through their licensed distribution. The
 
 ## Closed release-defined target
 
-Ship one small data-only installation definition with schema version, expected God identity/version, verified official Git repository, immutable commit, exact Unity baseline, required external API capabilities, actual compatibility evidence and supported menu handoff. The initial candidate targets God **0.27.0** at `3f3c7795ecf01202ec97fcb91ec0db910adbeb2b`. Test evidence must record actual Odin and Quantum Console versions; simulated providers do not prove compatibility.
+Ship one small data-only installation definition with schema version, expected God identity/version, verified official Git repository, immutable commit, exact Unity baseline, required external API capabilities, actual compatibility evidence and supported menu handoff. Release 0.1.0 targets God **0.27.0** at `3f3c7795ecf01202ec97fcb91ec0db910adbeb2b`, tested with Odin **4.0.2.4** and Quantum Console **2.6.7**. Test evidence must record actual Odin and Quantum Console versions; simulated providers do not prove compatibility.
 
 Changing the target requires a newer BigBang release. No floating `main` install, remote catalogue service, background updater or executable setup definition is permitted. Verify the selected published God's own manifest declares the Unity packages it uses; allow UPM to resolve them. Do not patch God or maintain a second dependency planner to compensate for missing declarations.
 

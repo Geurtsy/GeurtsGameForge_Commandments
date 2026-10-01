@@ -951,7 +951,14 @@ try {
         -not $bigBangThemeText.Contains('Exclude all IMGUI/Odin/vendor integration regardless of define symbols')) {
         $bigBangFailures.Add('BigBang canonical subset generation or vendor exclusion is absent') | Out-Null
     }
-    Add-Check 'Independent BigBang initial-installer boundary' ($bigBangFailures.Count -eq 0) $(if ($bigBangFailures.Count) { $bigBangFailures -join '; ' } else { 'The manifest selects the independent initial installer, closed target, fresh compile/readback, recovery, canonical subset and acceptance gates without relaxing God/brick/Companion requirements.' })
+    $bigBangCatalogueEntries = @($brickCatalogue.bricks | Where-Object { $_.id -ceq 'com.geurts.gameforge.bigbang' })
+    if ($bigBangCatalogueEntries.Count -ne 1 -or @($bigBangCatalogueEntries[0].dependencies).Count -ne 0 -or
+        @($bigBangCatalogueEntries[0].requiredTools).Count -ne 0 -or -not $bigBangCatalogueEntries[0].released -or
+        $bigBangCatalogueEntries[0].developmentOnly -or $bigBangCatalogueEntries[0].sourceKind -cne 'git' -or
+        $bigBangCatalogueEntries[0].source -cnotmatch '^https://github\.com/Geurtsy/GeurtsGameForgeBigBang\.git#[a-f0-9]{40}$') {
+        $bigBangFailures.Add('BigBang catalogue must publish one immutable official Git source without God or external-tool dependencies') | Out-Null
+    }
+    Add-Check 'Independent BigBang initial-installer boundary' ($bigBangFailures.Count -eq 0) $(if ($bigBangFailures.Count) { $bigBangFailures -join '; ' } else { 'The manifest and immutable catalogue select the independent initial installer, closed target, fresh compile/readback, recovery, canonical subset and acceptance gates without relaxing God/brick/Companion requirements.' })
 
     # Guard the declared standard and discovery chain. Rendered Unity conformance is validated in package workspaces.
     $themeRelative = "GeurtsTechniques/GeurtsEditorUIThemeTechnique.md"
