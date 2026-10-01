@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts BigBang Technique
 
-**Version:** 1.1.1
+**Version:** 1.1.2
 **Status:** Normative initial-installer boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
@@ -9,7 +9,7 @@ The manifest selects this owner for independent prerequisite preparation, initia
 
 ## Identity and completion
 
-Geurts Game Forge BigBang is `com.geurts.gameforge.bigbang`, an independent Windows Editor-only UPM package at the root of its own `Geurtsy/GeurtsGameForgeBigBang` Git repository. The supported baseline is Unity **6000.6.3f1**. Preview **0.2.1** is published at immutable commit `1c48ea72995fc19727f89f96bd15025b2ecaf5c8` and tag `v0.2.1`. Its [release validation](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.1/Documentation~/Validation.md) records 86 passing tests in an isolated populated project, actual latest-release discovery and native installation of God 0.28.0, restart/handoff and preservation checks. The previous 0.2.0 evidence covers three isolated environments. The previously recorded visual/keyboard acceptance gap remains explicit; API execution does not prove physical UI acceptance. A remote candidate is not a released package. Future publication requires recorded acceptance gates or an explicit user-directed exception with truthful limitations.
+Geurts Game Forge BigBang is `com.geurts.gameforge.bigbang`, an independent Windows Editor-only UPM package at the root of its own `Geurtsy/GeurtsGameForgeBigBang` Git repository. The supported baseline is Unity **6000.6.3f1**. Preview **0.2.2** is published at immutable commit `9bb6b7ed718ae9febd6cf1c28f1f6d35bfefca7c` and tag `v0.2.2`. Its [release validation](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.2/Documentation~/Validation.md) records 90 passing tests in each of three isolated environments, actual interrupted-state script reload recovery, automatic local readiness refresh, and real compiler failure/recovery. Existing God 0.27.0 was preserved during those checks while the official repository publishes 0.28.0. Earlier 0.2.1 evidence verifies fresh installation of God 0.28.0 and Commandments handoff. The previously recorded visual/keyboard acceptance gap remains explicit; API execution does not prove physical UI acceptance. A remote candidate is not a released package. Future publication requires recorded acceptance gates or an explicit user-directed exception with truthful limitations.
 
 Completion means God is installed, compiled and available to open. BigBang does not establish scene, game, documentation or optional-brick setup. Runtime initialization and `SCN_BigBang` remain God-owned. God owns ongoing package management and its catalogue. The optional Commandments Companion owns documentation acquisition/replacement. Angels, project organization, project Git and the separate console migration remain outside this installer.
 
@@ -31,7 +31,7 @@ A failed, missing or cancelled release check must not authorize installation fro
 
 Opening or restoring BigBang shows local information only. It must not download, install, purchase, check remote state, request compilation or retry automatically. **Check prerequisites** is explicit and includes the current repository release check. **Install God** resolves again before freezing and dispatching its target. Identify Windows and the exact supported Editor; block installation during Play Mode, compilation, imports or builds. Verify current Editor-compatible assembly participation and the required actual vendor APIs without compile dependencies. Folder, DLL, define or previously loaded assembly presence alone is insufficient.
 
-Successful supported compilation events and reload provide session evidence after relevant imports. Failed compilation must invalidate stale loaded evidence. Missing evidence stays Unknown. An explicit check may request one readiness compilation after APIs are available; do not introduce repeated compilation requests or retry loops. Show technical availability separately from acquisition guidance and licence ownership. Report vendor versions only when reliable metadata supplies them.
+Successful supported compilation events and reload provide session evidence after relevant imports. Clear interrupted running/request flags after a domain reload without granting success from stale assemblies. An unmatched finish callback must stop the busy state while leaving evidence Unknown; equal boxed contexts represent the same compilation. Refresh local readiness when Unity becomes idle, without starting a remote lookup or installation. Failed compilation must invalidate stale loaded evidence. Missing evidence stays Unknown. An explicit check may request one readiness compilation after APIs are available; do not introduce repeated compilation requests or retry loops. Show technical availability separately from acquisition guidance and licence ownership. Report vendor versions only when reliable metadata supplies them.
 
 ## Operation ownership and recovery
 
