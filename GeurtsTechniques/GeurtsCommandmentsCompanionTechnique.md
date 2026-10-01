@@ -3,7 +3,7 @@
 
 **Version:** 3.0.0
 **Contract schema:** 3.0.0
-**Package version:** 0.40.0
+**Package version:** 0.40.1
 **Status:** Draft normative technique
 **Primary audience:** Geurts Commandments Companion implementers and package maintainers
 **Secondary audience:** AI coding agents and human developers
