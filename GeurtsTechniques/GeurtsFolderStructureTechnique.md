@@ -2,7 +2,7 @@
 # Geurts Folder Structure Technique
 
 **Unity Project Structure - AI-First Automation and Human Developer Reference**
-**Version:** 0.15.1
+**Version:** 0.15.2
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -44,6 +44,14 @@ If the Markdown and JSON disagree, validation must fail. An agent or tool must n
 - Add game-domain children only when real content needs them; an empty template is not a list of features to implement.
 
 ---
+
+## Short Roots and Path-Length Headroom
+
+Follow the [Technical Technique's absolute path requirement](GeurtsTechnicalTechnique.md#absolute-path-length-and-workspace-roots) for both Codex projects and Geurts Game Forge: every full absolute file and folder path must remain below 260 characters (259 maximum). Select a short root and keep project-specific children shallow. The template's relative paths do not guarantee that a particular absolute project location is suitable.
+
+Before creating template folders, adding children or planning a move, check the full destinations together with foreseeable dependency, cache, temporary and generated descendants. Leave room for package/version/hash suffixes, Unity import/build output and filenames beneath each new folder. Reuse an existing suitable owner rather than adding repeated project or feature names at multiple levels. Keep the template's required paths and stable identities intact; choose a shorter root for new work instead of silently abbreviating the registry.
+
+Report an over-limit path using its exact absolute spelling and character count, then select and verify a shorter location for new content. Do not silently rename or move existing user content. Any required migration of an existing project, Unity asset or folder needs explicit authorization and must preserve its content, GUIDs and references through the owning workflow. This guidance changes no literal template paths, creation profiles or automatic deletion permissions.
 
 ## Automation
 
