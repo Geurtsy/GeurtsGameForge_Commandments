@@ -962,7 +962,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     $folderDefinitionContract = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json
     $folderToolContractText = [System.IO.File]::ReadAllText($folderScript)
     $managerToolContractText = [System.IO.File]::ReadAllText($manageScript)
-    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.15\.1\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.12.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.42.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.12.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.12.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.12.0 in package v0.42.0"
+    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.15\.2\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.12.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.42.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.12.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.12.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.12.0 in package v0.42.0"
 
     $versionMismatchAuthority = Join-Path $testRoot "folder-version-mismatch-authority"
     New-Item -ItemType Directory -Path $versionMismatchAuthority | Out-Null
