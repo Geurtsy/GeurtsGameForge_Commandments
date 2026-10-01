@@ -54,7 +54,7 @@ Game Forge God distinguishes **Planned**, **Available** and **Installed** indepe
 
 ## BigBang initial installation
 
-The independent [Geurts Game Forge BigBang](https://github.com/Geurtsy/GeurtsGameForgeBigBang) package prepares licensed Odin Inspector and Quantum Console, resolves the latest published compatible God release on explicit Check and again before Install, then freezes its verified commit. Opening stays offline and existing God is preserved. Preview **0.2.3** is published and catalogued at immutable commit `727b5d522af98bbe9eb535b8f3207d27af14c5ac` and tag `v0.2.3`. It fixes long Windows input paths that kept successful compilation Unknown, reports fingerprint read errors and accepts successful cached-only incremental cycles without waiting for an unnecessary reload. Its **101 tests pass in each of three isolated environments**, and native compiler failure/recovery passes. The actual 0.2.2 failure was reproduced in the open project with all 765 pre-existing files preserved. The user chose manual updating, so 0.2.3 has not been verified in that project. See the [BigBang Technique](GeurtsTechniques/GeurtsBigBangTechnique.md), [getting-started guide](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.3/Documentation~/GettingStarted.md) and [validation report](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.3/Documentation~/Validation.md). Physical visual/keyboard/scaling acceptance remains a recorded gap. BigBang does not configure scenes, project Git, Build Profiles or optional bricks. God 0.29.0 owns Commandments acquisition; existing Companion installations transition to the passive adapter.
+The independent [Geurts Game Forge BigBang](https://github.com/Geurtsy/GeurtsGameForgeBigBang) package prepares licensed Odin Inspector and Quantum Console, resolves the latest published compatible God release on explicit Check and again before Install, then freezes its verified commit. Opening stays offline and existing God is preserved. Preview **0.2.4** is published and catalogued at immutable commit `da6e1478e47a8eee6c3082cf72d0fb835d030b7d` and tag `v0.2.4`. It adds the God-owned Commandments handoff and retains the 0.2.3 compilation fixes. All 101 BigBang tests pass in the combined 591-pass God/adapter suite; see the [0.2.4 handoff validation](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.4/Documentation~/CommandmentsValidation.md). The prior 0.2.3 release fixes long Windows input paths that kept successful compilation Unknown, reports fingerprint read errors and accepts successful cached-only incremental cycles without waiting for an unnecessary reload. Its **101 tests pass in each of three isolated environments**, and native compiler failure/recovery passes. The actual 0.2.2 failure was reproduced in the open project with all 765 pre-existing files preserved. The user chose manual updating, so 0.2.3 has not been verified in that project. See the [BigBang Technique](GeurtsTechniques/GeurtsBigBangTechnique.md), [getting-started guide](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.3/Documentation~/GettingStarted.md) and [validation report](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.3/Documentation~/Validation.md). Physical visual/keyboard/scaling acceptance remains a recorded gap. BigBang does not configure scenes, project Git, Build Profiles or optional bricks. God 0.29.0 owns Commandments acquisition; existing Companion installations transition to the passive adapter.
 
 ## Installing God or switching an existing installation
 
@@ -62,7 +62,7 @@ Import licensed Odin Inspector and Quantum Console into a Unity 6000.6.3f1 proje
 
 Open **Game Forge God** and select **View Commandments**. Content update uses one cancel-default confirmation covering the managed folder and three AI routes. Package Update and Update All never acquire content. Existing Companion users update to adapter 0.15.0; fresh projects do not install it.
 
-Standalone brick menus open their own larger Editor windows, including Game Forge God, Build Forge, Commandments Companion, Diagnostics, Scene Loading and User Interface Foundations. New floating windows target 1000 × 760 Editor points, reduced to fit the main Editor area where space permits, and remain resizable and dockable. Each supported minimum stays in force, so a smaller main Editor area may not fully contain the window. Opening an existing window preserves its size, position and docking layout. God's Commandments view reuses its canonical theme; the adapter owns no dashboard.
+Standalone brick menus open their own larger Editor windows, including Game Forge God, Build Forge, God-owned Commandments, Diagnostics, Scene Loading and User Interface Foundations. New floating windows target 1000 × 760 Editor points, reduced to fit the main Editor area where space permits, and remain resizable and dockable. Each supported minimum stays in force, so a smaller main Editor area may not fully contain the window. Opening an existing window preserves its size, position and docking layout. God's Commandments view reuses its canonical theme; the adapter owns no dashboard.
 
 All catalogue entries and the main **Dependencies** section start collapsed. Click a catalogue heading or arrow to expand or collapse that card independently. Collapsed cards keep the package name, installation/lifecycle state and update status visible; expand a card to view its details and package actions. Each window retains its expansion choices through searches, filters, catalogue refreshes and script reloads.
 
@@ -112,7 +112,7 @@ Use the [combined Unity CLI and Editor workflow](GeurtsTechniques/GeurtsTechnica
 
 ## Mandatory Forge Editor theme
 
-The [Editor UI Theme Technique](GeurtsTechniques/GeurtsEditorUIThemeTechnique.md) makes the dark sci-fi theme with green accents mandatory for every existing and future Forge brick's Editor UI. It covers Game Forge God, Build Forge, Diagnostics, Commandments Companion, settings and custom inspector presentation. Shared surfaces, typography, spacing, focus states and readable status messages keep the interface consistent; warnings stay yellow, errors stay red, and disabled actions explain the reason and next step.
+The [Editor UI Theme Technique](GeurtsTechniques/GeurtsEditorUIThemeTechnique.md) makes the dark sci-fi theme with green accents mandatory for every existing and future Forge brick's Editor UI. It covers Game Forge God, Build Forge, Diagnostics, God-owned Commandments, settings and custom inspector presentation. Shared surfaces, typography, spacing, focus states and readable status messages keep the interface consistent; warnings stay yellow, errors stay red, and disabled actions explain the reason and next step.
 
 God owns the shared `ForgeEditorTheme` API and USS. Dependent bricks reuse them; God's Commandments view uses the canonical implementation directly. New custom Editor UI retains the UI Toolkit standard and existing Odin configuration remains supported. Runtime and project-authored game UI are outside this Editor-only theme. Source validators check the documented standard and its routes; actual visual review and behavior checks remain required before publication.
 
@@ -125,9 +125,10 @@ The relevant locations have different owners:
 | Location | Meaning and owner |
 |---|---|
 | `Geurtsy/GeurtsGameForge_Commandments` | Authoritative source for all Geurts Game Forge documentation. |
-| `<ProjectRoot>/GeurtsGameForgeCommandments/` | Detached, archive-sourced project-local snapshot managed as logically read-only content. A confirmed companion Update replaces it completely. |
-| `Geurtsy/com.geurts.gameforge.documentation` | Owns the Windows-only, Editor-only Unity Package Manager implementation, package metadata, and companion-specific documentation. No companion code lives here. It has no Geurts Game Forge God or Game Forge Intelligence dependency. |
-| The three project AI-route targets declared in `GeurtsCommandmentsCompanionContract.json` | Whole files managed by the companion. One confirmation explicitly authorizes replacement from the three documentation-owned templates. |
+| `<ProjectRoot>/GeurtsGameForgeCommandments/` | Detached, archive-sourced project-local snapshot managed as logically read-only content. A confirmed God Commandments Update replaces it completely. |
+| `Geurtsy/com.geurts.gameforge.god` | Owns the Commandments Editor implementation and its package-specific integration and migration guidance. No generic content authority moves into God. |
+| `Geurtsy/com.geurts.gameforge.commandments` | Owns only the passive compatibility adapter for existing installations. The retained UPM identity is `com.geurts.gameforge.documentation`; it has no updater or menu registrations. |
+| The three project AI-route targets declared in `GeurtsCommandmentsCompanionContract.json` | Whole files managed by God's Commandments service. One confirmation explicitly authorizes replacement from the three documentation-owned templates. |
 | `<ProjectRoot>/Docs/GameDesign/` | Project-authored game-design authority. The companion must not inspect or change it. |
 | Game Forge Intelligence | A separate optional product with a frozen v2 compatibility technique. Its historical documentation updater is superseded and it is not required by the companion. |
 
@@ -173,7 +174,7 @@ Update succeeds only when the complete documentation folder and all three route 
 
 All three route files tell agents to read `GeurtsGameForgeCommandments/AI_READ_FIRST.md` before planning or modifying any Geurts Game Forge brick code and to treat the installed, manifest-selected documentation as the source of truth for that work. They help only AI tools that support those native instruction surfaces or have been explicitly told to read and follow `AI_READ_FIRST.md`; neither the documentation nor the companion can force every AI product to discover or obey them automatically.
 
-The manifest-selected `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md` owns this lifecycle, and `GeurtsTechniques/GeurtsCommandmentsCompanionContract.json` owns its exact machine-readable source, destination, validation entries, confirmation targets, and route mappings. The companion implementation lives only in its separate package repository.
+The manifest-selected `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md` owns this lifecycle, and `GeurtsTechniques/GeurtsCommandmentsCompanionContract.json` owns its exact machine-readable source, destination, validation entries, confirmation targets, and route mappings. The implementation lives only in God's owning package repository; the Companion repository retains the passive compatibility adapter.
 
 ## Package Map
 
@@ -185,7 +186,7 @@ The manifest-selected `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md`
 - `GeurtsTechniques/GeurtsFolderStructureTechnique.md` and `GeurtsTechniques/GeurtsFolderStructureDefinition.json` - folder meaning and exact creation registry.
 - `GeurtsTechniques/GeurtsAIAgentSetupTechnique.md` - exact companion AI routes and whole-file replacement exception, plus separate preservation-based manual tooling.
 - `GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md` - GDD discovery, maintenance, and companion no-access boundary.
-- `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md` and `GeurtsTechniques/GeurtsCommandmentsCompanionContract.json` - independent Windows-only, Editor-only UPM lifecycle and its closed machine-readable contract.
+- `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md` and `GeurtsTechniques/GeurtsCommandmentsCompanionContract.json` - God-owned Windows Editor content lifecycle, passive adapter transition and the unchanged closed machine-readable contract.
 - `GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md` - frozen compatibility contract for released v2 consumers; not a current documentation updater.
 - `GeurtsTechniques/GeurtsGitIgnoreTechnique.md` - approved, hash-validated project-root `.gitignore` payload.
 - `GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.1.md` - chat-only response behaviour, never a coding standard.
@@ -200,7 +201,7 @@ Update the whole documentation snapshot, then use Build Forge's **Create project
 
 ## Legacy Manual Utilities (Not Companion Setup)
 
-Package scripts remain available under `GeurtsGameForgeCommandments/Tools/` for legacy or separately authorized generic maintenance. They are not a supported alternative for provisioning or updating companion-managed documentation or AI routes in a companion project. Such a project uses only Unity Package Manager to install the companion and its confirmed in-Editor Update for those four targets. The scripts are inert documentation-package content, are not duplicated into project-root `Tools/`, and are not part of companion installation, setup, or Update. The companion must not scan for or execute `.bat`, `.cmd`, `.ps1`, or any other script. Always pass the Unity project root explicitly when deliberately invoking a project-mutating legacy utility outside that lifecycle.
+Package scripts remain available under `GeurtsGameForgeCommandments/Tools/` for legacy or separately authorized generic maintenance. They are not a supported alternative for provisioning or updating companion-managed documentation or AI routes in a companion project. Such a project installs God through Unity Package Manager and uses its confirmed in-Editor Commandments Update for those four targets. The scripts are inert documentation-package content, are not duplicated into project-root `Tools/`, and are not part of companion installation, setup, or Update. The companion must not scan for or execute `.bat`, `.cmd`, `.ps1`, or any other script. Always pass the Unity project root explicitly when deliberately invoking a project-mutating legacy utility outside that lifecycle.
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeCommandments/Tools/ManageGeurtsAgentInstructions.ps1" -ProjectRoot "<ProjectRoot>"
@@ -242,7 +243,7 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 
 ## Codex guide installation
 
-The current verified companion package is 0.13.2; use its immutable source from the catalogue. In the Commandments Companion dashboard, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
+God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandments view or Build Forge, choose a location and confirm the displayed entry point. The installer writes only the selected AGENTS.md for Codex discovery. The template remains in GeurtsAgentTechnique.md. Normal content updates do not manage a root Codex guide; replace an old guide only through the separately selected and confirmed action. The content-update contract remains schema 3.0.0. Existing custom guides are never rewritten by package migration.
 
 ## Changelog
 
