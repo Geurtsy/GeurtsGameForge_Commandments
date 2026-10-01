@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.15.0
+**Version:** 0.16.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -125,7 +125,7 @@ Use the versioned [Unity 6.6 Editor command-line reference](https://docs.unity.c
 
 Target **Unity 6.6 (6000.6.3f1)** for all new and modified Geurts Unity code, Editor tooling, tests, automation and C# examples. This technique owns the compatibility baseline; entry files and native AI routes continue to defer to the manifest. The documentation package version is independent of the Unity Editor version.
 
-Before Unity implementation, read `ProjectSettings/ProjectVersion.txt`, `Packages/manifest.json`, and `Packages/packages-lock.json` when available, then inspect the installed packages, assembly definitions, render pipeline, build targets, and scripting backend relevant to the task. Record the exact Editor patch and resolved dependency versions used for validation. In this documentation-only repository these Unity project files do not exist; do not fabricate them or claim that another repository's code has been upgraded. This implementation preflight does not expand the Documentation Companion's closed startup or Update permissions.
+Before Unity implementation, read `ProjectSettings/ProjectVersion.txt`, `Packages/manifest.json`, and `Packages/packages-lock.json` when available, then inspect the installed packages, assembly definitions, render pipeline, build targets, and scripting backend relevant to the task. Record the exact Editor patch and resolved dependency versions used for validation. In this documentation-only repository these Unity project files do not exist; do not fabricate them or claim that another repository's code has been upgraded. This implementation preflight does not expand the Commandments Companion's closed startup or Update permissions.
 
 Use exactly **6000.6.3f1** when establishing or updating the Editor baseline. Review its [release notes](https://unity.com/releases/editor/whats-new/6000.6.3f1), then commit the exact `ProjectVersion.txt` and package manifest/lockfile in the consuming project after a validated migration. A project pinned to an older Editor requires that migration; do not silently open it in another Editor or report it as 6000.6.3f1-compatible without evidence. A later Unity release does not replace this target automatically.
 
@@ -135,9 +135,9 @@ Use the newest stable package release verified compatible with **6000.6.3f1** an
 
 Use both dependencies wherever their supported features improve configuration, validation, inspection, diagnostics, tuning, or developer operation. "Use as much as possible" means meaningful adoption across applicable Geurts-owned code, not decorating every member, serializing unsupported data unnecessarily, exposing unsafe commands, or adding runtime work without a benefit. Preserve established project data and behavior while migrating duplicate custom tooling onto these required systems.
 
-The dependency requirement excludes this documentation-only repository, its host-side PowerShell utilities, project-authored design documents, and third-party or generated code. The independent Documentation Companion also requires separately installed licensed Odin Inspector and Quantum Console assemblies. Its independence means no God or other Unity Package Manager package dependency; it is not an exemption from the licensed external assembly requirements. A separately selected legacy compatibility contract remains frozen unless its owning document explicitly permits a change.
+The dependency requirement excludes this documentation-only repository, its host-side PowerShell utilities, project-authored design documents, and third-party or generated code. The independent Commandments Companion also requires separately installed licensed Odin Inspector and Quantum Console assemblies. Its independence means no God or other Unity Package Manager package dependency; it is not an exemption from the licensed external assembly requirements. A separately selected legacy compatibility contract remains frozen unless its owning document explicitly permits a change.
 
-**BigBang is the narrow independent initial-installer exception.** `com.geurts.gameforge.bigbang` compiles before God, Odin Inspector and Quantum Console exist, without vendor, God, Input System, uGUI or TextMesh Pro assembly references and without `IBrick` registration. It uses an explicit Editor-only assembly and supported Unity Editor/UI Toolkit APIs to prepare the licensed libraries, install one verified immutable God target and hand over after successful compilation. Its missing-library UI is acquisition assistance, not a fallback inspector, serializer or console. Ordinary God, dependent bricks and the Documentation Companion retain all required licensed-library rules. The manifest-selected [BigBang Technique](GeurtsBigBangTechnique.md) owns this initial-installation boundary; runtime initialization and `SCN_BigBang` remain owned by God.
+**BigBang is the narrow independent initial-installer exception.** `com.geurts.gameforge.bigbang` compiles before God, Odin Inspector and Quantum Console exist, without vendor, God, Input System, uGUI or TextMesh Pro assembly references and without `IBrick` registration. It uses an explicit Editor-only assembly and supported Unity Editor/UI Toolkit APIs to prepare the licensed libraries, install one verified immutable God target and hand over after successful compilation. Its missing-library UI is acquisition assistance, not a fallback inspector, serializer or console. Ordinary God, dependent bricks and the Commandments Companion retain all required licensed-library rules. The manifest-selected [BigBang Technique](GeurtsBigBangTechnique.md) owns this initial-installation boundary; runtime initialization and `SCN_BigBang` remain owned by God.
 
 For a separately maintained UPM package migrated and verified against this baseline, declare `"unity": "6000.6"` and `"unityRelease": "3f1"` in its `package.json`. These fields declare the minimum Editor version; they do not prove compatibility without compilation and relevant tests in 6000.6.3f1. Consult the [package manifest reference](https://docs.unity.com/en-us/engine/6000.6/manual/packages-list/cus-pkg-lp/cus-pkg-development/cus-pkg-manifest/upm-manifest-pkg). Do not add a Unity package manifest to this documentation repository or change the companion's closed JSON schema to carry Editor requirements.
 
@@ -234,7 +234,7 @@ GitHub Copilot, Codex, ChatGPT, and any other AI coding assistant must follow th
 Insert the following comment only when the AI creates or materially edits a reusable Geurts Game Forge framework, library, or tooling component intended to be shared across games:
 
 ```csharp
-// IMPORTANT: This script must comply with GeurtsGameForgeDocumentation/GeurtsTechniques/GeurtsTechnicalTechnique.md and folder placement rules in GeurtsGameForgeDocumentation/GeurtsTechniques/GeurtsFolderStructureTechnique.md.
+// IMPORTANT: This script must comply with GeurtsGameForgeCommandments/GeurtsTechniques/GeurtsTechnicalTechnique.md and folder placement rules in GeurtsGameForgeCommandments/GeurtsTechniques/GeurtsFolderStructureTechnique.md.
 ```
 
 Geurts Game Forge Bricks is a positive example of shared framework code. An ordinary game-specific implementation is excluded even when AI-generated; for example, a project-specific 2D map generator does not receive this header merely because an AI created it. AI authorship alone is insufficient. If intended ownership or reuse is unclear, ask before adding the header.
@@ -368,7 +368,7 @@ public enum AI_STATE
 
 Use UI Toolkit for new Geurts UI work. Inspect the existing UI before changing it, and never silently replace or overwrite working user content. When a project already uses another UI system, follow explicit user/project requirements for a scoped integration or migration; do not perform a destructive automatic conversion.
 
-All existing and future Forge-owned Editor UI must comply with the manifest-selected [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md). Reuse God's shared `ForgeEditorTheme` API and `ForgeEditorTheme.uss` for dark sci-fi surfaces and green accents; the independent Documentation Companion uses the technique's generated, parity-checked copy without acquiring a God dependency. Preserve meaningful Odin configuration and use UI Toolkit for new custom Editor UI. This Editor-only standard does not change runtime or player-facing game UI.
+All existing and future Forge-owned Editor UI must comply with the manifest-selected [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md). Reuse God's shared `ForgeEditorTheme` API and `ForgeEditorTheme.uss` for dark sci-fi surfaces and green accents; the independent Commandments Companion uses the technique's generated, parity-checked copy without acquiring a God dependency. Preserve meaningful Odin configuration and use UI Toolkit for new custom Editor UI. This Editor-only standard does not change runtime or player-facing game UI.
 
 For new custom UXML controls, use `[UxmlElement]` on a partial class and `[UxmlAttribute]` for exposed attributes, following the Unity 6.6 UxmlElement reference. Avoid new `UxmlFactory`/`UxmlTraits` implementations. Use supported UXML/USS and verify data binding and lifecycle cleanup in the actual runtime or Editor context.
 

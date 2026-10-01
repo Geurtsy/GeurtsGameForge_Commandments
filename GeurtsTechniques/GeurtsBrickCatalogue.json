@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.38.0",
+  "packageVersion": "0.39.0",
   "publishedUtc": "2026-10-01T04:04:32Z",
   "bricks": [
     {
@@ -20,14 +20,14 @@
     },
     {
       "id": "com.geurts.gameforge.documentation",
-      "name": "Geurts Game Forge Documentation Companion",
-      "description": "Independent Documentation Companion Editor dashboard and explicit updates of the authoritative AI development guidance.",
-      "website": "https://github.com/Geurtsy/com.geurts.gameforge.documentation",
+      "name": "Geurts Game Forge Commandments Companion",
+      "description": "Independent Commandments Companion Editor dashboard and explicit updates of the authoritative AI development guidance.",
+      "website": "https://github.com/Geurtsy/com.geurts.gameforge.commandments",
       "version": "0.13.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.documentation.git#87c99f79d27b4cc223b4dc43f6055a5ffb4a27d8",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.commandments.git#87c99f79d27b4cc223b4dc43f6055a5ffb4a27d8",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -39,7 +39,7 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, optional Documentation Companion integration, lifecycle, settings and optional scene-startup/input cooperation.",
+      "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, optional Commandments Companion integration, lifecycle, settings and optional scene-startup/input cooperation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
       "version": "0.27.0",
       "released": true,

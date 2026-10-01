@@ -14,7 +14,7 @@ tags: documentation, routing
 **Status:** Active
 **Required project path:** `Docs/GameDesign/README.md`
 
-This directory contains project-specific game design documentation. It is separate from the project-local fetched Geurts documentation copy in `GeurtsGameForgeDocumentation/`.
+This directory contains project-specific game design documentation. It is separate from the project-local fetched Geurts documentation copy in `GeurtsGameForgeCommandments/`.
 
 Start with `Docs/GameDesign/GameDesignManifest.md`. The setup utility creates this scaffold only when missing and never invents mechanics, narrative, balance, progression, characters, or other design facts.
 

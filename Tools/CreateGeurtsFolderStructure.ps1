@@ -1,5 +1,5 @@
 # CreateGeurtsFolderStructure.ps1
-# Version: 0.38.0
+# Version: 0.39.0
 
 [CmdletBinding()]
 param(
@@ -129,7 +129,7 @@ try {
 
     if ([string]::IsNullOrWhiteSpace($DefinitionPath)) {
         $candidates = @(
-            (Join-Path $ProjectRoot "GeurtsGameForgeDocumentation/GeurtsTechniques/GeurtsFolderStructureDefinition.json"),
+            (Join-Path $ProjectRoot "GeurtsGameForgeCommandments/GeurtsTechniques/GeurtsFolderStructureDefinition.json"),
             (Join-Path (Split-Path -Parent $PSScriptRoot) "GeurtsTechniques/GeurtsFolderStructureDefinition.json")
         )
         $DefinitionPath = $candidates | Where-Object { Test-Path -LiteralPath $_ -PathType Leaf } | Select-Object -First 1
@@ -150,8 +150,8 @@ try {
     }
 
     if ([string]$definition.schemaVersion -ne "1.0.0") { throw "Unsupported folder-definition schemaVersion '$($definition.schemaVersion)'." }
-    if ([string]$definition.definitionVersion -ne "0.12.0" -or [string]$definition.packageVersion -ne "0.38.0") {
-        throw "Folder definition version must be 0.12.0 and package version must be 0.38.0."
+    if ([string]$definition.definitionVersion -ne "0.12.0" -or [string]$definition.packageVersion -ne "0.39.0") {
+        throw "Folder definition version must be 0.12.0 and package version must be 0.39.0."
     }
     if ([string]$definition.canonicalPath -ne "GeurtsTechniques/GeurtsFolderStructureDefinition.json" -or [string]$definition.pathBase -ne "<ProjectRoot>" -or [string]$definition.pathSeparator -ne "/" -or [string]$definition.explanatoryAuthority -ne "GeurtsTechniques/GeurtsFolderStructureTechnique.md" -or [string]$definition.automationAuthority -ne "GeurtsTechniques/GeurtsFolderStructureDefinition.json") {
         throw "Folder definition declares an unsupported required path or path-base contract."
@@ -205,7 +205,7 @@ try {
         if (-not (Test-DefinitionPath -Path $relativePath)) {
             throw "Unsafe or invalid folder path in definition: '$relativePath'."
         }
-        if ($relativePath -ceq "GeurtsGameForgeDocumentation") {
+        if ($relativePath -ceq "GeurtsGameForgeCommandments") {
             throw "The project-local documentation copy is a reserved placement outside folder-tool authority and is not a managed folder."
         }
         $addedRequiredPath = $knownRequiredPaths.Add($relativePath)
@@ -319,8 +319,8 @@ try {
         throw "The explanatory folder authority is missing beside the definition: '$techniquePath'."
     }
     $techniqueText = [System.IO.File]::ReadAllText($techniquePath)
-    if ($techniqueText -notmatch '(?im)^\*\*Version:\*\*\s*0\.14\.0\s*$' -or $techniqueText -notmatch '(?m)^\*\*Required package path:\*\* `GeurtsTechniques/GeurtsFolderStructureTechnique\.md`\s*$') {
-        throw "The explanatory folder authority does not declare the v0.14.0 stable path metadata."
+    if ($techniqueText -notmatch '(?im)^\*\*Version:\*\*\s*0\.15\.0\s*$' -or $techniqueText -notmatch '(?m)^\*\*Required package path:\*\* `GeurtsTechniques/GeurtsFolderStructureTechnique\.md`\s*$') {
+        throw "The explanatory folder authority does not declare the v0.15.0 stable path metadata."
     }
     $registryMatch = [regex]::Match($techniqueText, '(?ms)<!-- GEURTS-FOLDER-PATHS:BEGIN -->\s*```text\s*(?<Paths>.*?)\s*```\s*<!-- GEURTS-FOLDER-PATHS:END -->')
     if (-not $registryMatch.Success -or [regex]::Matches($techniqueText, 'GEURTS-FOLDER-PATHS:BEGIN').Count -ne 1 -or [regex]::Matches($techniqueText, 'GEURTS-FOLDER-PATHS:END').Count -ne 1) {
