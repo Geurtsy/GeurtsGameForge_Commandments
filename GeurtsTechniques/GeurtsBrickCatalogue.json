@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.36.5",
-  "publishedUtc": "2026-10-01T00:36:27Z",
+  "packageVersion": "0.36.6",
+  "publishedUtc": "2026-10-01T01:53:47Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.documentation",
@@ -157,13 +157,13 @@
     {
       "id": "com.geurts.gameforge.userinterface",
       "name": "Geurts Game Forge User Interface Foundations",
-      "description": "Preview: editable UI Toolkit menus, creation drafts, shared appearance and optional Settings controls and dialogs. Native input and visual acceptance remain pending.",
+      "description": "Preview: Panel Renderer menu hosts with explicit Undo-supported legacy upgrades, editable creation drafts, shared appearance and optional Settings controls. Native input and visual acceptance remain pending.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface",
-      "version": "0.9.0",
+      "version": "0.10.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#f8c8c19878eef8a7bb6afcc7be5c29985b082884",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#0d219b5dc93c7a086f1dc9935dafbda96c2dbb97",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
