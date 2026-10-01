@@ -43,7 +43,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.40.2
+**Version:** 0.40.3
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -52,7 +52,7 @@ Game Forge God distinguishes **Planned**, **Available** and **Installed** indepe
 
 ## BigBang initial installation
 
-The independent [Geurts Game Forge BigBang](https://github.com/Geurtsy/GeurtsGameForgeBigBang) package prepares licensed Odin Inspector and Quantum Console, resolves the latest published compatible God release on explicit Check and again before Install, then freezes its verified commit. Opening stays offline and existing God is preserved. Preview **0.2.2** is published and catalogued at `9bb6b7ed718ae9febd6cf1c28f1f6d35bfefca7c`. It fixes compilation that could remain Running after Unity reloads, refreshes local readiness when Unity becomes idle, and still requires fresh successful evidence. Its 90 tests pass in three isolated environments; actual reload recovery and compiler failure/recovery preserve project contents. See the [BigBang Technique](GeurtsTechniques/GeurtsBigBangTechnique.md), [getting-started guide](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.2/Documentation~/GettingStarted.md) and [validation report](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.2/Documentation~/Validation.md). Physical visual/keyboard/scaling acceptance remains a recorded gap. BigBang does not configure scenes, project Git, Build Profiles or optional bricks. The independent optional Commandments Companion owns Commandments acquisition.
+The independent [Geurts Game Forge BigBang](https://github.com/Geurtsy/GeurtsGameForgeBigBang) package prepares licensed Odin Inspector and Quantum Console, resolves the latest published compatible God release on explicit Check and again before Install, then freezes its verified commit. Opening stays offline and existing God is preserved. Preview **0.2.3** is published and catalogued at immutable commit `727b5d522af98bbe9eb535b8f3207d27af14c5ac` and tag `v0.2.3`. It fixes long Windows input paths that kept successful compilation Unknown, reports fingerprint read errors and accepts successful cached-only incremental cycles without waiting for an unnecessary reload. Its **101 tests pass in each of three isolated environments**, and native compiler failure/recovery passes. The actual 0.2.2 failure was reproduced in the open project with all 765 pre-existing files preserved. The user chose manual updating, so 0.2.3 has not been verified in that project. See the [BigBang Technique](GeurtsTechniques/GeurtsBigBangTechnique.md), [getting-started guide](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.3/Documentation~/GettingStarted.md) and [validation report](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.3/Documentation~/Validation.md). Physical visual/keyboard/scaling acceptance remains a recorded gap. BigBang does not configure scenes, project Git, Build Profiles or optional bricks. The independent optional Commandments Companion owns Commandments acquisition.
 
 ## Installing God or switching an existing installation
 
@@ -94,7 +94,7 @@ Within its declared implementation scope, the Technical Technique requires licen
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.40.2; the Technical Technique is v0.16.0.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.40.3; the Technical Technique is v0.16.0.
 
 ## ID Naming
 
@@ -249,6 +249,10 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 The current verified companion package is 0.13.2; use its immutable source from the catalogue. In the Commandments Companion dashboard, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.40.3 - BigBang compilation evidence for live projects
+
+Defines long Windows compilation-input support, visible fingerprint errors and cached-only incremental completion for BigBang 0.2.3. Records 101 passing tests in each of three isolated environments, native compiler failure/recovery and the actual 0.2.2 live failure with all 765 existing files preserved. Real Git discovery selected God 0.28.1; explicit Check and Install still resolve the latest compatible release. The user retains manual consumer updates, and 0.2.3 verification in the open project remains unperformed. The catalogue selects the verified immutable BigBang 0.2.3 release. Documentation validation passed 63 checks and 241 automation tests.
 
 ### v0.40.2 - Audio workspace readability
 
