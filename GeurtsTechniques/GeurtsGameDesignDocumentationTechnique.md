@@ -2,7 +2,7 @@
 # Geurts Game Design Documentation Technique
 
 **Game Design Documentation Discovery - AI and Human Developer Reference**  
-**Version:** 0.14.0
+**Version:** 0.14.1
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -36,7 +36,7 @@ Project-specific game design documentation belongs at:
 <ProjectRoot>/Docs/GameDesign/
 ```
 
-The managed copy is outside the independent Commandments Companion's Unity Package Manager package. Companion-only `Documentation~` is not a source or duplicate of Geurts documentation. The companion is independent of Geurts Game Forge God and Game Forge Intelligence, with no God or other Unity Package Manager package dependency. Its separately installed licensed Odin Inspector and Quantum Console assemblies remain required. Never use a template or example inside `GeurtsGameForgeCommandments/` as the target game's design authority.
+God owns the Windows Editor Commandments service and requires separately installed licensed Odin Inspector and Quantum Console assemblies. The optional Companion 0.15.0 compatibility adapter has no God or other Unity Package Manager package dependency, no vendor references, no updater and no menus. It forwards existing Editor callers to God 0.29.0 or newer. Authoritative content remains independent and readable without God. The content action grants no additional project access. Never use a generic template as the target game's design authority.
 
 Never put Geurts source-package files in `Docs/GameDesign/` or project-specific GDD files in `GeurtsGameForgeCommandments/`.
 
@@ -185,7 +185,7 @@ Rules:
 - Make every rerun idempotent.
 - Report which paths were created and which already existed.
 
-Installing the companion through Unity Package Manager and using its Update create no GDD paths and never invoke a script. Native-entry migration alone also creates no GDD paths. A separately authorized optional manual operation may use the copied manager with explicit project root and opt-in:
+Installing God or the adapter through Unity Package Manager and using the Commandments Update create no GDD paths and never invoke a script. Native-entry migration alone also creates no GDD paths. A separately authorized optional manual operation may use the copied manager with explicit project root and opt-in:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeCommandments/Tools/ManageGeurtsAgentInstructions.ps1" -ProjectRoot "<ProjectRoot>" -IncludeGameDesignScaffolding
@@ -278,7 +278,7 @@ The managed table is bounded by matching `GEURTS-GDD-MANIFEST-BEGIN` and `GEURTS
 
 New documents without reliable metadata receive `RequiresClassification`. Unsupported files are reported and must not be silently treated as design authority. Duplicate identifiers are conflicts: do not choose a winner or overwrite the manifest silently.
 
-A compatible host may detect imports or debounced file-watcher events, invalidate cached discovery data, report manifest drift, and offer a user-approved handoff to the external maintainer. Those passive events must not invoke the maintainer automatically or write project GDD content. The separately user-selected Build Forge import above has its own limited copy, primary-pointer and imported-list authority. The Commandments Companion is not such a host: its startup metadata check and confirmed Update must not inspect `Docs/GameDesign/` at all.
+A compatible host may detect imports or debounced file-watcher events, invalidate cached discovery data, report manifest drift, and offer a user-approved handoff to the external maintainer. Those passive events must not invoke the maintainer automatically or write project GDD content. The separately user-selected Build Forge import above has its own limited copy, primary-pointer and imported-list authority. The God-owned Commandments service is not such a host: its explicit metadata check and confirmed Update must not inspect `Docs/GameDesign/` at all.
 
 ### Design Document Conflicts
 
