@@ -8,7 +8,7 @@
       "name": "Geurts Game Forge BigBang",
       "description": "Preview independent Editor prerequisite and initial God installer. Resolves the latest compatible published God release and freezes its verified commit. Recovers interrupted compilation tracking and refreshes local readiness after Unity becomes idle. Visual/keyboard acceptance remains incomplete under explicit user instruction.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
-      "version": "0.2.3",
+      "version": "0.2.4",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",

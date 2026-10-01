@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
 # Geurts Game Forge Commandments
 
-God 0.29.0 includes the Commandments tools. Existing Companion users update to the passive 0.15.0 adapter; fresh projects need only God. BigBang 0.2.3 hands over to this built-in view. See the [0.41.0 migration guide](Migrations/v0.41.0.md) before updating existing integrations. Package updates never replace local content or AI routes; those retain their separate confirmation.
+God 0.29.0 includes the Commandments tools. Existing Companion users update to the passive 0.15.0 adapter; fresh projects need only God. BigBang 0.2.4 hands over to this built-in view. See the [0.41.0 migration guide](Migrations/v0.41.0.md) before updating existing integrations. Package updates never replace local content or AI routes; those retain their separate confirmation.
 
 ## Core requirement: use modules without code, extend them with code
 
@@ -245,6 +245,12 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 The current verified companion package is 0.13.2; use its immutable source from the catalogue. In the Commandments Companion dashboard, select **Install Codex guide**, choose a location and confirm the displayed entry point. The installer creates AGENTS.md for automatic Codex discovery. The template exists only in GeurtsAgentTechnique.md. Normal documentation updates do not manage a root Codex guide; replace an old guide by selecting its location in the installer. The content-update contract remains schema 2.0.0.
 
 ## Changelog
+
+### v0.41.0 - Commandments tools move into God
+
+God 0.29.0 owns viewing, acquisition, explicit version checks, confirmed updates, status and separate setup helpers. Companion 0.15.0 becomes a passive compatibility adapter for existing Editor callers; fresh projects need only God. BigBang 0.2.4 hands over to God's built-in Commandments view. Public Editor APIs support future integrations without runtime documentation dependencies.
+
+The schema-3 contract, four mutation targets, manual confirmation, saved automatic consent, offline startup and failure boundaries remain unchanged. Package migration preserves content and preferences; custom assembly references, local managed edits and any user-selected guide transition require explicit manual handling. See [migration](Migrations/v0.41.0.md). The upstream Audio 0.6.3 release and all unrelated catalogue entries are retained.
 
 ### v0.40.2 - Audio workspace readability
 

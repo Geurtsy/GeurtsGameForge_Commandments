@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts BigBang Technique
 
-**Version:** 1.1.3
+**Version:** 1.1.4
 **Status:** Normative initial-installer boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
