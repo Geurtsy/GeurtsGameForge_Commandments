@@ -146,7 +146,7 @@ Every path between the markers is part of the v0.39.0 repository package and mus
 | `Tools/AIAgentInstructionTemplates/copilot-instructions.md` | 1.2.0 | Managed Copilot route requiring brick agents to read the installed documentation before planning or modifying code. |
 | `Tools/AIAgentInstructionTemplates/instructions/geurts-unity.instructions.md` | 1.2.0 | Managed scoped Unity route requiring brick agents to use the installed documentation as source of truth. |
 | `Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md` | 1.2.0 | Managed scoped game-design route requiring brick agents to use the installed documentation as source of truth. |
-| `Tools/AIAgentInstructionTemplates/GameDesign/README.md` | 0.10.0 | Create-if-missing project GDD routing scaffold. |
+| `Tools/AIAgentInstructionTemplates/GameDesign/README.md` | 0.11.0 | Create-if-missing project GDD routing scaffold. |
 | `Tools/AIAgentInstructionTemplates/GameDesign/GameDesignManifest.md` | 0.7.0 | Create-if-missing deterministic GDD manifest scaffold. |
 | `Tools/Tests/RunAutomationTests.ps1` | 0.39.0 | Temporary-project automation, Unity-target/example, and lifecycle-regression suite. |
 | `Tools/GeurtsDocumentationAudience.psm1` | 1.0.0 | Read-only audience parser shared by the reader and validation. |

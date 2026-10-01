@@ -434,7 +434,7 @@ try {
         Assert-True ($nativeRouteText.Contains('version="1.2.0"') -and [regex]::Matches($nativeRouteText, [regex]::Escape($expectedBrickRouteText)).Count -eq 1 -and -not $nativeRouteText.Contains("owns the complete documentation chain") -and -not $nativeRouteText.Contains("GeurtsGameForgeCommandments/AGENTS.md") -and -not $nativeRouteText.Contains("network efficiency")) "$relative is the exact concise v1.2.0 brick-first route through AI_READ_FIRST.md into the installed manifest-selected documentation"
     }
     $freshGddReadmeText = [System.IO.File]::ReadAllText((Join-Path $fresh "Docs/GameDesign/README.md"))
-    Assert-True ($freshGddReadmeText -match '(?i)project-local fetched Geurts documentation copy' -and $freshGddReadmeText -match '(?i)missing information would establish or change player-facing design intent' -and $freshGddReadmeText -match '(?i)reversible technical details that do not create or overwrite design facts' -and $freshGddReadmeText.Contains('GEURTS-SCAFFOLD-BEGIN version="0.10.0"')) "Managed GDD README remains separate from the fetched copy, stops for missing design intent, and permits only reversible non-design assumptions"
+    Assert-True ($freshGddReadmeText -match '(?i)project-local fetched Geurts documentation copy' -and $freshGddReadmeText -match '(?i)missing information would establish or change player-facing design intent' -and $freshGddReadmeText -match '(?i)reversible technical details that do not create or overwrite design facts' -and $freshGddReadmeText.Contains('GEURTS-SCAFFOLD-BEGIN version="0.11.0"')) "Managed GDD README remains separate from the fetched copy, stops for missing design intent, and permits only reversible non-design assumptions"
     $trackedFiles = @(".github/copilot-instructions.md", ".github/instructions/geurts-unity.instructions.md", ".github/instructions/geurts-game-design.instructions.md", "Docs/GameDesign/README.md", "Docs/GameDesign/GameDesignManifest.md")
     $before = @{}
     foreach ($relative in $trackedFiles) { $before[$relative] = Get-FileSha -Path (Join-Path $fresh $relative) }
@@ -702,8 +702,13 @@ try {
     $tamperedCatalogRun = Invoke-TestScript -Path $manageScript -Arguments @("-ProjectRoot", $tamperedCatalogProject, "-MigrationCatalogPath", $tamperedCatalogPath)
     Assert-True ($tamperedCatalogRun.Code -eq 1 -and -not (Test-Path -LiteralPath (Join-Path $tamperedCatalogProject "UserInstructions.md"))) "Tampered migration catalog is rejected before native mutation"
 
-    # Exact historical v0.4, mixed v0.5, and v0.6 templates migrate with backups.
+    # Exact historical native templates, including the last Documentation route, migrate with backups.
     $historicalSets = @(
+        @{ Name = "documentation-v11"; Files = @{
+            ".github/copilot-instructions.md" = "4badea6:Tools/AIAgentInstructionTemplates/copilot-instructions.md";
+            ".github/instructions/geurts-unity.instructions.md" = "4badea6:Tools/AIAgentInstructionTemplates/instructions/geurts-unity.instructions.md";
+            ".github/instructions/geurts-game-design.instructions.md" = "4badea6:Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md"
+        }},
         @{ Name = "v04"; Files = @{
             ".github/copilot-instructions.md" = "b989941:Tools/AIAgentInstructionTemplates/copilot-instructions.md";
             ".github/instructions/geurts-unity.instructions.md" = "b989941:Tools/AIAgentInstructionTemplates/instructions/geurts-unity.instructions.md";

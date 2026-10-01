@@ -1,16 +1,16 @@
-<!-- GEURTS-SCAFFOLD-BEGIN version="0.10.0" -->
+<!-- GEURTS-SCAFFOLD-BEGIN version="0.11.0" -->
 ---
 geurtsId: gdd-readme
 purpose: Routes AI agents through the project game-design manifest without asserting game facts.
 status: Active
-version: 0.10.0
+version: 0.11.0
 authority: Informational
 tags: documentation, routing
 ---
 
 # Project Game Design Documentation
 
-**Template Version:** 0.10.0
+**Template Version:** 0.11.0
 **Status:** Active
 **Required project path:** `Docs/GameDesign/README.md`
 
