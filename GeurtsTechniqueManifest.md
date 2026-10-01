@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technique Package Manifest
 
-**Version:** 0.40.3
+**Version:** 0.41.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative package manifest
 **Primary audience:** AI coding agents and automated development systems
@@ -16,7 +16,7 @@ Use this normative file read sequence:
 
 1. Read `AI_READ_FIRST.md` as the first documentation entry.
 2. Read this manifest.
-3. Read the selected Commandments Companion Technique and then its machine-readable Contract when that independent companion boundary is involved.
+3. Read the selected Commandments Companion Technique and then its machine-readable Contract when God's Commandments service or the Companion compatibility transition is involved.
 4. Read the frozen Game Forge Intelligence 2.0 compatibility technique only when maintaining or assessing that legacy integration; its documentation update lifecycle is superseded in this package version.
 5. Read other selected generic subject techniques in this order when applicable: Technical; Brick Contract and then its Catalogue; BigBang initial installer; Editor UI Theme; Diagnostics; Game Forge Automation; Folder Structure and then its Definition; AI Agent Setup; AGENTS.md Technique; Game Design Documentation; Git Ignore; Git Attributes; chat-only Response Control.
 6. Read applicable project-specific game-design facts selected through the Game Design Documentation Technique before player-facing implementation. When `Docs/GameDesign/GameDesignManifest.md` declares a primary document, use that document as the primary source of context about the game; technical design and implementation guidance still come from the applicable techniques in `GeurtsGameForgeCommandments/`.
@@ -29,7 +29,7 @@ For an installed Unity-project package, steps 1 and 2 use:
 <ProjectRoot>/GeurtsGameForgeCommandments/GeurtsTechniqueManifest.md
 ```
 
-Every selected package file must come from the same validated package commit. The Commandments Companion Contract selects an archive of the exact resolved authoritative `main` head commit; a version found elsewhere is not permission to mix files from different commits. The frozen Game Forge Intelligence 2.0 compatibility technique may describe its released integration, but it no longer owns or authorizes documentation setup, checking, acquisition, or replacement under package v0.40.3. The numbered sequence above is the normative post-entry read order. Applicability comes only from the table below. When two selected documents discuss the same action, the table's assigned subject owner controls that subject; if the assignment does not determine a material conflict, surface it to the current user instead of inventing precedence.
+Every selected package file must come from the same validated package commit. The Commandments Companion Contract selects an archive of the exact resolved authoritative `main` head commit; a version found elsewhere is not permission to mix files from different commits. The frozen Game Forge Intelligence 2.0 compatibility technique may describe its released integration, but it no longer owns or authorizes documentation setup, checking, acquisition, or replacement under package v0.41.0. The numbered sequence above is the normative post-entry read order. Applicability comes only from the table below. When two selected documents discuss the same action, the table's assigned subject owner controls that subject; if the assignment does not determine a material conflict, surface it to the current user instead of inventing precedence.
 
 Codex guide installation is a separate user-selected action owned by the AGENTS.md Technique. Normal documentation Update replaces only the documentation tree and three Copilot routes; it never manages a project-root Codex guide.
 
@@ -69,7 +69,7 @@ Without PowerShell, use bounded section reads with the same tags. Malformed/unkn
 | Subject | Manifest-selected owner | When selected |
 |---|---|---|
 | Technical implementation and technical trade-offs | `GeurtsTechniques/GeurtsTechnicalTechnique.md` | Before implementation or technical planning. Owns core no-code module use with supported code extensions. This technique is the sole package owner of the five technical priorities and multiplayer override. |
-| Existing-brick reuse, module usability integration, Codex-compatible brick design, shared lifecycle/settings contracts and machine-readable catalogue | `GeurtsTechniques/GeurtsBrickContract.md` and `GeurtsTechniques/GeurtsBrickCatalogue.json` | Before planning or implementing Geurts Unity functionality, designing or validating a brick, or installing, updating or maintaining a brick. Read after Technical and before Editor UI Theme and Automation. The independent Commandments Companion has no God/UPM package dependency but retains its required licensed Odin Inspector and Quantum Console assemblies. |
+| Existing-brick reuse, module usability integration, Codex-compatible brick design, shared lifecycle/settings contracts and machine-readable catalogue | `GeurtsTechniques/GeurtsBrickContract.md` and `GeurtsTechniques/GeurtsBrickCatalogue.json` | Before planning or implementing Geurts Unity functionality, designing or validating a brick, or installing, updating or maintaining a brick. Read after Technical and before Editor UI Theme and Automation. God owns the Windows Editor Commandments service and requires separately installed licensed Odin Inspector and Quantum Console assemblies. The optional Companion 0.15.0 compatibility adapter has no God or other Unity Package Manager package dependency, no vendor references, no updater and no menus. It forwards existing Editor callers to God 0.29.0 or newer. Authoritative content remains independent and readable without God. |
 | Independent prerequisite preparation, initial God installation and verified handoff | `GeurtsTechniques/GeurtsBigBangTechnique.md` | Before implementing, maintaining, installing or validating BigBang. Read after the Brick Contract/Catalogue and before Editor UI Theme. This narrow dependency exception does not own runtime bootstrap, scenes, documentation acquisition or ongoing package management. |
 | Mandatory visual presentation for all existing and future Forge Editor UI | `GeurtsTechniques/GeurtsEditorUIThemeTechnique.md` | Before creating, changing, reviewing or validating any Geurts Game Forge brick or Forge-owned Editor UI, including windows, dashboards, setup, settings and custom inspector presentation. Read after the Brick Contract and Catalogue and before Diagnostics. Runtime and player-facing game UI are excluded. |
 | Generic AI-assisted automation and project-aware operational behaviour | `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md` | When an agent or automation plans, changes, validates, or reports project work. |
@@ -78,9 +78,9 @@ Without PowerShell, use bounded section reads with the same tags. Malformed/unkn
 | Exact folder-creation registry | `GeurtsTechniques/GeurtsFolderStructureDefinition.json` | When a tool creates or validates managed folders. |
 | Native AI routes, companion whole-file replacement boundary, managed regions, and optional manual setup tooling | `GeurtsTechniques/GeurtsAIAgentSetupTechnique.md` | When creating, replacing, migrating, validating, or explaining native AI route files or GDD scaffolds. |
 | Project-specific design-document discovery and maintenance boundary | `GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md` | Before player-facing work, when design facts are needed, or when GDD import, primary-document routing, discovery or manifest maintenance is requested. The primary document and relevant project GDD files selected by `Docs/GameDesign/GameDesignManifest.md` are mandatory game context and design facts. |
-| Independent Windows Unity Editor companion source, metadata check, confirmed replacement, project-boundary, and AI-routing lifecycle | `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md` | When the Geurts Commandments Companion checks metadata, offers or performs Update, validates a candidate, replaces managed content, or reports conformance. |
+| God-owned Windows Unity Editor Commandments source, metadata check, confirmed replacement, project-boundary, and AI-routing lifecycle | `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md` | When the Geurts Commandments Companion checks metadata, offers or performs Update, validates a candidate, replaces managed content, or reports conformance. |
 | Exact companion source, documentation destination, validation entries, confirmation targets, and template-to-route mappings | `GeurtsTechniques/GeurtsCommandmentsCompanionContract.json` | Whenever the Commandments Companion Technique is selected or its schema is implemented or validated. |
-| Frozen Game Forge Intelligence 2.0 integration compatibility | `GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md` | Only when maintaining or assessing a released v2 consumer. Its historical updater is non-applicable under package v0.40.3; current setup, checking, and Update belong exclusively to the Commandments Companion. |
+| Frozen Game Forge Intelligence 2.0 integration compatibility | `GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md` | Only when maintaining or assessing a released v2 consumer. Its historical updater is non-applicable under package v0.41.0; current setup, checking, and Update belong exclusively to the God-owned Commandments service. |
 | Approved project-root `.gitignore` payload | `GeurtsTechniques/GeurtsGitIgnoreTechnique.md` | When validating or provisioning that exact payload. |
 | FMOD project-root `.gitattributes` template and explicit installation | `GeurtsTechniques/GeurtsGitAttributesTechnique.md` | When provisioning or validating the FMOD line-ending rules through Build Forge or another explicitly authorized installer. |
 | Codex guide template and user-selected installation | `GeurtsTechniques/GeurtsAgentTechnique.md` | When installing, validating or explaining a Codex guide. |
@@ -101,54 +101,55 @@ Without PowerShell, use bounded section reads with the same tags. Malformed/unkn
 
 ## 3. Package File Registry
 
-Every path between the markers is part of the v0.40.3 repository package and must exist. The Role column describes package use only; current setup and replacement belong exclusively to the Commandments Companion Technique and its closed contract. The frozen Game Forge Intelligence 2.0 technique remains only for released-consumer compatibility and does not authorize a second updater.
+Every path between the markers is part of the v0.41.0 repository package and must exist. The Role column describes package use only; current setup and replacement belong exclusively to the Commandments Companion Technique and its closed contract. The frozen Game Forge Intelligence 2.0 technique remains only for released-consumer compatibility and does not authorize a second updater.
 
 <!-- GEURTS-PACKAGE-FILES:BEGIN -->
 
 | Path | Version | Role |
 |---|---:|---|
 | `.gitattributes` | 1.0.0 | CRLF working-tree policy for authored text in the Windows documentation source checkout. |
-| `AI_READ_FIRST.md` | 0.40.3 | First documentation entry and session router to this manifest. |
-| `GeurtsTechniqueManifest.md` | 0.40.3 | Package index and single resolver for selection, versions, applicability, subject ownership, order, and conflicts. |
-| `README.md` | 0.40.3 | Repository overview and package changelog. |
-| `GeurtsTechniques/GeurtsTechnicalTechnique.md` | 0.16.0 | Normative Windows-to-Windows development with Unity and Codex, combined Unity CLI and Editor validation workflow, CRLF authoring, lowercase underscore-separated authored ID values, bootstrap-scene runtime persistence instead of DontDestroyOnLoad, optional FMOD integration and built-in audio default for future Audio releases, core no-code module usability with narrow documented exceptions and supported code extensions, technical implementation and Codex compatibility across first-party code, Unity 6000.6.3f1, non-deprecated APIs and required Odin Inspector/Quantum Console baseline, strict-priority owner, and mandatory Editor theme integration. |
-| `GeurtsTechniques/GeurtsBrickContract.md` | 1.15.0 | Proactive brick reuse, core module usability, Codex-compatible brick design, optional peer integration, mandatory Editor theme adoption, God-first optional Commandments Companion installation, lifecycle, settings, installed-brick menus, catalogue and package-operation contract. |
-| `GeurtsTechniques/GeurtsBigBangTechnique.md` | 1.1.3 | Independent Editor-only prerequisite and initial God installer, explicit current release resolution and frozen operation target, long-path and incremental compilation evidence, UPM recovery, generated theme subset and explicit handoff; no runtime or vendor/God dependency. |
-| `GeurtsTechniques/GeurtsEditorUIThemeTechnique.md` | 1.4.0 | Mandatory dark sci-fi and green-accent Editor presentation, shared theme implementation, larger primary windows, accessibility, truthful status and visual review for all existing and future bricks. |
+| `AI_READ_FIRST.md` | 0.41.0 | First documentation entry and session router to this manifest. |
+| `GeurtsTechniqueManifest.md` | 0.41.0 | Package index and single resolver for selection, versions, applicability, subject ownership, order, and conflicts. |
+| `README.md` | 0.41.0 | Repository overview and package changelog. |
+| `GeurtsTechniques/GeurtsTechnicalTechnique.md` | 0.16.1 | Normative Windows-to-Windows development with Unity and Codex, combined Unity CLI and Editor validation workflow, CRLF authoring, lowercase underscore-separated authored ID values, bootstrap-scene runtime persistence instead of DontDestroyOnLoad, optional FMOD integration and built-in audio default for future Audio releases, core no-code module usability with narrow documented exceptions and supported code extensions, technical implementation and Codex compatibility across first-party code, Unity 6000.6.3f1, non-deprecated APIs and required Odin Inspector/Quantum Console baseline, strict-priority owner, and mandatory Editor theme integration. |
+| `GeurtsTechniques/GeurtsBrickContract.md` | 1.16.0 | Proactive brick reuse, core module usability, Codex-compatible brick design, optional peer integration, mandatory Editor theme adoption, God-owned Commandments service and existing-installation compatibility transition, lifecycle, settings, installed-brick menus, catalogue and package-operation contract. |
+| `GeurtsTechniques/GeurtsBigBangTechnique.md` | 1.1.4 | Independent Editor-only prerequisite and initial God installer, explicit current release resolution and frozen operation target, long-path and incremental compilation evidence, UPM recovery, generated theme subset and explicit handoff; no runtime or vendor/God dependency. |
+| `GeurtsTechniques/GeurtsEditorUIThemeTechnique.md` | 1.5.0 | Mandatory dark sci-fi and green-accent Editor presentation, shared theme implementation, larger primary windows, accessibility, truthful status and visual review for all existing and future bricks. |
 | `GeurtsTechniques/GeurtsDiagnosticsTechnique.md` | 0.3.10 | Normative optional Diagnostics integration, runtime and Editor read-only text selection and clipboard boundaries, runtime controls, all-build classification, Help, history, health/inspection, cheat sessions and adjustable Windows metrics overlay. |
-| `GeurtsTechniques/GeurtsBrickCatalogue.json` | 0.40.3 | Authoritative data-only catalogue with immutable Git sources for Geurts Game Forge BigBang 0.2.3, Geurts Game Forge Commandments Companion 0.14.1, Geurts Game Forge God 0.28.1, Geurts Game Forge Diagnostics 0.7.2, Geurts Game Forge Settings System 0.4.3, Geurts Game Forge Scene Loading and Bootstrap 0.4.2, Geurts Game Forge Save and Load 0.2.2, Geurts Game Forge Audio 0.6.3, Geurts Game Forge User Interface Foundations 0.10.2, Geurts Game Forge Object Pooling 0.4.3. |
+| `GeurtsTechniques/GeurtsBrickCatalogue.json` | 0.41.0 | Authoritative data-only catalogue with immutable Git sources for Geurts Game Forge BigBang 0.2.4, Geurts Game Forge Commandments Compatibility 0.15.0, Geurts Game Forge God 0.29.0, Geurts Game Forge Diagnostics 0.7.2, Geurts Game Forge Settings System 0.4.3, Geurts Game Forge Scene Loading and Bootstrap 0.4.2, Geurts Game Forge Save and Load 0.2.2, Geurts Game Forge Audio 0.6.3, Geurts Game Forge User Interface Foundations 0.10.2, Geurts Game Forge Object Pooling 0.4.3. |
 | `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md` | 0.10.0 | Normative generic AI-assisted automation technique, with mandatory validated Codex delivery to main, no desktop control for tests by default, necessary implementation control only, Windows workflow and CRLF authoring. |
-| `GeurtsTechniques/GeurtsFolderStructureTechnique.md` | 0.15.0 | Normative reusable folder meaning, placement, existing-folder reuse and safe extension, including narrow explicit GDD-import placement and strict managed boundaries. |
-| `GeurtsTechniques/GeurtsFolderStructureDefinition.json` | 0.40.3 | Machine-readable folder-creation authority; definition v0.12.0 with 76 project paths and 78 managed paths. |
-| `GeurtsTechniques/GeurtsAIAgentSetupTechnique.md` | 3.0.0 | Normative three-route companion replacement exception and separate preservation-based manual setup technique. |
-| `GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md` | 0.14.0 | Normative primary game-context routing, explicit Markdown import, discovery, byte-preservation, and companion no-access boundary technique. |
-| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md` | 3.0.0 | Normative lifecycle and optional God interface for the independent Windows Editor-only UPM documentation companion, with required licensed external assemblies; contract schema 3.0.0. |
-| `GeurtsTechniques/GeurtsCommandmentsCompanionContract.json` | 0.40.3 | Machine-readable companion contract; declares package version 0.40.3 and schema 3.0.0. |
-| `GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md` | 2.0.0 | Frozen released-consumer compatibility technique; its schema-2.0.0 updater is superseded and non-applicable under package v0.40.3. |
+| `GeurtsTechniques/GeurtsFolderStructureTechnique.md` | 0.15.1 | Normative reusable folder meaning, placement, existing-folder reuse and safe extension, including narrow explicit GDD-import placement and strict managed boundaries. |
+| `GeurtsTechniques/GeurtsFolderStructureDefinition.json` | 0.41.0 | Machine-readable folder-creation authority; definition v0.12.0 with 76 project paths and 78 managed paths. |
+| `GeurtsTechniques/GeurtsAIAgentSetupTechnique.md` | 3.0.1 | Normative three-route companion replacement exception and separate preservation-based manual setup technique. |
+| `GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md` | 0.14.1 | Normative primary game-context routing, explicit Markdown import, discovery, byte-preservation, and companion no-access boundary technique. |
+| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md` | 3.1.0 | Normative lifecycle for the God-owned Windows Editor-only Commandments service and passive Companion compatibility adapter; contract schema 3.0.0. |
+| `GeurtsTechniques/GeurtsCommandmentsCompanionContract.json` | 0.41.0 | Machine-readable companion contract; declares package version 0.41.0 and schema 3.0.0. |
+| `GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md` | 2.0.0 | Frozen released-consumer compatibility technique; its schema-2.0.0 updater is superseded and non-applicable under package v0.41.0. |
 | `GeurtsTechniques/GeurtsGameForgeIntelligenceIntegrationContract.md` | 2.0.0 | Non-normative compatibility redirect from the released legacy path; never selected as a second authority. |
-| `GeurtsTechniques/GeurtsAgentTechnique.md` | 1.1.0 | Sole AGENTS.md template and user-selected guide installation. |
+| `GeurtsTechniques/GeurtsAgentTechnique.md` | 1.1.1 | Sole AGENTS.md template and user-selected guide installation. |
 | `GeurtsTechniques/GeurtsGitIgnoreTechnique.md` | 1.0.1 | Normative approved project-root `.gitignore` payload, preserving the complete original template with appended FMOD rules. |
 | `GeurtsTechniques/GeurtsGitAttributesTechnique.md` | 1.0.1 | Normative FMOD LF attributes template and append-only Build Forge installer contract. |
 | `GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.1.md` | 1.1 | Chat-only response technique; not an implementation standard. |
 | `Ideas/GameForgeIntelligenceIdeas.md` | 0.11.0 | Non-normative historical idea register and product-work pointer, explicitly subordinate to the companion contract. |
+| `Migrations/v0.41.0.md` | 0.41.0 | Non-normative God-owned Commandments service and passive adapter transition; exact preserved content and integration boundaries. |
 | `Migrations/v0.11.0.md` | 0.11.0 | Non-normative transition guide for the independent companion and closed whole-file AI-route contract. |
 | `Migrations/v0.10.0.md` | 0.10.0 | Non-normative transition guide for the explicit destructive manual-update model. |
 | `Migrations/v0.9.0.md` | 0.9.0 | Non-normative historical note for the obsolete automatic transaction/recovery model. |
 | `Migrations/v0.8.0.md` | 0.8.0 | Non-normative historical note for public access and custom `.gitignore` provisioning. |
 | `Migrations/v0.7.0.md` | 0.7.0 | Non-normative historical note for v0.4-v0.6 integrations. |
 | `Tools/CreateAIAgentInstructionFiles.bat` | 0.9.0 | Compatibility launcher for managed AI setup. |
-| `Tools/ManageGeurtsAgentInstructions.ps1` | 0.40.3 | Optional manual native-entry migration and GDD scaffolding manager; never invoked by the companion. |
+| `Tools/ManageGeurtsAgentInstructions.ps1` | 0.41.0 | Optional manual native-entry migration and GDD scaffolding manager; never invoked by the companion. |
 | `Tools/CreateGeurtsFolderStructure.bat` | 0.9.0 | Compatibility launcher for definition-driven folder creation. |
-| `Tools/CreateGeurtsFolderStructure.ps1` | 0.40.3 | Definition-driven, create-only folder tool; never invoked by the companion. |
+| `Tools/CreateGeurtsFolderStructure.ps1` | 0.41.0 | Definition-driven, create-only folder tool; never invoked by the companion. |
 | `Tools/UpdateGameDesignManifest.ps1` | 0.10.0 | Deterministic GDD manifest maintainer. |
 | `Tools/NativeEntryMigrationCatalog.json` | 2.0.0 | Native-entry exact-fingerprint migration catalog for the three v1.2.0 brick-aware route templates. |
-| `Tools/ValidateGeurtsDocumentation.ps1` | 0.40.3 | Package, Unity-target/example, path, version, authority, companion-contract, lifecycle-boundary, and payload validator. |
+| `Tools/ValidateGeurtsDocumentation.ps1` | 0.41.0 | Package, Unity-target/example, path, version, authority, companion-contract, lifecycle-boundary, and payload validator. |
 | `Tools/AIAgentInstructionTemplates/copilot-instructions.md` | 1.2.0 | Managed Copilot route requiring brick agents to read the installed documentation before planning or modifying code. |
 | `Tools/AIAgentInstructionTemplates/instructions/geurts-unity.instructions.md` | 1.2.0 | Managed scoped Unity route requiring brick agents to use the installed documentation as source of truth. |
 | `Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md` | 1.2.0 | Managed scoped game-design route requiring brick agents to use the installed documentation as source of truth. |
 | `Tools/AIAgentInstructionTemplates/GameDesign/README.md` | 0.11.0 | Create-if-missing project GDD routing scaffold. |
 | `Tools/AIAgentInstructionTemplates/GameDesign/GameDesignManifest.md` | 0.7.0 | Create-if-missing deterministic GDD manifest scaffold. |
-| `Tools/Tests/RunAutomationTests.ps1` | 0.40.3 | Temporary-project automation, Unity-target/example, and lifecycle-regression suite. |
+| `Tools/Tests/RunAutomationTests.ps1` | 0.41.0 | Temporary-project automation, Unity-target/example, and lifecycle-regression suite. |
 | `Tools/GeurtsDocumentationAudience.psm1` | 1.0.0 | Read-only audience parser shared by the reader and validation. |
 | `Tools/ReadGeurtsDocumentation.ps1` | 1.0.0 | Read selected Markdown sections in GameUse or ForgeDevelopment mode. |
 | `Tools/Tests/TestDocumentationAudiences.ps1` | 1.0.1 | Audience filtering and package-boundary regression tests. |
@@ -158,7 +159,7 @@ Every path between the markers is part of the v0.40.3 repository package and mus
 
 ## 4. Owner Pointers
 
-- The selected Commandments Companion Technique owns the independent Windows-only, Editor-only UPM lifecycle; its JSON Contract owns the exact source, managed destinations, validation entries, confirmation targets, and three route mappings. The manifest does not restate that lifecycle.
-- The frozen Game Forge Intelligence 2.0 Technique may be selected only for released-consumer compatibility. It is not a Commandments Companion dependency and cannot own or authorize a second documentation check, setup, or Update lifecycle under package v0.40.3.
+- The selected Commandments Companion Technique owns God's Windows-only Commandments Editor service and the passive adapter transition; its JSON Contract owns the exact source, managed destinations, validation entries, confirmation targets, and three route mappings. The manifest does not restate that lifecycle.
+- The frozen Game Forge Intelligence 2.0 Technique may be selected only for released-consumer compatibility. It is not a Commandments Companion dependency and cannot own or authorize a second documentation check, setup, or Update lifecycle under package v0.41.0.
 - The selected Folder, AI Agent Setup, GDD, Git Ignore, Technical, and Automation authorities own their respective generic tool and project-work rules.
 - The selected Editor UI Theme Technique owns mandatory visual presentation for every existing and future Forge-owned Editor UI. It does not change runtime or project-authored game UI, dependency authority, or the companion's closed lifecycle.

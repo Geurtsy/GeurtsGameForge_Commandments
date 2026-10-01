@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts AGENTS.md Technique
 
-**Version:** 1.1.0
+**Version:** 1.1.1
 **Required package path:** `GeurtsTechniques/GeurtsAgentTechnique.md`
 
 ## Purpose and ownership
@@ -10,7 +10,7 @@ This technique owns the only Codex guide template. The manifest selects it when 
 
 ## Install Codex guide
 
-The independent Unity documentation companion exposes **Install Codex guide**. The user chooses the destination through a folder picker. The installer creates `AGENTS.md`, the filename Codex automatically discovers in the project instruction chain. Do not edit Codex configuration automatically or claim that any location affects every Codex task.
+God Build Forge exposes **Install Codex guide**. The user chooses the destination through a folder picker. The installer creates `AGENTS.md`, the filename Codex automatically discovers in the project instruction chain. Do not edit Codex configuration automatically or claim that any location affects every Codex task.
 
 Read the installed, manifest-registered technique and verify that the installed entry point exists before writing. Render the placeholder below as the absolute path to that Unity project's `GeurtsGameForgeCommandments/AI_READ_FIRST.md`, using forward slashes. A guide outside the project must still point to that exact project copy. Moving the project requires reinstalling the guide.
 
