@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.36.4",
-  "publishedUtc": "2026-10-01T00:31:25Z",
+  "packageVersion": "0.36.5",
+  "publishedUtc": "2026-10-01T00:36:27Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.documentation",
@@ -26,11 +26,11 @@
       "name": "Geurts Game Forge God",
       "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, optional Documentation Companion integration, lifecycle, settings and optional scene-startup/input cooperation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.26.2",
+      "version": "0.27.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#0acba4be378d23b432a7cf8adc2eb65454ccf25d",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#3f3c7795ecf01202ec97fcb91ec0db910adbeb2b",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -67,11 +67,11 @@
       "name": "Geurts Game Forge Settings System",
       "description": "Preview: three-step beginner Editor setup with simple starters, current-state completion checks and advanced Odin configuration, plus transactional settings, explicit Apply/Cancel, persistence and optional providers. Native visual/input acceptance remains pending.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.settings",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#1696c613a1aff611e2802eef7a5fdf7e014d79eb",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#2fb6ba3e9715c237d4593b45a408b8eeacedb99c",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -134,24 +134,23 @@
     {
       "id": "com.geurts.gameforge.audio",
       "name": "Geurts Game Forge Audio",
-      "description": "Opt-in FMOD-specific Audio 0.5.0: playback, banks, sound definitions, optional Settings controls and Audio-owned FMOD pooling setup. Requires FMOD Unity 2.03.14; Forge does not. Future Audio updates will default to built-in audio with optional FMOD. Listening and device-loss acceptance remain pending.",
+      "description": "Shared owned playback, Unity-default clips, sound definitions, music/ambience/dialogue, category controls and setup. Optional Audio-maintained FMOD integration supplies separate events/banks and native authoring inside Audio.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#d3d5988a120e8d9244362b68ebe3ee37c6495a79",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#32cae3abddfc0a4f97edce83d2b432ee9070e7ae",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
         "Odin Inspector",
-        "Quantum Console",
-        "FMOD Unity 2.03.14"
+        "Quantum Console"
       ],
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.24.0"
+          "minimumVersion": "0.27.0"
         }
       ]
     },
@@ -183,11 +182,11 @@
       "name": "Geurts Game Forge Object Pooling",
       "description": "Reusable prefab pools with generation-checked leases, prewarming, reset and completion handling, diagnostics and optional scene lifecycle cooperation. Supports God neutral participants; optional FMOD completion and setup belong to Audio.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#6f3a1dee4016361e95339cb015362e006892f4a5",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#748a938f9f80056b7fb0f0f026ba2519316450e5",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [

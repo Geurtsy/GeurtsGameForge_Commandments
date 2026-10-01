@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.13.4
+**Version:** 0.13.5
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -354,7 +354,7 @@ For new custom UXML controls, use `[UxmlElement]` on a partial class and `[UxmlA
 
 **Future updates to the Audio brick must support Unity's built-in audio and use it by default.** FMOD must remain an optional, explicitly selected backend or separate integration. The default Audio implementation must compile, initialize and provide playback without FMOD installed; FMOD-specific assemblies, assets, bank preparation and configuration must be isolated to the opted-in integration.
 
-Check the installed Audio version before planning reuse. The currently catalogued Audio 0.5.0 is an FMOD-specific release and still requires FMOD Unity 2.03.14 and authored banks for its playback. The built-in default is a requirement for future Audio releases, not a claim that this published version already implements it. Projects that do not opt into FMOD should use Unity's built-in audio and suitable available Geurts capabilities until a compatible Audio release provides that default. Preserve existing audio content and references, and validate affected playback in the Windows Editor and Windows player when implementing or migrating audio.
+Check the installed Audio version before planning reuse. The catalogued Audio 0.6.0 provides Unity clip playback by default without FMOD. Its Audio-maintained optional integration 0.1.0 supplies FMOD for Unity 2.03.14 event/bank playback through the same owned service. Unity clips and FMOD events remain separate assignments with backend-specific capabilities. Legacy Audio 0.5.0 projects require the coordinated core/integration migration documented by Audio; existing FMOD assets and backend selection are retained. Preserve existing audio content and references, and validate affected playback in the Windows Editor and Windows player when implementing or migrating audio.
 
 FMOD-specific source-control guidance applies only when an FMOD integration is chosen. The manifest-selected Git Attributes Technique supplies the two vendor LF exceptions, installed only by an explicit action while preserving existing attributes. The comprehensive Git Ignore template may retain passive FMOD exclusions for compatibility; those patterns do not require installing FMOD. First-party CRLF authoring remains unchanged. Keep opted-in FMOD dependencies within their audio integration; they must not become dependencies of God, unrelated bricks, Editor-only documentation tooling or this documentation repository.
 
