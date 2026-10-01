@@ -1223,7 +1223,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
 
     $godPackageFixture = New-StaticValidationFixture -Parent $testRoot -Name "static-god-package-content-coupling"
     $godPackagePath = Join-Path $godPackageFixture "GeurtsTechniques/GeurtsBrickContract.md"
-    Write-Utf8 -Path $godPackagePath -Text ([System.IO.File]::ReadAllText($godPackagePath).Replace('Manual package Update All must not silently acquire or replace documentation content', 'Package Update All automatically replaces documentation content'))
+    Write-Utf8 -Path $godPackagePath -Text ([System.IO.File]::ReadAllText($godPackagePath).Replace('Manual Update All cannot replace content', 'Package Update All automatically replaces documentation content'))
     $godPackageRun = Invoke-TestScript -Path $validatorScript -Arguments @('-RepositoryRoot', $godPackageFixture)
     Assert-True ($godPackageRun.Code -ne 0 -and $godPackageRun.Output.Contains('[FAIL] God documentation content integration')) "Validator rejects silently coupling package Update All to content replacement"
 
