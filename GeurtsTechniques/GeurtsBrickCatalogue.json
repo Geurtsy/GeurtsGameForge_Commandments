@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.44.5",
+  "packageVersion": "0.44.6",
   "publishedUtc": "2026-10-03T22:36:22Z",
   "bricks": [
     {
@@ -101,13 +101,13 @@
     {
       "id": "com.geurts.gameforge.sceneloading",
       "name": "Geurts Game Forge Scene Loading and Bootstrap",
-      "description": "Bootstrap-first startup, scene groups, asset-authored later scene changes and reusable loading presentations, readiness and recovery, with optional UI Foundations callbacks, pooling lifecycle and multiplayer integration points. Runtime host ownership uses the ordinary retained bootstrap through God 0.31.0; native Editor and Mono/IL2CPP integration passed. Full physical/native appearance acceptance remains unverified.",
+      "description": "Bootstrap-first startup, scene groups, asset-authored later scene changes and reusable loading presentations, readiness and recovery, with optional UI Foundations callbacks, pooling lifecycle and multiplayer integration points. Cached per-selected-object inline authoring uses boxed collapsible sections with hidden severity text/icons through God 0.33.0, retaining draft controls and ordinary bootstrap ownership. Native Editor135/0/1, embedded10/10 and Editor Play/Windows Mono/IL2CPP34/34 passed. Full rendered/physical acceptance remains unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#7fe75b2bbbccf4ad95955a104f21ab59aad8aba4",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#cf0062d55ff5187edda733d4e8cadcaefb5d02f7",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -117,7 +117,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.31.0"
+          "minimumVersion": "0.33.0"
         }
       ]
     },

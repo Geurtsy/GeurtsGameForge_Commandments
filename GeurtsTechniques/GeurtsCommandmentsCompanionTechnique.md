@@ -3,7 +3,7 @@
 
 **Version:** 3.1.0
 **Contract schema:** 3.0.0
-**Package version:** 0.44.5
+**Package version:** 0.44.6
 **Status:** Draft normative technique
 **Primary audience:** God Editor service and compatibility adapter maintainers
 **Secondary audience:** AI coding agents and human developers

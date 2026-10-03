@@ -45,7 +45,9 @@ God 0.16.0 adds multiple game design document imports in Build Forge. Add Markdo
 
 God **0.29.0** includes a complete Commandments view inside God and under **Tools > Geurts Game Forge > Commandments**. Read local guidance, check versions explicitly, and update after the existing four-target confirmation. Opening the view is offline. The [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md#installed-brick-menus) retains embedded-view lifetime and navigation rules for other bricks.
 
-[Scene Loading and Bootstrap](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading) provides persistent bootstrap-first startup, scene groups, unload-before-replacement and additive operations, configurable transitions and loading screens, scene-readiness hooks, and retry/safe-scene recovery. Editor Play loads bootstrap before gameplay scenes; temporary copies preserve dirty or untitled originals, and stopping Play restores the original Editor scene arrangement. Copies use different runtime paths, so path-sensitive code should use the brick's logical scene identity. Multiplayer integration points are framework-independent; a concrete networking adapter is not included. Install God 0.22.0 first, then use this brick's exact catalogue source. The repository is private, so Git access to it is required.
+[Scene Loading and Bootstrap 0.6.0](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading) provides ordinary retained-bootstrap startup, scene groups, unload-before-replacement and additive operations, configurable transitions and loading screens, scene-readiness hooks, and retry/safe-scene recovery. Editor Play loads bootstrap before gameplay scenes; temporary copies preserve dirty or untitled originals, and stopping Play restores the original Editor scene arrangement. Copies use different runtime paths, so path-sensitive code should use the brick's logical scene identity. Multiplayer integration points are framework-independent; a concrete networking adapter is not included. Install God 0.33.0 first, then use this brick's exact catalogue source. The repository is private, so Git access to it is required.
+
+Scene Loading's authoring checks every selected object and actual scene/resource/Build Profile context, with inline findings and severity text/icons on closed boxed sections. The retained draft workflow keeps Save, Reload, Validate and results reachable, and preserves existing GUIDs and destination identifiers. Complete native Editor135/0/1, embedded10/10 and Editor Play/Windows Mono/IL2CPP34/34 checks passed. Full rendered appearance and physical-input acceptance remain unverified; see [the scoped authoring report](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/v0.6.0/Documentation~/AuthoringValidation.md). Users install manually.
 
 Scene Loading and Bootstrap 0.1.2 adds Odin file pickers filtered to Unity scene files for the bootstrap scene, destination scene lists and main scene, and per-scene presentation overrides. Selections retain project-relative paths with forward slashes and the `.unity` extension; existing saved paths remain compatible.
 
@@ -59,7 +61,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.44.5
+**Version:** 0.44.6
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -110,7 +112,7 @@ God and its Commandments service retain required separately licensed Odin Inspec
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.44.5; the Technical Technique is v0.17.0.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.44.6; the Technical Technique is v0.17.0.
 
 ## Path Length for Codex Projects and GameForge
 
@@ -270,6 +272,12 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandments view or Build Forge, choose a location and confirm the displayed entry point. The installer writes only the selected AGENTS.md for Codex discovery. The template remains in GeurtsAgentTechnique.md. Normal content updates do not manage a root Codex guide; replace an old guide only through the separately selected and confirmed action. The content-update contract remains schema 3.0.0. Existing custom guides are never rewritten by package migration.
 
 ## Changelog
+
+### 0.44.6
+
+- Catalogue Scene Loading0.6.0 at verified immutable maincf0062d55ff5187edda733d4e8cadcaefb5d02f7 with minimum God0.33.0, read-only shared rules and per-selected-object cached authoring findings.
+- Record native Editor135/0/1, embedded10/10 and Editor Play/Windows Mono/IL2CPP34/34 checks; retain explicit full rendered/physical acceptance limits.
+- Reconcile current catalogue-version summaries and package metadata/tools; preserve normative bodies, managed templates/routes, folder payload and historical adoption notes.
 
 ### 0.44.5
 
