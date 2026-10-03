@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Editor UI Theme Technique
 
-**Version:** 1.5.0
+**Version:** 1.5.1
 **Status:** Normative mandatory standard
 **Primary audience:** Geurts Game Forge brick and Editor-tool maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -11,7 +11,7 @@
 
 The dark sci-fi interface with green accents established by Forge Diagnostics is the mandatory visual standard for **all existing and future Geurts Game Forge bricks and Forge-owned Editor tools**. Apply it to Forge-owned windows, dashboards, setup pages, settings pages, custom inspector presentation, cards, navigation, status messages and controls. A new brick is not exempt because it has no previous visual design. An existing brick is not exempt because it uses IMGUI, Odin Inspector or a different earlier palette.
 
-`GeurtsTechniqueManifest.md` selects this technique and owns applicability, reading order, versions and cross-document conflict resolution. This technique owns Forge Editor visual presentation and its conformance requirements. The Technical Technique continues to own implementation priorities, the UI Toolkit baseline and required Odin usage. The Brick Contract owns dependencies, lifecycle, settings and package operations. Diagnostics owns diagnostic meaning and runtime console behavior. The Commandments Companion Technique owns the God-owned content service's dependency and project-access boundaries.
+`GeurtsTechniqueManifest.md` selects this technique and owns applicability, reading order, versions and cross-document conflict resolution. This technique owns the shared Forge Editor palette, styling implementation, geometry, accessibility foundation, truthful status and their conformance requirements. The [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md) owns workflow presentation, tabs, collapsible content sections, callouts and inline authoring validation; both standards apply to affected Forge-owned Editor UI. The Technical Technique continues to own implementation priorities, the UI Toolkit baseline and required Odin usage. The Brick Contract owns dependencies, lifecycle, settings and package operations. Diagnostics owns diagnostic meaning and runtime console behavior. The Commandments Companion Technique owns the God-owned content service's dependency and project-access boundaries.
 
 This standard is **Editor-only**. It does not select or redesign player-facing game UI, runtime Diagnostics or Quantum Console presentation, game art, scenes, game design documents, third-party inspectors or Unity's global skin. Do not access `Docs/GameDesign/` or change game design to apply this theme. Forge-owned Editor controls embedded in an existing Inspector remain in scope; preserve the behavior and readability of their host and neighboring controls.
 
@@ -38,13 +38,15 @@ Severity colors remain semantic: Info is white, Warning is yellow and Error is r
 
 ## Layout and interaction
 
+Use the [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md) for labelled collapsible content sections, appropriate tabs and inline authoring findings. Its required severity icons/text and hidden-finding indicators build on the accessibility foundation below; theme styling must not suppress them. This technique retains the shared layout dimensions and host interaction rules.
+
 - Standalone primary brick and tool interfaces use resizable Editor windows. New floating windows target **1000 × 760 Editor points**, reduced to fit the main Editor area where space permits. Each window's supported minimum takes precedence; a main Editor area smaller than that minimum cannot fully contain the window. Reopening an existing window preserves its size, position, docking layout and constraints; do not resize or undock a user-arranged window.
 - God **0.26.0** embeds selected installed brick tools in its own panel, with a fixed **Back to God** button and brick title above the scrolling content. Hide God's dashboard and update controls while a brick is selected; Back restores the dashboard. God 0.29.0 includes a complete Commandments view with explicit content update/version controls, as specified by the Brick Contract and Companion Technique. Opening its embedded view stays offline. Retain the shared theme and meaningful existing Odin configuration. The host owns an independent hidden view, preserving every existing standalone window's geometry, docking and lifetime. Check this navigation at normal and narrow sizes.
 - Give each window a clear title and short purpose. Group related work into consistently padded section cards with descriptive headings, and place the most relevant action beside its context.
 - Use a deliberate hierarchy of title, section heading, body and supporting text. Use readable Editor fonts and the shared typography definitions; decorative sci-fi fonts must not replace ordinary controls or diagnostic content. Long values, paths and messages must wrap, scroll or expose their complete value.
 - Use shared spacing and control dimensions. Align related labels and buttons; keep card padding, section gaps and navigation consistent across bricks. Do not create one-off spacing systems for each window.
 - Show selected navigation, hover, pressed and keyboard-focus states distinctly. Keyboard focus must remain visible on enabled controls and must not be communicated through a color change alone. Preserve normal keyboard activation, text selection, copy, tab navigation and host interactions.
-- Use a visible label or message for every material state. Pair severity or status color with text such as **Warning**, **Failed**, **Unavailable**, **Running** or **Complete**; use an icon or shape as a supplementary cue when useful. Color alone is insufficient.
+- Use a visible label or message for every material state. Pair severity or status color with text such as **Warning**, **Failed**, **Unavailable**, **Running** or **Complete**; use an icon or shape as a supplementary cue when useful. Callouts and authoring findings additionally require the distinct severity icons and hidden-finding visibility defined by Appearance. Color alone is insufficient.
 - Explain unavailable actions visibly with the actual reason and an actionable next step. Tooltips may repeat or expand that explanation, but a tooltip alone is insufficient for an important disabled action. Preserve the same eligibility rule for the enabled state and its explanation so they cannot contradict each other.
 - Distinguish destructive actions from ordinary actions using precise labels and error emphasis. Preserve the existing subject owner's confirmation, cancellation and scope rules; styling must not add, remove or bypass authorization.
 - Keep all labels and input content readable against the surfaces actually drawn. Restore temporary GUI colors, styles and state after drawing so a Forge panel cannot change unrelated Unity or third-party UI.
@@ -91,6 +93,8 @@ An Editor UI change is conforming only when the following evidence is recorded f
 The owning package version must increase before publication, and all affected package metadata, runtime-reported versions, changelogs and catalogue data must remain consistent under the entry point's versioning rules. Changes to this standard also advance the technique version and documentation package version.
 
 ## New-brick and review gate
+
+Apply the Appearance Technique's workflow and authoring-feedback gate alongside this foundation. Do not reproduce its policy or create a competing palette; verify both selected standards in the owning package.
 
 Every new brick with Editor UI must select this technique through the manifest, use the shared implementation from its first Editor screen, and include theme conformance in its implementation review. Every modification to existing Forge-owned Editor UI must preserve or establish conformance for the affected surface. A visual review must reject local palette forks, color-only status, unexplained important disabled controls, unreadable host integration and falsely reported progress.
 

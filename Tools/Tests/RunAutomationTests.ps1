@@ -1,5 +1,5 @@
 # RunAutomationTests.ps1
-# Version: 0.43.0
+# Version: 0.44.0
 
 [CmdletBinding()]
 param(
@@ -290,7 +290,7 @@ try {
     $draftManifestText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniqueManifest.md"))
     $draftReadmeText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "README.md"))
     $targetMigrationText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "Migrations/v0.11.0.md"))
-    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.43\.0\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.43\.0|package v0\.43\.0)[^\r\n]{0,80}(?:is|was|has been) released') "v0.43.0 remains a Draft target release with a planned snapshot rather than a completed-release claim"
+    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.44\.0\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.44\.0|package v0\.44\.0)[^\r\n]{0,80}(?:is|was|has been) released') "v0.44.0 remains a Draft target release with a planned snapshot rather than a completed-release claim"
 
     $gfiContractText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md"))
     Assert-True ($gfiContractText -match '(?i)sole primary source and authority for all Geurts Game Forge documentation' -and $gfiContractText.Contains("<PluginPackageRoot>/Documentation~/") -and $gfiContractText -match '(?i)must not ship a bundled or fallback copy of Geurts documentation') "Frozen GFI v2 keeps this repository authoritative and plugin Documentation~ plugin-specific"
@@ -314,7 +314,8 @@ try {
         "Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md",
         "GeurtsTechniques/GeurtsAgentTechnique.md",
         "GeurtsTechniques/GeurtsEditorUIThemeTechnique.md",
-        "GeurtsTechniques/GeurtsNamingTechnique.md"
+        "GeurtsTechniques/GeurtsNamingTechnique.md",
+        "GeurtsTechniques/GeurtsEditorAppearanceTechnique.md"
     )
     $expectedCompanionRoutes = @(
         "Tools/AIAgentInstructionTemplates/copilot-instructions.md|.github/copilot-instructions.md",
@@ -329,9 +330,9 @@ try {
         ".github/instructions/geurts-unity.instructions.md|replace-complete-file",
         ".github/instructions/geurts-game-design.instructions.md|replace-complete-file"
     )
-    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.43.0" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.43.0, and the official exact-main-commit archive source"
+    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.44.0" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.44.0, and the official exact-main-commit archive source"
     Assert-True ([string]$companionContract.destination.projectRelativePath -ceq "GeurtsGameForgeCommandments" -and [string]$companionContract.destination.replacement -ceq "complete-directory" -and [string]$companionContract.destination.access -ceq "logically-read-only") "Companion contract names the one logically-read-only complete documentation destination"
-    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 10) "Current companion contract names the exact ten unique package-v0.43.0 source-validation entries"
+    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 11) "Current companion contract names the exact eleven unique package-v0.44.0 source-validation entries"
     Assert-True (($actualCompanionRoutes -join "|") -ceq ($expectedCompanionRoutes -join "|") -and ($actualConfirmationTargets -join "|") -ceq ($expectedConfirmationTargets -join "|") -and [string]$companionContract.updateUi.actionLabel -ceq "Update Geurts Game Forge Commandments" -and [string]$companionContract.updateUi.confirmationDefault -ceq "cancel" -and [string]$companionContract.updateUi.cancelResult -ceq "no-network-or-filesystem-change") "Companion contract fixes three template routes and one cancel-default four-target Update confirmation"
     Assert-True ($companionTechniqueText -match '(?i)one confirmation dialog' -and $companionTechniqueText -match '(?i)no earlier preview, dry run[^\r\n]{0,100}second confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set') "Confirmation uses the built-in schema-3.0.0 target set before acquisition and cannot authorize a changed downloaded target set"
     Assert-True ($companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative') "Schema 3.0.0 keeps package versions and safe validation entries forward-compatible while mutation routes remain fixed"
@@ -963,7 +964,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     $folderDefinitionContract = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json
     $folderToolContractText = [System.IO.File]::ReadAllText($folderScript)
     $managerToolContractText = [System.IO.File]::ReadAllText($manageScript)
-    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.15\.3\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.12.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.43.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.12.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.12.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.12.0 in package v0.43.0"
+    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.15\.3\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.12.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.44.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.12.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.12.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.12.0 in package v0.44.0"
 
     $versionMismatchAuthority = Join-Path $testRoot "folder-version-mismatch-authority"
     New-Item -ItemType Directory -Path $versionMismatchAuthority | Out-Null
@@ -1192,7 +1193,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         }
         elseif ($themeCase -eq 'missing-applicability') {
             $themeManifestPath = Join-Path $themeFixture 'GeurtsTechniqueManifest.md'
-            $themeManifestText = [regex]::Replace([System.IO.File]::ReadAllText($themeManifestPath), '(?m)^\| Mandatory visual presentation[^\r\n]+\r?\n', '')
+            $themeManifestText = [regex]::Replace([System.IO.File]::ReadAllText($themeManifestPath), '(?m)^\| Shared visual foundation[^\r\n]+\r?\n', '')
             Write-Utf8 -Path $themeManifestPath -Text $themeManifestText
             $expectedThemeFailure = 'Mandatory Editor UI theme routing'
         }
@@ -1205,6 +1206,48 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         }
         $themeRun = Invoke-TestScript -Path $validatorScript -Arguments @('-RepositoryRoot', $themeFixture)
         Assert-True ($themeRun.Code -ne 0 -and $themeRun.Output.Contains('[FAIL] ' + $expectedThemeFailure)) "Validator rejects Editor theme $themeCase regression"
+    }
+
+    foreach ($appearanceCase in @('missing-technique', 'missing-applicability', 'misordered-read', 'bad-version', 'hidden-policy',
+        'noncollapsible', 'hidden-header', 'colour-only', 'console-only', 'hidden-tab', 'draw-only-validation', 'bigbang-vendor', 'palette-fork')) {
+        $appearanceFixture = New-StaticValidationFixture -Parent $testRoot -Name ('static-appearance-' + $appearanceCase)
+        $appearanceFixturePath = Join-Path $appearanceFixture 'GeurtsTechniques/GeurtsEditorAppearanceTechnique.md'
+        $appearanceFixtureText = [IO.File]::ReadAllText($appearanceFixturePath)
+        $expectedAppearanceFailure = 'Editor Appearance policy'
+        if ($appearanceCase -eq 'missing-technique') {
+            Remove-Item -LiteralPath $appearanceFixturePath
+            $expectedAppearanceFailure = 'Manifest-listed files'
+        }
+        elseif ($appearanceCase -in @('missing-applicability', 'misordered-read')) {
+            $appearanceManifestPath = Join-Path $appearanceFixture 'GeurtsTechniqueManifest.md'
+            $appearanceManifestText = [IO.File]::ReadAllText($appearanceManifestPath)
+            if ($appearanceCase -eq 'missing-applicability') {
+                $appearanceManifestText = [regex]::Replace($appearanceManifestText, '(?m)^\| Forge-owned Editor workflow presentation[^\r\n]+\r?\n', '')
+            } else {
+                $appearanceManifestText = $appearanceManifestText.Replace('Editor UI Theme; Editor Appearance; Diagnostics;', 'Editor Appearance; Editor UI Theme; Diagnostics;')
+            }
+            Write-Utf8 -Path $appearanceManifestPath -Text $appearanceManifestText
+            $expectedAppearanceFailure = 'Editor Appearance routing'
+        }
+        else {
+            $originalAppearanceText = $appearanceFixtureText
+            switch ($appearanceCase) {
+                'bad-version' { $appearanceFixtureText = $appearanceFixtureText.Replace('**Version:** 0.1.0', '**Version:** 0.0.1') }
+                'hidden-policy' { $appearanceFixtureText = $appearanceFixtureText.Replace('GEURTS-AUDIENCE: AI-READ', 'GEURTS-AUDIENCE: HUMAN-ONLY') }
+                'noncollapsible' { $appearanceFixtureText = $appearanceFixtureText.Replace('Every content section must have a visible descriptive header and collapsible content', 'Content sections may remain permanently expanded without headers') }
+                'hidden-header' { $appearanceFixtureText = $appearanceFixtureText.Replace('Its header remains visible when collapsed', 'Its header disappears when collapsed') }
+                'colour-only' { $appearanceFixtureText = $appearanceFixtureText.Replace('Each callout must include severity text and a distinct severity icon', 'Each callout may indicate severity only by colour') }
+                'console-only' { $appearanceFixtureText = $appearanceFixtureText.Replace('Routine authoring validation findings must appear inline at the affected field or group', 'Routine authoring validation findings may appear only in the Console') }
+                'hidden-tab' { $appearanceFixtureText = $appearanceFixtureText.Replace('Inactive tabs must expose warning/error indicators', 'Inactive tabs may hide warning/error indicators') }
+                'draw-only-validation' { $appearanceFixtureText = $appearanceFixtureText.Replace('Do not validate only drawn controls', 'Validate only drawn controls') }
+                'bigbang-vendor' { $appearanceFixtureText = $appearanceFixtureText.Replace('This requirement must not introduce God or vendor dependencies into BigBang', 'BigBang must reference Odin before installing prerequisites') }
+                'palette-fork' { $appearanceFixtureText += "`r`nPrivate accent palette: #00FFFF`r`n" }
+            }
+            Assert-True ($appearanceFixtureText -cne $originalAppearanceText) "Appearance $appearanceCase fixture actually changes the declared policy"
+            Write-Utf8 -Path $appearanceFixturePath -Text $appearanceFixtureText
+        }
+        $appearanceRun = Invoke-TestScript -Path $validatorScript -Arguments @('-RepositoryRoot', $appearanceFixture)
+        Assert-True ($appearanceRun.Code -ne 0 -and $appearanceRun.Output.Contains('[FAIL] ' + $expectedAppearanceFailure)) "Validator rejects Appearance $appearanceCase regression"
     }
 
     $godDependencyFixture = New-StaticValidationFixture -Parent $testRoot -Name "static-god-required-documentation"
