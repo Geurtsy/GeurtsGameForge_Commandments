@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.44.4",
-  "publishedUtc": "2026-10-03T21:51:57Z",
+  "packageVersion": "0.44.5",
+  "publishedUtc": "2026-10-03T22:36:22Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, built-in Commandments viewing and confirmed updates, lifecycle, settings and optional scene-startup/input cooperation. Supplies neutral optional Settings catalogue, menu-authoring and preview contracts with verified module eligibility, plus ordinary bootstrap-owned hosts and a scene-owned console accessor. Adds shared cached Editor findings, explicit evidence states, severity text/icons and boxed collapsible Odin/Toolkit sections. Scoped native Editor and Windows player checks passed; remaining owner adoption and full appearance acceptance remain unverified. Existing projects explicitly review the saved console configuration after manual installation.",
+      "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, built-in Commandments viewing and confirmed updates, lifecycle, settings and optional scene-startup/input cooperation. Supplies neutral optional Settings catalogue, menu-authoring and preview contracts with verified module eligibility, plus ordinary bootstrap-owned hosts and a scene-owned console accessor. Adds cached Editor findings, parent-aware nested sections, optional read-only settings-rule registration and boxed collapsible tool content with visible state/severity icons. Native God suite508/0/2 and both Windows players34/34 passed; remaining owner adoption and full appearance acceptance remain unverified. Existing projects explicitly review the saved console configuration after manual installation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.32.0",
+      "version": "0.33.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#9be6c1c6f8bd3d7a7d2e598fe600276b9fae2ec1",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#2aef855a42603fdeadfd182d9fe6c024fa355c4f",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
