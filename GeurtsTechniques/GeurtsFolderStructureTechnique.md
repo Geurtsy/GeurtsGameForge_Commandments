@@ -2,7 +2,7 @@
 # Geurts Folder Structure Technique
 
 **Unity Project Structure - AI-First Automation and Human Developer Reference**
-**Version:** 0.15.2
+**Version:** 0.15.3
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -558,6 +558,8 @@ Avoid:
 ---
 
 ## Naming Guidance for Folders
+
+These rules name folders. The manifest-selected [Naming Technique](GeurtsNamingTechnique.md) owns asset filenames, scene GameObject names, prefab roots and script filename/class names. Keep the exact managed folder paths and required scene identities; their owning contracts take precedence over the generic content naming pattern.
 
 - Use PascalCase for subfolders inside Unity content areas.
 - Keep names short and literal.
