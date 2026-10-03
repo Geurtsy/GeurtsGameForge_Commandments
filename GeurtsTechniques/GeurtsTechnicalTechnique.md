@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.16.3
+**Version:** 0.17.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -384,7 +384,7 @@ public enum AI_STATE
 
 Use UI Toolkit for new Geurts UI work. Inspect the existing UI before changing it, and never silently replace or overwrite working user content. When a project already uses another UI system, follow explicit user/project requirements for a scoped integration or migration; do not perform a destructive automatic conversion.
 
-All existing and future Forge-owned Editor UI must comply with the manifest-selected [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md). Reuse God's shared `ForgeEditorTheme` API and `ForgeEditorTheme.uss` for dark sci-fi surfaces and green accents; God's Commandments view uses that same canonical implementation directly. Preserve meaningful Odin configuration and use UI Toolkit for new custom Editor UI. This Editor-only standard does not change runtime or player-facing game UI.
+All existing and future Forge-owned Editor UI must comply with the manifest-selected [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md) and [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md). Reuse God's shared `ForgeEditorTheme` API and `ForgeEditorTheme.uss` for dark sci-fi surfaces and green accents; God's Commandments view uses that same canonical implementation directly. Preserve meaningful Odin configuration and use UI Toolkit for new custom Editor UI. Editor appearance is a first-class quality requirement and Definition of Done gate, with tabs, labelled collapsible sections, useful severity callouts and inline authoring findings owned by Appearance. This gate does not add or reorder the technical priorities above, change the multiplayer override or alter dependency/serialization rules. These Editor-only standards do not change runtime or player-facing game UI.
 
 For new custom UXML controls, use `[UxmlElement]` on a partial class and `[UxmlAttribute]` for exposed attributes, following the Unity 6.6 UxmlElement reference. Avoid new `UxmlFactory`/`UxmlTraits` implementations. Use supported UXML/USS and verify data binding and lifecycle cleanup in the actual runtime or Editor context.
 
@@ -449,14 +449,13 @@ Odin Inspector is required within the implementation scope defined by the Unity 
 
 Use Odin attributes as the default authoring layer for Geurts-owned components and ScriptableObjects. Prefer Odin's declarative drawers, validation, buttons, tables, and grouping over new one-off custom inspectors when they express the workflow clearly. Keep ordinary Unity serialization when it supports the required data. Use Odin serialization only for an intentional unsupported data shape or polymorphic contract, and test prefab overrides, asset persistence, domain reload behavior, IL2CPP/AOT, and stripping where applicable.
 
-- Group related variables with `[BoxGroup]`.
-- Organise major sections using `[TabGroup]` and subsections with `[FoldoutGroup]`.
+- Follow the [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md) for meaningful tabs, boxed grouping, labelled collapsible sections, callouts and discoverable hidden findings.
 - Mark mandatory asset and component references with `[Required]` and express safe numeric limits with `[MinValue]`, `[MaxValue]`, or another suitable Odin constraint.
 - Use `[ValidateInput]` for domain rules that cannot be expressed by a simpler constraint, with a concise actionable message.
 - Use `[ReadOnly]` or `[ShowInInspector]` for useful live diagnostic state that should be visible without becoming serialized configuration.
 - Use `[Button]` for safe, useful Editor actions such as validation, preview, setup, and test operations.
 - Apply `[OdinSerialize]` only when Odin serialization is required; do not add it to Unity-supported fields merely to increase attribute use.
-- Document every non-obvious group, tab, validation rule, and button through labels, tooltips, or concise comments.
+- Document every non-obvious validation rule and button through labels, tooltips, or concise comments; group and tab presentation belongs to the Appearance Technique.
 
 Editor buttons must support Undo and dirty/prefab recording when they change Unity-owned serialized data. Destructive actions require explicit labels, a clear confirmation, precise scope, and useful failure reporting. Do not duplicate an existing Odin workflow with a custom Editor window unless the custom interaction is materially better and the reason is documented.
 
@@ -570,6 +569,8 @@ Commands that bypass rules or tune/test gameplay state must be flagged as `Cheat
 
 ## Logging Standards
 
+Routine invalid authoring data is presented inline according to the [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md), with actionable findings that clear when corrected and remain discoverable in collapsed sections and inactive tabs. Do not generate Console/Diagnostics spam from repaint, property drawing or OnValidate for these routine findings. Genuine operational failures and unexpected exceptions still follow the complete logging route below, including its unavailable-service Unity fallback; this distinction does not change Diagnostics capture, forwarding or failure reporting.
+
 **All logging throughout the entire project must route through Geurts Game Forge Diagnostics** (`GeurtsDiagnostics`, package `com.geurts.gameforge.diagnostics`) whenever its logging service is available. This technical rule applies project-wide, regardless of code ownership or log origin: game scripts, all bricks, Editor tools, Unity-generated messages, third-party packages, plugins, generated code and custom logging systems. It includes every severity and logging API, including `Debug.Log`, `Debug.LogWarning`, `Debug.LogError`, `Debug.LogException`, formatted variants, assertions, exception reports and other logger output; it is not limited to Geurts-owned code or `Debug.Log` calls.
 
 Code under project control must emit through the central logging facade backed by Diagnostics. Existing logging systems must feed that same route. For Unity, third-party, vendor or generated sources that do not call the facade, integrate their logger or capture their output through supported callbacks or adapters and forward it into Diagnostics. That capture is required whenever the source and Diagnostics are available, not an optional exemption for external code. Do not require edits to vendor or generated source when a supported integration can perform the routing. If a source cannot be captured, report the specific integration gap; do not claim that project-wide routing is complete.
@@ -664,7 +665,7 @@ A generated or modified Unity C# script is complete only when it:
 - Avoids unnecessary per-frame allocations.
 - Avoids expensive logic inside `Update()` unless justified.
 - Uses Odin Inspector meaningfully for applicable serialized configuration, validation, diagnostics, and safe Editor actions, with its installed compatible version recorded.
-- Makes every affected Forge-owned Editor surface conform to the manifest-selected Editor UI Theme Technique, with shared implementation reuse, readable states and the required visual evidence.
+- Makes every affected Forge-owned Editor surface conform to the manifest-selected [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md) and [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md), with shared styling, useful Odin/equivalent authoring, appropriate tabs, labelled collapsible sections, severity callouts, inline findings, discoverable hidden problems and the required native visual/behavior evidence. Appearance is a quality gate within the existing technical priorities, not another priority list.
 - Keeps FMOD completely optional and follows the built-in audio default required for future Audio brick releases under the Game Audio and Sound Design standard above, checking the actual installed release capabilities.
 - Integrates project-wide Diagnostics output and applicable developer operations with Quantum Console, with its installed compatible version and developer-console validation recorded.
 - Routes all project logging through Diagnostics whenever its logging service is available, including captured Unity and third-party output, and verifies unavailable-service fallback without duplicate messages or recursive forwarding. Reports any source that cannot be captured as an integration gap.

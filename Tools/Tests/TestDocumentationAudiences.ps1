@@ -1,4 +1,4 @@
-# Version: 1.0.2
+# Version: 1.0.3
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
@@ -78,6 +78,15 @@ Shared ending.
     foreach ($mode in @('GameUse', 'ForgeDevelopment')) {
         $naming = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsNamingTechnique.md' -Mode $mode
         Assert-Audience ($naming.Content -ceq $namingExpectedContent -and $naming.SkippedLines -eq 0 -and $naming.Content.Contains('### 5.1 Scene Objects') -and $naming.Content.Contains('### 5.2 Project Assets') -and $naming.Content.Contains('## 7. Script Exemption')) "Naming is manifest-readable with every registry and exception in $mode"
+    }
+    $appearanceRaw = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsEditorAppearanceTechnique.md'))
+    $appearanceExpected = [regex]::Replace($appearanceRaw, '\A<!-- GEURTS-AUDIENCE: AI-READ -->\r?\n', '')
+    foreach ($mode in @('GameUse', 'ForgeDevelopment')) {
+        $appearance = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsEditorAppearanceTechnique.md' -Mode $mode
+        Assert-Audience ($appearance.Content -ceq $appearanceExpected -and $appearance.SkippedLines -eq 0 -and
+            $appearance.Content.Contains('## 6. Labelled, collapsible content sections') -and
+            $appearance.Content.Contains('## 8. Inline authoring findings and logging boundary') -and
+            $appearance.Content.Contains('must not introduce God or vendor dependencies into BigBang')) "Appearance policy, findings and prerequisite exceptions remain completely readable in $mode"
     }
     $technical = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsTechnicalTechnique.md'
     $technicalForge = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsTechnicalTechnique.md' -Mode ForgeDevelopment

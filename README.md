@@ -3,6 +3,12 @@
 
 God 0.29.0 includes the Commandments tools. Existing Companion users update to the passive 0.15.0 adapter; fresh projects need only God. BigBang 0.3.0 provides separate local prerequisite and Get Latest Git Source actions, then hands over to this built-in view. See the [0.41.0 migration guide](Migrations/v0.41.0.md) before updating existing integrations. Package updates never replace local content or AI routes; those retain their separate confirmation.
 
+## Core requirement: clear Editor appearance and authoring feedback
+
+Editor appearance is a first-class quality requirement for Forge-owned tools and inspectors. The [Editor Appearance Technique](GeurtsTechniques/GeurtsEditorAppearanceTechnique.md) requires meaningful Odin use, appropriate tabs, labelled collapsible sections, useful information/warning/error callouts and inline authoring findings. Warnings and errors remain discoverable in collapsed sections and inactive tabs; routine invalid configuration must not spam the Console. Genuine failures keep the established Diagnostics route. The [Editor UI Theme Technique](GeurtsTechniques/GeurtsEditorUIThemeTechnique.md) retains the shared dark/green palette, styling APIs, geometry and accessibility foundation.
+
+Both standards apply within the existing technical priorities and framework/dependency rules. BigBang uses supported Unity/UI Toolkit equivalents before God/Odin are installed. This content release does not retrofit released bricks or certify native UI; see [the 0.44.0 adoption note](Migrations/v0.44.0.md) and update local Commandments manually through the existing confirmed action.
+
 ## Core requirement: use modules without code, extend them with code
 
 All existing and future Geurts Game Forge modules must support normal setup, configuration, connection and use without writing code. Provide usable Unity Editor/Inspector controls and authored assets, with clear defaults, validation and guidance. Only narrow special exceptions, such as genuinely custom behaviour or an integration that configuration cannot express, may require code; document their precise scope, reason and supported route.
@@ -47,7 +53,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.43.0
+**Version:** 0.44.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -258,6 +264,12 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandments view or Build Forge, choose a location and confirm the displayed entry point. The installer writes only the selected AGENTS.md for Codex discovery. The template remains in GeurtsAgentTechnique.md. Normal content updates do not manage a root Codex guide; replace an old guide only through the separately selected and confirmed action. The content-update contract remains schema 3.0.0. Existing custom guides are never rewritten by package migration.
 
 ## Changelog
+
+### 0.44.0
+
+- Add Editor Appearance 0.1.0 as the workflow, tabs, collapsible sections, useful severity callout and inline-authoring standard; retain Editor UI Theme 1.5.1 as the shared visual foundation.
+- Technical 0.17.0 and Brick Contract 1.16.1 adopt both standards without changing priorities, dependencies, serialization, runtime UI or the Diagnostics failure route.
+- Register Appearance in the manifest and eleven-entry schema-3.0.0 completeness list; retain all managed targets, consent, templates, routes, catalogue pins and folder definitions. Add deliberate-adoption guidance and routing/policy/audience regression checks. This is a documentation release, not a brick retrofit or native UI certification.
 
 ### v0.43.0 - Naming Technique integration
 

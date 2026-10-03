@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.16.0
+**Version:** 1.16.1
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -102,7 +102,7 @@ Reject ambiguous or invalid providers and retain the themed Information fallback
 
 The user-facing package-management window and menu are named **Game Forge God**. This replaces the former Brick Manager name without changing package identities, stored settings, assembly names or asset GUIDs.
 
-All existing and future brick Editor UI must follow the manifest-selected [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md), including Game Forge God, Build Forge, Diagnostics, Commandments Companion, settings and custom inspector presentation. The mandatory dark sci-fi palette, green accents, shared `ForgeEditorTheme` implementation, visible disabled explanations, semantic severity and visual review apply from a new brick's first Editor screen. Commandments uses God's canonical theme directly; the passive adapter has no independent dashboard. The theme does not change runtime/player UI, lifecycle, permission or settings contracts.
+All existing and future brick Editor UI must follow the manifest-selected [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md) and [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md), including Game Forge God, Build Forge, Diagnostics, Commandments Companion, settings and custom inspector presentation. The mandatory dark sci-fi palette, green accents, shared `ForgeEditorTheme` implementation, visible disabled explanations, semantic severity and visual review apply from a new brick's first Editor screen. Commandments uses God's canonical theme directly; the passive adapter has no independent dashboard. The theme does not change runtime/player UI, lifecycle, permission or settings contracts. Appearance is a first-class quality gate: use meaningful Odin/equivalent authoring, appropriate tabs, labelled collapsible sections, useful severity callouts and inline findings visible even in collapsed sections or inactive tabs. Preserve the Technical dependency/UI Toolkit boundary and genuine operational failure logging; this adds no runtime documentation dependency or new update owner.
 
 Each card shows identity, description, website, installed/available and lifecycle status, installed/available versions, dependencies, source and compatibility information. Show appropriate Install, Check for Updates, Update, Enable/Disable, Remove, Open Website and Retry actions. Shared actions include Refresh Catalogue, Install All, Check All for Updates and confirmed Update All, including God.
 

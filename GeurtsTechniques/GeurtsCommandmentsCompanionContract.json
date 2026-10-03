@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0.0",
-  "packageVersion": "0.43.0",
+  "packageVersion": "0.44.0",
   "source": {
     "repository": "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git",
     "branch": "main",
@@ -21,7 +21,8 @@
     "Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md",
     "GeurtsTechniques/GeurtsAgentTechnique.md",
     "GeurtsTechniques/GeurtsEditorUIThemeTechnique.md",
-    "GeurtsTechniques/GeurtsNamingTechnique.md"
+    "GeurtsTechniques/GeurtsNamingTechnique.md",
+    "GeurtsTechniques/GeurtsEditorAppearanceTechnique.md"
   ],
   "updateUi": {
     "actionLabel": "Update Geurts Game Forge Commandments",
