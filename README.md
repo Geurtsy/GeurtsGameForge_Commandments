@@ -5,6 +5,8 @@ God 0.29.0 includes the Commandments tools. Existing Companion users update to t
 
 God 0.31.0 supplies ordinary bootstrap-owned runtime hosts and a configured scene-owned console accessor. Its Windows Mono and IL2CPP probes passed; existing saved scenes still require the explicit console migration after manual installation. Other bricks and the complete appearance matrix retain their own pending compliance work. See the [ownership and validation guide](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/v0.31.0/Documentation~/BootstrapOwnership.md).
 
+God 0.32.0 supplies shared cached Editor authoring findings, explicit checked/unavailable states and boxed collapsible Odin/Toolkit sections. Its native God suite passed 504 tests with 2 unavailable symlink cases; final Mono/IL2CPP players each passed 34/34. The saved-project console health rule now agrees with ordinary bootstrap ownership. Other owner adoption, remaining God tools and full physical/native appearance acceptance remain separate compliance work. See the [shared API and scoped validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/v0.32.0/Documentation~/AuthoringValidation.md).
+
 ## Core requirement: clear Editor appearance and authoring feedback
 
 Editor appearance is a first-class quality requirement for Forge-owned tools and inspectors. The [Editor Appearance Technique](GeurtsTechniques/GeurtsEditorAppearanceTechnique.md) requires meaningful Odin use, appropriate tabs, labelled collapsible sections, useful information/warning/error callouts and inline authoring findings. Warnings and errors remain discoverable in collapsed sections and inactive tabs; routine invalid configuration must not spam the Console. Genuine failures keep the established Diagnostics route. The [Editor UI Theme Technique](GeurtsTechniques/GeurtsEditorUIThemeTechnique.md) retains the shared dark/green palette, styling APIs, geometry and accessibility foundation.
@@ -55,7 +57,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.44.2
+**Version:** 0.44.3
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -106,7 +108,7 @@ God and its Commandments service retain required separately licensed Odin Inspec
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.44.2; the Technical Technique is v0.17.0.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.44.3; the Technical Technique is v0.17.0.
 
 ## Path Length for Codex Projects and GameForge
 
@@ -266,6 +268,12 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandments view or Build Forge, choose a location and confirm the displayed entry point. The installer writes only the selected AGENTS.md for Codex discovery. The template remains in GeurtsAgentTechnique.md. Normal content updates do not manage a root Codex guide; replace an old guide only through the separately selected and confirmed action. The content-update contract remains schema 3.0.0. Existing custom guides are never rewritten by package migration.
 
 ## Changelog
+
+### 0.44.3
+
+- Catalogue God 0.32.0 at its remotely verified immutable main commit, with its shared Editor authoring API and corrected saved-console health rule.
+- Record native discovered Editor and Windows Mono/IL2CPP checks, retaining unverified full appearance and remaining owner adoption scopes.
+- Package metadata/tools aligned; normative technique behavior, managed templates/routes, folder payload and historical adoption notes unchanged.
 
 ### 0.44.2
 
