@@ -47,7 +47,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.42.1
+**Version:** 0.43.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -98,11 +98,17 @@ God and its Commandments service retain required separately licensed Odin Inspec
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.42.1; the Technical Technique is v0.16.2.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.43.0; the Technical Technique is v0.16.3.
 
 ## Path Length for Codex Projects and GameForge
 
 Keep full absolute file and folder paths **below 260 characters (259 maximum)** in both Codex projects and Geurts Game Forge. Use short project roots and shallow folders, with room for dependency, cache, temporary and generated paths. Check those foreseeable destinations before creating or moving content. If a path reaches the limit, report the exact path and length and choose a shorter location for new work; never silently rename or move existing user content. Follow the [Technical requirement](GeurtsTechniques/GeurtsTechnicalTechnique.md#absolute-path-length-and-workspace-roots), [Codex preflight](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#codex-project-and-gameforge-path-preflight) and [folder guidance](GeurtsTechniques/GeurtsFolderStructureTechnique.md#short-roots-and-path-length-headroom).
+
+## Asset and Scene Object Naming
+
+The manifest-selected [Naming Technique](GeurtsTechniques/GeurtsNamingTechnique.md) defines `TYPE_Category_Description` for first-party assets and scene GameObjects, with 18 scene roles and 58 project asset kinds. Prefab filenames follow their authored root names; script filenames and associated classes use CapitalCamelCase. Read the technique for role classification, variants, the restrained `MISC` fallback and fixed-name exceptions. Folder names, code symbols and machine-readable IDs retain their own selected rules.
+
+Apply the policy to new applicable content and explicitly authorized naming work. Publishing this documentation does not rename existing assets or objects, change GUIDs, install an enforcement tool or update a consumer.
 
 ## ID Naming
 
@@ -252,6 +258,12 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandments view or Build Forge, choose a location and confirm the displayed entry point. The installer writes only the selected AGENTS.md for Codex discovery. The template remains in GeurtsAgentTechnique.md. Normal content updates do not manage a root Codex guide; replace an old guide only through the separately selected and confirmed action. The content-update contract remains schema 3.0.0. Existing custom guides are never rewritten by package migration.
 
 ## Changelog
+
+### v0.43.0 - Naming Technique integration
+
+- Publish Naming Technique 0.1.0 as the manifest-selected owner for applicable first-party asset, scene-object, prefab-root and script names. Preserve all 18 scene roles, 58 asset kinds and the handoff's classification, prefab, script and MISC rules.
+- Add explicit read ordering, applicability, package membership and references from Technical 0.16.3 and Folder Structure 0.15.3. Retain lowercase ID values, language-specific code conventions and fixed scene/assembly/package identities.
+- Include Naming in the schema-3.0.0 archive completeness list without changing consent, the four managed targets or the three AI routes. Add source-policy, audience and regression coverage. Existing content migration and consumer updates remain separate authorized actions.
 
 ### v0.42.1 - Settings authoring and Auto Settings Menu
 

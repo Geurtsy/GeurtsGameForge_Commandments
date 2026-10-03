@@ -1,4 +1,4 @@
-# Version: 1.0.1
+# Version: 1.0.2
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
@@ -72,6 +72,12 @@ Shared ending.
             $read = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document $bootstrap -Mode $mode
             Assert-Audience ($read.SkippedLines -eq 0 -and $read.Content.Contains('GeurtsTechniqueManifest.md')) "$bootstrap remains completely AI-readable in $mode"
         }
+    }
+    $namingRaw = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsNamingTechnique.md'))
+    $namingExpectedContent = [regex]::Replace($namingRaw, '\A<!-- GEURTS-AUDIENCE: AI-READ -->\r?\n', '')
+    foreach ($mode in @('GameUse', 'ForgeDevelopment')) {
+        $naming = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsNamingTechnique.md' -Mode $mode
+        Assert-Audience ($naming.Content -ceq $namingExpectedContent -and $naming.SkippedLines -eq 0 -and $naming.Content.Contains('### 5.1 Scene Objects') -and $naming.Content.Contains('### 5.2 Project Assets') -and $naming.Content.Contains('## 7. Script Exemption')) "Naming is manifest-readable with every registry and exception in $mode"
     }
     $technical = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsTechnicalTechnique.md'
     $technicalForge = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsTechnicalTechnique.md' -Mode ForgeDevelopment

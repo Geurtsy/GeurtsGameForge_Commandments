@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.16.2
+**Version:** 0.16.3
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -216,6 +216,8 @@ Both scenes must be enabled in the effective scene list for each game Build Prof
 
 Project setup must verify that both entries refer to real scene assets at their required paths and that neither is missing, disabled, duplicated or assigned the wrong index. Use supported Unity Editor scene and Build Profile APIs for changes; preserve existing scene contents, references and unrelated scene-list entries. Do not overwrite an existing scene to satisfy the baseline. The folder-creation script alone does not establish scene compliance.
 
+The exact required scene identities `SCN_BigBang` and `SCN_DevPlayground` are fixed-name contracts under the [Naming Technique's exceptions](GeurtsNamingTechnique.md#8-exceptions-and-preservation). Do not rename them to apply a generic asset pattern.
+
 This baseline defines scene identity, purpose and build order. Scene contents and destination flow follow the project's separately selected design requirements within the mandatory bootstrap lifetime rules below.
 
 ---
@@ -321,6 +323,10 @@ AI decision logic should be inspectable, testable, and separated from presentati
 ---
 
 ## Coding Standards
+
+### Asset and Scene Object Names
+
+The manifest-selected [Naming Technique](GeurtsNamingTechnique.md) owns first-party asset, scene GameObject and prefab-root names, and the script filename/class-name exemption. Select it before creating, naming, renaming or reviewing applicable content. Code-symbol conventions, command names and machine-readable ID values below remain Technical subjects. Preserve fixed Unity, package and tool contracts through the Naming Technique's exceptions.
 
 ### ID Names
 
@@ -652,7 +658,7 @@ A generated or modified Unity C# script is complete only when it:
 - Includes the compliance header only when it is a reusable cross-game Geurts Game Forge framework, library, or tooling component under the scope above.
 - Uses the correct folder location according to `GeurtsTechniques/GeurtsFolderStructureTechnique.md`.
 - Uses bootstrap-scene ownership for persistent runtime objects, avoids direct and indirect `DontDestroyOnLoad`, and verifies the affected startup, transition, and teardown behaviour.
-- Follows naming conventions, including lowercase underscore-separated authored ID values, with format, uniqueness and affected-reference validation.
+- Follows the manifest-selected Naming Technique for applicable asset, scene-object and script names and this technique's code-symbol and lowercase underscore-separated authored ID conventions, with format, uniqueness and affected-reference validation.
 - Includes tooltips for all `[SerializeField]` fields.
 - Includes XML summaries for public methods.
 - Avoids unnecessary per-frame allocations.
