@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.44.0",
-  "publishedUtc": "2026-10-01T08:46:14Z",
+  "packageVersion": "0.44.1",
+  "publishedUtc": "2026-10-03T18:38:46Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, built-in Commandments viewing and confirmed updates, lifecycle, settings and optional scene-startup/input cooperation. Supplies neutral optional Settings catalogue, menu-authoring and preview contracts with verified module eligibility.",
+      "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, built-in Commandments viewing and confirmed updates, lifecycle, settings and optional scene-startup/input cooperation. Supplies neutral optional Settings catalogue, menu-authoring and preview contracts with verified module eligibility, plus ordinary bootstrap-owned hosts and a scene-owned console accessor. Existing projects explicitly review the saved console configuration after manual installation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.30.0",
+      "version": "0.31.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#7b7e8b973b978f70b95f4f78c99712354cd8d5c2",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#ac2ad5bd0ecdb9dcfd12027fef74a06023f9cbe3",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
