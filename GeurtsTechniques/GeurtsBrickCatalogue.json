@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.44.1",
-  "publishedUtc": "2026-10-03T18:38:46Z",
+  "packageVersion": "0.44.2",
+  "publishedUtc": "2026-10-03T19:50:13Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -55,13 +55,13 @@
     {
       "id": "com.geurts.gameforge.diagnostics",
       "name": "Geurts Game Forge Diagnostics",
-      "description": "God-owned runtime logging, Quantum Console channels and commands, session history, health checks, read-only inspection, Windows performance metrics and Odin Editor tooling.",
+      "description": "God-owned runtime logging, Quantum Console channels and commands, session history, health checks, read-only inspection, Windows performance metrics and Odin Editor tooling. Runtime host ownership uses the ordinary retained bootstrap through God 0.31.0; native Editor and Mono/IL2CPP integration passed. Full physical/native appearance acceptance remains unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics",
-      "version": "0.7.2",
+      "version": "0.8.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#abd409e86c47c299e1449d2b00035d41996cac98",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#da8ed21ffb544847c48cfe41b0009b6c1f05d2b3",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -71,7 +71,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.22.0"
+          "minimumVersion": "0.31.0"
         }
       ]
     },
@@ -101,13 +101,13 @@
     {
       "id": "com.geurts.gameforge.sceneloading",
       "name": "Geurts Game Forge Scene Loading and Bootstrap",
-      "description": "Bootstrap-first startup, scene groups, asset-authored later scene changes and reusable loading presentations, readiness and recovery, with optional UI Foundations callbacks, pooling lifecycle and multiplayer integration points.",
+      "description": "Bootstrap-first startup, scene groups, asset-authored later scene changes and reusable loading presentations, readiness and recovery, with optional UI Foundations callbacks, pooling lifecycle and multiplayer integration points. Runtime host ownership uses the ordinary retained bootstrap through God 0.31.0; native Editor and Mono/IL2CPP integration passed. Full physical/native appearance acceptance remains unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading",
-      "version": "0.4.2",
+      "version": "0.5.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#e9e89cb2cbe51ea1334ae4c0741a160b04c8a94c",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#7fe75b2bbbccf4ad95955a104f21ab59aad8aba4",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -117,7 +117,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.22.0"
+          "minimumVersion": "0.31.0"
         }
       ]
     },
@@ -193,13 +193,13 @@
     {
       "id": "com.geurts.gameforge.objectpooling",
       "name": "Geurts Game Forge Object Pooling",
-      "description": "Reusable prefab pools with generation-checked leases, prewarming, reset and completion handling, diagnostics and optional scene lifecycle cooperation. Supports God neutral participants; optional FMOD completion and setup belong to Audio.",
+      "description": "Reusable prefab pools with generation-checked leases, prewarming, reset and completion handling, diagnostics and optional scene lifecycle cooperation. Supports God neutral participants; optional FMOD completion and setup belong to Audio. Runtime host ownership uses the ordinary retained bootstrap through God 0.31.0; native Editor and Mono/IL2CPP integration passed. Full physical/native appearance acceptance remains unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling",
-      "version": "0.4.3",
+      "version": "0.5.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#7bb9e9e4a17c683216ffda701af1e1eb4d844f79",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#3c245180dce38f9e513248717d9ae664c6134c9c",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -209,7 +209,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.24.0"
+          "minimumVersion": "0.31.0"
         }
       ]
     }
