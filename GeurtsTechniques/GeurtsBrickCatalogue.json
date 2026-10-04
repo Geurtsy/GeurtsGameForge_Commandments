@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.44.13",
-  "publishedUtc": "2026-10-04T07:33:11Z",
+  "packageVersion": "0.44.14",
+  "publishedUtc": "2026-10-04T09:32:38Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
       "name": "Geurts Game Forge BigBang",
-      "description": "Independent Editor installer with native boxed/collapsible steps, written closed-header severity/icons, retained expansion and pinned operation/source/cancel/failure controls. Existing installer/controller/acquisition/compilation/persistence/profile and package boundary preserved; dependency compliance and dependency-driven rework exempt. Native110/110 and actual latest-source25/25 passedexit0 with immutable God33.1 readback and no installation/consumer content change. Full rendered/physical acceptance remains unverified.",
+      "description": "Independent Editor installer with native boxed/collapsible steps, written closed-header severity/icons, retained expansion and pinned operation/source/cancel/failure controls. Existing installer/controller/acquisition/compilation/persistence/profile and package boundary preserved; dependency compliance and dependency-driven rework exempt. Native110/110 and actual latest-source25/25 passedexit0 with immutable God33.3 readback and no installation/consumer content change. Full rendered/physical acceptance remains unverified.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
       "version": "0.4.0",
       "released": true,
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, built-in Commandments viewing and confirmed updates, lifecycle, settings and optional scene-startup/input cooperation. Supplies neutral optional Settings catalogue, menu-authoring and preview contracts with verified module eligibility, plus ordinary bootstrap-owned hosts and a scene-owned console accessor. Adds cached Editor findings, parent-aware nested sections, optional read-only settings-rule registration and boxed collapsible tool content with visible state/severity icons. Supported build-time preservation retains unreferenced installed brick roots without adding an initializer or changing authored content. Native God suite512/0/2 and EditorPlay/WindowsMonoLow/IL2CPPHigh38/38 passed, including unreferenced SaveLoad and Audio discovery; remaining owner adoption and full appearance acceptance remain unverified. Existing projects explicitly review the saved console configuration after manual installation.",
+      "description": "God-owned package/content tools, cached shared authoring, ordinary bootstrap lifecycle and attributed player discovery. Patch0.33.3 applies typed names only to new controlled bootstrap/input/key objects with UI primary-role precedence for input coordination, preserving legacy names/paths/GUIDs and fixed scene contracts. Affected native117/0/2, public creation/legacy repair12 pass; prior0.33.2 foreign wrong-type byte/GUID preservation remains recorded. Fresh bothWindows34 and native Windows console142 pass with Pooling0.6.2/Diagnostics0.9.2. Historical full514 discovery evidence retains0.33.1. Full rendered/physical and raw unimported key scope remain unverified; users install manually.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.33.1",
+      "version": "0.33.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#b42012288c26e3b7a3ab72834f37026859b6f925",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#24c332edcba6b26c191469724a20386d94f1e151",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -55,13 +55,13 @@
     {
       "id": "com.geurts.gameforge.diagnostics",
       "name": "Geurts Game Forge Diagnostics",
-      "description": "God-owned runtime logging, Quantum Console channels and commands, session history, health checks, read-only inspection, Windows performance metrics and Odin Editor tooling. Runtime hosts use the ordinary retained bootstrap; shared read-only preference rules, exact-type optional God settings registration and collapsible authoring with inactive severity summaries use God 0.33.0. Native Diagnostics74/74, console10/10, embedded10/10, EditorPlay34/34 and WindowsMono/IL2CPP34/34 passed. Full rendered/physical appearance acceptance remains unverified.",
+      "description": "God-owned logging, Quantum Console channels/commands, health/history/inspection/performance metrics and shared cached collapsible authoring. Patch0.9.2 names only newly owned private hierarchy and key copies, with distinguishable siblings and consistent virtual-row numeric width; preserves vendor/display/API identities. Native74/74, consolePlay11/11, fresh bothWindows34/34 and scripted Windows console142/142 pass; historical0.9.1 integratedEditor34/34 stays at its original revision. Historical embedded10/10 retains0.9.0. Full rendered/physical acceptance remains unverified; God minimum0.33.0 remains compatible.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics",
-      "version": "0.9.0",
+      "version": "0.9.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#a026ca76f49df8ea039fa720ce7310df217e2070",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#a5f11b64ec5adfd0fcaad17ba8b2ee152aed60f7",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -147,13 +147,13 @@
     {
       "id": "com.geurts.gameforge.audio",
       "name": "Geurts Game Forge Audio",
-      "description": "Shared bootstrap-owned Unity-default Audio and explicit optional FMOD0.2.1. Cached actual source rules, retained optional authoring controls/drafts, inactive/closed findings and pinned operations; bounded new typed outputs preserve legacy IDs/GUIDs/paths and reject unimported foreign assets/orphan metadata before writes. Final native51/51, attached authoring27/27 and actual immutable installer4/4 passed. Scoped freshWindows backend174/controller40/absent88 checks passMonoLow/IL2CPPHigh. SDK2.03.14 vendor lifetime, Studio-build and rendered/physical/device/listening scopes remain unverified.",
+      "description": "Bootstrap-owned Unity-default Audio and explicit optional FMOD0.2.2 with cached actual findings, retained draft controls and pinned operations. New outputs use exactly three Naming segments and preserve six tested legacy/published GUIDs, events and destination identities; reject foreign raw files/orphan metadata before writes. Final native52/52, attached authoring27/27, actual immutable installer4/4 and fresh Editor/bothWindows backend174/controller40/absent88 pass. Supported SDK2.03.14 vendor lifetime, Studio-build and rendered/physical/device/listening scopes remain unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
-      "version": "0.8.1",
+      "version": "0.8.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#1ac906a4acbd5f88a73bd783dfd579b087857de1",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#22b301308837a70f7d26c4e599f909a5d44c68f5",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -193,13 +193,13 @@
     {
       "id": "com.geurts.gameforge.objectpooling",
       "name": "Geurts Game Forge Object Pooling",
-      "description": "Prefab pooling with generation-bound leases, bounded preparation/shrinking and ordinary retained-bootstrap ownership. Editor authoring shares cached runtime/project rules, per-object inline findings, boxed collapsible Odin/Toolkit sections and workflow tabs with inactive severity text/icons. Editor 70/70, God-embedded 9/9 and Windows Mono/IL2CPP 34/34 checks passed. Full rendered/physical-input acceptance remains unverified; existing content is preserved and updates are installed manually.",
+      "description": "Bootstrap-owned reusable pools with scoped leases/returns, shared cached authoring and explicit preview. Patch0.6.2 names new inactive containers and numeric display-name suggestions using Naming, with consistent owned numeric width; preserves existing prefab names, assets/GUIDs/API/custom paths. Native71/71 and fresh bothWindows34/34 at God0.33.3/Diagnostics0.9.2 pass; historical0.6.1 integratedEditor34/34 stays at God0.33.2. Historical embedded9/9 retains0.6.0. Full rendered/physical acceptance remains unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling",
-      "version": "0.6.0",
+      "version": "0.6.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#3e50267f7e9a879b7ad191b29186cc1352f54091",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#4982f35023f746441b539423be96a0f025b2bdf7",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
