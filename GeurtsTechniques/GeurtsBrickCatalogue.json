@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.44.10",
-  "publishedUtc": "2026-10-04T03:47:10Z",
+  "packageVersion": "0.44.11",
+  "publishedUtc": "2026-10-04T04:52:46Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -78,13 +78,13 @@
     {
       "id": "com.geurts.gameforge.settings",
       "name": "Geurts Game Forge Settings System",
-      "description": "Preview: no-code typed settings, reviewed field and consumer connections, owned runtime configuration copies, one central panel and isolated synchronized Auto Settings Menu previews. Automated authoring/lifecycle and Mono/IL2CPP acceptance passed; native visual/input acceptance remains unverified.",
+      "description": "Preview: shared cached authoring, collapsed-section and inactive-tab severity, retained controls with pinned review/save/cancel and explicit provider review. Actual field-readiness notification retries accepted startup activation; private copies preserve authored names. Existing APIs, GUIDs, keys, custom destinations and optional UI retained. Native Settings/UI Editor249/249 and Play42/42, UI-absent114/0/2 and1/1Play, URP3D2/0/1 and2D3/3, scoped embedded28/28 and final Editor/WindowsMonoLow/IL2CPPHigh84/84 passed. Full rendered/physical/device acceptance remains unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.settings",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#f88fd1d90a628a80bdbaa7cb44ffefc304204307",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#64cacc3fcc7a520020231156da67b9ab332dceba",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -94,7 +94,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.30.0"
+          "minimumVersion": "0.33.1"
         }
       ]
     },
