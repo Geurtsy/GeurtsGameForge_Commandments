@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.44.7",
-  "publishedUtc": "2026-10-04T00:00:04Z",
+  "packageVersion": "0.44.8",
+  "publishedUtc": "2026-10-04T01:13:32Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -147,13 +147,13 @@
     {
       "id": "com.geurts.gameforge.audio",
       "name": "Geurts Game Forge Audio",
-      "description": "Shared owned playback, Unity-default clips and separate optional FMOD events/banks. One Audio workspace with separate integration steps, information callouts, green accents, shared volume controls and native authoring. Focused Editor checks passed; rendered UI acceptance remains pending.",
+      "description": "Shared bootstrap-owned playback and Unity-default clips with optional FMOD assignments. God0.33 cached read-only rules, boxed sections, inactive severity/icons, retained defaults drafts and embedded package suppression. Native25/25, EditorPlay88/88, embedded11/11 and WindowsMono/IL2CPP88/88 passed. Full rendered/physical acceptance and vendor lifetime remain unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
-      "version": "0.6.3",
+      "version": "0.7.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#4278f28f9080b4950465cd782fb705802a55c3e6",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#a83d5a4fd76bc30ffed706274292421707249819",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -163,7 +163,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.27.0"
+          "minimumVersion": "0.33.0"
         }
       ]
     },
