@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.44.9",
-  "publishedUtc": "2026-10-04T01:55:52Z",
+  "packageVersion": "0.44.10",
+  "publishedUtc": "2026-10-04T03:47:10Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -170,13 +170,13 @@
     {
       "id": "com.geurts.gameforge.userinterface",
       "name": "Geurts Game Forge User Interface Foundations",
-      "description": "Preview: Panel Renderer and retained UI Document menus with selected Settings catalogues, reviewed persistent menu connections and shared isolated preview rendering. Settings remains optional. Native visual/input acceptance remains unverified.",
+      "description": "Preview: shared cached source/context findings, closed-section and inactive-tab severity, retained editable drafts with pinned controls, registered names for new content and actual configured-console cooperation. Existing APIs, authored identities and optional Settings integration retained. NativeEditor133/133, Play41/41, Godembedded23/23 and actualEditor/WindowsMonoLow/IL2CPPHigh65/65 passed; separate Settings-absent127/0/6 and41/41Play verified. Full rendered/physical input acceptance remains unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface",
-      "version": "0.11.0",
+      "version": "0.12.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#c909487a8be594738fe3ee1f7a75db84d6b5dab2",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#35c3b29502705d990ccaa9e6b0a98b96cbbf086d",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -186,7 +186,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.30.0"
+          "minimumVersion": "0.33.1"
         }
       ]
     },
