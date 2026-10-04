@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.44.6",
-  "publishedUtc": "2026-10-03T22:36:22Z",
+  "packageVersion": "0.44.7",
+  "publishedUtc": "2026-10-04T00:00:04Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -55,13 +55,13 @@
     {
       "id": "com.geurts.gameforge.diagnostics",
       "name": "Geurts Game Forge Diagnostics",
-      "description": "God-owned runtime logging, Quantum Console channels and commands, session history, health checks, read-only inspection, Windows performance metrics and Odin Editor tooling. Runtime host ownership uses the ordinary retained bootstrap through God 0.31.0; native Editor and Mono/IL2CPP integration passed. Full physical/native appearance acceptance remains unverified.",
+      "description": "God-owned runtime logging, Quantum Console channels and commands, session history, health checks, read-only inspection, Windows performance metrics and Odin Editor tooling. Runtime hosts use the ordinary retained bootstrap; shared read-only preference rules, exact-type optional God settings registration and collapsible authoring with inactive severity summaries use God 0.33.0. Native Diagnostics74/74, console10/10, embedded10/10, EditorPlay34/34 and WindowsMono/IL2CPP34/34 passed. Full rendered/physical appearance acceptance remains unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics",
-      "version": "0.8.0",
+      "version": "0.9.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#da8ed21ffb544847c48cfe41b0009b6c1f05d2b3",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#a026ca76f49df8ea039fa720ce7310df217e2070",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -71,7 +71,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.31.0"
+          "minimumVersion": "0.33.0"
         }
       ]
     },
