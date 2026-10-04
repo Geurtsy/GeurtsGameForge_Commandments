@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.44.8",
-  "publishedUtc": "2026-10-04T01:13:32Z",
+  "packageVersion": "0.44.9",
+  "publishedUtc": "2026-10-04T01:55:52Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, built-in Commandments viewing and confirmed updates, lifecycle, settings and optional scene-startup/input cooperation. Supplies neutral optional Settings catalogue, menu-authoring and preview contracts with verified module eligibility, plus ordinary bootstrap-owned hosts and a scene-owned console accessor. Adds cached Editor findings, parent-aware nested sections, optional read-only settings-rule registration and boxed collapsible tool content with visible state/severity icons. Native God suite508/0/2 and both Windows players34/34 passed; remaining owner adoption and full appearance acceptance remain unverified. Existing projects explicitly review the saved console configuration after manual installation.",
+      "description": "Game Forge God package management, installed tools embedded inside God with pinned Back navigation, Build Forge setup, built-in Commandments viewing and confirmed updates, lifecycle, settings and optional scene-startup/input cooperation. Supplies neutral optional Settings catalogue, menu-authoring and preview contracts with verified module eligibility, plus ordinary bootstrap-owned hosts and a scene-owned console accessor. Adds cached Editor findings, parent-aware nested sections, optional read-only settings-rule registration and boxed collapsible tool content with visible state/severity icons. Supported build-time preservation retains unreferenced installed brick roots without adding an initializer or changing authored content. Native God suite512/0/2 and EditorPlay/WindowsMonoLow/IL2CPPHigh38/38 passed, including unreferenced SaveLoad and Audio discovery; remaining owner adoption and full appearance acceptance remain unverified. Existing projects explicitly review the saved console configuration after manual installation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.33.0",
+      "version": "0.33.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#2aef855a42603fdeadfd182d9fe6c024fa355c4f",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#b42012288c26e3b7a3ab72834f37026859b6f925",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -124,13 +124,13 @@
     {
       "id": "com.geurts.gameforge.saveload",
       "name": "Geurts Game Forge Save and Load",
-      "description": "Starter package with an Editor main menu describing planned shared saving and loading support. Runtime save and load functionality is not implemented.",
+      "description": "Informational starter; planned gameplay save/load features remain unimplemented. Native boxed labelled foldouts retain closed Information icons, pinned starter status and safe independent God embedding without package-action restoration or scene/settings mutation. God0.33.1 supports actual automatic player discovery. Native5/5, embedded11/11 and EditorPlay/WindowsMonoLow/IL2CPPHigh38/38 passed; full rendered/physical acceptance remains unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.saveload",
-      "version": "0.2.2",
+      "version": "0.3.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#e46302b705488bf16db54d8ead32f0e217e62088",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#1c4a6bc445d27c8b7983d102c5532b85b26f0412",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -140,7 +140,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.22.0"
+          "minimumVersion": "0.33.1"
         }
       ]
     },
