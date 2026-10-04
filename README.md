@@ -19,6 +19,8 @@ UI Foundations0.12 adopts shared source/context validation, closed-section and i
 
 Settings0.6 adopts shared cached source/context findings, closed-section and inactive-tab severity, retained controls with pinned review/save/cancel, explicit provider review and bounded registered defaults. Field connections signal actual readiness so accepted startup activation retries through the existing lifecycle; runtime copies retain authored names. Native Settings/UI Editor249/249 and Play42/42, UI-absent114/0/2 and1/1Play, active URP3D2/0/1 and2D3/3, scoped Godembedded28/28 and final realEditor/WindowsMonoLow/IL2CPPHigh84/84 passed. Full rendered/physical/device acceptance and remaining framework work remain unverified. See the [Settings acceptance record](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/v0.6.0/Documentation~/AuthoringValidation.md).
 
+BigBang0.4 adopts independent native boxed/collapsible steps with written closed-header status/icons, retained expansion, pinned source/admission/install/handoff/cancel/failure reporting and early window cleanup. Final110/110nativeEditor and25/25actualnative latest-source checks passedexit0, including real immutable God33.1 readback without installation or package/documentation/scene mutation. Original installer behavior and minimum profile are unchanged; dependency compliance and dependency-driven rework are exempt. Full rendered/physical acceptance and remaining framework work remain unverified. See the [BigBang acceptance record](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.4.0/Documentation~/AuthoringValidation.md).
+
 ## Core requirement: clear Editor appearance and authoring feedback
 
 Editor appearance is a first-class quality requirement for Forge-owned tools and inspectors. The [Editor Appearance Technique](GeurtsTechniques/GeurtsEditorAppearanceTechnique.md) requires meaningful Odin use, appropriate tabs, labelled collapsible sections, useful information/warning/error callouts and inline authoring findings. Warnings and errors remain discoverable in collapsed sections and inactive tabs; routine invalid configuration must not spam the Console. Genuine failures keep the established Diagnostics route. The [Editor UI Theme Technique](GeurtsTechniques/GeurtsEditorUIThemeTechnique.md) retains the shared dark/green palette, styling APIs, geometry and accessibility foundation.
@@ -71,7 +73,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.44.11
+**Version:** 0.44.12
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -122,7 +124,7 @@ God and its Commandments service retain required separately licensed Odin Inspec
 
 **FMOD is completely optional** for Geurts Game Forge games. Unity's built-in audio can be used without FMOD. Future Audio brick updates will support built-in audio and use it by default, while FMOD remains an explicitly selected optional integration. The Technical Technique's [Game Audio and Sound Design standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) owns this policy and distinguishes future requirements from the current FMOD-specific Audio release.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.44.11; the Technical Technique is v0.17.0.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.44.12; the Technical Technique is v0.17.0.
 
 ## Path Length for Codex Projects and GameForge
 
@@ -282,6 +284,11 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandments view or Build Forge, choose a location and confirm the displayed entry point. The installer writes only the selected AGENTS.md for Codex discovery. The template remains in GeurtsAgentTechnique.md. Normal content updates do not manage a root Codex guide; replace an old guide only through the separately selected and confirmed action. The content-update contract remains schema 3.0.0. Existing custom guides are never rewritten by package migration.
 
 ## Changelog
+
+### 0.44.12
+
+- Publish validated independent BigBang0.4 immutable release, native presentation/lifetime and actual latest-source acceptance. Preserve its existing operation/profile and dependency exemption.
+- Update current catalogue/version metadata, timestamp and summaries only. Normative bodies, templates, routes, folder payload and history remain unchanged. Draft/manual installation and remaining acceptance limits are retained.
 
 ### 0.44.11
 
