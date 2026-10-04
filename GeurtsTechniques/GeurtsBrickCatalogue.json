@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.44.12",
-  "publishedUtc": "2026-10-04T05:19:02Z",
+  "packageVersion": "0.44.13",
+  "publishedUtc": "2026-10-04T07:33:11Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -21,13 +21,13 @@
     {
       "id": "com.geurts.gameforge.documentation",
       "name": "Geurts Game Forge Commandments Compatibility",
-      "description": "Passive Editor API compatibility adapter for existing Companion installations. God 0.29.0 owns Commandments tools; fresh projects do not need this adapter.",
+      "description": "Passive Editor API adapter, preserving package/assembly/API/window identity and its no-dependency/no-updater exception. Native root reconstruction retains one status and handoff action with optional canonical God theme and truthful unavailable state. Allfour native tests passed with God33.1 present and God/vendors absent; full rendered/physical acceptance remains unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.commandments",
-      "version": "0.15.0",
+      "version": "0.15.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.commandments.git#bea070fabbfbeb468ae167889cd2438feb82583a",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.commandments.git#e6fd2aaad928d38f2905fa01b94ed1af4dd95bd5",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [],
@@ -147,13 +147,13 @@
     {
       "id": "com.geurts.gameforge.audio",
       "name": "Geurts Game Forge Audio",
-      "description": "Shared bootstrap-owned playback and Unity-default clips with optional FMOD assignments. God0.33 cached read-only rules, boxed sections, inactive severity/icons, retained defaults drafts and embedded package suppression. Native25/25, EditorPlay88/88, embedded11/11 and WindowsMono/IL2CPP88/88 passed. Full rendered/physical acceptance and vendor lifetime remain unverified.",
+      "description": "Shared bootstrap-owned Unity-default Audio and explicit optional FMOD0.2.1. Cached actual source rules, retained optional authoring controls/drafts, inactive/closed findings and pinned operations; bounded new typed outputs preserve legacy IDs/GUIDs/paths and reject unimported foreign assets/orphan metadata before writes. Final native51/51, attached authoring27/27 and actual immutable installer4/4 passed. Scoped freshWindows backend174/controller40/absent88 checks passMonoLow/IL2CPPHigh. SDK2.03.14 vendor lifetime, Studio-build and rendered/physical/device/listening scopes remain unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
-      "version": "0.7.0",
+      "version": "0.8.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#a83d5a4fd76bc30ffed706274292421707249819",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#1ac906a4acbd5f88a73bd783dfd579b087857de1",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -163,7 +163,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.33.0"
+          "minimumVersion": "0.33.1"
         }
       ]
     },
