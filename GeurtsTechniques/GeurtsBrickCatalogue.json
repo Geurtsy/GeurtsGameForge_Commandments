@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.44.15",
-  "publishedUtc": "2026-10-05T06:15:46Z",
+  "packageVersion": "0.44.16",
+  "publishedUtc": "2026-10-05T06:33:43Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "God-owned package/content tools, cached shared authoring, ordinary bootstrap lifecycle and attributed player discovery. Patch0.33.3 applies typed names only to new controlled bootstrap/input/key objects with UI primary-role precedence for input coordination, preserving legacy names/paths/GUIDs and fixed scene contracts. Affected native117/0/2, public creation/legacy repair12 pass; prior0.33.2 foreign wrong-type byte/GUID preservation remains recorded. Fresh bothWindows34 and native Windows console142 pass with Pooling0.6.2/Diagnostics0.9.2. Historical full514 discovery evidence retains0.33.1. Full rendered/physical and raw unimported key scope remain unverified; users install manually.",
+      "description": "God-owned lifecycle, package/content tools and canonical cached authoring presentation. Patch 0.33.4 bounds native severity icons and reserves full wrapped foldout text height independently of icon dimensions, preserving section expansion, validation and runtime ownership. Windows Unity 6000.6.3f1 Editor 92/92 (God 18, Diagnostics 74) and embedded 12/12 passed at 480/1000px; current production/test trees match immutable tested candidates. Historical player/naming evidence retains its original versions. Full rendered/physical acceptance remains unverified; users install manually.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.33.3",
+      "version": "0.33.4",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#24c332edcba6b26c191469724a20386d94f1e151",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#2eb07418e2e88ff33859e0169a96727acced557d",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -55,13 +55,13 @@
     {
       "id": "com.geurts.gameforge.diagnostics",
       "name": "Geurts Game Forge Diagnostics",
-      "description": "God-owned logging, Quantum Console channels/commands, health/history/inspection/performance metrics and shared cached collapsible authoring. Patch0.9.2 names only newly owned private hierarchy and key copies, with distinguishable siblings and consistent virtual-row numeric width; preserves vendor/display/API identities. Native74/74, consolePlay11/11, fresh bothWindows34/34 and scripted Windows console142/142 pass; historical0.9.1 integratedEditor34/34 stays at its original revision. Historical embedded10/10 retains0.9.0. Full rendered/physical acceptance remains unverified; God minimum0.33.0 remains compatible.",
+      "description": "God-owned logging, Quantum Console channels/commands, history/health/inspection and metrics with canonical cached authoring. Patch 0.9.3 removes the redundant outer preference card, adapts Odin label width and uses God 0.33.4 compact wrapped section headers. Editor Diagnostics 74/74 plus God 18/18 and embedded 12/12 pass at 480/1000px; independent standalone ownership and Back disposal retained. Service/storage/runtime behavior unchanged. Historical acceptance retains original versions; full rendered/physical matrix remains unverified. Requires God 0.33.4; users install manually.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics",
-      "version": "0.9.2",
+      "version": "0.9.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#a5f11b64ec5adfd0fcaad17ba8b2ee152aed60f7",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#bcdff58f2a3a6168c2cf20e63024abe95cf0b4c8",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -71,7 +71,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.33.0"
+          "minimumVersion": "0.33.4"
         }
       ]
     },
