@@ -1,5 +1,5 @@
 # CreateGeurtsFolderStructure.ps1
-# Version: 0.44.16
+# Version: 0.45.0
 
 [CmdletBinding()]
 param(
@@ -102,6 +102,7 @@ function Invoke-TestDirectoryBarrier([string]$TargetPath) {
 function Get-ExpectedProfilesForPath([string]$Path) {
     if ($Path -in @(".github", ".github/instructions")) { return @("native-entry") }
     if ($Path -in @("Docs", "Docs/GameDesign")) { return @("full-project-structure", "gdd-scaffolding") }
+    if ($Path -in @("Assets", "Assets/_Project", "Assets/_Project/Scenes", "Assets/_Project/Scenes/Boot", "Assets/_Project/Scenes/Frontend", "Assets/_Project/Scenes/Gameplay", "Assets/_Project/Scenes/Test", "Assets/_Project/Scenes/Sandbox")) { return @("full-project-structure", "bootstrap") }
     return @("full-project-structure")
 }
 
@@ -150,14 +151,14 @@ try {
     }
 
     if ([string]$definition.schemaVersion -ne "1.0.0") { throw "Unsupported folder-definition schemaVersion '$($definition.schemaVersion)'." }
-    if ([string]$definition.definitionVersion -ne "0.12.0" -or [string]$definition.packageVersion -ne "0.44.16") {
-        throw "Folder definition version must be 0.12.0 and package version must be 0.44.16."
+    if ([string]$definition.definitionVersion -ne "0.13.0" -or [string]$definition.packageVersion -ne "0.45.0") {
+        throw "Folder definition version must be 0.13.0 and package version must be 0.45.0."
     }
     if ([string]$definition.canonicalPath -ne "GeurtsTechniques/GeurtsFolderStructureDefinition.json" -or [string]$definition.pathBase -ne "<ProjectRoot>" -or [string]$definition.pathSeparator -ne "/" -or [string]$definition.explanatoryAuthority -ne "GeurtsTechniques/GeurtsFolderStructureTechnique.md" -or [string]$definition.automationAuthority -ne "GeurtsTechniques/GeurtsFolderStructureDefinition.json") {
         throw "Folder definition declares an unsupported required path or path-base contract."
     }
     if (-not $definition.managedFolders -or @($definition.managedFolders).Count -ne 78 -or [int]$definition.managedFolderCount -ne 78 -or [int]$definition.projectStructureFolderCount -ne 76) {
-        throw "The v0.12.0 folder definition must declare exactly 78 managed folders and 76 project-structure folders."
+        throw "The v0.13.0 folder definition must declare exactly 78 managed folders and 76 project-structure folders."
     }
 
     $allowedCategories = @("unity-project", "generated-content", "tooling", "documentation", "third-party-content")
@@ -172,8 +173,9 @@ try {
         "full-project-structure" = "folder-structure-tool"
         "native-entry" = "native-entry-manager"
         "gdd-scaffolding" = "native-entry-manager"
+        "bootstrap" = "god-bootstrap"
     }
-    if (@($definition.creationProfiles).Count -ne $expectedProfileOwners.Count) { throw "The v0.12.0 definition must declare exactly three creation profiles." }
+    if (@($definition.creationProfiles).Count -ne $expectedProfileOwners.Count) { throw "The v0.13.0 definition must declare exactly four creation profiles." }
     $profileOwners = @{}
     foreach ($declaredProfile in @($definition.creationProfiles)) {
         $profileId = [string]$declaredProfile.id
@@ -239,11 +241,11 @@ try {
         $expectedFolderProfiles = @(Get-ExpectedProfilesForPath -Path $relativePath | Sort-Object)
         $actualFolderProfiles = @($profiles | ForEach-Object { [string]$_ } | Sort-Object)
         if ($actualFolderProfiles.Count -ne $expectedFolderProfiles.Count) {
-            throw "Folder '$relativePath' does not declare its exact v0.12.0 creation-profile scope."
+            throw "Folder '$relativePath' does not declare its exact v0.13.0 creation-profile scope."
         }
         for ($profileIndex = 0; $profileIndex -lt $expectedFolderProfiles.Count; $profileIndex++) {
             if ($actualFolderProfiles[$profileIndex] -cne $expectedFolderProfiles[$profileIndex]) {
-                throw "Folder '$relativePath' does not declare its exact v0.12.0 creation-profile scope."
+                throw "Folder '$relativePath' does not declare its exact v0.13.0 creation-profile scope."
             }
         }
         if ([string]::IsNullOrWhiteSpace([string]$folder.automation.owner)) {
@@ -270,6 +272,9 @@ try {
             if ($delegatedOwners.Count -ne 1 -or -not $delegatedOwners.ContainsKey("gdd-scaffolding") -or [string]$delegatedOwners["gdd-scaffolding"] -cne "native-entry-manager") {
                 throw "Folder '$relativePath' must contain only the gdd-scaffolding delegation to native-entry-manager."
             }
+        }
+        elseif ($relativePath -in @("Assets", "Assets/_Project", "Assets/_Project/Scenes", "Assets/_Project/Scenes/Boot", "Assets/_Project/Scenes/Frontend", "Assets/_Project/Scenes/Gameplay", "Assets/_Project/Scenes/Test", "Assets/_Project/Scenes/Sandbox")) {
+            if ($delegatedOwners.Count -ne 1 -or [string]$delegatedOwners["bootstrap"] -cne "god-bootstrap") { throw "Bootstrap folder must delegate only to god-bootstrap: $relativePath" }
         }
         elseif ($delegatedOwners.Count -ne 0) {
             throw "Folder '$relativePath' contains an unauthorized delegated owner."
@@ -319,7 +324,7 @@ try {
         throw "The explanatory folder authority is missing beside the definition: '$techniquePath'."
     }
     $techniqueText = [System.IO.File]::ReadAllText($techniquePath)
-    if ($techniqueText -notmatch '(?im)^\*\*Version:\*\*\s*0\.15\.3\s*$' -or $techniqueText -notmatch '(?m)^\*\*Required package path:\*\* `GeurtsTechniques/GeurtsFolderStructureTechnique\.md`\s*$') {
+    if ($techniqueText -notmatch '(?im)^\*\*Version:\*\*\s*0\.16\.0\s*$' -or $techniqueText -notmatch '(?m)^\*\*Required package path:\*\* `GeurtsTechniques/GeurtsFolderStructureTechnique\.md`\s*$') {
         throw "The explanatory folder authority does not declare the v0.15.3 stable path metadata."
     }
     $registryMatch = [regex]::Match($techniqueText, '(?ms)<!-- GEURTS-FOLDER-PATHS:BEGIN -->\s*```text\s*(?<Paths>.*?)\s*```\s*<!-- GEURTS-FOLDER-PATHS:END -->')

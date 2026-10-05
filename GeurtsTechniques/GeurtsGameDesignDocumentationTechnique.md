@@ -2,7 +2,7 @@
 # Geurts Game Design Documentation Technique
 
 **Game Design Documentation Discovery - AI and Human Developer Reference**  
-**Version:** 0.14.1
+**Version:** 0.15.0
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -83,9 +83,9 @@ Technical design and implementation guidance remains authoritative in the manife
 
 A missing primary section preserves existing manifest-driven discovery. A missing primary file, malformed or duplicated primary markers, unsupported primary-section version, ambiguous pointer, or primary section nested inside the managed table is a conflict; do not silently select another document. A purely technical task may still proceed without unrelated game context. Project-specific pointers and GDD content must never be written into the replaceable `GeurtsGameForgeCommandments/` snapshot.
 
-## Explicit Build Forge Import
+## Explicit Angels Import
 
-Build Forge provides an explicit **Import selected documents** action. Users may queue multiple Markdown files by adding files or dropping a batch, review the selection, and choose the initial primary. Later imports preserve the primary unless the user selects **Make primary** on an imported document. Selecting or queuing files alone must not copy files or change routing. The legacy single-primary import remains a supported explicit primary-selection operation. This is not the Commandments Companion's Update, ordinary startup discovery, native-entry installation, or general manifest maintenance.
+Angels provides an explicit **Import selected documents** action. Users may queue multiple Markdown files by adding files or dropping a batch, review the selection, and choose the initial primary. Later imports preserve the primary unless the user selects **Make primary** on an imported document. Selecting or queuing files alone must not copy files or change routing. The legacy single-primary import remains a supported explicit primary-selection operation. This is not the Commandments Companion's Update, ordinary startup discovery, native-entry installation, or general manifest maintenance.
 
 The import must:
 
@@ -126,7 +126,7 @@ The paths are examples only. Each list contains unique safe project-relative Mar
 
 Read this lightweight list alongside the primary and managed table when routing game-context work. Imported paths have unprovided classification and precedence until the project explicitly supplies them; import does not invent design facts or override managed-table metadata. The one primary remains explicit. Select only relevant supporting documents for the current task and surface unresolved design conflicts under the manifest rules.
 
-Build Forge lists these registered documents, identifies the primary, and offers **Open document** and **Make primary** actions. Revalidate a document before opening or choosing it. Missing or invalid supporting documents remain visible with a repair explanation and disabled actions. A missing supporting document does not silently retarget the primary. Setup completion still requires a valid primary; malformed import routing must be reported as a conflict. Monitor only registered paths and their parent chains while the UI is open, without enumerating unrelated design files. Pending selections may survive a script reload; an import starts only after explicit selection of the import action.
+Angels lists these registered documents, identifies the primary, and offers **Open document** and **Make primary** actions. Revalidate a document before opening or choosing it. Missing or invalid supporting documents remain visible with a repair explanation and disabled actions. A missing supporting document does not silently retarget the primary. An explicitly selected GDD workflow requires a valid primary; God bootstrap completion is independent and malformed import routing must be reported as a conflict. Monitor only registered paths and their parent chains while the UI is open, without enumerating unrelated design files. Pending selections may survive a script reload; an import starts only after explicit selection of the import action.
 
 The generic manifest maintainer owns only its existing managed table and preserves the primary and imported-document sections byte-for-byte outside that table. It must not retarget the primary pointer merely because it detects a rename, move or removal; choosing a different primary document requires an explicit import or authorized primary-selection edit. When the pointer becomes stale, report the missing primary source before work that needs game context.
 
@@ -278,7 +278,7 @@ The managed table is bounded by matching `GEURTS-GDD-MANIFEST-BEGIN` and `GEURTS
 
 New documents without reliable metadata receive `RequiresClassification`. Unsupported files are reported and must not be silently treated as design authority. Duplicate identifiers are conflicts: do not choose a winner or overwrite the manifest silently.
 
-A compatible host may detect imports or debounced file-watcher events, invalidate cached discovery data, report manifest drift, and offer a user-approved handoff to the external maintainer. Those passive events must not invoke the maintainer automatically or write project GDD content. The separately user-selected Build Forge import above has its own limited copy, primary-pointer and imported-list authority. The God-owned Commandments service is not such a host: its explicit metadata check and confirmed Update must not inspect `Docs/GameDesign/` at all.
+A compatible host may detect imports or debounced file-watcher events, invalidate cached discovery data, report manifest drift, and offer a user-approved handoff to the external maintainer. Those passive events must not invoke the maintainer automatically or write project GDD content. The separately user-selected Angels import above has its own limited copy, primary-pointer and imported-list authority. The God-owned Commandments service is not such a host: its explicit metadata check and confirmed Update must not inspect `Docs/GameDesign/` at all.
 
 ### Design Document Conflicts
 

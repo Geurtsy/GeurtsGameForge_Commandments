@@ -1,9 +1,9 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Commandments Service and Companion Compatibility Technique
 
-**Version:** 3.1.0
+**Version:** 3.2.0
 **Contract schema:** 3.0.0
-**Package version:** 0.44.16
+**Package version:** 0.45.0
 **Status:** Draft normative technique
 **Primary audience:** God Editor service and compatibility adapter maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -17,13 +17,13 @@ God is a Windows-only, Editor-service owner installed through Unity Package Mana
 
 `Geurtsy/GeurtsGameForge_Commandments` remains the sole source and authority for generic Geurts Game Forge documentation. This repository contains no Commandments Companion plugin code or God implementation. Ordinary Markdown tools can read local Commandments without any Unity package. Content releases do not require a God release while schema 3.0.0 and the pinned setup payloads remain supported. God must not bundle a generic Commandments copy in `Documentation~/`.
 
-There is no external installer, Windows bootstrap, batch-driven setup, or separate companion setup action for content acquisition. BigBang may install prerequisites and God; it does not acquire Commandments or run this update action.
+There is no external installer, Windows bootstrap, batch-driven setup, or separate companion setup action for content acquisition. BigBang may install prerequisites and God, then offer this God-owned update through the public API after verified compilation. The God service owns the confirmation and acquisition; BigBang adds no content engine or mutation target.
 
 ### Public Editor interfaces and no-code use
 
 Open **Tools > Geurts Game Forge > Commandments** or **View Commandments** inside God. The view includes installed and available content versions, explicit check/update actions, shared progress/failure, module preference and an offline local reader. Package versions and content versions remain separate. Opening, restoring, resizing or scrolling a view does not check remotely or acquire content.
 
-`Geurts.GameForge.God.Editor.CommandmentsIntegration` (API 1.0.0, assembly `Geurts.GameForge.God.Editor`) is the supported Editor interface for status/version/progress, Changed events, explicit checking, confirmed manual updates, host operation guards, local reading and owned embedded views. `CommandmentsSetupIntegration` supplies the existing separate Codex-guide and Git Ignore helpers. Install Codex guide remains a user-selected, independently confirmed action owned by the AGENTS.md Technique; it writes only the selected guide.
+`Geurts.GameForge.God.Editor.CommandmentsIntegration` (API 1.1.0, assembly `Geurts.GameForge.God.Editor`) is the supported Editor interface for status/version/progress, Changed events, explicit checking, confirmed manual updates, host operation guards, local reading and owned embedded views. `CommandmentsSetupIntegration` retains compatibility forwarding to the installed Angels owner for guide and Git Ignore helpers. Missing Angels produces an actionable owner explanation. Local foundation inspection and bounded exact-byte reads remain on God and work independently of module/update preferences; setup-contract compatibility is separate from remote comparison. Install Codex guide remains a user-selected, independently confirmed action owned by the AGENTS.md Technique; it writes only the selected guide.
 
 Angels and custom Editor callers use these public interfaces and the same controller; no runtime assembly may reference them. BigBang must remain compile-independent: its normal handoff executes God's existing menu only after verified installation. A future optional integration can discover the public Editor API after God is present; it must not add runtime documentation dependencies or silently acquire content. This contract authorizes no Angels implementation.
 

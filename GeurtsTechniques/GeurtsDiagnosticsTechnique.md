@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Diagnostics Technique
 
-**Version:** 0.3.10
+**Version:** 0.4.0
 **Required package path:** `GeurtsTechniques/GeurtsDiagnosticsTechnique.md`
 **Implementation baseline:** God 0.15.0 and Diagnostics 0.6.1, published at the immutable commits in the catalogue; verify the actual installed package. Diagnostics 0.6.1 requires God 0.14.0 for the shared larger-window opener. The shared Editor theme is governed by the manifest-selected Editor UI Theme Technique.
 
@@ -26,7 +26,7 @@ ForgeLog.RegisterTopics("Inventory", "Rewards");
 ForgeLog.Info("Reward granted.", FORGE_AUDIENCE.PLAYER, item, "Inventory", "Rewards");
 ```
 
-The same facade works when Diagnostics is physically absent, disabled, stopped, incompatible or not started. Preserve Unity output exactly once; external captures must not re-emit the original message to Unity. Capture external Unity messages with the supported threaded callback and retain exception/source details and supplied Unity context. A logger that does not flow through Unity needs a supported explicit adapter to `ForgeLog.CaptureExternal`; report any source lacking such an adapter. Do not edit vendor/generated code to achieve capture where callbacks suffice.
+Forge-authored logging captures only through the active Diagnostics provider. When Diagnostics is absent, disabled, stopped, incompatible or not started, return before envelope construction, topic/params allocation or formatting where possible. Do not fall back to or mirror Unity logging, and do not generate ordinary synchronous stack traces. Explicit exceptions retain their supplied details. External Unity/vendor messages may retain their original Unity output once; capture them without re-emission through supported threaded callbacks or explicit CaptureExternal adapters. Never patch vendor/generated code where callbacks suffice. A provider exception detaches capture and records independently visible CaptureFailure status; a new explicit lifecycle attachment may clear it.
 
 Capture is thread-safe; Unity object inspection and serialization occur on the main thread. Explicitly Player-classified logs may enter Player history. Unclassified Unity, third-party and direct Quantum Console output is Developer-classified, including ordinary logs emitted during a command. Never infer Player audience from a selected tab, a currently running task or an arbitrary call stack.
 
@@ -107,7 +107,7 @@ Ordinary synchronous methods/properties/fields can carry policy. Delegate fields
 
 Register `ForgeHealthCheck` and `ForgeInspection` through `ForgeDiagnostics`, retaining their disposal tokens with the owning brick's `BrickContext.Own`. Registration must not execute a check. Inspectors are read-only delegates; a failing getter must not break the console. Player sees only Player inspection registrations; Developer sees both. Editor and runtime consume the same registrations.
 
-Health checks run only on explicit request, overall or by owner, and show actual stages, results and actionable next steps. No fabricated percentages. God owns dependency/startup/settings/bootstrap/build-scene/console-setup facts. Domain checks live in the relevant game/system brick, not in Diagnostics.
+Health checks run only on explicit request, overall or by owner, and show actual stages, results and actionable next steps. No fabricated percentages. God owns dependency/startup/settings/bootstrap/build-scene facts. Diagnostics owns console installation, connection and input-focus facts. Domain checks live in the relevant game/system brick, not in Diagnostics.
 
 Deep checks are explicitly requested. Every gameplay-changing check is excluded from ordinary health requests and requires cheat/session/host permission immediately before running. Read-only deep checks need not start a cheat session. A check must report actual tested behavior, not unconditional success. Outside Play Mode, the Odin window can run relevant project checks without modifying scenes; runtime-only checks report that they require Play Mode.
 
@@ -146,7 +146,7 @@ The runtime **Metrics** view exposes a **Background transparency** slider with a
 
 The package's importable Basic Diagnostics Setup sample demonstrates actual game-owned coins, inspection, health checks, three session policies, failed/committed zone transitions and saved cheat provenance. It does not automatically start gameplay or install a framework. Legacy `GeurtsDiagnosticsManager`, `GeurtsLogger` and sink APIs are compatibility surfaces only; the old manager cannot start/stop the shared service. Legacy settings assets retain serialized data but no longer control active behavior.
 
-Validate exact-once logging/fallback, exceptions/context, worker bursts larger than a frame budget, malformed preferences, repeated enable/disable, domain-reload modes, real QC help/autocomplete/denials, Player responses while paused, scene/EventSystem/input persistence, large filtered history, save/zone/authority hooks and actual Windows counters. Exercise release builds and relevant scripting backends, recording unavailable modules honestly. Compilation alone is not behavioral, visual or player validation.
+Validate exact-once capture without Unity fallback or mirror, exceptions/context, worker bursts larger than a frame budget, malformed preferences, repeated enable/disable, domain-reload modes, real QC help/autocomplete/denials, Player responses while paused, scene/EventSystem/input persistence, large filtered history, save/zone/authority hooks and actual Windows counters. Exercise release builds and relevant scripting backends, recording unavailable modules honestly. Compilation alone is not behavioral, visual or player validation.
 
 For runtime control presentation, inspect Channel, Window controls, Views and Logs actions at normal and reduced console sizes. Verify visible selection and focus, readable green accents and semantic log colors, access to the command input, audience/filter persistence, pause/resume and history navigation. Exercise Fullscreen/Restore, native zoom, windowed dragging and the diagonal resize grip, display shrink while fullscreen, minimum width and automatic height growth, and a large metrics overlay that returns to the foreground without covering fullscreen controls. Changing presentation must preserve actual help, autocomplete, execution denial and cheat/host checks.
 

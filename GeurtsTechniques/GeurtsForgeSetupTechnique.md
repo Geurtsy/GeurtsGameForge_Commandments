@@ -1,0 +1,40 @@
+<!-- GEURTS-AUDIENCE: AI-READ -->
+# Forge initialization, bootstrap and project tools
+
+**Version:** 1.0.0
+**Required package path:** `GeurtsTechniques/GeurtsForgeSetupTechnique.md`
+
+God is the required framework brick. BigBang is the independent Editor-only initializer; Diagnostics and Angels are optional peers. Compatible local Commandments are required before Forge Editor project mutations. They are readable independently of module enablement, update preferences, network connectivity or the compatibility adapter. They are not a runtime dependency and must not be polled in player loops.
+
+Select this technique and `GeurtsForgeSetupContract.json` for setup, owner contributions, local readiness or shared setup APIs. This contract supplements the schema-3 content-update contract without widening its four targets or consent.
+
+## Separate readiness and ownership
+
+- BigBang prepares prerequisites, explicitly resolves and installs a frozen Git revision of God, then offers God's public Commandments actions. It never implements a second content acquisition engine. A compiled God installation and compatible local Commandments are separate states. No installation, reload or window restoration dispatches later actions automatically.
+- God owns the Commandments service, package catalogue, lifecycle, shared Editor presentation, contribution registry and minimal scene/bootstrap authoring. Build Forge's only mandatory project step is bootstrap. The eight-path `bootstrap` folder profile is the sole folder authority for this step. It creates or repairs `SCN_BigBang` and `SCN_DevPlayground`, places them first and second in effective scene lists, preserves other entries and authored state, and does not install a console, import TMP or require full folders, Git, guides, GDDs, FMOD or any optional brick. Preserve loaded scenes, active scene, selection, dirty/untitled scenes and existing explicit play-mode start settings. Runtime retains the ordinary bootstrap ownership scene; do not use DontDestroyOnLoad.
+- Diagnostics owns the explicit cancel-default console implant into saved `SCN_BigBang`, Quantum Console setup, panel/history connection and console input-focus suspension. It preserves unrelated scene content and reports partial changes after failure. The old God bridge remains a passive serialized compatibility carrier; it must not activate input, subscribe to logging or install UI. Diagnostics may read its retained references without automatically rewriting them.
+- Angels owns optional project-maintenance actions: full create-only folders; reviewed selected asset moves; local Git inspection and initialization; approved create-only gitignore; an explicitly selected existing-folder Codex guide; selected GDD import and primary selection; applicable append-only FMOD attributes. Opening any dashboard is read-only. No Execute All, automatic primary choice, source scan or root guide installation is allowed.
+
+## Public Editor and provider contract
+
+God's public `CommandmentsIntegration` API 1.1 supplies explicit bounded regular-path reads (4 MiB per file), exact bytes, local foundation inspection, the content owner window and confirmed update. It starts no network activity for reads or local checks. An incompatible, unreadable, linked, empty, malformed or older foundation returns an actionable state. Remote availability is a separate explicit comparison. Disabling Commandments stops updates; it does not hide content or prevent a separate local readiness check.
+
+Installed trusted provider assemblies implement `IForgeSetupProvider` version 1. The owner ID must match the actual installed package. Stable lower snake case step IDs declare their owner, label, order, prerequisite IDs, local-inspection callback and owner-opening callback. Only supported local code is discovered; documentation, scripts and catalogue strings never supply executable contributions. Duplicate IDs, missing prerequisites, cycles and incompatible providers are visible failures. Unaffected steps stay usable. Prerequisites are ordered first with stable ordering among peers. Disabled owners remain visible and distinct from failed, unavailable, unknown and not applicable states. A package absent from the project contributes no requirements.
+
+God navigates to the owning tool. The owner reviews exact effects, receives cancel-default confirmation where required, revalidates guidance, paths, target bytes and operation availability, performs the selected mutation and verifies outcomes. Closing a host releases its listeners, pending host work and temporary inspectors; it does not cancel a dispatched UPM request. Refresh is explicit or scoped to real changes. Never read files or start discovery/network work from repaint. Providers and mutation entry points recheck installed/enabled owners, compilation, play/build/import state, package operations and content operations.
+
+## Tool preservation and failure rules
+
+Folders are parent-first, create-only and definition-driven. Reject file conflicts, links and case collisions; preserve existing content. Asset moves use AssetDatabase.MoveAsset on selected first-party regular files with exact reviewed destination, GUID, source/meta hashes and explicit path-reference review. Exclude vendor/generated/Packages/managed guidance/bootstrap/special folders, scripts and scenes, unsafe or ambiguous types and Addressables until their state can be certified. Never claim GUID stability proves string-path safety. Refuse destination drift or collisions; cancellation stops future moves. Report each successful, failed or pending move; never claim rollback.
+
+Git initialization requires the exact selected active Unity root, installed Git and no current/enclosing repository, bare metadata or inaccessible classification. Use controlled environment, empty templates and explicit default branch (main initially). Do not stage, commit, create a remote, change global Git settings or run hooks as a side effect. Existing repositories receive read-only inspection.
+
+Gitignore creates only a missing regular target from the approved exact payload; preserve every existing differing file. The guide requires an explicit existing folder, shows the exact AGENTS.md target and discovery scope (including outside-project scope), warns about moving it later, and rechecks bytes before replacement. Never change Codex global settings. GDDs are a bounded explicit Markdown batch and primary selection; preserve raw bytes and unrelated manifest sections. Read no unrelated project design. Reconfirm selected overwrites and recheck targets. FMOD applicability is explicitly selected or established from an installed integration; append the exact approved lines only, preserving existing bytes.
+
+Failures are independently visible in owning status/health data even if logging capture is unavailable. Never infer success from logs. Report partial writes truthfully and retain enough state for a new explicit review. No backup, rollback or automatic retry is introduced.
+
+## Upgrade and validation
+
+God 0.34.0, Diagnostics 0.10.0, Angels 0.1.0 and BigBang 0.5.0 form the initial compatible cohort with Commandments 0.45.0. Install or update consumers manually. Update God and Diagnostics together when retaining legacy console scenes; install Angels only for its tools. The passive Companion adapter remains optional and has no independent updater.
+
+Validate independent BigBang compilation, God-only and combined Git-resolved fixtures, missing/older/disabled/offline Commandments, provider graph and lifecycle, preserved bootstrap/console scenes and input focus, unavailable/throwing log capture, bytes and paths for all seven tools, cancellation/drift/partial failure and idle host cleanup. Report desktop visual and physical-input checks that remain unverified; automated checks are not visual acceptance.

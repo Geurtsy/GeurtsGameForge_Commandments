@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts BigBang Technique
 
-**Version:** 1.2.0
+**Version:** 1.3.0
 **Status:** Normative initial-installer boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
@@ -64,3 +64,7 @@ Use isolated projects resolving candidates from Git. Preserve the live Unity pro
 Cover long Windows input paths, fingerprint read failures, successful incremental cycles with only cached participants, and cycles that produce assemblies and reload. When the user explicitly authorizes checks in the open project, verify the affected readiness transition there through supported Editor APIs while preserving its scenes, settings and existing packages. Record that live evidence separately from isolated results; a synthetic interrupted-state test does not establish that a reported live failure was reproduced or repaired.
 
 Version every affected owning package/documentation update. Merge appropriately validated work into remote main, publish an immutable higher-version release, verify remote readback and only then make its catalogue source actionable. Record exact package pins, Unity/vendor versions, test results and limitations. The user installs published consumer packages and documentation manually. Removing BigBang through UPM must leave God and project content functional.
+
+## Local foundation handoff
+
+After verifying God 0.34.0 or newer is installed and compiled, offer its public Editor API 1.1 local foundation check, Commandments window and separately confirmed setup action. Resolve only documented public API members; no private reflection or duplicate content engine. God installation and compatible local Commandments are distinct states. Do not report Foundation ready until both are verified. Missing or older APIs explain the manual God upgrade route. BigBang remains independent and compiles without God or licensed assemblies.

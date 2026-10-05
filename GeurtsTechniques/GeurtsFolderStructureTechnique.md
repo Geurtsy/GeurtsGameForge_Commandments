@@ -2,7 +2,7 @@
 # Geurts Folder Structure Technique
 
 **Unity Project Structure - AI-First Automation and Human Developer Reference**
-**Version:** 0.15.3
+**Version:** 0.16.0
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -69,11 +69,12 @@ Tools/CreateGeurtsFolderStructure.ps1
 
 `Tools/CreateGeurtsFolderStructure.bat` is retained only as a compatibility launcher for a separately invoked manual folder operation. It must delegate folder selection to the PowerShell tool and must not contain an independent complete path list. It is not an external installer or bootstrap for the Commandments Companion.
 
-The definition has three creation profiles:
+The definition has four creation profiles:
 
 | Profile | Owner | Exact scope |
 |---|---|---|
-| `full-project-structure` | `folder-structure-tool` | The 76 reusable project-structure paths declared by definition v0.12.0. |
+| `full-project-structure` | `folder-structure-tool` | The 76 reusable project-structure paths declared by definition v0.13.0. |
+| `bootstrap` | `god-bootstrap` | Exactly `Assets`, `Assets/_Project`, `Assets/_Project/Scenes` and its `Boot`, `Frontend`, `Gameplay`, `Test`, `Sandbox` children. |
 | `native-entry` | `native-entry-manager` | `.github` and `.github/instructions` only. |
 | `gdd-scaffolding` | `native-entry-manager` | `Docs` and `Docs/GameDesign` only, as an explicit delegation from their primary folder-structure owner. |
 
@@ -84,7 +85,7 @@ An automation tool may create a registry entry only when all of these conditions
 3. The calling tool is the declared `automation.owner`, or the entry's `automation.delegatedOwners` object explicitly authorizes that profile's owner.
 4. Every declared parent is already present or is created first from the same authorized profile.
 
-Every definition v0.12.0 entry has `automation.mayRemove` set to `false`. No folder may be automatically deleted merely because it is absent from a later definition. Missing folders may be created; existing folders and their contents must be preserved.
+Every definition v0.13.0 entry has `automation.mayRemove` set to `false`. No folder may be automatically deleted merely because it is absent from a later definition. Missing folders may be created; existing folders and their contents must be preserved.
 
 `required` means the folder is part of the applicable Geurts project or integration baseline. `optional` means content may not need the folder, although the full creation profile may still create the empty organizational path. Requirement status never grants deletion authority.
 
@@ -151,7 +152,7 @@ ProjectRoot/
 
 ### Explicit Game Design Document import
 
-As a separate narrow operation, a user-selected Build Forge **Import selected documents** or legacy **Import primary Game Design Document** action may create only missing `Docs/` and `Docs/GameDesign/` parents for its explicitly selected Markdown documents and project manifest. This exception is owned by the Game Design Documentation Technique and does not invoke a generic folder-creation profile, expand the native-entry manager, or grant the Commandments Companion any project-design access. Preserve every existing directory and every file outside the explicitly confirmed import targets. Only the Game Design Documentation Technique's manual overwrite warning can authorize replacing selected document files. Validate containment and the complete path chain for reparse points before accepting or creating either parent. Build Forge owns its setup checklist and completion criteria; this folder permission does not define them.
+As a separate narrow operation, a user-selected Angels **Import selected documents** or legacy **Import primary Game Design Document** action may create only missing `Docs/` and `Docs/GameDesign/` parents for its explicitly selected Markdown documents and project manifest. This exception is owned by the Game Design Documentation Technique and does not invoke a generic folder-creation profile, expand the native-entry manager, or grant the Commandments Companion any project-design access. Preserve every existing directory and every file outside the explicitly confirmed import targets. Only the Game Design Documentation Technique's manual overwrite warning can authorize replacing selected document files. Validate containment and the complete path chain for reparse points before accepting or creating either parent. Angels owns selected GDD import and primary selection. God reports bootstrap readiness separately from optional project-tool recommendations; this folder permission does not make GDD import mandatory.
 
 ---
 
@@ -496,7 +497,7 @@ The template supplies stable ownership roots, not a fixed catalogue of every gam
 ### Start from the current template
 
 1. Update the complete managed documentation snapshot through the Commandments Companion's confirmed Update action. Do not hand-edit that snapshot or mix files from different package commits.
-2. In Game Forge God's Build Forge setup, use **Create project folders** to create the selected full profile. For a separately chosen manual operation, use the copied PowerShell command above with the Unity project root explicitly supplied.
+2. In Game Forge Angels, use **Create project folders** to create the selected full profile. For a separately chosen manual operation, use the copied PowerShell command above with the Unity project root explicitly supplied.
 3. Inspect the folders that already exist before placing content. Counts come from the selected definition, rather than historical package examples. The full profile creates 76 project paths; it does not create scene assets, assembly definitions, content, packages, or optional features.
 4. Re-running setup adds missing template directories. It preserves existing directories, assets, and `.meta` files, including old genre-specific paths no longer present in the fresh template.
 
@@ -576,7 +577,7 @@ Before creating folders, any compatible folder-creation consumer must:
 
 1. Load `GeurtsGameForgeCommandments/GeurtsTechniques/GeurtsFolderStructureDefinition.json` from the active validated package.
 2. Confirm supported `schemaVersion`, `definitionVersion`, and `packageVersion` values.
-3. Confirm `managedFolderCount` is 78 and `projectStructureFolderCount` is 76 for definition v0.12.0.
+3. Confirm `managedFolderCount` is 78 and `projectStructureFolderCount` is 76 for definition v0.13.0.
 4. Reject duplicate paths, absolute paths, traversal segments, backslashes, unknown content categories, missing parents, unknown profiles, or malformed automation objects.
 5. Confirm every registry path appears in the literal Markdown registry below.
 6. Select only the creation profile owned by the calling operation.
@@ -715,7 +716,7 @@ Assets/_Project/
 
 Keep the required baseline in every project. Expand beyond it when search time, onboarding friction, or asset collisions become noticeable.
 
-The `full-project-structure` automation profile creates the complete 76-path structure. Teams may choose the minimal subset manually at the beginning of a small project; definition v0.12.0 does not define an automated minimal profile. A future profile must be versioned in both authorities and must preserve the no-deletion rule. The Commandments Companion does not select any profile.
+The `full-project-structure` profile creates all 76 paths through Angels or the separately invoked manual folder tool. God uses only the versioned eight-path `bootstrap` profile for scene setup. Every profile is create-only; existing content is preserved. The Commandments content service does not select any profile.
 
 ---
 

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.16.1
+**Version:** 1.17.0
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -56,7 +56,7 @@ Migration, settings conversion, backup, rollback and recovery frameworks are exc
 
 Use God's per-brick JSON settings store. Editor data lives at `ProjectSettings/GeurtsGameForge/<package-id>.json`. Only that identity's file may be deleted by its removal operation. Bricks must not store unrelated game data in this directory. Project defaults are exported into a generated Resources asset during a build; player overrides live below `Application.persistentDataPath/GeurtsGameForge`. Editor package removal does not erase files from previously distributed player installations.
 
-God's package management and Odin dashboard belong in Editor-only assemblies. Runtime contracts, lifecycle and settings cannot reference UnityEditor. God's own Quantum Console logging and developer command work with Diagnostics absent. Console setup is explicit and uses the installed commercial prefab, all-build support, coordinated Unity-log capture/fallback, one persistent EventSystem and Input System focus coordination. With Diagnostics, Player and Developer tabs are freely available in release builds; neither is an authentication boundary. The separate testing override is restricted to Editor/designated internal builds and never bypasses host/server authority. The Diagnostics Technique owns detailed classification, filter and command policy.
+God's package management and Odin dashboard belong in Editor-only assemblies. Runtime contracts, lifecycle and settings cannot reference UnityEditor. God owns shared logging contracts; optional Diagnostics owns capture and all console installation, presentation and input-focus behavior. Forge logging has no Unity fallback or mirror. Diagnostics explicitly implants its commercial-prefab console into SCN_BigBang; the retained God bridge is passive serialized compatibility. Bootstrap does not require Diagnostics or console resources. Developer and Player presentation remain available in release builds under the detailed Diagnostics command policy, with testing override restricted to Editor/designated internal builds and host/server authority preserved.
 
 ## Catalogue schema 1
 
