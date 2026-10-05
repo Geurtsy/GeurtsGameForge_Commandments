@@ -77,7 +77,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.44.17
+**Version:** 0.44.18
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -288,6 +288,11 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandments view or Build Forge, choose a location and confirm the displayed entry point. The installer writes only the selected AGENTS.md for Codex discovery. The template remains in GeurtsAgentTechnique.md. Normal content updates do not manage a root Codex guide; replace an old guide only through the separately selected and confirmed action. The content-update contract remains schema 3.0.0. Existing custom guides are never rewritten by package migration.
 
 ## Changelog
+
+### 0.44.18
+
+- Technical 0.17.1 requires a labelled Help section for every major first-party component, explaining purpose, setup, normal use, key controls and a practical example, with relevant troubleshooting and supported extension guidance. Help stays local, discoverable, version-accurate and verified against a representative workflow.
+- Editor Appearance 0.1.2 requires reachable, collapsible Help in affected inspectors and tool views, with full layout space for wrapped instructions and no mutation on opening. Package metadata and existing version guards advance together; this documentation update does not retrofit installed components or change catalogue pins, schemas, AI routes or the live Unity project.
 
 ### 0.44.17
 
