@@ -55,7 +55,7 @@ Audio0.8.2 and optionalFMOD0.2.2 require God0.33.1 and Windows Unity6000.6.3f1. 
 
 [Save and Load 0.2.0](https://github.com/Geurtsy/com.geurts.gameforge.saveload) remains an informational starter with no runtime saving system. The compatibility adapter and Diagnostics target Unity 6000.6.3f1. The private repositories require Git access. Open **Game Forge God**, select **Refresh Catalogue**, then **Check for Updates** and the desired **Update** actions. Catalogue publication makes the newer packages available; it does not update the project's installed packages.
 
-God0.33.3 and Diagnostics0.9.2 retain shared scoped logging/session contracts governed by the [Diagnostics Technique](GeurtsTechniques/GeurtsDiagnosticsTechnique.md). Diagnostics owns its configurable overlay and commands; its Editor authoring uses the God theme and pure shared rules. Source-owned validation states native/API and rendered/physical limits separately.
+God0.33.4 and Diagnostics0.9.3 retain shared scoped logging/session contracts governed by the [Diagnostics Technique](GeurtsTechniques/GeurtsDiagnosticsTechnique.md). Diagnostics owns its configurable overlay and commands; its Editor authoring uses the God theme and pure shared rules. The current patches compact wrapped section headers and adapt preference label width. Editor92/92 and embedded12/12 pass at 480/1000px; [layout evidence](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/v0.9.3/Documentation~/PreferencesLayoutValidation.md) keeps native/API geometry and unverified rendered/physical acceptance separate.
 
 God 0.16.0 adds multiple game design document imports in Build Forge. Add Markdown files or drop a batch, review the queue, choose an initial primary, then select **Import selected documents**. Further imports retain that primary; **Make primary** explicitly chooses another imported document. God 0.17.0 additionally offers **Overwrite documents** after a warning listing the existing files that would be replaced. Cancel keeps the whole batch unchanged; identical files need no warning. Manual manifest notes and unlisted files are preserved. Documentation 0.26.0 defines the imported-document routing list alongside the existing primary and managed table.
 
@@ -77,7 +77,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.44.15
+**Version:** 0.44.16
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -128,7 +128,7 @@ God and its Commandments service retain required separately licensed Odin Inspec
 
 **FMOD is completely optional**. Current Audio0.8.3 uses Unity clips by default and optionalFMOD0.2.2 retains explicit native assignments. The [Technical audio standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#game-audio-and-sound-design) remains authoritative. SDK2.03.14 RuntimeManager persistence is a reported compatibility gap requiring a compatible integration/release, not permission to patch licensed source or claim full lifetime compliance.
 
-This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.44.15; the Technical Technique is v0.17.0.
+This repository contains documentation, C# fragments, and host-side PowerShell utilities. It contains no Unity project or companion implementation. Its checks validate the documentation package and tools; actual Unity compilation and player compatibility must be verified in the consuming project. The package is v0.44.16; the Technical Technique is v0.17.0.
 
 ## Path Length for Codex Projects and GameForge
 
@@ -288,6 +288,10 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandments view or Build Forge, choose a location and confirm the displayed entry point. The installer writes only the selected AGENTS.md for Codex discovery. The template remains in GeurtsAgentTechnique.md. Normal content updates do not manage a root Codex guide; replace an old guide only through the separately selected and confirmed action. The content-update contract remains schema 3.0.0. Existing custom guides are never rewritten by package migration.
 
 ## Changelog
+
+### 0.44.16
+
+- Catalogue God 0.33.4 and Diagnostics 0.9.3: compact wrapped authoring headers and responsive console preference labels, preserving service/validation ownership and manual consumer installation.
 
 ### 0.44.15
 
