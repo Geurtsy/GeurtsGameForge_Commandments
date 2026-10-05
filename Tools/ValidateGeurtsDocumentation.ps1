@@ -510,7 +510,9 @@ try {
         "GeurtsTechniques/GeurtsAgentTechnique.md",
         "GeurtsTechniques/GeurtsEditorUIThemeTechnique.md",
         "GeurtsTechniques/GeurtsNamingTechnique.md",
-        "GeurtsTechniques/GeurtsEditorAppearanceTechnique.md"
+        "GeurtsTechniques/GeurtsEditorAppearanceTechnique.md",
+        "GeurtsTechniques/GeurtsForgeSetupTechnique.md",
+        "GeurtsTechniques/GeurtsForgeSetupContract.json"
     )
     $expectedRouteMappings = @(
         [pscustomobject]@{ Template = "Tools/AIAgentInstructionTemplates/copilot-instructions.md"; Target = ".github/copilot-instructions.md" },
@@ -528,7 +530,7 @@ try {
         if (-not (Test-ExactPropertySet -Object $companionContract.destination -Expected @("projectRelativePath", "replacement", "access"))) { $companionContractFailures.Add("destination property set is not closed") | Out-Null }
         elseif ([string]$companionContract.destination.projectRelativePath -cne "GeurtsGameForgeCommandments" -or [string]$companionContract.destination.replacement -cne "complete-directory" -or [string]$companionContract.destination.access -cne "logically-read-only") { $companionContractFailures.Add("managed documentation destination differs") | Out-Null }
 
-        if (-not (Test-ExactStringSequence -Actual @($companionContract.validationEntries) -Expected $expectedValidationEntries)) { $companionContractFailures.Add("current validationEntries is not the exact eleven-entry package-v0.45.0 list") | Out-Null }
+        if (-not (Test-ExactStringSequence -Actual @($companionContract.validationEntries) -Expected $expectedValidationEntries)) { $companionContractFailures.Add("current validationEntries is not the exact thirteen-entry package-v0.45.0 list") | Out-Null }
         $validationEntrySet = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
         foreach ($validationEntry in @($companionContract.validationEntries)) {
             $validationRelative = [string]$validationEntry

@@ -315,7 +315,9 @@ try {
         "GeurtsTechniques/GeurtsAgentTechnique.md",
         "GeurtsTechniques/GeurtsEditorUIThemeTechnique.md",
         "GeurtsTechniques/GeurtsNamingTechnique.md",
-        "GeurtsTechniques/GeurtsEditorAppearanceTechnique.md"
+        "GeurtsTechniques/GeurtsEditorAppearanceTechnique.md",
+        "GeurtsTechniques/GeurtsForgeSetupTechnique.md",
+        "GeurtsTechniques/GeurtsForgeSetupContract.json"
     )
     $expectedCompanionRoutes = @(
         "Tools/AIAgentInstructionTemplates/copilot-instructions.md|.github/copilot-instructions.md",
@@ -332,7 +334,7 @@ try {
     )
     Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.45.0" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.45.0, and the official exact-main-commit archive source"
     Assert-True ([string]$companionContract.destination.projectRelativePath -ceq "GeurtsGameForgeCommandments" -and [string]$companionContract.destination.replacement -ceq "complete-directory" -and [string]$companionContract.destination.access -ceq "logically-read-only") "Companion contract names the one logically-read-only complete documentation destination"
-    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 11) "Current companion contract names the exact eleven unique package-v0.45.0 source-validation entries"
+    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 13) "Current companion contract names the exact thirteen unique package-v0.45.0 source-validation entries"
     Assert-True (($actualCompanionRoutes -join "|") -ceq ($expectedCompanionRoutes -join "|") -and ($actualConfirmationTargets -join "|") -ceq ($expectedConfirmationTargets -join "|") -and [string]$companionContract.updateUi.actionLabel -ceq "Update Geurts Game Forge Commandments" -and [string]$companionContract.updateUi.confirmationDefault -ceq "cancel" -and [string]$companionContract.updateUi.cancelResult -ceq "no-network-or-filesystem-change") "Companion contract fixes three template routes and one cancel-default four-target Update confirmation"
     Assert-True ($companionTechniqueText -match '(?i)one confirmation dialog' -and $companionTechniqueText -match '(?i)no earlier preview, dry run[^\r\n]{0,100}second confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set') "Confirmation uses the built-in schema-3.0.0 target set before acquisition and cannot authorize a changed downloaded target set"
     Assert-True ($companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative') "Schema 3.0.0 keeps package versions and safe validation entries forward-compatible while mutation routes remain fixed"
@@ -964,7 +966,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     $folderDefinitionContract = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json
     $folderToolContractText = [System.IO.File]::ReadAllText($folderScript)
     $managerToolContractText = [System.IO.File]::ReadAllText($manageScript)
-    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.15\.3\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.12.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.45.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.12.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.12.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.12.0 in package v0.45.0"
+    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.0\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.45.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.45.0"
 
     $versionMismatchAuthority = Join-Path $testRoot "folder-version-mismatch-authority"
     New-Item -ItemType Directory -Path $versionMismatchAuthority | Out-Null
@@ -975,7 +977,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     Write-Utf8 -Path $versionMismatchDefinitionPath -Text ($versionMismatchDefinition | ConvertTo-Json -Depth 12)
     $versionMismatchProject = New-TestProject -Parent $testRoot -Name "folder-version-mismatch-project"
     $versionMismatchRun = Invoke-TestScript -Path $folderScript -Arguments @("-ProjectRoot", $versionMismatchProject, "-DefinitionPath", $versionMismatchDefinitionPath)
-    Assert-True ($versionMismatchRun.Code -ne 0 -and $versionMismatchRun.Output.Contains("Folder definition version must be 0.12.0") -and -not (Test-Path -LiteralPath (Join-Path $versionMismatchProject "Assets/_Project"))) "Folder creator rejects a v0.8.0 definition before project mutation"
+    Assert-True ($versionMismatchRun.Code -ne 0 -and $versionMismatchRun.Output.Contains("Folder definition version must be 0.13.0") -and -not (Test-Path -LiteralPath (Join-Path $versionMismatchProject "Assets/_Project"))) "Folder creator rejects a v0.8.0 definition before project mutation"
 
     $earlyExitProject = New-TestProject -Parent $testRoot -Name "barrier-early-exit-project"
     $earlyExitBarrierPath = Join-Path $testRoot "barrier-expected-early-exit"
@@ -984,11 +986,11 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     try { Wait-TestScriptBarrier -Run $earlyExitRun }
     catch { $earlyExitMessage = $_.Exception.Message }
     finally { Stop-TestScriptBarrier -Run $earlyExitRun }
-    Assert-True ($earlyExitMessage -match '(?i)exited before its write boundary.*Folder definition version must be 0\.12\.0' -and $earlyExitMessage -notmatch '(?i)No process is associated|disposed') "Barrier harness preserves the primary early-exit error without double wait or dispose"
+    Assert-True ($earlyExitMessage -match '(?i)exited before its write boundary.*Folder definition version must be 0\.13\.0' -and $earlyExitMessage -notmatch '(?i)No process is associated|disposed') "Barrier harness preserves the primary early-exit error without double wait or dispose"
 
     $folderProject = New-TestProject -Parent $testRoot -Name "folders"
     $folderRun = Invoke-TestScript -Path $folderScript -Arguments @("-ProjectRoot", $folderProject, "-DefinitionPath", $definitionPath)
-    Assert-True ($folderRun.Code -eq 0 -and $folderRun.Output.Contains("Skipped: .github") -and $folderRun.Output.Contains("definition 0.12.0") -and (Test-Path -LiteralPath (Join-Path $folderProject "Assets/_Project") -PathType Container) -and -not (Test-Path -LiteralPath (Join-Path $folderProject "GeurtsGameForgeCommandments"))) "Folder tool consumes the exact definition while never creating the reserved documentation container"
+    Assert-True ($folderRun.Code -eq 0 -and $folderRun.Output.Contains("Skipped: .github") -and $folderRun.Output.Contains("definition 0.13.0") -and (Test-Path -LiteralPath (Join-Path $folderProject "Assets/_Project") -PathType Container) -and -not (Test-Path -LiteralPath (Join-Path $folderProject "GeurtsGameForgeCommandments"))) "Folder tool consumes the exact definition while never creating the reserved documentation container"
     $fullTemplatePaths = @($folderDefinitionContract.managedFolders | Where-Object { @($_.automation.creationProfiles) -contains "full-project-structure" } | ForEach-Object { [string]$_.path } | Sort-Object)
     $createdTemplatePaths = @(Get-ChildItem -LiteralPath $folderProject -Directory -Recurse -Force | ForEach-Object { $_.FullName.Substring($folderProject.Length + 1).Replace('\', '/') } | Sort-Object)
     Assert-True ($fullTemplatePaths.Count -eq 76 -and $createdTemplatePaths.Count -eq 76 -and ($createdTemplatePaths -join "|") -ceq ($fullTemplatePaths -join "|")) "Fresh folder creation produces exactly the expanded 76-folder full profile"
