@@ -77,7 +77,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.44.16
+**Version:** 0.44.17
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -288,6 +288,11 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandments view or Build Forge, choose a location and confirm the displayed entry point. The installer writes only the selected AGENTS.md for Codex discovery. The template remains in GeurtsAgentTechnique.md. Normal content updates do not manage a root Codex guide; replace an old guide only through the separately selected and confirmed action. The content-update contract remains schema 3.0.0. Existing custom guides are never rewritten by package migration.
 
 ## Changelog
+
+### 0.44.17
+
+- Editor Appearance 0.1.1 explicitly warns about overlapping instructions/callouts and inspector fields after Commandments-compliance changes. Require ample spacing, full height for wrapped/dynamic content, supported layout without overlapping manual draws, and normal/narrow-width checks with multiple findings. Overlap fails appearance review.
+- Editor UI Theme 1.5.2 reinforces shared padding and complete layout allocation. Package metadata and validation version guards advance together; catalogue pins, schemas, managed targets and AI routes are unchanged. This documentation update does not modify installed inspectors or the live Unity project.
 
 ### 0.44.16
 
