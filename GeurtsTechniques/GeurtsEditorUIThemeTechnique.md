@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Editor UI Theme Technique
 
-**Version:** 1.5.1
+**Version:** 1.5.2
 **Status:** Normative mandatory standard
 **Primary audience:** Geurts Game Forge brick and Editor-tool maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -45,6 +45,7 @@ Use the [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md) for la
 - Give each window a clear title and short purpose. Group related work into consistently padded section cards with descriptive headings, and place the most relevant action beside its context.
 - Use a deliberate hierarchy of title, section heading, body and supporting text. Use readable Editor fonts and the shared typography definitions; decorative sci-fi fonts must not replace ordinary controls or diagnostic content. Long values, paths and messages must wrap, scroll or expose their complete value.
 - Use shared spacing and control dimensions. Align related labels and buttons; keep card padding, section gaps and navigation consistent across bricks. Do not create one-off spacing systems for each window.
+- Provide ample padding and visible gaps so instructions, callouts, labels and fields never overlap. Reserve the complete rendered area of dynamic or wrapped content and let the surface grow/scroll as needed. Follow the [Appearance Technique's inspector spacing requirements](GeurtsEditorAppearanceTechnique.md#71-inspector-spacing-and-overlap-prevention); compliance messages must not reduce the readability or usability of the fields they accompany.
 - Show selected navigation, hover, pressed and keyboard-focus states distinctly. Keyboard focus must remain visible on enabled controls and must not be communicated through a color change alone. Preserve normal keyboard activation, text selection, copy, tab navigation and host interactions.
 - Use a visible label or message for every material state. Pair severity or status color with text such as **Warning**, **Failed**, **Unavailable**, **Running** or **Complete**; use an icon or shape as a supplementary cue when useful. Callouts and authoring findings additionally require the distinct severity icons and hidden-finding visibility defined by Appearance. Color alone is insufficient.
 - Explain unavailable actions visibly with the actual reason and an actionable next step. Tooltips may repeat or expand that explanation, but a tooltip alone is insufficient for an important disabled action. Preserve the same eligibility rule for the enabled state and its explanation so they cannot contradict each other.

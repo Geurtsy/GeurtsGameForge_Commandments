@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Editor Appearance Technique
 
-**Version:** 0.1.0
+**Version:** 0.1.2
 **Status:** Normative mandatory standard
 **Primary audience:** Geurts Game Forge brick and Editor-tool maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -55,6 +55,12 @@ For example, a conceptual parent foldout `configuration` can own the child box `
 
 Preserve user expansion/navigation state through supported Editor mechanisms; do not serialize UI expansion state into game assets. Recommended expansion defaults, persistence across sessions and badge artwork are implementation choices, not additional mandatory defaults. Keep important findings discoverable regardless of expansion state.
 
+### 6.1 Component Help sections
+
+Expose the [Technical Technique's Major Component Help](GeurtsTechnicalTechnique.md#major-component-help) in a clearly labelled **Help** section for each major component presented by an inspector or tool view. Make its location easy to find, including in standalone and God-embedded views where supported. A shared Help section may cover closely related controls in one major component; unrelated major components need their own relevant guidance. Include essential setup/use instructions locally rather than offering only an external link or tooltip.
+
+Use the labelled, collapsible section pattern above. Reserve the full height of expanded/wrapped Help content and ample spacing before neighbouring fields, following section 7.1; allow scrolling without overlapping or hiding controls. Opening Help is read-only and must not trigger setup, package acquisition, updates or other mutations.
+
 ## 7. Useful severity callouts
 
 Provide many useful nearby information, warning and error callouts wherever they help users understand a workflow, prerequisite, setting, consequence or correction. Use the supported Odin InfoBox/validation presentation or a themed Editor equivalent. There is no quota: avoid repeating instructions, filling empty space or overwhelming the controls with stale or irrelevant messages.
@@ -62,6 +68,17 @@ Provide many useful nearby information, warning and error callouts wherever they
 Each callout must include severity text and a distinct severity icon: an information icon for information, a warning triangle for warnings and an error icon for errors. Use the Theme Technique's readable shared severity styling. Colour alone is insufficient, and green branding must never replace warning/error styling. Do not rely on a tooltip for essential instructions or the explanation of a blocked action.
 
 Place the message near its relevant control or action. Explain what the user needs to know, the consequence where useful and the practical next step. Distinguish neutral guidance from an authoring finding and distinguish an authoring finding from an operation that actually failed. Remove or update callouts when their underlying state changes.
+
+### 7.1 Inspector spacing and overlap prevention
+
+Be especially wary of layout regressions after Commandments-compliance edits. Added instructions, information boxes, validation messages and group headers must not overlap serialized fields or other controls. Every affected inspector must provide ample space for its actual content, with clear separation between callouts, labels, fields, buttons and section headers. Nearby guidance means visibly adjacent, never drawn over the field it explains.
+
+- Reserve the full rendered height of each message and control, including wrapped text, icons, padding and the gap before the next element. Recalculate layout when the available width, displayed message, validation state or expansion state changes. Never allocate a single-line or fixed short height for content that can wrap or grow.
+- Use the shared Theme spacing and supported Odin/Unity layout mechanisms. Custom drawers and manually positioned controls must report and reserve the same complete area they draw. Do not layer manual rectangles over automatically laid-out Odin fields, use negative spacing or margins to squeeze content together, or draw the same content twice through base and custom rendering.
+- Leave clear vertical gaps between messages and their associated fields, and sufficient inner padding around boxed sections. If the current shared spacing is inadequate, improve the canonical layout through its owning package rather than creating a private spacing system. Allow the inspector to grow and scroll instead of compressing messages or reducing text readability to fit.
+- Check supported normal and narrow Inspector widths, long and multiple simultaneous messages, nested/expanded sections, and messages appearing or clearing during editing. Confirm labels, fields and clickable controls remain fully visible and usable; hiding guidance, truncating essential text or requiring a wider Inspector is not an overlap fix.
+
+Overlapping content is a failed appearance review, even when the inspector compiles and its actions work. Apply the native visual checks in section 10 and the Theme Technique; a source-only compliance pass cannot establish that spacing is sufficient.
 
 ## 8. Inline authoring findings and logging boundary
 
@@ -85,13 +102,13 @@ Distinguish Not checked, Unavailable and genuinely checked/clean states. An unch
 
 Before publishing an implementation or executable example, compile it with the Technical Technique's exact Unity and resolved dependency versions, and run proportionate focused Editor checks. Verify inline findings, correction/clearing, collapsed headers, inactive tabs, checks before first opening, unchecked states, object changes, Undo/Redo, multi-object editing, prefab/asset persistence and affected lifecycle cleanup. Confirm no repeat logs are emitted by routine invalid data or repaint, while genuine failures still reach the established logging route. Test BigBang without God and vendor assemblies if that surface is touched; no runtime assembly may gain an Editor documentation dependency.
 
-Inspect the actual native Unity UI using the Theme Technique's normal/narrow sizes, floating/docked layout, light/dark host skins and normal/high scaling requirements. Check useful callouts and distinct icons, expanded/collapsed sections, inactive tabs, long messages, scrolling, keyboard focus and affected enabled/disabled/busy/failure controls. A standalone and God-embedded view must both retain reachable content and host navigation where supported.
+Inspect the actual native Unity UI using the Theme Technique's normal/narrow sizes, floating/docked layout, light/dark host skins and normal/high scaling requirements. Verify each affected major component has reachable Help with accurate setup/use instructions and readable expanded content. Check useful callouts and distinct icons, expanded/collapsed sections, inactive tabs, long messages, scrolling, keyboard focus and affected enabled/disabled/busy/failure controls. Explicitly verify ample inspector spacing and no overlap between instructions/callouts and fields, including when multiple messages wrap or appear after a validation change. A standalone and God-embedded view must both retain reachable content and host navigation where supported.
 
 Follow the Automation Technique's computer-control policy. This standard does not authorize interactive desktop tests or disturbing the user's live Unity project. Prefer isolated fixtures and supported background checks; request explicit authorization only when required interactive control cannot be replaced, or record a human verification path and the exact unverified surface. Text validation, source review and successful compilation do not establish rendered UI acceptance.
 
 Existing installations are adopted deliberately as their affected surfaces are maintained; do not automatically rewrite scripts, assets, settings, layouts or user content. See [the 0.44.0 adoption note](../Migrations/v0.44.0.md). This documentation release specifies the gate; it does not retrofit released bricks or certify their native appearance. Record actual conformance, exceptions and missing evidence within each owning package's validation report, increase its version and publish through the existing release workflow.
 
-An affected Editor surface is done only when its shared theme, useful Odin/equivalent authoring, appropriate tabs, labelled collapsible sections, meaningful severity callouts, inline findings, discoverable hidden problems, preserved authoring behavior and native visual acceptance have been verified in their applicable scope. This is a maintainer/agent standard, not universal automatic enforcement.
+An affected Editor surface is done only when its shared theme, useful Odin/equivalent authoring, appropriate tabs, labelled collapsible sections, component Help, meaningful severity callouts, inline findings, discoverable hidden problems, preserved authoring behavior and native visual acceptance have been verified in their applicable scope. This is a maintainer/agent standard, not universal automatic enforcement.
 
 ## Reference material
 

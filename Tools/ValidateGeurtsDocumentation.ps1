@@ -566,7 +566,7 @@ try {
             }
         }
     }
-    Add-Check "Documentation companion closed contract" ($companionContractFailures.Count -eq 0) $(if ($companionContractFailures.Count) { $companionContractFailures -join "; " } else { "The current schema-3.0.0/package-v0.45.0 source contract fixes the official exact-commit archive, one managed directory, eleven validation entries, one four-target confirmation, and three exact full-file route mappings." })
+    Add-Check "Documentation companion closed contract" ($companionContractFailures.Count -eq 0) $(if ($companionContractFailures.Count) { $companionContractFailures -join "; " } else { "The current schema-3.0.0/package-v0.45.0 source contract fixes the official exact-commit archive, one managed directory, thirteen validation entries, one four-target confirmation, and three exact full-file route mappings." })
 
     $gitOnlyFailures = New-Object System.Collections.Generic.List[string]
     $gitBrickCatalogue = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsBrickCatalogue.json")) | ConvertFrom-Json
@@ -1031,8 +1031,8 @@ try {
     $themeText = if (Test-Path -LiteralPath $themePath -PathType Leaf) { [System.IO.File]::ReadAllText($themePath) } else { "" }
     $themeRoutingFailures = New-Object System.Collections.Generic.List[string]
     $themeRegistryRows = @($listedRecords | Where-Object { $_.Path -ceq $themeRelative })
-    if ($themeRegistryRows.Count -ne 1 -or $themeRegistryRows[0].Version -cne "1.5.1" -or -not $trackedSet.Contains($themeRelative)) {
-        $themeRoutingFailures.Add("theme technique 1.5.1 must be registered exactly once and tracked") | Out-Null
+    if ($themeRegistryRows.Count -ne 1 -or $themeRegistryRows[0].Version -cne "1.5.2" -or -not $trackedSet.Contains($themeRelative)) {
+        $themeRoutingFailures.Add("theme technique 1.5.2 must be registered exactly once and tracked") | Out-Null
     }
     $themeOwner = [regex]::Match($manifestText, '(?m)^\| Shared visual foundation for all existing and future Forge Editor UI \| `GeurtsTechniques/GeurtsEditorUIThemeTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     if (-not $themeOwner.Success -or $themeOwner.Groups['When'].Value -notmatch '(?i)Before creating, changing, reviewing or validating' -or
@@ -1082,7 +1082,7 @@ try {
     )) {
         if (-not $themeText.Contains($requiredThemeRule)) { $themeFailures.Add("theme requirement missing: $requiredThemeRule") | Out-Null }
     }
-    if ($themeText -notmatch '(?im)^\*\*Version:\*\*\s*1\.5\.1\s*$' -or
+    if ($themeText -notmatch '(?im)^\*\*Version:\*\*\s*1\.5\.2\s*$' -or
         $themeText -notmatch '^<!-- GEURTS-AUDIENCE: AI-READ -->' -or
         -not $themeText.Contains('<!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->')) {
         $themeFailures.Add("theme version or shared/Forge-development audience boundary is absent") | Out-Null
@@ -1095,8 +1095,8 @@ try {
     $appearanceText = if (Test-Path -LiteralPath $appearancePath -PathType Leaf) { [IO.File]::ReadAllText($appearancePath) } else { '' }
     $appearanceRoutingFailures = New-Object 'System.Collections.Generic.List[string]'
     $appearanceRows = @($listedRecords | Where-Object { $_.Path -ceq $appearanceRelative })
-    if ($appearanceRows.Count -ne 1 -or $appearanceRows[0].Version -cne '0.1.0' -or -not $trackedSet.Contains($appearanceRelative)) {
-        $appearanceRoutingFailures.Add('Appearance 0.1.0 must be registered exactly once and tracked') | Out-Null
+    if ($appearanceRows.Count -ne 1 -or $appearanceRows[0].Version -cne '0.1.2' -or -not $trackedSet.Contains($appearanceRelative)) {
+        $appearanceRoutingFailures.Add('Appearance 0.1.2 must be registered exactly once and tracked') | Out-Null
     }
     $appearanceOwner = [regex]::Match($manifestText, '(?m)^\| Forge-owned Editor workflow presentation, tabs, collapsible sections, callouts and inline authoring validation \| `GeurtsTechniques/GeurtsEditorAppearanceTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     if (-not $appearanceOwner.Success -or $appearanceOwner.Groups['When'].Value -notmatch 'Before creating, changing, reviewing or validating' -or
@@ -1124,7 +1124,7 @@ try {
     Add-Check 'Editor Appearance routing' ($appearanceRoutingFailures.Count -eq 0) $(if ($appearanceRoutingFailures.Count) { $appearanceRoutingFailures -join '; ' } else { 'The manifest selects Appearance after Theme; existing owners, README, archive completeness and adoption guidance retain their own boundaries.' })
 
     $appearanceFailures = New-Object 'System.Collections.Generic.List[string]'
-    if ($appearanceText -notmatch '(?m)^\*\*Version:\*\* 0\.1\.0\r?$' -or
+    if ($appearanceText -notmatch '(?m)^\*\*Version:\*\* 0\.1\.2\r?$' -or
         $appearanceText -notmatch '(?m)^\*\*Status:\*\* Normative mandatory standard\r?$' -or
         $appearanceText -notmatch '\A<!-- GEURTS-AUDIENCE: AI-READ -->') {
         $appearanceFailures.Add('Appearance version, normative status or shared AI audience is invalid') | Out-Null

@@ -1,4 +1,8 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
+# Integrated Forge setup — 0.45.0
+
+God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
+
 # Geurts Game Forge Commandments
 
 God 0.29.0 includes the Commandments tools. Existing Companion users update to the passive 0.15.1 adapter; fresh projects need only God. BigBang 0.4.0 provides separate local prerequisite and Get Latest Git Source actions, then hands over to this built-in view. See the [0.41.0 migration guide](Migrations/v0.41.0.md) before updating existing integrations. Package updates never replace local content or AI routes; those retain their separate confirmation.
@@ -290,6 +294,25 @@ God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandmen
 ## Changelog
 
 ### 0.45.0
+
+- Separate God bootstrap, Diagnostics console/logging and optional Angels tools; add public setup/readiness APIs and BigBang foundation handoff. Preserve the separately published inspector and pooling standards.
+
+### 0.44.19
+
+- Publish Object Pooling 0.7.1 at its remotely verified immutable Git commit, with larger spaced help and automatic definition/catalogue authoring and runtime lookup. Preserve God 0.33.4, Diagnostics 0.9.3, the inspector spacing and component Help policies, all other releases and the manual consumer update boundary.
+- Unity 6000.6.3f1 passes 86/86 Editor checks against Git sources with both God 0.33.3 and 0.33.4, including preservation, Undo, actual Create callbacks and normal/narrow help layout. Full rendered/docking/skin/DPI/physical-input acceptance remains unverified; see the owning package validation record.
+
+### 0.44.18
+
+- Technical 0.17.1 requires a labelled Help section for every major first-party component, explaining purpose, setup, normal use, key controls and a practical example, with relevant troubleshooting and supported extension guidance. Help stays local, discoverable, version-accurate and verified against a representative workflow.
+- Editor Appearance 0.1.2 requires reachable, collapsible Help in affected inspectors and tool views, with full layout space for wrapped instructions and no mutation on opening. Package metadata and existing version guards advance together; this documentation update does not retrofit installed components or change catalogue pins, schemas, AI routes or the live Unity project.
+
+### 0.44.17
+
+- Editor Appearance 0.1.1 explicitly warns about overlapping instructions/callouts and inspector fields after Commandments-compliance changes. Require ample spacing, full height for wrapped/dynamic content, supported layout without overlapping manual draws, and normal/narrow-width checks with multiple findings. Overlap fails appearance review.
+- Editor UI Theme 1.5.2 reinforces shared padding and complete layout allocation. Package metadata and validation version guards advance together; catalogue pins, schemas, managed targets and AI routes are unchanged. This documentation update does not modify installed inspectors or the live Unity project.
+
+### 0.44.16
 
 - Catalogue God 0.33.4 and Diagnostics 0.9.3: compact wrapped authoring headers and responsive console preference labels, preserving service/validation ownership and manual consumer installation.
 

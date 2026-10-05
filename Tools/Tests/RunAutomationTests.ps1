@@ -1234,7 +1234,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         else {
             $originalAppearanceText = $appearanceFixtureText
             switch ($appearanceCase) {
-                'bad-version' { $appearanceFixtureText = $appearanceFixtureText.Replace('**Version:** 0.1.0', '**Version:** 0.0.1') }
+                'bad-version' { $appearanceFixtureText = $appearanceFixtureText.Replace('**Version:** 0.1.2', '**Version:** 0.0.1') }
                 'hidden-policy' { $appearanceFixtureText = $appearanceFixtureText.Replace('GEURTS-AUDIENCE: AI-READ', 'GEURTS-AUDIENCE: HUMAN-ONLY') }
                 'noncollapsible' { $appearanceFixtureText = $appearanceFixtureText.Replace('Every content section must have a visible descriptive header and collapsible content', 'Content sections may remain permanently expanded without headers') }
                 'hidden-header' { $appearanceFixtureText = $appearanceFixtureText.Replace('Its header remains visible when collapsed', 'Its header disappears when collapsed') }
