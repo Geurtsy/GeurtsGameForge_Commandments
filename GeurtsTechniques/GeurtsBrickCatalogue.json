@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.44.14",
-  "publishedUtc": "2026-10-04T09:32:38Z",
+  "packageVersion": "0.44.15",
+  "publishedUtc": "2026-10-05T06:15:46Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -149,11 +149,11 @@
       "name": "Geurts Game Forge Audio",
       "description": "Bootstrap-owned Unity-default Audio and explicit optional FMOD0.2.2 with cached actual findings, retained draft controls and pinned operations. New outputs use exactly three Naming segments and preserve six tested legacy/published GUIDs, events and destination identities; reject foreign raw files/orphan metadata before writes. Final native52/52, attached authoring27/27, actual immutable installer4/4 and fresh Editor/bothWindows backend174/controller40/absent88 pass. Supported SDK2.03.14 vendor lifetime, Studio-build and rendered/physical/device/listening scopes remain unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
-      "version": "0.8.2",
+      "version": "0.8.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#22b301308837a70f7d26c4e599f909a5d44c68f5",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#f09fda3ed0c7db7714a98a3cd2bf4fb8d66627c3",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
