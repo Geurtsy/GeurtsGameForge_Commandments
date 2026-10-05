@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Editor Appearance Technique
 
-**Version:** 0.1.0
+**Version:** 0.1.1
 **Status:** Normative mandatory standard
 **Primary audience:** Geurts Game Forge brick and Editor-tool maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -63,6 +63,17 @@ Each callout must include severity text and a distinct severity icon: an informa
 
 Place the message near its relevant control or action. Explain what the user needs to know, the consequence where useful and the practical next step. Distinguish neutral guidance from an authoring finding and distinguish an authoring finding from an operation that actually failed. Remove or update callouts when their underlying state changes.
 
+### 7.1 Inspector spacing and overlap prevention
+
+Be especially wary of layout regressions after Commandments-compliance edits. Added instructions, information boxes, validation messages and group headers must not overlap serialized fields or other controls. Every affected inspector must provide ample space for its actual content, with clear separation between callouts, labels, fields, buttons and section headers. Nearby guidance means visibly adjacent, never drawn over the field it explains.
+
+- Reserve the full rendered height of each message and control, including wrapped text, icons, padding and the gap before the next element. Recalculate layout when the available width, displayed message, validation state or expansion state changes. Never allocate a single-line or fixed short height for content that can wrap or grow.
+- Use the shared Theme spacing and supported Odin/Unity layout mechanisms. Custom drawers and manually positioned controls must report and reserve the same complete area they draw. Do not layer manual rectangles over automatically laid-out Odin fields, use negative spacing or margins to squeeze content together, or draw the same content twice through base and custom rendering.
+- Leave clear vertical gaps between messages and their associated fields, and sufficient inner padding around boxed sections. If the current shared spacing is inadequate, improve the canonical layout through its owning package rather than creating a private spacing system. Allow the inspector to grow and scroll instead of compressing messages or reducing text readability to fit.
+- Check supported normal and narrow Inspector widths, long and multiple simultaneous messages, nested/expanded sections, and messages appearing or clearing during editing. Confirm labels, fields and clickable controls remain fully visible and usable; hiding guidance, truncating essential text or requiring a wider Inspector is not an overlap fix.
+
+Overlapping content is a failed appearance review, even when the inspector compiles and its actions work. Apply the native visual checks in section 10 and the Theme Technique; a source-only compliance pass cannot establish that spacing is sufficient.
+
 ## 8. Inline authoring findings and logging boundary
 
 Routine authoring validation findings must appear inline at the affected field or group. Explain the problem and how to correct it, retain useful object/field context and clear the finding when fixed. Use the Technical Technique's supported Required, range and ValidateInput constraints where suitable; domain validation must share underlying rules between the Editor, public code extensions and relevant repeatable checks.
@@ -85,7 +96,7 @@ Distinguish Not checked, Unavailable and genuinely checked/clean states. An unch
 
 Before publishing an implementation or executable example, compile it with the Technical Technique's exact Unity and resolved dependency versions, and run proportionate focused Editor checks. Verify inline findings, correction/clearing, collapsed headers, inactive tabs, checks before first opening, unchecked states, object changes, Undo/Redo, multi-object editing, prefab/asset persistence and affected lifecycle cleanup. Confirm no repeat logs are emitted by routine invalid data or repaint, while genuine failures still reach the established logging route. Test BigBang without God and vendor assemblies if that surface is touched; no runtime assembly may gain an Editor documentation dependency.
 
-Inspect the actual native Unity UI using the Theme Technique's normal/narrow sizes, floating/docked layout, light/dark host skins and normal/high scaling requirements. Check useful callouts and distinct icons, expanded/collapsed sections, inactive tabs, long messages, scrolling, keyboard focus and affected enabled/disabled/busy/failure controls. A standalone and God-embedded view must both retain reachable content and host navigation where supported.
+Inspect the actual native Unity UI using the Theme Technique's normal/narrow sizes, floating/docked layout, light/dark host skins and normal/high scaling requirements. Check useful callouts and distinct icons, expanded/collapsed sections, inactive tabs, long messages, scrolling, keyboard focus and affected enabled/disabled/busy/failure controls. Explicitly verify ample inspector spacing and no overlap between instructions/callouts and fields, including when multiple messages wrap or appear after a validation change. A standalone and God-embedded view must both retain reachable content and host navigation where supported.
 
 Follow the Automation Technique's computer-control policy. This standard does not authorize interactive desktop tests or disturbing the user's live Unity project. Prefer isolated fixtures and supported background checks; request explicit authorization only when required interactive control cannot be replaced, or record a human verification path and the exact unverified surface. Text validation, source review and successful compilation do not establish rendered UI acceptance.
 
