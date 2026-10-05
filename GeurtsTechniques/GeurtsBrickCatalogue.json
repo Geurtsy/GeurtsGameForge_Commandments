@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
   "packageVersion": "0.45.0",
-  "publishedUtc": "2026-10-05T07:20:33Z",
+  "publishedUtc": "2026-10-05T10:32:13Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
       "name": "Geurts Game Forge BigBang",
-      "description": "Independent Editor installer with native boxed/collapsible steps, written closed-header severity/icons, retained expansion and pinned operation/source/cancel/failure controls. Existing installer/controller/acquisition/compilation/persistence/profile and package boundary preserved; dependency compliance and dependency-driven rework exempt. Native110/110 and actual latest-source25/25 passedexit0 with immutable God33.3 readback and no installation/consumer content change. Full rendered/physical acceptance remains unverified.",
+      "description": "Independent Editor installer that compiles before God and licensed prerequisites exist. Explicit verified stable Git source selection installs God; foundation check, Commandments update and Open God use public API 1.1 in God 0.34.0. Older sources receive an explicit upgrade state. Independent 113/113 checks pass with stale ODIN_INSPECTOR and no God/vendors. No automatic project tools or content acquisition; full desktop/physical acceptance remains unverified.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#4471d8f5f97c9a85d6f988c10a9499fa18f78b64",
+      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#6b6ed11823a0bcf6febf48dfae46895245d8dfea",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [],
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "God-owned lifecycle, package/content tools and canonical cached authoring presentation. Patch 0.33.4 bounds native severity icons and reserves full wrapped foldout text height independently of icon dimensions, preserving section expansion, validation and runtime ownership. Windows Unity 6000.6.3f1 Editor 92/92 (God 18, Diagnostics 74) and embedded 12/12 passed at 480/1000px; current production/test trees match immutable tested candidates. Historical player/naming evidence retains its original versions. Full rendered/physical acceptance remains unverified; users install manually.",
+      "description": "Foundation API 1.1, merged Commandments interface, minimal eight-folder bootstrap and trusted optional-owner recommendations. God is the only mandatory brick; project tools and console are delegated. Forge logging uses optional capture without Unity mirror/fallback; failures remain visible independently. Existing serialized bridges remain passive. Integrated Unity 6000.6.3f1 Editor suite passes 1069/0/7; God-only checks and native Windows Mono/IL2CPP probes pass. Users update manually; see release evidence for exact scope and limits.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.33.4",
+      "version": "0.34.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#2eb07418e2e88ff33859e0169a96727acced557d",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#0054c151d84fe0aaa5376e087b0e2a909a77116b",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -55,13 +55,13 @@
     {
       "id": "com.geurts.gameforge.diagnostics",
       "name": "Geurts Game Forge Diagnostics",
-      "description": "God-owned logging, Quantum Console channels/commands, history/health/inspection and metrics with canonical cached authoring. Patch 0.9.3 removes the redundant outer preference card, adapts Odin label width and uses God 0.33.4 compact wrapped section headers. Editor Diagnostics 74/74 plus God 18/18 and embedded 12/12 pass at 480/1000px; independent standalone ownership and Back disposal retained. Service/storage/runtime behavior unchanged. Historical acceptance retains original versions; full rendered/physical matrix remains unverified. Requires God 0.33.4; users install manually.",
+      "description": "Owns explicit saved SCN_BigBang console installation, separate TMP resource preparation, configuration, input cooperation and cleanup. Capture-only logging retains original records once, with independent storage/capture/console/observer failure status. Legacy God bridge references are preserved. Compatible God 0.34.0 pair required; no automatic scene migration. Current Editor, licensed-console Play and Windows Mono/IL2CPP checks pass; full desktop/physical/vendor matrix remains unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics",
-      "version": "0.9.3",
+      "version": "0.10.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#bcdff58f2a3a6168c2cf20e63024abe95cf0b4c8",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#811e5f2f98360f17ef05747e089736c9c5fc3f59",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -71,7 +71,29 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.33.4"
+          "minimumVersion": "0.34.0"
+        }
+      ]
+    },
+    {
+      "id": "com.geurts.gameforge.angels",
+      "name": "Geurts Game Forge Angels",
+      "description": "Optional Editor-only project tools: approved create-only folders, reviewed GUID-preserving asset moves, exact-root local Git inspection/init, create-only ignore rules, selected existing-folder AGENTS.md, selected GDD batch/primary and applicable append-only FMOD attributes. God 0.34.0 and local compatible Commandments 0.45.0 required. Seven workflows and real Git/asset drift/partial cases tested. Existing artifacts remain after removal; manual actions only; Windows symlink and physical acceptance limits are recorded.",
+      "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
+      "version": "0.1.0",
+      "released": true,
+      "developmentOnly": false,
+      "sourceKind": "git",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#93b78b617d9ce6e8b75f84bbc49b1ace31e5cce7",
+      "minimumUnity": "6000.6",
+      "maximumUnity": "6000.6",
+      "requiredTools": [
+        "Odin Inspector"
+      ],
+      "dependencies": [
+        {
+          "id": "com.geurts.gameforge.god",
+          "minimumVersion": "0.34.0"
         }
       ]
     },
@@ -101,13 +123,13 @@
     {
       "id": "com.geurts.gameforge.sceneloading",
       "name": "Geurts Game Forge Scene Loading and Bootstrap",
-      "description": "Bootstrap-first startup, scene groups, asset-authored later scene changes and reusable loading presentations, readiness and recovery, with optional UI Foundations callbacks, pooling lifecycle and multiplayer integration points. Cached per-selected-object inline authoring uses boxed collapsible sections with hidden severity text/icons through God 0.33.0, retaining draft controls and ordinary bootstrap ownership. Native Editor135/0/1, embedded10/10 and Editor Play/Windows Mono/IL2CPP34/34 passed. Full rendered/physical acceptance remains unverified.",
+      "description": "Bootstrap-owned scene transitions, readiness and loading presentation with preserved authored state and optional peers. Requires God 0.34.0 capture-only contract; cancellation and presentation cleanup failures stay independently visible, and remaining cleanup continues. Current integrated Editor and Windows Mono/IL2CPP checks pass. Windows symlink privilege and full desktop/physical/vendor acceptance remain unverified. Users update manually.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading",
-      "version": "0.6.0",
+      "version": "0.6.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#cf0062d55ff5187edda733d4e8cadcaefb5d02f7",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#44489472431dbf40c1e98033a6cc8182fdb48a45",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -117,7 +139,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.33.0"
+          "minimumVersion": "0.34.0"
         }
       ]
     },
@@ -170,13 +192,13 @@
     {
       "id": "com.geurts.gameforge.userinterface",
       "name": "Geurts Game Forge User Interface Foundations",
-      "description": "Preview: shared cached source/context findings, closed-section and inactive-tab severity, retained editable drafts with pinned controls, registered names for new content and actual configured-console cooperation. Existing APIs, authored identities and optional Settings integration retained. NativeEditor133/133, Play41/41, Godembedded23/23 and actualEditor/WindowsMonoLow/IL2CPPHigh65/65 passed; separate Settings-absent127/0/6 and41/41Play verified. Full rendered/physical input acceptance remains unverified.",
+      "description": "UI Toolkit foundations with existing optional Settings authoring, preserved identities and authored controls. Frequent logging skips formatting without optional capture; requires God 0.34.0. Current integrated Editor, 122 Settings/UI authoring checks and 53 combined licensed-console/UI Play checks pass, plus native Windows probes. Appearance failures remain visible without Unity fallback. Full desktop/physical acceptance remains unverified; users update manually.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface",
-      "version": "0.12.0",
+      "version": "0.12.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#35c3b29502705d990ccaa9e6b0a98b96cbbf086d",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#6340fe25e0077a5c2d240995bb3f82d424bcc6d0",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -186,20 +208,20 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.33.1"
+          "minimumVersion": "0.34.0"
         }
       ]
     },
     {
       "id": "com.geurts.gameforge.objectpooling",
       "name": "Geurts Game Forge Object Pooling",
-      "description": "Reusable prefab pools with larger spaced help and automatic project-owned definition/catalogue folders and runtime lookup. Existing assets, GUIDs, prefab content, settings and explicit-path APIs are preserved. Unity 6000.6.3f1 passes 86/86 Editor checks with both God 0.33.3 and 0.33.4, including actual Create callbacks and normal/narrow native layout. Full rendered/docking/skin/DPI/physical-input acceptance remains unverified. Peer integrations remain optional; users update manually.",
+      "description": "Reusable prefab pools with existing automatic authoring, GUID and lease preservation. Frequent logging skips formatting when optional capture is unavailable; requires God 0.34.0. Current integrated Editor and native Windows Mono/IL2CPP probes pass. Failure/return status stays inspectable without Unity fallback. Optional peers remain optional, full desktop/physical matrix unverified, users update manually.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling",
-      "version": "0.7.1",
+      "version": "0.7.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#90129e6ed10469867feaccb62cf3f14d0a0eed62",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#f4a4f54b9cf45f45fcd1ba03e83451d1307d3b58",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -209,7 +231,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.32.0"
+          "minimumVersion": "0.34.0"
         }
       ]
     }

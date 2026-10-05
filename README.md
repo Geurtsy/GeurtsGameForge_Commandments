@@ -5,6 +5,8 @@ God owns Commandments and minimal bootstrap; Diagnostics owns optional console i
 
 # Geurts Game Forge Commandments
 
+## Earlier released capabilities and evidence
+
 God 0.29.0 includes the Commandments tools. Existing Companion users update to the passive 0.15.1 adapter; fresh projects need only God. BigBang 0.4.0 provides separate local prerequisite and Get Latest Git Source actions, then hands over to this built-in view. See the [0.41.0 migration guide](Migrations/v0.41.0.md) before updating existing integrations. Package updates never replace local content or AI routes; those retain their separate confirmation.
 
 God 0.31.0 supplies ordinary bootstrap-owned runtime hosts and a configured scene-owned console accessor. Its Windows Mono and IL2CPP probes passed; existing saved scenes still require the explicit console migration after manual installation. The full rendered/physical appearance matrix remains unverified. See the [ownership and validation guide](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/v0.31.0/Documentation~/BootstrapOwnership.md).
