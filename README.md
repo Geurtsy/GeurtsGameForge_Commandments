@@ -77,7 +77,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.44.18
+**Version:** 0.44.19
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -289,10 +289,15 @@ God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandmen
 
 ## Changelog
 
+### 0.44.19
+
+- Publish Object Pooling 0.7.1 at its remotely verified immutable Git commit, with larger spaced help and automatic definition/catalogue authoring and runtime lookup. Preserve God 0.33.4, Diagnostics 0.9.3, the inspector spacing and component Help policies, all other releases and the manual consumer update boundary.
+- Unity 6000.6.3f1 passes 86/86 Editor checks against Git sources with both God 0.33.3 and 0.33.4, including preservation, Undo, actual Create callbacks and normal/narrow help layout. Full rendered/docking/skin/DPI/physical-input acceptance remains unverified; see the owning package validation record.
+
 ### 0.44.18
 
-- Publish Object Pooling 0.7.0 at its remotely verified immutable Git commit, with larger spaced help and automatic definition/catalogue authoring and runtime lookup. Preserve God 0.33.4, Diagnostics 0.9.3, the inspector spacing policy, all other releases and the manual consumer update boundary.
-- Unity 6000.6.3f1 passes 86/86 Editor checks against Git sources with both God 0.33.3 and 0.33.4, including preservation, Undo, actual Create callbacks and normal/narrow help layout. Full rendered/docking/skin/DPI/physical-input acceptance remains unverified; see the owning package validation record.
+- Technical 0.17.1 requires a labelled Help section for every major first-party component, explaining purpose, setup, normal use, key controls and a practical example, with relevant troubleshooting and supported extension guidance. Help stays local, discoverable, version-accurate and verified against a representative workflow.
+- Editor Appearance 0.1.2 requires reachable, collapsible Help in affected inspectors and tool views, with full layout space for wrapped instructions and no mutation on opening. Package metadata and existing version guards advance together; this documentation update does not retrofit installed components or change catalogue pins, schemas, AI routes or the live Unity project.
 
 ### 0.44.17
 

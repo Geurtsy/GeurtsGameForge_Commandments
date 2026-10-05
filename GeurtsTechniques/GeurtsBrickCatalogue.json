@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.44.18",
-  "publishedUtc": "2026-10-05T07:01:35Z",
+  "packageVersion": "0.44.19",
+  "publishedUtc": "2026-10-05T07:20:33Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -195,11 +195,11 @@
       "name": "Geurts Game Forge Object Pooling",
       "description": "Reusable prefab pools with larger spaced help and automatic project-owned definition/catalogue folders and runtime lookup. Existing assets, GUIDs, prefab content, settings and explicit-path APIs are preserved. Unity 6000.6.3f1 passes 86/86 Editor checks with both God 0.33.3 and 0.33.4, including actual Create callbacks and normal/narrow native layout. Full rendered/docking/skin/DPI/physical-input acceptance remains unverified. Peer integrations remain optional; users update manually.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#1715d31baf57d58738bbfa1d9d66c674bd912782",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#90129e6ed10469867feaccb62cf3f14d0a0eed62",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
