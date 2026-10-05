@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.17.0
+**Version:** 0.17.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -408,6 +408,16 @@ FMOD-specific source-control guidance applies only when an FMOD integration is c
 
 This section defines standards for documenting C# code to ensure clarity, maintainability, and ease of collaboration.
 
+### Major Component Help
+
+Every major first-party component must provide a clearly labelled **Help** section explaining how to use it. This includes Geurts Game Forge bricks, substantial runtime/game systems, authoring components and Editor tools. A major component owns a distinct user workflow or substantial capability; this requirement does not demand a separate Help section for every small field, helper or method.
+
+Explain the component's purpose, prerequisites and setup, normal use through supported controls, key settings and actions, and a short practical example. Include common problems and their remedies where relevant. Describe supported code/API extensions and any documented code-required exception when applicable, while keeping ordinary no-code instructions understandable without reading source. Tooltips, compliance notices and XML summaries supplement this Help section; they do not replace usage instructions.
+
+Provide Help at the point of use. Components with an Editor surface must expose a discoverable, clearly labelled Help section in their inspector or tool view, following the [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md#61-component-help-sections). A major service without its own authoring surface must provide the labelled Help section in its owning component/package usage documentation, linked from its documented entry point. Essential instructions must remain readable locally/offline; optional links to fuller references may supplement them without adding runtime documentation dependencies.
+
+Keep Help accurate for the supported component version and update it whenever setup or behaviour changes. Verify that a user can follow its instructions to complete a representative setup and use workflow. This policy does not certify existing releases or authorize automatic edits to installed components or user content; apply it to new and affected components during maintenance.
+
 ### Public Methods
 
 Every publicly accessible method must include an XML `/// <summary>` comment.
@@ -662,6 +672,7 @@ A generated or modified Unity C# script is complete only when it:
 - Follows the manifest-selected Naming Technique for applicable asset, scene-object and script names and this technique's code-symbol and lowercase underscore-separated authored ID conventions, with format, uniqueness and affected-reference validation.
 - Includes tooltips for all `[SerializeField]` fields.
 - Includes XML summaries for public methods.
+- Provides an accurate, discoverable Help section for each affected major component under the Major Component Help standard, with setup/use instructions verified against the supported workflow.
 - Avoids unnecessary per-frame allocations.
 - Avoids expensive logic inside `Update()` unless justified.
 - Uses Odin Inspector meaningfully for applicable serialized configuration, validation, diagnostics, and safe Editor actions, with its installed compatible version recorded.
