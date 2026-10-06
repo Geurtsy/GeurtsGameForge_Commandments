@@ -169,6 +169,7 @@ Each source template explicitly tells an agent to read that installed entry befo
 
 An AI tool must support the applicable native instruction file or be explicitly instructed to read and follow `AI_READ_FIRST.md`. Tools that ignore those instruction surfaces may not discover or follow the Geurts documentation. The companion must present this limitation accurately and must not claim universal AI control or compliance.
 
+<!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->
 ## 9. Conformance
 
 A conforming companion:
@@ -183,6 +184,7 @@ A conforming companion:
 - treats the managed documentation copy as logically read-only and discards local edits on confirmed Update;
 - never accesses `Docs/GameDesign/`, executes scripts, performs setup, or changes any unlisted project file; and
 - explains the native AI routing limitation without promising universal enforcement.
+<!-- GEURTS-SECTION:END -->
 
 ## Separate Codex guide installation
 

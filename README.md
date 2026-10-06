@@ -1,5 +1,5 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.45.3
+# Integrated Forge setup — 0.46.0
 
 God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
@@ -83,7 +83,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.45.3
+**Version:** 0.46.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -293,6 +293,14 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 Angels owns **Install Codex guide**; God navigates to it and compatibility APIs forward to the same owner. Follow the [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) for an explicitly selected existing folder, including the project root, and the separate cancel-default replacement confirmation. Content/package updates never install or rewrite guides.
 
 ## Changelog
+
+### 0.46.0
+
+- Split the Technical Technique into a short shared core and manifest-selected topics; shorten duplicated guidance without changing its requirements.
+- Compact the manifest while preserving identities, versions, subject ownership and exact compatibility contracts. Routine guidance targets current published packages; changelogs and historical release summaries are excluded from mandatory reads.
+- Hide maintainer-only details during GameUse. Extend the local read-only helper with heading/size previews and controlled section reads that always retain shared rules and reject unknown scope.
+- Existing entry/fragment links, exact templates, schema 3.0.0, four-target consent, offline behavior and user-owned content remain intact. Update the complete Commandments copy manually; this release does not install packages or alter the live project.
+
 
 ### 0.45.3
 

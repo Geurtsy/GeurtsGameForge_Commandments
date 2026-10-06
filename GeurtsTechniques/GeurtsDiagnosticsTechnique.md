@@ -146,6 +146,7 @@ The performance overlay automatically fits its current enabled metric content an
 
 The runtime **Metrics** view exposes a **Background transparency** slider with a visible percentage: **0% is solid** and **100% is clear**. The default is **12%**, preserving the earlier background alpha of **0.88**. Change only the performance overlay background; metric text, the drag strip and the resize grip retain their existing opacity and remain usable. Expose the same persisted preference in the Editor's Odin settings and use the shared brick settings store across sessions. The layout reset continues to reset only sizing and position; it must not reset background transparency.
 
+<!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->
 ## Validation and migration
 
 The package's importable Basic Diagnostics Setup sample demonstrates actual game-owned coins, inspection, health checks, three session policies, failed/committed zone transitions and saved cheat provenance. It does not automatically start gameplay or install a framework. Legacy `GeurtsDiagnosticsManager`, `GeurtsLogger` and sink APIs are compatibility surfaces only; the old manager cannot start/stop the shared service. Legacy settings assets retain serialized data but no longer control active behavior.
@@ -159,3 +160,4 @@ For overlay transparency, verify 0%, 12% and 100%, the visible percentage and pe
 For text selection, verify multi-record pointer/Shift selection, Ctrl+A/C, exact plain text including literal markup, expanded-only details, a stable snapshot while new logs arrive, unchanged log-pause state, allowed responses, and snapshot removal after every scope/lifecycle change. Specifically switch Developer to Player during selection and confirm no Developer snapshot remains. Verify that typing/cut/paste cannot mutate output and that Ctrl+V in the existing command input never executes on its own. Check the runtime 12,000-rendered-line capacity boundary, the persistent recovery explanation, and a width change that makes a previously valid snapshot exceed capacity; there must be no silent truncation or corresponding Editor limit. Exercise the runtime and Editor clipboard paths separately; source review and synthetic input tests must not be reported as verified native clipboard interaction.
 
 No diagnostic report-export feature is part of this scope. User-selected clipboard copy of the loaded log page is not a retained-history export or a file-writing feature. Build/test evidence belongs to development tooling, not a runtime export command.
+<!-- GEURTS-SECTION:END -->

@@ -1,4 +1,4 @@
-<!-- GEURTS-AUDIENCE: AI-READ -->
+<!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
 # Geurts Game Forge Intelligence Technique
 
 **Version:** 2.0.0
