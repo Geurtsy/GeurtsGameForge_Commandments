@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.17.2
+**Version:** 0.17.3
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -418,6 +418,16 @@ Provide Help at the point of use. Components with an Editor surface must expose 
 
 Keep Help accurate for the supported component version and update it whenever setup or behaviour changes. Verify that a user can follow its instructions to complete a representative setup and use workflow. This policy does not certify existing releases or authorize automatic edits to installed components or user content; apply it to new and affected components during maintenance.
 
+### Public Classes
+
+**Every first-party public C# class must include a meaningful XML `/// <summary>` description immediately above its declaration (before any declaration attributes).** This includes public static, abstract, generic and nested classes in Geurts bricks, ordinary game code, runtime systems, Editor tools and tests.
+
+Describe the class's purpose and responsibility so a caller can understand when and why to use it. Empty summaries, a repetition of the class name, ordinary `//` comments or `<inheritdoc/>` alone do not satisfy this requirement. Keep the XML well formed and accurate as the class changes. Add `<remarks>` for relevant setup, ownership, lifetime, constraints or usage guidance, and `<typeparam>` descriptions for generic type parameters where present.
+
+For a partial class, place the complete class description on one primary first-party declaration that is maintained by the project; avoid duplicate class summaries on every part. Document the complete class, including relevant behavior supplied by its other parts. Preserve vendor and generated files; maintain documentation through an owned declaration or the supported generator/source when appropriate.
+
+Review the public classes in the affected implementation before publication. This requirement does not certify existing releases or authorize unrelated edits to installed packages, third-party code or generated output. Class descriptions supplement the separate public-method XML documentation and Major Component Help requirements; they do not replace either.
+
 ### Public Methods
 
 Every publicly accessible method must include an XML `/// <summary>` comment.
@@ -640,7 +650,7 @@ A generated or modified Unity C# script is complete only when it:
 - Uses bootstrap-scene ownership for persistent runtime objects, avoids direct and indirect `DontDestroyOnLoad`, and verifies the affected startup, transition, and teardown behaviour.
 - Follows the manifest-selected Naming Technique for applicable asset, scene-object and script names and this technique's code-symbol and lowercase underscore-separated authored ID conventions, with format, uniqueness and affected-reference validation.
 - Includes tooltips for all `[SerializeField]` fields.
-- Includes XML summaries for public methods.
+- Includes meaningful XML summaries for every first-party public class under Code Documentation Standards, as well as XML summaries for public methods.
 - Provides an accurate, discoverable Help section for each affected major component under the Major Component Help standard, with setup/use instructions verified against the supported workflow.
 - Avoids unnecessary per-frame allocations.
 - Avoids expensive logic inside `Update()` unless justified.
