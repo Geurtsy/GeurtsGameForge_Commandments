@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Editor Appearance Technique
 
-**Version:** 0.1.3
+**Version:** 0.1.4
 **Status:** Normative mandatory standard
 **Primary audience:** Geurts Game Forge brick and Editor-tool maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -25,7 +25,7 @@ This is a quality gate within the existing Technical Technique. It does not add,
 
 ## 3. Shared visual foundation
 
-Use the Theme Technique's very dark surfaces, consistent green accents, readable labels, deliberate hierarchy, shared spacing and intuitive controls. Reuse its canonical implementation and semantic severity tokens; do not create another palette or private theme. Green identifies branding, interaction and emphasis, never warning or error severity.
+Use the Theme Technique's very dark surfaces, consistent green accents, readable labels, deliberate hierarchy and intuitive controls. Apply its [spacious Editor layout baseline](GeurtsEditorUIThemeTechnique.md#spacious-editor-layouts) across every affected window, embedded view and inspector; preserve breathing room as content expands or wraps. Reuse its canonical implementation and semantic severity tokens; do not create another palette or private theme. Green identifies branding, interaction and emphasis, never warning or error severity.
 
 Preserve the Theme Technique's window size, docking, focus, scrolling, disabled-action explanation and truthful-status requirements, including its green working, orange needs-attention and red error outlines with visible text labels. A callout or foldout must not conceal an important reason an action is unavailable. Long labels, paths and expanded messages must remain readable and reachable at normal and narrow sizes.
 
@@ -102,7 +102,7 @@ Distinguish Not checked, Unavailable and genuinely checked/clean states. An unch
 
 Before publishing an implementation or executable example, compile it with the Technical Technique's exact Unity and resolved dependency versions, and run proportionate focused Editor checks. Verify inline findings, correction/clearing, collapsed headers, inactive tabs, checks before first opening, unchecked states, object changes, Undo/Redo, multi-object editing, prefab/asset persistence and affected lifecycle cleanup. Confirm no repeat logs are emitted by routine invalid data or repaint, while genuine failures still reach the established logging route. Test BigBang without God and vendor assemblies if that surface is touched; no runtime assembly may gain an Editor documentation dependency.
 
-Inspect the actual native Unity UI using the Theme Technique's normal/narrow sizes, floating/docked layout, light/dark host skins and normal/high scaling requirements. Verify each affected major component has reachable Help with accurate setup/use instructions and readable expanded content. Check useful callouts and distinct icons, expanded/collapsed sections, inactive tabs, long messages, scrolling, keyboard focus and affected enabled/disabled/busy/failure controls. Explicitly verify ample inspector spacing and no overlap between instructions/callouts and fields, including when multiple messages wrap or appear after a validation change. A standalone and God-embedded view must both retain reachable content and host navigation where supported.
+Inspect the actual native Unity UI using the Theme Technique's normal/narrow sizes, floating/docked layout, light/dark host skins and normal/high scaling requirements. Verify each affected major component has reachable Help with accurate setup/use instructions and readable expanded content. Check useful callouts and distinct icons, expanded/collapsed sections, inactive tabs, long messages, scrolling, keyboard focus and affected enabled/disabled/busy/failure controls. Explicitly verify the Theme Technique's spacious-layout baseline on every affected surface, ample inspector spacing and no overlap between instructions/callouts and fields, including when multiple messages wrap or appear after a validation change. A standalone and God-embedded view must both retain reachable content and host navigation where supported.
 
 Follow the Automation Technique's computer-control policy. This standard does not authorize interactive desktop tests or disturbing the user's live Unity project. Prefer isolated fixtures and supported background checks; request explicit authorization only when required interactive control cannot be replaced, or record a human verification path and the exact unverified surface. Text validation, source review and successful compilation do not establish rendered UI acceptance.
 

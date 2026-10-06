@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Editor UI Theme Technique
 
-**Version:** 1.5.3
+**Version:** 1.5.4
 **Status:** Normative mandatory standard
 **Primary audience:** Geurts Game Forge brick and Editor-tool maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -53,6 +53,25 @@ Use the [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md) for la
 - Distinguish destructive actions from ordinary actions using precise labels and error emphasis. Preserve the existing subject owner's confirmation, cancellation and scope rules; styling must not add, remove or bypass authorization.
 - Keep all labels and input content readable against the surfaces actually drawn. Restore temporary GUI colors, styles and state after drawing so a Forge panel cannot change unrelated Unity or third-party UI.
 
+### Spacious Editor layouts
+
+All Forge-owned Editor UI must be spacious: standalone windows, God-embedded views, dashboards, setup/settings pages, custom inspectors and component/ScriptableObject authoring. Leave visible breathing room around controls and between related groups, including after adding Commandments instructions, Help or validation feedback. Spaciousness is a required appearance-review criterion.
+
+Use this minimum spacing baseline for Forge-owned layout, measured in **Editor points** (logical UI units, not physical display pixels):
+
+| Layout area | Minimum spacing |
+|---|---:|
+| Content inset from panel/card edges and status outlines | 12 points on each side. |
+| Gap between adjacent control rows or a callout and its next control | 8 points. |
+| Gap between separate section cards or grouped content blocks | 16 points. |
+| Gap between major workflow groups | 24 points. |
+
+Increase these values where the actual content, hierarchy or display scaling needs more room. Reuse or extend God's canonical spacing tokens/components and the maintained BigBang subset where applicable. These values define a documentation requirement; they do not claim that a released theme API already exposes matching tokens. Keep supported native/Odin field and drawer heights, adding the surrounding spacing through supported layout mechanisms rather than forcing third-party controls into fixed rectangles.
+
+Allow headings, labels, Help, instructions, status/owner text and validation messages their complete rendered height, including wrapping, icons and padding. Size buttons and editable controls to keep their complete labels, values and focus indicators readable and comfortably usable. Recalculate layout when width, scaling, expansion or visible findings change. Never use negative margins, overlapping rectangles, smaller fonts or clipped essential text to make a crowded panel fit.
+
+At narrow docked widths, reflow horizontal groups into vertical stacks and use scrolling while retaining padding and gaps. Preserve the user's existing window size and docking. Keep required navigation, confirmation, cancellation and failure information reachable. Inspect normal and narrow widths, expanded Help, long labels and simultaneous wrapped findings at normal/high display scaling before accepting an implementation. A large initial window or passing geometry check alone does not establish a spacious rendered UI.
+
 ### Status outlines
 
 Outline the relevant Forge status card, section or setup step consistently: **green for verified working/ready**, **orange for needs attention**, and **red for an error**. Use the canonical Accent, Attention and Error tokens respectively. Keep a visible text label, actual reason and practical next action; colour alone is insufficient. Identify the actual tool owner beside the step so a God navigation surface cannot be mistaken for the tool performing the work.
@@ -94,7 +113,7 @@ An Editor UI change is conforming only when the following evidence is recorded f
 
 1. The shared API/stylesheet is reused; canonical tokens match this technique. For a canonical theme change, verify God's Commandments view and regenerate/check BigBang's selected subset where affected before publication.
 2. Compile and run relevant focused Editor checks in the exact Unity version required by the Technical Technique. No runtime assembly may acquire a theme or `UnityEditor` dependency.
-3. Inspect the actual UI at its normal size and a narrow docked size, and check floating/docked behavior, scrolling, long labels and expanded messages. Controls and explanations must remain reachable without clipping or overlapping content.
+3. Inspect the actual UI at its normal size and a narrow docked size, and check floating/docked behavior, scrolling, long labels and expanded messages. Verify the spacious-layout baseline above, including panel insets, row/section gaps and reflow. Controls and explanations must remain reachable without clipping or overlapping content.
 4. Check readability with Unity's light and dark host skins and at normal and high display scaling. The Forge content remains dark in both skins; neighboring native/Odin controls remain legible. Record unavailable visual environments instead of claiming they passed.
 5. Exercise the affected enabled, disabled, selected, hover, keyboard-focus, busy, success, warning and failure states. Verify the visible disabled reason and next step and semantic severity labels wherever applicable.
 6. Confirm the real actions, settings persistence, Undo/serialized authoring behavior, cancellation, operation reporting and existing animation still work where touched. A visual change must not fabricate results, hide a failure, change package lifecycle or overwrite an open scene.
