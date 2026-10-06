@@ -1,5 +1,5 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.45.1
+# Integrated Forge setup — 0.45.2
 
 God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
@@ -83,7 +83,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.45.1
+**Version:** 0.45.2
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -293,6 +293,12 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 Angels owns **Install Codex guide**; God navigates to it and compatibility APIs forward to the same owner. Follow the [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) for an explicitly selected existing folder, including the project root, and the separate cancel-default replacement confirmation. Content/package updates never install or rewrite guides.
 
 ## Changelog
+
+### 0.45.2
+
+- Requires spacious layouts throughout Forge-owned Editor windows, God-embedded views, dashboards, setup/settings and inspectors, with one shared spacing baseline in the [Editor UI Theme Technique](GeurtsTechniques/GeurtsEditorUIThemeTechnique.md#spacious-editor-layouts).
+- Defines minimum panel padding and row/section/workflow gaps in Editor points, full-height wrapped content, narrow-width reflow and scrolling, and native visual review. Appearance refers to that owner rather than duplicating the dimensions.
+- This documentation update does not retrofit released brick UI or alter live projects, assets, user layouts or content-update consent.
 
 ### 0.45.1
 
