@@ -969,6 +969,9 @@ try {
     if (-not $folderOwnerSafetyValid) { $folderFailures.Add("Folder Technique does not own the root and final directory reparse boundary") | Out-Null }
     Add-Check "Folder definition contract" ($folderFailures.Count -eq 0) $(if ($folderFailures.Count) { $folderFailures -join "; " } else { "Definition versions, 78 entries, owner-bound profiles, package-only resolution, and exact Markdown parity are valid; root and per-directory final reparse guards prevent creation outside the project." })
 
+    $folderVersionGuard = "(?im)^\*\*Version:\*\*\s*0\.16\.1\s*$"
+    Add-Check 'Folder technique reader version parity' ($folderToolText.Contains($folderVersionGuard) -and $folderTechniqueTextForPathTerms -match $folderVersionGuard) 'The folder creator accepts the registered Folder Technique 0.16.1; unsupported explanatory authority versions remain blocked.'
+
     $chatSubjectRow = [regex]::Match($manifestText, '(?m)^\| Chat-only response style and scope \| `(?<Path>[^`]+)` \| (?<Applicability>[^|]+) \|\r?$')
     $chatRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsAIResponseControlTechnique_V1\.1\.md` \| 1\.1 \| (?<Role>[^|]+) \|\r?$')
     $chatOnlyValid = $chatSubjectRow.Success -and $chatSubjectRow.Groups["Path"].Value -ceq "GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.1.md" -and $chatSubjectRow.Groups["Applicability"].Value -match '(?i)compatible chat interface.*select' -and $chatSubjectRow.Groups["Applicability"].Value -match '(?i)never.*coding or architecture standard' -and $chatRegistryRow.Success -and $chatRegistryRow.Groups["Role"].Value -match '(?i)chat-only' -and $chatRegistryRow.Groups["Role"].Value -match '(?i)not an? implementation standard'

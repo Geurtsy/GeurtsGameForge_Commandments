@@ -1348,6 +1348,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
 
     # Each fixture reintroduces a different audited cross-document contradiction.
     $consistencyCases = @(
+        @{ Name = 'folder-reader-version'; Path = 'Tools/CreateGeurtsFolderStructure.ps1'; Old = '0\.16\.1'; New = '0\.16\.0'; Check = 'Folder technique reader version parity' },
         @{ Name = 'logging-fallback'; Path = 'GeurtsTechniques/GeurtsTechnicalTechnique.md'; Old = '## Logging Standards'; New = "## Logging Standards`r`n`r`nThe facade must fall back to Unity logging." },
         @{ Name = 'menu-network'; Path = 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md'; Old = 'Opening the Commandments menu or embedded view stays offline'; New = 'A deliberate Commandments Companion menu opening may request remote metadata' },
         @{ Name = 'tool-owner'; Path = 'README.md'; Old = 'Angels owns **Install Codex guide**'; New = 'God owns the separate **Install Codex guide**' },
@@ -1364,7 +1365,8 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         if (-not $text.Contains($case.Old)) { throw "Consistency fixture mutation did not match: $($case.Name)" }
         Write-Utf8 -Path $path -Text $text.Replace($case.Old, $case.New)
         $run = Invoke-TestScript -Path $validatorScript -Arguments @('-RepositoryRoot', $fixture)
-        Assert-True ($run.Code -ne 0 -and $run.Output.Contains('[FAIL] Resolved documentation policy consistency')) "Validator rejects audited contradiction: $($case.Name)"
+        $expectedCheck = if ($case.Check) { $case.Check } else { 'Resolved documentation policy consistency' }
+        Assert-True ($run.Code -ne 0 -and $run.Output.Contains('[FAIL] ' + $expectedCheck)) "Validator rejects audited contradiction: $($case.Name)"
     }
 
     $optionalOdinFixture = New-StaticValidationFixture -Parent $testRoot -Name "static-optional-odin"

@@ -324,8 +324,8 @@ try {
         throw "The explanatory folder authority is missing beside the definition: '$techniquePath'."
     }
     $techniqueText = [System.IO.File]::ReadAllText($techniquePath)
-    if ($techniqueText -notmatch '(?im)^\*\*Version:\*\*\s*0\.16\.0\s*$' -or $techniqueText -notmatch '(?m)^\*\*Required package path:\*\* `GeurtsTechniques/GeurtsFolderStructureTechnique\.md`\s*$') {
-        throw "The explanatory folder authority does not declare the v0.15.3 stable path metadata."
+    if ($techniqueText -notmatch '(?im)^\*\*Version:\*\*\s*0\.16\.1\s*$' -or $techniqueText -notmatch '(?m)^\*\*Required package path:\*\* `GeurtsTechniques/GeurtsFolderStructureTechnique\.md`\s*$') {
+        throw "The explanatory folder authority does not declare the v0.16.1 stable path metadata."
     }
     $registryMatch = [regex]::Match($techniqueText, '(?ms)<!-- GEURTS-FOLDER-PATHS:BEGIN -->\s*```text\s*(?<Paths>.*?)\s*```\s*<!-- GEURTS-FOLDER-PATHS:END -->')
     if (-not $registryMatch.Success -or [regex]::Matches($techniqueText, 'GEURTS-FOLDER-PATHS:BEGIN').Count -ne 1 -or [regex]::Matches($techniqueText, 'GEURTS-FOLDER-PATHS:END').Count -ne 1) {
