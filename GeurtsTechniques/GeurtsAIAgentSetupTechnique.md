@@ -2,7 +2,7 @@
 # Geurts AI Agent Setup Technique
 
 **Native AI Instruction Setup - Copilot and supported scoped routes**
-**Version:** 3.0.1
+**Version:** 3.0.2
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -34,7 +34,7 @@ The Commandments Companion's closed whole-file mappings are:
 
 `GeurtsTechniques/GeurtsCommandmentsCompanionContract.json` owns the machine-readable copy of this exact mapping. The companion must not infer or discover any additional route.
 
-The AGENT.md Technique owns the separately installed Codex guide. The legacy manual manager handles only the three Copilot routes and must leave Codex guide files untouched.
+The AGENTS.md Technique owns the separately installed Codex guide. The legacy manual manager handles only the three Copilot routes and must leave Codex guide files untouched.
 
 These routes can guide only AI tools that support the applicable native instruction surface or have been explicitly instructed to read and follow `AI_READ_FIRST.md`. Creating the files does not make every AI product discover or obey the Geurts documentation automatically.
 
@@ -42,7 +42,7 @@ Every v1.2.0 route template gives brick work the same concise rule: before plann
 
 ## Commandments Companion Whole-File Replacement
 
-God owns the Windows Editor Commandments service and requires separately installed licensed Odin Inspector and Quantum Console assemblies. The optional Companion 0.15.0 compatibility adapter has no God or other Unity Package Manager package dependency, no vendor references, no updater and no menus. It forwards existing Editor callers to God 0.29.0 or newer. Authoritative content remains independent and readable without God. The content action grants no additional project access. Never use a generic template as the target game's design authority.
+God owns the Commandments Editor service; the [Commandments Companion Technique](GeurtsCommandmentsCompanionTechnique.md) owns its lifecycle and passive-adapter transition. The [Brick Contract](GeurtsBrickContract.md#identity-and-dependencies) owns package and licensed-library dependencies. Authoritative Markdown content remains readable without God. The content action grants no additional project access. Never use a generic template as the target game's design authority.
 
 When the user selects `Update Geurts Game Forge Commandments`, the companion immediately shows one confirmation that identifies the complete `GeurtsGameForgeCommandments/` folder and all three exact route targets above as overwrite targets. Cancel is the initially focused default. There is no earlier preview or dry run and no second confirmation. After affirmative confirmation, the companion directly replaces each route as a complete file with the bytes of its mapped template from the same validated authoritative archive used for the documentation copy.
 
@@ -144,4 +144,4 @@ When a managed template changes, update its version, normalized payload hash, mi
 
 ## Separate Codex guide installation
 
-The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. The current verified companion is 0.9.2 in the catalogue; schema-3.0.0 support begins with Companion 0.14.0. See `Migrations/v0.40.0.md` before updating an existing installation.
+The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. Use the current catalogue for published installation targets. Historical Companion 0.14.0 introduced schema-3.0.0 support; the Commandments Companion Technique owns the passive-adapter transition. See `Migrations/v0.40.0.md` before updating an existing installation.

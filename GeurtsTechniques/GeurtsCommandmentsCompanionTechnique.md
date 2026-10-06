@@ -1,9 +1,9 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Commandments Service and Companion Compatibility Technique
 
-**Version:** 3.2.0
+**Version:** 3.2.1
 **Contract schema:** 3.0.0
-**Package version:** 0.45.0
+**Package version:** 0.45.1
 **Status:** Draft normative technique
 **Primary audience:** God Editor service and compatibility adapter maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -11,7 +11,7 @@
 
 ## 1. Scope and Ownership
 
-God **0.29.0** owns Commandments viewing, acquisition, explicit version checks, confirmed updates and shared status in its existing Editor assembly. `GeurtsTechniqueManifest.md` remains the sole resolver for package-file selection, versions, subject ownership, applicability, reading order and conflicts. The retained technique/contract filenames and the word companion in the schema lifecycle below are compatibility vocabulary for this God-owned service, not permission for another updater.
+God **0.29.0 or newer** owns Commandments viewing, acquisition, explicit version checks, confirmed updates and shared status in its existing Editor assembly. `GeurtsTechniqueManifest.md` remains the sole resolver for package-file selection, versions, subject ownership, applicability, reading order and conflicts. The retained technique/contract filenames and the word companion in the schema lifecycle below are compatibility vocabulary for this God-owned service, not permission for another updater.
 
 God is a Windows-only, Editor-service owner installed through Unity Package Manager from `Geurtsy/com.geurts.gameforge.god`. It requires separately installed licensed Odin Inspector and Quantum Console assemblies. The passive compatibility adapter in `Geurtsy/com.geurts.gameforge.commandments` has no God or other Unity Package Manager package dependency, no vendor references, no lifecycle callbacks, no network transport and no menu or console-command registrations. It cannot acquire content without the supported God service.
 
@@ -31,7 +31,7 @@ CreateEmbeddedWindow(Action<string>) returns an unshown, independent view. The h
 
 ### Existing installation transition
 
-Update installed Companion packages to **0.15.0** and God to **0.29.0** or newer using immutable Git releases. Either order is supported: the adapter with older God reports the missing owner; new God with a pre-adapter Companion blocks competing content actions and installs the old public operation guard when available. Existing active legacy content work also blocks package changes. Package updates alone never replace Commandments, AI routes, saved consent or preferences.
+For the service transition, the minimum passive Companion adapter is **0.15.0** and the minimum God owner is **0.29.0**. Use the current catalogue for the newer published immutable targets. Either order is supported: the adapter with older God reports the missing owner; new God with a pre-adapter Companion blocks competing content actions and installs the old public operation guard when available. Existing active legacy content work also blocks package changes. Package updates alone never replace Commandments, AI routes, saved consent or preferences.
 
 The adapter retains UPM ID `com.geurts.gameforge.documentation`, assembly `Geurts.GameForge.Documentation.Editor`, public `DocumentationIntegration`, `Geurts.GameForge.Commandments.CommandmentsIntegration` and `BuildForgeIntegration`, and the legacy window script GUID. Its restored window is only a handoff notice. God suppresses its legacy aliases while an old implementation owns those aliases. After both updates there is one content controller and no duplicate menu/command registrations.
 
@@ -101,13 +101,13 @@ Merely copying the scoped game-design instruction template to its listed target 
 
 ## 4. Offline Startup and Explicit Metadata Checks
 
-On each normal Unity project launch or open, the companion must not check remote metadata, refresh a catalogue or open an update popup. Restoring a dashboard must not schedule checks. A deliberate Commandments Companion menu opening or explicit metadata check may request the official repository's current `main` head commit; it compares that remote commit ID with one persistent companion-owned last-successful-installed commit value for this Unity project, held outside the Unity project filesystem and outside the installed UPM package, for example in host or Editor preference storage. The value must be keyed by a Unity-provided project identity or normalized project-root path derived without reading project content; a value for one project must never suppress availability in another. The companion must not create a project file or project path for this value. The check must not download an archive, inspect the managed documentation copy, inspect any AI target, mutate a managed project target, execute setup work, or synchronize content. A skipped, failed, or unavailable request is non-blocking.
+On each normal Unity project launch or open, the companion must not check remote metadata, refresh a catalogue or open an update popup. Restoring a dashboard must not schedule checks. Opening the Commandments menu or embedded view stays offline. Only an explicit metadata check, a confirmed Update, or the saved-consent deliberate God-opening sequence in section 1 may request the official repository's current `main` head commit; it compares that remote commit ID with one persistent companion-owned last-successful-installed commit value for this Unity project, held outside the Unity project filesystem and outside the installed UPM package, for example in host or Editor preference storage. The value must be keyed by a Unity-provided project identity or normalized project-root path derived without reading project content; a value for one project must never suppress availability in another. The companion must not create a project file or project path for this value. The check must not download an archive, inspect the managed documentation copy, inspect any AI target, mutate a managed project target, execute setup work, or synchronize content. A skipped, failed, or unavailable request is non-blocking.
 
 An Update is available when the last-successful-installed commit value is missing or differs from the remote `main` head commit. Matching values mean only that the authoritative source has not advanced since the last fully successful companion Update; they do not validate or certify mutable local files. When the remote commit is unavailable, availability is unknown. The explicit Update action remains available in every state.
 
 Ordinary AI-session initialization performs no additional remote check.
 
-The last-successful-installed value contains only the exact commit ID selected by the most recent Update that completed and verified all four managed targets. It is comparison-only, non-authoritative, and non-blocking. It is not a receipt, package-version record, compatibility state, local-integrity assertion, drift record, backup pointer, rollback marker, recovery metadata, journal, or state-machine gate. Its write is attempted only after full managed-target success and never authorizes, blocks, repairs, or expands project mutation. If persistence fails, the managed-target Update remains successful, the companion reports a comparison-state warning, and a later open may offer the same Update again. An implementation must not claim that mutable local files are certified current merely from this value or from package-version ordering.
+The last-successful-installed value contains only the exact commit ID selected by the most recent Update that completed and verified all four managed targets. It is comparison-only, non-authoritative, and non-blocking. It is not a receipt, package-version record, compatibility state, local-integrity assertion, drift record, backup pointer, rollback marker, recovery metadata, journal, or state-machine gate. Its write is attempted only after full managed-target success and never authorizes, blocks, repairs, or expands project mutation. If persistence fails, the managed-target Update remains successful, the companion reports a comparison-state warning, and a later explicit check may offer the same Update again. An implementation must not claim that mutable local files are certified current merely from this value or from package-version ordering.
 
 ## 5. Explicit In-Editor Update
 
@@ -142,7 +142,7 @@ After affirmative confirmation, the companion performs this bounded sequence:
 4. Delete any existing `<ProjectRoot>/GeurtsGameForgeCommandments/` and directly materialize the complete validated archive tree at that exact destination. The result contains no `.git` metadata or continuing repository, worktree, branch, remote, or synchronization connection.
 5. Directly replace each of the three AI target files with the bytes of its mapped template from the same validated candidate. Create only a missing `.github/` or `.github/instructions/` parent needed for those exact files.
 6. Verify that the complete documentation destination and all three mapped target files were written successfully.
-7. After every managed-target verification passes, report the content Update as successful and attempt to write the selected exact commit ID as the companion-owned last-successful-installed value. If that comparison-state write fails, report a warning and allow a later open to offer the Update again; do not reclassify, undo, or repair the successful four-target replacement.
+7. After every managed-target verification passes, report the content Update as successful and attempt to write the selected exact commit ID as the companion-owned last-successful-installed value. If that comparison-state write fails, report a warning and allow a later explicit check to offer the Update again; do not reclassify, undo, or repair the successful four-target replacement.
 8. Remove temporary acquisition content on a best-effort basis. It is never a backup, rollback source, quarantine, journal, recovery state, or prerequisite for a later Update.
 
 Validation must finish before the first destructive project mutation. After mutation begins, any failure or interruption may leave the documentation destination or one or more AI targets missing, incomplete, or from different attempts. The companion reports failure plainly and never reports partial completion as success. The only retry is another user-invoked Update with the same confirmation; there is no automatic repair or recovery flow.
@@ -186,7 +186,7 @@ A conforming companion:
 
 ## Separate Codex guide installation
 
-The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. God 0.29.0 owns this helper; the optional 0.15.0 adapter forwards the retained Editor API. Earlier Companion 0.14.0 introduced schema-3.0.0 support. Schema 2 consent is not valid for the renamed target.
+The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. Angels owns this helper; God navigates to the installed owner and its compatibility setup API forwards to Angels. Missing Angels reports an actionable owner explanation. The supported installer and template rules remain in the AGENTS.md Technique. Earlier Companion 0.14.0 introduced schema-3.0.0 support. Schema 2 consent is not valid for the renamed target.
 
 ## Independent module preference
 

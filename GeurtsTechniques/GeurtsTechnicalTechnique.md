@@ -2,7 +2,7 @@
 # Geurts Technical Technique
 
 **Unity Game Development - AI Instruction Manual**  
-**Version:** 0.17.1
+**Version:** 0.17.2
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
@@ -145,7 +145,7 @@ Use the newest stable package release verified compatible with **6000.6.3f1** an
 
 Use both dependencies wherever their supported features improve configuration, validation, inspection, diagnostics, tuning, or developer operation. "Use as much as possible" means meaningful adoption across applicable Geurts-owned code, not decorating every member, serializing unsupported data unnecessarily, exposing unsafe commands, or adding runtime work without a benefit. Preserve established project data and behavior while migrating duplicate custom tooling onto these required systems.
 
-God owns the Windows Editor Commandments service and requires separately installed licensed Odin Inspector and Quantum Console assemblies. The optional Companion 0.15.0 compatibility adapter has no God or other Unity Package Manager package dependency, no vendor references, no updater and no menus. It forwards existing Editor callers to God 0.29.0 or newer. Authoritative content remains independent and readable without God. A separately selected legacy compatibility contract remains frozen.
+God owns the Commandments Editor service; the [Commandments Companion Technique](GeurtsCommandmentsCompanionTechnique.md) owns its lifecycle and passive-adapter transition. The [Brick Contract](GeurtsBrickContract.md#identity-and-dependencies) owns package and licensed-library dependencies. Authoritative Markdown content remains readable without God. A separately selected legacy compatibility contract remains frozen.
 
 **BigBang is the narrow independent initial-installer exception.** `com.geurts.gameforge.bigbang` compiles before God, Odin Inspector and Quantum Console exist, without vendor, God, Input System, uGUI or TextMesh Pro assembly references and without `IBrick` registration. It uses an explicit Editor-only assembly and supported Unity Editor/UI Toolkit APIs to prepare the licensed libraries, install one verified immutable God target and hand over after successful compilation. Its missing-library UI is acquisition assistance, not a fallback inspector, serializer or console. Ordinary God and dependent bricks retain all required licensed-library rules. The manifest-selected [BigBang Technique](GeurtsBigBangTechnique.md) owns this initial-installation boundary; runtime initialization and `SCN_BigBang` remain owned by God.
 
@@ -481,23 +481,19 @@ Runtime debugging and logging are comprehensive and filterable. The selected Dia
 
 ## Runtime Console Integration
 
-### Required Quantum Console Use
+### Required Quantum Console Library and Optional Console Use
 
-Quantum Console is the required runtime developer console within the implementation scope defined by the Unity 6000.6.3f1 dependency baseline. Confirm a current stable compatible release is installed and referenced by applicable assembly definitions. Use its `QFSW.QC` APIs, `[Command]`, `[CommandDescription]`, supported-platform controls, command processor, logging integration, and console lifecycle events instead of building a parallel runtime command or console system. Follow the [official getting-started guide](https://www.qfsw.co.uk/docs/QC/articles/quickstart/quickstart.html) and [command documentation](https://www.qfsw.co.uk/docs/QC/articles/docs/commands.html).
+Quantum Console remains a required licensed library within the implementation scope defined by the Unity 6000.6.3f1 dependency baseline. Installing or enabling a runtime developer console is optional throughout setup and game development, including completed games. The library dependency does not require a console scene object or Diagnostics installation.
 
-Every gameplay project must include a validated developer-console setup reachable in Play Mode and development builds, and the selected full Diagnostics console remains available in release builds. Provide the required EventSystem, use Quantum Console's SRP-compatible prefab/theme when the selected render pipeline requires it, and integrate its activate/deactivate events with the Input System so gameplay input does not continue unintentionally while the console has focus. Opening the console does not pause simulation. Follow the manifest-selected Diagnostics Technique for all-build access, classification and gameplay-session guards.
-
-Expose useful Geurts-owned inspection, validation, tuning, recovery, performance, AI, and multiplayer diagnostics as Quantum Console commands when they can be invoked safely. Route all project logging through Geurts Game Forge Diagnostics whenever its logging service is available, using the central logging facade and capture integrations defined under Logging Standards. Preserve Unity Console output and integrate with Quantum Console. Avoid per-frame log spam, duplicate command surfaces, secrets, personal data, production-only internals, and state-changing commands without appropriate authorization and guards.
+When a console is selected, use its `QFSW.QC` APIs, `[Command]`, `[CommandDescription]`, supported-platform controls and existing processor rather than a parallel command UI. Use the required EventSystem and SRP-compatible prefab/theme as applicable, and integrate its activate/deactivate events with the Input System. Validate the selected console in Play Mode and development builds; all-build access, classification, input ownership and permissions belong to the [Diagnostics Technique](GeurtsDiagnosticsTechnique.md#runtime-console-and-filters). Expose useful inspection, validation, tuning, recovery, performance, AI, and multiplayer diagnostics when safe, through the shared logging facade and supported commands. Projects without a console retain independent actionable status/health reporting.
 
 ### Accessibility
 
-- Quantum Console must be available at runtime in all supported builds, including release.
+These requirements apply when the optional console is installed:
+
 - Player and Developer tabs are freely switchable and are not an authentication boundary.
 - The separate testing override is limited to Editor/designated internal builds and never bypasses host/server authority.
-
-### Modes
-
-The Diagnostics Technique owns Player/Developer classification and independent topic/severity filters. Player includes only explicitly Player-classified records and commands; Developer includes both. First-launch defaults select Player, no topics, Info override off and Warning/Error overrides on. Command responses remain visible when log display is paused or topics are unselected. These tabs do not select the restricted testing override. Never place secrets or personal data in either tab merely because filtering exists.
+- Follow the Diagnostics Technique for all-build access, command classification, filters and safe output; the console is not an authentication boundary.
 
 ---
 
@@ -579,36 +575,9 @@ Commands that bypass rules or tune/test gameplay state must be flagged as `Cheat
 
 ## Logging Standards
 
-Routine invalid authoring data is presented inline according to the [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md), with actionable findings that clear when corrected and remain discoverable in collapsed sections and inactive tabs. Do not generate Console/Diagnostics spam from repaint, property drawing or OnValidate for these routine findings. Genuine operational failures and unexpected exceptions still follow the complete logging route below, including its unavailable-service Unity fallback; this distinction does not change Diagnostics capture, forwarding or failure reporting.
+The [Diagnostics Technique's Shared logging contract](GeurtsDiagnosticsTechnique.md#shared-logging-contract) is the single owner of project-wide logging, provider availability, capture and failure behavior. Use God's central facade for project-controlled logs and supported capture adapters for Unity/vendor output; report any source that cannot be captured as an integration gap. Diagnostics remains optional under the Brick Contract.
 
-**All logging throughout the entire project must route through Geurts Game Forge Diagnostics** (`GeurtsDiagnostics`, package `com.geurts.gameforge.diagnostics`) whenever its logging service is available. This technical rule applies project-wide, regardless of code ownership or log origin: game scripts, all bricks, Editor tools, Unity-generated messages, third-party packages, plugins, generated code and custom logging systems. It includes every severity and logging API, including `Debug.Log`, `Debug.LogWarning`, `Debug.LogError`, `Debug.LogException`, formatted variants, assertions, exception reports and other logger output; it is not limited to Geurts-owned code or `Debug.Log` calls.
-
-Code under project control must emit through the central logging facade backed by Diagnostics. Existing logging systems must feed that same route. For Unity, third-party, vendor or generated sources that do not call the facade, integrate their logger or capture their output through supported callbacks or adapters and forward it into Diagnostics. That capture is required whenever the source and Diagnostics are available, not an optional exemption for external code. Do not require edits to vendor or generated source when a supported integration can perform the routing. If a source cannot be captured, report the specific integration gap; do not claim that project-wide routing is complete.
-
-Available means the Diagnostics brick is installed, enabled, running and exposes a compatible logging service. A catalogue entry or installed package alone is insufficient. The shared `ForgeLog` facade and capture-only `IForgeLogCapture` contract were introduced in God 0.5.0, with an implementation in Diagnostics 0.3.0. The current verified releases are God 0.15.0 and Diagnostics 0.6.1, using the immutable sources in the catalogue. The historical minimal Diagnostics 0.2.0 consumer is not that service.
-
-When Diagnostics is absent, disabled, stopped, not yet initialized or lacks a compatible logging service, the same facade must fall back to Unity logging so messages remain visible. Resume routing through Diagnostics when its service becomes available. Follow the Brick Contract's optional-capability boundary; do not introduce a mandatory dependency from God to Diagnostics or a circular package dependency.
-
-Preserve message severity, exception details and Unity object context where supplied. Diagnostics must preserve Unity Console output and integrate with Quantum Console through one coordinated output path, respecting configured categories, severity filters and storage limits. Use thread-safe logging APIs consistently. Direct Unity logging is permitted inside the final output sink and unavailable-service fallback; capture of externally emitted Unity logs must not emit those messages to Unity a second time. Prevent recursive forwarding and duplicate messages when Quantum Console or Diagnostics captures Unity logs, including Diagnostics' own output. Project-controlled callers must not bypass available Diagnostics or independently write the same message to multiple sinks.
-
-Apply this rule to the entire project's existing and future logging integration. Logging before the service is available, including during compilation or startup, follows the unavailable-service fallback above. Runtime logging must retain explicit audience classification and privacy boundaries.
-
-Severity colours:
-
-| Severity | Colour |
-|---|---|
-| Info | White |
-| Warning | Yellow |
-| Error | Red |
-
-Logs should use clear categories such as:
-
-- AI
-- Performance
-- Multiplayer
-- Errors
-- Warnings
-- Info
+Routine invalid authoring data belongs inline under the [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md#8-inline-authoring-findings-and-logging-boundary). Genuine failures retain independently visible owning status/health data even when capture is unavailable. Follow the Diagnostics owner for the no-fallback policy, exception details, classification and privacy; do not duplicate its policy or create a second output sink.
 
 ---
 
@@ -678,7 +647,7 @@ A generated or modified Unity C# script is complete only when it:
 - Uses Odin Inspector meaningfully for applicable serialized configuration, validation, diagnostics, and safe Editor actions, with its installed compatible version recorded.
 - Makes every affected Forge-owned Editor surface conform to the manifest-selected [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md) and [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md), with shared styling, useful Odin/equivalent authoring, appropriate tabs, labelled collapsible sections, severity callouts, inline findings, discoverable hidden problems and the required native visual/behavior evidence. Appearance is a quality gate within the existing technical priorities, not another priority list.
 - Keeps FMOD completely optional and follows the built-in audio default required for future Audio brick releases under the Game Audio and Sound Design standard above, checking the actual installed release capabilities.
-- Integrates project-wide Diagnostics output and applicable developer operations with Quantum Console, with its installed compatible version and developer-console validation recorded.
-- Routes all project logging through Diagnostics whenever its logging service is available, including captured Unity and third-party output, and verifies unavailable-service fallback without duplicate messages or recursive forwarding. Reports any source that cannot be captured as an integration gap.
+- Records required licensed-library versions and validates any selected optional console under the Diagnostics Technique; a completed game does not require a runtime console.
+- Follows the Diagnostics Technique for project-wide logging, unavailable-provider no-op behavior, preserved independent failure status and capture without duplicates or recursion; reports any uncapturable source as an integration gap.
 - Preserves multiplayer network efficiency where relevant.
 - Satisfies every applicable GDD requirement selected by the manifest before changing player-facing behaviour.

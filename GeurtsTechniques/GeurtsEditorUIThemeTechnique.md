@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Editor UI Theme Technique
 
-**Version:** 1.5.2
+**Version:** 1.5.3
 **Status:** Normative mandatory standard
 **Primary audience:** Geurts Game Forge brick and Editor-tool maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -25,7 +25,8 @@ Use these shared tokens consistently. A brick must not substitute its own brand 
 | Panel | `#121C1E` | Section cards and grouped content. |
 | Raised | `#172425` | Controls and raised or emphasized surfaces. |
 | Border | `#2B433F` | Quiet section boundaries and separators. |
-| Accent | `#6EF29D` | Selected navigation, primary emphasis and interactive focus. |
+| Accent | `#6EF29D` | Selected navigation, primary emphasis, interactive focus and verified-working outlines. |
+| Attention | `#FFAE57` | Needs-attention status outlines; distinct from warning severity. |
 | Text | `#DEECE7` | Main labels, values and body text. |
 | Muted | `#8FA8A1` | Secondary descriptions and supporting metadata. |
 | Info | `#FFFFFF` | Informational severity. |
@@ -51,6 +52,14 @@ Use the [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md) for la
 - Explain unavailable actions visibly with the actual reason and an actionable next step. Tooltips may repeat or expand that explanation, but a tooltip alone is insufficient for an important disabled action. Preserve the same eligibility rule for the enabled state and its explanation so they cannot contradict each other.
 - Distinguish destructive actions from ordinary actions using precise labels and error emphasis. Preserve the existing subject owner's confirmation, cancellation and scope rules; styling must not add, remove or bypass authorization.
 - Keep all labels and input content readable against the surfaces actually drawn. Restore temporary GUI colors, styles and state after drawing so a Forge panel cannot change unrelated Unity or third-party UI.
+
+### Status outlines
+
+Outline the relevant Forge status card, section or setup step consistently: **green for verified working/ready**, **orange for needs attention**, and **red for an error**. Use the canonical Accent, Attention and Error tokens respectively. Keep a visible text label, actual reason and practical next action; colour alone is insufficient. Identify the actual tool owner beside the step so a God navigation surface cannot be mistaken for the tool performing the work.
+
+These outlines communicate operational status, not log severity or selection. Information remains white and warning callouts/logs remain yellow; the orange Attention token does not replace Warning. A selected green control does not certify that its tool works. Apply success only to verified scope, attention to known `needs-action`/`blocked` conditions, and error to actual `failed` states. Unknown/not-checked, disabled, not-applicable and in-progress states retain neutral borders and precise text; never paint them as successful. The Forge Setup Technique owns exact status meanings and the unchanged setup contract enum.
+
+Reserve outline padding and the complete rendered height of wrapped status/owner text, with ample separation from fields and neighbouring panels. Implement new reusable styling in God's canonical theme (and BigBang's maintained subset where applicable), not a private palette. This documentation requirement does not claim an existing released styling API or retrofit installed UI; verify native normal/narrow layouts when adopting it.
 
 ## Truthful status and animation
 

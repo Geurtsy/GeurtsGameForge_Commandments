@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge AI Entry Point
 
-**Version:** 0.45.0
+**Version:** 0.45.1
 **Purpose:** First documentation entry and session boundary, before manifest resolution.
 **Required package path:** `AI_READ_FIRST.md`
 
@@ -43,7 +43,7 @@ Bump each affected independently released package and the documentation package 
 <ProjectRoot>/GeurtsGameForgeCommandments/
 ```
 
-God owns the Windows Editor Commandments service and requires separately installed licensed Odin Inspector and Quantum Console assemblies. The optional Companion 0.15.0 compatibility adapter has no God or other Unity Package Manager package dependency, no vendor references, no updater and no menus. It forwards existing Editor callers to God 0.29.0 or newer. Authoritative content remains independent and readable without God. No implementation belongs in this documentation repository; package Documentation~/ contains only implementation-specific guidance. Project-specific design documents remain separate under:
+God owns the Commandments Editor service; the [Commandments Companion Technique](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md) owns its lifecycle and passive-adapter transition. The [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md#identity-and-dependencies) owns package and licensed-library dependencies. Authoritative Markdown content remains readable without God. No implementation belongs in this documentation repository; package Documentation~/ contains only implementation-specific guidance. Project-specific design documents remain separate under:
 
 ```text
 <ProjectRoot>/Docs/GameDesign/
