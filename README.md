@@ -1,11 +1,13 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.45.0
+# Integrated Forge setup — 0.45.1
 
 God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
 # Geurts Game Forge Commandments
 
 ## Earlier released capabilities and evidence
+
+Versions and test counts in this section are historical evidence. Use the [current catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json) for published installation targets; these records do not certify current UI or every installed integration.
 
 God 0.29.0 includes the Commandments tools. Existing Companion users update to the passive 0.15.1 adapter; fresh projects need only God. BigBang 0.4.0 provides separate local prerequisite and Get Latest Git Source actions, then hands over to this built-in view. See the [0.41.0 migration guide](Migrations/v0.41.0.md) before updating existing integrations. Package updates never replace local content or AI routes; those retain their separate confirmation.
 
@@ -39,15 +41,13 @@ Both standards apply within the existing technical priorities and framework/depe
 
 ## Core requirement: use modules without code, extend them with code
 
-All existing and future Geurts Game Forge modules must support normal setup, configuration, connection and use without writing code. Provide usable Unity Editor/Inspector controls and authored assets, with clear defaults, validation and guidance. Only narrow special exceptions, such as genuinely custom behaviour or an integration that configuration cannot express, may require code; document their precise scope, reason and supported route.
-
-Keep public APIs and extension points easy for developers and Codex to discover, use and extend. The Editor and code paths share the same implementation and rules. Follow the [Technical Technique's core standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#no-code-module-use-and-code-extensions) and the Brick Contract. This is an authoring requirement, not certification that every current release has already been reviewed or updated.
+Follow the [Technical Technique's no-code use and code-extension standard](GeurtsTechniques/GeurtsTechnicalTechnique.md#no-code-module-use-and-code-extensions) for every module. The Brick Contract applies it to brick integration; neither this summary nor a catalogue entry certifies an unreviewed release.
 
 ## Geurts Game Forge God brick contract
 
-The manifest-selected [brick contract](GeurtsTechniques/GeurtsBrickContract.md) and [catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json) require reuse of suitable Geurts bricks. God 0.29.0 owns the Commandments Editor service, along with its existing package management, lifecycle and shared contracts. God owns the Windows Editor Commandments service and requires separately installed licensed Odin Inspector and Quantum Console assemblies. The optional Companion 0.15.1 compatibility adapter has no God or other Unity Package Manager package dependency, no vendor references, no updater and no menus. It forwards existing Editor callers to God 0.29.0 or newer. Authoritative content remains independent and readable without God.
+The manifest-selected [brick contract](GeurtsTechniques/GeurtsBrickContract.md) and [catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json) require reuse of suitable Geurts bricks. God 0.29.0 owns the Commandments Editor service, along with its existing package management, lifecycle and shared contracts. See the Brick Contract for dependencies and the [Commandments Companion Technique](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md) for the service and passive-adapter transition. Local Markdown remains readable without God.
 
-God is maintained in its own [com.geurts.gameforge.god repository](https://github.com/Geurtsy/com.geurts.gameforge.god). The catalogue supplies immutable Git sources for ten packages across independently maintained repositories. All brick installations, including isolated candidate validation, use Git. Develop in separate source checkouts, publish and validate a strictly newer release on its repository's main branch, and retain the consuming project's previous Git version until the user updates through God. A local commit or an unpublished branch does not complete a release.
+God is maintained in its own [com.geurts.gameforge.god repository](https://github.com/Geurtsy/com.geurts.gameforge.god). The catalogue supplies immutable Git sources for the published packages across independently maintained repositories. All brick installations, including isolated candidate validation, use Git. Develop in separate source checkouts, publish and validate a strictly newer release on its repository's main branch, and retain the consuming project's previous Git version until the user updates through God. A local commit or an unpublished branch does not complete a release.
 
 [Settings System0.6](https://github.com/Geurtsy/com.geurts.gameforge.settings) provides Your Settings, Connections and Auto Settings Menu with reviewed native creation/connection and retained shared source feedback. Authored defaults stay intact while owned runtime copies signal actual readiness. [UI Foundations0.12](https://github.com/Geurtsy/com.geurts.gameforge.userinterface) supplies reviewed generated menus, optional catalogue/preview cooperation and retained Panel Renderer/UIDocument support. Both require minimum God0.33.1 and remain independent; unrelated callbacks/routes are preserved. Exact native/Windows/optional-peer evidence is in each owning package; full rendered/physical/device acceptance remains unverified.
 
@@ -63,7 +63,7 @@ Audio0.8.2 and optionalFMOD0.2.2 require God0.33.1 and Windows Unity6000.6.3f1. 
 
 God0.33.4 and Diagnostics0.9.3 retain shared scoped logging/session contracts governed by the [Diagnostics Technique](GeurtsTechniques/GeurtsDiagnosticsTechnique.md). Diagnostics owns its configurable overlay and commands; its Editor authoring uses the God theme and pure shared rules. The current patches compact wrapped section headers and adapt preference label width. Editor92/92 and embedded12/12 pass at 480/1000px; [layout evidence](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/v0.9.3/Documentation~/PreferencesLayoutValidation.md) keeps native/API geometry and unverified rendered/physical acceptance separate.
 
-God 0.16.0 adds multiple game design document imports in Build Forge. Add Markdown files or drop a batch, review the queue, choose an initial primary, then select **Import selected documents**. Further imports retain that primary; **Make primary** explicitly chooses another imported document. God 0.17.0 additionally offers **Overwrite documents** after a warning listing the existing files that would be replaced. Cancel keeps the whole batch unchanged; identical files need no warning. Manual manifest notes and unlisted files are preserved. Documentation 0.26.0 defines the imported-document routing list alongside the existing primary and managed table.
+Angels owns selected game design imports and explicit primary selection. Follow the [GDD Technique](GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md) for bounded reads, preserved bytes, reviewed overwrite consent and manifest sections. God supplies navigation or compatibility forwarding.
 
 God **0.29.0** includes a complete Commandments view inside God and under **Tools > Geurts Game Forge > Commandments**. Read local guidance, check versions explicitly, and update after the existing four-target confirmation. Opening the view is offline. The [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md#installed-brick-menus) retains embedded-view lifetime and navigation rules for other bricks.
 
@@ -83,7 +83,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.45.0
+**Version:** 0.45.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -92,7 +92,7 @@ Game Forge God distinguishes **Planned**, **Available** and **Installed** indepe
 
 ## BigBang initial installation
 
-The independent [Geurts Game Forge BigBang](https://github.com/Geurtsy/GeurtsGameForgeBigBang) package prepares licensed Odin Inspector and Quantum Console, resolves the latest published compatible God release on explicit Check and again before Install, then freezes its verified commit. Opening stays offline and existing God is preserved. Preview **0.2.4** is published and catalogued at immutable commit `da6e1478e47a8eee6c3082cf72d0fb835d030b7d` and tag `v0.2.4`. It adds the God-owned Commandments handoff and retains the 0.2.3 compilation fixes. All 101 BigBang tests pass in the combined 591-pass God/adapter suite; see the [0.2.4 handoff validation](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.4/Documentation~/CommandmentsValidation.md). The prior 0.2.3 release fixes long Windows input paths that kept successful compilation Unknown, reports fingerprint read errors and accepts successful cached-only incremental cycles without waiting for an unnecessary reload. Its **101 tests pass in each of three isolated environments**, and native compiler failure/recovery passes. The actual 0.2.2 failure was reproduced in the open project with all 765 pre-existing files preserved. The user chose manual updating, so 0.2.3 has not been verified in that project. See the [BigBang Technique](GeurtsTechniques/GeurtsBigBangTechnique.md), [getting-started guide](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.3/Documentation~/GettingStarted.md) and [validation report](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.2.3/Documentation~/Validation.md). Physical visual/keyboard/scaling acceptance remains a recorded gap. BigBang does not configure scenes, project Git, Build Profiles or optional bricks. God 0.29.0 owns Commandments acquisition; existing Companion installations transition to the passive adapter.
+The independent [Geurts Game Forge BigBang](https://github.com/Geurtsy/GeurtsGameForgeBigBang) prepares licensed prerequisites, keeps local checks separate from **Get Latest Git Source**, and installs a frozen verified God Git release after explicit selection. Opening stays offline and existing God installations are preserved. Follow the [BigBang Technique](GeurtsTechniques/GeurtsBigBangTechnique.md) and current catalogue; historical test results are not current installation targets. God owns minimal bootstrap and Commandments acquisition; optional project maintenance belongs to Angels and optional console installation belongs to Diagnostics.
 
 ## Installing God or switching an existing installation
 
@@ -112,7 +112,7 @@ God 0.14.2 keeps a requested refresh pending until Unity can complete the catalo
 
 ## Optional FMOD line-ending setup
 
-FMOD setup is optional and applies only to projects that choose FMOD. The [Git Attributes Technique](GeurtsTechniques/GeurtsGitAttributesTechnique.md) supplies the two FMOD LF rules for project-root `.gitattributes`. God 0.22.0 includes **Install FMOD .gitattributes** as step 6 in Build Forge. Update the installed documentation to 0.28.1 or later first. The action creates a missing file or appends the final rule pair, preserving existing bytes. Verified files remain untouched on rerun. Documentation Update copies the template as reference content and does not install project attributes. The released God window was visually checked in an isolated Unity 6000.6.3f1 Editor.
+FMOD is completely optional. Angels owns **Install FMOD .gitattributes**, using the unchanged [Git Attributes template](GeurtsTechniques/GeurtsGitAttributesTechnique.md) and the [Forge Setup ownership rules](GeurtsTechniques/GeurtsForgeSetupTechnique.md). It preserves existing bytes and appends only the approved rules when applicable. The pinned template's God step numbering is historical; content Update only copies reference material.
 
 ## Audience tags
 
@@ -243,9 +243,9 @@ The former `GeurtsGameForgeIntelligenceIntegrationContract.md` is only a non-nor
 
 ## Reusable Game Folder Template
 
-The Folder Structure Technique 0.14.0 and definition 0.12.0 provide a genre-independent 76-folder project profile. They keep required scene paths, use general data and prefab categories, and separate imported assets from editable originals, tests, configuration, and host tooling. Read [the folder guide](GeurtsTechniques/GeurtsFolderStructureTechnique.md#use-existing-folders-and-add-new-ones) before adding content: reuse existing owners and create game-specific children only when needed.
+The registered Folder Structure Technique and Definition provide a genre-independent 76-folder project profile. They keep required scene paths, use general data and prefab categories, and separate imported assets from editable originals, tests, configuration, and host tooling. Read [the folder guide](GeurtsTechniques/GeurtsFolderStructureTechnique.md#use-existing-folders-and-add-new-ones) before adding content: reuse existing owners and create game-specific children only when needed.
 
-Update the whole documentation snapshot, then use Build Forge's **Create project folders**. Existing project directories and assets are preserved; the revised template does not migrate older layouts or install optional features.
+Update the whole documentation snapshot, then use Angels' **Create project folders**. Existing project directories and assets are preserved; the revised template does not migrate older layouts or install optional features.
 
 ## Legacy Manual Utilities (Not Companion Setup)
 
@@ -285,15 +285,19 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 ## Supporting Documents
 
 - `Migrations/v0.11.0.md` - non-normative transition guide for the independent companion and closed whole-file AI-route contract.
-- `Migrations/v0.11.0.md` - superseded transition guide for the Game Forge Intelligence manual-update model.
 - `Migrations/v0.9.0.md`, `Migrations/v0.8.0.md`, and `Migrations/v0.7.0.md` - superseded historical notes; they do not define an executable current workflow.
 - `Ideas/GameForgeIntelligenceIdeas.md` - non-normative historical product pointer.
 
 ## Codex guide installation
 
-God 0.29.0 owns the separate **Install Codex guide** action. In God's Commandments view or Build Forge, choose a location and confirm the displayed entry point. The installer writes only the selected AGENTS.md for Codex discovery. The template remains in GeurtsAgentTechnique.md. Normal content updates do not manage a root Codex guide; replace an old guide only through the separately selected and confirmed action. The content-update contract remains schema 3.0.0. Existing custom guides are never rewritten by package migration.
+Angels owns **Install Codex guide**; God navigates to it and compatibility APIs forward to the same owner. Follow the [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) for an explicitly selected existing folder, including the project root, and the separate cancel-default replacement confirmation. Content/package updates never install or rewrite guides.
 
 ## Changelog
+
+### 0.45.1
+
+- Resolve the audited logging, offline opening, tool ownership, explicit root-guide, optional console and supported-status contradictions. Remove duplicate migration reference and copied current-version lists; keep historical evidence and exact installer/template contracts intact.
+- Require clear owner labels and green working, orange needs-attention and red error outlines with readable status text, neutral unchecked states and ample spacing. This documentation-only release does not retrofit brick UI or update installed consumers.
 
 ### 0.45.0
 

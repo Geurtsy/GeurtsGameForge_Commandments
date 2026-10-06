@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Editor Appearance Technique
 
-**Version:** 0.1.2
+**Version:** 0.1.3
 **Status:** Normative mandatory standard
 **Primary audience:** Geurts Game Forge brick and Editor-tool maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -27,7 +27,7 @@ This is a quality gate within the existing Technical Technique. It does not add,
 
 Use the Theme Technique's very dark surfaces, consistent green accents, readable labels, deliberate hierarchy, shared spacing and intuitive controls. Reuse its canonical implementation and semantic severity tokens; do not create another palette or private theme. Green identifies branding, interaction and emphasis, never warning or error severity.
 
-Preserve the Theme Technique's window size, docking, focus, scrolling, disabled-action explanation and truthful-status requirements. A callout or foldout must not conceal an important reason an action is unavailable. Long labels, paths and expanded messages must remain readable and reachable at normal and narrow sizes.
+Preserve the Theme Technique's window size, docking, focus, scrolling, disabled-action explanation and truthful-status requirements, including its green working, orange needs-attention and red error outlines with visible text labels. A callout or foldout must not conceal an important reason an action is unavailable. Long labels, paths and expanded messages must remain readable and reachable at normal and narrow sizes.
 
 ## 4. Meaningful Odin use and framework boundary
 
@@ -86,7 +86,7 @@ Routine authoring validation findings must appear inline at the affected field o
 
 Do not report routine invalid authoring data through Debug.Log, Debug.LogWarning or Debug.LogError instead of inline findings. Do not spam the Unity Console or Diagnostics on repaint, property drawing or OnValidate while an ordinary finding remains unresolved. Opening or collapsing the panel must not repeatedly emit the same finding. Inline feedback must remain available when Diagnostics is absent.
 
-Genuine operational failures and unexpected exceptions still follow the Technical and Diagnostics Techniques' existing logging route, including the unavailable-service Unity fallback. Do not suppress them, alter capture/forwarding rules or recategorize a real failed operation as harmless authoring guidance. Inline operation status supplements that route and preserves the existing failure details, authorization and mutation boundaries. This technique does not change the Diagnostics implementation.
+Genuine operational failures and unexpected exceptions still follow the [Diagnostics Technique's logging contract](GeurtsDiagnosticsTechnique.md#shared-logging-contract). Do not suppress them or recategorize a real failed operation as harmless authoring guidance. Owning status/health reporting preserves useful failure details independently of logging availability. Apply that owner's capture-only, no Unity fallback policy; this technique adds no logging implementation or alternate route.
 
 Finding presentation must not mutate serialized data. Explicit fixes and authoring actions retain Undo, dirty/prefab recording, multi-object handling, safe value guards and any required confirmation. Do not auto-fix data, load scenes, replace assets or perform package/content updates merely to make a validation indicator disappear.
 

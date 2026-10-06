@@ -1,9 +1,9 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Diagnostics Technique
 
-**Version:** 0.4.0
+**Version:** 0.4.1
 **Required package path:** `GeurtsTechniques/GeurtsDiagnosticsTechnique.md`
-**Implementation baseline:** God 0.15.0 and Diagnostics 0.6.1, published at the immutable commits in the catalogue; verify the actual installed package. Diagnostics 0.6.1 requires God 0.14.0 for the shared larger-window opener. The shared Editor theme is governed by the manifest-selected Editor UI Theme Technique.
+**Release selection:** Use the current Brick Catalogue for published versions, dependencies and immutable sources; verify the actual installed package and supported APIs. The shared Editor theme is governed by the manifest-selected Editor UI Theme Technique.
 
 The manifest selects this technique for Diagnostics integration, logging, console policy, runtime metrics, health checks, inspection and gameplay cheat-session hooks. Technical trade-offs remain owned by the Technical Technique; the Brick Contract owns general lifecycle/settings and the catalogue. This file does not authorize installing packages or replacing project design facts.
 
@@ -19,6 +19,10 @@ Command-policy ownership is registered separately from logging capture. While no
 
 ## Shared logging contract
 
+All project logging routes into Diagnostics whenever a compatible provider is installed, enabled and running: game scripts, bricks, Editor tools, Unity messages, third-party/vendor/generated sources and custom loggers, at every severity. Project-controlled code uses the shared facade. External sources use supported callbacks or adapters without editing vendor/generated code where capture suffices. Report a specific uncapturable integration gap instead of claiming complete coverage. A catalogue entry or installed package alone does not establish an active provider.
+
+Ordinary Forge logs are dropped while the provider is unavailable, including before startup; resume capture when it is available. Genuine failed operations remain independently visible in owning status/health reporting, with useful failure details, even without Diagnostics. An absent log is never evidence of success. Explicit thrown exceptions retain their normal details and behavior; the no-op logging path is not permission to swallow them.
+
 Project-controlled code registers topics before its first log and emits through `ForgeLog.Info`, `Warning`, `Error` or `Exception` in God. Multiple topics describe one record; case-insensitive duplicate registrations share one identity. A topic is game-defined, not a fixed package enumeration. Registration makes a topic available to filters before any record uses it.
 
 ```csharp
@@ -32,7 +36,7 @@ Capture is thread-safe; Unity object inspection and serialization occur on the m
 
 ## Runtime console and filters
 
-The full Diagnostics console is reachable with tilde/backquote in **all supported builds**, including release. Player and Developer tabs are freely switchable; this tab is not an authentication boundary. It is separate from the restricted testing override. Do not expose secrets merely because a record or command is Developer-classified.
+The runtime developer console is optional during setup and throughout game development, including completed games. The required Quantum Console library is a separate dependency baseline. If installed, the full Diagnostics console is reachable with tilde/backquote in **all supported builds**, including release. Player and Developer tabs are freely switchable; this tab is not an authentication boundary. It is separate from the restricted testing override. Do not expose secrets merely because a record or command is Developer-classified.
 
 Use the existing Quantum Console canvas, input, parser, execution, history suggestions and lifecycle. Embed Diagnostics controls and its paged/virtualized log presentation into that console. The scoped extension of QC's existing uGUI is intentional; it is not a new competing runtime UI framework. Keep exactly one console and one Input System EventSystem across scene changes. Opening the console suspends configured gameplay action maps but does not pause simulation. Closing it restores only the input maps that this integration suspended.
 

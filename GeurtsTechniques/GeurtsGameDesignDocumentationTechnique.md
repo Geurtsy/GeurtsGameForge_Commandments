@@ -2,7 +2,7 @@
 # Geurts Game Design Documentation Technique
 
 **Game Design Documentation Discovery - AI and Human Developer Reference**  
-**Version:** 0.15.0
+**Version:** 0.15.1
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -36,7 +36,7 @@ Project-specific game design documentation belongs at:
 <ProjectRoot>/Docs/GameDesign/
 ```
 
-God owns the Windows Editor Commandments service and requires separately installed licensed Odin Inspector and Quantum Console assemblies. The optional Companion 0.15.0 compatibility adapter has no God or other Unity Package Manager package dependency, no vendor references, no updater and no menus. It forwards existing Editor callers to God 0.29.0 or newer. Authoritative content remains independent and readable without God. The content action grants no additional project access. Never use a generic template as the target game's design authority.
+God owns the Commandments Editor service; the [Commandments Companion Technique](GeurtsCommandmentsCompanionTechnique.md) owns its lifecycle and passive-adapter transition. The [Brick Contract](GeurtsBrickContract.md#identity-and-dependencies) owns package and licensed-library dependencies. Authoritative Markdown content remains readable without God. The content action grants no additional project access. Never use a generic template as the target game's design authority.
 
 Never put Geurts source-package files in `Docs/GameDesign/` or project-specific GDD files in `GeurtsGameForgeCommandments/`.
 
@@ -91,7 +91,7 @@ The import must:
 
 - Create only missing `Docs/` and `Docs/GameDesign/` directories needed for this explicit import, under the Folder Structure Technique's narrow exception. Preserve existing folders and do not run general project setup.
 - Accept `.md` only and preserve the selected source bytes without adding metadata, converting content, or inventing game facts.
-- Copy the selected file into `Docs/GameDesign/` without silently overwriting any existing file. God 0.17.0 may replace differing destinations only after the manual overwrite confirmation below. Selecting an existing safe document in that directory uses its current project-relative path. An existing destination with identical bytes is an idempotent reuse; different bytes at the same destination require explicit confirmation. Callers without that confirmation remain non-overwriting.
+- Copy the selected file into `Docs/GameDesign/` without silently overwriting any existing file. Angels may replace differing destinations only after the manual overwrite confirmation below. The confirmation format was introduced in historical God 0.17.0; God now only navigates or forwards to the Angels owner. Selecting an existing safe document in that directory uses its current project-relative path. An existing destination with identical bytes is an idempotent reuse; different bytes at the same destination require explicit confirmation. Callers without that confirmation remain non-overwriting.
 - Create a missing `GameDesignManifest.md` from the installed documentation's existing create-if-missing scaffold. Preserve existing manifest text, encoding, and bytes outside the primary and imported-document sections. Support UTF-8, UTF-8-BOM, UTF-16LE-BOM and UTF-16BE-BOM; reject invalid text and UTF-32 without mutation.
 - Preflight every selected document and every destination before copying any file. Reject differing documents that map to the same destination, including case-only collisions on Windows. Repeated selections of identical content are idempotent. Require an explicit initial primary from the selected batch; do not silently replace a missing primary.
 - Add the primary section when absent or replace only one valid supported primary section. Preserve every existing managed table row and all other project notes. Duplicate, malformed, unsupported or nested primary markers are conflicts and must not be repaired by discarding content.
@@ -109,7 +109,7 @@ After affirmative confirmation, revalidate every source, destination and the ori
 
 ### Imported-document routing section
 
-God 0.16.0 registers batch imports using the following separate exact v1.0.0 section, outside both the primary section and the existing managed table:
+Angels registers batch imports using the following separate exact v1.0.0 section (introduced in historical God 0.16.0), outside both the primary section and the existing managed table:
 
 ```markdown
 <!-- GEURTS-GDD-IMPORTS-BEGIN version="1.0.0" -->

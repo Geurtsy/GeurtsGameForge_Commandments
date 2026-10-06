@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.17.0
+**Version:** 1.17.1
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -56,7 +56,7 @@ Migration, settings conversion, backup, rollback and recovery frameworks are exc
 
 Use God's per-brick JSON settings store. Editor data lives at `ProjectSettings/GeurtsGameForge/<package-id>.json`. Only that identity's file may be deleted by its removal operation. Bricks must not store unrelated game data in this directory. Project defaults are exported into a generated Resources asset during a build; player overrides live below `Application.persistentDataPath/GeurtsGameForge`. Editor package removal does not erase files from previously distributed player installations.
 
-God's package management and Odin dashboard belong in Editor-only assemblies. Runtime contracts, lifecycle and settings cannot reference UnityEditor. God owns shared logging contracts; optional Diagnostics owns capture and all console installation, presentation and input-focus behavior. Forge logging has no Unity fallback or mirror. Diagnostics explicitly implants its commercial-prefab console into SCN_BigBang; the retained God bridge is passive serialized compatibility. Bootstrap does not require Diagnostics or console resources. Developer and Player presentation remain available in release builds under the detailed Diagnostics command policy, with testing override restricted to Editor/designated internal builds and host/server authority preserved.
+God's package management and Odin dashboard belong in Editor-only assemblies. Runtime contracts, lifecycle and settings cannot reference UnityEditor. God owns shared logging contracts; optional Diagnostics owns capture and all console installation, presentation and input-focus behavior. The [Diagnostics Technique](GeurtsDiagnosticsTechnique.md) owns capture-only logging and independently visible failure reporting. Runtime console installation is optional throughout development and for completed games. Diagnostics explicitly implants its commercial-prefab console into SCN_BigBang; the retained God bridge is passive serialized compatibility. Bootstrap does not require Diagnostics or console resources. Developer and Player presentation remain available in release builds under the detailed Diagnostics command policy, with testing override restricted to Editor/designated internal builds and host/server authority preserved.
 
 ## Catalogue schema 1
 
@@ -106,7 +106,7 @@ All existing and future brick Editor UI must follow the manifest-selected [Edito
 
 Each card shows identity, description, website, installed/available and lifecycle status, installed/available versions, dependencies, source and compatibility information. Show appropriate Install, Check for Updates, Update, Enable/Disable, Remove, Open Website and Retry actions. Shared actions include Refresh Catalogue, Install All, Check All for Updates and confirmed Update All, including God.
 
-Game Forge God owns the Commandments content view and one Editor service. Package installation/update never acquires content. Display God tooling and installed/available content versions separately. The content action retains its one cancel-default, four-target confirmation, including first installation. Manual Update All cannot replace content. The saved-consent opening exception below retains its existing scope. Build Forge calls the same God-owned public setup helpers. The adapter owns no update surface.
+Game Forge God owns the Commandments content view and one Editor service. Package installation/update never acquires content. Display God tooling and installed/available content versions separately. The content action retains its one cancel-default, four-target confirmation, including first installation. Manual Update All cannot replace content. The saved-consent opening exception below retains its existing scope. Build Forge navigates to installed project-tool owners; retained God setup helpers forward to Angels under the Forge Setup Technique. The adapter owns no update surface.
 
 Version conflicts or unverified compatibility produce a clear Continue/Cancel warning, not an automatic compatibility block. Missing required tools or an operation Unity cannot perform must be reported accurately. Never claim that package installation proves compilation succeeded.
 
