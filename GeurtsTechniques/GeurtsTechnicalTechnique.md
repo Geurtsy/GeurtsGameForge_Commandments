@@ -1,41 +1,14 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Unity Game Development - AI Instruction Manual**  
-**Version:** 0.17.3
+**Version:** 0.18.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
-**Primary audience:** AI coding agents and automated development systems
-**Secondary audience:** Human developers
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
 
-> `GeurtsTechniqueManifest.md` selects this file and version from one validated package commit. This technique defines technical implementation only and does not establish an alternate reading or conflict order.
+`GeurtsTechniqueManifest.md` alone selects this technical topic, its version and reading scope. The Technical Technique retains the shared priorities.
 
----
-
-## Purpose
-
-This document instructs AI coding agents, automated development systems, and human developers on how to create, edit, refactor, and maintain Unity game code for Geurts Game Forge.
-
-It exists to ensure:
-
-- Consistent coding style.
-- Optimised runtime performance for gameplay and AI logic.
-- Clear, machine-readable rules for automated coding.
-- Predictable project structure and asset placement.
-- Maintainable systems that can scale from solo development to larger teams.
-
-This document is the technical implementation authority. Reusable automation interaction is split into `GeurtsGameForgeAutomationTechnique.md`, but every technical trade-off remains governed by the strict priority order in this document.
-
-Interpret its requirements deterministically. Explicit rules, literal paths, stable terminology, and testable outcomes take precedence over stylistic elegance when the two conflict.
-
----
-
-## Manifest Boundary
-
-`GeurtsTechniqueManifest.md` is the single resolver for applicable documents, subject ownership, versions, read order, and cross-document conflicts. This technique owns technical implementation and technical trade-offs. When a task also concerns folders, native AI entries, game-design documents, automation behaviour, an integration lifecycle, or the approved `.gitignore` payload, follow the additional subject owner selected by the manifest.
-
----
+This is the short mandatory technical core for first-party game code, bricks, Editor tools, tests and automation. Read additional technical topics only when the manifest selects them. Use the current published packages in the catalogue; an installed older version is a compatibility fact, not the target for new guidance. Changelogs and historical release summaries are never routine mandatory reading. A requested migration or historical review selects its own history explicitly. No reading rule authorizes package installation or live-project changes.
 
 ## Technical Priority Order
 
@@ -48,202 +21,77 @@ When a decision requires a trade-off, apply this priority order:
 1. **Extendibility** - Code must be modular and easy to expand.
 2. **Efficiency** - Avoid unnecessary runtime cost; when efficiency genuinely conflicts with readability, runtime efficiency wins.
 3. **Readability** - Code should remain clear to humans and AI agents without imposing avoidable runtime cost.
-4. **Updated** - Use supported, non-deprecated APIs and practices in Unity 6000.6.3f1 and the project's compatible dependencies, subject to the compatibility baseline below.
+4. **Updated** - Use supported, non-deprecated APIs and practices in Unity 6000.6.3f1 and the project's compatible dependencies, subject to the manifest-selected Unity topic.
 5. **Documented** - Major components, public APIs, and serialized fields must be clear and documented.
 
 These priorities are not equal. A higher priority wins over a lower priority within this technique's subject. A package change must be selected and versioned through the manifest rather than inferred from a stray copy.
 
 ### Multiplayer Exception
 
-For multiplayer systems, **network efficiency overrides all other priorities**.
+For multiplayer systems, **network efficiency overrides all other priorities**. This override applies regardless of the selected networking framework.
 
 Cross-document applicability and conflicts defer to the manifest. This technique's priority order applies only to actual technical trade-offs within its assigned subject.
 
----
-
 ## No-Code Module Use and Code Extensions
 
-**Every existing and future Geurts Game Forge module must support its normal intended use without requiring the user to write or edit code, with only narrow, documented special exceptions.** This is a core usability requirement for all bricks, foundational services and independent tools. It applies alongside the existing Technical Priority Order and multiplayer override; it does not reorder them. No-code describes how a module is consumed, not how its implementation is written.
+**Every existing and future Geurts Game Forge module must support normal intended use without user-written or edited code, except for narrow, documented special cases.** This includes bricks, foundational services and independent tools. No-code governs consumption; implementation retains the technical priorities and multiplayer override.
 
 ### Normal use through the Editor
 
-- Provide supported Unity Editor workflows for installation/setup, configuration, content authoring, connecting modules, invoking their standard behaviour, inspection and testing. Reuse meaningful Odin inspectors, existing Forge tools, components, ScriptableObjects, presets, asset references and serialized actions/events where they fit. Use clear labels, useful defaults, validation and actionable explanations for missing prerequisites.
-- Routine use must not require handwritten C#, source patches, manual UXML/USS/JSON edits, scripting, or undocumented calls. Expose the necessary references and bindings through supported controls; supplying a code sample alone does not satisfy the no-code path. Custom visual scripting is not a required dependency of this standard.
-- Keep authored configuration persistent, discoverable and editable. Preserve Unity asset identities, Undo and existing content where applicable. Runtime functionality must remain usable in the Windows player without Editor assemblies or Codex at runtime; Editor-only tools retain their Editor-only scope.
+- Provide supported Editor workflows for setup, configuration, authoring, module connections, standard actions, inspection and testing. Reuse meaningful Odin inspectors, Forge tools, components, ScriptableObjects, presets, references and serialized actions/events. Include clear labels, useful defaults, validation and actionable prerequisite errors.
+- Routine use must not require C#, source patches, manual UXML/USS/JSON edits, scripts or undocumented calls. Expose references and bindings through controls; a code sample alone is insufficient. Custom visual scripting is not required.
+- Keep configuration persistent, discoverable and editable. Preserve Unity asset identities, Undo and existing content. Runtime functionality must work in the Windows player without Editor assemblies or Codex; Editor-only tools retain that scope.
 
 ### Code remains a supported first-class path
 
-Provide clear, documented public APIs and focused extension points so developers and Codex can also configure, invoke, compose and extend the module through code. Keep entry points, types, lifecycle/ownership, dependencies, validation, errors and side effects discoverable, with small version-accurate usage and extension examples. Prefer explicit interfaces, events and adapters over requiring edits to package internals, reflection into private implementation or copied module code.
+Provide documented public APIs and focused extension points for developers and Codex to configure, invoke, compose and extend modules. Describe entry points, types, lifecycle, ownership, dependencies, validation, errors and side effects with small version-accurate examples. Prefer interfaces, events and adapters over package patches, private reflection or copied implementations.
 
-The Editor and code paths must use the same underlying services, configuration contracts and validation, preserving equivalent behaviour, operation guards and cleanup. Neither path may become a separate implementation with different rules. Codex should use supported configuration for standard behaviour and supported APIs/extensions when custom code is needed, following the existing Codex compatibility requirement. This does not add a live connector, runtime AI dependency or mandatory peer-brick dependency.
+Editor and code paths must share services, configuration contracts and validation, with equivalent behaviour, operation guards and cleanup. Codex uses supported configuration for standard behaviour and APIs/extensions for custom code. This adds no live connector, runtime AI or mandatory peer-brick dependency.
 
 ### Special exceptions
 
-A code-required workflow is exceptional: limit it to genuinely new project-specific behaviour, a custom external integration that supported configuration cannot reasonably express, or an explicitly requested code-only workflow. Document the exact affected capability, the concrete reason a no-code path is insufficient, prerequisites, the minimum supported code/extension point, and the available Editor alternative or remaining limitation in the owning module's usage guide. Keep ordinary module use available without that exception. Missing routine setup controls, hidden bindings, unfinished authoring tools, or labelling a feature "advanced" are not exceptions.
+Code-required exceptions are limited to new project-specific behaviour, external integrations that supported configuration cannot express, or an explicitly requested code-only workflow. The owning usage guide must explain the affected capability, reason, prerequisites, minimum supported extension and Editor alternative or limitation. Ordinary use stays available without code. Missing setup controls, hidden bindings, unfinished tools or an "advanced" label are not exceptions.
 
-For new modules and materially changed workflows, verify a representative end-to-end setup and use from supported Editor controls without hand-authored code; also verify the affected public API or extension path and shared behaviour. Record prerequisites, results and any specific exception. Assess affected existing modules during maintenance and report actual usability gaps. This documentation requirement does not certify every released module, migrate installed projects, or authorize unrelated rewrites.
-
----
+For new modules and materially changed workflows, verify representative setup/use through Editor controls without hand-authored code, plus the affected API/extension path and shared behaviour. Record prerequisites, results, exceptions and existing usability gaps. This does not certify released modules, migrate installations or authorize unrelated rewrites.
 
 ## Windows Development and Build Workflow
 
-Develop, test and build **on Windows for Windows, using Unity and Codex**. Windows is the supported development host and player target for Geurts Game Forge solutions. Use the project's supported Unity Editor on Windows, Codex for assisted implementation and validation, and Windows PowerShell-compatible commands for host automation. Do not introduce another host or player target unless the user explicitly changes this requirement.
+Develop, test and build **on Windows for Windows, using Unity and Codex**. Use the supported Unity Editor, Codex-assisted implementation/validation and Windows PowerShell-compatible host automation. Another host or player target requires an explicit user change.
 
-Select the intended **Windows Build Profile**, scene list, architecture and scripting backend explicitly. Validate the affected behavior in the Windows Editor and, for runtime or build changes, in the resulting Windows player. Keep the actual project settings authoritative; this workflow does not authorize changing unrelated profiles, settings or open scenes.
+Select the **Windows Build Profile**, scene list, architecture and scripting backend explicitly. Validate affected behaviour in the Windows Editor and, for runtime/build changes, the resulting Windows player. Preserve unrelated settings, profiles and open scenes.
 
-Use **CRLF** (carriage return followed by line feed, `\r\n`) for new and edited first-party text files, including C#, Markdown, JSON, PowerShell and batch files. Keep authored files consistently CRLF rather than mixing line endings. Record the policy in the owning source repository's Git attributes; this documentation repository uses `* text=auto eol=crlf`. Verify the affected working-tree files before delivery. Git's normalized text storage and LF-normalized hashes are internal representations and do not change the Windows authoring requirement.
+Use consistent **CRLF** (`\r\n`) for new/edited first-party C#, Markdown, JSON, PowerShell, batch and other text files. Record this in the owning repository's Git attributes and verify changed working-tree files. This repository uses `* text=auto eol=crlf`; Git-normalized storage and hashes do not change authoring policy.
 
-Apply this rule within the owning file's mutation contract. Preserve binary files, third-party assets, generated output and Unity-owned serialization through their supported tools. Do not reformat untouched files or overwrite protected existing content just to change newlines. Managed archive snapshots and exact template copies retain their source bytes; existing user-owned regions and create-if-missing targets retain their specified byte-preservation rules. Keep the comprehensive approved `.gitignore` payload intact; defensive exclusions for other tools and platforms do not establish supported development hosts or player targets.
+Respect each file's mutation contract. Preserve binaries, vendor/generated files and Unity serialization through supported tools; do not reformat untouched files or overwrite protected content for newlines. Managed archives/exact templates retain source bytes; user regions and create-if-missing targets retain their byte-preservation rules. Keep the comprehensive `.gitignore` intact; defensive exclusions do not establish other supported hosts/targets.
 
 ### Absolute path length and workspace roots
 
-Keep **every full absolute file and folder path below 260 characters: 259 characters maximum**. This requirement applies to both **Codex projects** and **Geurts Game Forge projects**, including repositories, worktrees, Unity projects, validation fixtures and supporting tooling. Count the resolved drive or network-share prefix, all separators, folder names, filename and extension; a short project-relative path alone does not establish compliance. A path of exactly 260 characters is already invalid. Windows long-path support does not waive this project requirement.
+Keep **every full absolute file and folder path below 260 characters: 259 characters maximum** in both **Codex projects** and **Geurts Game Forge projects**, including repositories, worktrees, Unity projects, fixtures and tools. Count the resolved drive/share prefix, separators, folders, filename and extension. Relative paths and Windows long-path support do not waive this limit; 260 is invalid.
 
-Use short project roots and shallow folder structures from the start, for example `C:/Dev/Game` or `C:/Dev/Task`. Leave room for dependency extraction, package caches, temporary work, generated code, build intermediates and final outputs. Include Unity `Library/PackageCache`, `Library/Bee` and `Temp` paths, package/version/hash suffixes, and the selected toolchain's generated descendants when applicable. Check the actual locations used by each tool, including caches or temporary directories outside the project root; do not assume they inherit the short root.
+Start with short roots and shallow folders, such as `C:/Dev/Game` or `C:/Dev/Task`. Reserve room for dependency extraction, caches, temporary files, generated code, build intermediates and outputs. Include Unity `Library/PackageCache`, `Library/Bee`, `Temp` and variable package/version/hash suffixes. Check each tool's actual cache/temp locations, including those outside the root.
 
-Before creating, copying, extracting or moving content, evaluate the intended absolute destinations and foreseeable generated paths. Combine each selected root with the deepest known dependency or output suffix and allow for variable version, hash and temporary-name lengths. Recheck when dependencies, build settings or generation layouts change. A proposed root is suitable only when its descendants retain sufficient room below the limit; do not wait for a file operation to fail. Where generated names are not yet known, state the estimate and reserved allowance, then verify the concrete paths before generation or extraction.
+Before creating, copying, extracting or moving content, check absolute destinations and foreseeable generated descendants against the limit. Combine the root with the deepest known suffix and allowances for variable versions, hashes and temporary names. State estimates/reserves when names are unknown, then check concrete paths before generation/extraction. Recheck after dependency, build or layout changes; do not wait for an operation to fail.
 
-If any intended path reaches or exceeds 260 characters, report the **exact full path and its character count**, choose a shorter location for new task-owned content, and recheck the resulting paths before proceeding. Do not silently rename or move existing user content, shorten established package or asset identities, or change user-owned roots/settings. If shortening requires an existing-content migration, report the exact conflict and proposed shorter destination; perform that migration only with explicit authorization and the owning file/asset preservation rules. Path checks grant no access to otherwise excluded files or folders.
+For an intended path at or above 260 characters, report the **exact full path and its character count**, choose a shorter new-content location and recheck. Do not silently rename/move user content, shorten package/asset identities or change user roots/settings. Existing-content migration requires the exact conflict, proposed destination, explicit authorization and preservation rules. Path checks grant no otherwise excluded access.
 
-### Combined Unity CLI and Editor workflow
 
-Use Unity's built-in command-line interface (CLI) as the default for repeatable imports, compilation checks, automated Edit Mode and Play Mode tests, builds and scripted validation when it can verify the affected behavior correctly. Use the Unity Editor or target player for the visual, interaction and gameplay checks that require them. Combine these methods according to the evidence each check needs; a successful batch run does not establish visual or interactive correctness. The [Automation Technique's computer-control policy](GeurtsGameForgeAutomationTechnique.md#computer-control-during-implementation-and-tests) still requires explicit user authorization for interactive testing on the user's computer.
+## Shared implementation boundaries
 
-| Work | Preferred method | Evidence |
-|---|---|---|
-| Import and compilation checks | Background Unity CLI batch run in the selected Editor version. | Completed process, exit code and full Editor log, including compiler errors and warnings. |
-| Repeatable Edit Mode and Play Mode tests | Unity Test Framework CLI with the intended test platform and focused suite. | Test result XML, pass/fail/skip counts and Editor log. |
-| Windows builds and scripted validation | Unity CLI with the intended Windows Build Profile or supported static Editor method. | Build or validation report, exit code and log; exercise the resulting player when required. |
-| Visual layout, input/focus behavior and live gameplay | Relevant Editor or Windows player inspection, using supported APIs or isolated fixtures where they provide sufficient evidence. | Actual rendered/behavior evidence for the affected surface; report any unavailable interactive check. |
-
-For a CLI run:
-
-- Select the exact supported Editor patch from the project's baseline and resolved dependencies. Invoke its `Unity.exe`; built-in Editor automation does not require installing a separate CLI product or a live connector.
-- Set `-projectPath`, use `-batchmode` for unattended work, and save the full log with `-logFile`. Use `-nographics` only for checks that do not require graphics; rendering or GPU-dependent behavior must retain graphics support.
-- For tests, use the installed compatible Unity Test Framework's `-runTests`, `-testPlatform` and `-testResults` arguments. Do not add `-quit` to an asynchronous test run: let the test runner finish and exit. For custom work, `-executeMethod` calls an existing supported static method in an Editor script; a synchronous run may use `-quit`, while asynchronous work must exit only after completion.
-- Check process completion, exit code, full logs and the expected result files together. Missing results, skipped coverage, compiler errors or an incomplete run must not be reported as a pass. Do not suppress compiler failures to make validation appear successful.
-- Batch mode cannot open a project already open in another Unity Editor instance. Preserve the user's live session and unsaved scenes/settings: use a separate validation project with the intended source and resolved dependencies when isolation is needed. Record its source revision and relevant differences; validation of saved/copied content does not prove unsaved live content. Do not close or save the user's Editor merely to run a check.
-- Reuse established validation entry points and run proportionate checks after meaningful changes. Group compatible checks where useful to reduce repeated startup/import work, without losing separate results or mixing incompatible test requirements. CLI reduces manual steps and supports repeatability; claim a time saving only when measured.
-
-Use the versioned [Unity 6.6 Editor command-line reference](https://docs.unity.com/en-us/engine/6000.6/manual/unity-editor/command-line-arguments/editor), command-line build guidance, and the [Unity Test Framework command-line reference](https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/reference-command-line.html) for the installed compatible package version. These method choices retain the existing Windows workflow, Unity API serialization boundary and subject-specific acceptance gates.
-
----
-
-## Unity 6000.6.3f1 Compatibility Baseline
-
-### Editor and dependency selection
-
-Target **Unity 6.6 (6000.6.3f1)** for all new and modified Geurts Unity code, Editor tooling, tests, automation and C# examples. This technique owns the compatibility baseline; entry files and native AI routes continue to defer to the manifest. The documentation package version is independent of the Unity Editor version.
-
-Before Unity implementation, read `ProjectSettings/ProjectVersion.txt`, `Packages/manifest.json`, and `Packages/packages-lock.json` when available, then inspect the installed packages, assembly definitions, render pipeline, build targets, and scripting backend relevant to the task. Record the exact Editor patch and resolved dependency versions used for validation. In this documentation-only repository these Unity project files do not exist; do not fabricate them or claim that another repository's code has been upgraded. This implementation preflight does not expand the Commandments Companion's closed startup or Update permissions.
-
-Use exactly **6000.6.3f1** when establishing or updating the Editor baseline. Review its [release notes](https://unity.com/releases/editor/whats-new/6000.6.3f1), then commit the exact `ProjectVersion.txt` and package manifest/lockfile in the consuming project after a validated migration. A project pinned to an older Editor requires that migration; do not silently open it in another Editor or report it as 6000.6.3f1-compatible without evidence. A later Unity release does not replace this target automatically.
-
-Use the newest stable package release verified compatible with **6000.6.3f1** and the actual dependency graph. Review package compatibility information, changelogs, and installed source before changing APIs. Update required dependencies together through supported package workflows and retain reproducible versions; do not blindly select `latest`, preview/experimental releases, or dependencies requiring a later Editor. A compatible stable API takes precedence over a newer incompatible API.
-
-**Odin Inspector and Quantum Console are required dependencies** for Geurts gameplay, reusable framework, runtime-system, and developer-tool implementation. Use current stable releases compatible with Unity 6.6 and the project's target platforms. Verify Odin was acquired through a licensed distribution and Quantum Console through its supported distribution; do not copy, vendor, or redistribute either package without the applicable rights. Missing dependencies are implementation blockers. If either dependency is missing, incompatible, or unlicensed, report that concrete blocker and do not create a fallback inspector, serializer, command console, or parallel diagnostics framework to bypass the requirement.
-
-Use both dependencies wherever their supported features improve configuration, validation, inspection, diagnostics, tuning, or developer operation. "Use as much as possible" means meaningful adoption across applicable Geurts-owned code, not decorating every member, serializing unsupported data unnecessarily, exposing unsafe commands, or adding runtime work without a benefit. Preserve established project data and behavior while migrating duplicate custom tooling onto these required systems.
-
-God owns the Commandments Editor service; the [Commandments Companion Technique](GeurtsCommandmentsCompanionTechnique.md) owns its lifecycle and passive-adapter transition. The [Brick Contract](GeurtsBrickContract.md#identity-and-dependencies) owns package and licensed-library dependencies. Authoritative Markdown content remains readable without God. A separately selected legacy compatibility contract remains frozen.
-
-**BigBang is the narrow independent initial-installer exception.** `com.geurts.gameforge.bigbang` compiles before God, Odin Inspector and Quantum Console exist, without vendor, God, Input System, uGUI or TextMesh Pro assembly references and without `IBrick` registration. It uses an explicit Editor-only assembly and supported Unity Editor/UI Toolkit APIs to prepare the licensed libraries, install one verified immutable God target and hand over after successful compilation. Its missing-library UI is acquisition assistance, not a fallback inspector, serializer or console. Ordinary God and dependent bricks retain all required licensed-library rules. The manifest-selected [BigBang Technique](GeurtsBigBangTechnique.md) owns this initial-installation boundary; runtime initialization and `SCN_BigBang` remain owned by God.
-
-For a separately maintained UPM package migrated and verified against this baseline, declare `"unity": "6000.6"` and `"unityRelease": "3f1"` in its `package.json`. These fields declare the minimum Editor version; they do not prove compatibility without compilation and relevant tests in 6000.6.3f1. Consult the [package manifest reference](https://docs.unity.com/en-us/engine/6000.6/manual/packages-list/cus-pkg-lp/cus-pkg-development/cus-pkg-manifest/upm-manifest-pkg). Do not add a Unity package manifest to this documentation repository or change the companion's closed JSON schema to carry Editor requirements.
-
-### C# and .NET
-
-- Use **C# 9.0**, within Unity's documented supported subset. Do not assume C# 10+ features such as file-scoped namespaces, global using directives, record structs, required members, or collection expressions are available. Avoid unsupported C# 9 features such as covariant return types, module initializers, and init-only setters in baseline examples. Do not add compiler shims or change the language version just to use newer syntax. See the [Unity 6.6 compiler reference](https://docs.unity.com/en-us/engine/6000.6/manual/scripting/environment-and-tools/overview-of-dot-net-in-unity/csharp-compiler).
-- Prefer **.NET Standard 2.1** for new reusable code; respect an existing project's API compatibility level. Unity also offers the **.NET Framework 4.8** profile, but this does not make .NET 5+ or .NET Core-only APIs available. Check managed libraries on the actual target and scripting backend, including IL2CPP/AOT and stripping when used. See Unity's .NET API compatibility levels.
-- Keep Unity-serialized data in supported fields and types; do not use records as Unity-serialized data models. Apply `[SerializeField]` to fields, not properties or methods. If an existing auto-property deliberately serializes its backing field, use `[field: SerializeField]` and a field-targeted tooltip. Preserve serialized identity when refactoring and validate existing asset values in the Editor.
-
-### Current API choices
-
-Never use a Unity or dependency API marked deprecated or obsolete in 6000.6.3f1 in new or updated code, tests, tools or examples. Replace deprecated calls with supported APIs while preserving their behavior. Treat compiler deprecation warnings as failures for first-party code; do not suppress them or keep a deprecated call merely because it still compiles. Review the installed API documentation and compile in the exact target Editor before release.
-
-Prefer serialized references, explicit dependency wiring, and cached component access over scene-wide discovery. When discovery is necessary, use `Object.FindAnyObjectByType<T>()` for an arbitrary match or `Object.FindObjectsByType<T>()` for all matches. Specify inactive-object handling deliberately. In Unity 6000.6, `FindFirstObjectByType` and the `FindObjectsByType` overloads taking `FindObjectsSortMode` are deprecated because their instance-ID ordering cannot be maintained. Never use them. See [object discovery](https://docs.unity.com/en-us/engine/6000.6/script-reference/unityengine/object/findobjectsbytype).
-
-This method-body fragment performs an intentional one-time scan of active colliders; it is not an `Update()` pattern or a complete component:
-
-```csharp
-UnityEngine.Collider[] colliders = UnityEngine.Object.FindObjectsByType<UnityEngine.Collider>(
-    UnityEngine.FindObjectsInactive.Exclude);
-```
-
-For `Rigidbody` and `Rigidbody2D`, use `linearVelocity`, `linearDamping`, and `angularDamping` in new or migrated code instead of their obsolete velocity/drag names. Preserve the existing simulation behavior: these names do not justify setting velocity every frame, changing force modes, or making kinematic bodies behave dynamically. See 3D velocity, 2D velocity, 3D damping, and 2D damping.
-
-Use the **Input System** package and input actions for new input work. Inspect the existing input architecture and Active Input Handling setting; integrate or migrate bindings deliberately and test devices, rebinding, and UI navigation relevant to the project. Do not introduce legacy `UnityEngine.Input` polling into new examples, silently change existing controls, or enable both input backends as an unexplained workaround. See Unity 6.6 input guidance.
-
-Use **Build Profiles** for new build configuration guidance and select the intended profile, scene list, platform, and scripting defines explicitly in automation. Do not assume legacy Build Settings instructions or one shared scene list describe every build. Existing supported build APIs may remain when they meet the same requirements. See Build Profiles.
-
-### Async and lifecycle
-
-For Unity-oriented async operations, prefer `UnityEngine.Awaitable` where appropriate. Await each pooled instance only once. Preserve `Task` for suitable .NET/library interoperation and coroutines for appropriate existing frame-based workflows. Do not mechanically convert working code. Observe cancellation and exceptions, cancel work when its owner or application exits, and return to the main thread before using Unity APIs that require it. Do not hide failures in unobserved fire-and-forget work. See Awaitable and the async programming guide.
-
-Respect the project's Enter Play Mode settings. When domain reload is disabled, reset owned static state deliberately and prevent duplicate event subscriptions across play sessions. Release subscriptions and resources at the appropriate runtime or Editor lifecycle boundary; Editor tools must account for assembly reload and window teardown. Test repeated entry and exit with the settings the project actually uses. See domain reload behavior.
-
-### Unity 6.6 migration checks
-
-Read the [Unity 6.6 upgrade guide](https://docs.unity.com/en-us/engine/6000.6/manual/upgrade-guides/upgrade-guide-unity66) and all intervening upgrade guides when migrating older projects. For affected systems:
-
-- URP custom passes must use Render Graph. The earlier Unity 6.3 guide removes normal Compatibility Mode support; `URP_COMPATIBILITY_MODE` is a temporary conversion aid, not a shipping solution. Do not change the project's render pipeline merely to modernize examples.
-- Replace `AccessibilityNode.selected` with `invoked`; use a single `AccessibilityRole`, and review enum-size assumptions and precompiled assemblies.
-- Review native-facing code and precompiled assemblies for the `SceneHandle` and `EntityId` type changes; rebuild affected assemblies against the selected Editor.
-- Resolve invalid USS syntax and unsupported selectors rather than suppressing importer errors.
-- Review modified Adaptive Performance packages against its move into an Editor module; do not keep duplicate implementations.
-- Replace obsolete `UPM_NPM_CACHE_PATH` configuration with an appropriate `UPM_CACHE_ROOT` configuration when present.
-
-Review platform and package-specific changes only where those systems are used. Use the selected patch's Windows build toolchain and release notes to check native plugins, graphics features, scripting backends and other affected integrations. A rename or API Updater pass alone is not evidence of unchanged behavior.
-
-### Verification and evidence
-
-For changed Unity implementation, compile in the exact selected **6000.6.3f1** Editor, resolve newly introduced errors and obsolete-API warnings, run relevant Edit Mode and Play Mode tests, and exercise affected behavior. Build and test the affected target player/backend when runtime compatibility is involved; Editor success does not prove IL2CPP, platform, or player compatibility. Report remaining third-party warnings or blockers separately.
-
-For documentation-only changes, verify examples against versioned Unity and package references and run this repository's validator and isolated PowerShell automation suite. Report whether examples were actually compiled in Unity. These checks do not certify separate game or companion repositories. If the required Editor, package, platform module, or project is unavailable, state the exact unverified surface rather than claiming full compatibility.
-
----
-
-## Required Project Scenes
-
-Every Geurts Unity project must contain the following two scenes. The Folder Structure Technique owns their exact [asset placement and required scene folders](GeurtsFolderStructureTechnique.md#required-scene-structure).
-
-| Build index | Required scene | Purpose |
-|---|---|---|
-| 0 | `SCN_BigBang` | Project entry scene for booting and initialisation. |
-| 1 | `SCN_DevPlayground` | Initial development and testing scene. |
-
-Both scenes must be enabled in the effective scene list for each game Build Profile, with `SCN_BigBang` first and `SCN_DevPlayground` second. Additional enabled scenes follow at index 2 or later. If a profile overrides the global scene list, its override must retain the same two starting entries. Scene indices are zero-based build indices, not positions in the Editor hierarchy. See Unity's Scene List guidance and scene build-index reference.
-
-Project setup must verify that both entries refer to real scene assets at their required paths and that neither is missing, disabled, duplicated or assigned the wrong index. Use supported Unity Editor scene and Build Profile APIs for changes; preserve existing scene contents, references and unrelated scene-list entries. Do not overwrite an existing scene to satisfy the baseline. The folder-creation script alone does not establish scene compliance.
-
-The exact required scene identities `SCN_BigBang` and `SCN_DevPlayground` are fixed-name contracts under the [Naming Technique's exceptions](GeurtsNamingTechnique.md#8-exceptions-and-preservation). Do not rename them to apply a generic asset pattern.
-
-This baseline defines scene identity, purpose and build order. Scene contents and destination flow follow the project's separately selected design requirements within the mandatory bootstrap lifetime rules below.
-
----
-
-## Bootstrap Scenes and Runtime Persistence
-
-**Use bootstrap scenes for runtime persistence. Do not use `UnityEngine.Object.DontDestroyOnLoad` ("Don't Destroy On Load") in first-party game code or Geurts Game Forge bricks, directly or through wrappers, aliases, or adapters.** Keep persistent objects owned by ordinary loaded bootstrap scenes rather than Unity's hidden persistence scene.
-
-- Use `SCN_BigBang` as the primary bootstrap scene. Load bootstrap before dependent content, wait for required services to be ready, and keep the bootstrap scene loaded throughout the application or Play session. Additional bootstrap scenes are appropriate only when an actual service ownership need requires them.
-- Keep application-wide service hosts, console/EventSystem objects, global input/audio/UI services, and persistent pool roots in the bootstrap scene that owns their lifetime. God remains the shared brick lifecycle authority: scene placement must not introduce a second brick initializer. Disabling or stopping a brick still releases its owned objects, subscriptions, tasks, and resources.
-- Load frontend, gameplay, and test content additively; replacement unloads only the outgoing content scenes. Exclude bootstrap scenes from content unload/replacement sets. Do not use `LoadSceneMode.Single` for content transitions after bootstrap startup, because it unloads the retained bootstrap scene. See Unity's [Additive](https://docs.unity3d.com/6000.6/Documentation/ScriptReference/SceneManagement.LoadSceneMode.Additive.html) and [Single](https://docs.unity3d.com/6000.6/Documentation/ScriptReference/SceneManagement.LoadSceneMode.Single.html) loading references.
-- Give dynamically created persistent objects explicit bootstrap ownership. Create them beneath a known bootstrap-owned root, or move an unparented root into the known loaded bootstrap scene through supported scene APIs. Do not rely on the currently active scene: it controls the destination of newly instantiated objects and lighting settings. Select the active content scene deliberately and keep scene-local gameplay objects owned by that scene for cleanup on unload. See [SetActiveScene](https://docs.unity3d.com/6000.6/Documentation/ScriptReference/SceneManagement.SceneManager.SetActiveScene.html) and [MoveGameObjectToScene](https://docs.unity3d.com/6000.6/Documentation/ScriptReference/SceneManagement.SceneManager.MoveGameObjectToScene.html).
-- Reuse the installed Scene Loading and Bootstrap brick when its supported capabilities fit. It remains optional; bootstrap architecture does not add a mandatory peer-brick dependency. Editor Play must initialize bootstrap before dependent content and preserve the user's original Editor scene arrangement.
-
-Use supported vendor configuration to disable automatic `DontDestroyOnLoad` behaviour and retain scene ownership where available. If unavoidable vendor internals still use it, report the compatibility gap and the required compatible integration or release; do not patch licensed vendor source or claim full compliance. Existing first-party violations require a scoped, versioned migration that preserves scene/prefab references. A documentation update alone neither migrates a project nor certifies current published packages.
-
-For affected runtime changes, verify bootstrap survives successful, failed, cancelled, and retried content transitions; service instances and subscriptions do not duplicate across repeated Play sessions; scene-local objects clean up; and owned services stop correctly. Preserve dirty/untitled Editor scenes and validate Windows player behaviour through the selected Automation and validation rules.
-
----
+- Inspect relevant source, installed APIs and dependencies before implementing. Reuse suitable Geurts bricks under the [Brick Contract](GeurtsBrickContract.md). Do not fabricate APIs, add speculative architecture or rewrite unrelated working code.
+- Preserve existing content, asset GUIDs, public/serialized contracts and vendor/generated files. Use supported Unity APIs for owned serialization. Necessary breaking changes require a coordinated versioned migration.
+- Use explicit failure handling and cleanup. Never expose secrets, present placeholders as complete, swallow failures or leave avoidable partial states. Review affected references, paths, lifecycle, edge cases, regressions and security alongside performance.
+- Use Unity 6.6 (6000.6.3f1) and current compatible, non-deprecated APIs for Unity work; the [Unity topic](GeurtsUnityTechnique.md) owns exact dependency, compiler and validation requirements. God and dependent bricks retain required licensed Odin Inspector and Quantum Console under the [Brick Contract](GeurtsBrickContract.md#identity-and-dependencies). The [BigBang Technique](GeurtsBigBangTechnique.md) owns its narrow prerequisite-only exception. Host PowerShell and this documentation repository do not require Unity/vendor assemblies.
+- All existing and future Forge-owned Editor UI must follow the [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md) and [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md). Keep it spacious, with useful Help and meaningful Odin/equivalent authoring; these standards exclude player-facing UI. Appearance is a quality gate within the existing technical priorities, not another priority list.
+- Persistent runtime objects use retained bootstrap scenes, never direct or indirect `DontDestroyOnLoad`. Read the [Bootstrap topic](GeurtsBootstrapTechnique.md) for affected ownership, scene or transition work.
+- Use Diagnostics when a compatible provider is available; ordinary logs are no-op when unavailable, while genuine failures remain independently visible. The [Diagnostics Technique](GeurtsDiagnosticsTechnique.md) owns capture, audience, commands and metrics. A runtime console and FMOD are optional; installing the licensed QC library does not require installing a console.
+- First-party asset and script names follow the [Naming Technique](GeurtsNamingTechnique.md); freely authored ID values use `lower_snake_case`, preserving fixed schema, vendor, package, GUID and hash formats. The [Code topic](GeurtsCodeTechnique.md) owns exact validation and code-documentation rules.
 
 <!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->
 ## Reusable Framework Compliance Header
 
 GitHub Copilot, Codex, ChatGPT, and any other AI coding assistant must follow the manifest-selected Geurts techniques.
 
-Insert the following comment only when the AI creates or materially edits a reusable Geurts Game Forge framework, library, or tooling component intended to be shared across games:
+Insert the following comment only when the AI creates or materially edits a reusable cross-game Geurts Game Forge framework, library, or tooling component intended to be shared across games:
 
 ```csharp
 // IMPORTANT: This script must comply with GeurtsGameForgeCommandments/GeurtsTechniques/GeurtsTechnicalTechnique.md and folder placement rules in GeurtsGameForgeCommandments/GeurtsTechniques/GeurtsFolderStructureTechnique.md.
@@ -253,367 +101,20 @@ Geurts Game Forge Bricks is a positive example of shared framework code. An ordi
 
 Never modify third-party packages, vendored code, generated code, read-only files, or a format/tooling surface that forbids the header merely to add compliance text.
 
-<!-- GEURTS-SECTION:END -->
 
 All code suggestions, refactoring, and automated completions must comply with the requirements for modularity, readability, efficiency, documentation, AI integration, runtime debugging, project structure, and game design awareness described in the Geurts technique documents.
 
----
+<!-- GEURTS-SECTION:END -->
 
-## Selectively Adapted Engineering Guidance
+## Codex compatibility
 
-### Provenance and authority
+Design every new or materially changed first-party component so humans and Codex can discover its responsibility, configuration, supported APIs, ownership, lifecycle, failure behavior and extension points. Provide concise version-accurate examples and proportionate repeatable checks. Keep code and no-code workflows on the same services. This adds no runtime AI, connector or optional peer dependency and does not certify existing components.
 
-Game Forge Intelligence `CODEX_ENGINEERING_RULES.md` v0.29.0 was reviewed as source material for this version. The reusable, non-conflicting guidance below is selectively adapted from that file and consolidated with existing Geurts rules. The source file is not a Geurts authority, and its broad catalogs or independent priority language do not override this technique.
+## Verification and completion
 
-The strict priorities and multiplayer exception defined above remain controlling. The source material did not add or reorder priorities.
+Implement the complete authorized outcome, including affected registration, references, tests and documentation. Verify normal/failure paths, repeatability, cleanup, compatibility and relevant performance. Report actual evidence and unavailable checks honestly; compilation alone does not establish rendered UI, physical input or Windows-player acceptance. Follow the Automation owner for questions, delivery and computer-control boundaries.
 
-### Understand, inspect, and reuse
-
-Treat the user's request as the desired outcome, subject to explicit instructions and the Geurts hierarchy. Before implementation, inspect the relevant project structure, code, dependencies, APIs, assets, conventions, and affected systems. Search for suitable existing functionality and extend it where that best satisfies the strict priorities. Preserve working behaviour unless the requested outcome requires changing it.
-
-When multiple methods are viable, choose a proportionate method by applying the five priorities in their declared order, the multiplayer exception when applicable, the project's actual constraints, and the more specific Geurts authorities. Do not create a separate competing list of engineering priorities or add architecture merely because it is available.
-
-### Codex compatibility
-
-Prioritize **Codex compatibility** when designing, creating or maintaining all first-party code governed by Geurts guidance: ordinary game code, reusable bricks, runtime systems, Editor tools, tests and automation. Make the code and its associated assets easy for Codex to understand, use, author, extend, inspect and validate efficiently by reading the documentation and using supported interfaces. This is a mandatory design consideration within the existing Technical Priority Order and multiplayer network-efficiency override; it does not add or reorder priorities. Keep the same interfaces and documentation usable by humans and other AI agents.
-
-Provide, in proportion to the component's scope:
-
-- Predictable file, asset and component structure under the selected folder authority, with clear responsibilities, names and entry points.
-- Discoverable supported APIs, extension points and configuration, documenting ownership, lifecycle, dependencies, constraints and failure behavior so callers do not have to infer hidden conventions. Keep these APIs usable alongside the no-code module workflows defined above, so Codex can operate through supported code when needed.
-- Concise usage and extension examples tied to the actual supported version, plus documentation that makes the relevant implementation and existing Geurts bricks easy to find.
-- Repeatable checks, tests and useful inspection or diagnostic output with prerequisites and expected results, so Codex can verify changes and report unavailable validation accurately.
-
-Apply this requirement to new and materially changed first-party code and assess affected existing components during maintenance. It is an ongoing framework expectation, not a claim that every existing component has already been audited. Do not rewrite unrelated working systems or vendor/generated code solely for Codex compatibility. It does not require a live Codex-to-Unity connector, a Codex plugin, runtime AI calls or a Codex dependency in shipped games, and it grants no tool-installation authority. Brick reuse and optional peer integration remain governed by the Brick Contract.
-
-### Implement, integrate, and handle failure
-
-Use clear responsibilities, focused code, minimal harmful duplication, predictable behaviour, useful diagnostics, correct cleanup, and explicit failure handling. Do not present placeholders as complete, invent APIs or package capabilities, expose secrets, silently swallow failures, or leave an avoidable partial state.
-
-Implement the complete requested change when authorized. Update required registration, initialization, configuration, references, assets, tests, and documentation rather than stopping after the primary class or file exists.
-
-### Verify, test, and preserve compatibility
-
-Review the result for compilation and type errors, incorrect references or paths, lifecycle defects, regressions, incomplete integration, unnecessary complexity, and relevant performance or security risks. Test the normal path, meaningful failure paths, edge cases, repeated operation, and surrounding functionality in proportion to the change.
-
-Refactor nearby code only when it prevents defects, removes harmful duplication, or materially improves the requested integration. Do not rewrite unrelated working systems for style. Before changing a public API, serialized field, file format, prefab, or scene contract, identify consumers and preserve compatibility when practical; when a break is necessary, version it and update affected references together.
-
-### Technical evidence for reporting
-
-Generic questioning and report behaviour is owned by the manifest-selected Game Forge Automation Technique. For this technique's subject, provide that owner with concrete technical evidence: changed implementation surfaces, validation performed, compatibility effects, technical assumptions, and unresolved technical limitations.
-
----
-
-## Boundaries with Other Subjects
-
-Folder placement, automated folder creation, design-document discovery, and missing-design decisions are governed by their manifest-selected techniques. Technical implementation must consume those decisions but must not restate or replace them here.
-
----
-
-## AI Integration Technique
-
-- **Modular AI Components:** Implement behaviours as separate scripts.
-- **Data-Driven Design:** Use ScriptableObjects for AI configuration.
-- **Validation:** Use Odin Inspector attributes and validation for serialized inputs, required references, safe ranges, and authoring constraints wherever the rule can be expressed clearly.
-- **Explainability:** Add tooltips and comments for all AI-related fields.
-- **Performance:** Optimise AI decision-making for FPS.
-
-AI decision logic should be inspectable, testable, and separated from presentation or unrelated gameplay code where practical.
-
----
-
-## Coding Standards
-
-### Asset and Scene Object Names
-
-The manifest-selected [Naming Technique](GeurtsNamingTechnique.md) owns first-party asset, scene GameObject and prefab-root names, and the script filename/class-name exemption. Select it before creating, naming, renaming or reviewing applicable content. Code-symbol conventions, command names and machine-readable ID values below remain Technical subjects. Preserve fixed Unity, package and tool contracts through the Naming Technique's exceptions.
-
-### ID Names
-
-**All freely authored ID names must use `lower_snake_case`: lowercase words separated by a single underscore (`_`), never a hyphen (`-`).** This applies throughout first-party games and Geurts bricks, including UI Foundations element IDs, screen and control IDs, and authored content, settings, action and event IDs.
-
-Use meaningful names composed of lowercase letters and digits, with single underscores between words. ID values must match `^[a-z0-9]+(?:_[a-z0-9]+)*$`: no uppercase letters, spaces, hyphens, repeated underscores, or leading/trailing underscores.
-
-| Intended name | Required ID value | Invalid alternatives |
-|---|---|---|
-| Main Menu Button | `main_menu_button` | `main-menu-button`, `MainMenuButton`, `Main Menu Button` |
-| Master Volume | `master_volume` | `master-volume`, `Master_Volume` |
-| Player 1 Spawn | `player_1_spawn` | `player-1-spawn`, `Player1Spawn` |
-
-This rule governs machine-readable ID **values**, not display labels, C# symbol names, or file/folder names. For example, a C# property named `ElementId` keeps its code naming convention while its authored value is `main_menu_button`. Preserve required formats for GUIDs, hashes, vendor/protocol IDs, UPM package names, and fixed versioned schema tokens; do not rewrite those identities by globally replacing hyphens or changing case. New freely authored IDs follow this standard.
-
-Validate the format and uniqueness within the owning ID scope during authoring and before use, observing that system's length limits and reserved names. Report invalid or duplicate IDs with an actionable message. Different labels can produce the same ID; do not silently overwrite another entry, append an arbitrary suffix, or normalize a persisted value behind the user's back.
-
-When an existing first-party ID must change, inspect and update every affected lookup, binding, reference and persisted value together through a scoped, versioned migration. Preserve Unity asset GUIDs and unrelated user content, and verify resolution and persistence after the rename. Older brick releases may accept or generate legacy ID formats; that does not waive this rule for new freely authored IDs or establish that their tools already enforce it. Package-defined element names and existing serialized IDs retain their exact values until the owning component's coordinated migration updates their contracts and consumers. Adding this documentation standard does not itself migrate installed bricks, menus or project assets.
-
-### Variables
-
-- Class-level private fields must use an underscore prefix.
-
-```csharp
-private float _health;
-```
-
-- Method-level variables must not use an underscore prefix.
-
-```csharp
-float damageAmount = 10f;
-```
-
-- All `[SerializeField]` fields must include a `[Tooltip]`.
-
-```csharp
-[SerializeField, Tooltip("The maximum health value this entity can have.")]
-private float _maxHealth = 100f;
-```
-
-### Enums
-
-Enums must use all caps with underscores.
-
-```csharp
-public enum AI_STATE
-{
-    STATE_IDLE,
-    STATE_PATROL,
-    STATE_ATTACK
-}
-```
-
-### UI
-
-Use UI Toolkit for new Geurts UI work. Inspect the existing UI before changing it, and never silently replace or overwrite working user content. When a project already uses another UI system, follow explicit user/project requirements for a scoped integration or migration; do not perform a destructive automatic conversion.
-
-All existing and future Forge-owned Editor UI must comply with the manifest-selected [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md) and [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md). Reuse God's shared `ForgeEditorTheme` API and `ForgeEditorTheme.uss` for dark sci-fi surfaces and green accents; God's Commandments view uses that same canonical implementation directly. Preserve meaningful Odin configuration and use UI Toolkit for new custom Editor UI. Editor appearance is a first-class quality requirement and Definition of Done gate, with tabs, labelled collapsible sections, useful severity callouts and inline authoring findings owned by Appearance. This gate does not add or reorder the technical priorities above, change the multiplayer override or alter dependency/serialization rules. These Editor-only standards do not change runtime or player-facing game UI.
-
-For new custom UXML controls, use `[UxmlElement]` on a partial class and `[UxmlAttribute]` for exposed attributes, following the Unity 6.6 UxmlElement reference. Avoid new `UxmlFactory`/`UxmlTraits` implementations. Use supported UXML/USS and verify data binding and lifecycle cleanup in the actual runtime or Editor context.
-
----
-
-## Game Audio and Sound Design
-
-**FMOD is completely optional** for games made with Geurts Game Forge. It is not a required feature, standard sound-design tool or prerequisite for using Forge. Projects may use Unity's built-in audio for sound effects, music and ambience without installing FMOD. Add an FMOD integration only when the project explicitly opts in; do not install it automatically or treat its absence as a general Forge setup blocker.
-
-**Future updates to the Audio brick must support Unity's built-in audio and use it by default.** FMOD must remain an optional, explicitly selected backend or separate integration. The default Audio implementation must compile, initialize and provide playback without FMOD installed; FMOD-specific assemblies, assets, bank preparation and configuration must be isolated to the opted-in integration.
-
-Check the installed Audio version before planning reuse. The catalogued Audio 0.6.0 provides Unity clip playback by default without FMOD. Its Audio-maintained optional integration 0.1.0 supplies FMOD for Unity 2.03.14 event/bank playback through the same owned service. Unity clips and FMOD events remain separate assignments with backend-specific capabilities. Legacy Audio 0.5.0 projects require the coordinated core/integration migration documented by Audio; existing FMOD assets and backend selection are retained. Preserve existing audio content and references, and validate affected playback in the Windows Editor and Windows player when implementing or migrating audio.
-
-FMOD-specific source-control guidance applies only when an FMOD integration is chosen. The manifest-selected Git Attributes Technique supplies the two vendor LF exceptions, installed only by an explicit action while preserving existing attributes. The comprehensive Git Ignore template may retain passive FMOD exclusions for compatibility; those patterns do not require installing FMOD. First-party CRLF authoring remains unchanged. Keep opted-in FMOD dependencies within their audio integration; they must not become dependencies of God, unrelated bricks, Editor-only documentation tooling or this documentation repository.
-
----
-
-## Code Documentation Standards
-
-### Purpose
-
-This section defines standards for documenting C# code to ensure clarity, maintainability, and ease of collaboration.
-
-### Major Component Help
-
-Every major first-party component must provide a clearly labelled **Help** section explaining how to use it. This includes Geurts Game Forge bricks, substantial runtime/game systems, authoring components and Editor tools. A major component owns a distinct user workflow or substantial capability; this requirement does not demand a separate Help section for every small field, helper or method.
-
-Explain the component's purpose, prerequisites and setup, normal use through supported controls, key settings and actions, and a short practical example. Include common problems and their remedies where relevant. Describe supported code/API extensions and any documented code-required exception when applicable, while keeping ordinary no-code instructions understandable without reading source. Tooltips, compliance notices and XML summaries supplement this Help section; they do not replace usage instructions.
-
-Provide Help at the point of use. Components with an Editor surface must expose a discoverable, clearly labelled Help section in their inspector or tool view, following the [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md#61-component-help-sections). A major service without its own authoring surface must provide the labelled Help section in its owning component/package usage documentation, linked from its documented entry point. Essential instructions must remain readable locally/offline; optional links to fuller references may supplement them without adding runtime documentation dependencies.
-
-Keep Help accurate for the supported component version and update it whenever setup or behaviour changes. Verify that a user can follow its instructions to complete a representative setup and use workflow. This policy does not certify existing releases or authorize automatic edits to installed components or user content; apply it to new and affected components during maintenance.
-
-### Public Classes
-
-**Every first-party public C# class must include a meaningful XML `/// <summary>` description immediately above its declaration (before any declaration attributes).** This includes public static, abstract, generic and nested classes in Geurts bricks, ordinary game code, runtime systems, Editor tools and tests.
-
-Describe the class's purpose and responsibility so a caller can understand when and why to use it. Empty summaries, a repetition of the class name, ordinary `//` comments or `<inheritdoc/>` alone do not satisfy this requirement. Keep the XML well formed and accurate as the class changes. Add `<remarks>` for relevant setup, ownership, lifetime, constraints or usage guidance, and `<typeparam>` descriptions for generic type parameters where present.
-
-For a partial class, place the complete class description on one primary first-party declaration that is maintained by the project; avoid duplicate class summaries on every part. Document the complete class, including relevant behavior supplied by its other parts. Preserve vendor and generated files; maintain documentation through an owned declaration or the supported generator/source when appropriate.
-
-Review the public classes in the affected implementation before publication. This requirement does not certify existing releases or authorize unrelated edits to installed packages, third-party code or generated output. Class descriptions supplement the separate public-method XML documentation and Major Component Help requirements; they do not replace either.
-
-### Public Methods
-
-Every publicly accessible method must include an XML `/// <summary>` comment.
-
-The summary must clearly and succinctly describe:
-
-- The method's purpose.
-- Expected behaviour.
-- Important side effects.
-
-Use `/// <param>` and `/// <returns>` tags for parameters and return values.
-
-```csharp
-/// <summary>
-/// Subtracts damage from this entity's health.
-/// </summary>
-/// <param name="damageAmount">The amount of damage to apply.</param>
-public void ApplyDamage(float damageAmount)
-{
-    _health -= damageAmount;
-}
-```
-
-### Private Methods
-
-Private methods should have a brief comment above the method declaration when their intent or logic is not obvious.
-
-XML documentation is not required for private methods.
-
-Do not comment every line. Focus on intent, usage, and non-obvious logic.
-
-Comments must be updated when behaviour changes.
-
----
-
-## Odin Inspector Usage
-
-Odin Inspector is required within the implementation scope defined by the Unity 6000.6.3f1 dependency baseline. Confirm a current stable Unity 6-compatible release is installed, licensed, and referenced by each applicable assembly definition before implementing or modifying scoped code. Use the [official Odin patch notes](https://odininspector.com/patch-notes) to verify compatibility; record the installed version in implementation evidence rather than pinning a moving release in this technique.
-
-Use Odin attributes as the default authoring layer for Geurts-owned components and ScriptableObjects. Prefer Odin's declarative drawers, validation, buttons, tables, and grouping over new one-off custom inspectors when they express the workflow clearly. Keep ordinary Unity serialization when it supports the required data. Use Odin serialization only for an intentional unsupported data shape or polymorphic contract, and test prefab overrides, asset persistence, domain reload behavior, IL2CPP/AOT, and stripping where applicable.
-
-- Follow the [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md) for meaningful tabs, boxed grouping, labelled collapsible sections, callouts and discoverable hidden findings.
-- Mark mandatory asset and component references with `[Required]` and express safe numeric limits with `[MinValue]`, `[MaxValue]`, or another suitable Odin constraint.
-- Use `[ValidateInput]` for domain rules that cannot be expressed by a simpler constraint, with a concise actionable message.
-- Use `[ReadOnly]` or `[ShowInInspector]` for useful live diagnostic state that should be visible without becoming serialized configuration.
-- Use `[Button]` for safe, useful Editor actions such as validation, preview, setup, and test operations.
-- Apply `[OdinSerialize]` only when Odin serialization is required; do not add it to Unity-supported fields merely to increase attribute use.
-- Document every non-obvious validation rule and button through labels, tooltips, or concise comments; group and tab presentation belongs to the Appearance Technique.
-
-Editor buttons must support Undo and dirty/prefab recording when they change Unity-owned serialized data. Destructive actions require explicit labels, a clear confirmation, precise scope, and useful failure reporting. Do not duplicate an existing Odin workflow with a custom Editor window unless the custom interaction is materially better and the reason is documented.
-
----
-
-## Runtime Debugging and Logging
-
-### Objective
-
-Runtime debugging and logging are comprehensive and filterable. The selected Diagnostics console is reachable in all supported builds through freely switchable Player/Developer tabs. Detailed audience, command, overlay and restricted testing policy belongs to the manifest-selected Diagnostics Technique; project privacy and authoritative gameplay rules still apply.
-
----
-
-## Runtime Console Integration
-
-### Required Quantum Console Library and Optional Console Use
-
-Quantum Console remains a required licensed library within the implementation scope defined by the Unity 6000.6.3f1 dependency baseline. Installing or enabling a runtime developer console is optional throughout setup and game development, including completed games. The library dependency does not require a console scene object or Diagnostics installation.
-
-When a console is selected, use its `QFSW.QC` APIs, `[Command]`, `[CommandDescription]`, supported-platform controls and existing processor rather than a parallel command UI. Use the required EventSystem and SRP-compatible prefab/theme as applicable, and integrate its activate/deactivate events with the Input System. Validate the selected console in Play Mode and development builds; all-build access, classification, input ownership and permissions belong to the [Diagnostics Technique](GeurtsDiagnosticsTechnique.md#runtime-console-and-filters). Expose useful inspection, validation, tuning, recovery, performance, AI, and multiplayer diagnostics when safe, through the shared logging facade and supported commands. Projects without a console retain independent actionable status/health reporting.
-
-### Accessibility
-
-These requirements apply when the optional console is installed:
-
-- Player and Developer tabs are freely switchable and are not an authentication boundary.
-- The separate testing override is limited to Editor/designated internal builds and never bypasses host/server authority.
-- Follow the Diagnostics Technique for all-build access, command classification, filters and safe output; the console is not an authentication boundary.
-
----
-
-## Command Rules
-
-### Full Names Only
-
-Commands must use complete words. Do not use abbreviations.
-
-Declare commands with Quantum Console's `[Command]` attribute and supply a useful description through the supported attribute API. Restrict supported platforms when a command is Editor- or development-only. Command parameters must be parseable, bounded, and validated before state changes.
-
-Use:
-
-```text
-AI.GetState
-Performance.ShowFPS
-```
-
-Do not use:
-
-```text
-AI.GS
-Perf.FPS
-```
-
-### Naming Convention
-
-- Use PascalCase.
-- Prefix commands with a category.
-
-Examples:
-
-```text
-AI.GetState
-Performance.ToggleStats
-Multiplayer.ShowNetworkStats
-```
-
-### Help Commands
-
-Global help command:
-
-```text
-Help
-```
-
-Example output:
-
-```text
-Available Categories:
-AI.Help
-Performance.Help
-Multiplayer.Help
-```
-
-Category-specific help command:
-
-```text
-AI.Help
-```
-
-Example output:
-
-```text
-AI Commands:
-AI.GetState
-AI.SetState
-```
-
-### Command Classification
-
-Use God's `[ForgeCommand]` to explicitly classify Player or Developer commands and the independent `Cheat` flag alongside the real QC declaration. The Diagnostics Technique owns enforcement in help, suggestions and actual execution, including direct typing and nested expression rejection. Do not expose private data through a freely switchable Developer tab. Unclassified vendor commands need an explicit supported adapter; display filtering alone does not authorize execution.
-
-### Cheat Commands
-
-Commands that bypass rules or tune/test gameplay state must be flagged as `Cheat` and recheck gameplay-session and host/server permission immediately before mutation. Ordinary designed player actions are not automatically cheats. The game owns session boundaries, zone transitions and saved cheat provenance; the Diagnostics Technique owns their shared integration contract.
-
----
-
-## Logging Standards
-
-The [Diagnostics Technique's Shared logging contract](GeurtsDiagnosticsTechnique.md#shared-logging-contract) is the single owner of project-wide logging, provider availability, capture and failure behavior. Use God's central facade for project-controlled logs and supported capture adapters for Unity/vendor output; report any source that cannot be captured as an integration gap. Diagnostics remains optional under the Brick Contract.
-
-Routine invalid authoring data belongs inline under the [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md#8-inline-authoring-findings-and-logging-boundary). Genuine failures retain independently visible owning status/health data even when capture is unavailable. Follow the Diagnostics owner for the no-fallback policy, exception details, classification and privacy; do not duplicate its policy or create a second output sink.
-
----
-
-## Performance Monitoring
-
-### Objective
-
-Provide the selected Diagnostics runtime performance overlay inside the existing console canvas, with independent persisted toggles. All six metrics start off until selected.
-
-### Requirements
-
-The initial six metrics are FPS, game process RAM, PC physical RAM used/total, actual Windows GPU utilization, actual dedicated/shared graphics memory usage, and current registered server ping (0 ms disconnected). The Diagnostics Technique defines their exact meaning, Windows-native sampling, truthful unavailable labels and validation. Frame-time and error-count overlays are excluded; do not substitute estimates for actual GPU data or fabricate network measurements.
-
-### Overlay Design
-
-- Minimalistic.
-- Semi-transparent background.
-- Readable without covering command input or runtime controls.
-
-### Example Quantum Console Commands
-
-```text
-GeurtsGameForge.Diagnostics.Overlay FramesPerSecond true
-```
-
----
+All code suggestions, refactoring and completions follow this core plus the manifest-selected topics. For changed C# scripts, apply the Code topic's naming, tooltips, public-class and public-method XML descriptions and Major Component Help. For Unity changes, apply the Unity topic's exact compile/test/build requirements. Validate no-code and supported API use where applicable; avoid unnecessary per-frame allocations and unjustified expensive `Update()` logic. Read Bootstrap, Authoring, Audio, Commands, Diagnostics, multiplayer and project-design guidance only for affected work, as selected by the manifest.
 
 ## Performance Trade-Off Guidance Under Efficiency
 
@@ -623,41 +124,115 @@ Apply this guidance only within the five-priority order defined above and the ap
 - Prefer runtime performance over editor convenience when gameplay experience is materially affected.
 - For multiplayer work, apply the network-efficiency override defined in **Multiplayer Exception** above.
 
----
+<!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
+## Existing fragment links
 
-## Multiplayer Efficiency Rule
+These redirects preserve links from existing guides; they do not select additional topics.
 
-- Use Unity Netcode for GameObjects only when it is already installed or selected as the project's networking framework. Do not introduce or install it merely because this technique mentions it; inspect the project and use the selected networking equivalent.
-- When Netcode for GameObjects is selected, target a stable compatible **2.x** release; 1.x is deprecated for this baseline. Prefer its universal `[Rpc]` API over legacy `[ServerRpc]`/`[ClientRpc]` in new code, with explicit targets and intentional ownership, authority, delivery, and validation rules. Review `NetworkTransform.Update` migrations for authority versus non-authority behavior. Use the [versioned RPC documentation](https://docs.unity3d.com/Packages/com.unity.netcode.gameobjects@2.7/manual/advanced-topics/message-system/rpc.html) for the installed release; this reference is not a universal package-version pin.
-- Minimise RPC calls.
-- Batch updates where possible.
-- Sync only the data required for gameplay correctness.
-- Do not sacrifice network efficiency for local code convenience.
+<a id="unity-600063f1-compatibility-baseline"></a>[unity-600063f1-compatibility-baseline](GeurtsUnityTechnique.md#unity-600063f1-compatibility-baseline)
 
-The multiplayer network-efficiency override applies regardless of the selected networking framework.
+<a id="editor-and-dependency-selection"></a>[editor-and-dependency-selection](GeurtsUnityTechnique.md#editor-and-dependency-selection)
 
----
+<a id="c-and-net"></a>[c-and-net](GeurtsUnityTechnique.md#c-and-net)
 
-## Definition of Done for AI-Created or Modified Scripts
+<a id="current-api-choices"></a>[current-api-choices](GeurtsUnityTechnique.md#current-api-choices)
 
-A generated or modified Unity C# script is complete only when it:
+<a id="async-and-lifecycle"></a>[async-and-lifecycle](GeurtsUnityTechnique.md#async-and-lifecycle)
 
-- Addresses the applicable Codex compatibility requirements above through discoverable interfaces, documentation and proportionate repeatable verification.
-- Provides the affected module's normal no-code workflow and supported code/extension path under the core standard above, with shared behaviour, representative verification and only specific documented exceptions.
-- Meets the Unity 6.6 compatibility baseline above, with the exact Editor patch, resolved packages, and relevant compile/test/build evidence recorded; unavailable validation is explicitly reported.
-- Includes the compliance header only when it is a reusable cross-game Geurts Game Forge framework, library, or tooling component under the scope above.
-- Uses the correct folder location according to `GeurtsTechniques/GeurtsFolderStructureTechnique.md`.
-- Uses bootstrap-scene ownership for persistent runtime objects, avoids direct and indirect `DontDestroyOnLoad`, and verifies the affected startup, transition, and teardown behaviour.
-- Follows the manifest-selected Naming Technique for applicable asset, scene-object and script names and this technique's code-symbol and lowercase underscore-separated authored ID conventions, with format, uniqueness and affected-reference validation.
-- Includes tooltips for all `[SerializeField]` fields.
-- Includes meaningful XML summaries for every first-party public class under Code Documentation Standards, as well as XML summaries for public methods.
-- Provides an accurate, discoverable Help section for each affected major component under the Major Component Help standard, with setup/use instructions verified against the supported workflow.
-- Avoids unnecessary per-frame allocations.
-- Avoids expensive logic inside `Update()` unless justified.
-- Uses Odin Inspector meaningfully for applicable serialized configuration, validation, diagnostics, and safe Editor actions, with its installed compatible version recorded.
-- Makes every affected Forge-owned Editor surface conform to the manifest-selected [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md) and [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md), with shared styling, useful Odin/equivalent authoring, appropriate tabs, labelled collapsible sections, severity callouts, inline findings, discoverable hidden problems and the required native visual/behavior evidence. Appearance is a quality gate within the existing technical priorities, not another priority list.
-- Keeps FMOD completely optional and follows the built-in audio default required for future Audio brick releases under the Game Audio and Sound Design standard above, checking the actual installed release capabilities.
-- Records required licensed-library versions and validates any selected optional console under the Diagnostics Technique; a completed game does not require a runtime console.
-- Follows the Diagnostics Technique for project-wide logging, unavailable-provider no-op behavior, preserved independent failure status and capture without duplicates or recursion; reports any uncapturable source as an integration gap.
-- Preserves multiplayer network efficiency where relevant.
-- Satisfies every applicable GDD requirement selected by the manifest before changing player-facing behaviour.
+<a id="unity-66-migration-checks"></a>[unity-66-migration-checks](GeurtsUnityTechnique.md#unity-66-migration-checks)
+
+<a id="verification-and-evidence"></a>[verification-and-evidence](GeurtsUnityTechnique.md#verification-and-evidence)
+
+<a id="coding-standards"></a>[coding-standards](GeurtsCodeTechnique.md#coding-standards)
+
+<a id="asset-and-scene-object-names"></a>[asset-and-scene-object-names](GeurtsCodeTechnique.md#asset-and-scene-object-names)
+
+<a id="id-names"></a>[id-names](GeurtsCodeTechnique.md#id-names)
+
+<a id="variables"></a>[variables](GeurtsCodeTechnique.md#variables)
+
+<a id="enums"></a>[enums](GeurtsCodeTechnique.md#enums)
+
+<a id="ui"></a>[ui](GeurtsAuthoringTechnique.md#ui)
+
+<a id="code-documentation-standards"></a>[code-documentation-standards](GeurtsCodeTechnique.md#code-documentation-standards)
+
+<a id="purpose"></a>[purpose](#geurts-technical-technique)
+
+<a id="purpose-1"></a>[purpose-1](GeurtsCodeTechnique.md#purpose)
+
+<a id="major-component-help"></a>[major-component-help](GeurtsCodeTechnique.md#major-component-help)
+
+<a id="public-classes"></a>[public-classes](GeurtsCodeTechnique.md#public-classes)
+
+<a id="public-methods"></a>[public-methods](GeurtsCodeTechnique.md#public-methods)
+
+<a id="private-methods"></a>[private-methods](GeurtsCodeTechnique.md#private-methods)
+
+<a id="odin-inspector-usage"></a>[odin-inspector-usage](GeurtsAuthoringTechnique.md#odin-inspector-usage)
+
+<a id="required-project-scenes"></a>[required-project-scenes](GeurtsBootstrapTechnique.md#required-project-scenes)
+
+<a id="bootstrap-scenes-and-runtime-persistence"></a>[bootstrap-scenes-and-runtime-persistence](GeurtsBootstrapTechnique.md#bootstrap-scenes-and-runtime-persistence)
+
+<a id="game-audio-and-sound-design"></a>[game-audio-and-sound-design](GeurtsAudioTechnique.md#game-audio-and-sound-design)
+
+<a id="ai-integration-technique"></a>[ai-integration-technique](GeurtsGameAITechnique.md#ai-integration-technique)
+
+<a id="runtime-console-integration"></a>[runtime-console-integration](GeurtsCommandsTechnique.md#runtime-console-integration)
+
+<a id="required-quantum-console-library-and-optional-console-use"></a>[required-quantum-console-library-and-optional-console-use](GeurtsCommandsTechnique.md#required-quantum-console-library-and-optional-console-use)
+
+<a id="accessibility"></a>[accessibility](GeurtsCommandsTechnique.md#accessibility)
+
+<a id="command-rules"></a>[command-rules](GeurtsCommandsTechnique.md#command-rules)
+
+<a id="full-names-only"></a>[full-names-only](GeurtsCommandsTechnique.md#full-names-only)
+
+<a id="naming-convention"></a>[naming-convention](GeurtsCommandsTechnique.md#naming-convention)
+
+<a id="help-commands"></a>[help-commands](GeurtsCommandsTechnique.md#help-commands)
+
+<a id="command-classification"></a>[command-classification](GeurtsCommandsTechnique.md#command-classification)
+
+<a id="cheat-commands"></a>[cheat-commands](GeurtsCommandsTechnique.md#cheat-commands)
+
+<a id="multiplayer-efficiency-rule"></a>[multiplayer-efficiency-rule](GeurtsMultiplayerTechnique.md#multiplayer-efficiency-rule)
+
+<a id="combined-unity-cli-and-editor-workflow"></a>[combined-unity-cli-and-editor-workflow](GeurtsUnityTechnique.md#combined-unity-cli-and-editor-workflow)
+
+<a id="manifest-boundary"></a>[manifest-boundary](../GeurtsTechniqueManifest.md#1-manifest-resolver)
+
+<a id="selectively-adapted-engineering-guidance"></a>[selectively-adapted-engineering-guidance](#shared-implementation-boundaries)
+
+<a id="provenance-and-authority"></a>[provenance-and-authority](../GeurtsTechniqueManifest.md#1-manifest-resolver)
+
+<a id="understand-inspect-and-reuse"></a>[understand-inspect-and-reuse](#shared-implementation-boundaries)
+
+<a id="implement-integrate-and-handle-failure"></a>[implement-integrate-and-handle-failure](#verification-and-completion)
+
+<a id="verify-test-and-preserve-compatibility"></a>[verify-test-and-preserve-compatibility](#verification-and-completion)
+
+<a id="technical-evidence-for-reporting"></a>[technical-evidence-for-reporting](#verification-and-completion)
+
+<a id="boundaries-with-other-subjects"></a>[boundaries-with-other-subjects](#shared-implementation-boundaries)
+
+<a id="runtime-debugging-and-logging"></a>[runtime-debugging-and-logging](GeurtsDiagnosticsTechnique.md#shared-logging-contract)
+
+<a id="objective"></a>[objective](GeurtsDiagnosticsTechnique.md#shared-logging-contract)
+
+<a id="logging-standards"></a>[logging-standards](GeurtsDiagnosticsTechnique.md#shared-logging-contract)
+
+<a id="performance-monitoring"></a>[performance-monitoring](GeurtsDiagnosticsTechnique.md#six-independent-overlay-metrics)
+
+<a id="objective-1"></a>[objective-1](GeurtsDiagnosticsTechnique.md#six-independent-overlay-metrics)
+
+<a id="requirements"></a>[requirements](GeurtsDiagnosticsTechnique.md#six-independent-overlay-metrics)
+
+<a id="overlay-design"></a>[overlay-design](GeurtsDiagnosticsTechnique.md#six-independent-overlay-metrics)
+
+<a id="example-quantum-console-commands"></a>[example-quantum-console-commands](GeurtsDiagnosticsTechnique.md#six-independent-overlay-metrics)
+
+<a id="definition-of-done-for-ai-created-or-modified-scripts"></a>[definition-of-done-for-ai-created-or-modified-scripts](#verification-and-completion)
+
+<!-- GEURTS-SECTION:END -->

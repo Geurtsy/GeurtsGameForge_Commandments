@@ -1,4 +1,4 @@
-# Version: 1.0.3
+# Version: 1.1.0
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
@@ -124,6 +124,82 @@ Shared ending.
     try { Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'linked/secret.md' } 'Reader refuses a registered path through a junction' }
     finally { [System.IO.Directory]::Delete($link.FullName) }
     Assert-Audience ((Get-FileHash -LiteralPath (Join-Path $fixture 'allowed.md')).Hash -ceq $before) 'Reads preserve source file bytes'
+
+    # Controlled partial reading must keep all untabled safety rules and literal fences.
+    $manifestPath = Join-Path $fixture 'GeurtsTechniqueManifest.md'
+    $sectionMap = @'
+<!-- GEURTS-READ-SECTIONS:BEGIN -->
+| Document | Section ID | Exact heading | When required |
+|---|---|---|---|
+| `scoped.md` | `audio` | Audio topic | Audio work only. |
+| `scoped.md` | `backend` | Maintainer backend | Provider implementation only. |
+<!-- GEURTS-READ-SECTIONS:END -->
+'@
+    $scopedManifest = [IO.File]::ReadAllText($manifestPath).Replace('<!-- GEURTS-PACKAGE-FILES:END -->', "| ``scoped.md`` | 1.0.0 | Fixture |`r`n| ``AI_READ_FIRST.md`` | 1.0.0 | Entry fixture |`r`n<!-- GEURTS-PACKAGE-FILES:END -->") + "`r`n" + $sectionMap
+    [IO.File]::WriteAllText($manifestPath, $scopedManifest)
+    $scopedText = @'
+<!-- GEURTS-AUDIENCE: AI-READ -->
+# Fixture
+Shared preamble.
+## Consent boundary
+Never overwrite unrelated user content.
+## Audio topic
+Optional audio details.
+```markdown
+## A literal heading is not a section
+Literal payload stays complete.
+```
+<!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->
+## Maintainer backend
+Implementation details.
+<!-- GEURTS-SECTION:END -->
+## New untabled safety rule
+Always retain this newly introduced requirement.
+'@
+    $scopedPath = Join-Path $fixture 'scoped.md'
+    [IO.File]::WriteAllText($scopedPath, $scopedText.Replace("`n", "`r`n"))
+    [IO.File]::WriteAllText((Join-Path $fixture 'AI_READ_FIRST.md'), $sample)
+    $scopedBefore = (Get-FileHash -LiteralPath $scopedPath).Hash
+    $whole = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md'
+    $core = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections core
+    $audio = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio
+    $backend = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Mode ForgeDevelopment -Sections backend
+    Assert-Audience ($whole.Content.Contains('Optional audio details.') -and $whole.Content.Contains('New untabled safety rule')) 'Existing whole-document calls retain every audience-readable section'
+    Assert-Audience ($core.Content.Contains('Shared preamble.') -and $core.Content.Contains('Consent boundary') -and $core.Content.Contains('New untabled safety rule') -and -not $core.Content.Contains('Optional audio details.')) 'Shared-only reading cannot omit consent, preamble or new untabled rules'
+    Assert-Audience ($audio.Content.Contains('Literal payload stays complete.') -and @($audio.Headings).Count -eq 3 -and $audio.Content.Contains('New untabled safety rule')) 'Selected topic preserves complete fenced payload and following shared rules'
+    Assert-Audience ($backend.Content.Contains('Implementation details.') -and -not $backend.Content.Contains('Optional audio details.') -and $backend.Content.Contains('Consent boundary')) 'Forge section reads preserve shared boundaries without unrelated topics'
+    Assert-Audience ($audio.ReturnedCharacters -eq $audio.Content.Length -and $core.SkippedSections -eq 1 -and $audio.FullAudienceCharacters -eq $whole.Content.Length) 'Partial-read character counts describe exact untruncated output'
+    $preview = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio -Preview
+    Assert-Audience ($preview.PreviewOnly -and $preview.Content.Length -eq 0 -and $preview.ReturnedCharacters -eq 0 -and $preview.ReadingCharacters -eq $audio.Content.Length -and @($preview.Headings).Count -eq 3) 'Preview exposes scope and size without returning document text or claiming a completed read'
+    foreach ($ids in @(@('unknown'), @('audio','audio'), @('backend'))) {
+        Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections $ids } "Reject unknown, duplicate or audience-hidden selection: $($ids -join ',')"
+    }
+    Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'AI_READ_FIRST.md' -Sections core } 'Bootstrap cannot be partially read'
+    Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsGitIgnoreTechnique.md' -Sections core } 'Exact installer payload cannot be partially read'
+    foreach ($brokenMap in @(
+        $scopedManifest.Replace('| `scoped.md` | `audio` | Audio topic | Audio work only. |', '| `scoped.md` | `audio` | Missing heading | Audio work only. |'),
+        $scopedManifest.Replace('<!-- GEURTS-READ-SECTIONS:END -->', ''),
+        $scopedManifest.Replace('| `scoped.md` | `backend` | Maintainer backend | Provider implementation only. |', '| `scoped.md` | `audio` | Maintainer backend | Provider implementation only. |'),
+        $scopedManifest.Replace('| `scoped.md` | `audio`', '| `unregistered.md` | `audio`'),
+        $scopedManifest.Replace('| `scoped.md` | `audio`', '| `AI_READ_FIRST.md` | `audio`'),
+        $scopedManifest.Replace('| `scoped.md` | `audio`', '| `scoped.md` | `core`')
+    )) {
+        [IO.File]::WriteAllText($manifestPath, $brokenMap)
+        Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio -Preview } 'Malformed map fails before any preview or partial content is returned'
+    }
+    [IO.File]::WriteAllText($manifestPath, $scopedManifest)
+    [IO.File]::WriteAllText($scopedPath, $scopedText + "`n<!-- GEURTS-SECTION:BEGIN UNKNOWN -->")
+    Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio } 'Malformed unselected audience section cannot be hidden by partial selection'
+    [IO.File]::WriteAllText($scopedPath, $scopedText.Replace("`n", "`r`n"))
+    Assert-Audience ((Get-FileHash -LiteralPath $scopedPath).Hash -ceq $scopedBefore) 'Reader selection and preview preserve original source bytes'
+    $diagnosticsCore = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsDiagnosticsTechnique.md' -Sections core
+    Assert-Audience ($diagnosticsCore.Content.Contains('ordinary Forge logs') -or $diagnosticsCore.Content.Contains('Ordinary Forge logs')) 'Real logging-only read retains unavailable-provider policy'
+    Assert-Audience ($diagnosticsCore.Content.Contains('FORGE_AUDIENCE.PLAYER') -and $diagnosticsCore.Content.Contains('never evidence of success') -and -not $diagnosticsCore.Content.Contains('Background transparency')) 'Real Diagnostics core keeps audience/failure safeguards and skips overlay details'
+    foreach ($history in @('README.md', 'Migrations/v0.46.0.md', 'GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md')) {
+        Assert-Audience ((Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document $history).Content.Trim().Length -eq 0) "Routine GameUse skips history: $history"
+    }
+    $jsonPreview = & (Join-Path $RepositoryRoot 'Tools/ReadGeurtsDocumentation.ps1') -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsDiagnosticsTechnique.md' -Sections core -Preview -OutputFormat Json | ConvertFrom-Json
+    Assert-Audience ($null -eq $jsonPreview.PSObject.Properties['content'] -and $jsonPreview.previewOnly -and $jsonPreview.readingCharacters -eq $diagnosticsCore.Content.Length) 'CLI JSON preview contains metadata only with exact planned size'
 }
 catch { $failures.Add("Harness error at line $($_.InvocationInfo.ScriptLineNumber): $($_.Exception.Message)") }
 finally {

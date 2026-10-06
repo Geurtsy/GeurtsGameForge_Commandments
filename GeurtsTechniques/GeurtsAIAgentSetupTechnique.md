@@ -66,6 +66,7 @@ This section applies only to legacy or separately authorized generic maintenance
 - remain idempotent; and
 - report `created`, `updated`, `preserved`, `skipped`, and `conflicted` outcomes distinctly.
 
+<!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->
 Every atomic write carries an explicit expected target state: absent for a create, or the exact raw-byte fingerprint captured during validation for an update or legacy migration. Immediately before promotion, the manager revalidates containment and the complete path chain for new reparse points, then rejects an unexpected file or any byte drift as a conflict. A backup does not authorize replacing concurrent user content.
 
 Before promoting an adjacent safety backup, the manager likewise revalidates source and backup containment, both complete path chains, the expected raw-byte fingerprint, and the backup's expected absence. A failed backup guard preserves the target and promotes no backup.
@@ -77,6 +78,7 @@ A recorded version is metadata only and never authorizes replacement. Generic le
 Markdown managed regions use matching `GEURTS-MANAGED-BEGIN` and `GEURTS-MANAGED-END` HTML comments with an ID, template version, payload SHA-256, and valid comment closers. YAML-frontmatter regions use the catalog's matching `#` markers inside the frontmatter delimiters. A valid newer unsupported managed version is a conflict and must not be downgraded.
 
 The narrow backup made before a supported per-file managed edit protects that native entry only. It is not companion Update backup or rollback and grants no authority over the project-local managed documentation copy. This generic per-file safeguard remains independent from the companion lifecycle.
+<!-- GEURTS-SECTION:END -->
 
 ## Product-Owned or Unrecognized Legacy Entries
 

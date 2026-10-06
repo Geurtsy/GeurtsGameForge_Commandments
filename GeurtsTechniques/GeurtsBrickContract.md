@@ -115,9 +115,11 @@ Use Unity Package Manager APIs, serialize operations, prevent conflicting clicks
 
 <!-- GEURTS-SECTION:END -->
 
+<!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->
 Pin the complete **Activity** panel above the dashboard's scrolling content. Show a concise current package, phase or result summary on the left and a larger forge icon on the right. Put the full current-operation information behind a **Details** foldout and up to the latest eight completed operation results behind **Recent results (N)**; both foldouts start collapsed when the window opens and after a script reload. Keep those details and recent results reachable within the pinned panel, including at narrow window sizes, and keep available operation actions visible outside those foldouts. Clear success/cancellation/failure status must remain visible when details are collapsed. Report actual phases from the underlying operation and update the description as its work changes; never invent intermediate stages. Use progress percentages only when measurable. `Client.Add` has no percentage, so use an activity indicator and explanatory stage text. Quantum Console output supplements the manager.
 
 The forge icon is an activity indicator and must have a clean silhouette without a decorative outline. While package operations, catalogue refresh, update checks, or companion documentation work are active, animate a repeating smoke puff and gentle vertical bounce; stop at a still resting frame when work completes or fails. A GIF asset and its supported Editor playback frames may supply the same animation. Keep truthful stage text visible, stop repaint work when idle or the window closes, and release animation resources on teardown. The animation never implies a measurable percentage or substitutes for a reported outcome.
+<!-- GEURTS-SECTION:END -->
 
 ## Opt-in automatic updates on opening God
 

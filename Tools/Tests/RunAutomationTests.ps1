@@ -1,5 +1,5 @@
 # RunAutomationTests.ps1
-# Version: 0.45.3
+# Version: 0.46.0
 
 [CmdletBinding()]
 param(
@@ -289,8 +289,8 @@ try {
 
     $draftManifestText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniqueManifest.md"))
     $draftReadmeText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "README.md"))
-    $targetMigrationText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "Migrations/v0.11.0.md"))
-    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.45\.3\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.45\.3|package v0\.45\.3)[^\r\n]{0,80}(?:is|was|has been) released') "v0.45.3 remains a Draft target release with a planned snapshot rather than a completed-release claim"
+    $targetMigrationText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "Migrations/v0.46.0.md"))
+    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.46\.0\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.46\.0|package v0\.46\.0)[^\r\n]{0,80}(?:is|was|has been) released') "v0.46.0 remains a Draft target release with a planned snapshot rather than a completed-release claim"
 
     $gfiContractText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md"))
     Assert-True ($gfiContractText -match '(?i)sole primary source and authority for all Geurts Game Forge documentation' -and $gfiContractText.Contains("<PluginPackageRoot>/Documentation~/") -and $gfiContractText -match '(?i)must not ship a bundled or fallback copy of Geurts documentation') "Frozen GFI v2 keeps this repository authoritative and plugin Documentation~ plugin-specific"
@@ -332,9 +332,9 @@ try {
         ".github/instructions/geurts-unity.instructions.md|replace-complete-file",
         ".github/instructions/geurts-game-design.instructions.md|replace-complete-file"
     )
-    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.45.3" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.45.3, and the official exact-main-commit archive source"
+    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.46.0" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.46.0, and the official exact-main-commit archive source"
     Assert-True ([string]$companionContract.destination.projectRelativePath -ceq "GeurtsGameForgeCommandments" -and [string]$companionContract.destination.replacement -ceq "complete-directory" -and [string]$companionContract.destination.access -ceq "logically-read-only") "Companion contract names the one logically-read-only complete documentation destination"
-    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 13) "Current companion contract names the exact thirteen unique package-v0.45.3 source-validation entries"
+    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 13) "Current companion contract names the exact thirteen unique package-v0.46.0 source-validation entries"
     Assert-True (($actualCompanionRoutes -join "|") -ceq ($expectedCompanionRoutes -join "|") -and ($actualConfirmationTargets -join "|") -ceq ($expectedConfirmationTargets -join "|") -and [string]$companionContract.updateUi.actionLabel -ceq "Update Geurts Game Forge Commandments" -and [string]$companionContract.updateUi.confirmationDefault -ceq "cancel" -and [string]$companionContract.updateUi.cancelResult -ceq "no-network-or-filesystem-change") "Companion contract fixes three template routes and one cancel-default four-target Update confirmation"
     Assert-True ($companionTechniqueText -match '(?i)one confirmation dialog' -and $companionTechniqueText -match '(?i)no earlier preview, dry run[^\r\n]{0,100}second confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set') "Confirmation uses the built-in schema-3.0.0 target set before acquisition and cannot authorize a changed downloaded target set"
     Assert-True ($companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative') "Schema 3.0.0 keeps package versions and safe validation entries forward-compatible while mutation routes remain fixed"
@@ -966,7 +966,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     $folderDefinitionContract = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json
     $folderToolContractText = [System.IO.File]::ReadAllText($folderScript)
     $managerToolContractText = [System.IO.File]::ReadAllText($manageScript)
-    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.1\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.45.3" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.45.3"
+    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.2\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.46.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.46.0"
 
     $versionMismatchAuthority = Join-Path $testRoot "folder-version-mismatch-authority"
     New-Item -ItemType Directory -Path $versionMismatchAuthority | Out-Null
@@ -1319,8 +1319,10 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     Assert-True ($unityTargetRun.Code -ne 0 -and $unityTargetRun.Output.Contains("[FAIL] Unity 6000.6.3f1 target")) "Static validation rejects a conflicting Unity target in a package entry surface"
 
     $unityBaselineFixture = New-StaticValidationFixture -Parent $testRoot -Name "static-unity-baseline-missing"
-    $unityBaselineTechnique = Join-Path $unityBaselineFixture "GeurtsTechniques/GeurtsTechnicalTechnique.md"
-    $withoutBaseline = [regex]::Replace([System.IO.File]::ReadAllText($unityBaselineTechnique), '(?ms)^## Unity 6000\.6\.3f1 Compatibility Baseline\s*.*?(?=^## )', '')
+    $unityBaselineTechnique = Join-Path $unityBaselineFixture "GeurtsTechniques/GeurtsUnityTechnique.md"
+    $baselineOriginal = [System.IO.File]::ReadAllText($unityBaselineTechnique)
+    $withoutBaseline = [regex]::Replace($baselineOriginal, '(?ms)^## Unity 6000\.6\.3f1 Compatibility Baseline\s*.*?(?=^## |\z)', '')
+    Assert-True ($withoutBaseline -cne $baselineOriginal -and $withoutBaseline -notmatch '(?m)^## Unity 6000\.6\.3f1 Compatibility Baseline') "Missing-baseline fixture removes the standalone Unity topic's final section"
     Write-Utf8 -Path $unityBaselineTechnique -Text $withoutBaseline
     $unityBaselineRun = Invoke-TestScript -Path $validatorScript -Arguments @("-RepositoryRoot", $unityBaselineFixture)
     Assert-True ($unityBaselineRun.Code -ne 0 -and $unityBaselineRun.Output.Contains("[FAIL] Unity 6000.6.3f1 target")) "Static validation rejects target metadata without the technical compatibility baseline"
@@ -1348,12 +1350,12 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
 
     # Each fixture reintroduces a different audited cross-document contradiction.
     $consistencyCases = @(
-        @{ Name = 'folder-reader-version'; Path = 'Tools/CreateGeurtsFolderStructure.ps1'; Old = '0\.16\.1'; New = '0\.16\.0'; Check = 'Folder technique reader version parity' },
-        @{ Name = 'logging-fallback'; Path = 'GeurtsTechniques/GeurtsTechnicalTechnique.md'; Old = '## Logging Standards'; New = "## Logging Standards`r`n`r`nThe facade must fall back to Unity logging." },
+        @{ Name = 'folder-reader-version'; Path = 'Tools/CreateGeurtsFolderStructure.ps1'; Old = '0\.16\.2'; New = '0\.16\.0'; Check = 'Folder technique reader version parity' },
+        @{ Name = 'logging-fallback'; Path = 'GeurtsTechniques/GeurtsDiagnosticsTechnique.md'; Old = '## Shared logging contract'; New = "## Logging Standards`r`n`r`nThe facade must fall back to Unity logging." },
         @{ Name = 'menu-network'; Path = 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md'; Old = 'Opening the Commandments menu or embedded view stays offline'; New = 'A deliberate Commandments Companion menu opening may request remote metadata' },
         @{ Name = 'tool-owner'; Path = 'README.md'; Old = 'Angels owns **Install Codex guide**'; New = 'God owns the separate **Install Codex guide**' },
         @{ Name = 'root-guide-ban'; Path = 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'; Old = 'automatic root guide installation'; New = 'root guide installation' },
-        @{ Name = 'mandatory-console'; Path = 'GeurtsTechniques/GeurtsTechnicalTechnique.md'; Old = 'Installing or enabling a runtime developer console is optional'; New = 'Every gameplay project must include a validated developer-console setup' },
+        @{ Name = 'mandatory-console'; Path = 'GeurtsTechniques/GeurtsCommandsTechnique.md'; Old = 'Installing or enabling a runtime developer console is optional'; New = 'Every gameplay project must include a validated developer-console setup' },
         @{ Name = 'extra-status'; Path = 'GeurtsTechniques/GeurtsForgeSetupContract.json'; Old = '"not-applicable"'; New = '"not-applicable", "unavailable"' },
         @{ Name = 'false-success-outline'; Path = 'GeurtsTechniques/GeurtsEditorUIThemeTechnique.md'; Old = 'retain neutral borders and precise text'; New = 'receive green success borders' },
         @{ Name = 'duplicate-migration'; Path = 'README.md'; Old = '## Supporting Documents'; New = "## Supporting Documents`r`n`r`n- ``Migrations/v0.11.0.md`` - duplicate reference." }
@@ -1370,14 +1372,14 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     }
 
     $optionalOdinFixture = New-StaticValidationFixture -Parent $testRoot -Name "static-optional-odin"
-    $optionalOdinTechnique = Join-Path $optionalOdinFixture "GeurtsTechniques/GeurtsTechnicalTechnique.md"
+    $optionalOdinTechnique = Join-Path $optionalOdinFixture "GeurtsTechniques/GeurtsAuthoringTechnique.md"
     $optionalOdinText = [System.IO.File]::ReadAllText($optionalOdinTechnique).Replace('Odin Inspector is required within the implementation scope defined by the Unity 6000.6.3f1 dependency baseline.', 'Odin Inspector is optional within the implementation scope defined by the Unity 6000.6.3f1 dependency baseline.')
     Write-Utf8 -Path $optionalOdinTechnique -Text $optionalOdinText
     $optionalOdinRun = Invoke-TestScript -Path $validatorScript -Arguments @("-RepositoryRoot", $optionalOdinFixture)
     Assert-True ($optionalOdinRun.Code -ne 0 -and $optionalOdinRun.Output.Contains("[FAIL] Required technical dependencies and policies")) "Static validation rejects making Odin Inspector optional"
 
     $optionalQuantumFixture = New-StaticValidationFixture -Parent $testRoot -Name "static-optional-quantum"
-    $optionalQuantumTechnique = Join-Path $optionalQuantumFixture "GeurtsTechniques/GeurtsTechnicalTechnique.md"
+    $optionalQuantumTechnique = Join-Path $optionalQuantumFixture "GeurtsTechniques/GeurtsCommandsTechnique.md"
     $optionalQuantumText = [System.IO.File]::ReadAllText($optionalQuantumTechnique).Replace('Quantum Console remains a required licensed library', 'Quantum Console is an optional licensed library')
     Write-Utf8 -Path $optionalQuantumTechnique -Text $optionalQuantumText
     $optionalQuantumRun = Invoke-TestScript -Path $validatorScript -Arguments @("-RepositoryRoot", $optionalQuantumFixture)
@@ -1385,7 +1387,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
 
     $brickRouteFixture = New-StaticValidationFixture -Parent $testRoot -Name "static-native-brick-route"
     $testingBoundaryFixture = New-StaticValidationFixture -Parent $testRoot -Name "static-testing-boundary"
-    $testingBoundaryPath = Join-Path $testingBoundaryFixture "GeurtsTechniques/GeurtsTechnicalTechnique.md"
+    $testingBoundaryPath = Join-Path $testingBoundaryFixture "GeurtsTechniques/GeurtsCommandsTechnique.md"
     Write-Utf8 -Path $testingBoundaryPath -Text ([System.IO.File]::ReadAllText($testingBoundaryPath).Replace('never bypasses host/server authority', 'bypasses host/server authority'))
     $testingBoundaryRun = Invoke-TestScript -Path $validatorScript -Arguments @("-RepositoryRoot", $testingBoundaryFixture)
     Assert-True ($testingBoundaryRun.Code -ne 0 -and $testingBoundaryRun.Output.Contains("[FAIL] Required technical dependencies and policies")) "Static validation rejects weakening testing host/server authority"
