@@ -1180,7 +1180,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
             $aiText = [IO.File]::ReadAllText($aiPath).Replace('Planned features never acquire supported operations', 'Planned features may advertise supported operations')
         }
         Write-Utf8 -Path $aiPath -Text $aiText
-        $aiResult = Invoke-Script -Path (Join-Path $aiFixture 'Tools/ValidateGeurtsDocumentation.ps1') -Arguments @('-RepositoryRoot', $aiFixture)
+        $aiResult = Invoke-TestScript -Path (Join-Path $aiFixture 'Tools/ValidateGeurtsDocumentation.ps1') -Arguments @('-RepositoryRoot', $aiFixture)
         Assert-True ($aiResult.Code -eq 1) ("Static validation rejects AI usability boundary drift: " + $aiCase)
     }
     foreach ($toolCase in @('companion-exemption', 'catalogue-tools-removed')) {
