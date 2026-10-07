@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.17.1
+**Version:** 1.18.0
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -138,3 +138,7 @@ God 0.23.0 places **Apply Forge layout** and **Apply layout when God opens** abo
 God 0.25.0 shows a **Module enabled** checkbox in each installed menu row and installed catalogue card, including folded cards. Uninstalled entries have no switch. Switching off stops the registered module and its owned capabilities and subscriptions through the existing lifecycle; its package and settings stay installed. Required consumers wait until the provider resumes, without changing their own enabled preferences. Switching on uses retained settings and exposes startup failure or dependency waiting truthfully. God stays on as the core manager. Active operations, Play Mode, compilation and imports block changes with a visible reason, checked again before dispatch. Missing registrations are explained rather than pretending the module is running. Disabled module menus remain available.
 
 God exposes the Commandments module preference through its public Editor API and no-code view. It retains the existing per-project preference key. The switch pauses new checks, updates and setup helpers while retaining local guidance, which remains readable without God. Package management stays available for disabled modules. Enabling does not acquire content or start updates.
+
+## Release capabilities and supported automation
+
+Each published brick, including independent BigBang and the passive adapter, ships `ForgeCapabilities.json` schema 1.0.0. It declares the exact package/version, prerequisites, implemented and planned features, maturity, operation IDs and validation scope. Feature descriptions and current guides must match real APIs. Planned features have no operations. Declarations do not authorize actions or prove installed/provider/runtime readiness. The Automation Technique owns operation/result/report semantics; each brick owns its rule identifiers, exact targets and implementation. The release gate checks current documentation and capability claims and compile-checked examples before publication; labeled historical records are retained as history.

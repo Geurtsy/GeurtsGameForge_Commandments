@@ -195,7 +195,7 @@ Always retain this newly introduced requirement.
     $diagnosticsCore = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsDiagnosticsTechnique.md' -Sections core
     Assert-Audience ($diagnosticsCore.Content.Contains('ordinary Forge logs') -or $diagnosticsCore.Content.Contains('Ordinary Forge logs')) 'Real logging-only read retains unavailable-provider policy'
     Assert-Audience ($diagnosticsCore.Content.Contains('FORGE_AUDIENCE.PLAYER') -and $diagnosticsCore.Content.Contains('never evidence of success') -and -not $diagnosticsCore.Content.Contains('Background transparency')) 'Real Diagnostics core keeps audience/failure safeguards and skips overlay details'
-    foreach ($history in @('README.md', 'Migrations/v0.46.0.md', 'GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md')) {
+    foreach ($history in @('README.md', 'Migrations/v0.47.0.md', 'GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md')) {
         Assert-Audience ((Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document $history).Content.Trim().Length -eq 0) "Routine GameUse skips history: $history"
     }
     $jsonPreview = & (Join-Path $RepositoryRoot 'Tools/ReadGeurtsDocumentation.ps1') -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsDiagnosticsTechnique.md' -Sections core -Preview -OutputFormat Json | ConvertFrom-Json

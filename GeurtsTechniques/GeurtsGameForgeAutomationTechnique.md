@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.10.2
+**Version:** 0.11.0
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers and compatible Unity integrations
@@ -77,3 +77,15 @@ Product-specific modes, services, APIs, credentials, feature policy, runtime set
 ## Definition of Done
 
 Automation is complete when the active request is resolved within scope, relevant project evidence and manifest-selected authorities were used, safe routine work was completed, consequential uncertainty was surfaced, relevant validation passed, Codex completed the required delivery to main unless the user specified otherwise, and the result reports the change and a practical verification path. Any actual merge blocker or unavailable interactive validation remains explicitly reported.
+
+## Supported operations and inspection evidence
+
+Use the installed owner's supported APIs. God 0.35.0 provides the additive Editor `ForgeOperations` 1.0.0 contract and `ForgeProjectReport` schema 1.0.0. Discovery is local; no remote code is executed. Inspect is read-only. Execute is a separate explicit request and retains the owning lifecycle, preflight, Undo and consent rules. Await asynchronous actions on Unity's synchronization context. Never block that thread to wait for them. Typed drafts/reviews remain caller-owned and must pass the owner's stale-review validation.
+
+Operation outcomes are `succeeded`, `cancelled`, `failed`, `partial`, `blocked` or `unavailable`, with separate verification `verified`, `unknown` or `not_applicable`. Partial completion retains actual changed targets; no rollback is implied. Failure with unknown verification may have changed state. Supported methods remain available directly; do not invent an operation when the installed owner does not provide it.
+
+Findings use stable owner-defined rule IDs and owning package IDs. Preserve the Unity object identity, asset/scene path, exact SerializedProperty path, severity and remedy when actually resolved. An unsaved object, aggregate rule or unresolved property remains explicitly unknown; display labels and instance IDs are not persistent identities. A read-only project report covers owned project assets and loaded scenes, or only the supplied selection. Unopened scenes, native/runtime behavior and game-design context are outside that scope. Do not infer whole-project health from checked source metadata. Failed providers and uninspected objects remain visible.
+
+Every release carries `ForgeCapabilities.json` schema 1.0.0 with exact package identity/version, prerequisites, implemented/planned features, maturity, supported operation IDs and validation coverage. Compare it with the actual installed package and provider availability. A declaration does not establish readiness. Planned features never acquire supported operations. Save and Load's informational starter does not supply gameplay persistence. God remains the only mandatory shared brick; BigBang and the passive adapter remain independent.
+
+Before publishing, run the owner's documentation/capability gate and compile supported examples with the candidate Git package. Current guides, dependency claims and operation declarations must match the release. Explicitly label historical evidence and keep it separate from current validation. Record exact tested source fingerprints and unverified surfaces. Preserve manual consumer installation.
