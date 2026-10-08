@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
 # Integrated Forge setup — 0.50.0
 
-God 0.35.0 adds supported owner operations and a read-only project report. Angels 0.4.0 adds separate opt-in automatic sorting and naming of new first-party imports alongside portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
+God provides supported owner operations and a read-only project report. Angels provides separate opt-in automatic sorting and naming of new first-party imports, optional Codex visual naming, and portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
 # Geurts Game Forge Commandments
 
