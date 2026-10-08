@@ -309,6 +309,16 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 - Advances Forge Setup to 1.3.0 with bounded background requests, source/context drift validation, no repeated paid inference after interruption, collision preservation and manual consumer adoption. Adds sharing and retry regression gates.
 
 
+### 0.49.2
+
+- Publish God 0.36.1 with the updated user-supplied Apply Forge layout. Preserve layout bytes, the existing automatic-apply preference and active-operation safeguards. Consumer installation remains manual.
+
+
+### 0.49.1
+
+- Remove redundant package and installer-version labels; the manifest registry selects document versions and marked templates retain their payload versions.
+- Preserve installer contracts, payload bytes, schema tokens and current package pins. No installed content is changed; consumer adoption remains manual.
+
 ### 0.49.0
 
 - Publishes Angels automatic naming of future imports, with separate default-off category/semantic consent and a shared sort/rename pipeline. Existing assets, compliant names, protected content and collisions remain preserved.

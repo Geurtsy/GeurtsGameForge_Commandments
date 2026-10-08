@@ -177,7 +177,7 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 
 Use the Catalogue as the single source for current published brick versions and immutable installation targets. Do not copy current-version lists into prose. Clearly label minimum/introduced API versions and historical evidence. Registry versions identify documentation files, not installed bricks.
 
-Preserve AGENTS.md Technique 1.2.0, Git Ignore 1.0.1 and Git Attributes 1.0.1 versions, exact payload bytes and markers. They are released installer contracts; changes need a coordinated compatible installer release. Historical God step numbering does not move current optional-tool ownership from Angels. A user-selected project root remains an allowed guide destination.
+Installer contracts in the registered AGENTS.md, Git Ignore and Git Attributes techniques are frozen: preserve their exact payload bytes and markers. Use this registry for document versions and the marked blocks for payload versions. Contract changes need a coordinated compatible installer release. Historical God step numbering does not move current optional-tool ownership from Angels. A user-selected project root remains an allowed guide destination.
 
 ## 4. Controlled section reading
 
