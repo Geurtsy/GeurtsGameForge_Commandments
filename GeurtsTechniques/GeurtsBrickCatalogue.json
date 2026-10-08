@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.49.3",
-  "publishedUtc": "2026-10-08T11:13:32Z",
+  "packageVersion": "0.50.1",
+  "publishedUtc": "2026-10-08T11:38:35Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -78,13 +78,13 @@
     {
       "id": "com.geurts.gameforge.angels",
       "name": "Geurts Game Forge Angels",
-      "description": "Optional Editor project maintenance with separate default-off sorting and naming of future first-party imports. Reviewed category and explicit image/audio purposes govern TYPE_Category_Description names. Existing assets/reimports, compliant names, GUIDs and protected vendor/special content are preserved; ambiguous names and collisions are skipped. One bounded deferred pipeline combines sorting and naming in a single reviewed Unity move. Saved policy and guidance drift pause for a fresh baseline; no startup catch-up. Requires God 0.35.0; automatic naming requires Forge Setup technique 1.2.0 from Commandments 0.49.0. Unity 6000.6.3f1 Editor: 240 passed, zero failed, 2 symbolic-link checks skipped for host privileges. Supported examples and normal/narrow offscreen controls verified. Physical input, docking and alternate skin/DPI acceptance remain unverified. Consumers update manually.",
+      "description": "Optional Editor project tools with separate opt-in sorting and naming of future first-party imports. Adds optional signed-in Codex visual descriptions with explicit data/usage review and automatic application of concrete suggestions. Fixed type/category, bounded previews, uncertainty/collision skips, source/context guards, no paid retries or bulk migration. Images/materials only; model accuracy is not guaranteed. Requires Commandments 0.50.0 / Forge Setup 1.3.0 for Codex mode. Unity 6000.6.3f1: 267 passed, zero failed, 2 conditional checks skipped; real visual connection, actual child cancellation/120-second timeout/cleanup, supported examples and normal/narrow rendered controls verified. Physical input and alternate skin/DPI remain unverified. Consumer updates stay manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#723610981cfbf03017bdb97f51f84289ef97f94c",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#c05ffe6cb87a0db49b4089b57b881b259b684567",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [

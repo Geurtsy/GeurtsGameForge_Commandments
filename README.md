@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.49.3
+# Integrated Forge setup — 0.50.1
 
-God 0.35.0 adds supported owner operations and a read-only project report. Angels 0.4.0 adds separate opt-in automatic sorting and naming of new first-party imports alongside portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
+God provides supported owner operations and a read-only project report. Angels provides separate opt-in automatic sorting and naming of new first-party imports, optional Codex visual naming, and portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
 # Geurts Game Forge Commandments
 
@@ -85,7 +85,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.49.3
+**Version:** 0.50.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -305,10 +305,16 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 ## Changelog
 
-### 0.49.3
+### 0.50.1
 
 - Move old BigBang release results, incident evidence and AI setup transition background into optional History archives. Current techniques retain their requirements and compatibility minimums.
 - Select the rename migration only for legacy Documentation/schema-2 installations and the ownership migration only for independent Companion integrations; current installations skip both. Installer payloads, update targets and package pins are unchanged.
+
+### 0.50.0
+
+- Publishes optional Codex visual naming in Angels, with explicit account/data/usage review, fixed type/category and automatic application of concrete suggestions. Uncertain suggestions are skipped; model accuracy is not guaranteed.
+- Advances Forge Setup to 1.3.0 with bounded background requests, source/context drift validation, no repeated paid inference after interruption, collision preservation and manual consumer adoption. Adds sharing and retry regression gates.
+
 
 ### 0.49.2
 
