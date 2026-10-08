@@ -1,5 +1,5 @@
 # RunAutomationTests.ps1
-# Version: 0.47.1
+# Version: 0.47.2
 
 [CmdletBinding()]
 param(
@@ -295,7 +295,7 @@ try {
     $draftManifestText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniqueManifest.md"))
     $draftReadmeText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "README.md"))
     $targetMigrationText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "Migrations/v0.47.0.md"))
-    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.47\.1\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.46\.0|package v0\.46\.0)[^\r\n]{0,80}(?:is|was|has been) released') "v0.47.1 remains a Draft target release with a planned snapshot rather than a completed-release claim"
+    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.47\.2\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.46\.0|package v0\.46\.0)[^\r\n]{0,80}(?:is|was|has been) released') "v0.47.2 remains a Draft target release with a planned snapshot rather than a completed-release claim"
 
     $gfiContractText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md"))
     Assert-True ($gfiContractText -match '(?i)sole primary source and authority for all Geurts Game Forge documentation' -and $gfiContractText.Contains("<PluginPackageRoot>/Documentation~/") -and $gfiContractText -match '(?i)must not ship a bundled or fallback copy of Geurts documentation') "Frozen GFI v2 keeps this repository authoritative and plugin Documentation~ plugin-specific"
@@ -337,9 +337,9 @@ try {
         ".github/instructions/geurts-unity.instructions.md|replace-complete-file",
         ".github/instructions/geurts-game-design.instructions.md|replace-complete-file"
     )
-    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.47.1" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.47.1, and the official exact-main-commit archive source"
+    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.47.2" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.47.2, and the official exact-main-commit archive source"
     Assert-True ([string]$companionContract.destination.projectRelativePath -ceq "GeurtsGameForgeCommandments" -and [string]$companionContract.destination.replacement -ceq "complete-directory" -and [string]$companionContract.destination.access -ceq "logically-read-only") "Companion contract names the one logically-read-only complete documentation destination"
-    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 13) "Current companion contract names the exact thirteen unique package-v0.47.1 source-validation entries"
+    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 13) "Current companion contract names the exact thirteen unique package-v0.47.2 source-validation entries"
     Assert-True (($actualCompanionRoutes -join "|") -ceq ($expectedCompanionRoutes -join "|") -and ($actualConfirmationTargets -join "|") -ceq ($expectedConfirmationTargets -join "|") -and [string]$companionContract.updateUi.actionLabel -ceq "Update Geurts Game Forge Commandments" -and [string]$companionContract.updateUi.confirmationDefault -ceq "cancel" -and [string]$companionContract.updateUi.cancelResult -ceq "no-network-or-filesystem-change") "Companion contract fixes three template routes and one cancel-default four-target Update confirmation"
     Assert-True ($companionTechniqueText -match '(?i)one confirmation dialog' -and $companionTechniqueText -match '(?i)no earlier preview, dry run[^\r\n]{0,100}second confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set') "Confirmation uses the built-in schema-3.0.0 target set before acquisition and cannot authorize a changed downloaded target set"
     Assert-True ($companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative') "Schema 3.0.0 keeps package versions and safe validation entries forward-compatible while mutation routes remain fixed"
@@ -348,16 +348,16 @@ try {
     Assert-True ($companionTechniqueText -match '(?i)reports failure plainly and never reports partial completion as success' -and $companionTechniqueText -match '(?i)After every managed-target verification passes, report the content Update as successful and attempt to write' -and $companionTechniqueText -match '(?i)comparison-state write fails, report a warning[^\r\n]{0,160}do not reclassify, undo, or repair the successful four-target replacement' -and $companionTechniqueText -match '(?i)no automatic repair or recovery flow') "Companion reports content success after all four targets and treats later comparison-state persistence failure as a non-destructive warning"
     Assert-True ($companionTechniqueText -match '(?i)AI tool must support the applicable native instruction file or be explicitly instructed to read and follow `AI_READ_FIRST\.md`' -and $companionTechniqueText -match '(?i)must not claim universal AI control or compliance') "Companion states the native AI-routing support limitation without claiming universal control"
 
-    $expectedBrickRouteText = 'Before planning or modifying any Geurts Game Forge brick code, read and follow `GeurtsGameForgeCommandments/AI_READ_FIRST.md`; it routes to the installed, manifest-selected documentation. Treat that documentation as the source of truth for the work.'
+    $expectedProjectRouteText = 'Before any Geurts Game Forge project work, read and follow `GeurtsGameForgeCommandments/AI_READ_FIRST.md`; it routes to the installed, manifest-selected documentation. Treat that documentation as the source of truth for the work.'
     $nativeTemplateExpectations = @(
-        @{ Path = "Tools/AIAgentInstructionTemplates/copilot-instructions.md"; Markers = @('id="copilot-body" version="1.2.0" sha256="350d37668ed0c7622de6f7ae44c9726ca2d243087ee0a45ea5874990cca4e9a3"') },
-        @{ Path = "Tools/AIAgentInstructionTemplates/instructions/geurts-unity.instructions.md"; Markers = @('id="unity-frontmatter" version="1.2.0" sha256="98e4fd786bbd1474e28d3800b91d749c29ff2acf94b89ef821d6860645829688"', 'id="unity-body" version="1.2.0" sha256="9890ae55e8431c9c0f5a1ec08fa1c3b31c63e3d766575aae65d4dccbec8838b8"') },
-        @{ Path = "Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md"; Markers = @('id="game-design-frontmatter" version="1.2.0" sha256="334b60274fe81a1891e1500785d29a249a0d4e32957bb665a770402163fa2cd4"', 'id="game-design-body" version="1.2.0" sha256="ab1b5c7627954d86cf55d04cb9b42c49c273dc0d14d37f9347fd032f47bb7305"') }
+        @{ Path = "Tools/AIAgentInstructionTemplates/copilot-instructions.md"; Markers = @('id="copilot-body" version="1.3.0" sha256="92e4a7ae1ff00f20480b217108a028bce40276a97d4caa3b614588fdf75874bc"') },
+        @{ Path = "Tools/AIAgentInstructionTemplates/instructions/geurts-unity.instructions.md"; Markers = @('id="unity-frontmatter" version="1.3.0" sha256="98e4fd786bbd1474e28d3800b91d749c29ff2acf94b89ef821d6860645829688"', 'id="unity-body" version="1.3.0" sha256="206ef83ff9c5aa0ba24b363a8c6a5735793cb697435dbeb2dce90b8a117bef91"') },
+        @{ Path = "Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md"; Markers = @('id="game-design-frontmatter" version="1.3.0" sha256="334b60274fe81a1891e1500785d29a249a0d4e32957bb665a770402163fa2cd4"', 'id="game-design-body" version="1.3.0" sha256="069e94f46d2860a040a8f9bbd5aa7a21e5bc888a38990c5e7d74a6b79d4982e4"') }
     )
     foreach ($templateExpectation in $nativeTemplateExpectations) {
         $templateText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot $templateExpectation.Path))
         $missingMarkers = @($templateExpectation.Markers | Where-Object { -not $templateText.Contains([string]$_) })
-        Assert-True ([regex]::Matches($templateText, [regex]::Escape($expectedBrickRouteText)).Count -eq 1 -and $missingMarkers.Count -eq 0 -and -not $templateText.Contains('version="0.9.0"')) "$($templateExpectation.Path) has the exact v1.2.0 brick-first route and approved managed-region hashes"
+        Assert-True ([regex]::Matches($templateText, [regex]::Escape($expectedProjectRouteText)).Count -eq 1 -and $missingMarkers.Count -eq 0 -and -not $templateText.Contains('version="0.9.0"')) "$($templateExpectation.Path) has the exact v1.3.0 project-wide route and approved managed-region hashes"
     }
 
     # Project-mutating tools copied inside the documentation container must never infer that container as a Unity root.
@@ -437,10 +437,10 @@ try {
         Assert-True (Test-Path -LiteralPath (Join-Path $fresh $relative) -PathType Leaf) "Fresh setup creates $relative"
     }
     $freshAgentsText = [System.IO.File]::ReadAllText((Join-Path $fresh ".github/copilot-instructions.md"))
-    Assert-True ($freshAgentsText.Contains('version="1.2.0"') -and [regex]::Matches($freshAgentsText, [regex]::Escape($expectedBrickRouteText)).Count -eq 1 -and -not $freshAgentsText.Contains("GeurtsGameForgeCommandments/AGENTS.md") -and -not $freshAgentsText.Contains("Docs/GameDesign/")) "Global Copilot instructions use the exact v1.2.0 direct documentation entry"
+    Assert-True ($freshAgentsText.Contains('version="1.3.0"') -and [regex]::Matches($freshAgentsText, [regex]::Escape($expectedProjectRouteText)).Count -eq 1 -and -not $freshAgentsText.Contains("GeurtsGameForgeCommandments/AGENTS.md") -and -not $freshAgentsText.Contains("Docs/GameDesign/")) "Global Copilot instructions use the exact v1.3.0 direct documentation entry"
     foreach ($relative in @(".github/copilot-instructions.md", ".github/instructions/geurts-unity.instructions.md", ".github/instructions/geurts-game-design.instructions.md")) {
         $nativeRouteText = [System.IO.File]::ReadAllText((Join-Path $fresh $relative))
-        Assert-True ($nativeRouteText.Contains('version="1.2.0"') -and [regex]::Matches($nativeRouteText, [regex]::Escape($expectedBrickRouteText)).Count -eq 1 -and -not $nativeRouteText.Contains("owns the complete documentation chain") -and -not $nativeRouteText.Contains("GeurtsGameForgeCommandments/AGENTS.md") -and -not $nativeRouteText.Contains("network efficiency")) "$relative is the exact concise v1.2.0 brick-first route through AI_READ_FIRST.md into the installed manifest-selected documentation"
+        Assert-True ($nativeRouteText.Contains('version="1.3.0"') -and [regex]::Matches($nativeRouteText, [regex]::Escape($expectedProjectRouteText)).Count -eq 1 -and -not $nativeRouteText.Contains("owns the complete documentation chain") -and -not $nativeRouteText.Contains("GeurtsGameForgeCommandments/AGENTS.md") -and -not $nativeRouteText.Contains("network efficiency")) "$relative is the exact concise v1.3.0 project-wide route through AI_READ_FIRST.md into the installed manifest-selected documentation"
     }
     $freshGddReadmeText = [System.IO.File]::ReadAllText((Join-Path $fresh "Docs/GameDesign/README.md"))
     Assert-True ($freshGddReadmeText -match '(?i)project-local fetched Geurts documentation copy' -and $freshGddReadmeText -match '(?i)missing information would establish or change player-facing design intent' -and $freshGddReadmeText -match '(?i)reversible technical details that do not create or overwrite design facts' -and $freshGddReadmeText.Contains('GEURTS-SCAFFOLD-BEGIN version="0.11.0"')) "Managed GDD README remains separate from the fetched copy, stops for missing design intent, and permits only reversible non-design assumptions"
@@ -476,7 +476,44 @@ try {
     Write-Utf8 -Path $managedV07Path -Text $managedV07Text
     $managedV07Run = Invoke-TestScript -Path $manageScript -Arguments @("-ProjectRoot", $managedV07)
     $managedV10Text = [System.IO.File]::ReadAllText($managedV07Path)
-    Assert-True ($managedV07Run.Code -eq 0 -and $managedV10Text.Contains('version="1.2.0"') -and [regex]::Matches($managedV10Text, [regex]::Escape($expectedBrickRouteText)).Count -eq 1 -and -not $managedV10Text.Contains("GeurtsGameForgeCommandments/AGENTS.md") -and $managedV10Text.Contains("User-owned content outside the managed region.")) "Valid managed v0.7 Copilot upgrades to the exact v1.2.0 brick-first shim while preserving outside content"
+    Assert-True ($managedV07Run.Code -eq 0 -and $managedV10Text.Contains('version="1.3.0"') -and [regex]::Matches($managedV10Text, [regex]::Escape($expectedProjectRouteText)).Count -eq 1 -and -not $managedV10Text.Contains("GeurtsGameForgeCommandments/AGENTS.md") -and $managedV10Text.Contains("User-owned content outside the managed region.")) "Valid managed v0.7 Copilot upgrades to the exact v1.3.0 project-wide shim while preserving outside content"
+
+    # The last released routes must upgrade without losing user text or changing their CRLF bytes outside markers.
+    $previousRoutes = New-TestProject -Parent $testRoot -Name "managed-v12-routes"
+    $previousRouteHashes = @{}
+    $routeTargets = @(".github/copilot-instructions.md", ".github/instructions/geurts-unity.instructions.md", ".github/instructions/geurts-game-design.instructions.md")
+    foreach ($relative in $routeTargets) {
+        $sourceRelative = "Tools/AIAgentInstructionTemplates/" + $relative.Substring(".github/".Length)
+        $previousText = Get-HistoricalFile -Specification ("29c923404d21515410285568d191a4a1c4c0a601:" + $sourceRelative)
+        $previousText = ($previousText -replace "`r`n", "`n").Replace("`n", "`r`n")
+        $previousText += "`r`nUser-owned v1.2 route suffix.`r`n"
+        Write-Utf8 -Path (Join-Path $previousRoutes $relative) -Text $previousText
+        $previousRouteHashes[$relative] = Get-FileSha -Path (Join-Path $previousRoutes $relative)
+    }
+    $previousRoutesRun = Invoke-TestScript -Path $manageScript -Arguments @("-ProjectRoot", $previousRoutes)
+    $upgradedRouteHashes = @{}
+    foreach ($relative in $routeTargets) {
+        $targetPath = Join-Path $previousRoutes $relative
+        $upgradedText = [System.IO.File]::ReadAllText($targetPath)
+        Assert-True ($previousRoutesRun.Code -eq 0 -and $upgradedText.Contains('version="1.3.0"') -and [regex]::Matches($upgradedText, [regex]::Escape($expectedProjectRouteText)).Count -eq 1 -and $upgradedText.EndsWith("`r`nUser-owned v1.2 route suffix.`r`n") -and (Test-CrLfOnly -Text $upgradedText) -and (Get-FileSha -Path ($targetPath + ".pre-v0.9.0.bak")) -eq $previousRouteHashes[$relative]) "$relative upgrades released v1.2.0 to all-project-work routing with CRLF, outside content and a byte-identical backup preserved"
+        $upgradedRouteHashes[$relative] = Get-FileSha -Path $targetPath
+    }
+    $previousRoutesAgain = Invoke-TestScript -Path $manageScript -Arguments @("-ProjectRoot", $previousRoutes)
+    foreach ($relative in $routeTargets) {
+        Assert-True ($previousRoutesAgain.Code -eq 0 -and (Get-FileSha -Path (Join-Path $previousRoutes $relative)) -eq $upgradedRouteHashes[$relative]) "$relative remains byte-identical after repeating the v1.3.0 upgrade"
+    }
+    $modifiedPreviousRoutes = New-TestProject -Parent $testRoot -Name "modified-v12-routes"
+    foreach ($relative in $routeTargets) {
+        $sourceRelative = "Tools/AIAgentInstructionTemplates/" + $relative.Substring(".github/".Length)
+        $modifiedText = (Get-HistoricalFile -Specification ("29c923404d21515410285568d191a4a1c4c0a601:" + $sourceRelative)).Replace("source of truth", "user-authored instructions")
+        Write-Utf8 -Path (Join-Path $modifiedPreviousRoutes $relative) -Text $modifiedText
+        $previousRouteHashes[$relative] = Get-FileSha -Path (Join-Path $modifiedPreviousRoutes $relative)
+    }
+    $modifiedPreviousRun = Invoke-TestScript -Path $manageScript -Arguments @("-ProjectRoot", $modifiedPreviousRoutes)
+    foreach ($relative in $routeTargets) {
+        $targetPath = Join-Path $modifiedPreviousRoutes $relative
+        Assert-True ($modifiedPreviousRun.Code -ne 0 -and (Get-FileSha -Path $targetPath) -eq $previousRouteHashes[$relative] -and -not (Test-Path -LiteralPath ($targetPath + ".pre-v0.9.0.bak"))) "$relative rejects modified v1.2.0 managed content without mutation or a backup"
+    }
 
     $utf8BomProject = New-TestProject -Parent $testRoot -Name "managed-utf8-bom-mixed-newlines"
     $utf8BomPath = Join-Path $utf8BomProject ".github/copilot-instructions.md"
@@ -697,7 +734,7 @@ try {
 
     $futureManaged = New-TestProject -Parent $testRoot -Name "future-managed"
     $futureManagedPath = Join-Path $futureManaged ".github/copilot-instructions.md"
-    $futureManagedText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "Tools/AIAgentInstructionTemplates/copilot-instructions.md")).Replace('version="1.2.0"', 'version="2.0.0"')
+    $futureManagedText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "Tools/AIAgentInstructionTemplates/copilot-instructions.md")).Replace('version="1.3.0"', 'version="2.0.0"')
     Write-Utf8 -Path $futureManagedPath -Text $futureManagedText
     $futureManagedHash = Get-FileSha -Path $futureManagedPath
     $futureManagedRun = Invoke-TestScript -Path $manageScript -Arguments @("-ProjectRoot", $futureManaged)
@@ -742,7 +779,7 @@ try {
         foreach ($relative in $set.Files.Keys) {
             $target = Join-Path $project $relative
             $migratedNativeText = [System.IO.File]::ReadAllText($target)
-            Assert-True ($migratedNativeText.Contains("GEURTS-MANAGED-BEGIN") -and $migratedNativeText.Contains('version="1.2.0"') -and [regex]::Matches($migratedNativeText, [regex]::Escape($expectedBrickRouteText)).Count -eq 1 -and -not $migratedNativeText.Contains("GeurtsGameForgeCommandments/AGENTS.md")) "$($set.Name) $relative migrates to the exact managed v1.2.0 brick-first route through AI_READ_FIRST.md"
+            Assert-True ($migratedNativeText.Contains("GEURTS-MANAGED-BEGIN") -and $migratedNativeText.Contains('version="1.3.0"') -and [regex]::Matches($migratedNativeText, [regex]::Escape($expectedProjectRouteText)).Count -eq 1 -and -not $migratedNativeText.Contains("GeurtsGameForgeCommandments/AGENTS.md")) "$($set.Name) $relative migrates to the exact managed v1.3.0 project-wide route through AI_READ_FIRST.md"
             Assert-True (Test-Path -LiteralPath ($target + ".pre-v0.9.0.bak") -PathType Leaf) "$($set.Name) $relative receives a pre-v0.9.0 backup"
         }
     }
@@ -755,7 +792,7 @@ try {
     $crlfLegacyHash = Get-FileSha -Path $crlfLegacyPath
     $crlfLegacyRun = Invoke-TestScript -Path $manageScript -Arguments @("-ProjectRoot", $crlfLegacyProject)
     $crlfMigratedText = [System.IO.File]::ReadAllText($crlfLegacyPath)
-    Assert-True ($crlfLegacyRun.Code -eq 0 -and $crlfMigratedText.Contains('version="1.2.0"') -and [regex]::Matches($crlfMigratedText, [regex]::Escape($expectedBrickRouteText)).Count -eq 1 -and (Test-CrLfOnly -Text $crlfMigratedText) -and (Get-FileSha -Path ($crlfLegacyPath + ".pre-v0.9.0.bak")) -eq $crlfLegacyHash) "Exact CRLF legacy template migration installs the v1.2.0 brick-first route while preserving its whole-file newline convention and byte-identical legacy backup"
+    Assert-True ($crlfLegacyRun.Code -eq 0 -and $crlfMigratedText.Contains('version="1.3.0"') -and [regex]::Matches($crlfMigratedText, [regex]::Escape($expectedProjectRouteText)).Count -eq 1 -and (Test-CrLfOnly -Text $crlfMigratedText) -and (Get-FileSha -Path ($crlfLegacyPath + ".pre-v0.9.0.bak")) -eq $crlfLegacyHash) "Exact CRLF legacy template migration installs the v1.3.0 project-wide route while preserving its whole-file newline convention and byte-identical legacy backup"
 
     $modifiedLegacy = New-TestProject -Parent $testRoot -Name "modified-legacy"
     $modifiedLegacyPath = Join-Path $modifiedLegacy ".github/copilot-instructions.md"
@@ -971,7 +1008,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     $folderDefinitionContract = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json
     $folderToolContractText = [System.IO.File]::ReadAllText($folderScript)
     $managerToolContractText = [System.IO.File]::ReadAllText($manageScript)
-    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.2\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.47.1" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.47.1"
+    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.2\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.47.2" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.47.2"
 
     $versionMismatchAuthority = Join-Path $testRoot "folder-version-mismatch-authority"
     New-Item -ItemType Directory -Path $versionMismatchAuthority | Out-Null
@@ -1414,15 +1451,24 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     Assert-True ($testingBoundaryRun.Code -ne 0 -and $testingBoundaryRun.Output.Contains("[FAIL] Required technical dependencies and policies")) "Static validation rejects weakening testing host/server authority"
     $brickRouteTemplatePath = Join-Path $brickRouteFixture "Tools/AIAgentInstructionTemplates/copilot-instructions.md"
     $weakenedBrickRoute = 'Read and follow `GeurtsGameForgeCommandments/AI_READ_FIRST.md`; it routes to the installed documentation.'
-    Write-Utf8 -Path $brickRouteTemplatePath -Text ([System.IO.File]::ReadAllText($brickRouteTemplatePath).Replace($expectedBrickRouteText, $weakenedBrickRoute))
+    Write-Utf8 -Path $brickRouteTemplatePath -Text ([System.IO.File]::ReadAllText($brickRouteTemplatePath).Replace($expectedProjectRouteText, $weakenedBrickRoute))
     $brickRouteValidation = Invoke-TestScript -Path $validatorScript -Arguments @("-RepositoryRoot", $brickRouteFixture)
-    Assert-True ($brickRouteValidation.Code -ne 0 -and $brickRouteValidation.Output.Contains("Managed native routes")) "Static validation rejects a route that drops the brick-before-planning and manifest-selected source-of-truth instruction"
+    Assert-True ($brickRouteValidation.Code -ne 0 -and $brickRouteValidation.Output.Contains("Managed native routes")) "Static validation rejects a route that drops the all-project-work and manifest-selected source-of-truth instruction"
+
+    foreach ($templateExpectation in $nativeTemplateExpectations) {
+        $narrowRouteFixture = New-StaticValidationFixture -Parent $testRoot -Name ("static-narrow-route-" + [System.IO.Path]::GetFileNameWithoutExtension($templateExpectation.Path))
+        $narrowRoutePath = Join-Path $narrowRouteFixture $templateExpectation.Path
+        $narrowRouteText = [System.IO.File]::ReadAllText($narrowRoutePath).Replace("Before any Geurts Game Forge project work", "Before planning or modifying any Geurts Game Forge brick code")
+        Write-Utf8 -Path $narrowRoutePath -Text $narrowRouteText
+        $narrowRouteRun = Invoke-TestScript -Path $validatorScript -Arguments @("-RepositoryRoot", $narrowRouteFixture)
+        Assert-True ($narrowRouteRun.Code -ne 0 -and $narrowRouteRun.Output.Contains("[FAIL] Managed native routes")) "$($templateExpectation.Path) cannot regress to brick-code-only routing"
+    }
 
     $templateHashFixture = New-StaticValidationFixture -Parent $testRoot -Name "static-native-template-hash"
     $templateHashPath = Join-Path $templateHashFixture "Tools/AIAgentInstructionTemplates/copilot-instructions.md"
-    Write-Utf8 -Path $templateHashPath -Text ([System.IO.File]::ReadAllText($templateHashPath).Replace('sha256="350d37668ed0c7622de6f7ae44c9726ca2d243087ee0a45ea5874990cca4e9a3"', 'sha256="03464c8bace065ddfe2f305dfedafafbb8a1099cb318c21dad185d46d22451eb"'))
+    Write-Utf8 -Path $templateHashPath -Text ([System.IO.File]::ReadAllText($templateHashPath).Replace('sha256="92e4a7ae1ff00f20480b217108a028bce40276a97d4caa3b614588fdf75874bc"', 'sha256="03464c8bace065ddfe2f305dfedafafbb8a1099cb318c21dad185d46d22451eb"'))
     $templateHashValidation = Invoke-TestScript -Path $validatorScript -Arguments @("-RepositoryRoot", $templateHashFixture)
-    Assert-True ($templateHashValidation.Code -ne 0 -and $templateHashValidation.Output.Contains("Managed template integrity")) "Static validation rejects drift from the exact approved v1.2.0 managed-region hashes"
+    Assert-True ($templateHashValidation.Code -ne 0 -and $templateHashValidation.Output.Contains("Managed template integrity")) "Static validation rejects drift from the exact approved v1.3.0 managed-region hashes"
 
     foreach ($guideMutation in @("placeholder", "standalone")) {
         $guideFixture = New-StaticValidationFixture -Parent $testRoot -Name ("static-codex-" + $guideMutation)

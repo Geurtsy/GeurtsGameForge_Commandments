@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Commandments Service and Companion Compatibility Technique
 
-**Version:** 3.2.1
+**Version:** 3.2.2
 **Contract schema:** 3.0.0
 **Package version:** 0.45.1
 **Status:** Draft normative technique
@@ -165,7 +165,7 @@ The complete documentation tree is copied as inert content. The presence of tool
 
 The three managed AI files route supported tools to `GeurtsGameForgeCommandments/AI_READ_FIRST.md`, which continues to the manifest-selected package chain. They do not make every AI product obey the documentation automatically.
 
-Each source template explicitly tells an agent to read that installed entry before planning or modifying any Geurts Game Forge brick code and to treat the installed, manifest-selected documentation as the source of truth for the work. The companion copies that instruction only through the three declared mappings and does not discover or alter any other agent configuration.
+Each source template explicitly tells an agent to read that installed entry before any Geurts Game Forge project work and to treat the installed, manifest-selected documentation as the source of truth for the work. The companion copies that instruction only through the three declared mappings and does not discover or alter any other agent configuration.
 
 An AI tool must support the applicable native instruction file or be explicitly instructed to read and follow `AI_READ_FIRST.md`. Tools that ignore those instruction surfaces may not discover or follow the Geurts documentation. The companion must present this limitation accurately and must not claim universal AI control or compliance.
 

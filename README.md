@@ -1,5 +1,5 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.47.1
+# Integrated Forge setup — 0.47.2
 
 God 0.35.0 adds supported owner operations and a read-only project report. Angels 0.2.0 adds portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
@@ -83,7 +83,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.47.1
+**Version:** 0.47.2
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -220,7 +220,7 @@ After confirmation, the companion resolves the exact current `main` head commit,
 
 Update succeeds only when the complete documentation folder and all three route files are present and complete. The per-project comparison commit is then written on a best-effort basis; a storage failure produces a warning and may make the same Update appear available again, but it does not undo or reclassify the successful four-target replacement. A managed-target failure may leave a partial result and must be reported plainly; the user may retry only through another explicit Update and the same confirmation. There is no preview, dry run, backup, rollback, journal, recovery, migration, drift-preservation, or setup-plan engine.
 
-All three route files tell agents to read `GeurtsGameForgeCommandments/AI_READ_FIRST.md` before planning or modifying any Geurts Game Forge brick code and to treat the installed, manifest-selected documentation as the source of truth for that work. They help only AI tools that support those native instruction surfaces or have been explicitly told to read and follow `AI_READ_FIRST.md`; neither the documentation nor the companion can force every AI product to discover or obey them automatically.
+All three route files tell agents to read `GeurtsGameForgeCommandments/AI_READ_FIRST.md` before any Geurts Game Forge project work and to treat the installed, manifest-selected documentation as the source of truth for that work. They help only AI tools that support those native instruction surfaces or have been explicitly told to read and follow `AI_READ_FIRST.md`; neither the documentation nor the companion can force every AI product to discover or obey them automatically.
 
 The manifest-selected `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md` owns this lifecycle, and `GeurtsTechniques/GeurtsCommandmentsCompanionContract.json` owns its exact machine-readable source, destination, validation entries, confirmation targets, and route mappings. The implementation lives only in God's owning package repository; the Companion repository retains the passive compatibility adapter.
 
@@ -302,6 +302,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 Angels owns **Install Codex guide**; God navigates to it and compatibility APIs forward to the same owner. Follow the [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) for an explicitly selected existing folder, including the project root, and the separate cancel-default replacement confirmation. Content/package updates never install or rewrite guides.
 
 ## Changelog
+
+### 0.47.2
+
+- Broaden all three Copilot routes to every Forge project task, including planning, assets, documentation, reviews and validation. Route templates advance to 1.3.0 with updated integrity hashes.
+- Support preserved manual migration from v1.2.0 routes and reject narrowed routing. The normal confirmed content Update retains its exact four targets; save local instructions from the three route files elsewhere before replacing them. God and Angels need no package update.
 
 ### 0.47.1
 

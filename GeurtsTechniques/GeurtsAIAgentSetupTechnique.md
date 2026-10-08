@@ -2,7 +2,7 @@
 # Geurts AI Agent Setup Technique
 
 **Native AI Instruction Setup - Copilot and supported scoped routes**
-**Version:** 3.0.2
+**Version:** 3.1.0
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -38,7 +38,9 @@ The AGENTS.md Technique owns the separately installed Codex guide. The legacy ma
 
 These routes can guide only AI tools that support the applicable native instruction surface or have been explicitly instructed to read and follow `AI_READ_FIRST.md`. Creating the files does not make every AI product discover or obey the Geurts documentation automatically.
 
-Every v1.2.0 route template gives brick work the same concise rule: before planning or modifying any Geurts Game Forge brick code, read and follow `GeurtsGameForgeCommandments/AI_READ_FIRST.md`, then treat the installed documentation selected through its manifest chain as the source of truth for that work.
+Every v1.3.0 route template gives all Forge project work the same concise rule: before any Geurts Game Forge project work, read and follow `GeurtsGameForgeCommandments/AI_READ_FIRST.md`, then treat the installed documentation selected through its manifest chain as the source of truth for that work.
+
+This includes planning, code, assets, scenes, documentation, setup, reviews and validation. Scoped `applyTo` patterns select their additional route files; they do not narrow the global Copilot route. Reading a route grants no new file access or mutation authority.
 
 ## Commandments Companion Whole-File Replacement
 
@@ -143,6 +145,8 @@ These independent opt-ins describe optional manual manager use. The companion's 
 ## Maintenance
 
 When a managed template changes, update its version, normalized payload hash, migration catalog, companion contract mapping and validation entries, manifest registry row, manual-manager behaviour, regression tests, and validator expectations together. Never update a template without preserving the manual manager's safe migration and opt-out contract. Companion Update still replaces each mapped target as a complete file after confirmation.
+
+Existing routes adopt v1.3.0 through the normal confirmed content Update. Save any local instructions from its three overwrite targets elsewhere first. The separately authorized manual manager also accepts v1.2.0 managed regions under its existing backup, opt-out and surrounding-content preservation rules.
 
 ## Separate Codex guide installation
 
