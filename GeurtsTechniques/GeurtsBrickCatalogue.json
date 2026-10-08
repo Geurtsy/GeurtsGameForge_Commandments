@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.48.0",
+  "packageVersion": "0.49.0",
   "publishedUtc": "2026-10-08T03:56:25Z",
   "bricks": [
     {
@@ -78,7 +78,7 @@
     {
       "id": "com.geurts.gameforge.angels",
       "name": "Geurts Game Forge Angels",
-      "description": "Optional Editor project maintenance with default-off automatic sorting of newly imported first-party assets after scoped ownership and path-loader review. Existing assets/reimports, filenames, GUIDs and protected vendor/special content are retained; collisions are skipped and unsafe state pauses for review. Reload history and no-code enable/disable controls share the guarded move service. Requires God 0.35.0; automatic imports require Forge Setup technique 1.1.0 from Commandments 0.48.0. Unity 6000.6.3f1 Editor: 202 passed, zero failed, 2 symbolic-link checks skipped for host privileges. Supported examples and normal/narrow offscreen controls verified. Physical input, docking and alternate skin/DPI acceptance remain unverified. Consumers update manually.",
+      "description": "Optional Editor project maintenance with default-off automatic sorting of newly imported first-party assets after scoped ownership and path-loader review. Existing assets/reimports, filenames, GUIDs and protected vendor/special content are retained; collisions are skipped and unsafe state pauses for review. Reload history and no-code enable/disable controls share the guarded move service. Requires God 0.35.0; automatic imports require Forge Setup technique 1.1.0 from Commandments 0.49.0. Unity 6000.6.3f1 Editor: 202 passed, zero failed, 2 symbolic-link checks skipped for host privileges. Supported examples and normal/narrow offscreen controls verified. Physical input, docking and alternate skin/DPI acceptance remain unverified. Consumers update manually.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
       "version": "0.3.0",
       "released": true,
