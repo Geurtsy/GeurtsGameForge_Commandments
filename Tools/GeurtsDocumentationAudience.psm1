@@ -1,4 +1,4 @@
-# Version: 1.1.0
+# Version: 1.1.1
 Set-StrictMode -Version Latest
 
 function ConvertTo-GeurtsAudienceText {
@@ -18,6 +18,7 @@ function ConvertTo-GeurtsAudienceText {
     $fenceLength = 0
     $skippedLines = 0
     $result = New-Object System.Text.StringBuilder
+    $sourceLines = New-Object 'System.Collections.Generic.List[int]'
     $lineNumber = 0
 
     # Keep original line endings and literal fenced payloads. Tags must stand alone.
@@ -71,7 +72,10 @@ function ConvertTo-GeurtsAudienceText {
         $include = $audience -ceq 'AI-READ' -or
             ($audience -ceq 'FORGE-DEVELOPMENT-ONLY' -and $Mode -eq 'ForgeDevelopment') -or
             ($audience -ceq 'HUMAN-ONLY' -and $IncludeHuman)
-        if ($include) { [void]$result.Append($match.Value) }
+        if ($include) {
+            [void]$result.Append($match.Value)
+            [void]$sourceLines.Add($lineNumber)
+        }
         else { $skippedLines++ }
     }
     if ($null -ne $sectionAudience) { throw 'Unclosed audience section; no filtered content returned.' }
@@ -84,6 +88,7 @@ function ConvertTo-GeurtsAudienceText {
         SourceCharacters = $Text.Length
         ReturnedCharacters = $result.Length
         SkippedLines = $skippedLines
+        SourceLines = $sourceLines.ToArray()
     }
 }
 
@@ -119,7 +124,7 @@ function Read-GeurtsAudienceDocument {
     if (-not $registry.Success -or $relative -cnotin $registered) { throw "Document is not registered in this package: $relative" }
     $text = [System.IO.File]::ReadAllText((Join-Path $root $relative))
     $audienceRead = ConvertTo-GeurtsAudienceText -Text $text -Mode $Mode -IncludeHuman:$IncludeHuman
-    $sectionRead = Select-GeurtsDocumentSections -Manifest $manifest -RegisteredDocuments $registered -Document $relative -Source $text -Content $audienceRead.Content -Sections $Sections
+    $sectionRead = Select-GeurtsDocumentSections -Manifest $manifest -RegisteredDocuments $registered -Document $relative -Source $text -Content $audienceRead.Content -SourceLines $audienceRead.SourceLines -Sections $Sections
     [pscustomobject]@{
         Content = if ($Preview) { '' } else { $sectionRead.Content }
         FileAudience = $audienceRead.FileAudience
@@ -135,13 +140,17 @@ function Read-GeurtsAudienceDocument {
     }
 }
 
-# Scan real level-two headings, retaining original positions and fenced literals.
+# Scan top-level H1/H2 boundaries in the source; H3-H6 remain within their parent.
+# Setext candidates are conservative so ambiguous prose cannot hide required rules.
 function Get-GeurtsHeadingParts {
     param([AllowEmptyString()][string]$Text)
     $parts = New-Object 'System.Collections.Generic.List[object]'
     $fenceCharacter = $null
     $fenceLength = 0
     $lineNumber = 0
+    $paragraph = New-Object 'System.Collections.Generic.List[string]'
+    $paragraphStart = 0
+    $paragraphLine = 0
     foreach ($lineMatch in [regex]::Matches($Text, '[^\r\n]*(?:\r\n|\n|\r|$)')) {
         if ($lineMatch.Length -eq 0) { continue }
         $lineNumber++
@@ -153,10 +162,33 @@ function Get-GeurtsHeadingParts {
                 if ($delimiter[0] -ne [char]96 -or -not $info.Contains([string][char]96)) {
                     $fenceCharacter = $delimiter[0]
                     $fenceLength = $delimiter.Length
+                    $paragraph.Clear()
+                    continue
                 }
             }
-            elseif ($line -cmatch '^## (.+?)[ \t]*$') {
-                [void]$parts.Add([pscustomobject]@{ Heading = $Matches[1]; Start = $lineMatch.Index; Line = $lineNumber })
+            if ($line -cmatch '^ {0,3}(#{1,6})([ \t].*|)$') {
+                $level = $Matches[1].Length
+                $heading = [regex]::Replace($Matches[2], '[ \t]+#+[ \t]*$', '').Trim([char[]]" `t")
+                if ($level -le 2) {
+                    [void]$parts.Add([pscustomobject]@{ Heading = $heading; Level = $level; Start = $lineMatch.Index; Line = $lineNumber })
+                }
+                $paragraph.Clear()
+            }
+            elseif ($paragraph.Count -gt 0 -and $line -cmatch '^ {0,3}(=+|-+)[ \t]*$') {
+                $level = if ($Matches[1][0] -eq [char]'=') { 1 } else { 2 }
+                [void]$parts.Add([pscustomobject]@{ Heading = ($paragraph.ToArray() -join "`n"); Level = $level; Start = $paragraphStart; Line = $paragraphLine })
+                $paragraph.Clear()
+            }
+            elseif ([string]::IsNullOrWhiteSpace($line) -or
+                $line -match '^ {0,3}(?:>|<|[-+*](?:[ \t]|$)|[0-9]{1,9}[.)](?:[ \t]|$)|(?:\*[ \t]*){3,}$|(?:_[ \t]*){3,}$|(?:-[ \t]*){3,}$)') {
+                $paragraph.Clear()
+            }
+            elseif ($paragraph.Count -gt 0 -or $line -notmatch '^(?: {4}| *\t)') {
+                if ($paragraph.Count -eq 0) {
+                    $paragraphStart = $lineMatch.Index
+                    $paragraphLine = $lineNumber
+                }
+                [void]$paragraph.Add($line.Trim([char[]]" `t"))
             }
         }
         elseif ($line -match '^ {0,3}(`{3,}|~{3,})\s*$') {
@@ -169,7 +201,7 @@ function Get-GeurtsHeadingParts {
 
 # Only the manifest may make a section conditional. Untabled content stays required.
 function Select-GeurtsDocumentSections {
-    param([string]$Manifest, [string[]]$RegisteredDocuments, [string]$Document, [string]$Source, [AllowEmptyString()][string]$Content, [string[]]$Sections)
+    param([string]$Manifest, [string[]]$RegisteredDocuments, [string]$Document, [string]$Source, [AllowEmptyString()][string]$Content, [int[]]$SourceLines, [string[]]$Sections)
     $protectedPaths = @('AI_READ_FIRST.md', 'GeurtsTechniqueManifest.md',
         'GeurtsTechniques/GeurtsAgentTechnique.md', 'GeurtsTechniques/GeurtsGitIgnoreTechnique.md',
         'GeurtsTechniques/GeurtsGitAttributesTechnique.md')
@@ -203,17 +235,28 @@ function Select-GeurtsDocumentSections {
     elseif ($Sections) { throw 'This package has no controlled-section registry; read the whole document.' }
     $rawParts = @(Get-GeurtsHeadingParts -Text $Source)
     foreach ($heading in $headingToId.Keys) {
-        if (@($rawParts | Where-Object { $_.Heading -ceq $heading }).Count -ne 1) { throw "Missing or duplicate controlled heading: $heading" }
+        if (@($rawParts | Where-Object { $_.Level -eq 2 -and $_.Heading -ceq $heading }).Count -ne 1) { throw "Missing or duplicate controlled heading: $heading" }
     }
     $selected = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
     foreach ($id in $Sections) {
         if ([string]::IsNullOrWhiteSpace($id) -or ($id -cne 'core' -and -not $idToHeading.ContainsKey($id))) { throw "Unknown controlled section '$id' for $Document." }
         if (-not $selected.Add($id)) { throw "Duplicate requested section '$id'." }
     }
-    $parts = @(Get-GeurtsHeadingParts -Text $Content)
+    # Translate original boundaries through audience filtering instead of reparsing
+    # concatenated text. Hidden headings still end preceding optional topics.
+    $contentLines = @([regex]::Matches($Content, '[^\r\n]*(?:\r\n|\n|\r|$)') | Where-Object { $_.Length -gt 0 })
+    if ($contentLines.Count -ne $SourceLines.Count) { throw 'Audience source-line mapping is inconsistent; no partial content returned.' }
+    $parts = New-Object 'System.Collections.Generic.List[object]'
+    $cursor = 0
+    foreach ($rawPart in $rawParts) {
+        while ($cursor -lt $SourceLines.Count -and $SourceLines[$cursor] -lt $rawPart.Line) { $cursor++ }
+        $start = if ($cursor -lt $contentLines.Count) { $contentLines[$cursor].Index } else { $Content.Length }
+        $visible = $cursor -lt $SourceLines.Count -and $SourceLines[$cursor] -eq $rawPart.Line
+        [void]$parts.Add([pscustomobject]@{ Heading = $rawPart.Heading; Level = $rawPart.Level; Line = $rawPart.Line; Start = $start; Visible = $visible })
+    }
     foreach ($id in $selected) {
         if ($id -ceq 'core') { continue }
-        if (@($parts | Where-Object { $_.Heading -ceq $idToHeading[$id] }).Count -ne 1) { throw "Section '$id' is not readable in the chosen audience mode." }
+        if (@($parts | Where-Object { $_.Level -eq 2 -and $_.Visible -and $_.Heading -ceq $idToHeading[$id] }).Count -ne 1) { throw "Section '$id' is not readable in the chosen audience mode." }
     }
     $output = New-Object System.Text.StringBuilder
     $index = New-Object 'System.Collections.Generic.List[object]'
@@ -224,14 +267,15 @@ function Select-GeurtsDocumentSections {
         $part = $parts[$position]
         $end = if ($position + 1 -lt $parts.Count) { $parts[$position + 1].Start } else { $Content.Length }
         $length = $end - $part.Start
-        $optional = $headingToId.ContainsKey($part.Heading)
+        $optional = $part.Level -eq 2 -and $headingToId.ContainsKey($part.Heading)
         $id = if ($optional) { $headingToId[$part.Heading] } else { $null }
         $include = -not $Sections -or -not $optional -or $selected.Contains($id)
-        $sourceLine = @($rawParts | Where-Object { $_.Heading -ceq $part.Heading } | Select-Object -First 1)[0].Line
-        [void]$index.Add([pscustomobject]@{ id = $id; heading = $part.Heading; sourceLine = $sourceLine;
-            required = -not $optional; selected = $include; characters = $length })
+        if ($part.Level -eq 2 -and $part.Visible) {
+            [void]$index.Add([pscustomobject]@{ id = $id; heading = $part.Heading; sourceLine = $part.Line;
+                required = -not $optional; selected = $include; characters = $length })
+        }
         if ($include) { [void]$output.Append($Content.Substring($part.Start, $length)) }
-        else { $skipped++ }
+        elseif ($part.Visible) { $skipped++ }
     }
     [pscustomobject]@{ Content = $output.ToString(); Headings = $index.ToArray(); SkippedSections = $skipped }
 }
