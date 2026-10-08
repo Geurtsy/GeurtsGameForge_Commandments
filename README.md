@@ -309,18 +309,6 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 - Percentages identify verified packages, completed checks or download bytes; stages without measurable totals remain indeterminate. Preserve manual consumer updates and current dependency minimums.
 
 
-### 0.47.3
-
-- Publish God 0.36.0 with pinned measured loading progress, percentage labels, clearer catalogue bars and a pinned Commandments progress display.
-- Percentages identify verified packages, completed checks or download bytes; stages without measurable totals remain indeterminate. Preserve manual consumer updates and current dependency minimums.
-
-
-### 0.47.3
-
-- Publish God 0.36.0 with pinned measured loading progress, percentage labels, clearer catalogue bars and a pinned Commandments progress display.
-- Percentages identify verified packages, completed checks or download bytes; stages without measurable totals remain indeterminate. Preserve manual consumer updates and current dependency minimums.
-
-
 ### 0.47.2
 
 - Broaden all three Copilot routes to every Forge project task, including planning, assets, documentation, reviews and validation. Route templates advance to 1.3.0 with updated integrity hashes.
