@@ -1448,6 +1448,13 @@ try {
     }
     Add-Check 'Resolved documentation policy consistency' ($consistencyFailures.Count -eq 0) $(if ($consistencyFailures.Count) { $consistencyFailures -join '; ' } else { 'Logging, offline consent, Angels ownership, explicit root guides, optional console, existing statuses, semantic outlines and catalogue-only current versions agree; historical guides and exact payloads retain their boundaries.' })
 
+    $autoSortValid = $setupText.Contains('off by default') -and $setupText.Contains('explicit existing first-party folder below `Assets`') -and
+        $setupText.Contains('ownership acknowledgement, string/path-loader review') -and $setupText.Contains('Missing, malformed or mismatched history pauses') -and
+        $setupText.Contains('Reimports and explicit user moves are observed without automatic relocation') -and $setupText.Contains('process outside the import callback') -and
+        $setupText.Contains('Destination folders must already exist') -and $setupText.Contains('Changed source-folder identity, saved policy or local guidance invalidates automatic consent') -and
+        $setupText.Contains('Disabling drops queued work') -and $setupText.Contains('A reviewed first-party scope is not permission to process protected descendants')
+    Add-Check 'Automatic import organization boundary' $autoSortValid 'Automatic imports require explicit scoped consent, a retained baseline and deferred guarded moves; protected descendants and existing assets remain excluded.'
+
     $gddTechniqueText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md"))
     $gddOwnerRow = [regex]::Match($manifestText, '(?m)^\| Project-specific design-document discovery and maintenance boundary \| `GeurtsTechniques/GeurtsGameDesignDocumentationTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $gddAuthorityValid = $gddOwnerRow.Success -and $gddOwnerRow.Groups["When"].Value -match '(?i)player-facing work' -and $gddTechniqueText -match '(?i)load every relevant document identified by the project.?s current `GameDesignManifest\.md`' -and $gddTechniqueText -match '(?i)stop and ask' -and $gddTechniqueText -match '(?i)establish or change player-facing design intent' -and $gddTechniqueText -match '(?i)reversible technical detail' -and $gddTechniqueText -match '(?i)does not create, alter, or overwrite design intent'

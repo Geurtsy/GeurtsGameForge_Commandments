@@ -1413,6 +1413,8 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         @{ Name = 'menu-network'; Path = 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md'; Old = 'Opening the Commandments menu or embedded view stays offline'; New = 'A deliberate Commandments Companion menu opening may request remote metadata' },
         @{ Name = 'tool-owner'; Path = 'README.md'; Old = 'Angels owns **Install Codex guide**'; New = 'God owns the separate **Install Codex guide**' },
         @{ Name = 'root-guide-ban'; Path = 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'; Old = 'automatic root guide installation'; New = 'root guide installation' },
+        @{ Name = 'auto-sort-default'; Path = 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'; Old = 'off by default'; New = 'on by default'; Check = 'Automatic import organization boundary' },
+        @{ Name = 'auto-sort-history'; Path = 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'; Old = 'Missing, malformed or mismatched history pauses'; New = 'Missing, malformed or mismatched history continues'; Check = 'Automatic import organization boundary' },
         @{ Name = 'mandatory-console'; Path = 'GeurtsTechniques/GeurtsCommandsTechnique.md'; Old = 'Installing or enabling a runtime developer console is optional'; New = 'Every gameplay project must include a validated developer-console setup' },
         @{ Name = 'extra-status'; Path = 'GeurtsTechniques/GeurtsForgeSetupContract.json'; Old = '"not-applicable"'; New = '"not-applicable", "unavailable"' },
         @{ Name = 'false-success-outline'; Path = 'GeurtsTechniques/GeurtsEditorUIThemeTechnique.md'; Old = 'retain neutral borders and precise text'; New = 'receive green success borders' },
