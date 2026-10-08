@@ -308,6 +308,10 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 - Publishes Angels automatic naming of future imports, with separate default-off category/semantic consent and a shared sort/rename pipeline. Existing assets, compliant names, protected content and collisions remain preserved.
 - Advances Forge Setup technique to 1.2.0 and adds naming-consent/collision regression gates. Consumer updates remain manual.
 
+### 0.48.1
+
+- Fix filtered reading of indented, tab-separated, closing-hash, empty and underline headings. H1 and unmapped H2 sections remain required; H3–H6 stays with its parent.
+- Preserve original section boundaries across audience filtering and report correct source lines for repeated headings. Reader tools advance to 1.1.1 with 60 additional preservation assertions; installed content and update consent remain unchanged.
 
 ### 0.48.0
 

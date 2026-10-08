@@ -51,7 +51,7 @@ Use the local read-only helper:
 & '<DocumentationRoot>/Tools/ReadGeurtsDocumentation.ps1' -Document 'GeurtsTechniques/GeurtsDiagnosticsTechnique.md' -Mode GameUse -Sections 'commands'
 ```
 
-Preview returns a top-level heading index and planned character counts without document content. It never counts as reading the rules. Sections uses only the controlled IDs below and always includes the preamble and every non-optional section. Use the reserved `core` ID for shared sections alone. With no Sections argument, existing whole-document behavior remains supported. Choose every conditional section relevant to the task; if uncertain, read the whole audience-filtered file. There is no output cap or silent truncation. Json counts characters, not tokens. IncludeHuman is only for explicitly needed human/history/migration content and does not enable Forge sections.
+Preview returns a level-two heading index and planned character counts without document content. It never counts as reading the rules. Sections uses only the controlled IDs below and always includes the preamble and every non-optional section. Use the reserved `core` ID for shared sections alone. With no Sections argument, existing whole-document behavior remains supported. Choose every conditional section relevant to the task; if uncertain, read the whole audience-filtered file. There is no output cap or silent truncation. Json counts characters, not tokens. IncludeHuman is only for explicitly needed human/history/migration content and does not enable Forge sections.
 
 The reader stays inside manifest-listed Markdown in this package. It never discovers project/GDD files, writes, checks Git, uses the network or installs anything; God never executes copied scripts. Bootstrap files, exact installer techniques, templates, JSON and code are not eligible for partial selection; selected data/payloads remain intact. Without PowerShell, use the same marked audience boundaries and controlled sections. Malformed tags, fences or section maps fail closed. A new unlisted section is required by default. Keep dependency, version, consent, project/design ownership and failure rules shared. Audience-only annotations bump the package, not unchanged subject/payload versions. Validate with `Tools/ValidateGeurtsDocumentation.ps1 -RunAutomationTests`.
 
@@ -155,9 +155,9 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `Tools/AIAgentInstructionTemplates/GameDesign/README.md` | 0.11.0 | Exact installation payload; preserve bytes. |
 | `Tools/AIAgentInstructionTemplates/GameDesign/GameDesignManifest.md` | 0.7.0 | Exact installation payload; preserve bytes. |
 | `Tools/Tests/RunAutomationTests.ps1` | 0.49.0 | Isolated automation and regression suite. |
-| `Tools/GeurtsDocumentationAudience.psm1` | 1.1.0 | Safe audience and manifest-controlled section reader. |
-| `Tools/ReadGeurtsDocumentation.ps1` | 1.1.0 | Read, preview or index selected Markdown without mutation. |
-| `Tools/Tests/TestDocumentationAudiences.ps1` | 1.1.0 | Audience, section selection, preview and boundary regressions. |
+| `Tools/GeurtsDocumentationAudience.psm1` | 1.1.1 | Safe audience and manifest-controlled section reader. |
+| `Tools/ReadGeurtsDocumentation.ps1` | 1.1.1 | Read, preview or index selected Markdown without mutation. |
+| `Tools/Tests/TestDocumentationAudiences.ps1` | 1.1.1 | Audience, section selection, preview and boundary regressions. |
 | `Migrations/v0.40.0.md` | 0.40.0 | Historical transition; read only for a requested migration/review. |
 | `Migrations/v0.45.0.md` | 0.45.0 | Historical transition; read only for a requested migration/review. |
 | `GeurtsTechniques/GeurtsUnityTechnique.md` | 0.1.0 | Normative task-specific technical topic. |
@@ -181,7 +181,9 @@ Preserve AGENTS.md Technique 1.2.0, Git Ignore 1.0.1 and Git Attributes 1.0.1 ve
 
 ## 4. Controlled section reading
 
-Only these level-two headings may be omitted from a selected document. Read each when its condition applies. All other headings and the preamble are required in the chosen audience mode. Preserve source order. The reader rejects unknown/duplicate IDs, missing/duplicate headings and malformed maps. Section selection never changes a task's selected-document obligations.
+Only the level-two sections listed below may be omitted from a selected document. Read each when its condition applies. All unmapped H1/H2 sections and the preamble are required in the chosen audience mode. Preserve source order. The reader rejects unknown/duplicate IDs, missing/duplicate headings and malformed maps. Section selection never changes a task's selected-document obligations.
+
+An H1 or the next H2 ends a topic; H3–H6 belongs to its parent. ATX headings accept 0–3 leading spaces, tabs after the opening hashes and optional closing hashes; underline-style H1/H2 boundaries also apply. Use original source boundaries and line numbers, including audience-hidden headings, so filtering cannot swallow later shared rules. Fenced examples remain literal.
 
 <!-- GEURTS-READ-SECTIONS:BEGIN -->
 | Document | Section ID | Exact heading | When required |

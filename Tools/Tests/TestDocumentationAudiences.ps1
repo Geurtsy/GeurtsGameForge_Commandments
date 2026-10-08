@@ -1,4 +1,4 @@
-# Version: 1.1.0
+# Version: 1.1.1
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
@@ -192,6 +192,88 @@ Always retain this newly introduced requirement.
     Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio } 'Malformed unselected audience section cannot be hidden by partial selection'
     [IO.File]::WriteAllText($scopedPath, $scopedText.Replace("`n", "`r`n"))
     Assert-Audience ((Get-FileHash -LiteralPath $scopedPath).Hash -ceq $scopedBefore) 'Reader selection and preview preserve original source bytes'
+    $headingFixture = "# Fixture`r`n## Maintainer backend`r`nBackend details.`r`n## Audio topic`r`nOptional audio details.`r`n  ## New required rule`r`nMUST_KEEP_NEW_RULE`r`n"
+    [IO.File]::WriteAllText($scopedPath, $headingFixture)
+    $indentedCore = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections core
+    Assert-Audience ($indentedCore.Content.Contains('MUST_KEEP_NEW_RULE') -and -not $indentedCore.Content.Contains('Optional audio details.')) 'An indented new required heading ends an omitted topic'
+    foreach ($eol in @("`r`n", "`n", "`r")) {
+        foreach ($indent in @('', ' ', '  ', '   ')) {
+            $variant = @('# Fixture', '## Maintainer backend', 'Backend details.',
+                ($indent + "##`tAudio topic ####`t"), 'Optional audio details.',
+                ($indent + "##`tNew required rule ###`t"), 'MUST_KEEP_NEW_RULE') -join $eol
+            [IO.File]::WriteAllText($scopedPath, $variant)
+            $variantCore = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections core
+            $variantAudio = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio
+            $variantWhole = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md'
+            Assert-Audience ($variantCore.Content.Contains('MUST_KEEP_NEW_RULE') -and -not $variantCore.Content.Contains('Optional audio details.')) "Core preserves required ATX rules with $($indent.Length) spaces and EOL length $($eol.Length)"
+            Assert-Audience ($variantAudio.Content.Contains('Optional audio details.') -and $variantAudio.Content.Contains('MUST_KEEP_NEW_RULE') -and @($variantAudio.Headings | Where-Object { $_.id -ceq 'audio' }).Count -eq 1) "Tabs and closing hashes still resolve the selected topic with $($indent.Length) spaces"
+            Assert-Audience ($variantWhole.Content -ceq $variant) 'Whole-document reads preserve every original character across heading variants'
+        }
+    }
+    $topicPrefix = "# Fixture`r`n## Maintainer backend`r`nBackend details.`r`n## Audio topic`r`nOptional audio details.`r`n"
+    foreach ($indent in @('', ' ', '  ', '   ')) {
+        [IO.File]::WriteAllText($scopedPath, $topicPrefix + $indent + "#`tAudio topic ###`r`nMUST_KEEP_NEW_RULE`r`n")
+        $h1Core = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections core
+        Assert-Audience ($h1Core.Content.Contains('MUST_KEEP_NEW_RULE') -and -not $h1Core.Content.Contains('Optional audio details.') -and @($h1Core.Headings | Where-Object { $_.id -ceq 'audio' }).Count -eq 1) 'A required H1 ends the topic even when its name matches a controlled H2'
+    }
+    foreach ($emptyHeading in @('##', " ## ###`t")) {
+        [IO.File]::WriteAllText($scopedPath, $topicPrefix + $emptyHeading + "`r`nMUST_KEEP_NEW_RULE`r`n")
+        Assert-Audience ((Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections core).Content.Contains('MUST_KEEP_NEW_RULE')) 'An empty H2 is a required boundary'
+    }
+    foreach ($underline in @('===', '---')) {
+        $requiredSetext = "  New required`r`n  multiline rule`r`n  $underline`r`nMUST_KEEP_NEW_RULE`r`n"
+        [IO.File]::WriteAllText($scopedPath, $topicPrefix + "`r`n" + $requiredSetext)
+        $setextCore = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections core
+        Assert-Audience ($setextCore.Content.Contains($requiredSetext) -and -not $setextCore.Content.Contains('Optional audio details.')) 'Required underline headings preserve their full text and following rules'
+    }
+    $controlledSetext = "# Fixture`r`n## Maintainer backend`r`nBackend details.`r`n`r`n  Audio topic`r`n  ---`r`nOptional audio details.`r`n## Shared rule`r`nMUST_KEEP_NEW_RULE`r`n"
+    [IO.File]::WriteAllText($scopedPath, $controlledSetext)
+    $setextAudio = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio
+    $setextCore = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections core
+    Assert-Audience ($setextAudio.Content.Contains('Optional audio details.') -and $setextCore.Content.Contains('MUST_KEEP_NEW_RULE') -and -not $setextCore.Content.Contains('Optional audio details.')) 'A controlled single-line underline H2 resolves by its exact heading text'
+    foreach ($level in 3..6) {
+        $childText = (('#' * $level) + " Child detail`r`nOPTIONAL_CHILD_RULE`r`n")
+        [IO.File]::WriteAllText($scopedPath, $topicPrefix + $childText + "## Shared rule`r`nMUST_KEEP_NEW_RULE`r`n")
+        $childCore = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections core
+        $childAudio = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio
+        Assert-Audience (-not $childCore.Content.Contains('OPTIONAL_CHILD_RULE') -and $childAudio.Content.Contains($childText) -and $childCore.Content.Contains('MUST_KEEP_NEW_RULE')) "H$level remains inside its optional parent"
+    }
+    $literalText = "`r`n    ## Indented code`r`n`t# Tab-indented code`r`n\## Escaped hash`r`n##Not a heading`r`n####### Too many hashes`r`nOPTIONAL_LITERAL_RULE`r`n"
+    [IO.File]::WriteAllText($scopedPath, $topicPrefix + $literalText + "## Shared rule`r`nMUST_KEEP_NEW_RULE`r`n")
+    $literalCore = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections core
+    $literalAudio = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio
+    Assert-Audience (-not $literalCore.Content.Contains('OPTIONAL_LITERAL_RULE') -and $literalAudio.Content.Contains($literalText)) 'Indented code, escaped hashes and non-heading hash text cannot become section boundaries'
+    foreach ($fence in @('````', '~~~~')) {
+        $fencedText = $fence + "markdown`r`n  # Literal title`r`n   ## New required rule ###`r`nLiteral underline`r`n---`r`nOPTIONAL_FENCED_RULE`r`n" + $fence + "`r`n"
+        [IO.File]::WriteAllText($scopedPath, $topicPrefix + $fencedText + "## Shared rule`r`nMUST_KEEP_NEW_RULE`r`n")
+        $fencedCore = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections core
+        $fencedAudio = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio
+        Assert-Audience (-not $fencedCore.Content.Contains('OPTIONAL_FENCED_RULE') -and $fencedCore.Content.Contains('MUST_KEEP_NEW_RULE') -and $fencedAudio.Content.Contains($fencedText)) 'Fenced ATX and underline examples remain one complete literal payload'
+    }
+    $repeatLines = @('<!-- GEURTS-AUDIENCE: AI-READ -->', '# Fixture', '## Maintainer backend', 'Backend details.',
+        '## Audio topic', 'Optional audio details.', '<!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->',
+        '## Repeated shared rule', 'Hidden walkthrough.', '<!-- GEURTS-SECTION:END -->',
+        '## Repeated shared rule', 'FIRST_SHARED_RULE', '## Repeated shared rule', 'SECOND_SHARED_RULE')
+    $repeatText = $repeatLines -join "`r`n"
+    [IO.File]::WriteAllText($scopedPath, $repeatText)
+    $repeatBefore = (Get-FileHash -LiteralPath $scopedPath).Hash
+    $repeatCore = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections core
+    $repeatPreview = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections core -Preview
+    $repeated = @($repeatPreview.Headings | Where-Object { $_.heading -ceq 'Repeated shared rule' })
+    Assert-Audience ($repeated.Count -eq 2 -and $repeated[0].sourceLine -eq 11 -and $repeated[1].sourceLine -eq 13 -and $repeated[0].required -and $repeated[1].required) 'Repeated visible headings report their own original lines after hidden same-name headings'
+    Assert-Audience ($repeatCore.Content.Contains('FIRST_SHARED_RULE') -and $repeatCore.Content.Contains('SECOND_SHARED_RULE') -and -not $repeatCore.Content.Contains('Hidden walkthrough.')) 'Repeated required sections remain readable without exposing hidden audience content'
+    Assert-Audience ($repeatPreview.Content.Length -eq 0 -and $repeatPreview.ReadingCharacters -eq $repeatCore.Content.Length -and (Get-FileHash -LiteralPath $scopedPath).Hash -ceq $repeatBefore) 'Heading preview reports exact planned size and preserves source bytes'
+    foreach ($hiddenHeading in @('# Hidden title', '## Hidden shared rule')) {
+        $hiddenBoundary = "<!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->`r`n$hiddenHeading`r`nHidden walkthrough.`r`n<!-- GEURTS-SECTION:END -->`r`nMUST_KEEP_NEW_RULE`r`n"
+        [IO.File]::WriteAllText($scopedPath, $topicPrefix + $hiddenBoundary)
+        $hiddenCore = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections core
+        Assert-Audience ($hiddenCore.Content.Contains('MUST_KEEP_NEW_RULE') -and -not $hiddenCore.Content.Contains('Hidden walkthrough.') -and -not $hiddenCore.Content.Contains('Optional audio details.')) 'An audience-hidden required heading still ends the preceding optional topic'
+    }
+    foreach ($duplicateHeading in @("   ##`tAudio topic ###", "Audio topic`r`n---")) {
+        [IO.File]::WriteAllText($scopedPath, $topicPrefix + "`r`n" + $duplicateHeading + "`r`nDuplicate controlled topic.`r`n")
+        Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio -Preview } 'Controlled heading duplicates fail across indentation, closing hashes and underline syntax'
+    }
+    [IO.File]::WriteAllText($scopedPath, $scopedText)
     $diagnosticsCore = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsDiagnosticsTechnique.md' -Sections core
     Assert-Audience ($diagnosticsCore.Content.Contains('ordinary Forge logs') -or $diagnosticsCore.Content.Contains('Ordinary Forge logs')) 'Real logging-only read retains unavailable-provider policy'
     Assert-Audience ($diagnosticsCore.Content.Contains('FORGE_AUDIENCE.PLAYER') -and $diagnosticsCore.Content.Contains('never evidence of success') -and -not $diagnosticsCore.Content.Contains('Background transparency')) 'Real Diagnostics core keeps audience/failure safeguards and skips overlay details'
