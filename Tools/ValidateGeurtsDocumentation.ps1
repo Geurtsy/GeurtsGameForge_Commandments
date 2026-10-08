@@ -1192,7 +1192,7 @@ try {
         'All bricks that depend on God must reuse', 'Editor/ForgeEditorTheme.cs', 'Editor/ForgeEditorTheme.uss',
         'Geurts.GameForge.God.Editor', 'Scope()', 'ForgeEditorTheme.ApplyToolkit(root)', 'ForgeThemedEditor',
         'ForgeEditorTheme.OpenWindow<T>(Vector2 minimumSize, string title = null)',
-        '**1000 × 760 Editor points**', 'Reopening an existing window preserves its size, position, docking layout and constraints',
+        ('**1000 ' + [char]0x00D7 + ' 760 Editor points**'), 'Reopening an existing window preserves its size, position, docking layout and constraints',
         'God **0.14.0** introduces this API', 'Commandments must reuse God''s canonical theme directly',
         'passive Companion adapter has no independent dashboard or generated theme', 'Tools~/SyncEditorTheme.ps1',
         'Preserve meaningful Odin configuration', 'Use the shared USS and supported UI Toolkit controls for new custom Editor UI',
