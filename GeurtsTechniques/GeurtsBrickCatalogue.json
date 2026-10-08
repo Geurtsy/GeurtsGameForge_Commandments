@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.47.1",
+  "packageVersion": "0.47.2",
   "publishedUtc": "2026-10-08T01:40:39Z",
   "bricks": [
     {
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "God remains the only mandatory shared brick. Foundation API 1.1 is retained; ForgeOperations 1.0.0 and read-only report schema 1.0.0 add supported owner dispatch, stable source findings and installed capability observations. Project maintenance remains in Angels and console/capture ownership in Diagnostics. Unity 6000.6.3f1 Editor: 370 passed, zero failed, 10 conditional checks skipped. Supported examples and source fingerprints are verified. Physical/device/player acceptance remains outside this release's evidence. Consumers update manually.",
+      "description": "God remains the only mandatory shared brick. Adds pinned measured loading bars, verified-package and completed-check percentages, and catalogue/Commandments download progress. Stages without measurable totals remain indeterminate. Foundation, owner operations and optional-brick boundaries are retained. Unity 6000.6.3f1 Editor: 382 passed, zero failed, 11 conditional checks skipped; normal/narrow rendered pinned progress and supported examples verified. Physical input and alternate skin/DPI acceptance remain unverified. Consumers update manually.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.35.0",
+      "version": "0.36.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#86143ac85f94de86e3d94155eae9b7313f199725",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#b3a4aaad6cf39f91a4890d805198aabb4524292e",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
