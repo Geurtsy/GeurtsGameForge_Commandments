@@ -1,7 +1,7 @@
-<!-- GEURTS-MANAGED-BEGIN id="copilot-body" version="1.2.0" sha256="350d37668ed0c7622de6f7ae44c9726ca2d243087ee0a45ea5874990cca4e9a3" -->
+<!-- GEURTS-MANAGED-BEGIN id="copilot-body" version="1.3.0" sha256="92e4a7ae1ff00f20480b217108a028bce40276a97d4caa3b614588fdf75874bc" -->
 # Geurts Game Forge Copilot Instructions
 
-**Version:** 1.2.0
+**Version:** 1.3.0
 
-Before planning or modifying any Geurts Game Forge brick code, read and follow `GeurtsGameForgeCommandments/AI_READ_FIRST.md`; it routes to the installed, manifest-selected documentation. Treat that documentation as the source of truth for the work.
+Before any Geurts Game Forge project work, read and follow `GeurtsGameForgeCommandments/AI_READ_FIRST.md`; it routes to the installed, manifest-selected documentation. Treat that documentation as the source of truth for the work.
 <!-- GEURTS-MANAGED-END id="copilot-body" -->
