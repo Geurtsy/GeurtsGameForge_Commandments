@@ -1,5 +1,5 @@
 # RunAutomationTests.ps1
-# Version: 0.50.1
+# Version: 0.51.0
 
 [CmdletBinding()]
 param(
@@ -295,7 +295,7 @@ try {
     $draftManifestText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniqueManifest.md"))
     $draftReadmeText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "README.md"))
     $targetMigrationText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "Migrations/v0.47.0.md"))
-    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.50\.1\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.46\.0|package v0\.46\.0)[^\r\n]{0,80}(?:is|was|has been) released') "v0.50.1 remains a Draft target release with a planned snapshot rather than a completed-release claim"
+    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.51\.0\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.46\.0|package v0\.46\.0)[^\r\n]{0,80}(?:is|was|has been) released') "v0.51.0 remains a Draft target release with a planned snapshot rather than a completed-release claim"
 
     $gfiContractText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md"))
     Assert-True ($gfiContractText -match '(?i)sole primary source and authority for all Geurts Game Forge documentation' -and $gfiContractText.Contains("<PluginPackageRoot>/Documentation~/") -and $gfiContractText -match '(?i)must not ship a bundled or fallback copy of Geurts documentation') "Frozen GFI v2 keeps this repository authoritative and plugin Documentation~ plugin-specific"
@@ -322,7 +322,8 @@ try {
         "GeurtsTechniques/GeurtsNamingTechnique.md",
         "GeurtsTechniques/GeurtsEditorAppearanceTechnique.md",
         "GeurtsTechniques/GeurtsForgeSetupTechnique.md",
-        "GeurtsTechniques/GeurtsForgeSetupContract.json"
+        "GeurtsTechniques/GeurtsForgeSetupContract.json",
+        "GeurtsTechniques/GeurtsSteamIntegrationTechnique.md"
     )
     $expectedCompanionRoutes = @(
         "Tools/AIAgentInstructionTemplates/copilot-instructions.md|.github/copilot-instructions.md",
@@ -337,9 +338,9 @@ try {
         ".github/instructions/geurts-unity.instructions.md|replace-complete-file",
         ".github/instructions/geurts-game-design.instructions.md|replace-complete-file"
     )
-    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.50.1" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.50.1, and the official exact-main-commit archive source"
+    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.51.0" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.51.0, and the official exact-main-commit archive source"
     Assert-True ([string]$companionContract.destination.projectRelativePath -ceq "GeurtsGameForgeCommandments" -and [string]$companionContract.destination.replacement -ceq "complete-directory" -and [string]$companionContract.destination.access -ceq "logically-read-only") "Companion contract names the one logically-read-only complete documentation destination"
-    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 13) "Current companion contract names the exact thirteen unique package-v0.50.1 source-validation entries"
+    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 14) "Current companion contract names the exact fourteen unique package-v0.51.0 source-validation entries"
     Assert-True (($actualCompanionRoutes -join "|") -ceq ($expectedCompanionRoutes -join "|") -and ($actualConfirmationTargets -join "|") -ceq ($expectedConfirmationTargets -join "|") -and [string]$companionContract.updateUi.actionLabel -ceq "Update Geurts Game Forge Commandments" -and [string]$companionContract.updateUi.confirmationDefault -ceq "cancel" -and [string]$companionContract.updateUi.cancelResult -ceq "no-network-or-filesystem-change") "Companion contract fixes three template routes and one cancel-default four-target Update confirmation"
     Assert-True ($companionTechniqueText -match '(?i)one confirmation dialog' -and $companionTechniqueText -match '(?i)no earlier preview, dry run[^\r\n]{0,100}second confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set') "Confirmation uses the built-in schema-3.0.0 target set before acquisition and cannot authorize a changed downloaded target set"
     Assert-True ($companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative') "Schema 3.0.0 keeps package versions and safe validation entries forward-compatible while mutation routes remain fixed"
@@ -1008,7 +1009,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     $folderDefinitionContract = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json
     $folderToolContractText = [System.IO.File]::ReadAllText($folderScript)
     $managerToolContractText = [System.IO.File]::ReadAllText($manageScript)
-    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.2\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.50.1" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.50.1"
+    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.2\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.51.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.51.0"
 
     $versionMismatchAuthority = Join-Path $testRoot "folder-version-mismatch-authority"
     New-Item -ItemType Directory -Path $versionMismatchAuthority | Out-Null
@@ -1181,6 +1182,13 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     catch { }
     $requiredLifecycleChecks = @(
         "Documentation audience tags",
+        "Steam manifest routing",
+        "Steam audience and metadata",
+        "Steam target and preparation boundary",
+        "Steam independent local prerequisite",
+        "Steam optional provider and lifetime",
+        "Steam evidence and artifacts",
+        "Steam policy publication boundary",
         "Portable root onboarding boundary",
         "Supported operation and capability evidence",
         "Unity 6000.6.3f1 target",
@@ -1211,6 +1219,55 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     Assert-True ($staticJsonValidation.Code -eq 0 -and $staticJsonObject -and $staticJsonObject.status -eq "VALID" -and @($staticJsonObject.checks | Where-Object { -not $_.passed }).Count -eq 0 -and $missingLifecycleChecks.Count -eq 0) "Repository validation JSON output is parseable and contains every passing companion and frozen-GFI boundary check"
 
     # Mutated package fixtures must fail without changing the source checkout or any Unity project.
+    $steamMutations = @(
+        @{ Name = 'target'; Old = 'Steam on Windows x64 is the primary release target'; New = 'Steam on Windows x86 is the primary release target'; Check = 'Steam target and preparation boundary' },
+        @{ Name = 'local-login'; Old = 'Local prerequisite inspection must not initialize Steam, load native Steam libraries, contact Steam or require a running client, login, AppID, account entitlement or network connectivity'; New = 'Local prerequisite inspection requires a Steam login'; Check = 'Steam independent local prerequisite' },
+        @{ Name = 'compile-dependency'; Old = 'BigBang must still compile and open when Steamworks.NET, God, Odin Inspector and Quantum Console are absent'; New = 'BigBang must depend on Steamworks.NET'; Check = 'Steam independent local prerequisite' },
+        @{ Name = 'scene-lifetime'; Old = 'do not use direct or indirect `DontDestroyOnLoad`'; New = 'use `DontDestroyOnLoad`'; Check = 'Steam optional provider and lifetime' },
+        @{ Name = 'native-default'; Old = 'Native Steam activation is off by default in local unconfigured development'; New = 'Native Steam activation is on by default in local unconfigured development'; Check = 'Steam optional provider and lifetime' },
+        @{ Name = 'release-claim'; Old = 'Steam runtime integration and the BigBang Steam prerequisite gate remain pending brick implementation'; New = 'Steam integration is implemented'; Check = 'Steam policy publication boundary' },
+        @{ Name = 'hidden-admission'; Old = '## BigBang admission and compile independence'; New = "<!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->`r`n## BigBang admission and compile independence"; Check = 'Steam audience and metadata' }
+    )
+    foreach ($steamMutation in $steamMutations) {
+        $steamFixture = New-StaticValidationFixture -Parent $testRoot -Name ('static-steam-' + $steamMutation.Name)
+        $steamPath = Join-Path $steamFixture 'GeurtsTechniques/GeurtsSteamIntegrationTechnique.md'
+        $steamOriginal = [IO.File]::ReadAllText($steamPath)
+        $steamChanged = $steamOriginal.Replace($steamMutation.Old, $steamMutation.New)
+        if ($steamMutation.Name -eq 'hidden-admission') {
+            $steamChanged = $steamChanged.Replace('## Optional provider and shared contracts', "<!-- GEURTS-SECTION:END -->`r`n## Optional provider and shared contracts")
+        }
+        if ($steamChanged -ceq $steamOriginal) { throw ('Steam fixture did not mutate: ' + $steamMutation.Name) }
+        Write-Utf8 -Path $steamPath -Text $steamChanged
+        $steamRun = Invoke-TestScript -Path $validatorScript -Arguments @('-RepositoryRoot', $steamFixture)
+        Assert-True ($steamRun.Code -ne 0 -and $steamRun.Output.Contains('[FAIL] ' + $steamMutation.Check)) ('Steam validator rejects ' + $steamMutation.Name)
+    }
+    foreach ($steamCase in @('missing-file', 'missing-route', 'missing-validation-entry', 'fake-release')) {
+        $steamFixture = New-StaticValidationFixture -Parent $testRoot -Name ('static-steam-' + $steamCase)
+        $steamCheck = 'Steam manifest routing'
+        switch ($steamCase) {
+            'missing-file' { Remove-Item -LiteralPath (Join-Path $steamFixture 'GeurtsTechniques/GeurtsSteamIntegrationTechnique.md'); $steamCheck = 'Manifest-listed files' }
+            'missing-route' {
+                $steamPath = Join-Path $steamFixture 'GeurtsTechniqueManifest.md'
+                Write-Utf8 -Path $steamPath -Text ([regex]::Replace([IO.File]::ReadAllText($steamPath), '(?m)^\| Steam preparation, platform services and Windows release evidence[^\r\n]*\r?\n', ''))
+            }
+            'missing-validation-entry' {
+                $steamPath = Join-Path $steamFixture 'GeurtsTechniques/GeurtsCommandmentsCompanionContract.json'
+                $steamContract = [IO.File]::ReadAllText($steamPath) | ConvertFrom-Json
+                $steamContract.validationEntries = @($steamContract.validationEntries | Where-Object { $_ -cne 'GeurtsTechniques/GeurtsSteamIntegrationTechnique.md' })
+                Write-Utf8 -Path $steamPath -Text ($steamContract | ConvertTo-Json -Depth 10)
+                $steamCheck = 'Documentation companion closed contract'
+            }
+            'fake-release' {
+                $steamPath = Join-Path $steamFixture 'GeurtsTechniques/GeurtsBrickCatalogue.json'
+                $steamCatalogue = [IO.File]::ReadAllText($steamPath) | ConvertFrom-Json
+                $steamCatalogue.bricks += [pscustomobject]@{ id = 'com.geurts.gameforge.steam'; released = $true; version = '0.1.0'; source = 'https://invalid.example/steam.git#0000000000000000000000000000000000000000' }
+                Write-Utf8 -Path $steamPath -Text ($steamCatalogue | ConvertTo-Json -Depth 10)
+                $steamCheck = 'Steam policy publication boundary'
+            }
+        }
+        $steamRun = Invoke-TestScript -Path $validatorScript -Arguments @('-RepositoryRoot', $steamFixture)
+        Assert-True ($steamRun.Code -ne 0 -and $steamRun.Output.Contains('[FAIL] ' + $steamCheck)) ('Steam validator rejects ' + $steamCase)
+    }
     foreach ($aiCase in @('portable-route', 'planned-operations')) {
         $aiFixture = New-StaticValidationFixture -Parent $testRoot -Name ("static-ai-usability-" + $aiCase)
         if ($aiCase -eq 'portable-route') {

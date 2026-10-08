@@ -1,9 +1,15 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.50.1
+# Integrated Forge setup — 0.51.0
 
 God provides supported owner operations and a read-only project report. Angels provides separate opt-in automatic sorting and naming of new first-party imports, optional Codex visual naming, and portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
 # Geurts Game Forge Commandments
+
+## Windows Steam preparation policy
+
+Steam on **Windows x64** is the primary release target, with Steam Deck, Proton, SteamOS and other operating systems outside the current scope. The [Steam Integration Technique](GeurtsTechniques/GeurtsSteamIntegrationTechnique.md) defines preparation before AppID/store/depot/release-pipeline setup, a future local Steamworks.NET prerequisite for BigBang, compile independence, optional native-service ownership and separate evidence for preparation, integration and release.
+
+This is documentation delivery: the BigBang gate and Steam runtime provider remain **pending brick implementation**. Existing package capabilities and catalogue sources retain their published scope. No Steam brick is advertised as available. God remains the only mandatory shared Geurts brick, and unconfigured local development keeps native Steam off. See [the manual adoption guide](Migrations/v0.51.0.md); content updates retain schema 3.0.0 and the same four confirmed targets.
 
 ## Earlier released capabilities and evidence
 
@@ -85,7 +91,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.50.1
+**Version:** 0.51.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -304,6 +310,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 Angels owns **Install Codex guide**; God navigates to it and compatibility APIs forward to the same owner. Follow the [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) for an explicitly selected existing folder, including the project root, and the separate cancel-default replacement confirmation. Content/package updates never install or rewrite guides.
 
 ## Changelog
+
+### 0.51.0
+
+- Adds Steam Integration Technique 0.1.0 for Windows x64 Steam preparation, independent BigBang prerequisite inspection, an optional provider, retained bootstrap lifetime and honest native/distribution evidence.
+- Advances Technical, Unity, Brick Contract, Forge Setup and BigBang guidance without changing setup status/schema, content-update targets, installed packages or published brick capabilities. Steam enforcement remains pending Stage 2.
+- Registers the new technique and inert archive-validation entry, with semantic, audience and negative-regression checks. Preserve recent naming, sorting, reader and layout work; adoption remains manual.
 
 ### 0.50.1
 

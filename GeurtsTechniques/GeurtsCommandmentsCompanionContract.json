@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0.0",
-  "packageVersion": "0.50.1",
+  "packageVersion": "0.51.0",
   "source": {
     "repository": "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git",
     "branch": "main",
@@ -24,7 +24,8 @@
     "GeurtsTechniques/GeurtsNamingTechnique.md",
     "GeurtsTechniques/GeurtsEditorAppearanceTechnique.md",
     "GeurtsTechniques/GeurtsForgeSetupTechnique.md",
-    "GeurtsTechniques/GeurtsForgeSetupContract.json"
+    "GeurtsTechniques/GeurtsForgeSetupContract.json",
+    "GeurtsTechniques/GeurtsSteamIntegrationTechnique.md"
   ],
   "updateUi": {
     "actionLabel": "Update Geurts Game Forge Commandments",

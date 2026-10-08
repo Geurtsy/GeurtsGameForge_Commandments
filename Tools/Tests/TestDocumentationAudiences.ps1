@@ -1,4 +1,4 @@
-# Version: 1.1.1
+# Version: 1.1.2
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
@@ -89,6 +89,10 @@ Shared ending.
             $appearance.Content.Contains('must not introduce God or vendor dependencies into BigBang')) "Appearance policy, findings and prerequisite exceptions remain completely readable in $mode"
     }
     $technical = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsTechnicalTechnique.md'
+    foreach ($mode in @('GameUse', 'ForgeDevelopment')) {
+        $steam = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsSteamIntegrationTechnique.md' -Mode $mode
+        Assert-Audience ($steam.SkippedLines -eq 0 -and $steam.Content.Contains('## BigBang admission and compile independence') -and $steam.Content.Contains('## Evidence and acceptance') -and $steam.Content.Contains('pending brick implementation')) "Steam prerequisite and acceptance boundaries stay visible in $mode"
+    }
     $technicalForge = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsTechnicalTechnique.md' -Mode ForgeDevelopment
     Assert-Audience (-not $technical.Content.Contains('## Reusable Framework Compliance Header') -and $technicalForge.Content.Contains('## Reusable Framework Compliance Header') -and $technical.Content.Contains('## Technical Priority Order') -and $technical.Content.Contains('All code suggestions,')) 'Framework header is conditional; shared technical priorities and obligations survive'
     $brick = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsBrickContract.md'

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts BigBang Technique
 
-**Version:** 1.3.2
+**Version:** 1.4.0
 **Status:** Normative initial-installer boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
@@ -18,6 +18,14 @@ Completion means God is installed, compiled and available to open. BigBang does 
 BigBang must compile with God, Odin Inspector, Quantum Console, Input System, uGUI and TextMesh Pro absent, including with a stale `ODIN_INSPECTOR` symbol. Use an explicit Editor-only assembly, Unity Editor, UI Toolkit and supported .NET APIs. Do not implement `IBrick`, reference God/vendor assemblies or declare God in `package.json.dependencies`. Declare only required built-in modules; Test Framework references remain confined to test assemblies. This is a narrow initial-installer exception. Ordinary God and dependent bricks retain their required licensed Odin Inspector and Quantum Console assemblies.
 
 Acquire commercial libraries separately through their licensed distribution. The installer offers verified acquisition links, supported My Assets guidance and native licensed `.unitypackage` import selection. Unity or the vendor owns purchasing, licensing, account login, download and import selection. Do not infer licence ownership from imported files, copy or redistribute commercial assets, alter vendor-supported paths, or invoke reflected internal Asset Store APIs. A project unable to compile needs a documented manual import/recovery route.
+
+## Steamworks.NET prerequisite policy
+
+Under the [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md), Steamworks.NET must pass local prerequisite checks before the initial **Install God** action. BigBang must compile and open with Steamworks.NET absent, without Steamworks assembly references, vendor API types, package dependencies or native-library loading. Check supported local provenance/resolution, participating managed APIs/compilation evidence and Windows x64 plugin settings. File/name/define presence and stale loaded assemblies cannot establish readiness.
+
+The local check must not initialize Steam, load native Steam libraries, request the network or require a client, login, AppID or account entitlement. Keep acquisition explicit, preserve licensed-library handling and report unknown/unreadable/incompatible evidence actionably. Recheck immediately before dispatch; wrapper/importer/input changes and compilation failure invalidate evidence under the existing session rules. Preserve separate Get Latest Git Source, the frozen God target, single dispatch, existing-God preservation and verified handoff. Never force reinstall or downgrade God to enforce a new prerequisite.
+
+This is a new normative requirement for the next implementation. **Published BigBang 0.5.1 does not yet enforce the Steam prerequisite.** Commandments publication changes no installed package or current capability declaration. Steam runtime availability and release setup are separate from installer readiness; no native probe or release-pipeline setup is needed for local admission.
 
 ## Explicit current release resolution
 

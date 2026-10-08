@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Version:** 0.18.0
+**Version:** 0.19.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
@@ -59,6 +59,8 @@ For new modules and materially changed workflows, verify representative setup/us
 Develop, test and build **on Windows for Windows, using Unity and Codex**. Use the supported Unity Editor, Codex-assisted implementation/validation and Windows PowerShell-compatible host automation. Another host or player target requires an explicit user change.
 
 Select the **Windows Build Profile**, scene list, architecture and scripting backend explicitly. Validate affected behaviour in the Windows Editor and, for runtime/build changes, the resulting Windows player. Preserve unrelated settings, profiles and open scenes.
+
+**Steam on Windows x64 is the primary release target.** The manifest-selected [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) owns preparation, Steamworks.NET prerequisites, optional platform services and evidence. Prepare projects before AppID/store/depot/release-pipeline setup; keep unconfigured local development usable. Steam Deck, Proton, SteamOS and other operating systems are outside this target. This policy does not certify or retrofit released bricks.
 
 Use consistent **CRLF** (`\r\n`) for new/edited first-party C#, Markdown, JSON, PowerShell, batch and other text files. Record this in the owning repository's Git attributes and verify changed working-tree files. This repository uses `* text=auto eol=crlf`; Git-normalized storage and hashes do not change authoring policy.
 

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.18.1
+**Version:** 1.19.0
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -30,6 +30,10 @@ Codex compatibility is an authoring and usability expectation. It does not requi
 - Odin Inspector and Quantum Console are required for God and dependent Unity bricks, including God's Commandments service. Import these licensed assets separately; do not invent registry identifiers or bundle them. Use their actual assemblies (`QFSW.QC` and installed Sirenix assemblies). The passive compatibility adapter has no vendor references; this source-only repository and its PowerShell tools have no Unity assembly requirements.
 - Unity package manifests use semantic versions for required package dependencies. Git URLs belong in the consumer manifest. Install God first from its real Git source; Commandments tools are included from 0.29.0. Never place a Git URL into `package.json.dependencies`. The catalogue optional boolean `compatibilityOnly` defaults false; true entries are updateable when installed but excluded from new installation and Install All.
 - God has no Disable action. Removal uses Unity's dependency graph: remove dependent bricks first. God does not recursively delete shared dependencies or embedded source folders.
+
+## Steam prerequisite and optional services
+
+The [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) makes Steamworks.NET an external prerequisite for initial BigBang Install God admission, without adding a mandatory Geurts peer. God remains the only mandatory shared Geurts brick. BigBang compiles/opens without the wrapper and inspects local managed evidence without Steam/native initialization. The Steam provider remains optional and pending implementation; God owns vendor-neutral shared contracts only, while the provider owns SDK types, native calls and lifecycle. Generic peers must compile and function locally without it. Do not add a planned Steam catalogue entry, false released capability, Git package dependency URL or wrapper dependency to God/BigBang. Published releases remain accurately described until the owning newer implementations are verified and released.
 
 ## Independent BigBang initial installer
 

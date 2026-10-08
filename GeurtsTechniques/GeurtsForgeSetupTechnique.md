@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Forge initialization, bootstrap and project tools
 
-**Version:** 1.3.0
+**Version:** 1.4.0
 **Required package path:** `GeurtsTechniques/GeurtsForgeSetupTechnique.md`
 
 God is the required framework brick. BigBang is the independent Editor-only initializer; Diagnostics and Angels are optional peers. Compatible local Commandments are required before Forge Editor project mutations. They are readable independently of module enablement, update preferences, network connectivity or the compatibility adapter. They are not a runtime dependency and must not be polled in player loops.
@@ -14,6 +14,12 @@ Select this technique and `GeurtsForgeSetupContract.json` for setup, owner contr
 - God owns the Commandments service, package catalogue, lifecycle, shared Editor presentation, contribution registry and minimal scene/bootstrap authoring. Build Forge's only mandatory project step is bootstrap. The eight-path `bootstrap` folder profile is the sole folder authority for this step. It creates or repairs `SCN_BigBang` and `SCN_DevPlayground`, places them first and second in effective scene lists, preserves other entries and authored state, and does not install a console, import TMP or require full folders, Git, guides, GDDs, FMOD or any optional brick. Preserve loaded scenes, active scene, selection, dirty/untitled scenes and existing explicit play-mode start settings. Runtime retains the ordinary bootstrap ownership scene; do not use DontDestroyOnLoad.
 - Diagnostics offers a separately visible, cancel-default import of missing TMP Essential Resources when required. Existing incomplete resources use the native repair path. It never imports them as a console-implant side effect. The legacy God EventSystem marker is passive and never destroys authored roots. Diagnostics owns the explicit cancel-default console implant into saved `SCN_BigBang`, Quantum Console setup, panel/history connection and console input-focus suspension. It preserves unrelated scene content and reports partial changes after failure. The old God bridge remains a passive serialized compatibility carrier; it must not activate input, subscribe to logging or install UI. Diagnostics may read its retained references without automatically rewriting them.
 - Angels owns optional project-maintenance actions: full create-only folders; reviewed selected asset moves and opt-in automatic sorting and renaming of newly imported assets; local Git inspection and initialization; approved create-only gitignore; an explicitly selected existing-folder Codex guide; selected GDD import and primary selection; applicable append-only FMOD attributes. Opening any dashboard is read-only. No Execute All, automatic primary choice, unrequested source scan or automatic root guide installation is allowed. The separately reviewed automatic-import policy below is the sole asset-sort exception. The user may explicitly select the project root or another safe existing folder for AGENTS.md under the AGENTS.md Technique; no package/content update implies that consent.
+
+## Steam preparation and separate evidence
+
+Select the [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) for Steam preparation, BigBang Steam prerequisites, the optional platform provider or Steam build evidence. Steamworks.NET is an external initial-installer prerequisite; it does not make the Steam brick a mandatory setup contribution. BigBang remains compile independent and its local checks require no Steam client, login, AppID, entitlement, network or native initialization. Preserve the existing verified God handoff and installed God.
+
+Prerequisite ready, prepared for Steam development, integration verified and release validated are independent evidence dimensions, not new shared setup statuses. Use the existing contract statuses and actual owner availability. Build Forge still requires only bootstrap; God owns no Steam-native runtime and an absent optional provider contributes no requirements. A foundation check, package import or documentation update never certifies a Steam session, overlay or distribution pipeline. Local unconfigured use keeps native Steam off. The Steam prerequisite gate and runtime provider remain pending brick implementation; existing catalogue capabilities retain their actual scope.
 
 ## Opt-in automatic asset organization
 
