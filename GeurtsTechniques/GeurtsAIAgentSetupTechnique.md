@@ -2,7 +2,7 @@
 # Geurts AI Agent Setup Technique
 
 **Native AI Instruction Setup - Copilot and supported scoped routes**
-**Version:** 3.1.0
+**Version:** 3.1.1
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -150,4 +150,4 @@ Existing routes adopt v1.3.0 through the normal confirmed content Update. Save a
 
 ## Separate Codex guide installation
 
-The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. Use the current catalogue for published installation targets. Historical Companion 0.14.0 introduced schema-3.0.0 support; the Commandments Companion Technique owns the passive-adapter transition. See `Migrations/v0.40.0.md` before updating an existing installation.
+The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. Use the current catalogue for published installation targets. Read the [rename migration](../Migrations/v0.40.0.md) only when the requested work migrates legacy `GeurtsGameForgeDocumentation/` content or schema-2 integration/consent. Read the [ownership migration](../Migrations/v0.41.0.md) only when transitioning an independent Companion integration to the God-owned service. Already-renamed schema-3 installations using God do not require either historical guide for a normal update. Earlier transition background is in the optional [AI setup archive](../History/AISetup.md).

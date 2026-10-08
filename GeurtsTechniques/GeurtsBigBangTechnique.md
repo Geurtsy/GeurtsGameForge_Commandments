@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts BigBang Technique
 
-**Version:** 1.3.1
+**Version:** 1.3.2
 **Status:** Normative initial-installer boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
@@ -9,9 +9,7 @@ The manifest selects this owner for independent prerequisite preparation, initia
 
 ## Identity and completion
 
-Geurts Game Forge BigBang is `com.geurts.gameforge.bigbang`, an independent Windows Editor-only UPM package at the root of its own `Geurtsy/GeurtsGameForgeBigBang` Git repository. The supported baseline is Unity **6000.6.3f1**. Use the current catalogue for published BigBang versions and immutable sources. The following is historical validation evidence, not a current installation target: preview **0.3.0** was published at immutable commit `f8f6c7aeac145575fa308af8ac50a57564277d17` and tag `v0.3.0`. It separates local prerequisite checks from **Get Latest Git Source** and retains the 0.2.3 compilation fixes and 0.2.4 God-owned Commandments handoff. In that historical release, all **105 tests passed** with zero failures/skips in each of three isolated Git-resolved projects (vendor-absent, vendor-present with God, vendor-present without God). The native God-absent fixture compiled with Odin 4.0.2.4 and Quantum Console 2.6.7, ran a local check and actual script reload, then retrieved God **0.30.0** at `7b7e8b973b978f70b95f4f78c99712354cd8d5c2` and enabled Install God while preserving scenes, settings, assets and unrelated packages. This run did not install God or update the live consumer. See the [0.3.0 validation report](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/v0.3.0/Documentation~/SeparateGitSourceValidation.md) and previous release reports for native installation/recovery evidence. This discovered God version is evidence from one run, not a fixed future installation target.
-
-The reported failure was reproduced in the authorized open project on BigBang 0.2.2: 174 assemblies completed and reloaded successfully, but reading an existing URP source at exactly 260 path characters failed and silently emptied the input fingerprint. All 765 pre-existing project files retained their hashes, and the temporary diagnostic was removed. The user chose to update BigBang manually, so verification of 0.2.3 in that open project remains unperformed. No God installation or visual/keyboard acceptance is claimed by these checks. A remote candidate is not a released package. Future publication requires recorded acceptance gates or an explicit user-directed exception with truthful limitations.
+Geurts Game Forge BigBang is `com.geurts.gameforge.bigbang`, an independent Windows Editor-only UPM package at the root of its own `Geurtsy/GeurtsGameForgeBigBang` Git repository. The supported baseline is Unity **6000.6.3f1**. Use the current catalogue for published BigBang versions and immutable sources.
 
 Completion means God is installed, compiled and available to open. BigBang does not establish scene, game, documentation or optional-brick setup. Runtime initialization and `SCN_BigBang` remain God-owned. God owns ongoing package management and its catalogue. God's Editor Commandments service owns documentation acquisition/replacement. Angels, project organization, project Git and the separate console migration remain outside this installer.
 
@@ -25,7 +23,7 @@ Acquire commercial libraries separately through their licensed distribution. The
 
 Resolve the latest published compatible God release on every explicit Get Latest Git Source action and again immediately before installation. Read stable `vMAJOR.MINOR.PATCH` tags from the verified official `Geurtsy/com.geurts.gameforge.god` Git repository using the user's Git credentials. Sort semantic versions rather than names and resolve annotated tags to their peeled commit. Ignore branches and prerelease tags. Verify the root package manifest at that exact commit: God identity, version matching the tag, and a supported Unity minimum. Skip well-formed releases requiring a newer Unity baseline; malformed identity/version metadata must fail visibly. Refuse a tag that moves between lookup and fetch.
 
-The package's small data-only God definition supplies the official repository, minimum API compatibility profile, required vendor capabilities, supported handoff and tested baseline. It is not a fixed installation target. BigBang 0.2.0's profile starts at God 0.27.0, tested with Odin 4.0.2.4 and Quantum Console 2.6.7. Current-session API checks and actual successful compilation of the selected God remain required; the profile does not promise arbitrary future vendor compatibility.
+The package's small data-only God definition supplies the official repository, minimum API compatibility profile, required vendor capabilities, supported handoff and tested baseline. It is not a fixed installation target. The minimum API profile introduced by BigBang 0.2.0 starts at God 0.27.0. Current-session API checks and actual successful compilation of the selected God remain required; the profile does not promise arbitrary future vendor compatibility.
 
 A failed, missing or cancelled release check must not authorize installation from the bundled profile or an old cache. Freeze the resolved version and exact commit for the operation before dispatch and retain them through reload and verification. A later repository update never changes an active installation. Changes to the compatibility profile require a newer BigBang release; discovering a newer compatible God does not. No floating `main` install, remote catalogue service, background updater or executable setup definition is permitted. Verify the selected published God's own manifest declares the Unity packages it uses; allow UPM to resolve them. Do not patch God or maintain a second dependency planner to compensate for missing declarations.
 
@@ -59,6 +57,8 @@ Follow the Editor UI Theme Technique's dark surfaces, green accents, severity co
 
 ## Acceptance and delivery
 
+A remote candidate is not a released package. Future publication requires recorded acceptance gates or an explicit user-directed exception with truthful limitations.
+
 Use isolated projects resolving candidates from Git. Preserve the live Unity project and its dirty/untitled scenes, settings, assets, installed packages and managed documentation snapshot. Cover missing/partial/incompatible/real library imports, stale defines, fresh/failed compilation, successful/failed/native-unknown requests, duplicate clicks, reload/restart/retry/window closure, existing supported/newer/unsupported God, removal and player exclusion. Decision tests supplement real imports and installation. Actual rendered normal/narrow layouts, host skins/scaling and keyboard behavior require separate visual evidence under the Theme and Automation rules; missing coverage remains an explicit acceptance gap.
 
 Cover long Windows input paths, fingerprint read failures, successful incremental cycles with only cached participants, and cycles that produce assemblies and reload. When the user explicitly authorizes checks in the open project, verify the affected readiness transition there through supported Editor APIs while preserving its scenes, settings and existing packages. Record that live evidence separately from isolated results; a synthetic interrupted-state test does not establish that a reported live failure was reproduced or repaired.
@@ -68,3 +68,5 @@ Version every affected owning package/documentation update. Merge appropriately 
 ## Local foundation handoff
 
 After verifying God 0.34.0 or newer is installed and compiled, offer its public Editor API 1.1 local foundation check, Commandments window and separately confirmed setup action. Resolve only documented public API members; no private reflection or duplicate content engine. God installation and compatible local Commandments are distinct states. Do not report Foundation ready until both are verified. Missing or older APIs explain the manual God upgrade route. BigBang remains independent and compiles without God or licensed assemblies.
+
+Historical release results, vendor-version observations and incident evidence are kept in the optional [BigBang archive](../History/BigBang.md). They are not current installation targets or routine reading.

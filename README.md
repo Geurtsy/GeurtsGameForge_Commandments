@@ -1,5 +1,5 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.49.1
+# Integrated Forge setup — 0.49.2
 
 God 0.35.0 adds supported owner operations and a read-only project report. Angels 0.4.0 adds separate opt-in automatic sorting and naming of new first-party imports alongside portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
@@ -8,6 +8,8 @@ God 0.35.0 adds supported owner operations and a read-only project report. Angel
 ## Earlier released capabilities and evidence
 
 Versions and test counts in this section are historical evidence. Use the [current catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json) for published installation targets; these records do not certify current UI or every installed integration.
+
+Subject archives: [BigBang](History/BigBang.md) and [AI setup](History/AISetup.md). Read them only for requested history or applicable legacy migration; current requirements remain in their manifest-selected techniques.
 
 God 0.29.0 includes the Commandments tools. Existing Companion users update to the passive 0.15.1 adapter; fresh projects need only God. BigBang 0.4.0 provides separate local prerequisite and Get Latest Git Source actions, then hands over to this built-in view. See the [0.41.0 migration guide](Migrations/v0.41.0.md) before updating existing integrations. Package updates never replace local content or AI routes; those retain their separate confirmation.
 
@@ -83,7 +85,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.49.1
+**Version:** 0.49.2
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -302,6 +304,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 Angels owns **Install Codex guide**; God navigates to it and compatibility APIs forward to the same owner. Follow the [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) for an explicitly selected existing folder, including the project root, and the separate cancel-default replacement confirmation. Content/package updates never install or rewrite guides.
 
 ## Changelog
+
+### 0.49.2
+
+- Move old BigBang release results, incident evidence and AI setup transition background into optional History archives. Current techniques retain their requirements and compatibility minimums.
+- Select the rename migration only for legacy Documentation/schema-2 installations and the ownership migration only for independent Companion integrations; current installations skip both. Installer payloads, update targets and package pins are unchanged.
 
 ### 0.49.1
 
