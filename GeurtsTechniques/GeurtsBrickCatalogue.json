@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.49.0",
+  "packageVersion": "0.50.0",
   "publishedUtc": "2026-10-08T04:40:28Z",
   "bricks": [
     {
@@ -78,7 +78,7 @@
     {
       "id": "com.geurts.gameforge.angels",
       "name": "Geurts Game Forge Angels",
-      "description": "Optional Editor project maintenance with separate default-off sorting and naming of future first-party imports. Reviewed category and explicit image/audio purposes govern TYPE_Category_Description names. Existing assets/reimports, compliant names, GUIDs and protected vendor/special content are preserved; ambiguous names and collisions are skipped. One bounded deferred pipeline combines sorting and naming in a single reviewed Unity move. Saved policy and guidance drift pause for a fresh baseline; no startup catch-up. Requires God 0.35.0; automatic naming requires Forge Setup technique 1.2.0 from Commandments 0.49.0. Unity 6000.6.3f1 Editor: 240 passed, zero failed, 2 symbolic-link checks skipped for host privileges. Supported examples and normal/narrow offscreen controls verified. Physical input, docking and alternate skin/DPI acceptance remain unverified. Consumers update manually.",
+      "description": "Optional Editor project maintenance with separate default-off sorting and naming of future first-party imports. Reviewed category and explicit image/audio purposes govern TYPE_Category_Description names. Existing assets/reimports, compliant names, GUIDs and protected vendor/special content are preserved; ambiguous names and collisions are skipped. One bounded deferred pipeline combines sorting and naming in a single reviewed Unity move. Saved policy and guidance drift pause for a fresh baseline; no startup catch-up. Requires God 0.35.0; automatic naming requires Forge Setup technique 1.2.0 from Commandments 0.50.0. Unity 6000.6.3f1 Editor: 240 passed, zero failed, 2 symbolic-link checks skipped for host privileges. Supported examples and normal/narrow offscreen controls verified. Physical input, docking and alternate skin/DPI acceptance remain unverified. Consumers update manually.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
       "version": "0.4.0",
       "released": true,
