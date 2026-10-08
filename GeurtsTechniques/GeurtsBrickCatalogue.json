@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.47.0",
-  "publishedUtc": "2026-10-05T10:32:13Z",
+  "packageVersion": "0.47.1",
+  "publishedUtc": "2026-10-08T01:40:39Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -71,7 +71,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.34.0"
+          "minimumVersion": "0.35.0"
         }
       ]
     },
@@ -93,7 +93,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.34.0"
+          "minimumVersion": "0.35.0"
         }
       ]
     },
@@ -116,7 +116,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.33.1"
+          "minimumVersion": "0.35.0"
         }
       ]
     },
@@ -139,7 +139,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.34.0"
+          "minimumVersion": "0.35.0"
         }
       ]
     },
@@ -162,7 +162,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.33.1"
+          "minimumVersion": "0.35.0"
         }
       ]
     },
@@ -185,7 +185,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.33.1"
+          "minimumVersion": "0.35.0"
         }
       ]
     },
@@ -208,7 +208,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.34.0"
+          "minimumVersion": "0.35.0"
         }
       ]
     },
@@ -231,7 +231,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.34.0"
+          "minimumVersion": "0.35.0"
         }
       ]
     }

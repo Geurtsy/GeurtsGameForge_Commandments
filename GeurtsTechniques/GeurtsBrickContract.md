@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.18.0
+**Version:** 1.18.1
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -70,6 +70,8 @@ Only `released: true` entries with a real installable source receive installatio
 God loads cached data immediately and combines it with Unity's installed package state. Unity startup, restored windows and default God openings do not request the catalogue or check remote updates. Package registration notifications rebuild local state only. Online checks require an explicit Refresh or Check action, or an opted-in deliberate God menu opening. Offline/unavailable/malformed data must retain useful cache contents and display an explanation. Unknown availability must not be labelled up to date.
 
 ### Publish before installing or updating
+
+Before publishing a catalogue, run `Tools/ValidateGeurtsDocumentation.ps1 -SourceRepositories <owning-source-checkouts>` as described in README's Source-Repository Validation. The gate reads each released entry's pinned Git `package.json` and `ForgeCapabilities.json`: identities, versions and required Forge dependency sets/minimums must agree exactly, and the catalogue must offer a released provider satisfying every minimum. Missing checkouts, commits or manifests block publication. Fetch missing objects separately; the gate executes no package code, performs no network requests and changes no checkout files. Ordinary local reading and validation do not require this publication-only evidence.
 
 Keep the consuming computer/project on its previous published Git version throughout feature development. Develop changes in a separate owning source checkout, increase its version and push the candidate to Git for isolated validation. Merge appropriately validated work to remote `main`, publish the newer immutable Git release, then update the authoritative catalogue to that exact identity/version/commit. Only after remote verification may the consuming project update through Unity Package Manager. Verify its actual resolved source is Git and its version and commit match the published target; installation alone does not prove compilation or behavior.
 

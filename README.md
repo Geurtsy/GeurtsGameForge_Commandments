@@ -1,5 +1,5 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.47.0
+# Integrated Forge setup — 0.47.1
 
 God 0.35.0 adds supported owner operations and a read-only project report. Angels 0.2.0 adds portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
@@ -83,7 +83,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.47.0
+**Version:** 0.47.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -280,6 +280,15 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ".\Tools\Tests\RunAutomation
 
 PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package, registry, authority, lifecycle, schema, template, and payload rules without writing repository content. The automation harness uses guarded temporary fixtures outside the checkout and includes negative lifecycle-boundary regressions. Both commands accept `-OutputFormat Json`; `-RepositoryRoot` is an optional explicit source-checkout override.
 
+**Before catalogue publication**, also supply the owning Git checkouts for every released entry, including BigBang and the compatibility adapter. For example, from PowerShell:
+
+```powershell
+$sources = @('C:/src/God', 'C:/src/Audio') # Extend to every released catalogue repository.
+& .\Tools\ValidateGeurtsDocumentation.ps1 -SourceRepositories $sources -OutputFormat Json
+```
+
+Each checkout's `origin` must match its catalogue source repository. Fetch the pinned commits and their manifest blobs beforehand; stable release tags must already have been verified against the owning immutable release. The publication gate reads `package.json` and `ForgeCapabilities.json` from those exact commits, regardless of working-tree edits. It rejects identity/version drift, missing or extra required Forge dependencies, unequal minimums, and unavailable catalogue providers. Missing evidence is a failure. It does not fetch, execute package code, change checkouts, acquire documentation or update consumers. Run `Tools/Tests/TestGeurtsBrickSources.ps1` for the focused isolated regressions; the full harness includes them. Normal validation without `-SourceRepositories` remains local and offline.
+
 <!-- GEURTS-SECTION:END -->
 
 ## Supporting Documents
@@ -293,6 +302,11 @@ PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package,
 Angels owns **Install Codex guide**; God navigates to it and compatibility APIs forward to the same owner. Follow the [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) for an explicitly selected existing folder, including the project root, and the separate cancel-default replacement confirmation. Content/package updates never install or rewrite guides.
 
 ## Changelog
+
+### 0.47.1
+
+- Correct eight current bricks' God minimums to 0.35.0, matching their pinned package and capability manifests.
+- Add a required publication check against exact Git manifests and isolated regressions for dependency drift, missing evidence and committed-source reading. Preserve package pins, offline reads and manual consumer updates.
 
 ### 0.47.0
 
