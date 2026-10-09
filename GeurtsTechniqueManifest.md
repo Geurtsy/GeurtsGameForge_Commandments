@@ -112,17 +112,17 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `README.md` | 0.53.0 | Human overview and changelog; not mandatory reading. |
 | `GeurtsTechniques/GeurtsTechnicalTechnique.md` | 0.19.0 | Normative shared technical core and priorities. |
 | `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md` | 0.1.1 | Windows x64 Steam preparation, independent prerequisites, optional provider and separate native/release evidence. |
-| `GeurtsTechniques/GeurtsNamingTechnique.md` | 0.1.0 | Asset/object names, type registries, script exemptions and preservation. |
+| `GeurtsTechniques/GeurtsNamingTechnique.md` | 0.1.1 | Asset/object names, type registries, script exemptions and preservation. |
 | `GeurtsTechniques/GeurtsBrickContract.md` | 1.19.0 | Brick reuse, dependencies, lifecycle, settings and package operations. |
 | `GeurtsTechniques/GeurtsForgeSetupTechnique.md` | 1.5.0 | God foundation, optional owner contributions and setup safety. |
 | `GeurtsTechniques/GeurtsForgeSetupContract.json` | 0.53.0 | Schema 1.0.0; setup Editor API 1.1 and contribution version 1. |
 | `GeurtsTechniques/GeurtsBigBangTechnique.md` | 1.4.1 | Independent initial installer and verified God handoff. |
 | `GeurtsTechniques/GeurtsEditorUIThemeTechnique.md` | 1.5.4 | Shared palette, spacious geometry, accessibility and truthful status. |
-| `GeurtsTechniques/GeurtsEditorAppearanceTechnique.md` | 0.1.4 | Editor workflows, Help, tabs, sections, callouts and inline findings. |
+| `GeurtsTechniques/GeurtsEditorAppearanceTechnique.md` | 0.1.5 | Editor workflows, Help, tabs, sections, callouts and inline findings. |
 | `GeurtsTechniques/GeurtsDiagnosticsTechnique.md` | 0.4.1 | Optional capture, commands, history, health, sessions and metrics. |
 | `GeurtsTechniques/GeurtsBrickCatalogue.json` | 0.53.0 | Current published packages and immutable Git targets. |
 | `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md` | 0.11.0 | Project operations, validation, delivery and computer-control boundaries. |
-| `GeurtsTechniques/GeurtsFolderStructureTechnique.md` | 0.16.3 | Normative folder meanings, placement, reuse and safe extension. |
+| `GeurtsTechniques/GeurtsFolderStructureTechnique.md` | 0.16.4 | Normative folder meanings, placement, reuse and safe extension. |
 | `GeurtsTechniques/GeurtsFolderStructureDefinition.json` | 0.53.0 | Exact folder registry and creation profiles. |
 | `GeurtsTechniques/GeurtsAIAgentSetupTechnique.md` | 3.1.1 | Exact routes, consent boundaries and separately invoked manual manager. |
 | `GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md` | 0.16.0 | Normative primary game context, discovery and preserved imports. |

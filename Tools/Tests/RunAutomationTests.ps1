@@ -1009,7 +1009,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     $folderDefinitionContract = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json
     $folderToolContractText = [System.IO.File]::ReadAllText($folderScript)
     $managerToolContractText = [System.IO.File]::ReadAllText($manageScript)
-    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.3\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.53.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.53.0"
+    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.4\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.53.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.53.0"
 
     $versionMismatchAuthority = Join-Path $testRoot "folder-version-mismatch-authority"
     New-Item -ItemType Directory -Path $versionMismatchAuthority | Out-Null
@@ -1349,7 +1349,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         else {
             $originalAppearanceText = $appearanceFixtureText
             switch ($appearanceCase) {
-                'bad-version' { $appearanceFixtureText = $appearanceFixtureText.Replace('**Version:** 0.1.4', '**Version:** 0.0.1') }
+                'bad-version' { $appearanceFixtureText = $appearanceFixtureText.Replace('**Version:** 0.1.5', '**Version:** 0.0.1') }
                 'hidden-policy' { $appearanceFixtureText = $appearanceFixtureText.Replace('GEURTS-AUDIENCE: AI-READ', 'GEURTS-AUDIENCE: HUMAN-ONLY') }
                 'noncollapsible' { $appearanceFixtureText = $appearanceFixtureText.Replace('Every content section must have a visible descriptive header and collapsible content', 'Content sections may remain permanently expanded without headers') }
                 'hidden-header' { $appearanceFixtureText = $appearanceFixtureText.Replace('Its header remains visible when collapsed', 'Its header disappears when collapsed') }
@@ -1465,7 +1465,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
 
     # Each fixture reintroduces a different audited cross-document contradiction.
     $consistencyCases = @(
-        @{ Name = 'folder-reader-version'; Path = 'Tools/CreateGeurtsFolderStructure.ps1'; Old = '0\.16\.3'; New = '0\.16\.0'; Check = 'Folder technique reader version parity' },
+        @{ Name = 'folder-reader-version'; Path = 'Tools/CreateGeurtsFolderStructure.ps1'; Old = '0\.16\.4'; New = '0\.16\.0'; Check = 'Folder technique reader version parity' },
         @{ Name = 'logging-fallback'; Path = 'GeurtsTechniques/GeurtsDiagnosticsTechnique.md'; Old = '## Shared logging contract'; New = "## Logging Standards`r`n`r`nThe facade must fall back to Unity logging." },
         @{ Name = 'menu-network'; Path = 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md'; Old = 'Opening the Commandments menu or embedded view stays offline'; New = 'A deliberate Commandments Companion menu opening may request remote metadata' },
         @{ Name = 'tool-owner'; Path = 'README.md'; Old = 'Angels owns **Install Codex guide**'; New = 'God owns the separate **Install Codex guide**' },

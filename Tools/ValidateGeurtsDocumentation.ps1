@@ -324,7 +324,7 @@ try {
     $assetRegistry = [regex]::Match($namingText, '(?ms)^### 5\.2 Project Assets.*?(?=^#### Asset Classification)')
     $sceneRows = @([regex]::Matches($sceneRegistry.Value, '(?m)^\| `(?<Type>[A-Z][A-Z0-9]*)` \| [^|\r\n]+ \| `(?<Example>[^`]+)` \|\r?$'))
     $assetRows = @([regex]::Matches($assetRegistry.Value, '(?m)^\| [^|\r\n]+ \| `(?<Type>[A-Z][A-Z0-9]*)` \| [^|\r\n]+ \| `(?<Example>[^`]+)` \|\r?$'))
-    if ($sceneRows.Count -ne 18 -or $assetRows.Count -ne 58) { $namingFailures.Add('Naming 0.1.0 must retain 18 scene roles and 58 asset kinds') | Out-Null }
+    if ($sceneRows.Count -ne 18 -or $assetRows.Count -ne 58) { $namingFailures.Add('Naming 0.1.1 must retain 18 scene roles and 58 asset kinds') | Out-Null }
     $allNamingRows = @($sceneRows) + @($assetRows)
     foreach ($group in @(@{ Label = 'scene'; Rows = $sceneRows }, @{ Label = 'asset'; Rows = $assetRows })) {
         $typeSet = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
@@ -336,7 +336,7 @@ try {
         if (-not $typeSet.Contains('MISC') -or -not $typeSet.Contains('VID')) { $namingFailures.Add("$($group.Label) registry omits a shared VID/MISC type") | Out-Null }
     }
     $literalRows = @($allNamingRows | ForEach-Object { $_.Value.TrimEnd([char]13) }) -join "`n"
-    if ((Get-TextHash -Text $literalRows) -cne '1ef452570b34a01299a088b6b49d78b757fe9bdf3e443ddfa2e96b9a0a66e9ac') { $namingFailures.Add('Naming 0.1.0 registry meanings or examples differ from the approved handoff') | Out-Null }
+    if ((Get-TextHash -Text $literalRows) -cne '1ef452570b34a01299a088b6b49d78b757fe9bdf3e443ddfa2e96b9a0a66e9ac') { $namingFailures.Add('Naming 0.1.1 registry meanings or examples differ from the approved handoff') | Out-Null }
     foreach ($requiredRule in @('Scripts MUST NOT use `TYPE_Category_Description`', 'A prefab asset''s base filename MUST match its authored root GameObject name', 'MUST be used sparingly', 'CapitalCamelCase', 'Unity `.meta` files, GUIDs, serialized references', 'Do not silently create an abbreviation', 'Existing-content migrations, consumer documentation updates, and enforcement tooling require their own task scope')) {
         if (-not $namingText.Contains($requiredRule)) { $namingFailures.Add("missing naming rule: $requiredRule") | Out-Null }
     }
@@ -1095,8 +1095,8 @@ try {
     $folderManagerText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "Tools/ManageGeurtsAgentInstructions.ps1"))
     $folderTechniqueVersion = Get-DeclaredVersion -Path (Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsFolderStructureTechnique.md")
     $folderDefinitionVersion = if ($definition) { [string]$definition.definitionVersion } else { $null }
-    $folderVersionParityValid = $folderTechniqueVersion -ceq "0.16.3" -and $folderDefinitionVersion -ceq "0.13.0" -and $folderToolText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $folderToolText.Contains('Folder definition version must be 0.13.0') -and $folderManagerText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $folderManagerText.Contains('Managed setup requires folder definition v0.13.0')
-    if (-not $folderVersionParityValid) { $folderFailures.Add("folder technique v0.16.3, JSON definition v0.13.0 and consuming tools do not agree") | Out-Null }
+    $folderVersionParityValid = $folderTechniqueVersion -ceq "0.16.4" -and $folderDefinitionVersion -ceq "0.13.0" -and $folderToolText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $folderToolText.Contains('Folder definition version must be 0.13.0') -and $folderManagerText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $folderManagerText.Contains('Managed setup requires folder definition v0.13.0')
+    if (-not $folderVersionParityValid) { $folderFailures.Add("folder technique v0.16.4, JSON definition v0.13.0 and consuming tools do not agree") | Out-Null }
     if ($folderToolText.Contains('(Join-Path $ProjectRoot "GeurtsTechniques/GeurtsFolderStructureDefinition.json")')) { $folderFailures.Add("folder tool still discovers an unselected raw project-root definition") | Out-Null }
     $folderDirectoryBarrier = $folderToolText.IndexOf('Invoke-TestDirectoryBarrier -TargetPath $folder.TargetPath', [System.StringComparison]::Ordinal)
     $folderFinalContainment = if ($folderDirectoryBarrier -ge 0) { $folderToolText.IndexOf('Test-IsContainedPath -Candidate $finalTargetPath', $folderDirectoryBarrier, [System.StringComparison]::Ordinal) } else { -1 }
@@ -1110,8 +1110,8 @@ try {
     if (-not $folderOwnerSafetyValid) { $folderFailures.Add("Folder Technique does not own the root and final directory reparse boundary") | Out-Null }
     Add-Check "Folder definition contract" ($folderFailures.Count -eq 0) $(if ($folderFailures.Count) { $folderFailures -join "; " } else { "Definition versions, 78 entries, owner-bound profiles, package-only resolution, and exact Markdown parity are valid; root and per-directory final reparse guards prevent creation outside the project." })
 
-    $folderVersionGuard = "(?im)^\*\*Version:\*\*\s*0\.16\.3\s*$"
-    Add-Check 'Folder technique reader version parity' ($folderToolText.Contains($folderVersionGuard) -and $folderTechniqueTextForPathTerms -match $folderVersionGuard) 'The folder creator accepts the registered Folder Technique 0.16.3; unsupported explanatory authority versions remain blocked.'
+    $folderVersionGuard = "(?im)^\*\*Version:\*\*\s*0\.16\.4\s*$"
+    Add-Check 'Folder technique reader version parity' ($folderToolText.Contains($folderVersionGuard) -and $folderTechniqueTextForPathTerms -match $folderVersionGuard) 'The folder creator accepts the registered Folder Technique 0.16.4; unsupported explanatory authority versions remain blocked.'
 
     $chatSubjectRow = [regex]::Match($manifestText, '(?m)^\| Chat-only response style and scope \| `(?<Path>[^`]+)` \| (?<Applicability>[^|]+) \|\r?$')
     $chatRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsAIResponseControlTechnique_V1\.1\.md` \| 1\.1 \| (?<Role>[^|]+) \|\r?$')
@@ -1313,8 +1313,8 @@ try {
     $appearanceText = if (Test-Path -LiteralPath $appearancePath -PathType Leaf) { [IO.File]::ReadAllText($appearancePath) } else { '' }
     $appearanceRoutingFailures = New-Object 'System.Collections.Generic.List[string]'
     $appearanceRows = @($listedRecords | Where-Object { $_.Path -ceq $appearanceRelative })
-    if ($appearanceRows.Count -ne 1 -or $appearanceRows[0].Version -cne '0.1.4' -or -not $trackedSet.Contains($appearanceRelative)) {
-        $appearanceRoutingFailures.Add('Appearance 0.1.4 must be registered exactly once and tracked') | Out-Null
+    if ($appearanceRows.Count -ne 1 -or $appearanceRows[0].Version -cne '0.1.5' -or -not $trackedSet.Contains($appearanceRelative)) {
+        $appearanceRoutingFailures.Add('Appearance 0.1.5 must be registered exactly once and tracked') | Out-Null
     }
     $appearanceOwner = [regex]::Match($manifestText, '(?m)^\| Forge-owned Editor workflow presentation, tabs, collapsible sections, callouts and inline authoring validation \| `GeurtsTechniques/GeurtsEditorAppearanceTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     if (-not $appearanceOwner.Success -or $appearanceOwner.Groups['When'].Value -notmatch 'Before creating, changing, reviewing or validating' -or
@@ -1342,7 +1342,7 @@ try {
     Add-Check 'Editor Appearance routing' ($appearanceRoutingFailures.Count -eq 0) $(if ($appearanceRoutingFailures.Count) { $appearanceRoutingFailures -join '; ' } else { 'The manifest selects Appearance after Theme; existing owners, README, archive completeness and adoption guidance retain their own boundaries.' })
 
     $appearanceFailures = New-Object 'System.Collections.Generic.List[string]'
-    if ($appearanceText -notmatch '(?m)^\*\*Version:\*\* 0\.1\.4\r?$' -or
+    if ($appearanceText -notmatch '(?m)^\*\*Version:\*\* 0\.1\.5\r?$' -or
         $appearanceText -notmatch '(?m)^\*\*Status:\*\* Normative mandatory standard\r?$' -or
         $appearanceText -notmatch '\A<!-- GEURTS-AUDIENCE: AI-READ -->') {
         $appearanceFailures.Add('Appearance version, normative status or shared AI audience is invalid') | Out-Null
@@ -1651,7 +1651,7 @@ try {
     Add-Check "Frozen GFI v2 discarded lifecycle exclusion" $discardedLifecycleValid $(if ($missingDiscardedTerms.Count) { "Missing explicit lifecycle exclusions: " + ($missingDiscardedTerms -join ", ") } elseif ($presentObsoleteAffirmative.Count) { "Obsolete affirmative lifecycle language reintroduced: " + ($presentObsoleteAffirmative -join ", ") } else { "The frozen v2 contract forbids its older automatic transaction/recovery system and leaves legacy Library evidence untouched and non-blocking." })
 
     $draftStatusValid = @(
-        @{ Path = "GeurtsTechniques/GeurtsFolderStructureTechnique.md"; Registry = '(?m)^\| `GeurtsTechniques/GeurtsFolderStructureTechnique\.md` \| 0\.16\.3 \| Normative ' },
+        @{ Path = "GeurtsTechniques/GeurtsFolderStructureTechnique.md"; Registry = '(?m)^\| `GeurtsTechniques/GeurtsFolderStructureTechnique\.md` \| 0\.16\.4 \| Normative ' },
         @{ Path = "GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md"; Registry = '(?m)^\| `GeurtsTechniques/GeurtsGameDesignDocumentationTechnique\.md` \| 0\.16\.0 \| Normative ' },
         @{ Path = "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md"; Registry = '(?m)^\| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| 3\.2\.2 \| Normative ' }
     ) | ForEach-Object { ([System.IO.File]::ReadAllText((Join-Path $RepositoryRoot $_.Path)) -match '(?im)^\*\*Status:\*\* Draft normative technique\s*$') -and ($manifestText -match $_.Registry) } | Where-Object { -not $_ } | Measure-Object | Select-Object -ExpandProperty Count

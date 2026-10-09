@@ -2,7 +2,7 @@
 # Geurts Folder Structure Technique
 
 **Unity Project Structure - AI-First Automation and Human Developer Reference**
-**Version:** 0.16.3
+**Version:** 0.16.4
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -325,7 +325,7 @@ Art/
 
 ### Audio/
 
-Imported audio clips and Unity mixer assets. Editable sessions and original recordings belong in `SourceAssets/Audio/`. Use the current Audio package's Unity built-in default; FMOD is completely optional. Follow the manifest-selected Technical Technique's [Game Audio and Sound Design standard](GeurtsTechnicalTechnique.md#game-audio-and-sound-design), the catalogue, and the installed Audio package documentation for the prerequisites of that release.
+Imported audio clips and Unity mixer assets. Editable sessions and original recordings belong in `SourceAssets/Audio/`. Use the current Audio package's Unity built-in default; FMOD is completely optional. Follow the manifest-selected Audio Technique's [Game Audio and Sound Design standard](GeurtsAudioTechnique.md#game-audio-and-sound-design), the catalogue, and the installed Audio package documentation for the prerequisites of that release.
 
 ```text
 Audio/
@@ -462,7 +462,7 @@ Use scene folders by function, not by chronology. `Boot/`, `Frontend/`, `Gamepla
 | `SCN_BigBang` | `Assets/_Project/Scenes/Boot/SCN_BigBang.unity` | Project boot and initialisation. |
 | `SCN_DevPlayground` | `Assets/_Project/Scenes/Test/SCN_DevPlayground.unity` | Initial development and testing. |
 
-The [Technical Technique's Required Project Scenes](GeurtsTechnicalTechnique.md#required-project-scenes) owns their required build indices and Build Profile scene-list rules. Requiring `Frontend/`, `Gameplay/` and `Sandbox/` does not require additional scene assets in those folders.
+The [Bootstrap Technique's Required Project Scenes](GeurtsBootstrapTechnique.md#required-project-scenes) owns their required build indices and Build Profile scene-list rules. Requiring `Frontend/`, `Gameplay/` and `Sandbox/` does not require additional scene assets in those folders.
 
 The JSON registry describes directories only. The existing folder tool creates missing folders and preserves existing content; it does not create `.unity` assets or configure scene lists. Scene setup must use supported Unity Editor APIs, preserve existing scene contents and references, and report missing or conflicting scenes and index assignments.
 

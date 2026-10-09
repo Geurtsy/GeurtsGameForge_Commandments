@@ -316,7 +316,12 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 Angels Codex naming may use reviewed local Commandments and the manifest-selected primary game-design document. Bounded complete context, GameUse audiences, explicit shared-file review and document fingerprints preserve design ownership. Additional naming notes are optional; missing context and changed design facts pause without automatic resending. Other catalogue entries and manual consumer installation are preserved.
 
 
-### v0.53.0 - BigBang public assembly API correction
+### v0.52.3 - Direct current-rule links
+
+- Point the four current Help, audio, required-scene and ID references directly to Code, Audio and Bootstrap. Retain the Technical compatibility anchors for existing links.
+- Advance Folder Structure to 0.16.4, Editor Appearance to 0.1.5 and Naming to 0.1.1 with matching manifest/tool guards. Rules, package pins, consent boundaries and exact installer payloads remain unchanged; consumer updates remain manual.
+
+### v0.52.2 - BigBang public assembly API correction
 
 Catalogue BigBang 0.6.1 replaces internal Unity assembly APIs with public AppDomain and assembly Location APIs, and guards the newer native package import API in older Editors. Both compiler errors reproduced in Unity 6000.3.24f1 are fixed; supported installation remains Unity 6000.6.3f1. Each of the wrapper-absent and wrapper-installed supported-Editor fixtures passes 120 tests, and the older-Editor compile/import-guard probe passes. Steam inspection remains passive and independent of the wrapper's compile-time references. Preserve the Steam preparation release and all other catalogue entries; consumer updates remain manual.
 
