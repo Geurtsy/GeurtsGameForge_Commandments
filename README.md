@@ -315,6 +315,10 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 Angels Codex naming may use reviewed local Commandments and the manifest-selected primary game-design document. Bounded complete context, GameUse audiences, explicit shared-file review and document fingerprints preserve design ownership. Additional naming notes are optional; missing context and changed design facts pause without automatic resending. Other catalogue entries and manual consumer installation are preserved.
 
+### 0.52.4
+
+- Publish God 0.37.1 with Windows long-path support for package update metadata, including partial-clone manifest reads. Global Git settings and live consumer projects remain unchanged.
+
 
 ### v0.52.3 - Direct current-rule links
 
