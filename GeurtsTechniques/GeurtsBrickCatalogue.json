@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.52.5",
-  "publishedUtc": "2026-10-09T08:06:04Z",
+  "packageVersion": "0.53.1",
+  "publishedUtc": "2026-10-09T08:13:51Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
       "name": "Geurts Game Forge BigBang",
-      "description": "Independent Editor installer with passive local Steamworks.NET checks and explicit pinned acquisition/reconciliation before initial Install God. Public assembly APIs and an older-Editor native import compile guard fix compilation without expanding the supported installation baseline. Unity 6000.6.3f1: 120 tests pass in each of wrapper-absent and wrapper-installed fixtures; Unity 6000.3.24f1 compile/import-guard probe passes. No native Steam, client or AppID is required for local checks. Window source is unchanged; prior appearance evidence is historical.",
+      "description": "Independent Editor installer with six numbered steps and Red action-required, Orange waiting/checking and Green verified-complete borders plus text captions. Steamworks.NET is mandatory for Install God and existing-God handoff; missing Steam preserves God and leaves explicit acquisition available. Latest stable God source lookup remains separate. Unity 6000.6.3f1: 123 tests pass in each of wrapper-absent and wrapper-installed fixtures. Interactive visual and keyboard checks were skipped at the user request; native Steam, client, AppID and player behavior remain unverified.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
-      "version": "0.6.1",
+      "version": "0.7.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#dc615e9184e2326bd42b23fa767b94c91f024f10",
+      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#deb699603fd27adeee7bf34975bf72399948fa46",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [],

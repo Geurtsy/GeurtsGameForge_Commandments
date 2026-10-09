@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.19.1
+**Version:** 1.20.1
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -33,7 +33,7 @@ Codex compatibility is an authoring and usability expectation. It does not requi
 
 ## Steam prerequisite and optional services
 
-The [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) makes Steamworks.NET an external prerequisite for initial BigBang Install God admission, without adding a mandatory Geurts peer. God remains the only mandatory shared Geurts brick. BigBang compiles/opens without the wrapper and inspects local managed evidence without Steam/native initialization. The Steam provider remains optional and pending implementation; God owns vendor-neutral shared contracts only, while the provider owns SDK types, native calls and lifecycle. Generic peers must compile and function locally without it. Do not add a planned Steam catalogue entry, false released capability, Git package dependency URL or wrapper dependency to God/BigBang. Published releases remain accurately described until the owning newer implementations are verified and released.
+The [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) makes the Steam API through Steamworks.NET a mandatory external project prerequisite, including BigBang Install God and existing-God handoff admission. God remains the only mandatory shared Geurts brick. BigBang compiles/opens without the wrapper so it can explain and explicitly acquire the missing prerequisite; its readiness check verifies local managed APIs and Windows x64 plugin files without Steam/native initialization. The Steam runtime provider remains optional; God owns vendor-neutral shared contracts only, while the provider owns SDK types, native calls and lifecycle. Generic peers retain compile independence and local use without a running Steam service. Never add false released capabilities, Git dependency URLs in package.json or a wrapper compile reference to God/BigBang. Published releases retain their actual verified metadata until the consumer adopts newer packages manually.
 
 ## Independent BigBang initial installer
 

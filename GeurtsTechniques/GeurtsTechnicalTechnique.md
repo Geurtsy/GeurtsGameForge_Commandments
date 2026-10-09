@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Version:** 0.19.1
+**Version:** 0.20.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
@@ -61,6 +61,8 @@ Develop, test and build **on Windows for Windows, using Unity and Codex**. Use t
 Select the **Windows Build Profile**, scene list, architecture and scripting backend explicitly. Validate affected behaviour in the Windows Editor and, for runtime/build changes, the resulting Windows player. Preserve unrelated settings, profiles and open scenes.
 
 **Steam on Windows x64 is the primary release target.** The manifest-selected [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) owns preparation, Steamworks.NET prerequisites, optional platform services and evidence. Prepare projects before AppID/store/depot/release-pipeline setup; keep unconfigured local development usable. Steam Deck, Proton, SteamOS and other operating systems are outside this target. This policy does not certify or retrofit released bricks.
+
+**The Steam API through Steamworks.NET is a mandatory project prerequisite**, alongside Odin Inspector and Quantum Console. Verify its supported managed APIs and Windows x64 native-plugin files through the Steam Integration owner. BigBang verifies this requirement before installation and existing-God handoff. Native Steam activation, client/account/AppID checks and distribution remain separate; the independent installer still compiles and opens when prerequisites are missing.
 
 Use consistent **CRLF** (`\r\n`) for new/edited first-party C#, Markdown, JSON, PowerShell, batch and other text files. Record this in the owning repository's Git attributes and verify changed working-tree files. This repository uses `* text=auto eol=crlf`; Git-normalized storage and hashes do not change authoring policy.
 
