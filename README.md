@@ -315,7 +315,13 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 - Make Steam API through Steamworks.NET mandatory for Geurts Unity project setup and BigBang installation and existing-God handoff. Preserve explicit acquisition, independent compilation and native-free local checks.
 - Define six numbered BigBang steps with Red action-required, Orange waiting/checking and Green verified-complete borders, written statuses and reachable operation controls.
+- Publish BigBang 0.7.0 with its verified source and 123 passing tests in each isolated fixture; interactive checks remain explicitly skipped at the user request.
 - Preserve existing packages, optional native service activation and manual consumer updates.
+
+### 0.52.4
+
+- Publish God 0.37.1 with Windows long-path support for package update metadata, including partial-clone manifest reads. Global Git settings and live consumer projects remain unchanged.
+
 
 ### v0.52.3 - Direct current-rule links
 
