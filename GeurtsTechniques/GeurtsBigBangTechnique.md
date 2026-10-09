@@ -2,7 +2,7 @@
 # Geurts BigBang Technique
 
 **Version:** 1.6.0
-**Status:** Normative initial-installer boundary
+**Status:** Normative installation and removal boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
 The manifest selects this owner for independent prerequisite preparation, initial God installation and verified handoff. Technical owns implementation priorities; Brick Contract owns ordinary brick dependencies; Editor UI Theme owns presentation and visual acceptance; Automation owns validation and delivery. BigBang resolves only its initial God release; God retains the package catalogue and ongoing dependency/update planner.
@@ -74,6 +74,7 @@ The destructive confirmation must default to keeping Forge; Escape cancels. Seri
 **Delete only confirmed removed packages' exact owned settings files after resolved-graph verification.** Reject linked project, storage and settings paths. Preserve every game scene, prefab, script, asset, Build Profile, project documentation, AI guide, third-party library and distributed-player save. Do not delete source folders, project folder trees or generated project assets. Removing Forge may leave missing components or game code that no longer compiles; explain that project-owned references require manual cleanup rather than claiming a working game.
 
 **Save the self-removal result before releasing assembly reload** at `Library/GeurtsGameForgeBigBang/bigcrunch.json`, including the reviewed targets and truthful status. Release a held reload on success, failure, shutdown or timeout. No automatic rollback or recovery framework is introduced. Ordinary BigBang installation continues to preserve existing God; ordinary removal of BigBang alone retains God and project content. BigCrunch requires its own explicit whole-Forge confirmation and never inherits installation consent.
+
 ## Acceptance and delivery
 
 A remote candidate is not a released package. Future publication requires recorded acceptance gates or an explicit user-directed exception with truthful limitations.
