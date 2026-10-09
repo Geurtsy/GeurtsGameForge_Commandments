@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technique Package Manifest
 
-**Version:** 0.53.1
+**Version:** 0.54.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative package manifest
 **Required package path:** `GeurtsTechniqueManifest.md`
@@ -16,7 +16,7 @@ Use this normative file read sequence; omit unselected subjects:
 2. Read this manifest in full.
 3. Read the selected Commandments Companion Technique and its Contract for the God-owned service/transition.
 4. Read frozen Game Forge Intelligence compatibility only for the historical/migration task selected below; it never owns current checking, setup or Update.
-5. Read selected generic subject techniques in this order: Technical; Unity; Steam Integration; Code; Authoring; Bootstrap; Audio; GameAI; Commands; Multiplayer; Naming; Brick Contract and then its Catalogue; Forge Setup Technique and its Contract; BigBang initial installer; Editor UI Theme; Editor Appearance; Diagnostics; Game Forge Automation; Folder Structure and then its Definition; AI Agent Setup; AGENTS.md Technique; Game Design Documentation; Git Ignore; Git Attributes; chat-only Response Control.
+5. Read selected generic subject techniques in this order: Technical; Unity; Steam Integration; Code; Authoring; Bootstrap; Audio; GameAI; Commands; Multiplayer; Naming; Brick Contract and then its Catalogue; Forge Setup Technique and its Contract; BigBang installation and BigCrunch removal; Editor UI Theme; Editor Appearance; Diagnostics; Game Forge Automation; Folder Structure and then its Definition; AI Agent Setup; AGENTS.md Technique; Game Design Documentation; Git Ignore; Git Attributes; chat-only Response Control.
 6. Read selected project-specific game-design facts before player-facing implementation; the GDD manifest's declared primary document is the primary source of context about the game; technical design and implementation guidance still come from the selected Forge techniques.
 7. Apply relevant product- or plugin-owned conditional policy last, subordinate within Forge subjects.
 
@@ -62,7 +62,7 @@ The reader stays inside manifest-listed Markdown in this package. It never disco
 | Technical implementation and technical trade-offs | `GeurtsTechniques/GeurtsTechnicalTechnique.md` | Before implementation or technical planning. Short shared core; sole package owner of the five technical priorities and multiplayer override. |
 | First-party asset, scene object, prefab root and script names | `GeurtsTechniques/GeurtsNamingTechnique.md` | When creating, naming, renaming or reviewing first-party assets, GameObjects, prefab roots or script filenames/classes. Fixed contracts and IDs retain their owners. |
 | Existing-brick reuse, module usability integration, Codex-compatible brick design, shared lifecycle/settings contracts and machine-readable catalogue | `GeurtsTechniques/GeurtsBrickContract.md` and `GeurtsTechniques/GeurtsBrickCatalogue.json` | Before planning/implementing Geurts Unity functionality, brick design/validation, or package installation/update. Inspect current Catalogue and installed capability. |
-| Independent prerequisite preparation, initial God installation and verified handoff | `GeurtsTechniques/GeurtsBigBangTechnique.md` | Before implementing, maintaining, installing or validating BigBang. This narrow dependency exception does not own runtime bootstrap, scenes, content acquisition or ongoing package management. |
+| Independent prerequisite preparation, initial God installation, verified handoff and explicit BigCrunch uninstall | `GeurtsTechniques/GeurtsBigBangTechnique.md` | Before implementing, maintaining, installing, removing or validating BigBang or BigCrunch. This narrow dependency exception does not own runtime bootstrap, scenes, content acquisition or ongoing package management. |
 | Shared visual foundation for all existing and future Forge Editor UI | `GeurtsTechniques/GeurtsEditorUIThemeTechnique.md` | Before creating, changing, reviewing or validating Forge-owned Editor UI. Runtime and player-facing game UI are excluded. |
 | Forge-owned Editor workflow presentation, tabs, collapsible sections, callouts and inline authoring validation | `GeurtsTechniques/GeurtsEditorAppearanceTechnique.md` | Before creating, changing, reviewing or validating Forge Editor UI, including standalone/God-embedded views. Excludes runtime and player-facing game UI. Apply Theme then Appearance; preserve BigBang equivalents. |
 | Generic AI-assisted automation and project-aware operational behaviour | `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md` | When an agent or automation plans, changes, validates, or reports project work. |
@@ -107,27 +107,27 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | Path | Version | Role |
 |---|---:|---|
 | `.gitattributes` | 1.0.0 | CRLF working-tree policy for authored text in the Windows documentation source checkout. |
-| `AI_READ_FIRST.md` | 0.53.1 | Entry and session boundaries. |
-| `GeurtsTechniqueManifest.md` | 0.53.1 | Selection, versions, ownership and reading scope. |
-| `README.md` | 0.53.1 | Human overview and changelog; not mandatory reading. |
+| `AI_READ_FIRST.md` | 0.54.0 | Entry and session boundaries. |
+| `GeurtsTechniqueManifest.md` | 0.54.0 | Selection, versions, ownership and reading scope. |
+| `README.md` | 0.54.0 | Human overview and changelog; not mandatory reading. |
 | `GeurtsTechniques/GeurtsTechnicalTechnique.md` | 0.20.0 | Normative shared technical core and priorities. |
 | `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md` | 0.2.0 | Windows x64 Steam preparation, independent prerequisites, optional provider and separate native/release evidence. |
 | `GeurtsTechniques/GeurtsNamingTechnique.md` | 0.1.1 | Asset/object names, type registries, script exemptions and preservation. |
-| `GeurtsTechniques/GeurtsBrickContract.md` | 1.20.0 | Brick reuse, dependencies, lifecycle, settings and package operations. |
+| `GeurtsTechniques/GeurtsBrickContract.md` | 1.21.0 | Brick reuse, dependencies, lifecycle, settings and package operations. |
 | `GeurtsTechniques/GeurtsForgeSetupTechnique.md` | 1.4.1 | God foundation, optional owner contributions and setup safety. |
-| `GeurtsTechniques/GeurtsForgeSetupContract.json` | 0.53.1 | Schema 1.0.0; setup Editor API 1.1 and contribution version 1. |
-| `GeurtsTechniques/GeurtsBigBangTechnique.md` | 1.5.0 | Independent initial installer and verified God handoff. |
+| `GeurtsTechniques/GeurtsForgeSetupContract.json` | 0.54.0 | Schema 1.0.0; setup Editor API 1.1 and contribution version 1. |
+| `GeurtsTechniques/GeurtsBigBangTechnique.md` | 1.6.0 | Independent initial installer, verified God handoff and confirmed whole-Forge BigCrunch removal. |
 | `GeurtsTechniques/GeurtsEditorUIThemeTechnique.md` | 1.5.4 | Shared palette, spacious geometry, accessibility and truthful status. |
 | `GeurtsTechniques/GeurtsEditorAppearanceTechnique.md` | 0.1.5 | Editor workflows, Help, tabs, sections, callouts and inline findings. |
 | `GeurtsTechniques/GeurtsDiagnosticsTechnique.md` | 0.4.1 | Optional capture, commands, history, health, sessions and metrics. |
-| `GeurtsTechniques/GeurtsBrickCatalogue.json` | 0.53.1 | Current published packages and immutable Git targets. |
+| `GeurtsTechniques/GeurtsBrickCatalogue.json` | 0.54.0 | Current published packages and immutable Git targets. |
 | `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md` | 0.11.0 | Project operations, validation, delivery and computer-control boundaries. |
 | `GeurtsTechniques/GeurtsFolderStructureTechnique.md` | 0.16.4 | Normative folder meanings, placement, reuse and safe extension. |
-| `GeurtsTechniques/GeurtsFolderStructureDefinition.json` | 0.53.1 | Exact folder registry and creation profiles. |
+| `GeurtsTechniques/GeurtsFolderStructureDefinition.json` | 0.54.0 | Exact folder registry and creation profiles. |
 | `GeurtsTechniques/GeurtsAIAgentSetupTechnique.md` | 3.1.1 | Exact routes, consent boundaries and separately invoked manual manager. |
 | `GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md` | 0.15.1 | Normative primary game context, discovery and preserved imports. |
 | `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md` | 3.2.2 | Normative God-owned content service and passive-adapter transition. |
-| `GeurtsTechniques/GeurtsCommandmentsCompanionContract.json` | 0.53.1 | Schema 3.0.0; exact acquisition, consent and route mappings. |
+| `GeurtsTechniques/GeurtsCommandmentsCompanionContract.json` | 0.54.0 | Schema 3.0.0; exact acquisition, consent and route mappings. |
 | `GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md` | 2.0.0 | Historical frozen compatibility guide; no current updater authority. |
 | `GeurtsTechniques/GeurtsGameForgeIntelligenceIntegrationContract.md` | 2.0.0 | Historical non-normative compatibility redirect; never selected as an authority. |
 | `GeurtsTechniques/GeurtsAgentTechnique.md` | 1.3.0 | Portable preserving root guide plus pinned legacy selected-folder payload. |
@@ -143,12 +143,12 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `Migrations/v0.8.0.md` | 0.8.0 | Historical transition; read only for a requested migration/review. |
 | `Migrations/v0.7.0.md` | 0.7.0 | Historical transition; read only for a requested migration/review. |
 | `Tools/CreateAIAgentInstructionFiles.bat` | 0.9.0 | Compatibility launcher for managed AI setup. |
-| `Tools/ManageGeurtsAgentInstructions.ps1` | 0.53.1 | Optional preservation-based native-route manager. |
+| `Tools/ManageGeurtsAgentInstructions.ps1` | 0.54.0 | Optional preservation-based native-route manager. |
 | `Tools/CreateGeurtsFolderStructure.bat` | 0.9.0 | Compatibility launcher for definition-driven folder creation. |
-| `Tools/CreateGeurtsFolderStructure.ps1` | 0.53.1 | Explicit create-only folder operation. |
+| `Tools/CreateGeurtsFolderStructure.ps1` | 0.54.0 | Explicit create-only folder operation. |
 | `Tools/UpdateGameDesignManifest.ps1` | 0.10.0 | Deterministic GDD manifest maintainer. |
 | `Tools/NativeEntryMigrationCatalog.json` | 2.0.0 | Exact legacy route fingerprints, including v1.2.0. |
-| `Tools/ValidateGeurtsDocumentation.ps1` | 0.53.1 | Package and semantic validation. |
+| `Tools/ValidateGeurtsDocumentation.ps1` | 0.54.0 | Package and semantic validation. |
 | `Tools/ValidateGeurtsBrickSources.ps1` | 1.0.0 | Publication-only exact Git package/capability and dependency validation. |
 | `Tools/Tests/TestGeurtsBrickSources.ps1` | 1.0.0 | Isolated dependency and pinned-source regressions. |
 | `Tools/AIAgentInstructionTemplates/copilot-instructions.md` | 1.3.0 | Exact installation payload; preserve bytes. |
@@ -156,7 +156,7 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md` | 1.3.0 | Exact installation payload; preserve bytes. |
 | `Tools/AIAgentInstructionTemplates/GameDesign/README.md` | 0.11.0 | Exact installation payload; preserve bytes. |
 | `Tools/AIAgentInstructionTemplates/GameDesign/GameDesignManifest.md` | 0.7.0 | Exact installation payload; preserve bytes. |
-| `Tools/Tests/RunAutomationTests.ps1` | 0.53.1 | Isolated automation and regression suite. |
+| `Tools/Tests/RunAutomationTests.ps1` | 0.54.0 | Isolated automation and regression suite. |
 | `Tools/GeurtsDocumentationAudience.psm1` | 1.1.1 | Safe audience and manifest-controlled section reader. |
 | `Tools/ReadGeurtsDocumentation.ps1` | 1.1.1 | Read, preview or index selected Markdown without mutation. |
 | `Tools/Tests/TestDocumentationAudiences.ps1` | 1.1.3 | Audience, section selection, preview and boundary regressions. |

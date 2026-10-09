@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.20.0
+**Version:** 1.21.0
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -38,6 +38,8 @@ The [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) makes the 
 ## Independent BigBang initial installer
 
 `com.geurts.gameforge.bigbang` is an independent Editor-only initial installer, not a runtime brick. It does not implement `IBrick`, declare God as a package dependency, or reference God or vendor assemblies. This narrow exception enables preparation before the required libraries and God exist. It explicitly resolves the latest published compatible God release from the official Git repository, verifies its manifest, then installs its frozen exact commit through UPM after prerequisite checks. Failed resolution cannot authorize an old bundled or cached target. Existing installations are inspected and preserved; no automatic replacement or downgrade is permitted. Runtime initialization, `SCN_BigBang`, ongoing package management and shared settings remain God-owned. God owns Commandments acquisition; BigBang hands over without acquiring it. See the manifest-selected [BigBang Technique](GeurtsBigBangTechnique.md).
+
+BigBang also owns the separately confirmed **BigCrunch** whole-Forge uninstaller. The BigBang Technique owns its dry-run review, external-dependent guard, retained-library boundary, exact owned-settings cleanup after resolved removal and persisted self-removal result. This explicit group operation may remove God and dependent Forge packages together through Unity; ordinary God removal retains its dependency guards. It never deletes project content, third-party libraries, local/embedded source folders or AI/documentation files.
 
 ## Registration and lifecycle
 
