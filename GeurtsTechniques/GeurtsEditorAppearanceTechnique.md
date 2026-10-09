@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Editor Appearance Technique
 
-**Version:** 0.1.5
+**Version:** 0.1.6
 **Status:** Normative mandatory standard
 **Primary audience:** Geurts Game Forge brick and Editor-tool maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -50,6 +50,8 @@ Inactive tabs must expose warning/error indicators with the same discoverability
 Every content section must have a visible descriptive header and collapsible content. Its header remains visible when collapsed. Use sections to group related controls and actions; reserve the always-visible window title, navigation and required operation/consent controls for their existing host responsibilities. Collapsing a content section must never hide a required confirmation or block access to cancellation and failure reporting.
 
 Use Odin `BoxGroup` extensively for clear grouping in applicable Odin authoring. A BoxGroup alone is not collapsible. Combine boxed grouping and a supported foldout through distinct hierarchical group paths, or use a supported custom group/Editor adapter with the same behavior. Do not stack BoxGroup and FoldoutGroup at the same group path and assume they combine. Follow the installed Odin version's supported group hierarchy; verify the visible header and collapsed state in Unity.
+
+Verify actual visible Odin BoxGroups on the affected screen, with editable fields and retained authored values. Attributes in an unused class or UI Toolkit-only panel styling do not prove Odin adoption. Include rendered evidence and report any unverified native interaction explicitly.
 
 For example, a conceptual parent foldout `configuration` can own the child box `configuration/values`. These are distinct paths describing a hierarchy, not a drop-in C# implementation. Give the user-facing parent a meaningful label and avoid a duplicate unlabeled or misleading child header. In UI Toolkit, use an equivalent labelled foldout with the shared panel styling. A tab does not replace the section's collapsible header requirement.
 

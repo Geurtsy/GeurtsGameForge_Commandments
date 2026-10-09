@@ -1,5 +1,5 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.55.3
+# Integrated Forge setup — 0.56.0
 
 God provides supported owner operations and a read-only project report. Angels provides separate opt-in automatic sorting and naming of new first-party imports, optional Codex visual naming, and portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang owns independent initial installation and the separately confirmed BigCrunch whole-Forge uninstall. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
@@ -91,7 +91,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.55.3
+**Version:** 0.56.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -311,7 +311,12 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 ## Changelog
 
-### v0.55.3 - Build Forge setup colours
+### 0.56.0
+
+Angels organization setup puts Codex, destinations and folder review first, with written green Complete/red Incomplete states and actual editable Odin boxes. Reviewed incoming moves and moved-folder descendants become eligible; Codex chooses all three name segments for all first-party non-code kinds including images/audio. Scripts/vendor/fixed contracts remain protected. Consumers adopt updates manually; the catalogue pin is updated only after the owning release is published.
+
+
+### v0.56.0 - Build Forge setup colours
 
 - Publish God 0.37.3 with BigBang-style setup borders and boxed explanations: red for required action/failure, orange for waiting/checking/work, and yellow for verified readiness as requested.
 - Record 390 passing Editor tests, zero failures and 11 conditional skips, plus native normal/narrow, standalone/embedded and docked views. Physical input and alternate host-skin/high-DPI checks remain unverified; consumer adoption remains manual.
