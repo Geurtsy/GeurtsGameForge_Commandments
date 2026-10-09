@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Steam Integration Technique
 
-**Version:** 0.1.0
+**Version:** 0.1.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md`
@@ -14,7 +14,7 @@ The manifest selects this owner for Steam preparation, Steamworks.NET prerequisi
 
 The first milestone is **prepared for Steam development**. A Unity project can reach it before obtaining a game AppID or configuring a store page, depots, branches, SteamPipe uploads or a release pipeline. Keep that distribution work deferred until separately requested. Never invent a production AppID or claim release readiness from local preparation.
 
-This Commandments release establishes policy only. **Steam runtime integration and the BigBang Steam prerequisite gate remain pending brick implementation.** The catalogue remains the authority for real published capabilities. Existing releases are not retroactively certified or changed by this document, and this release publishes no Steam brick installation source.
+The catalogue now advertises released local Steam preparation, vendor-neutral God contracts and the independent BigBang prerequisite gate. Use its exact published sources and each owning release capability/evidence record. **Native Steam integration and overlay remain unverified.** Customer distribution and the Steam release pipeline remain deferred. Existing installations change only through manual adoption; published preparation does not certify a native session or overlay.
 
 ## Package prerequisite and installation
 
@@ -36,9 +36,9 @@ Revalidate local evidence immediately before installation dispatch. Package/sour
 
 ## Optional provider and shared contracts
 
-**God remains the only mandatory shared Geurts brick.** Steamworks.NET is an external project prerequisite; the planned Steam provider is an optional peer. God, BigBang and generic game/peer code must compile without the Steam provider. God must not acquire Steamworks.NET references or native initialization. Shared platform-service contracts in God stay vendor-neutral and describe availability, outcomes and useful failure reasons without SDK types.
+**God remains the only mandatory shared Geurts brick.** Steamworks.NET is an external project prerequisite; the Steam provider is an optional peer. God, BigBang and generic game/peer code must compile without the Steam provider. God must not acquire Steamworks.NET references or native initialization. Shared platform-service contracts in God stay vendor-neutral and describe availability, outcomes and useful failure reasons without SDK types.
 
-The future Steam brick owns wrapper/native calls, initialization, callback dispatch, shutdown, Steam configuration, identity and overlay integration. It declares only verified package/API requirements when implemented and released. Generic peers consume optional capabilities through God's existing registration/lifecycle. Concrete cooperation requiring two optional packages belongs in a separate integration owner. A missing, disabled, unconfigured or failed provider leaves unrelated local gameplay usable and reports Steam-specific services as unavailable. Do not invent Steam identity, achievements or successful cloud writes.
+The Steam brick owns wrapper/native calls, initialization, callback dispatch, shutdown, Steam configuration, identity and overlay integration. Its release declares the tested package/API profile and separates implemented adapters from unverified real native behavior. Generic peers consume optional capabilities through God's existing registration/lifecycle. Concrete cooperation requiring two optional packages belongs in a separate integration owner. A missing, disabled, unconfigured or failed provider leaves unrelated local gameplay usable and reports Steam-specific services as unavailable. Do not invent Steam identity, achievements or successful cloud writes.
 
 Keep public APIs and normal Editor configuration on the same services, validation and cleanup. Provide no-code configuration, readable prerequisite findings and on-demand checks through the owning supported Forge UI. Theme and Appearance apply to that Editor UI. Diagnostics remains optional: normal logging uses God's facade; genuine failures remain visible in owning status even without capture. Do not add another console or a runtime Commandments dependency.
 
@@ -83,4 +83,4 @@ Unperformed checks remain unknown. Documentation/host tests, mocked providers an
 
 Later brick acceptance must cover wrapper/God/vendor-absent BigBang compilation, missing/partial/incompatible imports, stale evidence and dispatch rechecks, offline local admission, installed-God preservation, provider absence/disable/failure, repeated Play and scene transitions, initialization failures/cleanup, callback ownership, supported Windows backends and stripped artifacts. Real native and distribution checks require their actual client/AppID/entitlement/graphics context. Record scripted, rendered and physical-input evidence separately under Unity and Automation rules.
 
-For this documentation stage, validate manifest routing/membership, subject versions, audience visibility, semantic boundaries, the closed schema-3 content contract, exact published catalogue sources and the candidate archive. Publish a higher immutable Commandments release with pending brick enforcement explicit. Preserve manual consumer adoption and stop before brick implementation.
+For documentation publication, validate manifest routing/membership, subject versions, audience visibility, semantic boundaries, the closed schema-3 content contract, exact published catalogue sources and the candidate archive. Keep local preparation evidence separate from native and distribution acceptance. Publish a higher immutable Commandments release only after the advertised owner releases and exact pins are verified. Preserve manual consumer adoption.

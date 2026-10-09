@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts BigBang Technique
 
-**Version:** 1.4.0
+**Version:** 1.4.1
 **Status:** Normative initial-installer boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
@@ -25,7 +25,7 @@ Under the [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md), Ste
 
 The local check must not initialize Steam, load native Steam libraries, request the network or require a client, login, AppID or account entitlement. Keep acquisition explicit, preserve licensed-library handling and report unknown/unreadable/incompatible evidence actionably. Recheck immediately before dispatch; wrapper/importer/input changes and compilation failure invalidate evidence under the existing session rules. Preserve separate Get Latest Git Source, the frozen God target, single dispatch, existing-God preservation and verified handoff. Never force reinstall or downgrade God to enforce a new prerequisite.
 
-This is a new normative requirement for the next implementation. **Published BigBang 0.5.1 does not yet enforce the Steam prerequisite.** Commandments publication changes no installed package or current capability declaration. Steam runtime availability and release setup are separate from installer readiness; no native probe or release-pipeline setup is needed for local admission.
+The published catalogue now identifies BigBang with the local Steam prerequisite gate and explicit pinned wrapper acquisition. Its owning release records independent compilation, revalidation and interactive preparation evidence. Earlier BigBang releases retain their original behavior until manually updated; preserve existing God installations. Steam runtime availability and release setup are separate from installer readiness; no native probe or release-pipeline setup is needed for local admission.
 
 ## Explicit current release resolution
 

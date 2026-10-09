@@ -1,4 +1,4 @@
-# Version: 1.1.2
+# Version: 1.1.3
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
@@ -91,7 +91,7 @@ Shared ending.
     $technical = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsTechnicalTechnique.md'
     foreach ($mode in @('GameUse', 'ForgeDevelopment')) {
         $steam = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsSteamIntegrationTechnique.md' -Mode $mode
-        Assert-Audience ($steam.SkippedLines -eq 0 -and $steam.Content.Contains('## BigBang admission and compile independence') -and $steam.Content.Contains('## Evidence and acceptance') -and $steam.Content.Contains('pending brick implementation')) "Steam prerequisite and acceptance boundaries stay visible in $mode"
+        Assert-Audience ($steam.SkippedLines -eq 0 -and $steam.Content.Contains('## BigBang admission and compile independence') -and $steam.Content.Contains('## Evidence and acceptance') -and $steam.Content.Contains('Native Steam integration and overlay remain unverified')) "Steam prerequisite and acceptance boundaries stay visible in $mode"
     }
     $technicalForge = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsTechnicalTechnique.md' -Mode ForgeDevelopment
     Assert-Audience (-not $technical.Content.Contains('## Reusable Framework Compliance Header') -and $technicalForge.Content.Contains('## Reusable Framework Compliance Header') -and $technical.Content.Contains('## Technical Priority Order') -and $technical.Content.Contains('All code suggestions,')) 'Framework header is conditional; shared technical priorities and obligations survive'

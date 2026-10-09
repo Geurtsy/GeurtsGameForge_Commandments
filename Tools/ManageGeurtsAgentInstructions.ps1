@@ -1,5 +1,5 @@
 # ManageGeurtsAgentInstructions.ps1
-# Version: 0.51.0
+# Version: 0.52.0
 
 [CmdletBinding()]
 param(
@@ -357,8 +357,8 @@ function Get-ManagedFolderDefinition([string]$Root, [bool]$IncludeGameDesign) {
 
     try { $definition = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json }
     catch { throw "The authoritative folder definition is invalid JSON: $($_.Exception.Message)" }
-    if ([string]$definition.definitionVersion -ne "0.13.0" -or [string]$definition.packageVersion -ne "0.51.0") {
-        throw "Managed setup requires folder definition v0.13.0 from package v0.51.0."
+    if ([string]$definition.definitionVersion -ne "0.13.0" -or [string]$definition.packageVersion -ne "0.52.0") {
+        throw "Managed setup requires folder definition v0.13.0 from package v0.52.0."
     }
 
     $requiredProfiles = @("native-entry")

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Forge initialization, bootstrap and project tools
 
-**Version:** 1.4.0
+**Version:** 1.4.1
 **Required package path:** `GeurtsTechniques/GeurtsForgeSetupTechnique.md`
 
 God is the required framework brick. BigBang is the independent Editor-only initializer; Diagnostics and Angels are optional peers. Compatible local Commandments are required before Forge Editor project mutations. They are readable independently of module enablement, update preferences, network connectivity or the compatibility adapter. They are not a runtime dependency and must not be polled in player loops.
@@ -19,7 +19,7 @@ Select this technique and `GeurtsForgeSetupContract.json` for setup, owner contr
 
 Select the [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) for Steam preparation, BigBang Steam prerequisites, the optional platform provider or Steam build evidence. Steamworks.NET is an external initial-installer prerequisite; it does not make the Steam brick a mandatory setup contribution. BigBang remains compile independent and its local checks require no Steam client, login, AppID, entitlement, network or native initialization. Preserve the existing verified God handoff and installed God.
 
-Prerequisite ready, prepared for Steam development, integration verified and release validated are independent evidence dimensions, not new shared setup statuses. Use the existing contract statuses and actual owner availability. Build Forge still requires only bootstrap; God owns no Steam-native runtime and an absent optional provider contributes no requirements. A foundation check, package import or documentation update never certifies a Steam session, overlay or distribution pipeline. Local unconfigured use keeps native Steam off. The Steam prerequisite gate and runtime provider remain pending brick implementation; existing catalogue capabilities retain their actual scope.
+Prerequisite ready, prepared for Steam development, integration verified and release validated are independent evidence dimensions, not new shared setup statuses. Use the existing contract statuses and actual owner availability. Build Forge still requires only bootstrap; God owns no Steam-native runtime and an absent optional provider contributes no requirements. A foundation check, package import or documentation update never certifies a Steam session, overlay or distribution pipeline. Local unconfigured use keeps native Steam off. The catalogue identifies the released local Steam prerequisite gate and optional preparation provider; use their owning capability/evidence records. Native Steam integration and overlay remain unverified, and consumer updates remain manual.
 
 ## Opt-in automatic asset organization
 

@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.51.0",
-  "publishedUtc": "2026-10-08T11:38:35Z",
+  "packageVersion": "0.52.0",
+  "publishedUtc": "2026-10-09T01:12:36Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
       "name": "Geurts Game Forge BigBang",
-      "description": "Independent Editor installer; no mandatory God or licensed-vendor dependency was added. Existing God foundation handoff API 1.1 is retained. Adds per-release capabilities, current documentation gating and compile-checked examples. Independent God/vendor-absent checks pass. Unity 6000.6.3f1 Editor: 113 passed, zero failed, 0 conditional checks skipped. Supported examples and source fingerprints are verified. Physical/device/player acceptance remains outside this release's evidence. Consumers update manually.",
+      "description": "Independent Editor installer adds passive local Steamworks.NET prerequisite admission and explicit pinned acquisition/reconciliation before initial Install God. Existing verified God handoff and compile independence are preserved. No native Steam, client or AppID is required for local checks. Unity 6000.6.3f1 graphics-backed independent Editor: 120 passed, zero failed or skipped. Actual normal/narrow header, independent form/footer scrolling, Help and focus reviewed. Alternate skin/DPI and physical-device acceptance remain unverified. Consumers update manually.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
-      "version": "0.5.1",
+      "version": "0.6.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#121c70da080a75240e770e22ea10f80d5fb51708",
+      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#aff7d3dcb21b8ddfd37a6e495f9a373acf5da4ef",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [],
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "God remains the only mandatory shared brick. Updates Apply Forge Layout to the user-supplied docking arrangement, preserving the exact Unity layout bytes, automatic-apply preference and active-work safeguards. Retains pinned measured loading progress and optional-brick boundaries. Unity 6000.6.3f1 Editor: 382 passed, zero failed, 11 conditional checks skipped; native layout loading, restored docking and rendered God panel verified in an isolated project. Physical input and alternate monitor/DPI acceptance remain unverified. Consumers update manually.",
+      "description": "God remains the only mandatory shared brick. Adds vendor-neutral platform status, lossless identity and overlay notification contracts without Steamworks.NET or native activation. Corrects shared Inspector foldout width and hierarchy-state restoration. Unity 6000.6.3f1 graphics-backed Editor: 385 passed, zero failed, 11 conditional fixture checks skipped. Isolated normal/narrow Steam component Help reviewed interactively. Alternate skin/DPI and physical-device acceptance remain unverified. Consumers update manually.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.36.1",
+      "version": "0.37.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#2d6cd01e15c7f528c7c169e159cd1d2628bae29d",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#4f82c1b082f7e5823902285cdf94a521b3661cb8",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -51,6 +51,29 @@
         "Quantum Console"
       ],
       "dependencies": []
+    },
+    {
+      "id": "com.geurts.gameforge.steam",
+      "name": "Geurts Game Forge Steam",
+      "description": "Optional Windows x64 Mono preparation with passive inspection, reviewed defaults, shared findings, build checks and default-off local native activation. Requires God 0.37.0; other Forge peers remain optional. Exact Steamworks.NET 2025.164.1 profile is provisioned explicitly in the project. Unity 6000.6.3f1: 25 Editor and 4 injected Play Mode checks passed, zero failed or skipped. Actual standalone/embedded normal/narrow UI, Help, blocked Save and Undo reviewed. Current wrapper-present/absent Windows players run unconfigured without native loading; all six selected bricks run. Real native Steam integration, overlay, alternate skin/DPI and physical-device acceptance remain unverified. Customer distribution and Steam Deck remain deferred. Consumers update manually.",
+      "website": "https://github.com/Geurtsy/com.geurts.gameforge.steam",
+      "version": "0.1.0",
+      "released": true,
+      "developmentOnly": false,
+      "sourceKind": "git",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#851dfa3b8983e764aac1170ab60a7dc1fde471c4",
+      "minimumUnity": "6000.6",
+      "maximumUnity": "6000.6",
+      "requiredTools": [
+        "Odin Inspector",
+        "Quantum Console"
+      ],
+      "dependencies": [
+        {
+          "id": "com.geurts.gameforge.god",
+          "minimumVersion": "0.37.0"
+        }
+      ]
     },
     {
       "id": "com.geurts.gameforge.diagnostics",
