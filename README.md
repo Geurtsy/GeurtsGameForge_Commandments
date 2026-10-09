@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.54.1
+# Integrated Forge setup — 0.55.1
 
-God provides supported owner operations and a read-only project report. Angels provides separate opt-in automatic sorting and naming of new first-party imports, optional Codex visual naming, and portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
+God provides supported owner operations and a read-only project report. Angels provides separate opt-in automatic sorting and naming of new first-party imports, optional Codex visual naming, and portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang owns independent initial installation and the separately confirmed BigCrunch whole-Forge uninstall. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
 # Geurts Game Forge Commandments
 
@@ -91,7 +91,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.54.1
+**Version:** 0.55.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -311,10 +311,18 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 ## Changelog
 
-### v0.54.1 - Compact shared guidance
+### v0.55.1 - Compact shared guidance
 
 - Remove the eight repeated catalogue evidence/update paragraphs and remaining manual-update reminders. Retain distinct capabilities, package-specific limits and recorded results; link shared evidence and delivery rules from the catalogue owner.
-- Remove redundant Technical compliance reminders while preserving first-party applicability, priorities, Codex compatibility, topic obligations and the framework-header contract. Advance Technical to 0.20.1, Brick Contract to 1.20.1 and audience checks to 1.1.4. Preserve the concurrent Steam prerequisites, bounded God cache catalogue and reviewed primary-context guidance. Package pins, schemas, consent and exact payloads remain unchanged; consumer updates stay manual.
+- Remove redundant Technical compliance reminders while preserving first-party applicability, priorities, Codex compatibility, topic obligations and the framework-header contract. Advance Technical to 0.20.1, Brick Contract to 1.21.1 and audience checks to 1.1.4. Preserve the concurrent Steam prerequisites, bounded God cache catalogue and reviewed primary-context guidance and confirmed BigCrunch removal. Package pins, schemas, consent and exact payloads remain unchanged; consumer updates stay manual.
+
+### v0.55.0 - BigCrunch reviewed Forge uninstall
+
+- Publish BigBang 0.8.0 with BigCrunch: review the complete Forge package list, then explicitly confirm removal including BigBang itself.
+- Require a Unity dry run, retained-third-party and external-dependent guards, verified owned-settings cleanup and a durable self-removal result. Preserve all project content, documentation and AI guides.
+- Keep normal BigBang installation and ordinary single-package removal separate from the explicitly confirmed whole-Forge removal.
+- Validate 140 Unity tests in each prerequisite fixture and real disposable self-removal with retained Steam/content. Documentation passed 444 full-suite checks before upstream integration, nine focused integrated regressions, final static validation and all twelve published source checks. Interactive checks remain skipped at user request; full-God native group teardown is unverified. Consumers update manually.
+
 
 ### 0.54.0
 

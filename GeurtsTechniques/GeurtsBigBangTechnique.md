@@ -1,8 +1,8 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts BigBang Technique
 
-**Version:** 1.5.0
-**Status:** Normative initial-installer boundary
+**Version:** 1.6.0
+**Status:** Normative installation and removal boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
 The manifest selects this owner for independent prerequisite preparation, initial God installation and verified handoff. Technical owns implementation priorities; Brick Contract owns ordinary brick dependencies; Editor UI Theme owns presentation and visual acceptance; Automation owns validation and delivery. BigBang resolves only its initial God release; God retains the package catalogue and ongoing dependency/update planner.
@@ -55,7 +55,7 @@ Show distinct written states: **Installing God**, **Installed - validating**, **
 
 Reuse a compatible installed God only after verification. Display the newly resolved latest release separately from any saved operation target; existing installations are preserved even when a newer release is discovered. Preserve and explain different/newer versions and local, embedded or unsupported sources; never silently replace or downgrade them. A same-session script reload reconciles intent and package state without duplicate dispatch. A new Unity launch displays interrupted/local state and requires an explicit check/resume. Unknown native outcomes must be inspected before Retry is offered. Window closure retains already dispatched work; cancellation stops undispatched work and cannot claim to cancel an active native operation. Failures retain useful errors and offer explicit recovery.
 
-Store only narrowly scoped schema/session/frozen-target/stage/result data and the private Git metadata cache under `<UnityProjectRoot>/Library/GeurtsGameForgeBigBang/`. No automatic rollback, purchased-import deletion, God removal or general recovery framework is permitted.
+Store only narrowly scoped schema/session/frozen-target/stage/result data and the private Git metadata cache under `<UnityProjectRoot>/Library/GeurtsGameForgeBigBang/`. No automatic rollback, purchased-import deletion, implicit God removal or general recovery framework is permitted. Only the separately confirmed BigCrunch operation below may remove God.
 
 ## Handoff and presentation
 
@@ -64,6 +64,16 @@ Present six numbered steps in order: **1. Install required libraries; 2. Install
 After verification, provide **Open Game Forge God**. Invoke the selected release's existing `Tools/Geurts Game Forge/Game Forge God` route through Unity's supported menu execution. Opening is explicit because God's normal layout and saved opening preferences may apply. Do not acquire a God compile dependency or modify God solely to add an opener. Keep a handoff error separate from installation success. Explain the next actions: open God's built-in Commandments view (God 0.29.0 or newer) and acquire content only through its separately confirmed action. Update older God installations through God first; update any old Companion to the current catalogue's passive adapter release (minimum 0.15.0). BigBang never installs the adapter or invokes content acquisition.
 
 Follow the Editor UI Theme Technique's dark surfaces, green accents, severity colors, readable states and keyboard interaction. New floating windows target **1000 x 760** Editor points; reopening preserves arrangement. Use its generated dependency-free canonical subset, record source commit, exclude vendor conditionals regardless of symbols, and retain generator/parity tooling in BigBang maintenance. No consumer-time generator is introduced.
+
+## BigCrunch whole-Forge uninstall
+
+BigBang owns the separate **BigCrunch** uninstaller, available through **Tools > Geurts Game Forge > BigCrunch** and BigBang Help. Opening/restoration starts no inventory request or mutation. **Preview removal** explicitly lists installed `com.geurts.gameforge.*` packages, including BigBang itself, and each target's exact `ProjectSettings/GeurtsGameForge/<package-id>.json` settings file. Use **Unity removal dry run before confirmation**; reject external package dependents, retained third-party package changes and embedded/local source installations with an actionable reason. Revalidate the reviewed package inputs immediately before dispatch; changed inputs require another preview.
+
+The destructive confirmation must default to keeping Forge; Escape cancels. Serialize the reviewed group through Unity's supported Package Manager API and prevent conflicting BigBang/Steam acquisition. An active request continues when the window closes; cancellation before dispatch changes no packages or settings. Preserve unknown or interrupted results without automatic redispatch.
+
+**Delete only confirmed removed packages' exact owned settings files after resolved-graph verification.** Reject linked project, storage and settings paths. Preserve every game scene, prefab, script, asset, Build Profile, project documentation, AI guide, third-party library and distributed-player save. Do not delete source folders, project folder trees or generated project assets. Removing Forge may leave missing components or game code that no longer compiles; explain that project-owned references require manual cleanup rather than claiming a working game.
+
+**Save the self-removal result before releasing assembly reload** at `Library/GeurtsGameForgeBigBang/bigcrunch.json`, including the reviewed targets and truthful status. Release a held reload on success, failure, shutdown or timeout. No automatic rollback or recovery framework is introduced. Ordinary BigBang installation continues to preserve existing God; ordinary removal of BigBang alone retains God and project content. BigCrunch requires its own explicit whole-Forge confirmation and never inherits installation consent.
 
 ## Acceptance and delivery
 
