@@ -2,7 +2,7 @@
 # Geurts Folder Structure Technique
 
 **Unity Project Structure - AI-First Automation and Human Developer Reference**
-**Version:** 0.16.2
+**Version:** 0.16.3
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -95,19 +95,21 @@ The folder tool must report created, existing, skipped, invalid, and conflicted 
 
 The Unity project root itself must not be a junction, symbolic link, or other reparse point. Immediately before accepting an existing managed directory or creating a missing one, the tool must re-resolve containment below the validated project root and recheck the complete path chain for newly introduced reparse points; a failed recheck is a conflict and must not create a descendant outside the project.
 
+Before every **full-project-structure** setup run, including reruns, complete God's **Update Geurts Game Forge Commandments** with its per-invocation, cancel-default confirmation. This is required even when the local template is compatible. Wait for verified four-target success; a metadata check, package update or saved automatic consent is insufficient. Preserve local edits outside the managed targets before confirming their destructive replacement, following the [Commandments Companion Technique](GeurtsCommandmentsCompanionTechnique.md#5-explicit-in-editor-update). If Update is cancelled, fails or is unavailable offline, defer setup; local reading remains available. Folder setup is a separate explicit action and must never start an Update automatically.
+
 In a Unity project with a project-local fetched documentation copy, invoke the copied folder tool with the Unity root explicitly:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File "<ProjectRoot>/GeurtsGameForgeCommandments/Tools/CreateGeurtsFolderStructure.ps1" -ProjectRoot "<ProjectRoot>"
 ```
 
-From a documentation source checkout, the distinct maintainer invocation is:
+For isolated validation of a complete documentation source package, the distinct maintainer invocation is:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File ".\Tools\CreateGeurtsFolderStructure.ps1" -ProjectRoot "<ProjectRoot>"
 ```
 
-The tool prefers the project-local fetched definition when one exists. Update the complete managed documentation snapshot before using a newer tool; do not mix a newer script with an older definition. A maintainer testing a complete source package against an isolated project may deliberately pass `-DefinitionPath` for that source package. Without that override, the source-checkout path uses the script-adjacent definition only after checking for a project-local fetched definition. It never discovers an unselected `<ProjectRoot>/GeurtsTechniques/` definition implicitly; a deliberate alternative requires an explicit `-DefinitionPath`.
+For project setup, use the complete snapshot installed by the successful Update above; do not mix script and definition commits. The tool prefers the project-local fetched definition when one exists. A maintainer testing a complete source package against an isolated project may deliberately pass `-DefinitionPath` for that source package. Without that override, the source-checkout path uses the script-adjacent definition only after checking for a project-local fetched definition. It never discovers an unselected `<ProjectRoot>/GeurtsTechniques/` definition implicitly; a deliberate alternative requires an explicit `-DefinitionPath`.
 
 The retained compatibility launcher at `GeurtsGameForgeCommandments/Tools/CreateGeurtsFolderStructure.bat` likewise requires `-ProjectRoot <UnityProjectRoot>` as its first argument when a user deliberately invokes that manual operation. Documentation acquisition and replacement are outside the folder-definition contract, and optional manual native-entry setup is a separate AI Agent Setup responsibility. No copied tool may infer the Unity root from its documentation-container parent.
 
@@ -496,7 +498,7 @@ The template supplies stable ownership roots, not a fixed catalogue of every gam
 
 ### Start from the current template
 
-1. Update the complete managed documentation snapshot through the Commandments Companion's confirmed Update action. Do not hand-edit that snapshot or mix files from different package commits.
+1. Complete the separately confirmed God-owned Commandments Update required by [Automation](#automation) before each setup run. Use its complete snapshot; do not hand-edit it or mix files from different package commits.
 2. In Game Forge Angels, use **Create project folders** to create the selected full profile. For a separately chosen manual operation, use the copied PowerShell command above with the Unity project root explicitly supplied.
 3. Inspect the folders that already exist before placing content. Counts come from the selected definition, rather than historical package examples. The full profile creates 76 project paths; it does not create scene assets, assembly definitions, content, packages, or optional features.
 4. Re-running setup adds missing template directories. It preserves existing directories, assets, and `.meta` files, including old genre-specific paths no longer present in the fresh template.
