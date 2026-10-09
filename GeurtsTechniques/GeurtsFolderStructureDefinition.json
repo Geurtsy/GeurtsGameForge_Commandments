@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "definitionVersion": "0.13.0",
-  "packageVersion": "0.52.3",
+  "packageVersion": "0.53.0",
   "canonicalPath": "GeurtsTechniques/GeurtsFolderStructureDefinition.json",
   "pathBase": "<ProjectRoot>",
   "pathSeparator": "/",
