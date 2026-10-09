@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts BigBang Technique
 
-**Version:** 1.4.1
+**Version:** 1.5.0
 **Status:** Normative initial-installer boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
@@ -21,7 +21,7 @@ Acquire commercial libraries separately through their licensed distribution. The
 
 ## Steamworks.NET prerequisite policy
 
-Under the [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md), Steamworks.NET must pass local prerequisite checks before the initial **Install God** action. BigBang must compile and open with Steamworks.NET absent, without Steamworks assembly references, vendor API types, package dependencies or native-library loading. Check supported local provenance/resolution, participating managed APIs/compilation evidence and Windows x64 plugin settings. File/name/define presence and stale loaded assemblies cannot establish readiness.
+Under the [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md), the mandatory Steam API through Steamworks.NET must pass local prerequisite checks before **Install God** and **Open Game Forge God**, including existing-God handoff. BigBang must compile and open with Steamworks.NET absent, without Steamworks assembly references, vendor API types, package dependencies or native-library loading. Check supported local provenance/resolution, participating managed APIs/compilation evidence and Windows x64 plugin settings. File/name/define presence and stale loaded assemblies cannot establish readiness. Keep missing-prerequisite admission idle so explicit Steamworks.NET acquisition remains available.
 
 The local check must not initialize Steam, load native Steam libraries, request the network or require a client, login, AppID or account entitlement. Keep acquisition explicit, preserve licensed-library handling and report unknown/unreadable/incompatible evidence actionably. Recheck immediately before dispatch; wrapper/importer/input changes and compilation failure invalidate evidence under the existing session rules. Preserve separate Get Latest Git Source, the frozen God target, single dispatch, existing-God preservation and verified handoff. Never force reinstall or downgrade God to enforce a new prerequisite.
 
@@ -58,6 +58,8 @@ Reuse a compatible installed God only after verification. Display the newly reso
 Store only narrowly scoped schema/session/frozen-target/stage/result data and the private Git metadata cache under `<UnityProjectRoot>/Library/GeurtsGameForgeBigBang/`. No automatic rollback, purchased-import deletion, God removal or general recovery framework is permitted.
 
 ## Handoff and presentation
+
+Present six numbered steps in order: **1. Install required libraries; 2. Install required Steam API; 3. Verify all prerequisites; 4. Get latest God source; 5. Install and verify God; 6. Continue with God.** Give each step a **Red** border for action required, **Orange** for unchecked/waiting/checking, and **Green** only for that step's verified completion. Pair every border with a written status and next action visible even when collapsed. Unknown compilation and mere package presence never make verification or installation green. Derive the waiting border from the shared error/warning tokens; ordinary severity colors retain their Theme meanings. Keep source lookup separate and operation controls reachable outside collapsed steps. Report actual completed-step counts without inventing native-request progress.
 
 After verification, provide **Open Game Forge God**. Invoke the selected release's existing `Tools/Geurts Game Forge/Game Forge God` route through Unity's supported menu execution. Opening is explicit because God's normal layout and saved opening preferences may apply. Do not acquire a God compile dependency or modify God solely to add an opener. Keep a handoff error separate from installation success. Explain the next actions: open God's built-in Commandments view (God 0.29.0 or newer) and acquire content only through its separately confirmed action. Update older God installations through God first; update any old Companion to the current catalogue's passive adapter release (minimum 0.15.0). BigBang never installs the adapter or invokes content acquisition.
 

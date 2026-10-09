@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Unity Technical Topic
 
-**Version:** 0.2.0
+**Version:** 0.3.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsUnityTechnique.md`
@@ -36,6 +36,8 @@ Use the versioned [Unity 6.6 Editor command-line reference](https://docs.unity.c
 ## Unity 6000.6.3f1 Compatibility Baseline
 
 ### Editor and dependency selection
+
+**Steam API is required for Geurts Unity projects through Steamworks.NET**, alongside the licensed Odin Inspector and Quantum Console baseline. Select and verify the official wrapper, managed APIs and Windows x64 native-plugin files under the [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md). Missing or incompatible wrapper evidence blocks BigBang installation and handoff. This project prerequisite adds no wrapper compile reference to God or BigBang and requires no native initialization, Steam client, account or AppID for local verification. BigBang must remain usable to explain and explicitly acquire missing prerequisites.
 
 Target **Unity 6.6 (6000.6.3f1)** for all new and modified Geurts Unity code, Editor tooling, tests, automation and C# examples. This technique owns the compatibility baseline; entry files and native AI routes continue to defer to the manifest. The documentation package version is independent of the Unity Editor version.
 

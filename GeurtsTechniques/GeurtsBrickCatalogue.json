@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.53.0",
-  "publishedUtc": "2026-10-09T08:32:28Z",
+  "packageVersion": "0.54.0",
+  "publishedUtc": "2026-10-09T08:40:02Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
       "name": "Geurts Game Forge BigBang",
-      "description": "Independent Editor installer with passive local Steamworks.NET checks and explicit pinned acquisition/reconciliation before initial Install God. Public assembly APIs and an older-Editor native import compile guard fix compilation without expanding the supported installation baseline. Unity 6000.6.3f1: 120 tests pass in each of wrapper-absent and wrapper-installed fixtures; Unity 6000.3.24f1 compile/import-guard probe passes. No native Steam, client or AppID is required for local checks. Window source is unchanged; prior appearance evidence is historical. Consumers update manually.",
+      "description": "Independent Editor installer with six numbered steps and Red action-required, Orange waiting/checking and Green verified-complete borders plus text captions. Steamworks.NET is mandatory for Install God and existing-God handoff; missing Steam preserves God and leaves explicit acquisition available. Latest stable God source lookup remains separate. Unity 6000.6.3f1: 123 tests pass in each of wrapper-absent and wrapper-installed fixtures. Interactive visual and keyboard checks were skipped at the user request; native Steam, client, AppID and player behavior remain unverified. Consumers update manually.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
-      "version": "0.6.1",
+      "version": "0.7.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#dc615e9184e2326bd42b23fa767b94c91f024f10",
+      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#deb699603fd27adeee7bf34975bf72399948fa46",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [],
@@ -101,7 +101,7 @@
     {
       "id": "com.geurts.gameforge.angels",
       "name": "Geurts Game Forge Angels",
-      "description": "Optional Editor project tools with separate opt-in sorting and naming of future first-party imports. Codex visual naming reads reviewed local GameUse Commandments and the complete manifest-selected primary GDD for project rules and vocabulary; additional notes are optional. Exact shared paths, bounded context and document fingerprints guard enablement, requests and moves. Context drift pauses/discards without paid retries; supporting documents are not scanned. Images/materials only; semantic accuracy is not guaranteed. Requires Commandments 0.53.0 / Forge Setup 1.5.0 for Codex mode. Unity 6000.6.3f1: 281 passed, zero failed, two conditional skips; signed-in primary-vocabulary smoke, child cancellation/120-second timeout/cleanup, supported examples and twelve normal/narrow captures verified. Batch policy tests use injected review decisions; physical/modal input and alternate skin/DPI remain unverified. Consumer updates stay manual.",
+      "description": "Optional Editor project tools with separate opt-in sorting and naming of future first-party imports. Codex visual naming reads reviewed local GameUse Commandments and the complete manifest-selected primary GDD for project rules and vocabulary; additional notes are optional. Exact shared paths, bounded context and document fingerprints guard enablement, requests and moves. Context drift pauses/discards without paid retries; supporting documents are not scanned. Images/materials only; semantic accuracy is not guaranteed. Requires Commandments 0.54.0 / Forge Setup 1.5.0 for Codex mode. Unity 6000.6.3f1: 281 passed, zero failed, two conditional skips; signed-in primary-vocabulary smoke, child cancellation/120-second timeout/cleanup, supported examples and twelve normal/narrow captures verified. Batch policy tests use injected review decisions; physical/modal input and alternate skin/DPI remain unverified. Consumer updates stay manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
       "version": "0.6.0",
       "released": true,

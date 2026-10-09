@@ -1,5 +1,5 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.53.0
+# Integrated Forge setup — 0.54.0
 
 God provides supported owner operations and a read-only project report. Angels provides separate opt-in automatic sorting and naming of new first-party imports, optional Codex visual naming, and portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
@@ -91,7 +91,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.53.0
+**Version:** 0.54.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -311,9 +311,16 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 ## Changelog
 
-### 0.53.0
+### 0.54.0
 
 Angels Codex naming may use reviewed local Commandments and the manifest-selected primary game-design document. Bounded complete context, GameUse audiences, explicit shared-file review and document fingerprints preserve design ownership. Additional naming notes are optional; missing context and changed design facts pause without automatic resending. Other catalogue entries and manual consumer installation are preserved.
+
+### v0.53.0 - Required Steam API and clear BigBang steps
+
+- Make Steam API through Steamworks.NET mandatory for Geurts Unity project setup and BigBang installation and existing-God handoff. Preserve explicit acquisition, independent compilation and native-free local checks.
+- Define six numbered BigBang steps with Red action-required, Orange waiting/checking and Green verified-complete borders, written statuses and reachable operation controls.
+- Publish BigBang 0.7.0 with its verified source and 123 passing tests in each isolated fixture; interactive checks remain explicitly skipped at the user request.
+- Preserve existing packages, optional native service activation and manual consumer updates.
 
 ### 0.52.4
 
