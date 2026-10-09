@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.52.3",
-  "publishedUtc": "2026-10-09T06:23:17Z",
+  "packageVersion": "0.52.4",
+  "publishedUtc": "2026-10-09T08:06:04Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "God remains the only mandatory shared brick. Adds vendor-neutral platform status, lossless identity and overlay notification contracts without Steamworks.NET or native activation. Corrects shared Inspector foldout width and hierarchy-state restoration. Unity 6000.6.3f1 graphics-backed Editor: 385 passed, zero failed, 11 conditional fixture checks skipped. Isolated normal/narrow Steam component Help reviewed interactively. Alternate skin/DPI and physical-device acceptance remain unverified. Consumers update manually.",
+      "description": "God remains the only mandatory shared brick. Fixes Git update metadata failures in deeply nested Windows projects by enabling long paths for owned Git processes and lazy package manifest reads, preserving user Git settings and credentials. Neutral platform contracts and optional-brick boundaries are retained. Unity 6000.6.3f1: 386 unique passing Editor checks across a full suite and an 85-test focused rerun; 11 conditional fixture checks skipped. A full-run completion-log assertion passed on the focused rerun. Real filtered fetches and long-path manifest reads verified. No UI implementation change; physical input and alternate skin/DPI acceptance remain unverified. Consumers update manually.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.37.0",
+      "version": "0.37.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#4f82c1b082f7e5823902285cdf94a521b3661cb8",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#8ecbdfce9280b1c3d06f06b72b8e6c0668ff1b8a",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
