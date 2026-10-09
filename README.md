@@ -316,7 +316,17 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 Angels organization setup puts Codex, destinations and folder review first, with written green Complete/red Incomplete states and actual editable Odin boxes. Reviewed incoming moves and moved-folder descendants become eligible; Codex chooses all three name segments for all first-party non-code kinds including images/audio. Scripts/vendor/fixed contracts remain protected. Consumers adopt updates manually; the catalogue pin is updated only after the owning release is published.
 
 
-### v0.56.0 - Build Forge setup colours
+
+### v0.55.5 - Green Build Forge readiness
+
+- Publish God 0.37.4 correcting verified-ready borders, information boxes, result accents and legend to green, matching BigBang. Red action/failure and orange waiting/checking remain unchanged.
+- Nine focused Editor checks pass, with native normal/narrow and embedded green readiness images reviewed. Consumer adoption remains manual.
+
+### v0.55.4 - Remove repeated technical routing paragraph
+
+- Remove the identical routing paragraph from the Technical core and eight technical topics. Retain selection and reading authority in the mandatory Manifest, shared priorities in the core, and all topic requirements. Advance the nine technique patch versions and package metadata; preserve pins, contracts, examples, installer payloads and prior history. Consumer installation remains manual.
+
+### v0.55.3 - Build Forge setup colours
 
 - Publish God 0.37.3 with BigBang-style setup borders and boxed explanations: red for required action/failure, orange for waiting/checking/work, and yellow for verified readiness as requested.
 - Record 390 passing Editor tests, zero failures and 11 conditional skips, plus native normal/narrow, standalone/embedded and docked views. Physical input and alternate host-skin/high-DPI checks remain unverified; consumer adoption remains manual.

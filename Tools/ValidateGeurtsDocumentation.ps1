@@ -1135,7 +1135,7 @@ try {
         $topicPath = Join-Path $RepositoryRoot $topicRelative
         if (-not (Test-Path -LiteralPath $topicPath -PathType Leaf)) { $topicFailures.Add("Topic is missing: $topicRelative") | Out-Null; continue }
         $topicText = [IO.File]::ReadAllText($topicPath)
-        $topicVersion = if ($topic -ceq 'Unity') { '0.3.0' } else { '0.1.0' }
+        $topicVersion = if ($topic -ceq 'Unity') { '0.3.1' } else { '0.1.1' }
         if ($topicText -notmatch ('(?m)^\*\*Version:\*\* ' + [regex]::Escape($topicVersion) + '\r?$') -or $topicText -notmatch '(?m)^<!-- GEURTS-AUDIENCE: AI-READ -->\r?$') { $topicFailures.Add("Topic metadata is invalid: $topicRelative") | Out-Null }
         $topicTexts += $topicText
     }
@@ -1145,7 +1145,7 @@ try {
     foreach ($rule in @('Every first-party public C# class', '/// <summary>', 'partial class', 'Major Component Help', '^[a-z0-9]+(?:_[a-z0-9]+)*$', '[Tooltip]', 'Every publicly accessible method')) {
         if (-not $codeText.Contains($rule)) { $topicFailures.Add("Code topic omits required rule: $rule") | Out-Null }
     }
-    if ($technicalCoreText -notmatch '(?m)^\*\*Version:\*\* 0\.20\.1\r?$' -or $technicalCoreText.Length -gt 24000 -or
+    if ($technicalCoreText -notmatch '(?m)^\*\*Version:\*\* 0\.20\.2\r?$' -or $technicalCoreText.Length -gt 24000 -or
         -not $technicalCoreText.Contains('No-Code Module Use and Code Extensions') -or
         -not $technicalCoreText.Contains('every full absolute file and folder path below 260 characters') -or
         $technicalCoreText -match '(?m)^## (?:Game Audio and Sound Design|Command Rules|Multiplayer Efficiency Rule|Odin Inspector Usage)\r?$') {

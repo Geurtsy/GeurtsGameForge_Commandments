@@ -110,7 +110,7 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `AI_READ_FIRST.md` | 0.56.0 | Entry and session boundaries. |
 | `GeurtsTechniqueManifest.md` | 0.56.0 | Selection, versions, ownership and reading scope. |
 | `README.md` | 0.56.0 | Human overview and changelog; not mandatory reading. |
-| `GeurtsTechniques/GeurtsTechnicalTechnique.md` | 0.20.1 | Normative shared technical core and priorities. |
+| `GeurtsTechniques/GeurtsTechnicalTechnique.md` | 0.20.2 | Normative shared technical core and priorities. |
 | `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md` | 0.2.0 | Windows x64 Steam preparation, independent prerequisites, optional provider and separate native/release evidence. |
 | `GeurtsTechniques/GeurtsNamingTechnique.md` | 0.1.1 | Asset/object names, type registries, script exemptions and preservation. |
 | `GeurtsTechniques/GeurtsBrickContract.md` | 1.21.1 | Brick reuse, dependencies, lifecycle, settings and package operations. |
@@ -162,14 +162,14 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `Tools/Tests/TestDocumentationAudiences.ps1` | 1.1.4 | Audience, section selection, preview and boundary regressions. |
 | `Migrations/v0.40.0.md` | 0.40.0 | Historical transition; read only for a requested migration/review. |
 | `Migrations/v0.45.0.md` | 0.45.0 | Historical transition; read only for a requested migration/review. |
-| `GeurtsTechniques/GeurtsUnityTechnique.md` | 0.3.0 | Normative task-specific technical topic. |
-| `GeurtsTechniques/GeurtsCodeTechnique.md` | 0.1.0 | Normative task-specific technical topic. |
-| `GeurtsTechniques/GeurtsAuthoringTechnique.md` | 0.1.0 | Normative task-specific technical topic. |
-| `GeurtsTechniques/GeurtsBootstrapTechnique.md` | 0.1.0 | Normative task-specific technical topic. |
-| `GeurtsTechniques/GeurtsAudioTechnique.md` | 0.1.0 | Normative task-specific technical topic. |
-| `GeurtsTechniques/GeurtsGameAITechnique.md` | 0.1.0 | Normative task-specific technical topic. |
-| `GeurtsTechniques/GeurtsCommandsTechnique.md` | 0.1.0 | Normative task-specific technical topic. |
-| `GeurtsTechniques/GeurtsMultiplayerTechnique.md` | 0.1.0 | Normative task-specific technical topic. |
+| `GeurtsTechniques/GeurtsUnityTechnique.md` | 0.3.1 | Normative task-specific technical topic. |
+| `GeurtsTechniques/GeurtsCodeTechnique.md` | 0.1.1 | Normative task-specific technical topic. |
+| `GeurtsTechniques/GeurtsAuthoringTechnique.md` | 0.1.1 | Normative task-specific technical topic. |
+| `GeurtsTechniques/GeurtsBootstrapTechnique.md` | 0.1.1 | Normative task-specific technical topic. |
+| `GeurtsTechniques/GeurtsAudioTechnique.md` | 0.1.1 | Normative task-specific technical topic. |
+| `GeurtsTechniques/GeurtsGameAITechnique.md` | 0.1.1 | Normative task-specific technical topic. |
+| `GeurtsTechniques/GeurtsCommandsTechnique.md` | 0.1.1 | Normative task-specific technical topic. |
+| `GeurtsTechniques/GeurtsMultiplayerTechnique.md` | 0.1.1 | Normative task-specific technical topic. |
 | `Migrations/v0.46.0.md` | 0.46.0 | Historical transition; read only for a requested migration/review. |
 | `Migrations/v0.47.0.md` | 0.47.0 | AI usability transition; full-copy manual update and explicit owner installation. |
 | `History/BigBang.md` | 0.1.0 | Optional historical release and incident evidence; never current installer requirements. |

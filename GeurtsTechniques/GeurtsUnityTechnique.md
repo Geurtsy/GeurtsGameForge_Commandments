@@ -1,12 +1,10 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Unity Technical Topic
 
-**Version:** 0.3.0
+**Version:** 0.3.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsUnityTechnique.md`
-
-`GeurtsTechniqueManifest.md` alone selects this technical topic, its version and reading scope. The Technical Technique retains the shared priorities.
 
 ### Combined Unity CLI and Editor workflow
 
