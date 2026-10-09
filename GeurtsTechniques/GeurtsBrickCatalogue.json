@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.53.1",
-  "publishedUtc": "2026-10-09T08:13:51Z",
+  "packageVersion": "0.53.2",
+  "publishedUtc": "2026-10-09T08:48:18Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "God remains the only mandatory shared brick. Fixes Git update metadata failures in deeply nested Windows projects by enabling long paths for owned Git processes and lazy package manifest reads, preserving user Git settings and credentials. Neutral platform contracts and optional-brick boundaries are retained. Unity 6000.6.3f1: 386 unique passing Editor checks across a full suite and an 85-test focused rerun; 11 conditional fixture checks skipped. A full-run completion-log assertion passed on the focused rerun. Real filtered fetches and long-path manifest reads verified. No UI implementation change; physical input and alternate skin/DPI acceptance remain unverified.",
+      "description": "God remains the only mandatory shared brick. Git metadata uses a short project/repository-scoped temporary cache and checks the 259-character absolute path budget before cache creation and each command, including pack/index names and Credential Manager startup output. Oversized locations are blocked; existing project content and global Git settings are preserved. Unity 6000.6.3f1: 389 unique passing Editor checks across the full suite and an 88-test focused rerun; 11 conditional checks skipped. Two existing full-run completion-log assertions passed on rerun. Real filtered HTTPS fetch and lazy manifest read passed with long-path support disabled; longest generated path was 224 characters. No UI implementation change; physical input and alternate skin/DPI acceptance remain unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.37.1",
+      "version": "0.37.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#8ecbdfce9280b1c3d06f06b72b8e6c0668ff1b8a",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#39927ab87b81a1f21f7272cf863bb21bc211185d",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
