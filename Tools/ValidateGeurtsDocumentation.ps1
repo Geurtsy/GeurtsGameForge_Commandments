@@ -1101,8 +1101,8 @@ try {
     $folderManagerText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "Tools/ManageGeurtsAgentInstructions.ps1"))
     $folderTechniqueVersion = Get-DeclaredVersion -Path (Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsFolderStructureTechnique.md")
     $folderDefinitionVersion = if ($definition) { [string]$definition.definitionVersion } else { $null }
-    $folderVersionParityValid = $folderTechniqueVersion -ceq "0.16.4" -and $folderDefinitionVersion -ceq "0.13.0" -and $folderToolText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $folderToolText.Contains('Folder definition version must be 0.13.0') -and $folderManagerText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $folderManagerText.Contains('Managed setup requires folder definition v0.13.0')
-    if (-not $folderVersionParityValid) { $folderFailures.Add("folder technique v0.16.4, JSON definition v0.13.0 and consuming tools do not agree") | Out-Null }
+    $folderVersionParityValid = $folderTechniqueVersion -ceq "0.16.5" -and $folderDefinitionVersion -ceq "0.13.0" -and $folderToolText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $folderToolText.Contains('Folder definition version must be 0.13.0') -and $folderManagerText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $folderManagerText.Contains('Managed setup requires folder definition v0.13.0')
+    if (-not $folderVersionParityValid) { $folderFailures.Add("folder technique v0.16.5, JSON definition v0.13.0 and consuming tools do not agree") | Out-Null }
     if ($folderToolText.Contains('(Join-Path $ProjectRoot "GeurtsTechniques/GeurtsFolderStructureDefinition.json")')) { $folderFailures.Add("folder tool still discovers an unselected raw project-root definition") | Out-Null }
     $folderDirectoryBarrier = $folderToolText.IndexOf('Invoke-TestDirectoryBarrier -TargetPath $folder.TargetPath', [System.StringComparison]::Ordinal)
     $folderFinalContainment = if ($folderDirectoryBarrier -ge 0) { $folderToolText.IndexOf('Test-IsContainedPath -Candidate $finalTargetPath', $folderDirectoryBarrier, [System.StringComparison]::Ordinal) } else { -1 }
@@ -1116,8 +1116,8 @@ try {
     if (-not $folderOwnerSafetyValid) { $folderFailures.Add("Folder Technique does not own the root and final directory reparse boundary") | Out-Null }
     Add-Check "Folder definition contract" ($folderFailures.Count -eq 0) $(if ($folderFailures.Count) { $folderFailures -join "; " } else { "Definition versions, 78 entries, owner-bound profiles, package-only resolution, and exact Markdown parity are valid; root and per-directory final reparse guards prevent creation outside the project." })
 
-    $folderVersionGuard = "(?im)^\*\*Version:\*\*\s*0\.16\.4\s*$"
-    Add-Check 'Folder technique reader version parity' ($folderToolText.Contains($folderVersionGuard) -and $folderTechniqueTextForPathTerms -match $folderVersionGuard) 'The folder creator accepts the registered Folder Technique 0.16.4; unsupported explanatory authority versions remain blocked.'
+    $folderVersionGuard = "(?im)^\*\*Version:\*\*\s*0\.16\.5\s*$"
+    Add-Check 'Folder technique reader version parity' ($folderToolText.Contains($folderVersionGuard) -and $folderTechniqueTextForPathTerms -match $folderVersionGuard) 'The folder creator accepts the registered Folder Technique 0.16.5; unsupported explanatory authority versions remain blocked.'
 
     $chatSubjectRow = [regex]::Match($manifestText, '(?m)^\| Chat-only response style and scope \| `(?<Path>[^`]+)` \| (?<Applicability>[^|]+) \|\r?$')
     $chatRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsAIResponseControlTechnique_V1\.1\.md` \| 1\.1 \| (?<Role>[^|]+) \|\r?$')
@@ -1674,7 +1674,7 @@ try {
     Add-Check "Frozen GFI v2 discarded lifecycle exclusion" $discardedLifecycleValid $(if ($missingDiscardedTerms.Count) { "Missing explicit lifecycle exclusions: " + ($missingDiscardedTerms -join ", ") } elseif ($presentObsoleteAffirmative.Count) { "Obsolete affirmative lifecycle language reintroduced: " + ($presentObsoleteAffirmative -join ", ") } else { "The frozen v2 contract forbids its older automatic transaction/recovery system and leaves legacy Library evidence untouched and non-blocking." })
 
     $draftStatusValid = @(
-        @{ Path = "GeurtsTechniques/GeurtsFolderStructureTechnique.md"; Registry = '(?m)^\| `GeurtsTechniques/GeurtsFolderStructureTechnique\.md` \| 0\.16\.4 \| Normative ' },
+        @{ Path = "GeurtsTechniques/GeurtsFolderStructureTechnique.md"; Registry = '(?m)^\| `GeurtsTechniques/GeurtsFolderStructureTechnique\.md` \| 0\.16\.5 \| Normative ' },
         @{ Path = "GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md"; Registry = '(?m)^\| `GeurtsTechniques/GeurtsGameDesignDocumentationTechnique\.md` \| 0\.16\.1 \| Normative ' },
         @{ Path = "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md"; Registry = '(?m)^\| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| 3\.2\.2 \| Normative ' }
     ) | ForEach-Object { ([System.IO.File]::ReadAllText((Join-Path $RepositoryRoot $_.Path)) -match '(?im)^\*\*Status:\*\* Draft normative technique\s*$') -and ($manifestText -match $_.Registry) } | Where-Object { -not $_ } | Measure-Object | Select-Object -ExpandProperty Count

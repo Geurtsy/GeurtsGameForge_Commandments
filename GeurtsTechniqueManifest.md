@@ -122,7 +122,7 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `GeurtsTechniques/GeurtsDiagnosticsTechnique.md` | 0.4.1 | Optional capture, commands, history, health, sessions and metrics. |
 | `GeurtsTechniques/GeurtsBrickCatalogue.json` | 0.56.0 | Current published packages and immutable Git targets. |
 | `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md` | 0.11.0 | Project operations, validation, delivery and computer-control boundaries. |
-| `GeurtsTechniques/GeurtsFolderStructureTechnique.md` | 0.16.4 | Normative folder meanings, placement, reuse and safe extension. |
+| `GeurtsTechniques/GeurtsFolderStructureTechnique.md` | 0.16.5 | Normative folder meanings, placement, reuse and safe extension. |
 | `GeurtsTechniques/GeurtsFolderStructureDefinition.json` | 0.56.0 | Exact folder registry and creation profiles. |
 | `GeurtsTechniques/GeurtsAIAgentSetupTechnique.md` | 3.1.2 | Exact routes, consent boundaries and separately invoked manual manager. |
 | `GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md` | 0.16.1 | Normative primary game context, discovery and preserved imports. |

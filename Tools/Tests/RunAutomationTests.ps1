@@ -1480,7 +1480,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
 
     # Each fixture reintroduces a different audited cross-document contradiction.
     $consistencyCases = @(
-        @{ Name = 'folder-reader-version'; Path = 'Tools/CreateGeurtsFolderStructure.ps1'; Old = '0\.16\.4'; New = '0\.16\.0'; Check = 'Folder technique reader version parity' },
+        @{ Name = 'folder-reader-version'; Path = 'Tools/CreateGeurtsFolderStructure.ps1'; Old = '0\.16\.5'; New = '0\.16\.0'; Check = 'Folder technique reader version parity' },
         @{ Name = 'logging-fallback'; Path = 'GeurtsTechniques/GeurtsDiagnosticsTechnique.md'; Old = '## Shared logging contract'; New = "## Logging Standards`r`n`r`nThe facade must fall back to Unity logging." },
         @{ Name = 'menu-network'; Path = 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md'; Old = 'Opening the Commandments menu or embedded view stays offline'; New = 'A deliberate Commandments Companion menu opening may request remote metadata' },
         @{ Name = 'tool-owner'; Path = 'README.md'; Old = 'Angels owns **Install Codex guide**'; New = 'God owns the separate **Install Codex guide**' },

@@ -318,6 +318,11 @@ Angels organization setup puts Codex, destinations and folder review first, with
 
 
 
+
+### v0.55.7 - Consolidate folder design goals
+
+- Combine the overlapping Purpose benefits and Design Goals into one concise list, preserving AI readability, automation, team consistency, asset discovery, safe refactoring, content separation, and game-neutral template guidance. Advance Folder Structure to 0.16.5 and align reader guards; literal paths, profiles, definition version, consent rules, package pins, and previous history remain unchanged. Consumer installation remains manual.
+
 ### v0.55.6 - Compact documentation owner links
 
 - Replace the repeated ownership explanation in AI Agent Setup and Game Design Documentation with brief links to the lifecycle and dependency owners. Preserve local Markdown readability without God, project-access boundaries, game-design authority, exact update consent and all remaining rules. Advance the two technique patch versions and package metadata; package pins, contracts, installer payloads and previous history remain unchanged. Consumer installation remains manual.

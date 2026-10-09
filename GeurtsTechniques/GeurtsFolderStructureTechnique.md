@@ -2,7 +2,7 @@
 # Geurts Folder Structure Technique
 
 **Unity Project Structure - AI-First Automation and Human Developer Reference**
-**Version:** 0.16.4
+**Version:** 0.16.5
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -16,15 +16,6 @@
 
 This document defines a stable, scalable Unity project structure for Geurts Game Forge. Its language is intentionally literal and deterministic so automated systems can make consistent placement decisions without sacrificing human readability.
 
-The structure is optimised for:
-
-- AI readability.
-- Automation.
-- Long-term team consistency.
-- Fast asset discovery.
-- Safe refactoring.
-- Clear separation between first-party, third-party, generated, and external content.
-
 This Markdown document is the **explanatory authority** for folder meaning, placement, and constraints. `GeurtsTechniques/GeurtsFolderStructureDefinition.json` is the **automation authority** for the literal managed-folder registry and folder creation. Neither authority may contradict the other.
 
 The manifest resolves cross-document selection, applicability, and conflicts. This document and the JSON definition do not establish an alternate document order.
@@ -35,11 +26,10 @@ If the Markdown and JSON disagree, validation must fail. An agent or tool must n
 
 ## Design Goals
 
-- Minimise ambiguity.
-- Keep each folder's purpose singular and obvious.
-- Separate source, generated, and external content.
-- Support solo development and team scaling.
-- Make assets easy to locate, validate, and refactor.
+- Minimise ambiguity with one clear purpose per folder, readable by humans, AI, and automation.
+- Separate first-party, third-party, generated, and external content.
+- Support solo development, team scaling, and long-term consistency.
+- Make assets easy to locate, validate, and safely refactor.
 - Use the same ownership and asset-type roots for every game, without assuming combat, inventory, characters, or progression.
 - Add game-domain children only when real content needs them; an empty template is not a list of features to implement.
 
