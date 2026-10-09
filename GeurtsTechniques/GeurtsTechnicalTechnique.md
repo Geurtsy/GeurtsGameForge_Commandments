@@ -1,12 +1,10 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Version:** 0.20.1
+**Version:** 0.20.2
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
-
-`GeurtsTechniqueManifest.md` alone selects this technical topic, its version and reading scope. The Technical Technique retains the shared priorities.
 
 This is the short mandatory technical core for first-party game code, bricks, Editor tools, tests and automation. Read additional technical topics only when the manifest selects them. Use the current published packages in the catalogue; an installed older version is a compatibility fact, not the target for new guidance. Changelogs and historical release summaries are never routine mandatory reading. A requested migration or historical review selects its own history explicitly. No reading rule authorizes package installation or live-project changes.
 
