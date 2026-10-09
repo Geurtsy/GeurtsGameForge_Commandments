@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "packageVersion": "0.56.0",
-  "publishedUtc": "2026-10-09T11:24:29Z",
+  "publishedUtc": "2026-10-09T12:34:57Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -101,13 +101,13 @@
     {
       "id": "com.geurts.gameforge.angels",
       "name": "Geurts Game Forge Angels",
-      "description": "Optional Editor project tools with separate opt-in sorting and naming of future first-party imports. Codex visual naming reads reviewed local GameUse Commandments and the complete manifest-selected primary GDD for project rules and vocabulary; additional notes are optional. Exact shared paths, bounded context and document fingerprints guard enablement, requests and moves. Context drift pauses/discards without paid retries; supporting documents are not scanned. Images/materials only; semantic accuracy is not guaranteed. Requires Commandments 0.54.0 / Forge Setup 1.5.0 for Codex mode. Unity 6000.6.3f1: 281 passed, zero failed, two conditional skips; signed-in primary-vocabulary smoke, child cancellation/120-second timeout/cleanup, supported examples and twelve normal/narrow captures verified. Batch policy tests use injected review decisions; physical/modal input and alternate skin/DPI remain unverified.",
+      "description": "Optional Editor project tools with reviewed opt-in organization of new first-party imports and incoming asset/folder moves. Codex chooses Type, Category and Description for all eligible non-code assets, including images and audio, using bounded reviewed local GameUse Commandments and the complete registered primary GDD. Scripts, vendor-origin content and fixed identities remain protected. Setup presents Codex/context, destinations, then source/review with actual editable Odin boxes, written green Complete/red Incomplete states and one combined enable action. Requires Commandments 0.56.0 / Forge Setup 1.6.0 for Codex mode. Unity 6000.6.3f1: 215 passed, zero failed, two conditional skips; real primary-vocabulary visual smoke, controlled cancellation/120-second timeout, vendor incoming-folder/reimport preservation, scene/data/prefab references, examples and twelve normal/narrow captures verified. Audio uses filenames/clip metadata and is not listened to or transcribed. Uncertain suggestions and collisions skip visibly; semantic accuracy, physical/modal input and alternate skin/DPI remain unverified. Consumer updates stay manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
-      "version": "0.6.0",
+      "version": "0.7.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#e2204d5fd2f515744cd50e1ca7cf56c3ced679bb",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#81e7e0e1cecd908dc940fc67d3fd490ec87013af",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
