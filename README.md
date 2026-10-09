@@ -315,6 +315,11 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 Angels Codex naming may use reviewed local Commandments and the manifest-selected primary game-design document. Bounded complete context, GameUse audiences, explicit shared-file review and document fingerprints preserve design ownership. Additional naming notes are optional; missing context and changed design facts pause without automatic resending. Other catalogue entries and manual consumer installation are preserved.
 
+### v0.53.1 - Bounded God Git metadata cache
+
+- Publish God 0.37.2 with a short cache and preflight checks for the 259-character absolute path limit, including Git and Credential Manager generated filenames. Existing projects are preserved and installation remains manual.
+- Record 389 unique passing Unity Editor checks with 11 conditional skips; two full-run completion-log assertions passed in the focused rerun. Real HTTPS metadata reads work with long-path support disabled.
+
 ### v0.53.0 - Required Steam API and clear BigBang steps
 
 - Make Steam API through Steamworks.NET mandatory for Geurts Unity project setup and BigBang installation and existing-God handoff. Preserve explicit acquisition, independent compilation and native-free local checks.
