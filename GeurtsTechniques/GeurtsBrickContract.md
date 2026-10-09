@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.19.0
+**Version:** 1.19.1
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -63,6 +63,8 @@ Use God's per-brick JSON settings store. Editor data lives at `ProjectSettings/G
 God's package management and Odin dashboard belong in Editor-only assemblies. Runtime contracts, lifecycle and settings cannot reference UnityEditor. God owns shared logging contracts; optional Diagnostics owns capture and all console installation, presentation and input-focus behavior. The [Diagnostics Technique](GeurtsDiagnosticsTechnique.md) owns capture-only logging and independently visible failure reporting. Runtime console installation is optional throughout development and for completed games. Diagnostics explicitly implants its commercial-prefab console into SCN_BigBang; the retained God bridge is passive serialized compatibility. Bootstrap does not require Diagnostics or console resources. Developer and Player presentation remain available in release builds under the detailed Diagnostics command policy, with testing override restricted to Editor/designated internal builds and host/server authority preserved.
 
 ## Catalogue schema 1
+
+Keep descriptions focused on current capabilities, package-specific limits and release-specific results; do not repeat shared verification or delivery rules. Detailed evidence belongs in the pinned owner's `ForgeCapabilities.json` and current validation files. Follow the [Technical verification rules](GeurtsTechnicalTechnique.md#verification-and-completion) for evidence limits and the [Automation delivery policy](GeurtsGameForgeAutomationTechnique.md#remote-publication-and-consumer-installation) for manual consumer installation.
 
 <!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->
 The JSON contains data only: `schemaVersion`, `packageVersion`, optional `publishedUtc`, and `bricks`. Each entry has `id`, `name`, `description`, HTTPS `website`, `version`, `released`, `developmentOnly`, `sourceKind`, `source`, `minimumUnity`, `maximumUnity`, `requiredTools`, and `dependencies` (`id`, `minimumVersion`). Unity bounds are major/minor versions and describe the declared verified range.

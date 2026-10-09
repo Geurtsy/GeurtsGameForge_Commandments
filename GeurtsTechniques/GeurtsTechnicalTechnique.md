@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Version:** 0.19.0
+**Version:** 0.19.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
@@ -91,8 +91,6 @@ For an intended path at or above 260 characters, report the **exact full path an
 <!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->
 ## Reusable Framework Compliance Header
 
-GitHub Copilot, Codex, ChatGPT, and any other AI coding assistant must follow the manifest-selected Geurts techniques.
-
 Insert the following comment only when the AI creates or materially edits a reusable cross-game Geurts Game Forge framework, library, or tooling component intended to be shared across games:
 
 ```csharp
@@ -102,9 +100,6 @@ Insert the following comment only when the AI creates or materially edits a reus
 Geurts Game Forge Bricks is a positive example of shared framework code. An ordinary game-specific implementation is excluded even when AI-generated; for example, a project-specific 2D map generator does not receive this header merely because an AI created it. AI authorship alone is insufficient. If intended ownership or reuse is unclear, ask before adding the header.
 
 Never modify third-party packages, vendored code, generated code, read-only files, or a format/tooling surface that forbids the header merely to add compliance text.
-
-
-All code suggestions, refactoring, and automated completions must comply with the requirements for modularity, readability, efficiency, documentation, AI integration, runtime debugging, project structure, and game design awareness described in the Geurts technique documents.
 
 <!-- GEURTS-SECTION:END -->
 
@@ -116,7 +111,7 @@ Design every new or materially changed first-party component so humans and Codex
 
 Implement the complete authorized outcome, including affected registration, references, tests and documentation. Verify normal/failure paths, repeatability, cleanup, compatibility and relevant performance. Report actual evidence and unavailable checks honestly; compilation alone does not establish rendered UI, physical input or Windows-player acceptance. Follow the Automation owner for questions, delivery and computer-control boundaries.
 
-All code suggestions, refactoring and completions follow this core plus the manifest-selected topics. For changed C# scripts, apply the Code topic's naming, tooltips, public-class and public-method XML descriptions and Major Component Help. For Unity changes, apply the Unity topic's exact compile/test/build requirements. Validate no-code and supported API use where applicable; avoid unnecessary per-frame allocations and unjustified expensive `Update()` logic. Read Bootstrap, Authoring, Audio, Commands, Diagnostics, multiplayer and project-design guidance only for affected work, as selected by the manifest.
+For changed C# scripts, apply the Code topic's naming, tooltips, public-class and public-method XML descriptions and Major Component Help. For Unity changes, apply the Unity topic's exact compile/test/build requirements. Validate no-code and supported API use where applicable; avoid unnecessary per-frame allocations and unjustified expensive `Update()` logic. Read Bootstrap, Authoring, Audio, Commands, Diagnostics, multiplayer and project-design guidance only for affected work, as selected by the manifest.
 
 ## Performance Trade-Off Guidance Under Efficiency
 

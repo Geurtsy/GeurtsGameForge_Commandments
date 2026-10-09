@@ -1,4 +1,4 @@
-# Version: 1.1.3
+# Version: 1.1.4
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
@@ -94,7 +94,7 @@ Shared ending.
         Assert-Audience ($steam.SkippedLines -eq 0 -and $steam.Content.Contains('## BigBang admission and compile independence') -and $steam.Content.Contains('## Evidence and acceptance') -and $steam.Content.Contains('Native Steam integration and overlay remain unverified')) "Steam prerequisite and acceptance boundaries stay visible in $mode"
     }
     $technicalForge = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsTechnicalTechnique.md' -Mode ForgeDevelopment
-    Assert-Audience (-not $technical.Content.Contains('## Reusable Framework Compliance Header') -and $technicalForge.Content.Contains('## Reusable Framework Compliance Header') -and $technical.Content.Contains('## Technical Priority Order') -and $technical.Content.Contains('All code suggestions,')) 'Framework header is conditional; shared technical priorities and obligations survive'
+    Assert-Audience (-not $technical.Content.Contains('## Reusable Framework Compliance Header') -and $technicalForge.Content.Contains('## Reusable Framework Compliance Header') -and $technical.Content.Contains('## Technical Priority Order') -and $technical.Content.Contains('all first-party code Codex creates or materially updates') -and $technical.Content.Contains('ordinary project-specific/game code')) 'Framework header is conditional; shared technical priorities and obligations survive'
     $brick = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsBrickContract.md'
     Assert-Audience ($brick.Content.Contains('## Use existing bricks') -and $brick.Content.Contains('Odin Inspector and Quantum Console') -and $brick.Content.Contains('Only after remote verification') -and $brick.Content.Contains('Never overwrite a brick source folder or offer a downgrade') -and $brick.Content.Contains('Install is explicit.') -and $brick.Content.Contains('Only `released: true` entries') -and -not $brick.Content.Contains('Implement `IBrick`')) 'Game consumers retain reuse, tools, release sources, Git delivery and downgrade guidance'
     $readmeGame = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'README.md'

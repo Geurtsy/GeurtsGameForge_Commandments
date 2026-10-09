@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.52.3",
+  "packageVersion": "0.52.4",
   "publishedUtc": "2026-10-09T06:23:17Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
       "name": "Geurts Game Forge BigBang",
-      "description": "Independent Editor installer with passive local Steamworks.NET checks and explicit pinned acquisition/reconciliation before initial Install God. Public assembly APIs and an older-Editor native import compile guard fix compilation without expanding the supported installation baseline. Unity 6000.6.3f1: 120 tests pass in each of wrapper-absent and wrapper-installed fixtures; Unity 6000.3.24f1 compile/import-guard probe passes. No native Steam, client or AppID is required for local checks. Window source is unchanged; prior appearance evidence is historical. Consumers update manually.",
+      "description": "Independent Editor installer with passive local Steamworks.NET checks and explicit pinned acquisition/reconciliation before initial Install God. Public assembly APIs and an older-Editor native import compile guard fix compilation without expanding the supported installation baseline. Unity 6000.6.3f1: 120 tests pass in each of wrapper-absent and wrapper-installed fixtures; Unity 6000.3.24f1 compile/import-guard probe passes. No native Steam, client or AppID is required for local checks. Window source is unchanged; prior appearance evidence is historical.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
       "version": "0.6.1",
       "released": true,
@@ -21,7 +21,7 @@
     {
       "id": "com.geurts.gameforge.documentation",
       "name": "Geurts Game Forge Commandments Compatibility",
-      "description": "Passive Editor compatibility adapter with preserved package, assembly and API identities. No God dependency, automation provider or independent updater was added. Adds per-release capabilities, documentation gating and compile-checked examples; God/vendor-absent checks pass. Unity 6000.6.3f1 Editor: 4 passed, zero failed, 0 conditional checks skipped. Supported examples and source fingerprints are verified. Physical/device/player acceptance remains outside this release's evidence. Consumers update manually.",
+      "description": "Passive Editor compatibility adapter with preserved package, assembly and API identities. No God dependency, automation provider or independent updater was added. Adds per-release capabilities, documentation gating and compile-checked examples; God/vendor-absent checks pass. Unity 6000.6.3f1 Editor: 4 passed, zero failed, 0 conditional checks skipped.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.commandments",
       "version": "0.15.2",
       "released": true,
@@ -37,7 +37,7 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "God remains the only mandatory shared brick. Adds vendor-neutral platform status, lossless identity and overlay notification contracts without Steamworks.NET or native activation. Corrects shared Inspector foldout width and hierarchy-state restoration. Unity 6000.6.3f1 graphics-backed Editor: 385 passed, zero failed, 11 conditional fixture checks skipped. Isolated normal/narrow Steam component Help reviewed interactively. Alternate skin/DPI and physical-device acceptance remain unverified. Consumers update manually.",
+      "description": "God remains the only mandatory shared brick. Adds vendor-neutral platform status, lossless identity and overlay notification contracts without Steamworks.NET or native activation. Corrects shared Inspector foldout width and hierarchy-state restoration. Unity 6000.6.3f1 graphics-backed Editor: 385 passed, zero failed, 11 conditional fixture checks skipped. Isolated normal/narrow Steam component Help reviewed interactively. Alternate skin/DPI and physical-device acceptance remain unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
       "version": "0.37.0",
       "released": true,
@@ -55,7 +55,7 @@
     {
       "id": "com.geurts.gameforge.steam",
       "name": "Geurts Game Forge Steam",
-      "description": "Optional Windows x64 Mono preparation with passive inspection, reviewed defaults, shared findings, build checks and default-off local native activation. Requires God 0.37.0; other Forge peers remain optional. Exact Steamworks.NET 2025.164.1 profile is provisioned explicitly in the project. Unity 6000.6.3f1: 25 Editor and 4 injected Play Mode checks passed, zero failed or skipped. Actual standalone/embedded normal/narrow UI, Help, blocked Save and Undo reviewed. Current wrapper-present/absent Windows players run unconfigured without native loading; all six selected bricks run. Real native Steam integration, overlay, alternate skin/DPI and physical-device acceptance remain unverified. Customer distribution and Steam Deck remain deferred. Consumers update manually.",
+      "description": "Optional Windows x64 Mono preparation with passive inspection, reviewed defaults, shared findings, build checks and default-off local native activation. Requires God 0.37.0; other Forge peers remain optional. Exact Steamworks.NET 2025.164.1 profile is provisioned explicitly in the project. Unity 6000.6.3f1: 25 Editor and 4 injected Play Mode checks passed, zero failed or skipped. Actual standalone/embedded normal/narrow UI, Help, blocked Save and Undo reviewed. Current wrapper-present/absent Windows players run unconfigured without native loading; all six selected bricks run. Real native Steam integration, overlay, alternate skin/DPI and physical-device acceptance remain unverified. Customer distribution and Steam Deck remain deferred.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.steam",
       "version": "0.1.0",
       "released": true,
@@ -78,7 +78,7 @@
     {
       "id": "com.geurts.gameforge.diagnostics",
       "name": "Geurts Game Forge Diagnostics",
-      "description": "Diagnostics retains console and capture ownership and adds supported source inspection plus structured reviewed asynchronous saved-bootstrap console installation. Inspection reads authored references and available preferences; it does not run deep health/performance checks. Requires God 0.35.0. Unity 6000.6.3f1 Editor: 79 passed, zero failed, 0 conditional checks skipped. Supported examples and source fingerprints are verified. Physical/device/player acceptance remains outside this release's evidence. Consumers update manually.",
+      "description": "Diagnostics retains console and capture ownership and adds supported source inspection plus structured reviewed asynchronous saved-bootstrap console installation. Inspection reads authored references and available preferences; it does not run deep health/performance checks. Requires God 0.35.0. Unity 6000.6.3f1 Editor: 79 passed, zero failed, 0 conditional checks skipped.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics",
       "version": "0.11.0",
       "released": true,
@@ -101,7 +101,7 @@
     {
       "id": "com.geurts.gameforge.angels",
       "name": "Geurts Game Forge Angels",
-      "description": "Optional Editor project tools with separate opt-in sorting and naming of future first-party imports. Adds optional signed-in Codex visual descriptions with explicit data/usage review and automatic application of concrete suggestions. Fixed type/category, bounded previews, uncertainty/collision skips, source/context guards, no paid retries or bulk migration. Images/materials only; model accuracy is not guaranteed. Requires Commandments 0.50.0 / Forge Setup 1.3.0 for Codex mode. Unity 6000.6.3f1: 267 passed, zero failed, 2 conditional checks skipped; real visual connection, actual child cancellation/120-second timeout/cleanup, supported examples and normal/narrow rendered controls verified. Physical input and alternate skin/DPI remain unverified. Consumer updates stay manual.",
+      "description": "Optional Editor project tools with separate opt-in sorting and naming of future first-party imports. Adds optional signed-in Codex visual descriptions with explicit data/usage review and automatic application of concrete suggestions. Fixed type/category, bounded previews, uncertainty/collision skips, source/context guards, no paid retries or bulk migration. Images/materials only; model accuracy is not guaranteed. Requires Commandments 0.50.0 / Forge Setup 1.3.0 for Codex mode. Unity 6000.6.3f1: 267 passed, zero failed, 2 conditional checks skipped; real visual connection, actual child cancellation/120-second timeout/cleanup, supported examples and normal/narrow rendered controls verified. Physical input and alternate skin/DPI remain unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
       "version": "0.5.0",
       "released": true,
@@ -123,7 +123,7 @@
     {
       "id": "com.geurts.gameforge.settings",
       "name": "Geurts Game Forge Settings System",
-      "description": "Settings retains drafts, shared authoring and optional UI integration. Adds supported metadata inspection and setup commits using explicit owner-generated reviews with stale-fingerprint validation. Source inspection does not invoke getters, factories or storage. Requires God 0.35.0. Unity 6000.6.3f1 Editor: 116 passed, zero failed, 0 conditional checks skipped. Supported examples and source fingerprints are verified. Physical/device/player acceptance remains outside this release's evidence. Consumers update manually.",
+      "description": "Settings retains drafts, shared authoring and optional UI integration. Adds supported metadata inspection and setup commits using explicit owner-generated reviews with stale-fingerprint validation. Source inspection does not invoke getters, factories or storage. Requires God 0.35.0. Unity 6000.6.3f1 Editor: 116 passed, zero failed, 0 conditional checks skipped.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.settings",
       "version": "0.7.0",
       "released": true,
@@ -146,7 +146,7 @@
     {
       "id": "com.geurts.gameforge.sceneloading",
       "name": "Geurts Game Forge Scene Loading and Bootstrap",
-      "description": "Scene Loading retains bootstrap-owned transitions and optional cooperation. Adds supported source inspection and validated settings persistence shared by the window and operation API. Saved settings retain the next-Play boundary. Requires God 0.35.0. Unity 6000.6.3f1 Editor: 135 passed, zero failed, 1 conditional checks skipped. Supported examples and source fingerprints are verified. Physical/device/player acceptance remains outside this release's evidence. Consumers update manually.",
+      "description": "Scene Loading retains bootstrap-owned transitions and optional cooperation. Adds supported source inspection and validated settings persistence shared by the window and operation API. Saved settings retain the next-Play boundary. Requires God 0.35.0. Unity 6000.6.3f1 Editor: 135 passed, zero failed, 1 conditional checks skipped.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading",
       "version": "0.7.0",
       "released": true,
@@ -169,7 +169,7 @@
     {
       "id": "com.geurts.gameforge.saveload",
       "name": "Geurts Game Forge Save and Load",
-      "description": "Informational starter with per-release capabilities and an explicitly unchecked source operation. Gameplay save/load remains planned and unavailable. No gameplay persistence was implemented. Requires God 0.35.0. Unity 6000.6.3f1 Editor: 5 passed, zero failed, 0 conditional checks skipped. Supported examples and source fingerprints are verified. Physical/device/player acceptance remains outside this release's evidence. Consumers update manually.",
+      "description": "Informational starter with per-release capabilities and an explicitly unchecked source operation. Gameplay save/load remains planned and unavailable. No gameplay persistence was implemented. Requires God 0.35.0. Unity 6000.6.3f1 Editor: 5 passed, zero failed, 0 conditional checks skipped.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.saveload",
       "version": "0.3.1",
       "released": true,
@@ -192,7 +192,7 @@
     {
       "id": "com.geurts.gameforge.audio",
       "name": "Geurts Game Forge Audio",
-      "description": "Audio adds supported configuration/sound creation and retained-bootstrap binding through existing owner services, with stable source findings. Inspection does not acquire a native backend. Requires God 0.35.0; optional FMOD installation and vendor/player behavior remain separately verified scopes. Unity 6000.6.3f1 Editor: 25 passed, zero failed, 0 conditional checks skipped. Supported examples and source fingerprints are verified. Physical/device/player acceptance remains outside this release's evidence. Consumers update manually.",
+      "description": "Audio adds supported configuration/sound creation and retained-bootstrap binding through existing owner services, with stable source findings. Inspection does not acquire a native backend. Requires God 0.35.0; optional FMOD installation and vendor/player behavior remain separately verified scopes. Unity 6000.6.3f1 Editor: 25 passed, zero failed, 0 conditional checks skipped.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
       "version": "0.9.0",
       "released": true,
@@ -215,7 +215,7 @@
     {
       "id": "com.geurts.gameforge.userinterface",
       "name": "Geurts Game Forge User Interface Foundations",
-      "description": "UI Foundations adds supported Theme/Menu/Screen/draft creation and asset saving through existing services. Source inspection covers authored assets, hosts and typed listeners; runtime/native evidence remains separate. Requires God 0.35.0; Settings remains optional. Unity 6000.6.3f1 Editor: 141 passed, zero failed, 0 conditional checks skipped. Supported examples and source fingerprints are verified. Physical/device/player acceptance remains outside this release's evidence. Consumers update manually.",
+      "description": "UI Foundations adds supported Theme/Menu/Screen/draft creation and asset saving through existing services. Source inspection covers authored assets, hosts and typed listeners; runtime/native evidence remains separate. Requires God 0.35.0; Settings remains optional. Unity 6000.6.3f1 Editor: 141 passed, zero failed, 0 conditional checks skipped.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface",
       "version": "0.13.0",
       "released": true,
@@ -238,7 +238,7 @@
     {
       "id": "com.geurts.gameforge.objectpooling",
       "name": "Geurts Game Forge Object Pooling",
-      "description": "Prefab pooling retains runtime ownership and existing authoring services. Adds supported definition/catalogue creation, identifier repair, scene configuration and precise source finding targets. God 0.35.0 is the only mandatory Geurts brick; peer integrations remain optional. Unity 6000.6.3f1 Editor: 86 passed, zero failed, 0 conditional checks skipped. Supported examples and source fingerprints are verified. Physical/device/player acceptance remains outside this release's evidence. Consumers update manually.",
+      "description": "Prefab pooling retains runtime ownership and existing authoring services. Adds supported definition/catalogue creation, identifier repair, scene configuration and precise source finding targets. God 0.35.0 is the only mandatory Geurts brick; peer integrations remain optional. Unity 6000.6.3f1 Editor: 86 passed, zero failed, 0 conditional checks skipped.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling",
       "version": "0.8.0",
       "released": true,
