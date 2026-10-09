@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.55.4",
-  "publishedUtc": "2026-10-09T10:31:43Z",
+  "packageVersion": "0.55.5",
+  "publishedUtc": "2026-10-09T11:24:29Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "God remains the only mandatory shared brick. Build Forge uses BigBang-style borders and information boxes: Red action required or failure, Orange waiting/checking or working, and user-selected Yellow verified readiness. Written states, prerequisite explanations and scoped optional-owner assessments accompany each colour. Pending verification withdraws old ready ticks. The bounded Git metadata cache is retained. Unity 6000.6.3f1: full Editor suite 390 passed, zero failed, 11 conditional checks skipped. Native rendered normal/narrow, standalone/embedded and docked Build Forge views were reviewed; Back navigation remains pinned. Physical keyboard/mouse and alternate skin/high-DPI acceptance remain unverified. Consumers update manually.",
+      "description": "God remains the only mandatory shared brick. Build Forge uses BigBang-style borders and information boxes: Red action required or failure, Orange waiting/checking or working, and Green verified readiness. Written states, prerequisite explanations and scoped optional-owner assessments accompany each colour. Pending verification withdraws old ready ticks. The bounded Git metadata cache is retained. Unity 6000.6.3f1: nine focused window/status/embedded-panel tests passed, zero failed or skipped. Native normal/narrow and embedded green readiness views reviewed. Prior 0.37.3 full-suite and docked-layout evidence remains historical. Physical keyboard/mouse and alternate skin/high-DPI acceptance remain unverified. Consumers update manually.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.37.3",
+      "version": "0.37.4",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#91a3b869fcaffb841c87cccc36607ebe24c4368f",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#7c7e4d377901e0bbed72a7f4e8974065d9281b37",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
