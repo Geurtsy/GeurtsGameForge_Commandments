@@ -124,8 +124,8 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md` | 0.11.0 | Project operations, validation, delivery and computer-control boundaries. |
 | `GeurtsTechniques/GeurtsFolderStructureTechnique.md` | 0.16.4 | Normative folder meanings, placement, reuse and safe extension. |
 | `GeurtsTechniques/GeurtsFolderStructureDefinition.json` | 0.56.0 | Exact folder registry and creation profiles. |
-| `GeurtsTechniques/GeurtsAIAgentSetupTechnique.md` | 3.1.1 | Exact routes, consent boundaries and separately invoked manual manager. |
-| `GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md` | 0.16.0 | Normative primary game context, discovery and preserved imports. |
+| `GeurtsTechniques/GeurtsAIAgentSetupTechnique.md` | 3.1.2 | Exact routes, consent boundaries and separately invoked manual manager. |
+| `GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md` | 0.16.1 | Normative primary game context, discovery and preserved imports. |
 | `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md` | 3.2.2 | Normative God-owned content service and passive-adapter transition. |
 | `GeurtsTechniques/GeurtsCommandmentsCompanionContract.json` | 0.56.0 | Schema 3.0.0; exact acquisition, consent and route mappings. |
 | `GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md` | 2.0.0 | Historical frozen compatibility guide; no current updater authority. |

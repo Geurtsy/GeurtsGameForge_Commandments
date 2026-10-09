@@ -2,7 +2,7 @@
 # Geurts AI Agent Setup Technique
 
 **Native AI Instruction Setup - Copilot and supported scoped routes**
-**Version:** 3.1.1
+**Version:** 3.1.2
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -44,7 +44,9 @@ This includes planning, code, assets, scenes, documentation, setup, reviews and 
 
 ## Commandments Companion Whole-File Replacement
 
-God owns the Commandments Editor service; the [Commandments Companion Technique](GeurtsCommandmentsCompanionTechnique.md) owns its lifecycle and passive-adapter transition. The [Brick Contract](GeurtsBrickContract.md#identity-and-dependencies) owns package and licensed-library dependencies. Authoritative Markdown content remains readable without God. The content action grants no additional project access. Never use a generic template as the target game's design authority.
+See [Commandments lifecycle](GeurtsCommandmentsCompanionTechnique.md) and [dependency requirements](GeurtsBrickContract.md#identity-and-dependencies).
+
+Authoritative Markdown content remains readable without God. The content action grants no additional project access. Never use a generic template as the target game's design authority.
 
 When the user selects `Update Geurts Game Forge Commandments`, the companion immediately shows one confirmation that identifies the complete `GeurtsGameForgeCommandments/` folder and all three exact route targets above as overwrite targets. Cancel is the initially focused default. There is no earlier preview or dry run and no second confirmation. After affirmative confirmation, the companion directly replaces each route as a complete file with the bytes of its mapped template from the same validated authoritative archive used for the documentation copy.
 

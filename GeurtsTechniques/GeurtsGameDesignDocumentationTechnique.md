@@ -2,7 +2,7 @@
 # Geurts Game Design Documentation Technique
 
 **Game Design Documentation Discovery - AI and Human Developer Reference**  
-**Version:** 0.16.0
+**Version:** 0.16.1
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -36,7 +36,9 @@ Project-specific game design documentation belongs at:
 <ProjectRoot>/Docs/GameDesign/
 ```
 
-God owns the Commandments Editor service; the [Commandments Companion Technique](GeurtsCommandmentsCompanionTechnique.md) owns its lifecycle and passive-adapter transition. The [Brick Contract](GeurtsBrickContract.md#identity-and-dependencies) owns package and licensed-library dependencies. Authoritative Markdown content remains readable without God. The content action grants no additional project access. Never use a generic template as the target game's design authority.
+See [Commandments lifecycle](GeurtsCommandmentsCompanionTechnique.md) and [dependency requirements](GeurtsBrickContract.md#identity-and-dependencies).
+
+Authoritative Markdown content remains readable without God. The content action grants no additional project access. Never use a generic template as the target game's design authority.
 
 Never put Geurts source-package files in `Docs/GameDesign/` or project-specific GDD files in `GeurtsGameForgeCommandments/`.
 

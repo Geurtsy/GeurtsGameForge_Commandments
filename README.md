@@ -317,6 +317,11 @@ Angels organization setup puts Codex, destinations and folder review first, with
 
 
 
+
+### v0.55.6 - Compact documentation owner links
+
+- Replace the repeated ownership explanation in AI Agent Setup and Game Design Documentation with brief links to the lifecycle and dependency owners. Preserve local Markdown readability without God, project-access boundaries, game-design authority, exact update consent and all remaining rules. Advance the two technique patch versions and package metadata; package pins, contracts, installer payloads and previous history remain unchanged. Consumer installation remains manual.
+
 ### v0.55.5 - Green Build Forge readiness
 
 - Publish God 0.37.4 correcting verified-ready borders, information boxes, result accents and legend to green, matching BigBang. Red action/failure and orange waiting/checking remain unchanged.
