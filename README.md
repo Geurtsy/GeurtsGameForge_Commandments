@@ -1,5 +1,5 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.53.2
+# Integrated Forge setup — 0.54.1
 
 God provides supported owner operations and a read-only project report. Angels provides separate opt-in automatic sorting and naming of new first-party imports, optional Codex visual naming, and portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
@@ -91,7 +91,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.53.2
+**Version:** 0.54.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -311,10 +311,14 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 ## Changelog
 
-### v0.53.2 - Compact shared guidance
+### v0.54.1 - Compact shared guidance
 
 - Remove the eight repeated catalogue evidence/update paragraphs and remaining manual-update reminders. Retain distinct capabilities, package-specific limits and recorded results; link shared evidence and delivery rules from the catalogue owner.
-- Remove redundant Technical compliance reminders while preserving first-party applicability, priorities, Codex compatibility, topic obligations and the framework-header contract. Advance Technical to 0.20.1, Brick Contract to 1.20.1 and audience checks to 1.1.4. Preserve the concurrent Steam prerequisite policy and God catalogue correction. Package pins, schemas, consent and exact payloads remain unchanged; consumer updates stay manual.
+- Remove redundant Technical compliance reminders while preserving first-party applicability, priorities, Codex compatibility, topic obligations and the framework-header contract. Advance Technical to 0.20.1, Brick Contract to 1.20.1 and audience checks to 1.1.4. Preserve the concurrent Steam prerequisites, bounded God cache catalogue and reviewed primary-context guidance. Package pins, schemas, consent and exact payloads remain unchanged; consumer updates stay manual.
+
+### 0.54.0
+
+Angels Codex naming may use reviewed local Commandments and the manifest-selected primary game-design document. Bounded complete context, GameUse audiences, explicit shared-file review and document fingerprints preserve design ownership. Additional naming notes are optional; missing context and changed design facts pause without automatic resending. Other catalogue entries and manual consumer installation are preserved.
 
 ### v0.53.1 - Bounded God Git metadata cache
 
