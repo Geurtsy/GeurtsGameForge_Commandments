@@ -1,5 +1,5 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.52.2
+# Integrated Forge setup — 0.52.3
 
 God provides supported owner operations and a read-only project report. Angels provides separate opt-in automatic sorting and naming of new first-party imports, optional Codex visual naming, and portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang remains the independent initial installer. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
@@ -91,7 +91,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.52.2
+**Version:** 0.52.3
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -310,6 +310,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 Angels owns **Install Codex guide**; God navigates to it and compatibility APIs forward to the same owner. Follow the [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) for an explicitly selected existing folder, including the project root, and the separate cancel-default replacement confirmation. Content/package updates never install or rewrite guides.
 
 ## Changelog
+
+### v0.52.3 - Direct current-rule links
+
+- Point the four current Help, audio, required-scene and ID references directly to Code, Audio and Bootstrap. Retain the Technical compatibility anchors for existing links.
+- Advance Folder Structure to 0.16.4, Editor Appearance to 0.1.5 and Naming to 0.1.1 with matching manifest/tool guards. Rules, package pins, consent boundaries and exact installer payloads remain unchanged; consumer updates remain manual.
 
 ### v0.52.2 - BigBang public assembly API correction
 

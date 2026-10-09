@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Naming Technique
 
-**Version:** 0.1.0
+**Version:** 0.1.1
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -17,7 +17,7 @@ This technique is part of the GeurtsGameForge Commandments. MUST and MUST NOT ex
 
 `GeurtsTechniqueManifest.md` selects this technique and assigns its naming subject. The manifest continues to own document selection, read order, versions, applicability, and cross-document conflict resolution. This technique must not establish a competing reading order.
 
-Folder meaning and placement belong to the manifest-selected Folder Structure Technique. Language implementation and technical constraints belong to the selected Technical Technique. Git attributes and repository text handling belong to their selected owner where applicable. Naming must not silently change those subjects, package identities, public APIs, or fixed integration names. Machine-readable ID values retain the [Technical Technique's ID standard](GeurtsTechnicalTechnique.md#id-names); they are distinct from asset filenames and GameObject names.
+Folder meaning and placement belong to the manifest-selected Folder Structure Technique. Language implementation and technical constraints belong to the selected Technical Technique. Git attributes and repository text handling belong to their selected owner where applicable. Naming must not silently change those subjects, package identities, public APIs, or fixed integration names. Machine-readable ID values retain the [Code Technique's ID standard](GeurtsCodeTechnique.md#id-names); they are distinct from asset filenames and GameObject names.
 
 ## 2. Applicability
 

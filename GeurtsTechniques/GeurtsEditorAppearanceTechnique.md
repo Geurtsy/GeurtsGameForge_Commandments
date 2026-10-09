@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Editor Appearance Technique
 
-**Version:** 0.1.4
+**Version:** 0.1.5
 **Status:** Normative mandatory standard
 **Primary audience:** Geurts Game Forge brick and Editor-tool maintainers
 **Secondary audience:** AI coding agents and human developers
@@ -57,7 +57,7 @@ Preserve user expansion/navigation state through supported Editor mechanisms; do
 
 ### 6.1 Component Help sections
 
-Expose the [Technical Technique's Major Component Help](GeurtsTechnicalTechnique.md#major-component-help) in a clearly labelled **Help** section for each major component presented by an inspector or tool view. Make its location easy to find, including in standalone and God-embedded views where supported. A shared Help section may cover closely related controls in one major component; unrelated major components need their own relevant guidance. Include essential setup/use instructions locally rather than offering only an external link or tooltip.
+Expose the [Code Technique's Major Component Help](GeurtsCodeTechnique.md#major-component-help) in a clearly labelled **Help** section for each major component presented by an inspector or tool view. Make its location easy to find, including in standalone and God-embedded views where supported. A shared Help section may cover closely related controls in one major component; unrelated major components need their own relevant guidance. Include essential setup/use instructions locally rather than offering only an external link or tooltip.
 
 Use the labelled, collapsible section pattern above. Reserve the full height of expanded/wrapped Help content and ample spacing before neighbouring fields, following section 7.1; allow scrolling without overlapping or hiding controls. Opening Help is read-only and must not trigger setup, package acquisition, updates or other mutations.
 
