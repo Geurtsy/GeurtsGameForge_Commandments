@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Steam Integration Technique
 
-**Version:** 0.1.1
+**Version:** 0.2.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md`
@@ -18,6 +18,8 @@ The catalogue now advertises released local Steam preparation, vendor-neutral Go
 
 ## Package prerequisite and installation
 
+**The Steam API through Steamworks.NET is mandatory for Geurts Unity project setup**, alongside Odin Inspector and Quantum Console. Required means locally verified managed APIs and Windows x64 native-plugin files; it does not require Steam to be running, native initialization, a login or a game AppID. BigBang's required Steam API step and prerequisite check enforce this before installation and existing-God handoff. Acquire the wrapper explicitly; missing evidence must leave its acquisition action available rather than hold the installer in a busy verification loop.
+
 Use **Steamworks.NET** as the managed Steamworks wrapper. Before changing Unity packages, select a stable release verified against the exact Editor, Windows x64, scripting backend and dependency graph. Record its version, immutable Git commit and native SDK/binary versions. Do not treat a documentation example, floating branch or merely installed assembly as compatibility evidence. Wrapper selection and the compatibility spike belong to the bricks implementation, not this documentation release.
 
 Use the wrapper's supported distribution, retain provenance and applicable licence notices, and preserve its native-plugin layout and importer settings. Avoid duplicate manual/UPM imports. With Git UPM delivery, the official package subpath is `/com.rlabrecque.steamworks.net`; put the verified immutable Git reference in the **consuming project's `Packages/manifest.json`**, resolved through supported Unity Package Manager actions. Git URLs never belong in another package's `package.json.dependencies`. The optional SteamManager example must not be adopted unchanged as the Forge lifetime owner. See [Steamworks.NET installation](https://steamworks.github.io/installation/) and [Unity Git package dependencies](https://docs.unity3d.com/6000.6/Documentation/Manual/upm-git.html).
@@ -26,7 +28,7 @@ Installing or updating the wrapper is an explicit package operation. Opening a w
 
 ## BigBang admission and compile independence
 
-**Steamworks.NET is required before the initial Install God action.** BigBang must still compile and open when Steamworks.NET, God, Odin Inspector and Quantum Console are absent. It remains Editor-only, with no Steamworks/God/vendor assembly reference, vendor API type, native initializer or Steam package dependency. Preparation is a prerequisite policy, not a new mandatory Geurts peer dependency or a requirement that Steam services run during installation.
+**Steamworks.NET is required before Install God and BigBang's existing-God handoff.** BigBang must still compile and open when Steamworks.NET, God, Odin Inspector and Quantum Console are absent. It remains Editor-only, with no Steamworks/God/vendor assembly reference, vendor API type, native initializer or Steam package dependency. Preparation is a prerequisite policy, not a new mandatory Geurts peer dependency or a requirement that Steam services run during installation. Preserve installed God and existing imports; block the BigBang handoff until local prerequisites are verified, without reinstalling or downgrading God.
 
 The explicit local check must establish supported package provenance/resolution, a compatible Windows x64 native-plugin configuration, current participating managed assemblies and the required actual managed API signatures through supported local inspection. Folder, DLL, define, stale loaded assembly or package-name presence alone is insufficient. Missing metadata, unreadable inputs and unsupported versions return an actionable unknown/blocked explanation rather than guessed success. Technical availability does not establish commercial-library licensing or Steam account entitlement.
 
