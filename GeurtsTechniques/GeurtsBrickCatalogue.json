@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "packageVersion": "0.57.0",
-  "publishedUtc": "2026-10-09T12:34:57Z",
+  "publishedUtc": "2026-10-10T03:47:39Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "God remains the only mandatory shared brick. Build Forge uses BigBang-style borders and information boxes: Red action required or failure, Orange waiting/checking or working, and Green verified readiness. Written states, prerequisite explanations and scoped optional-owner assessments accompany each colour. Pending verification withdraws old ready ticks. The bounded Git metadata cache is retained. Unity 6000.6.3f1: nine focused window/status/embedded-panel tests passed, zero failed or skipped. Native normal/narrow and embedded green readiness views reviewed. Prior 0.37.3 full-suite and docked-layout evidence remains historical. Physical keyboard/mouse and alternate skin/high-DPI acceptance remain unverified. Consumers update manually.",
+      "description": "God owns shared foundations and package management. Commandments rechecks current module, licensed tools, operation owners and Unity state immediately before replacement on manual and saved-consent paths. Remote checking compares the external installed commit without opening managed targets; version text is optional display metadata. Outcomes use optional capture-only logging and visible status. Unity 6000.6.3f1: 420 Editor checks passed, zero failed, six conditional skips. Native standalone/embedded normal/narrow folder guidance reviewed. Windows Mono and IL2CPP High compilation and scoped Settings/Audio player probes passed; physical input and alternate skin/DPI remain unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.37.4",
+      "version": "0.37.5",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#7c7e4d377901e0bbed72a7f4e8974065d9281b37",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#ebbbb044c3a024f733828af44330e4054f8fba58",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -101,13 +101,13 @@
     {
       "id": "com.geurts.gameforge.angels",
       "name": "Geurts Game Forge Angels",
-      "description": "Optional Editor project tools with reviewed opt-in organization of new first-party imports and incoming asset/folder moves. Codex chooses Type, Category and Description for all eligible non-code assets, including images and audio, using bounded reviewed local GameUse Commandments and the complete registered primary GDD. Scripts, vendor-origin content and fixed identities remain protected. Setup presents Codex/context, destinations, then source/review with actual editable Odin boxes, written green Complete/red Incomplete states and one combined enable action. Requires Commandments 0.56.0 / Forge Setup 1.6.0 for Codex mode. Unity 6000.6.3f1: 215 passed, zero failed, two conditional skips; real primary-vocabulary visual smoke, controlled cancellation/120-second timeout, vendor incoming-folder/reimport preservation, scene/data/prefab references, examples and twelve normal/narrow captures verified. Audio uses filenames/clip metadata and is not listened to or transcribed. Uncertain suggestions and collisions skip visibly; semantic accuracy, physical/modal input and alternate skin/DPI remain unverified. Consumer updates stay manual.",
+      "description": "Optional Editor project tools with separate Renaming and Reorganising controls, large measured percentage bars and explicit streamed current-assets scans under Assets/_Project. Codex always estimates Type, Category and Description for eligible first-party non-code assets including images/audio, using byte-verified local Commandments and primary GDD context. GUID-backed folder/asset exclusions apply to both; occupied names use stable identity suffixes without overwrites. Scripts/vendor/fixed contracts and already organised domains remain protected. Requires Commandments 0.57.0 / Forge Setup 1.7.0 for these workflows. Unity 6000.6.3f1: 302 passed, zero failed, 2 conditional skips; 130-file streaming, consent/lifecycle/drift/cancellation, asset GUID/meta/reference retention, examples, real primary-vocabulary visual smoke and normal/narrow actual Odin/progress captures verified. Includes current main folder-setup/FMOD compliance fixes. Semantic accuracy, audio listening/transcription and physical input are not certified. Consumer updates remain manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
-      "version": "0.7.0",
+      "version": "0.8.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#81e7e0e1cecd908dc940fc67d3fd490ec87013af",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#8f6a670b84b97a61cca59a1a03798c3014755d37",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -123,13 +123,13 @@
     {
       "id": "com.geurts.gameforge.settings",
       "name": "Geurts Game Forge Settings System",
-      "description": "Settings retains drafts, shared authoring and optional UI integration. Adds supported metadata inspection and setup commits using explicit owner-generated reviews with stale-fingerprint validation. Source inspection does not invoke getters, factories or storage. Requires God 0.35.0. Unity 6000.6.3f1 Editor: 116 passed, zero failed, 0 conditional checks skipped.",
+      "description": "Settings retains drafts, reviewed setup commits and optional UI integration. Target, binding and live-consumer fields have meaningful tooltips; affected public methods are described while serialized names and source isolation are preserved. Requires God 0.35.0. Unity 6000.6.3f1: 114 Editor and one Play Mode check passed, zero failed, two optional-UI skips. Windows Mono and IL2CPP High players passed Stage/Apply/save, fresh-process restore and inert serialized-field configuration. Optional UI/URP combinations, physical input and native display/device acceptance remain outside this correction.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.settings",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#91c0a72fe8187e1ef790013af1d6b7501c12b9bd",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#d4500dd2aeecc1ec480187934344f9300cba8e80",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -192,13 +192,13 @@
     {
       "id": "com.geurts.gameforge.audio",
       "name": "Geurts Game Forge Audio",
-      "description": "Audio adds supported configuration/sound creation and retained-bootstrap binding through existing owner services, with stable source findings. Inspection does not acquire a native backend. Requires God 0.35.0; optional FMOD installation and vendor/player behavior remain separately verified scopes. Unity 6000.6.3f1 Editor: 25 passed, zero failed, 0 conditional checks skipped.",
+      "description": "Optional Audio authoring and binding operations with structured findings; normal playback behavior is preserved. AudioEmitter and SoundLibrary responsibilities and affected method parameters/results are documented. Requires God 0.35.0; FMOD remains optional. Unity 6000.6.3f1: 25 Editor checks passed, zero failed or skipped. Windows Mono and IL2CPP High builds and scoped library lookup probes passed. Physical input, audible output, vendor/native-device behavior and alternate skin/DPI are not certified by this documentation correction.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
-      "version": "0.9.0",
+      "version": "0.9.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#39647ef33acae488123969fb57e095400ea15aa5",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#b12f858bfe0f646525d2a134cc80c989f206c82e",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [

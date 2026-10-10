@@ -316,6 +316,12 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 Angels estimated naming always describes eligible assets, separate current-assets scans preserve folders or names respectively, GUID-backed exclusions apply to both, and progress measures processed files. Scripts/vendor/fixed contracts and existing destination files remain protected.
 
 
+### v0.56.2 - Published compliance corrections
+
+- Pins God 0.37.5, Angels 0.7.1, Audio 0.9.1 and Settings 0.7.1 to their verified released Git commits.
+- Records the update-readiness guard, commit-only comparison, capture-only outcomes, fresh per-run folder guidance, FMOD applicability and affected API/tooltips corrections.
+- Owner validation records retain actual conditional skips and native/input/device limits. Consumers install manually; no shared technique rules change.
+
 ### v0.56.1 - Full-package compliance for Forge
 
 - Require Geurts Game Forge itself to follow all applicable rules across the full Commandments package, including shared techniques. Forge-specific guidance and ForgeDevelopment reading do not exempt bricks, runtime systems, Editor tools, tests or automation from shared requirements. Keep task applicability, audience boundaries, conflict resolution, compatibility exceptions, package pins, consent and installation payloads unchanged. Consumer updates remain manual.
