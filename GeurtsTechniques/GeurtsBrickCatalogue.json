@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "God owns shared foundations and package management. Commandments rechecks current module, licensed tools, operation owners and Unity state immediately before replacement on manual and saved-consent paths. Remote checking compares the external installed commit without opening managed targets; version text is optional display metadata. Outcomes use optional capture-only logging and visible status. Unity 6000.6.3f1: 420 Editor checks passed, zero failed, six conditional skips. Native standalone/embedded normal/narrow folder guidance reviewed. Windows Mono and IL2CPP High compilation and scoped Settings/Audio player probes passed; physical input and alternate skin/DPI remain unverified.",
+      "description": "God manages Forge packages, bootstrap foundations and the Editor-only Commandments service. Shows actual archive size and shared progress in compact/standalone/embedded views: measured percentage with a known total, activity otherwise. API 1.2 exposes an immutable download snapshot retained through validation/outcomes. Preserves consent, four-target boundaries, offline reading and legacy integration guards. Unity 6000.6.3f1: 429 Editor checks passed, zero failed, seven conditional skips; exact Git source/example, real archive/contract validation and normal/narrow native captures verified. Physical input, other skins, high DPI and new player acceptance are not certified. Consumer updates remain manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.37.5",
+      "version": "0.38.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#ebbbb044c3a024f733828af44330e4054f8fba58",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#379be5bc61b4c84f906964b80bcb2245b317413f",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
