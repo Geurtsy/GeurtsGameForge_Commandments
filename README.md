@@ -1,5 +1,5 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.57.1
+# Integrated Forge setup — 0.58.1
 
 God provides supported owner operations and a read-only project report. Angels provides reviewed opt-in automatic organization of new first-party imports and incoming asset/folder moves. Codex chooses Type, Category and Description for eligible non-code assets, including images and audio, using local Commandments and the registered primary GDD. Setup comes first with editable Odin boxes and written completion states. Angels also provides portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang owns independent initial installation and the separately confirmed BigCrunch whole-Forge uninstall. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
@@ -91,7 +91,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.57.1
+**Version:** 0.58.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -311,9 +311,14 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 ## Changelog
 
-### v0.57.1 - Commandments archive size and progress
+### v0.58.1 - Commandments archive size and progress
 
 - Publish God 0.38.0 with archive byte measurements and the shared progress bar in its compact card and standalone/embedded reader. Known totals show a measured percentage; unknown totals show received bytes and activity until the exact transfer size is known. Retain size through validation and outcomes without claiming update success from transfer completion. Add the read-only Editor API 1.2 snapshot. Preserve acquisition, consent, managed targets, offline behavior and manual consumer updates.
+
+### 0.58.0
+
+Defines separately reviewed OpenAI actual-sound analysis before Codex matches the primary GDD, secure non-project credentials, explicit API billing, bounded excerpt coverage and cancellation/drift/failure safeguards. Setup 1.8.0 and Naming 0.1.3 are aligned.
+
 
 ### 0.57.0
 
