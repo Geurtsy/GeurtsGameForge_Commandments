@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "packageVersion": "0.59.0",
-  "publishedUtc": "2026-10-10T11:28:19Z",
+  "publishedUtc": "2026-10-10T16:14:57.492860Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "God manages Forge packages, bootstrap foundations and the Editor-only Commandments service. Shows actual archive size and shared progress in compact/standalone/embedded views: measured percentage with a known total, activity otherwise. API 1.2 exposes an immutable download snapshot retained through validation/outcomes. Preserves consent, four-target boundaries, offline reading and legacy integration guards. Unity 6000.6.3f1: 429 Editor checks passed, zero failed, seven conditional skips; exact Git source/example, real archive/contract validation and normal/narrow native captures verified. Physical input, other skins, high DPI and new player acceptance are not certified. Consumer updates remain manual.",
+      "description": "God manages Forge packages, retained bootstrap foundations and the Editor-only Commandments service. Preserves confirmed content updates, four-target boundaries, offline reading, legacy guards and API 1.2 download snapshots with measured progress when a total is known. Validates required capability metadata and compares declared Editor action IDs and consent with actual discovery without executing actions. See the owning release validation record for tested scope and limits; declarations do not establish runtime readiness. Consumer adoption remains manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.38.0",
+      "version": "0.38.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#379be5bc61b4c84f906964b80bcb2245b317413f",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -101,13 +101,13 @@
     {
       "id": "com.geurts.gameforge.angels",
       "name": "Geurts Game Forge Angels",
-      "description": "Optional Editor project tools with independent Renaming/Reorganising, measured progress, current-assets scans and GUID-backed exclusions. Codex supplies semantic Type, Category and Description using local Commandments and primary GDD. Canonical optional numeric versions/varieties now survive semantic changes and organization moves, including padding; Description digits are not suffixes. Occupied destinations receive the first free _1, _2 and onward, protecting originals, metadata, folders and pending plans with stable retries and no nested numbers. GUID metadata and matching prefab roots/child references retained. Valid numbered proposals survive reload; previous Codex naming consent pauses for a fresh review. Requires Commandments 0.58.3 / Setup 1.8.1 or newer. Existing opt-in actual-audio analysis, Windows-secured credentials, bounded coverage, cancellation/drift protections and script/vendor/fixed-identity exclusions retained. Unity 6000.6.3f1: 351 distinct Editor checks passed, zero failed, 2 conditional symlink skips; full suite plus final numeric/reload/consent checks, released 0.9.1 fresh setup and immutable Git update validated. Signed-in synthetic-GDD visual and controlled process regressions passed. Existing normal/narrow UI renders recorded; physical input, alternate skins/high DPI, live audio API and calibrated semantic accuracy remain unverified. Consumer adoption is manual.",
+      "description": "Optional Editor project tools with separate reviewed Renaming/Reorganising, measured progress, current-asset scans and GUID-backed exclusions. Codex supplies semantic Type, Category and Description from local guidance and primary GDD. Optional suffixes are unpadded: preserve numeric value through semantic changes and folder moves; allocate the first free _0, _1, _2 and onward with stable retries. Legacy padding normalizes only in an explicitly reviewed rename. Retains GUID metadata, prefab child identities, exclusions, optional audio analysis and cancellation/drift protections. Requires Commandments 0.59.0, Setup 1.8.2 and Naming 0.1.6; prior filename and Codex naming consent pauses for fresh review. See owning release evidence and limits. Consumer adoption remains manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
-      "version": "0.9.2",
+      "version": "0.9.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#e18b2356111eb1ac299dadc4e11dbc16011581ec",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#29de22c54e33b0c0146b330e9dd6fca367747344",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
