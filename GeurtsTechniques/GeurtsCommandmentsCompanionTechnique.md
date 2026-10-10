@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Commandments Service and Companion Compatibility Technique
 
-**Version:** 3.2.2
+**Version:** 3.2.3
 **Contract schema:** 3.0.0
 **Status:** Draft normative technique
 **Primary audience:** God Editor service and compatibility adapter maintainers
@@ -22,11 +22,13 @@ There is no external installer, Windows bootstrap, batch-driven setup, or separa
 
 Open **Tools > Geurts Game Forge > Commandments** or **View Commandments** inside God. The view includes installed and available content versions, explicit check/update actions, shared progress/failure, module preference and an offline local reader. Package versions and content versions remain separate. Opening, restoring, resizing or scrolling a view does not check remotely or acquire content.
 
-`Geurts.GameForge.God.Editor.CommandmentsIntegration` (API 1.1.0, assembly `Geurts.GameForge.God.Editor`) is the supported Editor interface for status/version/progress, Changed events, explicit checking, confirmed manual updates, host operation guards, local reading and owned embedded views. `CommandmentsSetupIntegration` retains compatibility forwarding to the installed Angels owner for guide and Git Ignore helpers. Missing Angels produces an actionable owner explanation. Local foundation inspection and bounded exact-byte reads remain on God and work independently of module/update preferences; setup-contract compatibility is separate from remote comparison. Install Codex guide remains a user-selected, independently confirmed action owned by the AGENTS.md Technique; it writes only the selected guide.
+`Geurts.GameForge.God.Editor.CommandmentsIntegration` (API 1.2.0, assembly `Geurts.GameForge.God.Editor`) is the supported Editor interface for status/version/progress, Changed events, explicit checking, confirmed manual updates, host operation guards, local reading and owned embedded views. `CommandmentsSetupIntegration` retains compatibility forwarding to the installed Angels owner for guide and Git Ignore helpers. Missing Angels produces an actionable owner explanation. Local foundation inspection and bounded exact-byte reads remain on God and work independently of module/update preferences; setup-contract compatibility is separate from remote comparison. Install Codex guide remains a user-selected, independently confirmed action owned by the AGENTS.md Technique; it writes only the selected guide.
 
 Angels and custom Editor callers use these public interfaces and the same controller; no runtime assembly may reference them. BigBang must remain compile-independent: its normal handoff executes God's existing menu only after verified installation. A future optional integration can discover the public Editor API after God is present; it must not add runtime documentation dependencies or silently acquire content. This contract authorizes no Angels implementation.
 
 CreateEmbeddedWindow(Action<string>) returns an unshown, independent view. The host owns its lifetime, destroys it on Back/closure, and never reuses or closes a user's standalone window. Its complete version/check/update controls remain visible in God; its callback is navigation only. Explicit content actions use the same confirmation, guards and status. Local reading accepts only a bounded file beneath GeurtsGameForgeCommandments, rejects traversal/reparse escapes, and never selects game design files.
+
+The compact God card and standalone/embedded view show received archive bytes and a progress bar. Use a measured percentage only when the response supplies a positive total; otherwise show activity and received size until EOF establishes the exact archive size. Keep the last byte snapshot visible through extraction, validation and the final outcome, with each later stage reported separately. Transfer completion never certifies update success or local integrity. The read-only DownloadProgress snapshot (API 1.2) exposes ReceivedBytes, nullable TotalBytes/Fraction, Complete and SizeLabel. This measures compressed archive bytes, not installed documentation size. It starts no work and adds no HEAD/range probe, second archive request, project file or consent.
 
 ### Existing installation transition
 
