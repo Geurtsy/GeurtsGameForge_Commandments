@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Naming Technique
 
-**Version:** 0.1.1
+**Version:** 0.1.2
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -85,6 +85,8 @@ For each item being created or reviewed:
 8. **Apply only within the task's authority.** Creating a compliant new item does not authorize renaming existing content. During an audit, report proposed changes without applying an unrequested migration.
 
 If the item's role or kind is known but no registered type fits, use `MISC` sparingly under section 5.3. If the role or kind is unknown, or two specific types remain materially ambiguous, inspect the relevant context and report the unresolved classification rather than hiding it under `MISC`. Do not silently create an abbreviation or use `OBJ` as a generic fallback. Continue independent work with unambiguous items.
+
+For explicitly reviewed Angels estimated naming, an uncertain eligible first-party non-code file still receives the best descriptive Type_Category_Description from available filename, metadata and visual evidence. Label uncertainty in the reason; do not assert missing game facts. A stable asset GUID identity suffix within Description may disambiguate occupied filenames without overwriting. The suffix identifies the file, not a game variant or revision. Protected scripts, vendor files, fixed contracts and unsafe state remain excluded. Missing context or failed execution remains a visible operational failure, never a success claim.
 
 ## 5. Type Registry
 
