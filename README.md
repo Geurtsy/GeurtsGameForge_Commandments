@@ -1,5 +1,5 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.58.4
+# Integrated Forge setup — 0.58.5
 
 God provides supported owner operations and a read-only project report. Angels provides reviewed opt-in automatic organization of new first-party imports and incoming asset/folder moves. Codex chooses Type, Category and Description for eligible non-code assets, including images and audio, using local Commandments and the registered primary GDD. Setup comes first with editable Odin boxes and written completion states. Angels also provides portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang owns independent initial installation and the separately confirmed BigCrunch whole-Forge uninstall. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
@@ -91,7 +91,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.58.4
+**Version:** 0.58.5
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -311,11 +311,18 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 ## Changelog
 
-### 0.58.4
+### 0.58.5
 
 - Require BigCrunch to retain every installed non-Forge Registry/BuiltIn version in the dry run and confirmed removal, with the resulting manifest pins explained before confirmation.
 - Add regressions for missing retained pins, mismatched preview/removal pins and omitted manifest review. Full installed-Forge preservation evidence and the released BigBang pin are recorded in the catalogue.
-- Consumer package and documentation updates remain manual; interactive checks remain skipped at the user's request.
+- Pin published BigBang 0.8.1 after two 145/145 Editor suites and actual full twelve-package removal with real Odin, Quantum Console, Steamworks.NET and copied game assets. All 53 retained packages and 1,102 protected file hashes matched; live consumer state is unchanged.
+- Documentation validation: 466 full regression checks passed, zero failed, before concurrent catalogue/version integration; final integrated static and exact published-source checks passed. Consumer package/documentation updates remain manual; interactive checks remain skipped at the user's request.
+
+
+### 0.58.4
+
+Pins Angels 0.9.2: existing optional numeric versions/varieties survive Codex semantic changes and organization moves. Existing collision protections, stable retry numbering, exact GUID metadata and matching prefab roots are retained. Review automatic naming enablement again after manual adoption; this publication does not update installed packages or project assets.
+
 
 ### 0.58.3
 
