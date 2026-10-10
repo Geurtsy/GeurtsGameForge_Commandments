@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Multiplayer Technical Topic
 
-**Version:** 0.1.1
+**Version:** 0.2.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsMultiplayerTechnique.md`
@@ -16,3 +16,9 @@
 - Do not sacrifice network efficiency for local code convenience.
 
 The multiplayer network-efficiency override applies regardless of the selected networking framework.
+
+## Runtime acceptance
+
+Before releasing affected networking behavior, exercise the selected transport with the project's supported authority/topology and player counts. Require relevant cases: representative and adverse latency/jitter/loss, disconnect/reconnect during active work, host/server loss or transfer where supported, late joining/state resynchronization where supported, duplicate/stale/out-of-order messages, and invalid or unauthorized requests. Verify authoritative state, rejection of invalid input, bounded queues/retries and owned cleanup; failures must not silently corrupt state or claim synchronization. Mark genuinely unsupported cases not applicable with a reason.
+
+Record the exact build/backend, transport/version, roles, player count, test workload, network conditions, duration, result and limits. Compare bandwidth, message rate/size, synchronization delay and resource use with budgets chosen from the project's design and measured baseline. No universal latency/FPS/player-count threshold is imposed. Automated simulations supplement the real multi-instance/network checks needed for the behavior claimed; unperformed cases remain unverified and cannot pass the affected release gate. This requirement installs no networking package and creates no project game-design facts.

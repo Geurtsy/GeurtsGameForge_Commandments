@@ -1,5 +1,5 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.58.5
+# Integrated Forge setup — 0.59.0
 
 God provides supported owner operations and a read-only project report. Angels provides reviewed opt-in automatic organization of new first-party imports and incoming asset/folder moves. Codex chooses Type, Category and Description for eligible non-code assets, including images and audio, using local Commandments and the registered primary GDD. Setup comes first with editable Odin boxes and written completion states. Angels also provides portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang owns independent initial installation and the separately confirmed BigCrunch whole-Forge uninstall. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
@@ -17,7 +17,7 @@ Versions and test counts in this section are historical evidence. Use the [curre
 
 Subject archives: [BigBang](History/BigBang.md) and [AI setup](History/AISetup.md). Read them only for requested history or applicable legacy migration; current requirements remain in their manifest-selected techniques.
 
-God 0.29.0 includes the Commandments tools. Existing Companion users update to the passive 0.15.1 adapter; fresh projects need only God. BigBang 0.4.0 provides separate local prerequisite and Get Latest Git Source actions, then hands over to this built-in view. See the [0.41.0 migration guide](Migrations/v0.41.0.md) before updating existing integrations. Package updates never replace local content or AI routes; those retain their separate confirmation.
+God 0.29.0 includes the Commandments tools. Existing Companion users update to the passive adapter selected by the current catalogue; fresh projects need only God. BigBang 0.4.0 provides separate local prerequisite and Get Latest Git Source actions, then hands over to this built-in view. See the [0.41.0 migration guide](Migrations/v0.41.0.md) before updating existing integrations. Package updates never replace local content or AI routes; those retain their separate confirmation.
 
 God 0.31.0 supplies ordinary bootstrap-owned runtime hosts and a configured scene-owned console accessor. Its Windows Mono and IL2CPP probes passed; existing saved scenes still require the explicit console migration after manual installation. The full rendered/physical appearance matrix remains unverified. See the [ownership and validation guide](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/v0.31.0/Documentation~/BootstrapOwnership.md).
 
@@ -91,22 +91,40 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.58.5
+**Version:** 0.59.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
 **Secondary audience:** AI maintaining the documentation source
 **Documentation source repository:** `Geurtsy/GeurtsGameForge_Commandments`
 
-## BigBang initial installation
+## Installing Forge: BigBang or manual
 
-The independent [Geurts Game Forge BigBang](https://github.com/Geurtsy/GeurtsGameForgeBigBang) prepares licensed prerequisites, keeps local checks separate from **Get Latest Git Source**, and installs a frozen verified God Git release after explicit selection. Opening stays offline and existing God installations are preserved. Follow the [BigBang Technique](GeurtsTechniques/GeurtsBigBangTechnique.md) and current catalogue; historical test results are not current installation targets. God owns minimal bootstrap and Commandments acquisition; optional project maintenance belongs to Angels and optional console installation belongs to Diagnostics.
+Use Windows, Unity **6000.6.3f1**, and the [current catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json) for published package versions and exact Git installation sources. Do not install floating branches, duplicate vendor imports or the passive Companion adapter in a fresh project.
 
-## Installing God or switching an existing installation
+### BigBang installation
 
-Import licensed Odin Inspector and Quantum Console into a Unity 6000.6.3f1 project, then install God from the current catalogue through Unity Package Manager. Commandments Companion is optional and does not need to be installed first. Select **Add package from Git URL** and use God's verified exact `source` from the [current catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json). God is the package at its repository root, so its source has no `?path=/Packages/...` suffix. The package identifier, assembly names and asset GUIDs remain unchanged.
+1. In Unity Package Manager, choose **Add package from Git URL** and paste the catalogue's exact BigBang `source`. Open **Tools > Geurts Game Forge > BigBang**.
+2. **Install required libraries:** acquire licensed Odin Inspector and Quantum Console through their supported distributions and import them. Package presence does not prove licence ownership.
+3. **Install required Steam API:** use BigBang's explicit Steamworks.NET acquisition action. Preserve an existing supported wrapper; resolve incompatible or duplicate imports before continuing.
+4. **Verify all prerequisites:** run the local check and resolve its findings. Steam need not be running; no login, AppID or native initialization is required for this check.
+5. **Get latest God source**, then **Install and verify God**. Wait for UPM resolution and successful compilation. A downloaded package or completed UPM request alone does not establish readiness.
+6. **Continue with God** using the explicit handoff. Opening God can apply the user's existing layout/opening preferences. Installation does not acquire Commandments or create scenes.
 
-Open **Game Forge God** and select **View Commandments**. Content update uses one cancel-default confirmation covering the managed folder and three AI routes. Package Update and Update All never acquire content. Existing Companion users update to adapter 0.15.1; fresh projects do not install it.
+### Manual installation
+
+1. Import licensed Odin Inspector and Quantum Console into the same Unity project. Follow each vendor's supported installation, avoiding duplicate imports.
+2. Install **Steamworks.NET** through UPM using the official package subpath and immutable wrapper reference verified by the current BigBang release. Follow [Steam prerequisite installation](GeurtsTechniques/GeurtsSteamIntegrationTechnique.md#package-prerequisite-and-installation) and the pinned BigBang owner's `Documentation~/SteamPreparation.md` for its tested reference and local API/native-plugin checks. Do not add Git URLs to a package's `package.json.dependencies`.
+3. In Package Manager, choose **Add package from Git URL** and paste God's exact `source` from the catalogue. God is at its repository root; do not add `?path=/Packages/...`. Wait for resolution and successful compilation, then verify the resolved identity, version and commit.
+4. Open **Tools > Geurts Game Forge > Game Forge God**. Inspect local prerequisite/setup findings and address unresolved errors before continuing.
+
+### Continue after either route
+
+1. Open **View Commandments** in God. Explicitly choose **Update Geurts Game Forge Commandments** and review its cancel-default confirmation: it replaces the complete managed Commandments folder and exactly three AI routes. Preserve any wanted edits outside those targets before accepting. Package Update and Update All do not acquire content.
+2. In **Build Forge**, inspect local foundation readiness, then explicitly run the bootstrap setup when ready. God owns the retained bootstrap scenes. Install optional Angels project tools or Diagnostics console tools only when needed; FMOD remains optional.
+3. For an existing Companion installation, update it to the passive adapter's exact current catalogue source, alongside a compatible God update. Either order is supported with the service's competition guards. Keep the adapter while custom Editor assemblies reference its legacy APIs; migrate those references manually before removing it. See the [service transition](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#existing-installation-transition). No installation or package update rewrites custom code, guides or game design.
+
+## God dashboard
 
 Standalone brick menus open their own larger Editor windows, including Game Forge God, Build Forge, God-owned Commandments, Diagnostics, Scene Loading and User Interface Foundations. New floating windows target 1000 × 760 Editor points, reduced to fit the main Editor area where space permits, and remain resizable and dockable. Each supported minimum stays in force, so a smaller main Editor area may not fully contain the window. Opening an existing window preserves its size, position and docking layout. God's Commandments view reuses its canonical theme; the adapter owns no dashboard.
 
@@ -208,7 +226,7 @@ Those are the current tracked top-level entries, not an installation allowlist. 
 
 God 0.29.0 includes the Windows Editor service; install it from its immutable release after importing licensed prerequisites. Use **Tools > Geurts Game Forge > Commandments** or **View Commandments** in God. Local reading, status and window restoration are offline. Explicit checks and confirmed updates share one controller. The public Editor API supports custom tools and future Angels integrations; BigBang retains its independent menu handoff.
 
-Existing Companion users update to the passive 0.15.1 adapter, retaining the old package/assembly/API identities. Either update order is supported without competing content owners. Migrate custom Editor assembly references before removing the adapter. See [migration instructions](Migrations/v0.41.0.md). Package migration never overwrites custom code, guides or project content.
+Existing Companion users update to the passive adapter selected by the current catalogue, retaining the old package/assembly/API identities. Either update order is supported without competing content owners. Migrate custom Editor assembly references before removing the adapter. See [migration instructions](Migrations/v0.41.0.md). Package migration never overwrites custom code, guides or project content.
 
 The retained Companion Technique/contract filenames describe the same schema-3 content lifecycle now owned by God. In the following compatibility description, companion means that God-owned service.
 
@@ -310,6 +328,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 Angels owns **Install Codex guide**; God navigates to it and compatibility APIs forward to the same owner. Follow the [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) for an explicitly selected existing folder, including the project root, and the separate cancel-default replacement confirmation. Content/package updates never install or rewrite guides.
 
 ## Changelog
+
+### 0.59.0
+
+Resolves the six reviewed documentation gaps: complete BigBang/manual prerequisites; unpadded optional numbering from zero with stable semantic renames; concise update troubleshooting; preserved damaged/incompatible module settings with manual repair instructions; validated capability fields, feature/action links and real Editor action parity; and relevant multiplayer failure/AI measurement release criteria using project-defined budgets. Owning package updates and exact pins are recorded in the catalogue. Existing installations and game content remain manual-adoption territory.
+
 
 ### 0.58.5
 

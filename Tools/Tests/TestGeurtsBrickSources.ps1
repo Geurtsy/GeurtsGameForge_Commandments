@@ -1,4 +1,4 @@
-# Version: 1.0.0
+# Version: 1.1.0
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot,
@@ -20,7 +20,7 @@ function Assert-SourceRejected([scriptblock]$Action, [string]$Name) {
     Assert-Source $rejected $Name
 }
 function New-Comparison {
-    return ('{"brick":{"id":"com.geurts.gameforge.example","version":"1.0.0","dependencies":[{"id":"com.geurts.gameforge.god","minimumVersion":"0.35.0"}]},"package":{"name":"com.geurts.gameforge.example","version":"1.0.0","dependencies":{"com.geurts.gameforge.god":"0.35.0","com.unity.modules.audio":"1.0.0"}},"capabilities":{"schemaVersion":"1.0.0","packageId":"com.geurts.gameforge.example","packageVersion":"1.0.0","prerequisites":[{"id":"com.geurts.gameforge.god","kind":"package","required":true,"minimumVersion":"0.35.0"}]},"catalogue":{"bricks":[{"id":"com.geurts.gameforge.god","version":"0.35.0","released":true}]}}' | ConvertFrom-Json)
+    return ('{"brick":{"id":"com.geurts.gameforge.example","version":"1.0.0","dependencies":[{"id":"com.geurts.gameforge.god","minimumVersion":"0.35.0"}]},"package":{"name":"com.geurts.gameforge.example","version":"1.0.0","dependencies":{"com.geurts.gameforge.god":"0.35.0","com.unity.modules.audio":"1.0.0"}},"capabilities":{"schemaVersion":"1.0.0","packageId":"com.geurts.gameforge.example","packageVersion":"1.0.0","maturity":"pre_release","features":[],"operations":[],"validation":{"unityVersion":"6000.6.3f1","scope":"Isolated source metadata tests only.","unverified":[]},"prerequisites":[{"id":"com.geurts.gameforge.god","kind":"package","required":true,"minimumVersion":"0.35.0","detail":"Exact required package minimum."}]},"catalogue":{"bricks":[{"id":"com.geurts.gameforge.god","version":"0.35.0","released":true}]}}' | ConvertFrom-Json)
 }
 function Get-ComparisonIssues($Comparison) {
     return @(Get-GeurtsBrickSourceIssues $Comparison.brick $Comparison.package $Comparison.capabilities $Comparison.catalogue)
@@ -35,6 +35,31 @@ function Invoke-FixtureGate([string[]]$Roots) {
 $temporaryBase = [System.IO.Path]::GetFullPath([System.IO.Path]::GetTempPath())
 $fixture = Join-Path $temporaryBase ('ggf-sources-' + [Guid]::NewGuid().ToString('N'))
 try {
+    foreach ($field in @('maturity','prerequisites','features','operations','validation')) {
+        $comparison = New-Comparison
+        $comparison.capabilities.PSObject.Properties.Remove($field)
+        Assert-Source (@(Get-ComparisonIssues $comparison).Count -gt 0) "Missing capability root $field fails closed"
+    }
+    foreach ($case in @('duplicate_operation','duplicate_feature','repeated_reference','unknown_reference','planned_operation','invalid_id','invalid_source','missing_description','missing_symbol','non_boolean_consent','missing_implemented','empty_validation')) {
+        $comparison = New-Comparison
+        $comparison.capabilities.operations = @([pscustomobject]@{ id='inspect_sources'; description='Read-only source rules.'; source='Editor/Provider.cs'; symbol='Provider'; confirmationRequired=$false })
+        $comparison.capabilities.features = @([pscustomobject]@{ id='inspection'; description='Read-only owner inspection.'; maturity='pre_release'; provider='editor'; implemented=$true; operations=@('inspect_sources'); validation=@('editor_interface_parity') })
+        switch ($case) {
+            'duplicate_operation' { $comparison.capabilities.operations += $comparison.capabilities.operations[0] }
+            'duplicate_feature' { $comparison.capabilities.features += $comparison.capabilities.features[0] }
+            'repeated_reference' { $comparison.capabilities.features[0].operations += 'inspect_sources' }
+            'unknown_reference' { $comparison.capabilities.features[0].operations = @('missing_action') }
+            'planned_operation' { $comparison.capabilities.features[0].implemented = $false }
+            'invalid_id' { $comparison.capabilities.features[0].id = 'Mixed-Case' }
+            'invalid_source' { $comparison.capabilities.operations[0].source = '../Provider.cs' }
+            'missing_description' { $comparison.capabilities.operations[0].PSObject.Properties.Remove('description') }
+            'missing_symbol' { $comparison.capabilities.operations[0].symbol = '' }
+            'non_boolean_consent' { $comparison.capabilities.operations[0].confirmationRequired = 'false' }
+            'missing_implemented' { $comparison.capabilities.features[0].PSObject.Properties.Remove('implemented') }
+            'empty_validation' { $comparison.capabilities.features[0].validation = @() }
+        }
+        Assert-Source (@(Get-ComparisonIssues $comparison).Count -gt 0) "Invalid capability $case fails closed"
+    }
     $comparison = New-Comparison
     Assert-Source (@(Get-ComparisonIssues $comparison).Count -eq 0) 'Matching manifests pass; non-Forge Unity dependencies need no brick catalogue entries'
     foreach ($minimum in @('0.33.1', '0.34.0', '0.36.0')) {
@@ -87,7 +112,7 @@ try {
     $comparison.capabilities.prerequisites = @()
     Assert-Source (@(Get-ComparisonIssues $comparison).Count -eq 0) 'Independent installer and passive adapter need no God dependency'
     $comparison = New-Comparison
-    $comparison.capabilities.prerequisites += [pscustomobject]@{ id = 'com.geurts.gameforge.optional'; kind = 'package'; required = $false; minimumVersion = '9.0.0' }
+    $comparison.capabilities.prerequisites += [pscustomobject]@{ id = 'com.geurts.gameforge.optional'; kind = 'package'; required = $false; minimumVersion = '9.0.0'; detail='Optional peer only.' }
     Assert-Source (@(Get-ComparisonIssues $comparison).Count -eq 0) 'Optional peer capabilities do not become required dependencies'
 
     Assert-Source ((Get-GeurtsRepositoryIdentity 'git@github.com:Geurtsy/Example.git') -ceq 'geurtsy/example') 'SSH checkout origins match HTTPS catalogue repositories'
@@ -118,6 +143,9 @@ try {
             $sample.brick.id = 'com.geurts.gameforge.god'; $sample.brick.version = '0.35.0'; $sample.brick.dependencies = @()
             $sample.package.name = $sample.brick.id; $sample.package.version = $sample.brick.version; $sample.package.dependencies = @{}
             $sample.capabilities.packageId = $sample.brick.id; $sample.capabilities.packageVersion = $sample.brick.version; $sample.capabilities.prerequisites = @()
+            $sample.capabilities.operations = @([pscustomobject]@{ id='inspect_sources'; description='Read-only fixture source rules.'; source='Editor/Provider.cs'; symbol='FixtureProvider'; confirmationRequired=$false })
+            New-Item -ItemType Directory -Path (Join-Path $packageRoot 'Editor') -Force | Out-Null
+            [System.IO.File]::WriteAllText((Join-Path $packageRoot 'Editor/Provider.cs'), 'internal static class FixtureProvider {}')
         }
         Write-SourceFixture (Join-Path $packageRoot 'package.json') $sample.package
         Write-SourceFixture (Join-Path $packageRoot 'ForgeCapabilities.json') $sample.capabilities
@@ -139,9 +167,20 @@ try {
     $workingPackage = Join-Path $fixture 'peer/Packages~/Peer/package.json'
     [System.IO.File]::WriteAllText($workingPackage, 'Uncommitted content must not be read or overwritten.')
     $workingHash = (Get-FileHash -LiteralPath $workingPackage).Hash
+    [System.IO.File]::WriteAllText((Join-Path $fixture 'god/Editor/Provider.cs'), 'Uncommitted source without the claimed provider must not be read.')
     $check = Invoke-FixtureGate $sourceRoots
     Assert-Source ($check.Code -eq 0 -and $check.Result.status -ceq 'VALID' -and $check.Result.checks.Count -eq 2) 'CLI validates exact pinned commits including a nested package'
     Assert-Source ((Get-FileHash -LiteralPath $workingPackage).Hash -ceq $workingHash) 'CLI preserves uncommitted checkout files'
+    $beforeSource = $entries[0].source
+    $root = $sourceRoots[0]
+    Invoke-GeurtsGitRead $root @('add', '--', 'Editor/Provider.cs') | Out-Null
+    Invoke-GeurtsGitRead $root @('-c','user.name=Forge Tests','-c','user.email=tests@example.invalid','commit','-qm','Missing declared symbol') | Out-Null
+    $entries[0].source = $beforeSource -replace '#[a-f0-9]{40}$', ('#' + (Invoke-GeurtsGitRead $root @('rev-parse','HEAD')))
+    Write-SourceFixture $fixtureCataloguePath $fixtureCatalogue
+    $check = Invoke-FixtureGate $sourceRoots
+    Assert-Source ($check.Code -ne 0 -and [bool]($check.Result.failures -match 'symbol is absent')) 'A missing pinned source symbol cannot pass using another commit'
+    $entries[0].source = $beforeSource
+    Write-SourceFixture $fixtureCataloguePath $fixtureCatalogue
     $check = Invoke-FixtureGate @($sourceRoots[0])
     Assert-Source ($check.Code -ne 0 -and ($check.Result.failures -match 'Missing owning source checkout')) 'Missing owning checkout fails closed'
     $entries[1].dependencies[0].minimumVersion = '0.34.0'

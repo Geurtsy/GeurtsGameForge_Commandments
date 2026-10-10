@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.21.1
+**Version:** 1.22.0
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -62,6 +62,14 @@ Migration, settings conversion, backup, rollback and recovery frameworks are exc
 
 Use God's per-brick JSON settings store. Editor data lives at `ProjectSettings/GeurtsGameForge/<package-id>.json`. Only that identity's file may be deleted by its removal operation. Bricks must not store unrelated game data in this directory. Project defaults are exported into a generated Resources asset during a build; player overrides live below `Application.persistentDataPath/GeurtsGameForge`. Editor package removal does not erase files from previously distributed player installations.
 
+### Damaged or incompatible module settings
+
+Validate the owning file and payload before settings-dependent use or writes. Treat malformed JSON, wrong package identity, unsupported format versions and incompatible field values as an actionable failure. Preserve the original bytes, report the exact file and reason, and stop the affected configuration-dependent action. Unrelated valid modules remain usable. Missing files receive fresh defaults; an existing unreadable file must never be treated as missing or silently overwritten with defaults.
+
+Each owner documents the configuration formats/fields it supports and any downgrade limits. Preserve unrecognized data when a supported read/write can retain it safely; otherwise block that write and explain which package version is needed. A newer unsupported format is not permission to convert, truncate or reset it. This adds no automatic migration, backup, rollback or recovery framework and does not certify older packages' handling.
+
+For manual repair/reset: (1) stop the affected module and close Unity before external edits; (2) inspect only its exact `ProjectSettings/GeurtsGameForge/<package-id>.json` file and the owning current guide; (3) preserve a user-selected copy outside the managed settings directory if wanted; (4) repair supported fields using the owner instructions, or explicitly remove only that file to request fresh defaults; (5) reopen Unity and verify the affected module's status/settings before enabling or saving. Explain loss of that module's configuration before a reset. Do not alter other package files or distributed-player data. Gameplay saves and the optional Settings brick's separately defined player-preference storage retain their own contracts.
+
 God's package management and Odin dashboard belong in Editor-only assemblies. Runtime contracts, lifecycle and settings cannot reference UnityEditor. God owns shared logging contracts; optional Diagnostics owns capture and all console installation, presentation and input-focus behavior. The [Diagnostics Technique](GeurtsDiagnosticsTechnique.md) owns capture-only logging and independently visible failure reporting. Runtime console installation is optional throughout development and for completed games. Diagnostics explicitly implants its commercial-prefab console into SCN_BigBang; the retained God bridge is passive serialized compatibility. Bootstrap does not require Diagnostics or console resources. Developer and Player presentation remain available in release builds under the detailed Diagnostics command policy, with testing override restricted to Editor/designated internal builds and host/server authority preserved.
 
 ## Catalogue schema 1
@@ -79,7 +87,7 @@ God loads cached data immediately and combines it with Unity's installed package
 
 ### Publish before installing or updating
 
-Before publishing a catalogue, run `Tools/ValidateGeurtsDocumentation.ps1 -SourceRepositories <owning-source-checkouts>` as described in README's Source-Repository Validation. The gate reads each released entry's pinned Git `package.json` and `ForgeCapabilities.json`: identities, versions and required Forge dependency sets/minimums must agree exactly, and the catalogue must offer a released provider satisfying every minimum. Missing checkouts, commits or manifests block publication. Fetch missing objects separately; the gate executes no package code, performs no network requests and changes no checkout files. Ordinary local reading and validation do not require this publication-only evidence.
+Before publishing a catalogue, run `Tools/ValidateGeurtsDocumentation.ps1 -SourceRepositories <owning-source-checkouts>` as described in README's Source-Repository Validation. The gate reads each released entry's pinned Git `package.json` and `ForgeCapabilities.json`: identities, versions and required Forge dependency sets/minimums must agree exactly; required capability fields, unique IDs, feature/action links and pinned operation source declarations must also validate, and the catalogue must offer a released provider satisfying every minimum. Missing checkouts, commits or manifests block publication. Fetch missing objects separately; the gate executes no package code, performs no network requests and changes no checkout files. Ordinary local reading and validation do not require this publication-only evidence.
 
 Keep the consuming computer/project on its previous published Git version throughout feature development. Develop changes in a separate owning source checkout, increase its version and push the candidate to Git for isolated validation. Merge appropriately validated work to remote `main`, publish the newer immutable Git release, then update the authoritative catalogue to that exact identity/version/commit. Only after remote verification may the consuming project update through Unity Package Manager. Verify its actual resolved source is Git and its version and commit match the published target; installation alone does not prove compilation or behavior.
 
@@ -152,3 +160,18 @@ God exposes the Commandments module preference through its public Editor API and
 ## Release capabilities and supported automation
 
 Each published brick, including independent BigBang and the passive adapter, ships `ForgeCapabilities.json` schema 1.0.0. It declares the exact package/version, prerequisites, implemented and planned features, maturity, operation IDs and validation scope. Feature descriptions and current guides must match real APIs. Planned features have no operations. Declarations do not authorize actions or prove installed/provider/runtime readiness. The Automation Technique owns operation/result/report semantics; each brick owns its rule identifiers, exact targets and implementation. The release gate checks current documentation and capability claims and compile-checked examples before publication; labeled historical records are retained as history.
+
+### Capability declaration requirements
+
+Schema 1.0.0 keeps these required fields and meanings. Empty arrays are valid where a package offers no corresponding capability; omission or null is not equivalent to an empty array.
+
+| Location | Required fields and validation |
+|---|---|
+| Root | `schemaVersion`, exact `packageId`/`packageVersion`, nonempty `maturity`, array `prerequisites`/`features`/`operations`, and `validation` with `unityVersion`, nonempty `scope`, array `unverified`. |
+| Prerequisite | Unique nonempty `id`, nonempty `kind`/`detail`, string `minimumVersion`, boolean `required`. Required package minimums match package.json; external/licensed observations remain separate. |
+| Feature | Unique `lower_snake_case` `id`, nonempty `description`/`maturity`, boolean `implemented`, `provider` (`editor`, `runtime`, `none`), array `operations`, nonempty array `validation`. |
+| Operation | Unique owner-scoped `lower_snake_case` `id`, nonempty `description`/`symbol`, safe repository-relative C# `source`, boolean `confirmationRequired`. The source/symbol must exist at the pinned release. |
+
+Every feature action reference must resolve to exactly one root operation and appear only once within that feature. Multiple relevant features may reference the same owner action. Planned features have no operations; direct APIs without a `ForgeOperations` action do not invent an action ID. Feature/action links must describe the action's actual responsibility, not copy the whole package operation list. Source metadata never supplies executable code.
+
+Before publication, the source gate validates this shape/graph against exact committed objects. In an isolated Git-resolved Unity fixture, discover each installed owner's supported Editor actions without executing them and compare the exact action ID set and confirmation flags with its declaration, including packages with no actions. Required release evidence records the exact package pins, tested source fingerprint, result and coverage; missing providers, extra/missing actions and consent mismatches fail. Run `ForgeAutomationTests.EveryInstalledDeclarationMatchesRealOwnerOperations` from God's test assembly with all catalogue owners under review installed, or an equivalent owner test using the same supported interface. This checks declared Editor exposure, not operational eligibility, execution, no-code UI, runtime readiness or native behavior. Existing owner execution/consent acceptance remains separate.

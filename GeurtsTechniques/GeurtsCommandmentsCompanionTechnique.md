@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Commandments Service and Companion Compatibility Technique
 
-**Version:** 3.2.3
+**Version:** 3.2.4
 **Contract schema:** 3.0.0
 **Status:** Draft normative technique
 **Primary audience:** God Editor service and compatibility adapter maintainers
@@ -109,6 +109,20 @@ An Update is available when the last-successful-installed commit value is missin
 Ordinary AI-session initialization performs no additional remote check.
 
 The last-successful-installed value contains only the exact commit ID selected by the most recent Update that completed and verified all four managed targets. It is comparison-only, non-authoritative, and non-blocking. It is not a receipt, package-version record, compatibility state, local-integrity assertion, drift record, backup pointer, rollback marker, recovery metadata, journal, or state-machine gate. Its write is attempted only after full managed-target success and never authorizes, blocks, repairs, or expands project mutation. If persistence fails, the managed-target Update remains successful, the companion reports a comparison-state warning, and a later explicit check may offer the same Update again. An implementation must not claim that mutable local files are certified current merely from this value or from package-version ordering.
+
+### Troubleshooting explicit checks and updates
+
+| Problem | Safe next step |
+|---|---|
+| HTTP 403/429 or a stated rate limit | Read the reported reason and retry time; wait for the service limit to reset, then start a new explicit check or confirmed Update. A 403 without a rate-limit explanation may instead be access denial. Do not repeatedly retry or invent successful availability. |
+| Repository access/authentication failure | Verify the exact official repository and the user's existing Git access for package/release operations. Commandments content is public; never paste tokens into project files, URLs, logs or shared reports. Resolve access outside Forge, then retry explicitly. |
+| Offline, DNS, proxy, TLS or connection failure | Continue reading the local Markdown copy or God's offline reader. Restore the connection through the normal host/network setup, then choose a new explicit action. Unknown availability is not up to date. |
+| Candidate/schema/path validation failure before replacement | Keep the existing managed targets. Report the failing entry/reason; obtain a compatible published God/content release or a shorter supported workspace for new content. Do not bypass validation or move user content automatically. |
+| Interrupted/failed replacement after mutation started | Treat the managed copy/routes as potentially incomplete or mixed. Preserve wanted user content manually outside the four targets, then run another user-invoked Update with the same cancel-default confirmation. No automatic repair, retry, backup or rollback is authorized. |
+| Unity is compiling/importing, a package request is active, or a legacy Companion competes | Wait for the owned work to finish and resolve the reported blocker. Use the current catalogue's God/passive-adapter transition when required, then explicitly retry. Do not launch a second updater. |
+| Content succeeded but saving the comparison commit failed | Content remains successful; report the comparison warning. A later explicit check may offer the same Update again. The comparison value never certifies local integrity. |
+
+Troubleshooting adds no network request, authentication mechanism, mutation target or consent exception. Keep the exact failure visible in the owning status even when optional logging is unavailable.
 
 ## 5. Explicit In-Editor Update
 

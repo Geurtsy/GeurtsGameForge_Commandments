@@ -1,4 +1,4 @@
-# Version: 1.0.0
+# Version: 1.1.0
 <#
 .SYNOPSIS
 Checks released catalogue entries against their exact Git package and capability manifests.
@@ -55,8 +55,58 @@ function Invoke-GeurtsGitRead([string]$Root, [string[]]$GitArguments) {
     return ($gitOutput -join "`n")
 }
 
+function Get-GeurtsCapabilityIssues($Capabilities) {
+    $issues = New-Object 'System.Collections.Generic.List[string]'
+    function Require-Fields($Object, [hashtable]$Types, [string]$Label) {
+        foreach ($name in $Types.Keys) {
+            $property = if ($null -ne $Object) { $Object.PSObject.Properties[$name] } else { $null }
+            $value = $null
+            if ($property) { $value = $property.Value }
+            $valid = $null -ne $property -and $null -ne $value
+            if ($valid) {
+                switch ($Types[$name]) {
+                    'text' { $valid = $value -is [string] -and -not [string]::IsNullOrWhiteSpace($value) }
+                    'string' { $valid = $value -is [string] }
+                    'array' { $valid = $value -is [System.Array] }
+                    'bool' { $valid = $value -is [bool] }
+                    'object' { $valid = $value -is [pscustomobject] }
+                }
+            }
+            if (-not $valid) { $issues.Add("Capability $Label.$name is missing or has an invalid type/value.") }
+        }
+    }
+    Require-Fields $Capabilities @{ schemaVersion='text'; packageId='text'; packageVersion='text'; maturity='text'; prerequisites='array'; features='array'; operations='array'; validation='object' } 'root'
+    Require-Fields $Capabilities.validation @{ unityVersion='text'; scope='text'; unverified='array' } 'validation'
+    if (@($Capabilities.validation.unverified | Where-Object { $_ -isnot [string] -or [string]::IsNullOrWhiteSpace($_) }).Count) { $issues.Add('Capability unverified scope must contain nonempty strings.') }
+    $operationIds = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
+    foreach ($operation in @($Capabilities.operations)) {
+        Require-Fields $operation @{ id='text'; description='text'; source='text'; symbol='text'; confirmationRequired='bool' } 'operation'
+        if ([string]$operation.id -cnotmatch '^[a-z][a-z0-9]*(?:_[a-z0-9]+)*$' -or -not $operationIds.Add([string]$operation.id)) { $issues.Add('Capability operation IDs must be unique lower_snake_case values.') }
+        if ([string]$operation.source -cnotmatch '^[A-Za-z0-9_.~/]+\.cs$' -or @(([string]$operation.source).Split('/') | Where-Object { $_ -in @('', '.', '..') }).Count) { $issues.Add('Capability operation source must be a safe relative C# path.') }
+    }
+    $featureIds = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
+    foreach ($feature in @($Capabilities.features)) {
+        Require-Fields $feature @{ id='text'; description='text'; maturity='text'; provider='text'; implemented='bool'; operations='array'; validation='array' } 'feature'
+        if ([string]$feature.id -cnotmatch '^[a-z][a-z0-9]*(?:_[a-z0-9]+)*$' -or -not $featureIds.Add([string]$feature.id)) { $issues.Add('Capability feature IDs must be unique lower_snake_case values.') }
+        if ($feature.provider -cnotin @('editor','runtime','none')) { $issues.Add('Capability feature provider is unsupported.') }
+        if ($feature.implemented -ne $true -and @($feature.operations).Count) { $issues.Add('Planned capability features cannot advertise operations.') }
+        if (-not @($feature.validation).Count -or @($feature.validation | Where-Object { $_ -isnot [string] -or [string]::IsNullOrWhiteSpace($_) }).Count) { $issues.Add('Capability feature validation scope is missing or invalid.') }
+        $references = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
+        foreach ($id in @($feature.operations)) {
+            if ($id -isnot [string] -or -not $operationIds.Contains([string]$id) -or -not $references.Add([string]$id)) { $issues.Add('Capability feature operation references must resolve uniquely without repeated entries.') }
+        }
+    }
+    $prerequisiteIds = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
+    foreach ($prerequisite in @($Capabilities.prerequisites)) {
+        Require-Fields $prerequisite @{ id='text'; kind='text'; detail='text'; minimumVersion='string'; required='bool' } 'prerequisite'
+        if (-not $prerequisiteIds.Add([string]$prerequisite.id)) { $issues.Add('Capability prerequisite IDs must be unique.') }
+    }
+    return $issues.ToArray()
+}
+
 function Get-GeurtsBrickSourceIssues($Brick, $Package, $Capabilities, $Catalogue) {
     $issues = New-Object 'System.Collections.Generic.List[string]'
+    foreach ($issue in @(Get-GeurtsCapabilityIssues $Capabilities)) { $issues.Add($issue) }
     if ([string]$Package.name -cne [string]$Brick.id) { $issues.Add('package.json identity differs from the catalogue.') }
     if ([string]$Package.version -cne [string]$Brick.version) { $issues.Add('package.json version differs from the catalogue.') }
     if ([string]$Capabilities.schemaVersion -cne '1.0.0' -or [string]$Capabilities.packageId -cne [string]$Brick.id -or
@@ -141,6 +191,14 @@ try {
             $package = (Invoke-GeurtsGitRead $sourceRoot @('show', ($commit + ':' + $pin.Prefix + 'package.json'))) | ConvertFrom-Json
             $capabilities = (Invoke-GeurtsGitRead $sourceRoot @('show', ($commit + ':' + $pin.Prefix + 'ForgeCapabilities.json'))) | ConvertFrom-Json
             $entryIssues = @(Get-GeurtsBrickSourceIssues $brick $package $capabilities $catalogue)
+            if (-not $entryIssues.Count) {
+                foreach ($operation in @($capabilities.operations)) {
+                    $logicalPath = [System.IO.Path]::GetFullPath((Join-Path $sourceRoot ($pin.Prefix + $operation.source)))
+                    if ($logicalPath.Length -ge 260) { throw "Operation source path is $($logicalPath.Length) characters (maximum 259): $logicalPath" }
+                    $code = Invoke-GeurtsGitRead $sourceRoot @('show', ($commit + ':' + $pin.Prefix + $operation.source))
+                    if (-not $code.Contains([string]$operation.symbol)) { throw "Capability operation symbol is absent from its pinned source: $($operation.id)." }
+                }
+            }
         }
         catch { $entryIssues = @($_.Exception.Message) }
         foreach ($issue in $entryIssues) { $failures.Add("$($brick.id): $issue") }

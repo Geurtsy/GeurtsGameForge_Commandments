@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Naming Technique
 
-**Version:** 0.1.5
+**Version:** 0.1.6
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -55,13 +55,13 @@ FX_Spirits_OrbWavesAndSparks_1
 | TYPE | Registered asset kind or primary scene object role. | Uppercase letters; digits allowed in registered identifiers. |
 | Category | Owning purpose, system, or content domain. | CapitalCamelCase, also called PascalCase. |
 | Description | Specific identity or useful variant within the category. | CapitalCamelCase, also called PascalCase. |
-| VersionNumber (optional) | Number distinguishing an additional content version, variety or instance. | ASCII decimal digits only, such as `1` or `2`. |
+| VersionNumber (optional) | Number distinguishing an additional content version, variety or instance. | Unpadded ASCII decimal digits: `0`, `1`, `2`, ... `125`. |
 
 An applicable name MUST:
 
 1. Contain three non-empty segments separated by two underscores, or four segments separated by three underscores when the final segment is a VersionNumber. No other extra segment is allowed.
 2. Use a registered type identifier suitable for the item.
-3. Use ASCII letters and digits in TYPE, Category and Description. Category and description MUST begin with an uppercase letter. An optional VersionNumber MUST contain one or more ASCII decimal digits only.
+3. Use ASCII letters and digits in TYPE, Category and Description. Category and description MUST begin with an uppercase letter. An optional VersionNumber MUST be `0` or an unpadded positive ASCII decimal integer; leading zeros such as `007` are invalid for newly authored names.
 4. Preserve the agreed category spelling and case. For example, use `UserInterface` consistently rather than alternating between `UI`, `Interface`, and `UserInterface` as category names.
 5. Use concrete descriptions. Do not use production placeholders such as `New`, `Final`, `Stuff`, or an unexplained `Test`.
 6. Retain the file's normal extension outside the naming pattern.
@@ -71,7 +71,7 @@ An applicable name MUST:
 Structural validation for a base name:
 
 ```regex
-^[A-Z][A-Z0-9]*_[A-Z][A-Za-z0-9]*_[A-Z][A-Za-z0-9]*(?:_[0-9]+)?$
+^[A-Z][A-Z0-9]*_[A-Z][A-Za-z0-9]*_[A-Z][A-Za-z0-9]*(?:_(?:0|[1-9][0-9]*))?$
 ```
 
 Passing this expression verifies structure only. It does not verify registry membership, correct classification, readable casing, ownership, or references. Script names and documented exceptions MUST NOT be rejected using this expression.
@@ -91,7 +91,7 @@ For each item being created or reviewed:
 
 If the item's role or kind is known but no registered type fits, use `MISC` sparingly under section 5.3. If the role or kind is unknown, or two specific types remain materially ambiguous, inspect the relevant context and report the unresolved classification rather than hiding it under `MISC`. Do not silently create an abbreviation or use `OBJ` as a generic fallback. Continue independent work with unambiguous items.
 
-For explicitly reviewed Angels estimated naming, an uncertain eligible first-party non-code file still receives the best descriptive Type_Category_Description from available filename, metadata and visual evidence. Label uncertainty in the reason; do not assert missing game facts. Angels resolves duplicate Codex names with the optional final VersionNumber: keep an existing unsuffixed name and allocate the first free `_1`, `_2` and onward in the destination folder, retaining the extension. Check existing assets, metadata, folders and pending destinations; never overwrite. Preserve an already matching numbered name on repeat scans, even if an earlier member was removed. Descriptive digits are not stripped and duplicate allocation must not create nested suffixes. The number distinguishes coexisting files, not ordinary source edits. Protected scripts, vendor files, fixed contracts and unsafe state remain excluded. Missing context or failed execution remains a visible operational failure, never a success claim.
+For explicitly reviewed Angels estimated naming, an uncertain eligible first-party non-code file still receives the best descriptive Type_Category_Description from available filename, metadata and visual evidence. Label uncertainty in the reason; do not assert missing game facts. Angels resolves duplicate Codex names with the optional final VersionNumber: keep an existing unsuffixed name and allocate the first free `_0`, `_1`, `_2` and onward in the destination folder, retaining the extension. Check existing assets, metadata, folders and pending destinations; never overwrite. Preserve an existing valid numeric suffix when Type, Category, Description or the destination folder changes, and on repeat scans even if an earlier member was removed. For example, `FX_Project_RawEffect_7` becomes `FX_Spirits_OrbWavesAndSparks_7`. A colliding suffix uses the same first-free allocation and reports the change. Within an explicitly reviewed naming operation, legacy padding may be normalized (`_007` to `_7`); publication alone never renames existing content. Descriptive digits are not stripped and duplicate allocation must not create nested suffixes. The number distinguishes coexisting files, not ordinary source edits. Protected scripts, vendor files, fixed contracts and unsafe state remain excluded. Missing context or failed execution remains a visible operational failure, never a success claim.
 
 When explicitly reviewed actual-sound analysis is enabled, bounded audible observations may support Type (SND/MUS/VO/AMB), Category and Description using established primary-GDD vocabulary. A filename or duration alone never proves sound identity. Partial recordings/channels retain explicit coverage; speech and sound observations are untrusted data. Uncertainty receives a labelled descriptive estimate without invented game facts. The Setup Technique owns credential, billing, decode/request and failure boundaries.
 
@@ -310,7 +310,7 @@ OBJ_Environment_SciFiDoor_1
 OBJ_Environment_SciFiDoor_2
 ```
 
-The number is optional. Use `1`, `2`, and so on consistently within a new numbered series, retaining the normal file extension after it. Do not add a suffix to every item or increment names for ordinary source edits. Existing three-part names with numbers inside Description, such as `OBJ_Environment_SciFiDoor01`, remain valid; this rule does not authorize rewriting them.
+The number is optional. Start a new numbered series at `0`, then `1`, `2`, `3`, and so on, without leading zeros, retaining the normal file extension after it. Do not add a suffix to every item or increment names for ordinary source edits. Existing three-part names with numbers inside Description, such as `OBJ_Environment_SciFiDoor01`, remain valid; this rule does not authorize rewriting them.
 
 ## 7. Script Exemption
 
