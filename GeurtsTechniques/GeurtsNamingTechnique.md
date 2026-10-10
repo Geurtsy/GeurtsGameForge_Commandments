@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Naming Technique
 
-**Version:** 0.1.3
+**Version:** 0.1.4
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -40,10 +40,14 @@ Registry examples illustrate naming only. They do not prescribe gameplay, instal
 
 ```text
 TYPE_Category_Description
+TYPE_Category_Description_VersionNumber
 ```
+
+Use the optional final number only when an additional version, variety or instance needs it. For example:
 
 ```text
 SND_UserInterface_SciFiClick
+FX_Spirits_OrbWavesAndSparks_1
 ```
 
 | Segment | Required meaning | Casing |
@@ -51,22 +55,23 @@ SND_UserInterface_SciFiClick
 | TYPE | Registered asset kind or primary scene object role. | Uppercase letters; digits allowed in registered identifiers. |
 | Category | Owning purpose, system, or content domain. | CapitalCamelCase, also called PascalCase. |
 | Description | Specific identity or useful variant within the category. | CapitalCamelCase, also called PascalCase. |
+| VersionNumber (optional) | Number distinguishing an additional content version, variety or instance. | ASCII decimal digits only, such as `1` or `2`. |
 
 An applicable name MUST:
 
-1. Contain exactly three non-empty segments, separated by exactly two underscores.
+1. Contain three non-empty segments separated by two underscores, or four segments separated by three underscores when the final segment is a VersionNumber. No other extra segment is allowed.
 2. Use a registered type identifier suitable for the item.
-3. Use ASCII letters and digits inside the segments. Category and description MUST begin with an uppercase letter.
+3. Use ASCII letters and digits in TYPE, Category and Description. Category and description MUST begin with an uppercase letter. An optional VersionNumber MUST contain one or more ASCII decimal digits only.
 4. Preserve the agreed category spelling and case. For example, use `UserInterface` consistently rather than alternating between `UI`, `Interface`, and `UserInterface` as category names.
 5. Use concrete descriptions. Do not use production placeholders such as `New`, `Final`, `Stuff`, or an unexplained `Test`.
 6. Retain the file's normal extension outside the naming pattern.
 7. Be distinguishable in its relevant context: an asset filename within its owning folder, or a GameObject among siblings. Broader uniqueness is required where an actual lookup contract depends on it.
-8. Remain stable unless the item's identity changes or an authorized migration requires a rename. Git owns revision history; do not append revision labels such as `FinalV2`.
+8. Remain stable unless the item's identity changes or an authorized migration requires a rename. A numbered content version or variety may coexist as a distinct item; Git still owns source revision history. Do not rename an item after every edit or append informal revision labels such as `FinalV2`.
 
 Structural validation for a base name:
 
 ```regex
-^[A-Z][A-Z0-9]*_[A-Z][A-Za-z0-9]*_[A-Z][A-Za-z0-9]*$
+^[A-Z][A-Z0-9]*_[A-Z][A-Za-z0-9]*_[A-Z][A-Za-z0-9]*(?:_[0-9]+)?$
 ```
 
 Passing this expression verifies structure only. It does not verify registry membership, correct classification, readable casing, ownership, or references. Script names and documented exceptions MUST NOT be rejected using this expression.
@@ -80,7 +85,7 @@ For each item being created or reviewed:
 3. **Select the registry.** Scene GameObjects and prefab roots use Scene Objects. Other independently nameable assets use Project Assets.
 4. **Classify the item.** Use primary role for a scene object and semantic asset kind for an asset. Component presence or file extension alone is insufficient.
 5. **Select the category.** Reuse the vocabulary already established for the same domain. If no category exists, use a concise purpose supported by the authorized content; do not invent game features.
-6. **Write the description.** Describe the specific item. Include variant detail only when it distinguishes related items.
+6. **Write the description.** Describe the specific item. Include meaningful variant detail in Description; add an optional final VersionNumber when an additional version, variety or instance needs a number.
 7. **Compose and verify.** Check structure, type selection, category consistency, relevant uniqueness, prefab correspondence, and any required contracts.
 8. **Apply only within the task's authority.** Creating a compliant new item does not authorize renaming existing content. During an audit, report proposed changes without applying an unrequested migration.
 
@@ -141,7 +146,7 @@ LIT_Rendering_CorridorLightProbes
 
 ### 5.2 Project Assets
 
-Use these identifiers for independently nameable asset base filenames. The Group column organizes this table; it is not a fourth name segment or a folder requirement.
+Use these identifiers for independently nameable asset base filenames. The Group column organizes this table; it is not a name segment or a folder requirement.
 
 | Group | Type | Asset kind | Example |
 |---|---|---|---|
@@ -238,7 +243,7 @@ The first example is a scene object; the second is a project content file. They 
 
 ### 6.1 Prefabs
 
-A prefab asset's base filename MUST match its authored root GameObject name. Use the scene role prefix, category, and description, then append `.prefab` to the asset filename.
+A prefab asset's base filename MUST match its authored root GameObject name. Use the scene role prefix, category, description and any optional VersionNumber in both names, then append `.prefab` to the asset filename.
 
 | Prefab root / canonical scene object name | Prefab asset filename |
 |---|---|
@@ -247,6 +252,7 @@ A prefab asset's base filename MUST match its authored root GameObject name. Use
 | `UI_UserInterface_SettingsPanel` | `UI_UserInterface_SettingsPanel.prefab` |
 | `CTRL_GameFlow_SessionManager` | `CTRL_GameFlow_SessionManager.prefab` |
 | `LIT_Rendering_CorridorReflection` | `LIT_Rendering_CorridorReflection.prefab` |
+| `FX_Spirits_OrbWavesAndSparks_1` | `FX_Spirits_OrbWavesAndSparks_1.prefab` |
 
 The same rule applies when authoring a prefab directly, and to prefab variants. Describe a prefab variant within its root and asset name, for example `OBJ_Environment_SciFiDoorHeavy`.
 
@@ -285,7 +291,7 @@ Category vocabulary expresses purpose, not folder placement. Category names do n
 
 ### 6.4 Description Variants
 
-Keep variant details inside the description; do not add a fourth underscore-separated segment:
+Keep meaningful semantic variant details inside Description:
 
 ```text
 SND_UserInterface_SciFiClickSoft
@@ -294,14 +300,17 @@ TEX_Environment_BrickWallAlbedo
 TEX_Environment_BrickWallNormal
 ```
 
-If no meaningful semantic distinction exists, use a consistent two-digit suffix:
+When an additional version, variety or instance needs a number, append an underscore and VersionNumber at the end:
 
 ```text
-OBJ_Environment_SciFiDoor01
-OBJ_Environment_SciFiDoor02
+TYPE_CategoryName_DescriptionName_VersionNumber
+FX_Spirits_OrbWavesAndSparks_1
+FX_Spirits_OrbWavesAndSparks_2
+OBJ_Environment_SciFiDoor_1
+OBJ_Environment_SciFiDoor_2
 ```
 
-Increase numeric width only when the collection requires it, and keep that collection consistent. Numeric suffixes identify instances or variants, not revisions.
+The number is optional. Use `1`, `2`, and so on consistently within a new numbered series, retaining the normal file extension after it. Do not add a suffix to every item or increment names for ordinary source edits. Existing three-part names with numbers inside Description, such as `OBJ_Environment_SciFiDoor01`, remain valid; this rule does not authorize rewriting them.
 
 ## 7. Script Exemption
 
@@ -348,7 +357,7 @@ Check:
 5. The description distinguishes the item in its relevant naming context.
 6. Prefab base filenames match their authored root names.
 7. Script filenames and associated classes follow the exemption.
-8. Variants and duplicate instances use consistent descriptions or numeric suffixes.
+8. Variants and duplicate instances use consistent descriptions or the optional final numeric segment; extra text segments and empty numbers are invalid.
 9. Changed references remain valid wherever renaming is authorized.
 10. This Markdown technique is saved with consistent CRLF line endings. Source or asset text files retain their owning repository's applicable text rules.
 
