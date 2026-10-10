@@ -1418,10 +1418,11 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         Assert-True ($audienceRun.Code -ne 0 -and $audienceRun.Output.Contains('[FAIL] Documentation audience tags')) "Validator rejects $audienceCase without hiding mandatory bootstrap rules"
     }
 
-    foreach ($namingCase in @('duplicate-scene-type', 'missing-asset-type', 'missing-script-exemption', 'hidden-naming', 'missing-applicability', 'missing-numeric-suffix', 'nonnumeric-suffix', 'mandatory-number')) {
+    foreach ($namingCase in @('duplicate-scene-type', 'missing-asset-type', 'missing-script-exemption', 'hidden-naming', 'missing-applicability', 'missing-numeric-suffix', 'nonnumeric-suffix', 'mandatory-number', 'padded-suffix')) {
         $namingFixture = New-StaticValidationFixture -Parent $testRoot -Name ('static-naming-' + $namingCase)
         $namingFixturePath = Join-Path $namingFixture 'GeurtsTechniques/GeurtsNamingTechnique.md'
         $namingFixtureText = [System.IO.File]::ReadAllText($namingFixturePath)
+        $originalNamingFixtureText = $namingFixtureText
         $expectedNamingFailure = 'Naming Technique policy'
         if ($namingCase -eq 'missing-applicability') {
             $namingManifestPath = Join-Path $namingFixture 'GeurtsTechniqueManifest.md'
@@ -1431,11 +1432,13 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         } else {
             if ($namingCase -eq 'duplicate-scene-type') { $namingFixtureText = $namingFixtureText.Replace('| `OBJ` | Interactable object |', '| `ENV` | Interactable object |') }
             elseif ($namingCase -eq 'missing-asset-type') { $namingFixtureText = [regex]::Replace($namingFixtureText, '(?m)^\| Fonts \| `FONT`[^\r\n]+\r?\n', '') }
-            elseif ($namingCase -eq 'missing-numeric-suffix') { $namingFixtureText = $namingFixtureText.Replace('(?:_[0-9]+)?', '') }
-            elseif ($namingCase -eq 'nonnumeric-suffix') { $namingFixtureText = $namingFixtureText.Replace('(?:_[0-9]+)?', '(?:_[A-Za-z0-9]+)?') }
-            elseif ($namingCase -eq 'mandatory-number') { $namingFixtureText = $namingFixtureText.Replace('(?:_[0-9]+)?', '(?:_[0-9]+)') }
+            elseif ($namingCase -eq 'missing-numeric-suffix') { $namingFixtureText = $namingFixtureText.Replace('(?:_(?:0|[1-9][0-9]*))?', '') }
+            elseif ($namingCase -eq 'nonnumeric-suffix') { $namingFixtureText = $namingFixtureText.Replace('(?:_(?:0|[1-9][0-9]*))?', '(?:_[A-Za-z0-9]+)?') }
+            elseif ($namingCase -eq 'mandatory-number') { $namingFixtureText = $namingFixtureText.Replace('(?:_(?:0|[1-9][0-9]*))?', '(?:_(?:0|[1-9][0-9]*))') }
+            elseif ($namingCase -eq 'padded-suffix') { $namingFixtureText = $namingFixtureText.Replace('(?:_(?:0|[1-9][0-9]*))?', '(?:_[0-9]+)?') }
             elseif ($namingCase -eq 'hidden-naming') { $namingFixtureText = $namingFixtureText.Replace('GEURTS-AUDIENCE: AI-READ', 'GEURTS-AUDIENCE: HUMAN-ONLY') }
             else { $namingFixtureText = $namingFixtureText.Replace('Scripts MUST NOT use `TYPE_Category_Description`', 'Scripts MAY use `TYPE_Category_Description`') }
+            Assert-True ($namingFixtureText -cne $originalNamingFixtureText) "Naming $namingCase fixture changes its intended rule"
             Write-Utf8 -Path $namingFixturePath -Text $namingFixtureText
         }
         $namingRun = Invoke-TestScript -Path $validatorScript -Arguments @('-RepositoryRoot', $namingFixture)
