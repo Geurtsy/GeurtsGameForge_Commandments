@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.22.0
+**Version:** 1.22.1
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -156,6 +156,14 @@ God 0.23.0 places **Apply Forge layout** and **Apply layout when God opens** abo
 God 0.25.0 shows a **Module enabled** checkbox in each installed menu row and installed catalogue card, including folded cards. Uninstalled entries have no switch. Switching off stops the registered module and its owned capabilities and subscriptions through the existing lifecycle; its package and settings stay installed. Required consumers wait until the provider resumes, without changing their own enabled preferences. Switching on uses retained settings and exposes startup failure or dependency waiting truthfully. God stays on as the core manager. Active operations, Play Mode, compilation and imports block changes with a visible reason, checked again before dispatch. Missing registrations are explained rather than pretending the module is running. Disabled module menus remain available.
 
 God exposes the Commandments module preference through its public Editor API and no-code view. It retains the existing per-project preference key. The switch pauses new checks, updates and setup helpers while retaining local guidance, which remains readable without God. Package management stays available for disabled modules. Enabling does not acquire content or start updates.
+
+## Current installation and practical game integration
+
+Use the manifest-selected current catalogue as the single source of compatible released package versions and immutable installation URLs. Package guides route installation there and state dependency minimums separately; never copy a current Forge tag/version list into installation prose. Recheck the actual resolved graph and compilation. Historical release evidence is optional reference, not current API or mandatory onboarding.
+
+Every implemented functional module must provide a practical current-release recipe: no-code setup first, game-owned assignments/lifetime, supported entry point, operation results, expected behavior, common failures, cleanup and an explicit code-extension path when game policy requires it. Runtime recipes resolve the existing bootstrap-owned service; they do not construct another manager or use DontDestroyOnLoad. Optional peers remain optional. Editor-only installer/maintenance recipes retain their native UI, review, confirmation and file-mutation owners; unsupported unattended controllers must not be invented. Informational starters and passive compatibility adapters state their limits rather than claim game functionality.
+
+Any recipe code shipped as supported guidance must be declared in ReleaseDocumentation.json, copied exactly into its guide and compiled with the owning package's real dependencies in a disposable Unity project. Exercise complete practical workflows with meaningful executable owner tests, including failure/withdrawal and cleanup, and bind successful cases to the exact source fingerprint and candidate Git pins in release evidence. Compilation or read-only inspection alone is insufficient. Native operations, controlled test doubles and interactive/device acceptance must be reported separately. Preserve live projects and user-authored content during validation.
 
 ## Release capabilities and supported automation
 
