@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.58.4",
-  "publishedUtc": "2026-10-10T11:17:44Z",
+  "packageVersion": "0.58.5",
+  "publishedUtc": "2026-10-10T11:28:19Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
       "name": "Geurts Game Forge BigBang",
-      "description": "Independent initial installer plus separately confirmed BigCrunch removal of every installed Forge package, including BigBang. Preview checks the local package graph and runs a Unity dry run; external dependents and unsafe local sources block removal. Verified removal cleans only exact Forge-owned settings and persists its result before self-unload. Game content, documentation, AI guides and third-party libraries remain. Unity 6000.6.3f1: 140 tests pass in each of wrapper-absent and wrapper-installed fixtures; real disposable self-removal retains Steamworks.NET and content sentinels. Interactive visual and keyboard checks were skipped at user request; full-God native group teardown and native Steam behavior remain unverified.",
+      "description": "Independent initial installer plus separately confirmed BigCrunch removal of every installed Forge package, including God and BigBang. The dry run and confirmed batch use frozen installed non-Forge Registry/BuiltIn version pins; review explains direct manifest entries. External dependents, unsafe local sources and retained-package changes block removal. Unity 6000.6.3f1: both complete prerequisite fixtures passed 145/145 tests. Actual disposable removal of all twelve Forge packages in catalogue 0.58.3 with real Odin 4.0.2.4, Quantum Console 2.6.7, Steamworks.NET 2025.164.1 and copied game assets passed after real self-unload. All 53 retained package identities and 1,102 protected file hashes remained unchanged; only twelve exact Forge-owned settings files were deleted. Baseline follows initial vendor import; unrelated experimental pipeline/AI/tutorial hooks were excluded. Interactive checks remain skipped at user request. Games retaining Forge references, optional unlisted integrations, native Steam and player behavior are not certified. Live consumers update manually.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
-      "version": "0.8.0",
+      "version": "0.8.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#2f58bd0cd06648e6c42e5ddc2cb139c2e0488335",
+      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#6e189e792900ac6938a7ae823c274a253f8f5772",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [],
