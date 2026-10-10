@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts BigBang Technique
 
-**Version:** 1.6.0
+**Version:** 1.6.1
 **Status:** Normative installation and removal boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
@@ -68,6 +68,8 @@ Follow the Editor UI Theme Technique's dark surfaces, green accents, severity co
 ## BigCrunch whole-Forge uninstall
 
 BigBang owns the separate **BigCrunch** uninstaller, available through **Tools > Geurts Game Forge > BigCrunch** and BigBang Help. Opening/restoration starts no inventory request or mutation. **Preview removal** explicitly lists installed `com.geurts.gameforge.*` packages, including BigBang itself, and each target's exact `ProjectSettings/GeurtsGameForge/<package-id>.json` settings file. Use **Unity removal dry run before confirmation**; reject external package dependents, retained third-party package changes and embedded/local source installations with an actionable reason. Revalidate the reviewed package inputs immediately before dispatch; changed inputs require another preview.
+
+**Retain installed non-Forge Registry and BuiltIn versions with exact pins.** Include those same frozen pins in both the dry run and confirmed grouped removal, so removing God cannot downgrade or discard its non-Forge dependencies. Explain in the review that confirmation writes these pins to `Packages/manifest.json` and may make indirect dependencies direct. Preserve existing Git/local source entries and verify every retained package's exact identity, source and version after removal; any unexpected change blocks settings cleanup.
 
 The destructive confirmation must default to keeping Forge; Escape cancels. Serialize the reviewed group through Unity's supported Package Manager API and prevent conflicting BigBang/Steam acquisition. An active request continues when the window closes; cancellation before dispatch changes no packages or settings. Preserve unknown or interrupted results without automatic redispatch.
 

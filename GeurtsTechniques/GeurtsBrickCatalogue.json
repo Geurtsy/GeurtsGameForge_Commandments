@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.58.3",
+  "packageVersion": "0.58.4",
   "publishedUtc": "2026-10-10T03:47:39Z",
   "bricks": [
     {
@@ -101,7 +101,7 @@
     {
       "id": "com.geurts.gameforge.angels",
       "name": "Geurts Game Forge Angels",
-      "description": "Optional Editor project tools with independent Renaming/Reorganising, measured percentage bars, streamed current-assets scans and GUID-backed folder/asset exclusions. Codex estimates Type, Category and Description using complete byte-checked local Commandments and primary GDD. Duplicate Codex names now use the documented optional final VersionNumber: first free _1, _2 and onward; originals, metadata, folders and pending destinations protected. Numbered names stay stable across repeat scans; descriptions keep semantic digits and do not receive nested numbers. Matching prefab roots and serialized references retained. Codex naming requires Commandments 0.58.3 / Setup 1.8.1. Existing opt-in OpenAI actual-audio analysis, Windows-secured API key, bounded recording coverage, cancellation and drift checks retained. Scripts/vendor/fixed identities preserved. Unity 6000.6.3f1: 338 distinct Editor checks passed, zero failed, 2 conditional symlink skips; duplicate imports/current scans, 130-file numbering beyond 99, FX prefab preservation, audio and signed-in GDD visual regressions passed. Current candidate compilation and focused duplicate checks passed after XML test documentation correction. Native normal/narrow layouts inspected. Live audio API identification, calibrated semantic accuracy and physical input remain unverified. Consumer adoption stays manual.",
+      "description": "Optional Editor project tools with independent Renaming/Reorganising, measured percentage bars, streamed current-assets scans and GUID-backed folder/asset exclusions. Codex estimates Type, Category and Description using complete byte-checked local Commandments and primary GDD. Duplicate Codex names now use the documented optional final VersionNumber: first free _1, _2 and onward; originals, metadata, folders and pending destinations protected. Numbered names stay stable across repeat scans; descriptions keep semantic digits and do not receive nested numbers. Matching prefab roots and serialized references retained. Codex naming requires Commandments 0.58.4 / Setup 1.8.1. Existing opt-in OpenAI actual-audio analysis, Windows-secured API key, bounded recording coverage, cancellation and drift checks retained. Scripts/vendor/fixed identities preserved. Unity 6000.6.3f1: 338 distinct Editor checks passed, zero failed, 2 conditional symlink skips; duplicate imports/current scans, 130-file numbering beyond 99, FX prefab preservation, audio and signed-in GDD visual regressions passed. Current candidate compilation and focused duplicate checks passed after XML test documentation correction. Native normal/narrow layouts inspected. Live audio API identification, calibrated semantic accuracy and physical input remain unverified. Consumer adoption stays manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
       "version": "0.9.1",
       "released": true,
