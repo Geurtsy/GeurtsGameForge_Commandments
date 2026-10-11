@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.59.2",
-  "publishedUtc": "2026-10-11T00:33:50.994720+00:00",
+  "packageVersion": "0.59.3",
+  "publishedUtc": "2026-10-11T09:02:13.0908117+00:00",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
       "name": "Geurts Game Forge BigBang",
-      "description": "Independent installer and reviewed BigCrunch removal; public descriptions, tooltips and safe private conventions corrected. Dependency compliance is exempt and no dependency-driven changes were made. Unity 6000.6.3f1: 290 actual successful test executions, zero failed, 0 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
+      "description": "Independent installer and reviewed BigCrunch removal with regenerated canonical Editor appearance for the SaveLoad delivery. The generated theme subset remains dependency-free and the God installation/handoff profile is unchanged. Unity 6000.6.3f1: all 145 Editor tests passed in a fixture without God or vendor libraries; literal automation source compiled, theme parity and package checks passed, and native dark rendering/scroll access was reviewed. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
-      "version": "0.8.3",
+      "version": "0.8.4",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#10fd2ce142f0482120237cfc202d4571645653e1",
+      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#e4295745c721f89ef014cfa2ea4731cd9b72fa43",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [],
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "Shared authoring mutation/destination safeguards, collapsible bootstrap Help, strict owner-aware settings protection with bounded atomic-write retry, and public documentation/convention corrections. Unity 6000.6.3f1: 472 actual successful test executions, zero failed, 10 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
+      "description": "Shared canonical Editor theme extended for SaveLoad authoring, readable light-host tabs and object fields, scoped Odin panel styles, and opt-in spacious layout. Unity 6000.6.3f1: 471 God Editor tests and one literal integration recipe test passed, zero failed, seven named conditional skips. Native SaveLoad and Commandments panels have separately scoped rendering and injected-input evidence. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.38.3",
+      "version": "0.38.4",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#73da5fa763e8284222235f22644564e73d9eb706",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#6586a014b5afc8e256e5ae57dc567caec9f1e554",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -169,13 +169,13 @@
     {
       "id": "com.geurts.gameforge.saveload",
       "name": "Geurts Game Forge Save and Load",
-      "description": "Existing unfinished SaveLoad starter retained; public API descriptions/tooltips and safe private conventions corrected. Planned persistence gameplay features were not implemented. Unity 6000.6.3f1: 5 actual successful test executions, zero failed, 0 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
+      "description": "Reusable local gameplay persistence: named profiles and slots, bounded checksum-protected atomic files, explicit prior-success backup, exact providers and forward migrations, prepared restore with reverse rollback, typed cancellation/failure results, standard saved participants, gameplay UnityEvent bindings, and default-off autosave. Unity 6000.6.3f1: 28 Editor tests, 10 Windows Mono write-phase checks and three independent cold-start load checks passed. Native desktop authoring and 150% compact rendering have bounded evidence. God 0.38.4 is the only mandatory Geurts brick; cloud and concrete network transport remain outside this release. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.saveload",
-      "version": "0.3.2",
+      "version": "0.4.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#707964c5eeb368189e521f74b43177aa1cbcb26a",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#ad835c23eb5684d83f26ab2c0dcfd3648b762103",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -185,7 +185,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.35.0"
+          "minimumVersion": "0.38.4"
         }
       ]
     },
