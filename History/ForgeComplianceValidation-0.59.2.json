@@ -1,0 +1,595 @@
+{
+  "documentationVersion": "0.59.2",
+  "scope": "Completed full validation of the final tracked package inventory, including both registered non-normative evidence archives. This receipt changes no selected subject, executable tool, catalogue pin or product source.",
+  "gateResultSha256": "4880425b22aadc89cab588523be9ffb1f17b17c0b89915a663451213259d1c24",
+  "result": {
+    "status": "VALID",
+    "checks": [
+      {
+        "name": "Package version",
+        "passed": true,
+        "message": "Manifest package version is 0.59.2."
+      },
+      {
+        "name": "Mandatory reading and version policy",
+        "passed": true,
+        "message": "AI_READ_FIRST requires current documentation reading and an appropriate version bump for every update, however small."
+      },
+      {
+        "name": "Draft target-release status",
+        "passed": true,
+        "message": "Package v0.59.2 remains a Draft target release; its migration guide is a planned target-release snapshot, not a completed-release claim."
+      },
+      {
+        "name": "Manifest-listed files",
+        "passed": true,
+        "message": "72 listed files exist."
+      },
+      {
+        "name": "Listed file versions",
+        "passed": true,
+        "message": "Manifest-listed versions agree with declared file versions."
+      },
+      {
+        "name": "Documentation audience tags",
+        "passed": true,
+        "message": "Audience tags are valid in both modes; bootstrap rules and literal templates remain readable."
+      },
+      {
+        "name": "Controlled section registry and preview",
+        "passed": true,
+        "message": "Every controlled heading resolves uniquely in registered, non-protected Markdown; previews contain no document text and new untabled rules remain required."
+      },
+      {
+        "name": "Git-tracked package inventory",
+        "passed": true,
+        "message": "The manifest registry exactly matches all 72 Git-tracked source files."
+      },
+      {
+        "name": "Current source tree shape",
+        "passed": true,
+        "message": "The nine confirmed top-level entries, including optional History archives, are tracked; .gitattributes is the sole tracked hidden path."
+      },
+      {
+        "name": "Central manifest resolver",
+        "passed": true,
+        "message": "The manifest alone defines a contiguous AI_READ_FIRST-to-manifest read sequence, selected owners, applicability, ordering, and conflict resolution; all selected paths exist."
+      },
+      {
+        "name": "Naming Technique policy",
+        "passed": true,
+        "message": "All 76 approved registry entries, prefab/script exceptions, preservation rules and AI-readable policy remain intact."
+      },
+      {
+        "name": "Naming Technique routing",
+        "passed": true,
+        "message": "Naming is selected through the manifest after Technical, referenced by existing subject owners, and included in package membership without replacing folder, ID or code-symbol contracts."
+      },
+      {
+        "name": "Steam manifest routing",
+        "passed": true,
+        "message": "One Steam owner follows Unity, covers prerequisites/services/builds, and is referenced by the affected subject owners."
+      },
+      {
+        "name": "Steam audience and metadata",
+        "passed": true,
+        "message": "Steam prerequisite, implementation status and acceptance requirements remain completely readable in both modes."
+      },
+      {
+        "name": "Steam target and preparation boundary",
+        "passed": true,
+        "message": "Windows x64 and pinned wrapper compatibility are explicit; AppID/distribution setup and other platforms remain deferred."
+      },
+      {
+        "name": "Steam independent local prerequisite",
+        "passed": true,
+        "message": "Installation and handoff require local Steam API evidence; numbered Red/Orange/Green steps preserve independent compilation and native-free local inspection."
+      },
+      {
+        "name": "Steam optional provider and lifetime",
+        "passed": true,
+        "message": "Optional native ownership preserves vendor-neutral God, retained scenes, default-off local activation and one callback/cleanup lifetime."
+      },
+      {
+        "name": "Steam evidence and artifacts",
+        "passed": true,
+        "message": "Four evidence dimensions preserve shared statuses, real player gates, development-artifact exclusion and deferred gameplay/cloud services."
+      },
+      {
+        "name": "Steam policy publication boundary",
+        "passed": true,
+        "message": "Released local preparation has exact owner pins and neutral God prerequisites; native/overlay and distribution acceptance remain separate and manual adoption is explicit."
+      },
+      {
+        "name": "Documentation entry router",
+        "passed": true,
+        "message": "AI_READ_FIRST routes immediately to the manifest, refers to the active package's validated commit without making the manifest select Git state, and performs no pre-manifest GDD inspection or fingerprint selection."
+      },
+      {
+        "name": "Custom .gitignore payload",
+        "passed": true,
+        "message": "The v1.0.1 payload retains the original rules and appends FMOD recommendations; its subject owner alone defines explicit create-if-missing authorization, identical no-rewrite, differing-target conflict/preservation, no merge or replacement, and no Git-index mutation."
+      },
+      {
+        "name": "FMOD .gitattributes payload",
+        "passed": true,
+        "message": "The two-line UTF-8 payload, exact target/hash, 1.0.1 versions and manifest-selected owner agree."
+      },
+      {
+        "name": "Technique required-path metadata",
+        "passed": true,
+        "message": "Every normative technique declares its required package path; the legacy redirect is checked separately."
+      },
+      {
+        "name": "Plain-language path terminology",
+        "passed": true,
+        "message": "Human-facing metadata uses required package/project paths; canonicalPath remains only as an explicitly documented legacy serialized compatibility key."
+      },
+      {
+        "name": "Frozen GFI v2 compatibility redirect",
+        "passed": true,
+        "message": "The legacy path is a short v2 non-normative fail-closed pointer that marks the v1 automatic transaction/recovery lifecycle obsolete and cannot become a second owner."
+      },
+      {
+        "name": "Frozen GFI v2 source and compatibility boundary",
+        "passed": true,
+        "message": "The internally validated schema-2.0.0 contract remains available only for released-consumer compatibility; package v0.59.2 assigns current setup, checking, and Update exclusively to the Commandments Companion."
+      },
+      {
+        "name": "Frozen GFI v2 startup and manual trigger",
+        "passed": true,
+        "message": "The frozen released-consumer contract retains its internally coherent metadata-only launch check and explicit manual Update semantics without authorizing package-v0.59.2 behavior."
+      },
+      {
+        "name": "Frozen GFI v2 separated versions",
+        "passed": true,
+        "message": "The frozen released-consumer contract keeps its documentation, plugin, technique, and schema values internally distinct."
+      },
+      {
+        "name": "Documentation companion closed contract",
+        "passed": true,
+        "message": "The current schema-3.0.0/package-v0.59.2 source contract fixes the official exact-commit archive, one managed directory, fourteen validation entries, one four-target confirmation, and three exact full-file route mappings."
+      },
+      {
+        "name": "Git-only brick delivery and downgrade boundary",
+        "passed": true,
+        "message": "Released bricks use immutable Git sources; remote-first delivery and downgrade/source preservation rules are present."
+      },
+      {
+        "name": "Companion schema forward compatibility",
+        "passed": true,
+        "message": "Schema 3.0.0 pins mutation paths, not documentation releases: packageVersion must match the same archive manifest, and later safe validation-entry lists remain consumable without a companion release."
+      },
+      {
+        "name": "Documentation companion architecture boundary",
+        "passed": true,
+        "message": "The manifest selects the God-owned Editor service and passive compatibility adapter while authoritative readable content stays independent."
+      },
+      {
+        "name": "God-first optional Commandments Companion boundary",
+        "passed": true,
+        "message": "God installs independently, exposes the optional Commandments Companion package through Game Forge God, and does not declare a reverse dependency in the catalogue."
+      },
+      {
+        "name": "Installed brick menu contract",
+        "passed": true,
+        "message": "Installed packages retain a local Editor opener or useful information, independent of catalogue/lifecycle state, with installation rechecks and no executable catalogue metadata."
+      },
+      {
+        "name": "God automatic update consent",
+        "passed": true,
+        "message": "Default-off saved consent bounds God-opening updates; manual confirmation, standalone offline startup and exact target ownership remain intact."
+      },
+      {
+        "name": "Independent God opening options",
+        "passed": true,
+        "message": "Catalogue refresh and installed-package/documentation updates have separate default-off consent; toggling and Unity startup do not start work."
+      },
+      {
+        "name": "God documentation content integration",
+        "passed": true,
+        "message": "Package management stays separate from companion-owned content replacement, including first installation, with the same confirmation and graceful missing-companion behavior."
+      },
+      {
+        "name": "No Unity companion implementation in documentation source",
+        "passed": true,
+        "message": "No package.json, C#, asmdef, or asmref implementation file is tracked in this documentation repository."
+      },
+      {
+        "name": "Companion offline startup",
+        "passed": true,
+        "message": "Unity startup and restored windows stay offline; explicit remote-head metadata comparison is non-blocking, keyed outside the project/package per Unity project; it never downloads, inspects, executes setup, or mutates."
+      },
+      {
+        "name": "Companion confirmation and complete update",
+        "passed": true,
+        "message": "One cancel-default confirmation authorizes only the four listed replacements; content success requires all four targets, while later comparison-state persistence failure warns without undoing that success."
+      },
+      {
+        "name": "Companion bounded project and script boundary",
+        "passed": true,
+        "message": "Only the managed documentation directory, three mapped files, and their missing parents are in scope; Docs/GameDesign and unlisted paths are uninspected, and package/project scripts remain inert."
+      },
+      {
+        "name": "Companion minimal lifecycle exclusions",
+        "passed": true,
+        "message": "The companion contract has no preview/dry-run, second confirmation, setup engine, external bootstrap, script execution, drift handling, backup, rollback, journal, quarantine, migration, or recovery machinery."
+      },
+      {
+        "name": "Companion AI-routing limitation",
+        "passed": true,
+        "message": "The contract accurately limits routing to tools that support the declared native files or are explicitly instructed to follow AI_READ_FIRST.md."
+      },
+      {
+        "name": "Codex guide template and retired routes",
+        "passed": true,
+        "message": "The sole technique template has one exact-entry placeholder and mandatory manifest/version guidance; deprecated standalone guides are absent."
+      },
+      {
+        "name": "Portable root onboarding boundary",
+        "passed": true,
+        "message": "Portable routing is separately versioned, project-relative, preserving, explicit, cancel-default and outside Commandments Update."
+      },
+      {
+        "name": "Supported operation and capability evidence",
+        "passed": true,
+        "message": "Owner operations, partial/unknown evidence, installed observations, planned-feature separation and compile-checked release gates are required."
+      },
+      {
+        "name": "Managed native routes",
+        "passed": true,
+        "message": "Every native template contains the exact concise project-wide route through direct AI_READ_FIRST.md into the installed manifest-selected source of truth."
+      },
+      {
+        "name": "Managed template integrity",
+        "passed": true,
+        "message": "All five approved v1.3.0 native managed regions and hashes are exact and valid."
+      },
+      {
+        "name": "Migration catalog integrity",
+        "passed": true,
+        "message": "The exact Geurts-owned historical native-entry fingerprints are valid, with no product-owned block migration data."
+      },
+      {
+        "name": "GDD scaffold contract",
+        "passed": true,
+        "message": "Managed GDD index retains its deterministic v0.7.0 format, while the v0.11.0 README separates project-authored GDD from the fetched copy, stops for missing design intent, and permits only reversible non-design assumptions."
+      },
+      {
+        "name": "Folder definition contract",
+        "passed": true,
+        "message": "Definition versions, 78 entries, owner-bound profiles, package-only resolution, and exact Markdown parity are valid; root and per-directory final reparse guards prevent creation outside the project."
+      },
+      {
+        "name": "Folder technique reader version parity",
+        "passed": true,
+        "message": "The folder creator accepts the registered Folder Technique 0.16.5; unsupported explanatory authority versions remain blocked."
+      },
+      {
+        "name": "Chat-only classification",
+        "passed": true,
+        "message": "Manifest applicability and registry role independently classify Response Control as explicitly selected chat-only behaviour, never an implementation standard."
+      },
+      {
+        "name": "Technical topic routing and retained rules",
+        "passed": true,
+        "message": "The short Technical core preserves shared priorities and boundaries; eight registered conditional topics retain implementation, XML, IDs, Help and compatibility policy."
+      },
+      {
+        "name": "Companion licensed tooling boundary",
+        "passed": true,
+        "message": "God owns licensed tooling requirements; only the passive compatibility adapter is exempt."
+      },
+      {
+        "name": "BigCrunch removal boundary",
+        "passed": true,
+        "message": "Whole-Forge removal requires its own dry-run review, cancel-default confirmation, retained-content guards, verified exact-settings cleanup and durable self-removal result."
+      },
+      {
+        "name": "Independent BigBang initial-installer boundary",
+        "passed": true,
+        "message": "The manifest and immutable catalogue select the independent initial installer, explicit release resolution, frozen target, fresh compile/readback, recovery, canonical subset and acceptance gates without relaxing God/brick/Companion requirements."
+      },
+      {
+        "name": "Mandatory Editor UI theme routing",
+        "passed": true,
+        "message": "The manifest, Technical, Brick Contract, README and companion completeness contract select the mandatory Editor-only standard for all existing and future bricks."
+      },
+      {
+        "name": "Editor UI theme contract",
+        "passed": true,
+        "message": "Exact dark/green tokens, semantic severity, actionable states, shared API/USS, independent generated companion, truthful progress and bounded visual review are required. This check does not certify rendered Unity UI."
+      },
+      {
+        "name": "Editor Appearance routing",
+        "passed": true,
+        "message": "The manifest selects Appearance after Theme; existing owners, README, archive completeness and adoption guidance retain their own boundaries."
+      },
+      {
+        "name": "Editor Appearance policy",
+        "passed": true,
+        "message": "Appearance specifies meaningful Odin/equivalents, tabs, collapsible headers, severity callouts, inline findings, hidden-problem discovery and native acceptance without new dependency, logging or priority owners. This is not rendered UI certification."
+      },
+      {
+        "name": "Unity 6000.6.3f1 target",
+        "passed": true,
+        "message": "README, manifest, and the Technical Technique agree on 6000.6.3f1; the technical owner declares dependency, language/API, migration, and verification requirements."
+      },
+      {
+        "name": "Unity C# example patterns",
+        "passed": true,
+        "message": "8 current C# fragments pass the bounded legacy-API and language-pattern lint; Unity compilation and player compatibility are not established by this check."
+      },
+      {
+        "name": "Technical priority ownership",
+        "passed": true,
+        "message": "The exact five priorities and framework-independent multiplayer override occur normatively only in the manifest-selected Technical Technique."
+      },
+      {
+        "name": "Required technical dependencies and policies",
+        "passed": true,
+        "message": "Odin Inspector and Quantum Console are required and meaningfully used in scoped Geurts implementation; their blocker and independent-companion tooling boundaries, UI Toolkit, optional Netcode, player access, and compliance-header scope are explicit."
+      },
+      {
+        "name": "Resolved documentation policy consistency",
+        "passed": true,
+        "message": "Logging, offline consent, Angels ownership, explicit root guides, optional console, existing statuses, semantic outlines and catalogue-only current versions agree; historical guides and exact payloads retain their boundaries."
+      },
+      {
+        "name": "Automatic import organization boundary",
+        "passed": true,
+        "message": "Automatic imports require explicit scoped consent, a retained baseline and deferred guarded moves; protected descendants and existing assets remain excluded."
+      },
+      {
+        "name": "Automatic import naming boundary",
+        "passed": true,
+        "message": "Naming has separate default-off consent, explicit semantic choices, shared identity ownership, preservation and collision/drift guards."
+      },
+      {
+        "name": "Codex import naming boundary",
+        "passed": true,
+        "message": "Optional reviewed account requests retain bounded evidence, compatible type/category, no project mutation, no resending and honest semantic limits."
+      },
+      {
+        "name": "Asset organization setup and complete naming",
+        "passed": true,
+        "message": "Incoming moves, all Codex name segments, mandatory image/audio inclusion, combined enablement and actual Odin/setup state presentation retain preservation boundaries."
+      },
+      {
+        "name": "Estimated naming scans and exclusions",
+        "passed": true,
+        "message": "Estimated naming, distinct explicit scans, stable exclusions and measured progress retain no-overwrite and protection boundaries."
+      },
+      {
+        "name": "Actual audio naming boundary",
+        "passed": true,
+        "message": "Separate secure-key/billing review, bounded actual-sound coverage, untrusted observations and stale/cancelled/failed request preservation are required."
+      },
+      {
+        "name": "Codex project context boundary",
+        "passed": true,
+        "message": "Reviewed bounded local Commandments and an exact primary GDD retain document ownership, read-only context, drift guards and no silent truncation."
+      },
+      {
+        "name": "Project GDD authority",
+        "passed": true,
+        "message": "The package manifest selects the GDD Technique; the project GameDesignManifest selects relevant project facts; missing design intent is asked, never invented."
+      },
+      {
+        "name": "Primary GDD import routing",
+        "passed": true,
+        "message": "Explicit Markdown import selects project game context through an independent primary section, preserves source/table/user bytes, keeps technical authority in Geurts documentation, and does not expand the companion boundary."
+      },
+      {
+        "name": "Multiple GDD import routing",
+        "passed": true,
+        "message": "Explicit batches retain one selected primary, register supporting paths without inventing authority, preserve existing content, and do not scan unrelated files."
+      },
+      {
+        "name": "Manual GDD overwrite consent",
+        "passed": true,
+        "message": "Only one-time explicit consent permits replacing named changed documents; cancellation is write-free, concurrent edits are preserved and partial failures report retained changes."
+      },
+      {
+        "name": "Frozen GFI v2 destructive warning",
+        "passed": true,
+        "message": "The frozen released-consumer contract retains its cancel-default destructive-warning requirements."
+      },
+      {
+        "name": "Frozen GFI v2 complete-tree replacement",
+        "passed": true,
+        "message": "The frozen released-consumer contract retains its internally coherent validated complete-tree replacement sequence."
+      },
+      {
+        "name": "Frozen GFI v2 receipt lifecycle",
+        "passed": true,
+        "message": "The frozen released-consumer contract retains its internally coherent commit-identity and current-receipt lifecycle."
+      },
+      {
+        "name": "Frozen GFI v2 overwrite boundary",
+        "passed": true,
+        "message": "The frozen released-consumer contract remains bounded to its historical GeurtsGameForgeCommandments-only replacement and never touches Docs/GameDesign."
+      },
+      {
+        "name": "Frozen GFI v2 discarded lifecycle exclusion",
+        "passed": true,
+        "message": "The frozen v2 contract forbids its older automatic transaction/recovery system and leaves legacy Library evidence untouched and non-blocking."
+      },
+      {
+        "name": "Normative status and registry roles",
+        "passed": true,
+        "message": "Folder, GDD, and Commandments Companion techniques consistently declare Draft normative status and normative manifest roles."
+      },
+      {
+        "name": "Native-entry safety contract",
+        "passed": true,
+        "message": "Native entries use strict supported encodings, exact outside bytes, target-region newlines, byte-CAS expected state, root-owned write/backup artifacts, and final file/backup/directory containment plus reparse guards; backups never authorize overwrite."
+      },
+      {
+        "name": "Explicit Unity project roots",
+        "passed": true,
+        "message": "All project-mutating PowerShell tools and launchers require an explicit Unity root with Assets, Packages, and ProjectSettings; none derives it from the copied Tools location."
+      },
+      {
+        "name": "Tool invocation and scope documentation",
+        "passed": true,
+        "message": "Every current/v0.11 manual-tool example passes explicit -ProjectRoot; native-only default, create-missing GDD scaffolding, and independent manifest maintenance match the CLI."
+      },
+      {
+        "name": "GDD maintenance safety contract",
+        "passed": true,
+        "message": "GDD maintenance preserves supported encoding and exact outside bytes, rejects invalid/UTF-32 input, uses raw-byte expected-state protection, keeps ephemeral artifacts at ProjectRoot, and rechecks containment/reparse paths immediately before promotion."
+      },
+      {
+        "name": "Complete installation guide",
+        "passed": true,
+        "message": "Both installation routes include prerequisites, exact sources and the current passive-adapter handoff."
+      },
+      {
+        "name": "Explicit update troubleshooting",
+        "passed": true,
+        "message": "Rate limits, offline/access failures and partial replacement retain the explicit consent and failure boundaries."
+      },
+      {
+        "name": "Damaged settings preservation",
+        "passed": true,
+        "message": "Invalid module settings are preserved with scoped manual repair/reset and no silent defaults or conversion."
+      },
+      {
+        "name": "Capability graph and Editor exposure gate",
+        "passed": true,
+        "message": "Release shape/graph checks and real discovered Editor action parity remain distinct from execution/runtime readiness."
+      },
+      {
+        "name": "Multiplayer fault acceptance",
+        "passed": true,
+        "message": "Relevant multiplayer failures and project-specific network budgets require measured evidence."
+      },
+      {
+        "name": "Repeatable game AI measurements",
+        "passed": true,
+        "message": "Game-agent performance uses repeatable player workloads, actual budgets and truthful unverified coverage."
+      },
+      {
+        "name": "Published package source parity",
+        "passed": true,
+        "message": "Verified 12 pinned package/capability manifests and required Forge dependencies."
+      },
+      {
+        "name": "Automation test suite",
+        "passed": true,
+        "message": "Automation tests exited with code 0."
+      }
+    ],
+    "failures": [],
+    "automationTests": {
+      "status": "PASSED",
+      "passed": 493,
+      "failed": 0,
+      "failures": []
+    },
+    "publishedSources": {
+      "status": "VALID",
+      "checks": [
+        {
+          "id": "com.geurts.gameforge.bigbang",
+          "version": "0.8.3",
+          "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#10fd2ce142f0482120237cfc202d4571645653e1",
+          "commit": "10fd2ce142f0482120237cfc202d4571645653e1",
+          "passed": true,
+          "issues": []
+        },
+        {
+          "id": "com.geurts.gameforge.documentation",
+          "version": "0.15.3",
+          "source": "https://github.com/Geurtsy/com.geurts.gameforge.commandments.git#0b003200424af7498fde5e1e98738d80ab20ebbe",
+          "commit": "0b003200424af7498fde5e1e98738d80ab20ebbe",
+          "passed": true,
+          "issues": []
+        },
+        {
+          "id": "com.geurts.gameforge.god",
+          "version": "0.38.3",
+          "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#73da5fa763e8284222235f22644564e73d9eb706",
+          "commit": "73da5fa763e8284222235f22644564e73d9eb706",
+          "passed": true,
+          "issues": []
+        },
+        {
+          "id": "com.geurts.gameforge.steam",
+          "version": "0.1.2",
+          "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#d87d1edda65b98634627c4e706f40e5e80308332",
+          "commit": "d87d1edda65b98634627c4e706f40e5e80308332",
+          "passed": true,
+          "issues": []
+        },
+        {
+          "id": "com.geurts.gameforge.diagnostics",
+          "version": "0.11.2",
+          "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#6ea3934c3b95f6c6a5dfe7df721e89292d71bd7f",
+          "commit": "6ea3934c3b95f6c6a5dfe7df721e89292d71bd7f",
+          "passed": true,
+          "issues": []
+        },
+        {
+          "id": "com.geurts.gameforge.angels",
+          "version": "0.9.5",
+          "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#e4b9866a134a8bed627278d877d123cb7ef3a20c",
+          "commit": "e4b9866a134a8bed627278d877d123cb7ef3a20c",
+          "passed": true,
+          "issues": []
+        },
+        {
+          "id": "com.geurts.gameforge.settings",
+          "version": "0.7.3",
+          "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#243fb080d77761aba93d9b0aeb1f8c7a8c4569b4",
+          "commit": "243fb080d77761aba93d9b0aeb1f8c7a8c4569b4",
+          "passed": true,
+          "issues": []
+        },
+        {
+          "id": "com.geurts.gameforge.sceneloading",
+          "version": "0.7.2",
+          "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#c53cbe5d69675ed39da027f5364c2c0da460ca7a",
+          "commit": "c53cbe5d69675ed39da027f5364c2c0da460ca7a",
+          "passed": true,
+          "issues": []
+        },
+        {
+          "id": "com.geurts.gameforge.saveload",
+          "version": "0.3.2",
+          "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#707964c5eeb368189e521f74b43177aa1cbcb26a",
+          "commit": "707964c5eeb368189e521f74b43177aa1cbcb26a",
+          "passed": true,
+          "issues": []
+        },
+        {
+          "id": "com.geurts.gameforge.audio",
+          "version": "0.9.3",
+          "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#942f5a0d4511a647bf9729d4a46a52c8409f1ce3",
+          "commit": "942f5a0d4511a647bf9729d4a46a52c8409f1ce3",
+          "passed": true,
+          "issues": []
+        },
+        {
+          "id": "com.geurts.gameforge.userinterface",
+          "version": "0.13.2",
+          "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#f05d5bed388e7ca61bd0cadbbfd578aaf09ca09d",
+          "commit": "f05d5bed388e7ca61bd0cadbbfd578aaf09ca09d",
+          "passed": true,
+          "issues": []
+        },
+        {
+          "id": "com.geurts.gameforge.objectpooling",
+          "version": "0.8.2",
+          "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#1aba149fc7687d9976c4cfd7d18221e0d888b4b4",
+          "commit": "1aba149fc7687d9976c4cfd7d18221e0d888b4b4",
+          "passed": true,
+          "issues": []
+        }
+      ],
+      "failures": []
+    }
+  },
+  "packageVersion": "0.59.2"
+}

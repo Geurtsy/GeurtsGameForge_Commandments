@@ -1716,5 +1716,6 @@
     "requirementReference": "GeurtsTechniques/GeurtsBrickContract.md:92,96 at Commandments 0.59.1",
     "immutableGitReleases": "Each owning remote main and exact fixed release commit/tag are verified. Published contents and tags were preserved; no release tag was moved or replaced.",
     "githubReleaseLock": "The additional GitHub lock flag is observed per repository in each publication record. SaveLoad has it disabled; repository settings were not changed. Archive and checksum digests were independently verified for every release."
-  }
+  },
+  "packageVersion": "0.59.2"
 }

@@ -179,6 +179,9 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `Migrations/v0.51.0.md` | 0.51.0 | Historical Steam policy delivery before brick enforcement. |
 | `Migrations/v0.52.0.md` | 0.52.0 | Manual adoption of released Steam preparation; native and distribution acceptance remain separate. |
 
+| `History/ForgeComplianceDelivery-0.59.2.json` | 0.59.2 | Optional non-normative compliance audit, correction and owner-publication archive. |
+| `History/ForgeComplianceValidation-0.59.2.json` | 0.59.2 | Optional non-normative full documentation validation receipt; never current subject guidance. |
+
 <!-- GEURTS-PACKAGE-FILES:END -->
 
 ### 3.1 Current versions and compatibility
