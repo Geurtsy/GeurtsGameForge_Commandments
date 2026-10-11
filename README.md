@@ -1,5 +1,5 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Integrated Forge setup — 0.59.3
+# Integrated Forge setup — 0.60.0
 
 God provides supported owner operations and a read-only project report. Angels provides reviewed opt-in automatic organization of new first-party imports and incoming asset/folder moves. Codex chooses Type, Category and Description for eligible non-code assets, including images and audio, using local Commandments and the registered primary GDD. Setup comes first with editable Odin boxes and written completion states. Angels also provides portable preserving root onboarding. Every brick publishes exact release capabilities and a documentation gate. God owns Commandments and minimal bootstrap; Diagnostics owns optional console installation and logging capture; Angels owns the seven optional project tools. BigBang owns independent initial installation and the separately confirmed BigCrunch whole-Forge uninstall. See [the manual upgrade guide](Migrations/v0.45.0.md) and [setup authority](GeurtsTechniques/GeurtsForgeSetupTechnique.md).
 
@@ -7,9 +7,13 @@ God provides supported owner operations and a read-only project report. Angels p
 
 ## Windows Steam preparation policy
 
-Steam on **Windows x64** is the primary release target, with Steam Deck, Proton, SteamOS and other operating systems outside the current scope. The [Steam Integration Technique](GeurtsTechniques/GeurtsSteamIntegrationTechnique.md) defines preparation before AppID/store/depot/release-pipeline setup, the local Steamworks.NET prerequisite for BigBang, compile independence, optional native-service ownership and separate evidence for preparation, integration and release.
+Steam on **Windows x64** is the primary release target, with Steam Deck, Proton, SteamOS and other operating systems outside the current scope. The [Steam Integration Technique](GeurtsTechniques/GeurtsSteamIntegrationTechnique.md) defines account-free optional services and preview-only distribution drafts before AppID/store/depot setup, the local Steamworks.NET prerequisite for BigBang, compile independence, optional native-service ownership and separate evidence for preparation, integration and release.
 
 The catalogue now publishes the optional Steam preparation brick, neutral God contracts and independent BigBang prerequisite gate. Graphics-backed Editor checks, recorded interactive UI checks and native-free Windows development artifacts establish their stated preparation scope. Real native Steam integration, overlay and customer distribution remain unverified. God remains the only mandatory shared Geurts brick, and unconfigured local development keeps native Steam off. See [the manual adoption guide](Migrations/v0.52.0.md); content updates retain schema 3.0.0 and the same four confirmed targets.
+
+## Steam option C preparation
+
+God supplies optional achievement/stat and cloud-data contracts without a platform SDK dependency. Steam supplies guarded customer-player launch, authored achievement/stat/cloud-text triggers, bounded account-qualified Remote Storage and reviewed preview-only SteamPipe drafts. Before Steamworks onboarding, partner IDs stay zero and native services stay off. Real Steam launch, overlay, server/cloud behavior and depot delivery remain unverified. General cloud transfers do not automatically synchronize Save and Load slots. Follow the [manual adoption and pending acceptance guide](Migrations/v0.60.0.md) and owning release evidence.
 
 ## Earlier released capabilities and evidence
 
@@ -91,7 +95,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.59.3
+**Version:** 0.60.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -329,7 +333,7 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 ## Changelog
 
-### 0.59.3
+### 0.60.0
 
 - Publish the Save and Load 0.4.0 local gameplay persistence foundation: explicit profiles/providers, named slots, verified atomic writes and prior-success backups, forward migrations, reversible restore, no-code bindings and deliberately enabled autosave.
 - Select God 0.38.4 and BigBang 0.8.4 with matching shared native-control styling, verified on this Windows desktop. Consumer package and content adoption remains manual.

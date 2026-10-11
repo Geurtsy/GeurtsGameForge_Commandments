@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Steam Integration Technique
 
-**Version:** 0.2.0
+**Version:** 0.3.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md`
@@ -12,9 +12,9 @@ The manifest selects this owner for Steam preparation, Steamworks.NET prerequisi
 
 **Steam on Windows x64 is the primary release target.** Steam Deck, Proton, SteamOS, Linux and macOS are outside the current target. Supporting Steam does not require Deck certification, controller-only design or another operating-system build. A different target needs an explicit scope change.
 
-The first milestone is **prepared for Steam development**. A Unity project can reach it before obtaining a game AppID or configuring a store page, depots, branches, SteamPipe uploads or a release pipeline. Keep that distribution work deferred until separately requested. Never invent a production AppID or claim release readiness from local preparation.
+The first milestone is **prepared for Steam development**. A Unity project can reach it before obtaining a game AppID or configuring a store page, depots, branches, SteamPipe uploads or a release pipeline. When broader integration is explicitly requested, prepare optional services, customer launch policy and unresolved preview-only distribution drafts before onboarding. Leave partner-only settings, uploads, real native acceptance and release promotion pending their actual account/AppID context. Never invent a production AppID or claim release readiness from local preparation.
 
-The catalogue now advertises released local Steam preparation, vendor-neutral God contracts and the independent BigBang prerequisite gate. Use its exact published sources and each owning release capability/evidence record. **Native Steam integration and overlay remain unverified.** Customer distribution and the Steam release pipeline remain deferred. Existing installations change only through manual adoption; published preparation does not certify a native session or overlay.
+The catalogue advertises local Steam preparation, guarded customer-player launch, explicit achievement/stat and Remote Storage APIs, preview-only SteamPipe drafts, vendor-neutral God contracts and the independent BigBang prerequisite gate. Use its exact published sources and each owning release capability/evidence record. **Native Steam integration and overlay remain unverified.** Real-account service and customer distribution acceptance remain unverified. Existing installations change only through manual adoption; published implementation/preparation does not certify a native session, server storage, cloud synchronization or depot installation.
 
 ## Package prerequisite and installation
 
@@ -68,7 +68,17 @@ Customer artifact checks must reject `steam_appid.txt`, sample/development AppID
 
 Achievements, stats, leaderboards, matchmaking, networking, Workshop, DLC, commerce, Steam Input and DRM are separate optional capabilities. Implement and verify only the selected service; targeting Steam does not install or require them. Steam Input is not a Steam Deck requirement. Do not treat Steam identity as a local save key without an explicit migration/account policy.
 
-Gameplay saves stay local first through the owning persistence system, normally below `Application.persistentDataPath`. God settings store module configuration, not gameplay saves; the current Save and Load starter does not provide gameplay persistence. Steam Cloud remains deferred. A future adoption chooses **Auto-Cloud or Remote Storage** deliberately and validates file scope, quotas, account changes, conflicts, offline behavior and failures. Do not silently synchronize settings/temporary files or advertise successful cloud persistence. See [Valve's Steam Cloud options](https://partner.steamgames.com/doc/features/cloud).
+Gameplay saves stay local first through the owning persistence system, normally below `Application.persistentDataPath`. God settings store module configuration, not gameplay saves. Released Save and Load supplies local gameplay persistence; cloud is a separate optional service. Choose **Auto-Cloud or Remote Storage** deliberately for each file scope and validate quotas, account changes, conflicts, offline behavior and failures. Avoid overlapping both models on the same files. Do not silently synchronize settings/temporary files or advertise successful cloud persistence. See [Valve's Steam Cloud options](https://partner.steamgames.com/doc/features/cloud).
+
+The optional provider's cache changes and server acknowledgements are separate outcomes. Achievement/stat setters must not report server success from a cache setter. Commit explicitly, own and filter callbacks, retain rejected/unknown results and avoid automatic resets or high-frequency retries. The selected SDK profile determines the supported stats-readiness flow; do not call APIs removed from that pin. Keep exact dashboard API names and stat types, with meaningful no-code triggers and the same public service path.
+
+Remote Storage transfers require an already owned connected session, account/app opt-in, bounded complete payloads, strict scoped names and actual quota evidence. Reads carry the observed account, file, timestamp, length and content checksum. New-only writes preserve existing files; deliberate replacement rechecks the reviewed cache revision and rejects changed content or accounts. A cache review is not a cross-device atomic transaction. Cache write acknowledgement does not prove server synchronization or another-device visibility. Cancellation before dispatch differs from uncertain side effects after dispatch; timeout/shutdown/unknown I/O must never claim native writes were undone. Own and release call-result registrations, block unsafe retries and preserve local saves. General byte/text transfers do not imply automatic Save and Load slot synchronization or game-owned restore/merge policy.
+
+## Account-free distribution preparation
+
+An explicitly requested distribution workflow can create reviewed preview-only SteamPipe drafts while partner AppID/depot IDs remain zero. Use unresolved placeholders, Preview=1, no SetLive and no credentials or automatic uploader execution. Validate create-only short regular paths, keep draft/cache output outside customer content, recheck the frozen profile and actual content immediately before writing, and preserve existing/partial drafts with actionable results.
+
+Real-ID drafts require a matching clean customer-build receipt and unchanged complete artifact inventory. Customer mode requires the actual game AppID, rejects sample 480 and development builds, verifies generated player configuration and the exact supported native-plugin output, and remains player-only. Optional restart precedes initialization; true requires this process to quit without initializing. Build receipts must leave native/distribution acceptance unverified until the real checks occur. Partner-account creation, fees/private details, dashboard configuration, authorized upload, branch promotion and entitlement/depot installation are external actions with their own explicit scope; preparation never performs them implicitly.
 
 ## Evidence and acceptance
 

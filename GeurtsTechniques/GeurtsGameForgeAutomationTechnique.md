@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.11.0
+**Version:** 0.11.1
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers and compatible Unity integrations
@@ -86,6 +86,6 @@ Operation outcomes are `succeeded`, `cancelled`, `failed`, `partial`, `blocked` 
 
 Findings use stable owner-defined rule IDs and owning package IDs. Preserve the Unity object identity, asset/scene path, exact SerializedProperty path, severity and remedy when actually resolved. An unsaved object, aggregate rule or unresolved property remains explicitly unknown; display labels and instance IDs are not persistent identities. A read-only project report covers owned project assets and loaded scenes, or only the supplied selection. Unopened scenes, native/runtime behavior and game-design context are outside that scope. Do not infer whole-project health from checked source metadata. Failed providers and uninspected objects remain visible.
 
-Every release carries `ForgeCapabilities.json` schema 1.0.0 with exact package identity/version, prerequisites, implemented/planned features, maturity, supported operation IDs and validation coverage. Compare it with the actual installed package and provider availability. A declaration does not establish readiness. Planned features never acquire supported operations. Save and Load's informational starter does not supply gameplay persistence. God remains the only mandatory shared brick; BigBang and the passive adapter remain independent.
+Every release carries `ForgeCapabilities.json` schema 1.0.0 with exact package identity/version, prerequisites, implemented/planned features, maturity, supported operation IDs and validation coverage. Compare it with the actual installed package and provider availability. A declaration does not establish readiness. Planned features never acquire supported operations. Use the current Save and Load release's declared local gameplay persistence; cloud/account and game-specific restore policy retain separate evidence. God remains the only mandatory shared brick; BigBang and the passive adapter remain independent.
 
 Before publishing, run the owner's documentation/capability gate and compile supported examples with the candidate Git package. Current guides, dependency claims and operation declarations must match the release. Explicitly label historical evidence and keep it separate from current validation. Record exact tested source fingerprints and unverified surfaces. Preserve manual consumer installation.

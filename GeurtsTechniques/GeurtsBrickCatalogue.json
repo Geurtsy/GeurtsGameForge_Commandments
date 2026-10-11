@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.59.3",
-  "publishedUtc": "2026-10-11T09:02:13.0908117+00:00",
+  "packageVersion": "0.60.0",
+  "publishedUtc": "2026-10-11T23:22:31.1735218+00:00",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "Shared canonical Editor theme extended for SaveLoad authoring, readable light-host tabs and object fields, scoped Odin panel styles, and opt-in spacious layout. Unity 6000.6.3f1: 471 God Editor tests and one literal integration recipe test passed, zero failed, seven named conditional skips. Native SaveLoad and Commandments panels have separately scoped rendering and injected-input evidence. Consumer adoption is manual.",
+      "description": "Shared foundation with optional SDK-free achievement/stat and explicit cloud-storage contracts, typed outcomes, defensive byte copies and account-qualified content revisions. Steam owns the concrete adapter; no SDK dependency enters God. Unity 6000.6.3f1: 473 God Editor tests plus one literal integration recipe passed, zero failed, seven named conditional skips. The canonical theme is unchanged; real Steam acceptance is unverified. Manual consumer adoption.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.38.4",
+      "version": "0.39.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#6586a014b5afc8e256e5ae57dc567caec9f1e554",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#0f0b268955ea526b250553bb287be4bec857783b",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -55,13 +55,13 @@
     {
       "id": "com.geurts.gameforge.steam",
       "name": "Geurts Game Forge Steam",
-      "description": "Existing local/native-development Steam starter preparation retained; configuration validation and public documentation/conventions corrected. Native customer-launch features remain planned, and native Steam sessions are unverified. Unity 6000.6.3f1: 15 actual successful test executions, zero failed, 15 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
+      "description": "Optional Windows x64 integration with local mode by default, guarded customer-player launch, opt-in achievements/stats and bounded account-qualified Remote Storage. Explicit authored actions separate cache changes/server acknowledgement and preserve conflicts or uncertain writes. Persistent distribution profiles create preview-only SteamPipe templates with unresolved IDs before onboarding; real-ID drafts require clean customer receipts and complete inventories. Unity 6000.6.3f1: 56 Steam Editor tests plus one literal recipe, three PlayMode passes with one optional Diagnostics skip, and 11 Windows local player checks; desktop authoring/rendering separately scoped. Real native Steam/account/overlay/server/cloud/depot acceptance remains unverified. Cloud is explicit payload transfer, not automatic SaveLoad slot synchronization. God 0.39.0 is the only mandatory Forge peer; pinned Steamworks.NET installed separately. Manual consumer adoption.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.steam",
-      "version": "0.1.2",
+      "version": "0.2.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#d87d1edda65b98634627c4e706f40e5e80308332",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#e6f8f7024edced81e3357d767338ec7b52c4f168",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -71,7 +71,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.38.3"
+          "minimumVersion": "0.39.0"
         }
       ]
     },
