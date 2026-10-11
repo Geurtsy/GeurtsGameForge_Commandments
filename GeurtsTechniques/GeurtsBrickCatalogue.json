@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.59.1",
-  "publishedUtc": "2026-10-10T23:10:04.060522Z",
+  "packageVersion": "0.59.2",
+  "publishedUtc": "2026-10-11T00:33:50.994720+00:00",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
       "name": "Geurts Game Forge BigBang",
-      "description": "Independent Editor installer with verified Steamworks.NET required before every God handoff, including existing installations. BigCrunch remains a separate cancel-default reviewed uninstall with frozen retained-package pins and exact owned-settings cleanup. Supported no-code workflow; controlled readiness/installation/consent tests do not certify new vendor downloads or interactive/native acceptance. Unity 6000.6.3f1 Editor: 145 passed, zero failed, 0 skipped. See owner release evidence for exact scope; live projects update manually.",
+      "description": "Independent installer and reviewed BigCrunch removal; public descriptions, tooltips and safe private conventions corrected. Dependency compliance is exempt and no dependency-driven changes were made. Unity 6000.6.3f1: 290 actual successful test executions, zero failed, 0 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
-      "version": "0.8.2",
+      "version": "0.8.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#970f6da6d19594574b2bc8a66bc6d9c68e0fe83c",
+      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#10fd2ce142f0482120237cfc202d4571645653e1",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [],
@@ -21,13 +21,13 @@
     {
       "id": "com.geurts.gameforge.documentation",
       "name": "Geurts Game Forge Commandments Compatibility",
-      "description": "Passive Editor compatibility adapter with preserved package, assembly and API identities. No God dependency, automation provider or independent updater was added. Adds per-release capabilities, documentation gating and compile-checked examples; God/vendor-absent checks pass. Unity 6000.6.3f1 Editor: 4 passed, zero failed, 0 conditional checks skipped.",
+      "description": "Passive compatibility adapter retaining its package, assembly and API identities; public API documentation corrected without acquiring a God dependency. Unity 6000.6.3f1: 8 actual successful test executions, zero failed, 0 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.commandments",
-      "version": "0.15.2",
+      "version": "0.15.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.commandments.git#36c0bd1362e2618c366d07999c3fcb03082c7ddb",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.commandments.git#0b003200424af7498fde5e1e98738d80ab20ebbe",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [],
@@ -37,13 +37,13 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "Required lifecycle, shared contracts, retained bootstrap and Editor-only Commandments viewing/acquisition/update ownership. Optional project maintenance remains Angels-owned. Checked optional-capability connection and withdrawal recipe. Unity 6000.6.3f1 Editor: 444 passed, zero failed, 8 skipped. See owner release evidence for exact scope; live projects update manually.",
+      "description": "Shared authoring mutation/destination safeguards, collapsible bootstrap Help, strict owner-aware settings protection with bounded atomic-write retry, and public documentation/convention corrections. Unity 6000.6.3f1: 472 actual successful test executions, zero failed, 10 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.38.2",
+      "version": "0.38.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#aa05613264ab088431075da94170361bbf177906",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#73da5fa763e8284222235f22644564e73d9eb706",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -55,13 +55,13 @@
     {
       "id": "com.geurts.gameforge.steam",
       "name": "Geurts Game Forge Steam",
-      "description": "Optional Windows x64 Steam preparation, neutral platform observations and explicit native-test lifecycle, off by default. Checked local review/save and stale-evidence refusal recipe. Native Steam integration and overlay remain unverified; player distribution and reload integration remain separate acceptance. Unity 6000.6.3f1 Editor: 22 passed, zero failed, 4 skipped. See owner release evidence for exact scope; live projects update manually.",
+      "description": "Existing local/native-development Steam starter preparation retained; configuration validation and public documentation/conventions corrected. Native customer-launch features remain planned, and native Steam sessions are unverified. Unity 6000.6.3f1: 15 actual successful test executions, zero failed, 15 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.steam",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#073f48f52c6f9127319e4387559e6b3156713bde",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#d87d1edda65b98634627c4e706f40e5e80308332",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -71,20 +71,20 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.37.0"
+          "minimumVersion": "0.38.3"
         }
       ]
     },
     {
       "id": "com.geurts.gameforge.diagnostics",
       "name": "Geurts Game Forge Diagnostics",
-      "description": "God-managed health checks, inspected values, session history, Quantum Console policy and Windows metrics. Checked game health/inspection/command registration and cleanup recipe works independently of optional log capture. Unity 6000.6.3f1 Editor: 80 passed, zero failed, 0 skipped. See owner release evidence for exact scope; live projects update manually.",
+      "description": "Strict preferences validation, source/API documentation and ordinary-bootstrap-owned acceptance probes. Automated ownership checks do not certify physical input or visual console acceptance. Unity 6000.6.3f1: 170 actual successful test executions, zero failed, 0 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics",
-      "version": "0.11.1",
+      "version": "0.11.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#c06c7ff1126f41f7c20875500230d4c3b8519986",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#6ea3934c3b95f6c6a5dfe7df721e89292d71bd7f",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -94,20 +94,20 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.35.0"
+          "minimumVersion": "0.38.3"
         }
       ]
     },
     {
       "id": "com.geurts.gameforge.angels",
       "name": "Geurts Game Forge Angels",
-      "description": "Optional Editor maintenance with opt-in reviewed sorting and naming. Checked scoped preview, cancellation, separately confirmed apply and GUID preservation recipe. Real Codex, child-process and symbolic-link opt-in coverage remains explicitly unverified. Unity 6000.6.3f1 Editor: 354 passed, zero failed, 5 skipped. See owner release evidence for exact scope; live projects update manually.",
+      "description": "Reviewed optional project tools and asset organization: ignored destinations, isolated naming requests, bounded audio-coverage history, anti-alias resampling and current paused-import progress corrected. Real paid model naming accuracy remains unverified. Unity 6000.6.3f1: 372 actual successful test executions, zero failed, 5 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
-      "version": "0.9.4",
+      "version": "0.9.5",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#523aeec304d1edb2aceee27525ac263871e71304",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#e4b9866a134a8bed627278d877d123cb7ef3a20c",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -116,20 +116,20 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.35.0"
+          "minimumVersion": "0.38.3"
         }
       ]
     },
     {
       "id": "com.geurts.gameforge.settings",
       "name": "Geurts Game Forge Settings System",
-      "description": "Transactional local settings with authored definitions, optional providers, reviewed Stage/Apply/Cancel and bounded XML persistence. Built-in sound integration is the default; FMOD is optional. Checked game-setting persistence and withdrawal recipe. Unity 6000.6.3f1 Editor: 117 passed, zero failed, 0 skipped. See owner release evidence for exact scope; live projects update manually.",
+      "description": "Guarded exact-path asset creation, GUID verification, owner configuration protection and complete public descriptions/tooltips. Existing Settings workflows and optional UI integration retained. Unity 6000.6.3f1: 118 actual successful test executions, zero failed, 0 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.settings",
-      "version": "0.7.2",
+      "version": "0.7.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#954beefd176fd4a6eaeb8c37b9ed279ccb9a9b0b",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#243fb080d77761aba93d9b0aeb1f8c7a8c4569b4",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -139,20 +139,20 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.35.0"
+          "minimumVersion": "0.38.3"
         }
       ]
     },
     {
       "id": "com.geurts.gameforge.sceneloading",
       "name": "Geurts Game Forge Scene Loading and Bootstrap",
-      "description": "Retained bootstrap, scene destinations, readiness, transitions and shared-scene cooperation. Checked real additive destination replacement and progress/result cleanup recipe. Windows symbolic-link coverage remains skipped where unavailable. Unity 6000.6.3f1 Editor: 136 passed, zero failed, 1 skipped. See owner release evidence for exact scope; live projects update manually.",
+      "description": "Existing optional scene startup/loading behavior retained; owner configuration protection, public descriptions, tooltips and safe private conventions corrected. Unity 6000.6.3f1: 136 actual successful test executions, zero failed, 1 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading",
-      "version": "0.7.1",
+      "version": "0.7.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#e6b4f42374af02b1c244b5ccd73fb72dc084a7e6",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#c53cbe5d69675ed39da027f5364c2c0da460ca7a",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -162,20 +162,20 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.35.0"
+          "minimumVersion": "0.38.3"
         }
       ]
     },
     {
       "id": "com.geurts.gameforge.saveload",
       "name": "Geurts Game Forge Save and Load",
-      "description": "Informational starter with per-release capabilities and an explicitly unchecked source operation. Gameplay save/load remains planned and unavailable. No gameplay persistence was implemented. Requires God 0.35.0. Unity 6000.6.3f1 Editor: 5 passed, zero failed, 0 conditional checks skipped.",
+      "description": "Existing unfinished SaveLoad starter retained; public API descriptions/tooltips and safe private conventions corrected. Planned persistence gameplay features were not implemented. Unity 6000.6.3f1: 5 actual successful test executions, zero failed, 0 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.saveload",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#c5b070453c8a397470ca6a8923b4afc528b54f0a",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#707964c5eeb368189e521f74b43177aa1cbcb26a",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -192,13 +192,13 @@
     {
       "id": "com.geurts.gameforge.audio",
       "name": "Geurts Game Forge Audio",
-      "description": "Shared owned audio with built-in Unity clips by default; FMOD is an explicitly selected optional integration. Checked playback/result/handle cleanup recipe; listening and native FMOD acceptance remain separate. Unity 6000.6.3f1 Editor: 26 passed, zero failed, 0 skipped. See owner release evidence for exact scope; live projects update manually.",
+      "description": "Guarded Audio authoring, metadata-path bounds, local binding Help, lossless compatible settings overrides and public descriptions/tooltips. Optional FMOD 0.2.3 has separate licensed/native evidence. Unity 6000.6.3f1: 26 actual successful test executions, zero failed, 0 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
-      "version": "0.9.2",
+      "version": "0.9.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#47868089b026be1b837663dd75fe48aca3dfb9fd",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#942f5a0d4511a647bf9729d4a46a52c8409f1ce3",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -208,20 +208,20 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.35.0"
+          "minimumVersion": "0.38.3"
         }
       ]
     },
     {
       "id": "com.geurts.gameforge.userinterface",
       "name": "Geurts Game Forge User Interface Foundations",
-      "description": "Editable UI Toolkit screens, authored controls, typed hooks, Settings demos and shared appearance. God is the only required Forge brick. Checked screen/action connection and cleanup recipe; physical input and visual acceptance remain separate. Unity 6000.6.3f1 Editor: 142 passed, zero failed, 0 skipped. See owner release evidence for exact scope; live projects update manually.",
+      "description": "Strict new screen IDs with saved legacy identity preservation, protected owner preferences and public descriptions/tooltips; existing UI workflows and optional bridges retained. Unity 6000.6.3f1: 181 actual successful test executions, zero failed, 0 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface",
-      "version": "0.13.1",
+      "version": "0.13.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#25c26fc37bfe12e2548ae08364f6b7eb6f51bcbd",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#f05d5bed388e7ca61bd0cadbbfd578aaf09ca09d",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -231,20 +231,20 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.35.0"
+          "minimumVersion": "0.38.3"
         }
       ]
     },
     {
       "id": "com.geurts.gameforge.objectpooling",
       "name": "Geurts Game Forge Object Pooling",
-      "description": "Prefab pooling with bounded growth, generation-bound leases, prewarming, shrinking and project-owned authoring. Current public runtime source is the API reference; Audio owns backend-neutral AudioPoolCompletion. Checked spawn/return/reuse recipe. Unity 6000.6.3f1 Editor: 87 passed, zero failed, 0 skipped. See owner release evidence for exact scope; live projects update manually.",
+      "description": "Guarded pool creation/repair/configuration, local component Help, protected owner options and public descriptions/tooltips; existing pool interfaces and authored asset identities retained. Unity 6000.6.3f1: 87 actual successful test executions, zero failed, 0 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling",
-      "version": "0.8.1",
+      "version": "0.8.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#5250d18c7a4291e25d2663952c97dfb73c6a9cde",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#1aba149fc7687d9976c4cfd7d18221e0d888b4b4",
       "minimumUnity": "6000.6",
       "maximumUnity": "6000.6",
       "requiredTools": [
@@ -254,7 +254,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.35.0"
+          "minimumVersion": "0.38.3"
         }
       ]
     }

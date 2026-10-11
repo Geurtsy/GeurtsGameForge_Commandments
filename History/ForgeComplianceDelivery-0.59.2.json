@@ -1,0 +1,1720 @@
+{
+  "title": "Seventeen remaining compliance corrections",
+  "recordedUtc": "2026-10-11T00:24:28.605804+00:00",
+  "commandmentsBaseline": {
+    "version": "0.59.1",
+    "commit": "1501f4644f1d750c7dd8ce7422163de648ee4d7d",
+    "repository": "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git",
+    "originalAuditVersion": "0.59.0",
+    "originalAuditCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+    "changeReview": "Reviewed the complete upstream delta. Brick Contract 1.22.1 adds catalogue-only installation routing and release-matched practical recipes. Published upstream recipes and executable tests were preserved, declared, compiled and re-exercised in this combined delivery; the original seventeen findings and corrections remain applicable. Other selected subject rules are unchanged."
+  },
+  "bigBangDependencyExempt": true,
+  "consumerInstallation": "Manual; no live manifest, lockfile, installed package, project-local documentation or Unity state was updated.",
+  "owners": {
+    "com.geurts.gameforge.bigbang": {
+      "owner": "b",
+      "version": "0.8.3",
+      "testedCandidateCommit": "b07396e024d4437b229033661fbaf56bbf74454b",
+      "sourceFingerprint": "a6aa0af8436bf4e2363d26c2935a32a9b4832683e4f52e243b396826ea1ffa3e",
+      "validation": {
+        "passed": 290,
+        "failed": 0,
+        "skipped": 0
+      },
+      "findings": [
+        "GF-R3-006",
+        "GF-R3-007",
+        "GF-R3-017"
+      ],
+      "status": "published",
+      "publication": {
+        "repository": "Geurtsy/GeurtsGameForgeBigBang",
+        "version": "0.8.3",
+        "commit": "10fd2ce142f0482120237cfc202d4571645653e1",
+        "tag": "v0.8.3",
+        "mainVerified": true,
+        "immutableTagVerified": true,
+        "githubReleaseSealed": true,
+        "releaseUrl": "https://github.com/Geurtsy/GeurtsGameForgeBigBang/releases/tag/v0.8.3",
+        "archiveSha256": "d2f0b813cc97176b2e82783f8e75e70063636b94a9181d349400d8b9ec7bc0d9",
+        "archiveUrl": "https://github.com/Geurtsy/GeurtsGameForgeBigBang/releases/download/v0.8.3/com.geurts.gameforge.bigbang-0.8.3.zip",
+        "checksumUrl": "https://github.com/Geurtsy/GeurtsGameForgeBigBang/releases/download/v0.8.3/com.geurts.gameforge.bigbang-0.8.3.zip.sha256",
+        "assetsDigestVerified": true,
+        "publishedUtc": "2026-10-11T00:31:41Z"
+      }
+    },
+    "com.geurts.gameforge.documentation": {
+      "owner": "p",
+      "version": "0.15.3",
+      "testedCandidateCommit": "dccd43fad54cc44cb1bdc05ecdfbbcbf720a07d8",
+      "sourceFingerprint": "cb73bda0a207199b53f197b5564f60317736e91ac814642d62a863894568fba7",
+      "validation": {
+        "passed": 8,
+        "failed": 0,
+        "skipped": 0
+      },
+      "findings": [
+        "GF-R3-006",
+        "GF-R3-007"
+      ],
+      "status": "published",
+      "publication": {
+        "repository": "Geurtsy/com.geurts.gameforge.commandments",
+        "version": "0.15.3",
+        "commit": "0b003200424af7498fde5e1e98738d80ab20ebbe",
+        "tag": "v0.15.3",
+        "mainVerified": true,
+        "immutableTagVerified": true,
+        "githubReleaseSealed": true,
+        "releaseUrl": "https://github.com/Geurtsy/com.geurts.gameforge.commandments/releases/tag/v0.15.3",
+        "archiveSha256": "dc084c0049db7791f481d629b176de94c566e7fc29f2c615cb90fbc7a5ecb8ba",
+        "archiveUrl": "https://github.com/Geurtsy/com.geurts.gameforge.commandments/releases/download/v0.15.3/com.geurts.gameforge.documentation-0.15.3.zip",
+        "checksumUrl": "https://github.com/Geurtsy/com.geurts.gameforge.commandments/releases/download/v0.15.3/com.geurts.gameforge.documentation-0.15.3.zip.sha256",
+        "assetsDigestVerified": true,
+        "publishedUtc": "2026-10-11T00:32:01Z"
+      }
+    },
+    "com.geurts.gameforge.god": {
+      "owner": "g",
+      "version": "0.38.3",
+      "testedCandidateCommit": "98052ff61d7bb7bcee0406e95be1b558e4365f0d",
+      "sourceFingerprint": "09deca6b87c88a449c61d2432197162370432f4810314d493a51adfa77b2856b",
+      "validation": {
+        "passed": 472,
+        "failed": 0,
+        "skipped": 10
+      },
+      "findings": [
+        "GF-R3-001",
+        "GF-R3-003",
+        "GF-R3-006",
+        "GF-R3-007",
+        "GF-R3-008",
+        "GF-R3-009",
+        "GF-R3-011",
+        "GF-R3-017"
+      ],
+      "status": "published",
+      "publication": {
+        "repository": "Geurtsy/com.geurts.gameforge.god",
+        "version": "0.38.3",
+        "commit": "73da5fa763e8284222235f22644564e73d9eb706",
+        "tag": "v0.38.3",
+        "mainVerified": true,
+        "immutableTagVerified": true,
+        "githubReleaseSealed": true,
+        "releaseUrl": "https://github.com/Geurtsy/com.geurts.gameforge.god/releases/tag/v0.38.3",
+        "archiveSha256": "54071f4567105402b976618245604a6e512177986ad60e640edc74c8d2ff9f7b",
+        "archiveUrl": "https://github.com/Geurtsy/com.geurts.gameforge.god/releases/download/v0.38.3/com.geurts.gameforge.god-0.38.3.zip",
+        "checksumUrl": "https://github.com/Geurtsy/com.geurts.gameforge.god/releases/download/v0.38.3/com.geurts.gameforge.god-0.38.3.zip.sha256",
+        "assetsDigestVerified": true,
+        "publishedUtc": "2026-10-11T00:26:42Z"
+      }
+    },
+    "com.geurts.gameforge.steam": {
+      "owner": "e",
+      "version": "0.1.2",
+      "testedCandidateCommit": "10fc8ff2aa2937593a2c16efeb94a01ad18d8072",
+      "sourceFingerprint": "d7f9f155ba49f938c574898c4d1cd93fdb0c08c1306dc84dbf50fc1585e16fa3",
+      "validation": {
+        "passed": 15,
+        "failed": 0,
+        "skipped": 15
+      },
+      "findings": [
+        "GF-R3-007"
+      ],
+      "status": "published",
+      "publication": {
+        "repository": "Geurtsy/com.geurts.gameforge.steam",
+        "version": "0.1.2",
+        "commit": "d87d1edda65b98634627c4e706f40e5e80308332",
+        "tag": "v0.1.2",
+        "mainVerified": true,
+        "immutableTagVerified": true,
+        "githubReleaseSealed": true,
+        "releaseUrl": "https://github.com/Geurtsy/com.geurts.gameforge.steam/releases/tag/v0.1.2",
+        "archiveSha256": "a536c7be01c9c1996d513c017fc2c9fb279a5dd27e2d7498806c09ce7d5c0bf0",
+        "archiveUrl": "https://github.com/Geurtsy/com.geurts.gameforge.steam/releases/download/v0.1.2/com.geurts.gameforge.steam-0.1.2.zip",
+        "checksumUrl": "https://github.com/Geurtsy/com.geurts.gameforge.steam/releases/download/v0.1.2/com.geurts.gameforge.steam-0.1.2.zip.sha256",
+        "assetsDigestVerified": true,
+        "publishedUtc": "2026-10-11T00:27:18Z"
+      }
+    },
+    "com.geurts.gameforge.diagnostics": {
+      "owner": "d",
+      "version": "0.11.2",
+      "testedCandidateCommit": "9ced9523e100379ca38eea811161192cf878c0a3",
+      "sourceFingerprint": "08204383390b742965133a18496a8cbcc5d7313d13e13ee33d73a0439a25488e",
+      "validation": {
+        "passed": 170,
+        "failed": 0,
+        "skipped": 0
+      },
+      "findings": [
+        "GF-R3-006",
+        "GF-R3-007",
+        "GF-R3-008",
+        "GF-R3-010"
+      ],
+      "status": "published",
+      "publication": {
+        "repository": "Geurtsy/com.geurts.gameforge.diagnostics",
+        "version": "0.11.2",
+        "commit": "6ea3934c3b95f6c6a5dfe7df721e89292d71bd7f",
+        "tag": "v0.11.2",
+        "mainVerified": true,
+        "immutableTagVerified": true,
+        "githubReleaseSealed": true,
+        "releaseUrl": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/releases/tag/v0.11.2",
+        "archiveSha256": "938912c3ab94f31c04236391bcbdc04297400ae27d172d8f08451d43b9c0cfb7",
+        "archiveUrl": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/releases/download/v0.11.2/com.geurts.gameforge.diagnostics-0.11.2.zip",
+        "checksumUrl": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/releases/download/v0.11.2/com.geurts.gameforge.diagnostics-0.11.2.zip.sha256",
+        "assetsDigestVerified": true,
+        "publishedUtc": "2026-10-11T00:27:41Z"
+      }
+    },
+    "com.geurts.gameforge.angels": {
+      "owner": "n",
+      "version": "0.9.5",
+      "testedCandidateCommit": "187d1c36c8c450f2ac185e85c0ffb542e8105292",
+      "sourceFingerprint": "a30421b25b86eaf0083b60a90c87eca9cbfe85db8e46d09188a69bcc397c6685",
+      "validation": {
+        "passed": 372,
+        "failed": 0,
+        "skipped": 5
+      },
+      "findings": [
+        "GF-R3-006",
+        "GF-R3-007",
+        "GF-R3-012",
+        "GF-R3-013",
+        "GF-R3-014",
+        "GF-R3-015",
+        "GF-R3-016",
+        "GF-R3-017"
+      ],
+      "status": "published",
+      "publication": {
+        "repository": "Geurtsy/com.geurts.gameforge.angels",
+        "version": "0.9.5",
+        "commit": "e4b9866a134a8bed627278d877d123cb7ef3a20c",
+        "tag": "v0.9.5",
+        "mainVerified": true,
+        "immutableTagVerified": true,
+        "githubReleaseSealed": true,
+        "releaseUrl": "https://github.com/Geurtsy/com.geurts.gameforge.angels/releases/tag/v0.9.5",
+        "archiveSha256": "8a2959b81edc272cf757467fefe8ceac94d57294c81e23e93bfbad369244fb34",
+        "archiveUrl": "https://github.com/Geurtsy/com.geurts.gameforge.angels/releases/download/v0.9.5/com.geurts.gameforge.angels-0.9.5.zip",
+        "checksumUrl": "https://github.com/Geurtsy/com.geurts.gameforge.angels/releases/download/v0.9.5/com.geurts.gameforge.angels-0.9.5.zip.sha256",
+        "assetsDigestVerified": true,
+        "publishedUtc": "2026-10-11T00:28:05Z"
+      }
+    },
+    "com.geurts.gameforge.settings": {
+      "owner": "s",
+      "version": "0.7.3",
+      "testedCandidateCommit": "53b4b12d5e15d9751fc187a8d132e9d0a0a40e61",
+      "sourceFingerprint": "b608f6801226a494cb28707552f92a8288531a3e60a2e7335da8b336db7f810a",
+      "validation": {
+        "passed": 118,
+        "failed": 0,
+        "skipped": 0
+      },
+      "findings": [
+        "GF-R3-001",
+        "GF-R3-002",
+        "GF-R3-006",
+        "GF-R3-007"
+      ],
+      "status": "published",
+      "publication": {
+        "repository": "Geurtsy/com.geurts.gameforge.settings",
+        "version": "0.7.3",
+        "commit": "243fb080d77761aba93d9b0aeb1f8c7a8c4569b4",
+        "tag": "v0.7.3",
+        "mainVerified": true,
+        "immutableTagVerified": true,
+        "githubReleaseSealed": true,
+        "releaseUrl": "https://github.com/Geurtsy/com.geurts.gameforge.settings/releases/tag/v0.7.3",
+        "archiveSha256": "de1c512abb3a87e2a9847736a5496bc632ee43279d6503608632d242ebabfa9a",
+        "archiveUrl": "https://github.com/Geurtsy/com.geurts.gameforge.settings/releases/download/v0.7.3/com.geurts.gameforge.settings-0.7.3.zip",
+        "checksumUrl": "https://github.com/Geurtsy/com.geurts.gameforge.settings/releases/download/v0.7.3/com.geurts.gameforge.settings-0.7.3.zip.sha256",
+        "assetsDigestVerified": true,
+        "publishedUtc": "2026-10-11T00:28:30Z"
+      }
+    },
+    "com.geurts.gameforge.sceneloading": {
+      "owner": "l",
+      "version": "0.7.2",
+      "testedCandidateCommit": "4a0c74c5436c40dbdaba538d4a0e48991bf7f20c",
+      "sourceFingerprint": "b1450feff7f1716c0eb868e3a6ccee39848c7c0aace7f8adcbacb77f89f91fa8",
+      "validation": {
+        "passed": 136,
+        "failed": 0,
+        "skipped": 1
+      },
+      "findings": [
+        "GF-R3-006",
+        "GF-R3-007"
+      ],
+      "status": "published",
+      "publication": {
+        "repository": "Geurtsy/com.geurts.gameforge.sceneloading",
+        "version": "0.7.2",
+        "commit": "c53cbe5d69675ed39da027f5364c2c0da460ca7a",
+        "tag": "v0.7.2",
+        "mainVerified": true,
+        "immutableTagVerified": true,
+        "githubReleaseSealed": true,
+        "releaseUrl": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/releases/tag/v0.7.2",
+        "archiveSha256": "17b6d808c87898d6cef6bc42364d2165ada586b8a9dc2954e9146fe807dc711e",
+        "archiveUrl": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/releases/download/v0.7.2/com.geurts.gameforge.sceneloading-0.7.2.zip",
+        "checksumUrl": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/releases/download/v0.7.2/com.geurts.gameforge.sceneloading-0.7.2.zip.sha256",
+        "assetsDigestVerified": true,
+        "publishedUtc": "2026-10-11T00:28:53Z"
+      }
+    },
+    "com.geurts.gameforge.saveload": {
+      "owner": "v",
+      "version": "0.3.2",
+      "testedCandidateCommit": "27f5f9429f7ed621feaf7b08a296461dc8e7699b",
+      "sourceFingerprint": "af65913dd55b0ab290989ebca48e6ed7a1ead025c77cf8ffc1d0b6c945343cbe",
+      "validation": {
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0
+      },
+      "findings": [
+        "GF-R3-007"
+      ],
+      "status": "published",
+      "publication": {
+        "repository": "Geurtsy/com.geurts.gameforge.saveload",
+        "version": "0.3.2",
+        "commit": "707964c5eeb368189e521f74b43177aa1cbcb26a",
+        "tag": "v0.3.2",
+        "mainVerified": true,
+        "immutableTagVerified": true,
+        "githubReleaseSealed": false,
+        "releaseUrl": "https://github.com/Geurtsy/com.geurts.gameforge.saveload/releases/tag/v0.3.2",
+        "archiveSha256": "56efadf57327c5dbba48e8fd65613ff469d5d2d35b4dcd3d4032f16787ccae54",
+        "archiveUrl": "https://github.com/Geurtsy/com.geurts.gameforge.saveload/releases/download/v0.3.2/com.geurts.gameforge.saveload-0.3.2.zip",
+        "checksumUrl": "https://github.com/Geurtsy/com.geurts.gameforge.saveload/releases/download/v0.3.2/com.geurts.gameforge.saveload-0.3.2.zip.sha256",
+        "assetsDigestVerified": true,
+        "publishedUtc": "2026-10-11T00:29:18Z"
+      }
+    },
+    "com.geurts.gameforge.audio": {
+      "owner": "a",
+      "version": "0.9.3",
+      "testedCandidateCommit": "76f28f81453bdbad478c3f6749a0756802dde2ae",
+      "sourceFingerprint": "839c24a19ae25d74d8616af916691c558d2e4b4b6a7eb1372feff02dd8ae5ec5",
+      "validation": {
+        "passed": 26,
+        "failed": 0,
+        "skipped": 0
+      },
+      "findings": [
+        "GF-R3-001",
+        "GF-R3-003",
+        "GF-R3-005",
+        "GF-R3-006",
+        "GF-R3-007"
+      ],
+      "status": "published",
+      "publication": {
+        "repository": "Geurtsy/com.geurts.gameforge.audio",
+        "version": "0.9.3",
+        "commit": "942f5a0d4511a647bf9729d4a46a52c8409f1ce3",
+        "tag": "v0.9.3",
+        "mainVerified": true,
+        "immutableTagVerified": true,
+        "githubReleaseSealed": true,
+        "releaseUrl": "https://github.com/Geurtsy/com.geurts.gameforge.audio/releases/tag/v0.9.3",
+        "archiveSha256": "4ed9da635dce1130550037863ac5fb3df43c5788e8399867a6c1bd1a83a7072d",
+        "archiveUrl": "https://github.com/Geurtsy/com.geurts.gameforge.audio/releases/download/v0.9.3/com.geurts.gameforge.audio-0.9.3.zip",
+        "checksumUrl": "https://github.com/Geurtsy/com.geurts.gameforge.audio/releases/download/v0.9.3/com.geurts.gameforge.audio-0.9.3.zip.sha256",
+        "assetsDigestVerified": true,
+        "publishedUtc": "2026-10-11T00:30:29Z"
+      }
+    },
+    "com.geurts.gameforge.userinterface": {
+      "owner": "u",
+      "version": "0.13.2",
+      "testedCandidateCommit": "7d394b78ae308a2014c4c34741542bd6c49f62f1",
+      "sourceFingerprint": "f1cc4be42dc9470703a0abff7d546134d3ec7a5b8153249e21f8697e87943630",
+      "validation": {
+        "passed": 181,
+        "failed": 0,
+        "skipped": 0
+      },
+      "findings": [
+        "GF-R3-001",
+        "GF-R3-004",
+        "GF-R3-006",
+        "GF-R3-007",
+        "GF-R3-008"
+      ],
+      "status": "published",
+      "publication": {
+        "repository": "Geurtsy/com.geurts.gameforge.userinterface",
+        "version": "0.13.2",
+        "commit": "f05d5bed388e7ca61bd0cadbbfd578aaf09ca09d",
+        "tag": "v0.13.2",
+        "mainVerified": true,
+        "immutableTagVerified": true,
+        "githubReleaseSealed": true,
+        "releaseUrl": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface/releases/tag/v0.13.2",
+        "archiveSha256": "508fc3b3d5f4784841cbd5a9f8b2d06dee4a946e8475826189efe8b2f460675d",
+        "archiveUrl": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface/releases/download/v0.13.2/com.geurts.gameforge.userinterface-0.13.2.zip",
+        "checksumUrl": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface/releases/download/v0.13.2/com.geurts.gameforge.userinterface-0.13.2.zip.sha256",
+        "assetsDigestVerified": true,
+        "publishedUtc": "2026-10-11T00:30:53Z"
+      }
+    },
+    "com.geurts.gameforge.objectpooling": {
+      "owner": "o",
+      "version": "0.8.2",
+      "testedCandidateCommit": "8cea44866047d6bf182a46c8583f2fc2e49fc58e",
+      "sourceFingerprint": "4bd4f75c47cf256a9ffab037511b0b1fa050d2a0807ee6b970e2a0b57fc7cc27",
+      "validation": {
+        "passed": 87,
+        "failed": 0,
+        "skipped": 0
+      },
+      "findings": [
+        "GF-R3-001",
+        "GF-R3-003",
+        "GF-R3-006",
+        "GF-R3-007"
+      ],
+      "status": "published",
+      "publication": {
+        "repository": "Geurtsy/com.geurts.gameforge.objectpooling",
+        "version": "0.8.2",
+        "commit": "1aba149fc7687d9976c4cfd7d18221e0d888b4b4",
+        "tag": "v0.8.2",
+        "mainVerified": true,
+        "immutableTagVerified": true,
+        "githubReleaseSealed": true,
+        "releaseUrl": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/releases/tag/v0.8.2",
+        "archiveSha256": "8e557cae4a60de2b48e84f91ca93d70f0aaf1db76b753101721d3a7d097fb315",
+        "archiveUrl": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/releases/download/v0.8.2/com.geurts.gameforge.objectpooling-0.8.2.zip",
+        "checksumUrl": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/releases/download/v0.8.2/com.geurts.gameforge.objectpooling-0.8.2.zip.sha256",
+        "assetsDigestVerified": true,
+        "publishedUtc": "2026-10-11T00:31:16Z"
+      }
+    }
+  },
+  "findings": [
+    {
+      "id": "GF-R3-001",
+      "priority": "P2",
+      "assessment": "needs-changes",
+      "title": "Authoring entry points omit required foundation and operation safeguards",
+      "owners": [
+        "com.geurts.gameforge.god",
+        "com.geurts.gameforge.settings",
+        "com.geurts.gameforge.userinterface",
+        "com.geurts.gameforge.audio",
+        "com.geurts.gameforge.objectpooling"
+      ],
+      "applicability": "Current first-party source and maintained tools; no live consumer migration authorized.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsForgeSetupTechnique.md",
+          "section": "Separate readiness and ownership; Public Editor and provider contract",
+          "version": "1.8.2",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsForgeSetupTechnique.md"
+        }
+      ],
+      "observed": "God MutationIssue only checks play/compile/import. ForgeOperations checks broader busy and running-owner state, but neither gate verifies compatible local Commandments. Settings Review/Commit and UI menu Inspect/Commit use the weaker shared authoring eligibility. Audio RequireEdit and Object Pooling asset creation check only play state. Build Forge already demonstrates the available local foundation check.",
+      "impact": "A direct supported authoring API can proceed without compatible local guidance or while a conflicting build/package/content operation is active. The broader ForgeOperations dispatch does cover several busy states; the gap is foundation readiness there and incomplete guards on direct owner entry points.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Editor\\ForgeSettingsAuthoring.cs",
+          "repositoryPath": "Editor/ForgeSettingsAuthoring.cs",
+          "line": 79,
+          "description": "MutationIssue returns null after only two Unity-state checks.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Editor/ForgeSettingsAuthoring.cs#L79"
+        },
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Editor\\ForgeAutomation.cs",
+          "repositoryPath": "Editor/ForgeAutomation.cs",
+          "line": 240,
+          "description": "Dispatch gate checks ForgeEditorOperations and running owner; no local foundation inspection.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Editor/ForgeAutomation.cs#L240"
+        },
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Editor\\ForgeEditorOperations.cs",
+          "repositoryPath": "Editor/ForgeEditorOperations.cs",
+          "line": 11,
+          "description": "Broader busy guard exists but does not inspect the local foundation.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Editor/ForgeEditorOperations.cs#L11"
+        },
+        {
+          "owner": "com.geurts.gameforge.settings",
+          "revision": "d4500dd2aeecc1ec480187934344f9300cba8e80",
+          "path": "C:\\gf\\audit20261011\\src\\settings\\Editor\\SettingsAuthoring.cs",
+          "repositoryPath": "Editor/SettingsAuthoring.cs",
+          "line": 20,
+          "description": "Review routes to shared eligibility; Commit performs a fresh Review.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/d4500dd2aeecc1ec480187934344f9300cba8e80/Editor/SettingsAuthoring.cs#L20"
+        },
+        {
+          "owner": "com.geurts.gameforge.userinterface",
+          "revision": "2cd07180c2b383f509c66891d563d0e761a6746a",
+          "path": "C:\\gf\\audit20261011\\src\\userinterface\\Editor\\UiSettingsMenuAuthoring.cs",
+          "repositoryPath": "Editor/UiSettingsMenuAuthoring.cs",
+          "line": 94,
+          "description": "Commit uses fresh Inspect and its shared MenuEligibility.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2cd07180c2b383f509c66891d563d0e761a6746a/Editor/UiSettingsMenuAuthoring.cs#L94"
+        },
+        {
+          "owner": "com.geurts.gameforge.audio",
+          "revision": "b12f858bfe0f646525d2a134cc80c989f206c82e",
+          "path": "C:\\gf\\audit20261011\\src\\audio\\Editor\\AudioSetup.cs",
+          "repositoryPath": "Editor/AudioSetup.cs",
+          "line": 84,
+          "description": "RequireEdit checks only Play Mode.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/b12f858bfe0f646525d2a134cc80c989f206c82e/Editor/AudioSetup.cs#L84"
+        },
+        {
+          "owner": "com.geurts.gameforge.objectpooling",
+          "revision": "73fdbfd7c37d58c9ae7ca7f5ff7619e998f77079",
+          "path": "C:\\gf\\audit20261011\\src\\objectpooling\\Editor\\ObjectPoolAuthoring.cs",
+          "repositoryPath": "Editor/ObjectPoolAuthoring.cs",
+          "line": 39,
+          "description": "CreateInStandardFolder has only an initial Application.isPlaying state check.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/73fdbfd7c37d58c9ae7ca7f5ff7619e998f77079/Editor/ObjectPoolAuthoring.cs#L39"
+        },
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Editor\\BuildForgeSetup.cs",
+          "repositoryPath": "Editor/BuildForgeSetup.cs",
+          "line": 61,
+          "description": "Existing correct foundation inspection to reuse.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Editor/BuildForgeSetup.cs#L61"
+        }
+      ],
+      "proposedCorrection": "Use one read-only eligibility contract at each Editor/API mutation boundary, with local foundation compatibility, actual owner state and all applicable shared busy checks. Keep read-only inspection available and avoid automatic updates.",
+      "acceptanceCriteria": [
+        "Missing, incompatible or unreadable local Commandments block mutation without changing assets/settings/scenes.",
+        "Compilation failure, play/build/import, disabled owner, package/content work and state drift after review produce explicit blocked results.",
+        "Ready no-code and public API workflows still succeed; ordinary inspector editing behavior and authored state remain supported."
+      ],
+      "evidenceLimit": "Confirmed by call-path inspection; conflicting-state execution was not reproduced in Unity during this audit.",
+      "previousId": "GF-R2-001",
+      "reassessment": "All earlier evidence files are unchanged at the current owning commits; applicable requirements rechecked against Commandments 0.59.0.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-002",
+      "priority": "P2",
+      "assessment": "needs-changes",
+      "title": "Settings asset creation does not fully validate its destination chain or creation result",
+      "owners": [
+        "com.geurts.gameforge.settings"
+      ],
+      "applicability": "Current first-party source and maintained tools; no live consumer migration authorized.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+          "section": "Automation safety; Create folders safely",
+          "version": "0.16.5",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsFolderStructureTechnique.md"
+        }
+      ],
+      "observed": "ValidateAssetPath checks path text, final occupancy and metadata length. EnsureFolder returns immediately for an AssetDatabase-valid folder, recursively creates missing parents and ignores the GUID returned by CreateFolder. It does not reject reparse/case/file conflicts along the complete chain. CreateAsset records a GUID without verifying exact persisted asset identity.",
+      "impact": "A linked or conflicting ancestor can pass the review; a numbered replacement folder or failed asset creation can be misreported. Actual external writes or data loss have not been demonstrated.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.settings",
+          "revision": "d4500dd2aeecc1ec480187934344f9300cba8e80",
+          "path": "C:\\gf\\audit20261011\\src\\settings\\Editor\\SettingsAuthoring.cs",
+          "repositoryPath": "Editor/SettingsAuthoring.cs",
+          "line": 161,
+          "description": "Review does not validate the complete regular-directory chain.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/d4500dd2aeecc1ec480187934344f9300cba8e80/Editor/SettingsAuthoring.cs#L161"
+        },
+        {
+          "owner": "com.geurts.gameforge.settings",
+          "revision": "d4500dd2aeecc1ec480187934344f9300cba8e80",
+          "path": "C:\\gf\\audit20261011\\src\\settings\\Editor\\SettingsAuthoring.cs",
+          "repositoryPath": "Editor/SettingsAuthoring.cs",
+          "line": 299,
+          "description": "CreateAsset records the result without persistence verification.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/d4500dd2aeecc1ec480187934344f9300cba8e80/Editor/SettingsAuthoring.cs#L299"
+        },
+        {
+          "owner": "com.geurts.gameforge.settings",
+          "revision": "d4500dd2aeecc1ec480187934344f9300cba8e80",
+          "path": "C:\\gf\\audit20261011\\src\\settings\\Editor\\SettingsAuthoring.cs",
+          "repositoryPath": "Editor/SettingsAuthoring.cs",
+          "line": 305,
+          "description": "EnsureFolder ignores the returned folder GUID and exact path.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/d4500dd2aeecc1ec480187934344f9300cba8e80/Editor/SettingsAuthoring.cs#L305"
+        }
+      ],
+      "proposedCorrection": "Validate exact containment, regular ancestors, case and occupancy immediately before each creation. Resolve returned folder GUIDs to the reviewed path and verify every created asset/GUID before reporting success; report partial changes accurately.",
+      "acceptanceCriteria": [
+        "Linked ancestor, case/file collision, changed destination after review and failed CreateFolder/CreateAsset are rejected in an isolated fixture.",
+        "No external write, numbered substitute, false success or deletion of unrelated content occurs.",
+        "Valid first-party paths create exact folders/assets and retain Undo, GUID identity and unrelated authored state."
+      ],
+      "evidenceLimit": "Source-confirmed checks and result-verification omissions; filesystem/Unity reproductions remain unverified.",
+      "previousId": "GF-R2-002",
+      "reassessment": "All earlier evidence files are unchanged at the current owning commits; applicable requirements rechecked against Commandments 0.59.0.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-003",
+      "priority": "P2",
+      "assessment": "needs-changes",
+      "title": "Major component inspectors lack local labelled collapsible Help",
+      "owners": [
+        "com.geurts.gameforge.god",
+        "com.geurts.gameforge.audio",
+        "com.geurts.gameforge.objectpooling"
+      ],
+      "applicability": "Current first-party source and maintained tools; no live consumer migration authorized.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsCodeTechnique.md",
+          "section": "Major Component Help",
+          "version": "0.1.1",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsCodeTechnique.md"
+        },
+        {
+          "file": "GeurtsTechniques/GeurtsEditorAppearanceTechnique.md",
+          "section": "6.1 Component Help sections",
+          "version": "0.1.6",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsEditorAppearanceTechnique.md"
+        }
+      ],
+      "observed": "ForgeBootstrap, AudioBootstrapBinding and ObjectPoolObject/ObjectPoolSceneConfiguration expose authored setup fields through ForgeThemedEditor and owner adapters. Their source and the common drawing path provide no labelled local Help section. Existing tool-window Help and tooltips do not supply the required inspector guidance.",
+      "impact": "A user configuring these components cannot find the required prerequisites, setup, use example and remedies at the point of use.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Editor\\ForgeThemedEditor.cs",
+          "repositoryPath": "Editor/ForgeThemedEditor.cs",
+          "line": 23,
+          "description": "Common inspector draws validation and Odin properties, without injecting Help.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Editor/ForgeThemedEditor.cs#L23"
+        },
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Runtime\\ForgeBootstrap.cs",
+          "repositoryPath": "Runtime/ForgeBootstrap.cs",
+          "line": 13,
+          "description": "Bootstrap authoring component has no local Help surface.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Runtime/ForgeBootstrap.cs#L13"
+        },
+        {
+          "owner": "com.geurts.gameforge.audio",
+          "revision": "b12f858bfe0f646525d2a134cc80c989f206c82e",
+          "path": "C:\\gf\\audit20261011\\src\\audio\\Runtime\\AudioBootstrapBinding.cs",
+          "repositoryPath": "Runtime/AudioBootstrapBinding.cs",
+          "line": 9,
+          "description": "Binding component fields have no Help section.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/b12f858bfe0f646525d2a134cc80c989f206c82e/Runtime/AudioBootstrapBinding.cs#L9"
+        },
+        {
+          "owner": "com.geurts.gameforge.audio",
+          "revision": "b12f858bfe0f646525d2a134cc80c989f206c82e",
+          "path": "C:\\gf\\audit20261011\\src\\audio\\Editor\\AudioInspectors.cs",
+          "repositoryPath": "Editor/AudioInspectors.cs",
+          "line": 9,
+          "description": "Binding inspector inherits the common path without Help.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/b12f858bfe0f646525d2a134cc80c989f206c82e/Editor/AudioInspectors.cs#L9"
+        },
+        {
+          "owner": "com.geurts.gameforge.objectpooling",
+          "revision": "73fdbfd7c37d58c9ae7ca7f5ff7619e998f77079",
+          "path": "C:\\gf\\audit20261011\\src\\objectpooling\\Editor\\ObjectPoolAuthoring.cs",
+          "repositoryPath": "Editor/ObjectPoolAuthoring.cs",
+          "line": 18,
+          "description": "Definition and scene-configuration inspectors only supply rule results.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/73fdbfd7c37d58c9ae7ca7f5ff7619e998f77079/Editor/ObjectPoolAuthoring.cs#L18"
+        }
+      ],
+      "proposedCorrection": "Add component-specific local/offline Help using the supported labelled collapsible pattern. Explain prerequisites, setup, supported controls/API extensions and a practical use example; preserve the property tree.",
+      "acceptanceCriteria": [
+        "A representative no-code workflow can be completed using the local Help.",
+        "Help expands/collapses read-only and remains reachable at normal/narrow widths and in applicable embedded views.",
+        "Expanded guidance has reserved height/spacing, usable scrolling and no overlap; multi-selection, Undo and authored values are preserved."
+      ],
+      "evidenceLimit": "Source absence is confirmed; no fresh rendered inspector acceptance was performed. Additional major surfaces require native acceptance rather than a blanket pass.",
+      "previousId": "GF-R2-003",
+      "reassessment": "All earlier evidence files are unchanged at the current owning commits; applicable requirements rechecked against Commandments 0.59.0.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-004",
+      "priority": "P2",
+      "assessment": "needs-changes",
+      "title": "New UI Settings screen IDs accept repeated or trailing underscores",
+      "owners": [
+        "com.geurts.gameforge.userinterface"
+      ],
+      "applicability": "Current first-party source and maintained tools; no live consumer migration authorized.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsCodeTechnique.md",
+          "section": "ID Names",
+          "version": "0.1.1",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsCodeTechnique.md"
+        }
+      ],
+      "observed": "UiSettingsMenuAuthoring validates a new ScreenId with ^[a-z][a-z0-9_]*$. Values such as auto__settings and auto_settings_ pass this format check, contrary to the required single-underscore segments. Commit persists the request in UiSettingsConnection; Configure itself only rejects blank IDs.",
+      "impact": "New freely authored screen IDs can be saved outside the current naming contract. Existing legacy IDs must retain their serialized identity until a coordinated migration is authorized.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.userinterface",
+          "revision": "2cd07180c2b383f509c66891d563d0e761a6746a",
+          "path": "C:\\gf\\audit20261011\\src\\userinterface\\Editor\\UiSettingsMenuAuthoring.cs",
+          "repositoryPath": "Editor/UiSettingsMenuAuthoring.cs",
+          "line": 50,
+          "description": "Format check accepts repeated and trailing underscores.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2cd07180c2b383f509c66891d563d0e761a6746a/Editor/UiSettingsMenuAuthoring.cs#L50"
+        },
+        {
+          "owner": "com.geurts.gameforge.userinterface",
+          "revision": "2cd07180c2b383f509c66891d563d0e761a6746a",
+          "path": "C:\\gf\\audit20261011\\src\\userinterface\\Editor\\UiSettingsMenuAuthoring.cs",
+          "repositoryPath": "Editor/UiSettingsMenuAuthoring.cs",
+          "line": 108,
+          "description": "Commit stores the reviewed new screen ID.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2cd07180c2b383f509c66891d563d0e761a6746a/Editor/UiSettingsMenuAuthoring.cs#L108"
+        },
+        {
+          "owner": "com.geurts.gameforge.userinterface",
+          "revision": "2cd07180c2b383f509c66891d563d0e761a6746a",
+          "path": "C:\\gf\\audit20261011\\src\\userinterface\\Runtime\\UiSettingsConnection.cs",
+          "repositoryPath": "Runtime/UiSettingsConnection.cs",
+          "line": 21,
+          "description": "Configure only checks non-empty identity and catalogue type.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2cd07180c2b383f509c66891d563d0e761a6746a/Runtime/UiSettingsConnection.cs#L21"
+        }
+      ],
+      "proposedCorrection": "Use the current lower_snake_case validator on new authoring through both no-code and API entry points. Preserve reserved-name and owning-scope uniqueness checks. Do not silently normalize or rename existing serialized IDs.",
+      "acceptanceCriteria": [
+        "Repeated, leading/trailing underscores, hyphens and uppercase new IDs are rejected with a remedy.",
+        "Valid supported new IDs work through Editor and API paths; duplicate IDs remain blocked.",
+        "Existing saved legacy screens and callbacks retain identity and behavior."
+      ],
+      "evidenceLimit": "Exact regex behavior and persistence route are source-confirmed; a new Unity authoring reproduction was not run.",
+      "previousId": "GF-R2-004",
+      "reassessment": "All earlier evidence files are unchanged at the current owning commits; applicable requirements rechecked against Commandments 0.59.0.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-005",
+      "priority": "P3",
+      "assessment": "needs-changes",
+      "title": "Audio asset path preflight omits the generated metadata suffix",
+      "owners": [
+        "com.geurts.gameforge.audio"
+      ],
+      "applicability": "Current first-party source and maintained tools; no live consumer migration authorized.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+          "section": "Absolute path length and workspace roots",
+          "version": "0.20.2",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsTechnicalTechnique.md"
+        }
+      ],
+      "observed": "RequireNewAssetPath rejects full.Length >= 260 but does not check full + .meta. An asset path of 255 to 259 characters passes the length check while its generated metadata path reaches 260 to 264 characters.",
+      "impact": "Asset creation can enter a path that violates the mandatory maximum and fail on metadata generation or later tooling.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.audio",
+          "revision": "b12f858bfe0f646525d2a134cc80c989f206c82e",
+          "path": "C:\\gf\\audit20261011\\src\\audio\\Editor\\AudioSetup.cs",
+          "repositoryPath": "Editor/AudioSetup.cs",
+          "line": 56,
+          "description": "Guard measures the asset path and omits its .meta suffix.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/b12f858bfe0f646525d2a134cc80c989f206c82e/Editor/AudioSetup.cs#L56"
+        }
+      ],
+      "proposedCorrection": "Include the longest generated asset/metadata path in creation preflight, without changing existing assets or adding runtime polling.",
+      "acceptanceCriteria": [
+        "Boundary paths are tested in a short disposable Windows fixture.",
+        "Every asset and generated metadata path remains at most 259 characters.",
+        "Rejected destinations create no asset/subasset and return an actionable shorter-path message."
+      ],
+      "evidenceLimit": "Source arithmetic is confirmed; long-path asset creation was not attempted in Unity.",
+      "previousId": "GF-R2-005",
+      "reassessment": "All earlier evidence files are unchanged at the current owning commits; applicable requirements rechecked against Commandments 0.59.0.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-006",
+      "priority": "P3",
+      "assessment": "needs-changes",
+      "title": "Public classes still lack meaningful XML descriptions",
+      "owners": [
+        "com.geurts.gameforge.god",
+        "com.geurts.gameforge.audio",
+        "com.geurts.gameforge.diagnostics",
+        "com.geurts.gameforge.objectpooling",
+        "com.geurts.gameforge.settings",
+        "com.geurts.gameforge.userinterface",
+        "com.geurts.gameforge.angels",
+        "com.geurts.gameforge.bigbang",
+        "com.geurts.gameforge.documentation",
+        "com.geurts.gameforge.sceneloading"
+      ],
+      "applicability": "Current first-party source and maintained tools; no live consumer migration authorized.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsCodeTechnique.md",
+          "section": "Public Classes",
+          "version": "0.1.1",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsCodeTechnique.md"
+        }
+      ],
+      "observed": "Confirmed declarations lack a meaningful XML summary before attributes/declaration: God catalogue models, Audio bootstrap binding and DialogueLine, Diagnostics authoring/setup classes, Object Pooling public custom inspectors, Settings member metadata, UI source Finding, and first-party tests/validation classes. Partial declarations with a documented primary were explicitly excluded.",
+      "impact": "Public responsibilities, ownership and intended use remain undocumented at the API/type entry point.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Editor\\BrickCatalogue.cs",
+          "repositoryPath": "Editor/BrickCatalogue.cs",
+          "line": 11,
+          "description": "BrickCatalogue is public without a class summary.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Editor/BrickCatalogue.cs#L11"
+        },
+        {
+          "owner": "com.geurts.gameforge.audio",
+          "revision": "b12f858bfe0f646525d2a134cc80c989f206c82e",
+          "path": "C:\\gf\\audit20261011\\src\\audio\\Runtime\\AudioBootstrapBinding.cs",
+          "repositoryPath": "Runtime/AudioBootstrapBinding.cs",
+          "line": 9,
+          "description": "Public binding declaration has no summary.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/b12f858bfe0f646525d2a134cc80c989f206c82e/Runtime/AudioBootstrapBinding.cs#L9"
+        },
+        {
+          "owner": "com.geurts.gameforge.diagnostics",
+          "revision": "bcf0aaa1f18be9539380f44322fd54432904f608",
+          "path": "C:\\gf\\audit20261011\\src\\diagnostics\\Editor\\DiagnosticsConsoleAuthoring.cs",
+          "repositoryPath": "Editor/DiagnosticsConsoleAuthoring.cs",
+          "line": 9,
+          "description": "Public authoring helper has no summary.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/bcf0aaa1f18be9539380f44322fd54432904f608/Editor/DiagnosticsConsoleAuthoring.cs#L9"
+        },
+        {
+          "owner": "com.geurts.gameforge.objectpooling",
+          "revision": "73fdbfd7c37d58c9ae7ca7f5ff7619e998f77079",
+          "path": "C:\\gf\\audit20261011\\src\\objectpooling\\Editor\\ObjectPoolAuthoring.cs",
+          "repositoryPath": "Editor/ObjectPoolAuthoring.cs",
+          "line": 18,
+          "description": "Four public custom inspector declarations lack summaries.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/73fdbfd7c37d58c9ae7ca7f5ff7619e998f77079/Editor/ObjectPoolAuthoring.cs#L18"
+        },
+        {
+          "owner": "com.geurts.gameforge.settings",
+          "revision": "d4500dd2aeecc1ec480187934344f9300cba8e80",
+          "path": "C:\\gf\\audit20261011\\src\\settings\\Editor\\SettingsMemberDiscovery.cs",
+          "repositoryPath": "Editor/SettingsMemberDiscovery.cs",
+          "line": 10,
+          "description": "Public SettingsMember model lacks a summary.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/d4500dd2aeecc1ec480187934344f9300cba8e80/Editor/SettingsMemberDiscovery.cs#L10"
+        },
+        {
+          "owner": "com.geurts.gameforge.userinterface",
+          "revision": "2cd07180c2b383f509c66891d563d0e761a6746a",
+          "path": "C:\\gf\\audit20261011\\src\\userinterface\\Runtime\\UiSourceRules.cs",
+          "repositoryPath": "Runtime/UiSourceRules.cs",
+          "line": 11,
+          "description": "Public nested Finding lacks a summary.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2cd07180c2b383f509c66891d563d0e761a6746a/Runtime/UiSourceRules.cs#L11"
+        },
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Tests\\Editor\\AngelsAssetMoveTests.cs",
+          "repositoryPath": "Tests/Editor/AngelsAssetMoveTests.cs",
+          "line": 15,
+          "description": "Public first-party test class lacks a summary.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Tests/Editor/AngelsAssetMoveTests.cs#L15"
+        },
+        {
+          "owner": "com.geurts.gameforge.bigbang",
+          "revision": "6e189e792900ac6938a7ae823c274a253f8f5772",
+          "path": "C:\\gf\\audit20261011\\src\\bigbang\\Tools~\\UnityNativeValidation.cs",
+          "repositoryPath": "Tools~/UnityNativeValidation.cs",
+          "line": 18,
+          "description": "Public maintained validation-tool class lacks a summary.",
+          "url": "https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/6e189e792900ac6938a7ae823c274a253f8f5772/Tools~/UnityNativeValidation.cs#L18"
+        },
+        {
+          "owner": "com.geurts.gameforge.documentation",
+          "revision": "36c0bd1362e2618c366d07999c3fcb03082c7ddb",
+          "path": "C:\\gf\\audit20261011\\src\\documentation\\Tests\\Editor\\CompatibilityTests.cs",
+          "repositoryPath": "Tests/Editor/CompatibilityTests.cs",
+          "line": 11,
+          "description": "Public compatibility test class lacks a summary.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/36c0bd1362e2618c366d07999c3fcb03082c7ddb/Tests/Editor/CompatibilityTests.cs#L11"
+        },
+        {
+          "owner": "com.geurts.gameforge.sceneloading",
+          "revision": "f725b506badbc6b5cbe627a707171444466870b6",
+          "path": "C:\\gf\\audit20261011\\src\\sceneloading\\Tests\\Editor\\SceneLoadingAssetTests.cs",
+          "repositoryPath": "Tests/Editor/SceneLoadingAssetTests.cs",
+          "line": 19,
+          "description": "Public scene-loading test class lacks a summary.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/f725b506badbc6b5cbe627a707171444466870b6/Tests/Editor/SceneLoadingAssetTests.cs#L19"
+        }
+      ],
+      "proposedCorrection": "Document each owned public class meaningfully on one maintained primary declaration, including relevant lifetime/ownership constraints. Keep vendor/generated code and asset/script identities intact.",
+      "acceptanceCriteria": [
+        "Review all first-party public declarations in affected owners, including nested classes/tests/tools.",
+        "XML is well formed, meaningful and placed before declaration attributes; partial types have one complete primary description.",
+        "Appropriate Unity compilation and owner release checks pass without API or serialization changes."
+      ],
+      "evidenceLimit": "Witnesses were manually inspected. The syntax candidate inventory is broader and is not a count of independently adjudicated defects.",
+      "previousId": "GF-R2-006",
+      "reassessment": "All earlier evidence files are unchanged at the current owning commits; applicable requirements rechecked against Commandments 0.59.0.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-007",
+      "priority": "P3",
+      "assessment": "needs-changes",
+      "title": "Public methods have incomplete XML summaries and parameter/return contracts",
+      "owners": [
+        "com.geurts.gameforge.god",
+        "com.geurts.gameforge.audio",
+        "com.geurts.gameforge.diagnostics",
+        "com.geurts.gameforge.objectpooling",
+        "com.geurts.gameforge.settings",
+        "com.geurts.gameforge.userinterface",
+        "com.geurts.gameforge.angels",
+        "com.geurts.gameforge.bigbang",
+        "com.geurts.gameforge.sceneloading",
+        "com.geurts.gameforge.saveload",
+        "com.geurts.gameforge.steam",
+        "com.geurts.gameforge.documentation"
+      ],
+      "applicability": "Current first-party source and maintained tools; no live consumer migration authorized.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsCodeTechnique.md",
+          "section": "Public Methods",
+          "version": "0.1.1",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsCodeTechnique.md"
+        }
+      ],
+      "observed": "Remaining public APIs lack summaries or required param/returns tags. Examples include Settings Review, UI menu authoring, SceneLoadingRules predicates, shared God authoring helpers, Angels asset-move APIs, SaveLoad starter Inspect and SteamOverlayInput.ConfigurationIssue. This is distinct from the specific methods fixed in the earlier audit.",
+      "impact": "Callers cannot consistently determine supported input, return meanings or side effects from the public API documentation.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.settings",
+          "revision": "d4500dd2aeecc1ec480187934344f9300cba8e80",
+          "path": "C:\\gf\\audit20261011\\src\\settings\\Editor\\SettingsAuthoring.cs",
+          "repositoryPath": "Editor/SettingsAuthoring.cs",
+          "line": 20,
+          "description": "Review has no method XML contract; ReviewMetadata omits param/returns.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/d4500dd2aeecc1ec480187934344f9300cba8e80/Editor/SettingsAuthoring.cs#L20"
+        },
+        {
+          "owner": "com.geurts.gameforge.sceneloading",
+          "revision": "f725b506badbc6b5cbe627a707171444466870b6",
+          "path": "C:\\gf\\audit20261011\\src\\sceneloading\\Runtime\\SceneLoadingRules.cs",
+          "repositoryPath": "Runtime/SceneLoadingRules.cs",
+          "line": 20,
+          "description": "Public predicates lack method summaries.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/f725b506badbc6b5cbe627a707171444466870b6/Runtime/SceneLoadingRules.cs#L20"
+        },
+        {
+          "owner": "com.geurts.gameforge.userinterface",
+          "revision": "2cd07180c2b383f509c66891d563d0e761a6746a",
+          "path": "C:\\gf\\audit20261011\\src\\userinterface\\Editor\\UiSettingsMenuAuthoring.cs",
+          "repositoryPath": "Editor/UiSettingsMenuAuthoring.cs",
+          "line": 28,
+          "description": "Public menu authoring APIs lack summaries.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2cd07180c2b383f509c66891d563d0e761a6746a/Editor/UiSettingsMenuAuthoring.cs#L28"
+        },
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsAssetMoves.cs",
+          "repositoryPath": "Editor/AngelsAssetMoves.cs",
+          "line": 55,
+          "description": "Public Preview summary omits its selectedPaths parameter contract.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsAssetMoves.cs#L55"
+        },
+        {
+          "owner": "com.geurts.gameforge.audio",
+          "revision": "b12f858bfe0f646525d2a134cc80c989f206c82e",
+          "path": "C:\\gf\\audit20261011\\src\\audio\\Integrations~\\FMOD\\Editor\\FmodAudioPanel.cs",
+          "repositoryPath": "Integrations~/FMOD/Editor/FmodAudioPanel.cs",
+          "line": 62,
+          "description": "Optional FMOD public Build entry point lacks a method XML contract; subtree matches its frozen installation source.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/b12f858bfe0f646525d2a134cc80c989f206c82e/Integrations~/FMOD/Editor/FmodAudioPanel.cs#L62"
+        },
+        {
+          "owner": "com.geurts.gameforge.saveload",
+          "revision": "c5b070453c8a397470ca6a8923b4afc528b54f0a",
+          "path": "C:\\gf\\audit20261011\\src\\saveload\\Editor\\SaveLoadAutomationProvider.cs",
+          "repositoryPath": "Editor/SaveLoadAutomationProvider.cs",
+          "line": 17,
+          "description": "Public starter Inspect lacks targets and return descriptions.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/c5b070453c8a397470ca6a8923b4afc528b54f0a/Editor/SaveLoadAutomationProvider.cs#L17"
+        },
+        {
+          "owner": "com.geurts.gameforge.steam",
+          "revision": "851dfa3b8983e764aac1170ab60a7dc1fde471c4",
+          "path": "C:\\gf\\audit20261011\\src\\steam\\Runtime\\SteamOverlayInput.cs",
+          "repositoryPath": "Runtime/SteamOverlayInput.cs",
+          "line": 43,
+          "description": "ConfigurationIssue lacks a returns contract.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/851dfa3b8983e764aac1170ab60a7dc1fde471c4/Runtime/SteamOverlayInput.cs#L43"
+        },
+        {
+          "owner": "com.geurts.gameforge.bigbang",
+          "revision": "6e189e792900ac6938a7ae823c274a253f8f5772",
+          "path": "C:\\gf\\audit20261011\\src\\bigbang\\Editor\\BigBangEditorTheme.cs",
+          "repositoryPath": "Editor/BigBangEditorTheme.cs",
+          "line": 53,
+          "description": "Public SetInitialSize omits parameter descriptions.",
+          "url": "https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/6e189e792900ac6938a7ae823c274a253f8f5772/Editor/BigBangEditorTheme.cs#L53"
+        },
+        {
+          "owner": "com.geurts.gameforge.documentation",
+          "revision": "36c0bd1362e2618c366d07999c3fcb03082c7ddb",
+          "path": "C:\\gf\\audit20261011\\src\\documentation\\Tests\\Editor\\CompatibilityTests.cs",
+          "repositoryPath": "Tests/Editor/CompatibilityTests.cs",
+          "line": 13,
+          "description": "Public test method lacks an XML summary.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/36c0bd1362e2618c366d07999c3fcb03082c7ddb/Tests/Editor/CompatibilityTests.cs#L13"
+        }
+      ],
+      "proposedCorrection": "Complete public XML descriptions with precise parameter and non-void return semantics, including side effects and intended starter limitations. Preserve supported APIs.",
+      "acceptanceCriteria": [
+        "Every affected public method has accurate summary, param and returns descriptions as applicable.",
+        "No planned SaveLoad gameplay/native Steam capability is invented or advertised by these comments.",
+        "Public API examples compile and appropriate owning release gates pass."
+      ],
+      "evidenceLimit": "Confirmed representative omissions; scanner candidates are supplied separately for context review, not accepted wholesale.",
+      "previousId": "GF-R2-007",
+      "reassessment": "All earlier evidence files are unchanged at the current owning commits; applicable requirements rechecked against Commandments 0.59.0.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-008",
+      "priority": "P3",
+      "assessment": "needs-changes",
+      "title": "Some serialized fields lack required tooltips",
+      "owners": [
+        "com.geurts.gameforge.god",
+        "com.geurts.gameforge.diagnostics",
+        "com.geurts.gameforge.userinterface"
+      ],
+      "applicability": "Current first-party source and maintained tools; no live consumer migration authorized.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsCodeTechnique.md",
+          "section": "Variables",
+          "version": "0.1.1",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsCodeTechnique.md"
+        }
+      ],
+      "observed": "God ForgeTarget/ForgeOperationResult serialized field groups, the passive Diagnostics manager settings reference and UI Foundations window tab field lack Tooltip attributes. SettingsTargetConnection tooltips from the prior fix remain present.",
+      "impact": "The blanket SerializeField tooltip convention is not satisfied for these fields.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Editor\\ForgeAutomation.cs",
+          "repositoryPath": "Editor/ForgeAutomation.cs",
+          "line": 25,
+          "description": "Serialized target fields lack Tooltip.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Editor/ForgeAutomation.cs#L25"
+        },
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Editor\\ForgeAutomation.cs",
+          "repositoryPath": "Editor/ForgeAutomation.cs",
+          "line": 88,
+          "description": "Serialized operation result groups lack Tooltip.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Editor/ForgeAutomation.cs#L88"
+        },
+        {
+          "owner": "com.geurts.gameforge.diagnostics",
+          "revision": "bcf0aaa1f18be9539380f44322fd54432904f608",
+          "path": "C:\\gf\\audit20261011\\src\\diagnostics\\Runtime\\Core\\GeurtsDiagnosticsManager.cs",
+          "repositoryPath": "Runtime/Core/GeurtsDiagnosticsManager.cs",
+          "line": 12,
+          "description": "Serialized _settings reference lacks Tooltip.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/bcf0aaa1f18be9539380f44322fd54432904f608/Runtime/Core/GeurtsDiagnosticsManager.cs#L12"
+        },
+        {
+          "owner": "com.geurts.gameforge.userinterface",
+          "revision": "2cd07180c2b383f509c66891d563d0e761a6746a",
+          "path": "C:\\gf\\audit20261011\\src\\userinterface\\Editor\\UserInterfaceWindow.cs",
+          "repositoryPath": "Editor/UserInterfaceWindow.cs",
+          "line": 26,
+          "description": "Serialized _activeTab lacks Tooltip.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2cd07180c2b383f509c66891d563d0e761a6746a/Editor/UserInterfaceWindow.cs#L26"
+        }
+      ],
+      "proposedCorrection": "Add field-specific Tooltip text without renaming serialized wire fields or changing compatibility data.",
+      "acceptanceCriteria": [
+        "Every affected SerializeField has a meaningful Tooltip.",
+        "Serialized field names, existing state and passive compatibility behavior are unchanged.",
+        "Any visible tooltip remains accurate in the supported inspector/window workflow."
+      ],
+      "evidenceLimit": "Attribute omissions are source-confirmed; rendered tooltip acceptance was not performed.",
+      "previousId": "GF-R2-008",
+      "reassessment": "All earlier evidence files are unchanged at the current owning commits; applicable requirements rechecked against Commandments 0.59.0.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-009",
+      "priority": "P3",
+      "assessment": "needs-changes",
+      "title": "Private field and internal enum conventions remain inconsistent",
+      "owners": [
+        "com.geurts.gameforge.god"
+      ],
+      "applicability": "Current first-party source and maintained tools; no live consumer migration authorized.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsCodeTechnique.md",
+          "section": "Variables",
+          "version": "0.1.1",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsCodeTechnique.md"
+        },
+        {
+          "file": "GeurtsTechniques/GeurtsCodeTechnique.md",
+          "section": "Enums",
+          "version": "0.1.1",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsCodeTechnique.md"
+        }
+      ],
+      "observed": "ForgeOperations stores private providers, issues and discovered fields without underscore prefixes. Internal DocumentationAvailability and its members use PascalCase instead of the required all-cap convention. Other syntax candidates include serialized/JSON compatibility fields and need individual preservation review.",
+      "impact": "Owned internal code still violates the current symbol conventions. A blind rename of wire fields or the legacy public GameForgeLogSeverity enum would risk supported contracts and is not an acceptable correction.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Editor\\ForgeAutomation.cs",
+          "repositoryPath": "Editor/ForgeAutomation.cs",
+          "line": 180,
+          "description": "Private providers/issues/discovered fields lack underscore prefixes.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Editor/ForgeAutomation.cs#L180"
+        },
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Editor\\Commandments\\DocumentationModels.cs",
+          "repositoryPath": "Editor/Commandments/DocumentationModels.cs",
+          "line": 124,
+          "description": "Internal enum and values use PascalCase.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Editor/Commandments/DocumentationModels.cs#L124"
+        }
+      ],
+      "proposedCorrection": "Rename safe internal fields/enums with all references. Review serialization/JSON/public compatibility candidates separately and use compatible mappings or a coordinated migration where required.",
+      "acceptanceCriteria": [
+        "Safe owned private fields and internal enum names/values meet conventions.",
+        "Source/API examples and existing documentation status workflows pass.",
+        "Public contracts, serialized identities and JSON schema tokens are preserved; compatibility candidates are not blindly renamed."
+      ],
+      "evidenceLimit": "Confirmed internal witnesses only. Private constants, generated/vendor declarations and public compatibility enum migrations are excluded from automatic failure counts.",
+      "previousId": "GF-R2-009",
+      "reassessment": "All earlier evidence files are unchanged at the current owning commits; applicable requirements rechecked against Commandments 0.59.0.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-010",
+      "priority": "P3",
+      "assessment": "needs-changes",
+      "title": "Diagnostics acceptance probe uses prohibited persistence and an unstructured object name",
+      "owners": [
+        "com.geurts.gameforge.diagnostics"
+      ],
+      "applicability": "Current first-party source and maintained tools; no live consumer migration authorized.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsBootstrapTechnique.md",
+          "section": "Bootstrap Scenes and Runtime Persistence",
+          "version": "0.1.1",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsBootstrapTechnique.md"
+        },
+        {
+          "file": "GeurtsTechniques/GeurtsNamingTechnique.md",
+          "section": "Dynamically created scene objects; fixed-contract exceptions",
+          "version": "0.1.6",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsNamingTechnique.md"
+        }
+      ],
+      "observed": "The opt-in DiagnosticsConsolePresentationProbe creates Console presentation acceptance probe and calls DontDestroyOnLoad. The file is explicitly test-only, copied into a disposable licensed fixture and ignored by normal package import.",
+      "impact": "Maintained first-party acceptance tooling violates the bootstrap lifetime and authored object naming rules. This is not a normal shipped Diagnostics service defect.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.diagnostics",
+          "revision": "bcf0aaa1f18be9539380f44322fd54432904f608",
+          "path": "C:\\gf\\audit20261011\\src\\diagnostics\\Tests\\PlayerSmoke~\\DiagnosticsConsolePresentationProbe.cs",
+          "repositoryPath": "Tests/PlayerSmoke~/DiagnosticsConsolePresentationProbe.cs",
+          "line": 2,
+          "description": "The scope is explicitly disposable acceptance tooling.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/bcf0aaa1f18be9539380f44322fd54432904f608/Tests/PlayerSmoke~/DiagnosticsConsolePresentationProbe.cs#L2"
+        },
+        {
+          "owner": "com.geurts.gameforge.diagnostics",
+          "revision": "bcf0aaa1f18be9539380f44322fd54432904f608",
+          "path": "C:\\gf\\audit20261011\\src\\diagnostics\\Tests\\PlayerSmoke~\\DiagnosticsConsolePresentationProbe.cs",
+          "repositoryPath": "Tests/PlayerSmoke~/DiagnosticsConsolePresentationProbe.cs",
+          "line": 45,
+          "description": "Creates the unstructured root and uses DontDestroyOnLoad.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/bcf0aaa1f18be9539380f44322fd54432904f608/Tests/PlayerSmoke~/DiagnosticsConsolePresentationProbe.cs#L45"
+        }
+      ],
+      "proposedCorrection": "Use an explicitly named DBG_Diagnostics_ConsolePresentationProbe root owned by the retained ordinary bootstrap scene, and clean up its work through that scene/session lifetime.",
+      "acceptanceCriteria": [
+        "Real Windows acceptance probe still runs and produces its configured evidence.",
+        "The owner remains in a known loaded ordinary bootstrap scene; no hidden persistence-scene transfer occurs.",
+        "Repeated sessions/content transitions preserve the real console and leave no duplicate probe or listener."
+      ],
+      "evidenceLimit": "Direct test-tool call is source-confirmed. Vendor FMOD internals are a separate declared compatibility limitation; no vendor source was patched.",
+      "previousId": "GF-R2-010",
+      "reassessment": "All earlier evidence files are unchanged at the current owning commits; applicable requirements rechecked against Commandments 0.59.0.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-011",
+      "priority": "P2",
+      "assessment": "needs-changes",
+      "title": "Settings writes do not protect damaged payloads or unsupported fields",
+      "owners": [
+        "com.geurts.gameforge.god"
+      ],
+      "applicability": "Current first-party behavior and maintained guides. Audit only; no consumer migration or product correction performed.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsBrickContract.md",
+          "section": "Damaged or incompatible module settings",
+          "version": "1.22.0",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsBrickContract.md"
+        },
+        {
+          "file": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+          "section": "Codex compatibility; Verification and completion",
+          "version": "0.20.2",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsTechnicalTechnique.md"
+        }
+      ],
+      "observed": "BrickSettingsStore.Read validates only the outer record identity and a non-null json string. Save<T> replaces that string without parsing the existing payload, and SaveJson does the same after only a starts-with-brace check on its caller-supplied payload. SetEnabled reserializes a three-field record. There is no supported-format or unknown-field guard in these paths. A valid outer record whose json value is \"not JSON\" can therefore be overwritten through Save<T>; unknown outer fields are not represented or preserved.",
+      "impact": "A supported write can erase the original damaged payload or unsupported data instead of reporting the exact file/reason and stopping. The new contract requires preservation before writes. Malformed outer JSON and wrong package identity already have checks; this finding concerns the remaining payload/format boundary.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Runtime\\BrickSettings.cs",
+          "repositoryPath": "Runtime/BrickSettings.cs",
+          "line": 38,
+          "description": "Read accepts any non-null inner payload after deserializing only three envelope fields.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Runtime/BrickSettings.cs#L38"
+        },
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Runtime\\BrickSettings.cs",
+          "repositoryPath": "Runtime/BrickSettings.cs",
+          "line": 62,
+          "description": "Save<T> overwrites the unvalidated existing payload.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Runtime/BrickSettings.cs#L62"
+        },
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Runtime\\BrickSettings.cs",
+          "repositoryPath": "Runtime/BrickSettings.cs",
+          "line": 70,
+          "description": "SaveJson replaces the old payload without validating its supported format.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Runtime/BrickSettings.cs#L70"
+        },
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Runtime\\BrickSettings.cs",
+          "repositoryPath": "Runtime/BrickSettings.cs",
+          "line": 97,
+          "description": "SetEnabled uses the same lossy record writer.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Runtime/BrickSettings.cs#L97"
+        },
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Runtime\\BrickSettings.cs",
+          "repositoryPath": "Runtime/BrickSettings.cs",
+          "line": 121,
+          "description": "Write serializes the projected record, with no unknown-data preservation or write refusal.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Runtime/BrickSettings.cs#L121"
+        }
+      ],
+      "proposedCorrection": "Validate the owned envelope and owner payload before configuration-dependent use and every write. Document supported fields/formats and downgrade limits. Preserve safe unknown data, otherwise refuse the write with the exact required version. Keep existing bytes and unrelated valid modules usable; provide only explicit manual repair/reset, with a clear data-loss explanation.",
+      "acceptanceCriteria": [
+        "Malformed inner JSON, wrong identity, unsupported versions and incompatible values fail before writing; the original bytes are unchanged.",
+        "Unknown fields are retained through supported writes or produce an actionable write refusal.",
+        "Missing files still use fresh defaults; existing unreadable files never become missing/default settings.",
+        "One invalid module does not block unrelated valid modules; no automatic migration, backup or rollback is introduced."
+      ],
+      "evidenceLimit": "Source call paths confirmed; no new Unity reproduction or damaged live file was used. Unknown-field behavior is corroborated by the Unity 6000.6 JSON serialization manual.",
+      "externalReferences": [
+        {
+          "title": "Unity 6000.6 JSON serialization",
+          "url": "https://docs.unity3d.com/6000.6/Documentation/Manual/json-serialization.html",
+          "supports": "Fields not represented by a serialized class are ignored; reserializing that class cannot preserve those fields."
+        }
+      ],
+      "sourceExample": {
+        "id": "com.geurts.gameforge.audio",
+        "enabled": true,
+        "json": "not JSON"
+      },
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-012",
+      "priority": "P2",
+      "assessment": "needs-changes",
+      "title": "Reorganisation can move assets into an ignored destination",
+      "owners": [
+        "com.geurts.gameforge.angels"
+      ],
+      "applicability": "Current first-party behavior and maintained guides. Audit only; no consumer migration or product correction performed.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsForgeSetupTechnique.md",
+          "section": "Explicit current-assets scans and exclusions",
+          "version": "1.8.2",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsForgeSetupTechnique.md"
+        }
+      ],
+      "observed": "Eligible checks ignored source paths. ReorganisationFolder then chooses the type-based destination, and ValidateDestination checks approved folder/type/path safety but does not consult ignored GUIDs. A source outside ignored Materials can be moved into the ignored Materials folder.",
+      "impact": "The explicit folder exclusion is violated even though the source passed the scan. The affected move retains GUIDs, but writes inside a user-excluded destination.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsAssetBatch.cs",
+          "repositoryPath": "Editor/AngelsAssetBatch.cs",
+          "line": 100,
+          "description": "Eligibility excludes sources only.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsAssetBatch.cs#L100"
+        },
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsAssetBatch.cs",
+          "repositoryPath": "Editor/AngelsAssetBatch.cs",
+          "line": 106,
+          "description": "Reorganisation selects the normal type destination.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsAssetBatch.cs#L106"
+        },
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsAssetMoves.cs",
+          "repositoryPath": "Editor/AngelsAssetMoves.cs",
+          "line": 182,
+          "description": "The destination validation has no saved-ignore check.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsAssetMoves.cs#L182"
+        }
+      ],
+      "proposedCorrection": "Check ignored destination folders/assets while planning, reviewing and immediately before moving, for automatic and explicit operations. Report exclusion without moving the asset.",
+      "acceptanceCriteria": [
+        "An ignored destination or any descendant receives no moved asset.",
+        "Ignore identities follow folder moves and retain path-segment boundaries.",
+        "Source/meta bytes and GUIDs remain unchanged when excluded; normal permitted reorganisation still works."
+      ],
+      "evidenceLimit": "Current source confirmed. The three witness files are unchanged from the historically probed Angels 0.9.1 commit; the controlled Unity destination probe passed by reproducing this defect. It was not rerun on 0.9.3.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-013",
+      "priority": "P2",
+      "assessment": "needs-changes",
+      "title": "Skipping an excluded asset leaves its naming request attached to the next asset",
+      "owners": [
+        "com.geurts.gameforge.angels"
+      ],
+      "applicability": "Current first-party behavior and maintained guides. Audit only; no consumer migration or product correction performed.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsForgeSetupTechnique.md",
+          "section": "Explicit current-assets scans and exclusions; Optional actual-sound analysis before Codex naming",
+          "version": "1.8.2",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsForgeSetupTechnique.md"
+        }
+      ],
+      "observed": "When the queued source becomes ignored while its naming request is active, Tick waits for completion, then takes the ineligible branch before clearing _task/_input. FinishAsset dequeues the source without clearing those fields. The following asset can consume the previous source request/result and stop the scan.",
+      "impact": "Changing a source into a protected/ignored location can incorrectly fail an unrelated next file. Source-current checks generally prevent applying stale output, but per-asset request ownership and cleanup are incomplete.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsAssetBatch.cs",
+          "repositoryPath": "Editor/AngelsAssetBatch.cs",
+          "line": 123,
+          "description": "An active task is checked before current source eligibility.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsAssetBatch.cs#L123"
+        },
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsAssetBatch.cs",
+          "repositoryPath": "Editor/AngelsAssetBatch.cs",
+          "line": 127,
+          "description": "Ineligible source advances the queue before request fields are cleared.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsAssetBatch.cs#L127"
+        },
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsAssetBatch.cs",
+          "repositoryPath": "Editor/AngelsAssetBatch.cs",
+          "line": 148,
+          "description": "FinishAsset leaves _task and _input attached when more assets remain.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsAssetBatch.cs#L148"
+        }
+      ],
+      "proposedCorrection": "Give each queued asset explicit request ownership. Clear or cancel and retire its task/input before advancing after exclusion, movement, deletion or failure; ignore late results and prepare the next source independently.",
+      "acceptanceCriteria": [
+        "Move/delete/ignore the source while a controlled request is pending; that result is never reused for another GUID.",
+        "The next eligible asset gets its own input, task and verified result.",
+        "Cancellation and late replies preserve source bytes and report actual remaining work."
+      ],
+      "evidenceLimit": "Current source confirmed and byte-identical to the historically reproduced controlled-request path. No new paid account request or Unity execution was performed.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-014",
+      "priority": "P2",
+      "assessment": "needs-changes",
+      "title": "Audio coverage can make valid naming history fail reload",
+      "owners": [
+        "com.geurts.gameforge.angels"
+      ],
+      "applicability": "Current first-party behavior and maintained guides. Audit only; no consumer migration or product correction performed.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsForgeSetupTechnique.md",
+          "section": "Optional Codex-assisted import naming; Optional actual-sound analysis before Codex naming",
+          "version": "1.8.2",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsForgeSetupTechnique.md"
+        }
+      ],
+      "observed": "Parse accepts a reason of up to 240 characters. Complete appends AudioCoverage after that validation without applying a final persistence bound. Restore still rejects Reason.Length greater than 240. A valid response can therefore become invalid saved history after audio coverage is appended.",
+      "impact": "Automatic naming pauses on reload with a malformed-history error caused by its own otherwise valid output. The earlier controlled probe grew a 190-character response into a 354-character reason.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsCodexNaming.cs",
+          "repositoryPath": "Editor/AngelsCodexNaming.cs",
+          "line": 263,
+          "description": "Complete appends the required audio coverage after reason validation.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsCodexNaming.cs#L263"
+        },
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsCodexNaming.cs",
+          "repositoryPath": "Editor/AngelsCodexNaming.cs",
+          "line": 299,
+          "description": "The model response reason bound is 240.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsCodexNaming.cs#L299"
+        },
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsAutoSort.cs",
+          "repositoryPath": "Editor/AngelsAutoSort.cs",
+          "line": 269,
+          "description": "Restoring saved history rejects reasons over 240.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsAutoSort.cs#L269"
+        }
+      ],
+      "proposedCorrection": "Make final persisted explanation bounds consistent with complete required coverage. Preserve the full coverage separately if necessary; never silently omit sampled ranges or channels. Keep existing valid saved data supported.",
+      "acceptanceCriteria": [
+        "Maximum valid reason plus full and partial audio coverage persists and reloads successfully.",
+        "Coverage, uncertainty and partial channel/range information remain visible.",
+        "Malformed externally supplied histories still fail actionably without rewriting the original."
+      ],
+      "evidenceLimit": "The Complete function is unchanged from the historically probed source; the restore reason bound remains 240. The historical failure is corroboration, not a fresh Unity run on this release.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-015",
+      "priority": "P2",
+      "assessment": "needs-changes",
+      "title": "Audio downsampling sends aliased sound to analysis",
+      "owners": [
+        "com.geurts.gameforge.angels"
+      ],
+      "applicability": "Current first-party behavior and maintained guides. Audit only; no consumer migration or product correction performed.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsForgeSetupTechnique.md",
+          "section": "Optional actual-sound analysis before Codex naming",
+          "version": "1.8.2",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsForgeSetupTechnique.md"
+        },
+        {
+          "file": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+          "section": "Verification and completion",
+          "version": "0.20.2",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsTechnicalTechnique.md"
+        }
+      ],
+      "observed": "Encode constructs 24 kHz output by selecting a source frame for each output frame, without a low-pass filter before downsampling. For a 48 kHz source, high-frequency content above the 12 kHz output Nyquist limit folds into lower frequencies. The historical controlled Unity probe measured an 18 kHz input appearing as a strong 6 kHz output component.",
+      "impact": "The optional paid sound-analysis step can receive a different audible frequency than the recording contained, undermining its evidence for naming. This is signal conversion behavior, separate from unverified semantic accuracy of the remote model.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsAudioSamples.cs",
+          "repositoryPath": "Editor/AngelsAudioSamples.cs",
+          "line": 64,
+          "description": "The encoder handles bounded excerpts and channels.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsAudioSamples.cs#L64"
+        },
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsAudioSamples.cs",
+          "repositoryPath": "Editor/AngelsAudioSamples.cs",
+          "line": 79,
+          "description": "Direct source-frame selection performs unfiltered downsampling.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsAudioSamples.cs#L79"
+        },
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsAudioSamples.cs",
+          "repositoryPath": "Editor/AngelsAudioSamples.cs",
+          "line": 85,
+          "description": "Selected PCM is quantized directly into the output waveform.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsAudioSamples.cs#L85"
+        }
+      ],
+      "proposedCorrection": "Use a bounded resampler with appropriate anti-alias filtering before reducing sample rate. Retain stereo, excerpt coverage, timeout, cancellation and importer preservation.",
+      "acceptanceCriteria": [
+        "Synthetic out-of-band tones are attenuated before 24 kHz conversion instead of folding into strong audible aliases.",
+        "In-band tones, stereo channels, short/full clips and labelled excerpts retain expected waveform and duration.",
+        "Memory/time bounds, cancellation and unchanged import settings are validated independently of live model naming accuracy."
+      ],
+      "evidenceLimit": "The entire encoder file is byte-identical to the historically tested source. That probe observed 6 kHz amplitude 0.4514 from an 18 kHz/48 kHz input. No listening/device or fresh Unity acceptance is claimed.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-016",
+      "priority": "P3",
+      "assessment": "needs-changes",
+      "title": "Paused imports can display an earlier completed scan as current progress",
+      "owners": [
+        "com.geurts.gameforge.angels"
+      ],
+      "applicability": "Current first-party behavior and maintained guides. Audit only; no consumer migration or product correction performed.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsForgeSetupTechnique.md",
+          "section": "Explicit current-assets scans and exclusions",
+          "version": "1.8.2",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsForgeSetupTechnique.md"
+        }
+      ],
+      "observed": "InspectRenaming/InspectReorganising select automatic import progress only when ImportProgress.Running is true. ImportProgress sets Running false when paused, even with pending files. The inspection then returns the last explicit scan, which can still show 100 percent and Completed.",
+      "impact": "A blocked pending import is displayed as completed work, obscuring the active failure and remaining queue.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsAssetBatch.cs",
+          "repositoryPath": "Editor/AngelsAssetBatch.cs",
+          "line": 46,
+          "description": "The public progress API falls back to the previous explicit scan when automatic work is paused.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsAssetBatch.cs#L46"
+        },
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Editor\\AngelsAutoSort.cs",
+          "repositoryPath": "Editor/AngelsAutoSort.cs",
+          "line": 60,
+          "description": "Paused automatic work with a pending queue is marked not running.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Editor/AngelsAutoSort.cs#L60"
+        }
+      ],
+      "proposedCorrection": "Report the current operation, pending count and paused/failed stage independently of running status. Retain past outcomes as history without presenting them as the current queue.",
+      "acceptanceCriteria": [
+        "After a completed scan, a new paused import displays its actual pending count and failure below 100 percent.",
+        "Rename and reorganisation views identify their operation and do not substitute another prior result.",
+        "Native normal/narrow boxed progress and public inspection outputs agree."
+      ],
+      "evidenceLimit": "Current inspected code remains equivalent to the historical controlled probe, which reported one pending import while the public progress remained 100 percent. Native rendering was not repeated.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    },
+    {
+      "id": "GF-R3-017",
+      "priority": "P3",
+      "assessment": "needs-changes",
+      "title": "Current AI guides identify older releases as this release",
+      "owners": [
+        "com.geurts.gameforge.bigbang",
+        "com.geurts.gameforge.god",
+        "com.geurts.gameforge.angels"
+      ],
+      "applicability": "Current first-party behavior and maintained guides. Audit only; no consumer migration or product correction performed.",
+      "requirements": [
+        {
+          "file": "GeurtsTechniques/GeurtsBrickContract.md",
+          "section": "Release capabilities and supported automation",
+          "version": "1.22.0",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsBrickContract.md"
+        },
+        {
+          "file": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+          "section": "Codex compatibility",
+          "version": "0.20.2",
+          "baselineCommit": "1efe5e03eb6b70a1188d9d999678dc6fb38b483a",
+          "url": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/1efe5e03eb6b70a1188d9d999678dc6fb38b483a/GeurtsTechniques/GeurtsTechnicalTechnique.md"
+        }
+      ],
+      "observed": "ReleaseDocumentation.json classifies AIUsability.md as a current guide. Its opening still says Release 0.5.1 for BigBang 0.8.1, Release 0.35.0 for God 0.38.1, and Release 0.9.0 for Angels 0.9.3, then calls ForgeCapabilities.json this release's declaration. These are unlabelled current-version claims, rather than explicitly historical introduction notes.",
+      "impact": "A maintainer or agent receives conflicting release identity from the current guide and the actual manifest/capability/validation records. The current release validator passes despite this prose inconsistency.",
+      "evidence": [
+        {
+          "owner": "com.geurts.gameforge.bigbang",
+          "revision": "6e189e792900ac6938a7ae823c274a253f8f5772",
+          "path": "C:\\gf\\audit20261011\\src\\bigbang\\Documentation~\\AIUsability.md",
+          "repositoryPath": "Documentation~/AIUsability.md",
+          "line": 3,
+          "description": "Current BigBang guide still identifies Release 0.5.1.",
+          "url": "https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/6e189e792900ac6938a7ae823c274a253f8f5772/Documentation~/AIUsability.md#L3"
+        },
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\Documentation~\\AIUsability.md",
+          "repositoryPath": "Documentation~/AIUsability.md",
+          "line": 3,
+          "description": "Current God guide still identifies Release 0.35.0.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/Documentation~/AIUsability.md#L3"
+        },
+        {
+          "owner": "com.geurts.gameforge.angels",
+          "revision": "29de22c54e33b0c0146b330e9dd6fca367747344",
+          "path": "C:\\gf\\audit20261011\\src\\angels\\Documentation~\\AIUsability.md",
+          "repositoryPath": "Documentation~/AIUsability.md",
+          "line": 3,
+          "description": "Current Angels guide still identifies Release 0.9.0.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29de22c54e33b0c0146b330e9dd6fca367747344/Documentation~/AIUsability.md#L3"
+        },
+        {
+          "owner": "com.geurts.gameforge.god",
+          "revision": "0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea",
+          "path": "C:\\gf\\audit20261011\\src\\god\\ReleaseDocumentation.json",
+          "repositoryPath": "ReleaseDocumentation.json",
+          "line": 7,
+          "description": "The outdated AI guide is explicitly classified as current.",
+          "url": "https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0941cd02ce2c38c946cba1adf2d7cc6d9a70e5ea/ReleaseDocumentation.json#L7"
+        }
+      ],
+      "proposedCorrection": "Identify the actual owning release in each current guide, or clearly label an introduction version as historical while stating current support. Keep examples, declared operations and validation scope aligned with the pinned release.",
+      "acceptanceCriteria": [
+        "Each current guide gives an unambiguous current support/release identity consistent with its manifest and declaration.",
+        "Historical versions are labelled and do not imply current validation.",
+        "Review actual examples and action claims, rather than replacing version strings in archived evidence."
+      ],
+      "evidenceLimit": "Exact current Markdown, release classification and package identities inspected. No runtime behavior is inferred from these guide headers.",
+      "status": "implemented_validated_and_published",
+      "assessmentLimit": "Automated and scoped native evidence; any physical/input/device limitations remain explicit."
+    }
+  ],
+  "unverified": [
+    "Physical keyboard/mouse, alternate skin, high-DPI and device acceptance were not performed. Native dark-skin Inspector captures are scoped to the recorded panels and widths.",
+    "Windows batch players validate APIs, persistence and ordinary bootstrap ownership. They do not certify visual console layout, physical input, audible output, native Steam sessions or every product capability.",
+    "FMOD has separately recorded real licensed compilation and native NOSOUND_NRT checks. Audible/device acceptance and unchanged vendor RuntimeManager behavior remain outside this correction.",
+    "Real paid model naming accuracy was not tested. Synthetic audio/filtering and controlled late/cancelled request tests do not certify semantic naming accuracy.",
+    "BigBang remains exempt from dependency compliance and dependency-driven changes. Consumer installation is manual; unfinished SaveLoad and Steam features were not implemented."
+  ],
+  "optionalFmodPublication": {
+    "repository": "Geurtsy/com.geurts.gameforge.audio",
+    "version": "0.2.3",
+    "commit": "db3e631fad149dac8a1319e8a76c281c9e3ce972",
+    "tag": "fmod-v0.2.3",
+    "mainVerified": true,
+    "immutableTagVerified": true,
+    "githubReleaseSealed": true,
+    "releaseUrl": "https://github.com/Geurtsy/com.geurts.gameforge.audio/releases/tag/fmod-v0.2.3",
+    "archiveSha256": "e961a24498803c44c42f1827d00f53c087c133c03b7b0d2566f85eccb34b29ea",
+    "archiveUrl": "https://github.com/Geurtsy/com.geurts.gameforge.audio/releases/download/fmod-v0.2.3/com.geurts.gameforge.audio.fmod-0.2.3.zip",
+    "checksumUrl": "https://github.com/Geurtsy/com.geurts.gameforge.audio/releases/download/fmod-v0.2.3/com.geurts.gameforge.audio.fmod-0.2.3.zip.sha256",
+    "assetsDigestVerified": true,
+    "publishedUtc": "2026-10-11T00:33:39Z"
+  },
+  "catalogueVersion": "0.59.2",
+  "publicationPolicy": {
+    "requirementReference": "GeurtsTechniques/GeurtsBrickContract.md:92,96 at Commandments 0.59.1",
+    "immutableGitReleases": "Each owning remote main and exact fixed release commit/tag are verified. Published contents and tags were preserved; no release tag was moved or replaced.",
+    "githubReleaseLock": "The additional GitHub lock flag is observed per repository in each publication record. SaveLoad has it disabled; repository settings were not changed. Archive and checksum digests were independently verified for every release."
+  }
+}

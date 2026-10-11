@@ -1,5 +1,5 @@
 # CreateGeurtsFolderStructure.ps1
-# Version: 0.59.1
+# Version: 0.59.2
 
 [CmdletBinding()]
 param(
@@ -151,8 +151,8 @@ try {
     }
 
     if ([string]$definition.schemaVersion -ne "1.0.0") { throw "Unsupported folder-definition schemaVersion '$($definition.schemaVersion)'." }
-    if ([string]$definition.definitionVersion -ne "0.13.0" -or [string]$definition.packageVersion -ne "0.59.1") {
-        throw "Folder definition version must be 0.13.0 and package version must be 0.59.1."
+    if ([string]$definition.definitionVersion -ne "0.13.0" -or [string]$definition.packageVersion -ne "0.59.2") {
+        throw "Folder definition version must be 0.13.0 and package version must be 0.59.2."
     }
     if ([string]$definition.canonicalPath -ne "GeurtsTechniques/GeurtsFolderStructureDefinition.json" -or [string]$definition.pathBase -ne "<ProjectRoot>" -or [string]$definition.pathSeparator -ne "/" -or [string]$definition.explanatoryAuthority -ne "GeurtsTechniques/GeurtsFolderStructureTechnique.md" -or [string]$definition.automationAuthority -ne "GeurtsTechniques/GeurtsFolderStructureDefinition.json") {
         throw "Folder definition declares an unsupported required path or path-base contract."
