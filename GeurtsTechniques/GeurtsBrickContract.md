@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.22.2
+**Version:** 1.22.3
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -81,7 +81,7 @@ God's package management and Odin dashboard belong in Editor-only assemblies. Ru
 Keep descriptions focused on current capabilities, package-specific limits and release-specific results; do not repeat shared verification or delivery rules. Detailed evidence belongs in the pinned owner's `ForgeCapabilities.json` and current validation files. Follow the [Technical verification rules](GeurtsTechnicalTechnique.md#verification-and-completion) for evidence limits and the [Automation delivery policy](GeurtsGameForgeAutomationTechnique.md#remote-publication-and-consumer-installation) for manual consumer installation.
 
 <!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->
-The JSON contains data only: `schemaVersion`, `packageVersion`, optional `publishedUtc`, and `bricks`. Each entry has `id`, `name`, `description`, HTTPS `website`, `version`, `released`, `developmentOnly`, `sourceKind`, `source`, `minimumUnity`, `maximumUnity`, `requiredTools`, and `dependencies` (`id`, `minimumVersion`). Unity bounds are major/minor versions and describe the declared verified range.
+The JSON contains data only: `schemaVersion`, `packageVersion`, optional `publishedUtc`, and `bricks`. Each entry has `id`, `name`, `description`, HTTPS `website`, `version`, `released`, `developmentOnly`, `sourceKind`, `source`, `minimumUnity`, `maximumUnity`, `requiredTools`, and `dependencies` (`id`, `minimumVersion`). Unity bounds are major/minor admission requirements; package manifests retain any patch/channel/revision minimum. An empty maximumUnity means no upper version ceiling. Forge's shared floor is 6000.6.3f1, and newer Editors are eligible without changing that floor. Only a concrete, separately declared owner incompatibility may impose an upper limit. Eligibility does not establish a verified range: each release records the exact Editor and dependency graph actually tested.
 
 <!-- GEURTS-SECTION:END -->
 

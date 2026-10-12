@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.61.3",
-  "publishedUtc": "2026-10-12T11:28:35.5834465Z",
+  "packageVersion": "0.61.4",
+  "publishedUtc": "2026-10-12T15:01:42.0635183Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
       "name": "Geurts Game Forge BigBang",
-      "description": "Independent BigBang prerequisite preparation, verified God handoff and reviewed BigCrunch removal. Regenerated canonical responsive theme handles preclassified roots and repeated attachment, with guide-heading release checks and owner-bound hosted source archives. Unity 6000.6.3f1: 147 independent Editor tests passed without God or vendor assemblies, zero failures or skips; three guide-heading checks and real stale-Odin-symbol compilation passed. Scoped native edits and wide/narrow/wide layouts passed in light 100% and dark 150% environments. Consumer adoption remains manual.",
+      "description": "Independent prerequisite preparation, verified God handoff and reviewed BigCrunch removal. Unity 6000.6.3f1 is a numeric minimum; newer patches/series are eligible. God release discovery compares with the current Editor and freezes any stricter release minimum through dispatch/reload. All 185 independent Editor checks passed on both 6000.6.3f1 and 6000.6.5f1, zero failures/skips. Native 6000.6.5f1 inspection confirms minimum admission and genuine missing-library findings without God/vendor references. Existing package/source/compilation gates remain; native Steam and untested future compatibility are not certified. Consumer adoption is explicit.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
-      "version": "0.8.6",
+      "version": "0.8.7",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#e9af1aff92ebd2d98fe9f41efca2c4d82e32ba40",
+      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#a8d846e75d8a97c3fd0a0a49766b7a4782a2f077",
       "minimumUnity": "6000.6",
-      "maximumUnity": "6000.6",
+      "maximumUnity": "",
       "requiredTools": [],
       "dependencies": []
     },
@@ -29,7 +29,7 @@
       "sourceKind": "git",
       "source": "https://github.com/Geurtsy/com.geurts.gameforge.commandments.git#0b003200424af7498fde5e1e98738d80ab20ebbe",
       "minimumUnity": "6000.6",
-      "maximumUnity": "6000.6",
+      "maximumUnity": "",
       "requiredTools": [],
       "dependencies": [],
       "compatibilityOnly": true
@@ -37,15 +37,15 @@
     {
       "id": "com.geurts.gameforge.god",
       "name": "Geurts Game Forge God",
-      "description": "Shared lifecycle and SDK-free cooperation contracts, required foundation and canonical spacious Editor theme. Responsive fields now reflow on preclassified roots and repeated theme attachment; four guide headings are repaired and malformed headings fail the release gate. Unity 6000.6.3f1: 478 Editor/integration/private-regression checks passed, zero failures and seven named conditional skips; 18 release-gate checks passed with genuine licensed inputs. Scoped native edits and wide/narrow/wide layouts passed in light 100% and dark 150% environments. Owning evidence retains exact source and scope; consumer adoption remains manual.",
+      "description": "Shared lifecycle, SDK-free cooperation contracts, required foundation and canonical Editor theme. Unity 6000.6.3f1 is the minimum, with newer Editors eligible; release evidence accepts the exact minimum or newer tested Editor without claiming universal future compatibility. Unity 6000.6.3f1: 478 owning Editor/recipe/regression checks passed, zero failures and seven documented conditional skips; 30 source/version/Editor-evidence gate checks passed. Historical native theme and runtime evidence keeps its original scope. Consumer adoption is explicit; native Steam and untested future Editor/dependency graphs remain unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.39.2",
+      "version": "0.39.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#defb6ae9d9c50e6b63f7eb62ee268ad19670f86e",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#5e1c38f0be577c68bb4e49b0e872440d5015ac81",
       "minimumUnity": "6000.6",
-      "maximumUnity": "6000.6",
+      "maximumUnity": "",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console"
@@ -63,7 +63,7 @@
       "sourceKind": "git",
       "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#e6f8f7024edced81e3357d767338ec7b52c4f168",
       "minimumUnity": "6000.6",
-      "maximumUnity": "6000.6",
+      "maximumUnity": "",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console"
@@ -86,7 +86,7 @@
       "sourceKind": "git",
       "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#6ea3934c3b95f6c6a5dfe7df721e89292d71bd7f",
       "minimumUnity": "6000.6",
-      "maximumUnity": "6000.6",
+      "maximumUnity": "",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console"
@@ -109,7 +109,7 @@
       "sourceKind": "git",
       "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#e4b9866a134a8bed627278d877d123cb7ef3a20c",
       "minimumUnity": "6000.6",
-      "maximumUnity": "6000.6",
+      "maximumUnity": "",
       "requiredTools": [
         "Odin Inspector"
       ],
@@ -131,7 +131,7 @@
       "sourceKind": "git",
       "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#243fb080d77761aba93d9b0aeb1f8c7a8c4569b4",
       "minimumUnity": "6000.6",
-      "maximumUnity": "6000.6",
+      "maximumUnity": "",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console"
@@ -154,7 +154,7 @@
       "sourceKind": "git",
       "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#c53cbe5d69675ed39da027f5364c2c0da460ca7a",
       "minimumUnity": "6000.6",
-      "maximumUnity": "6000.6",
+      "maximumUnity": "",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console"
@@ -177,7 +177,7 @@
       "sourceKind": "git",
       "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#ad835c23eb5684d83f26ab2c0dcfd3648b762103",
       "minimumUnity": "6000.6",
-      "maximumUnity": "6000.6",
+      "maximumUnity": "",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console"
@@ -200,7 +200,7 @@
       "sourceKind": "git",
       "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#942f5a0d4511a647bf9729d4a46a52c8409f1ce3",
       "minimumUnity": "6000.6",
-      "maximumUnity": "6000.6",
+      "maximumUnity": "",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console"
@@ -223,7 +223,7 @@
       "sourceKind": "git",
       "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#f05d5bed388e7ca61bd0cadbbfd578aaf09ca09d",
       "minimumUnity": "6000.6",
-      "maximumUnity": "6000.6",
+      "maximumUnity": "",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console"
@@ -246,7 +246,7 @@
       "sourceKind": "git",
       "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#1aba149fc7687d9976c4cfd7d18221e0d888b4b4",
       "minimumUnity": "6000.6",
-      "maximumUnity": "6000.6",
+      "maximumUnity": "",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console"

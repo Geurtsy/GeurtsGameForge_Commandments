@@ -1,8 +1,8 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Authoring Technical Topic
 
-**Version:** 0.1.1
-**Unity target:** Unity 6.6 (6000.6.3f1)
+**Version:** 0.1.2
+**Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsAuthoringTechnique.md`
 

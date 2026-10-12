@@ -1,5 +1,9 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Standards without GameForge - 0.61.3
+# Minimum Unity version — 0.61.4
+
+Unity **6000.6.3f1 is the minimum**, with newer patches and later Unity series eligible. Existing newer projects need no downgrade. BigBang compares full numeric Editor versions and resolves God releases against the current Editor; frozen targets retain any stricter owner minimum. Catalogue entries impose no artificial upper ceiling. This admission policy does not claim that every future Editor/dependency graph was tested: each release keeps exact scoped evidence. The Unity Technique owns the detailed compatibility and validation rules.
+
+# Standards without GameForge - 0.61.4
 
 [Download the Windows StandardsOnly installer 1.0.0](https://github.com/Geurtsy/GeurtsGameForge_Commandments/raw/main/Tools/StandardsOnlyInstaller/GeurtsStandardsOnlyInstaller-1.0.0.zip). Extract the ZIP, run `InstallStandardsOnly.bat`, select your Unity project and type `INSTALL`. It installs its pinned documentation 0.61.1 snapshot offline and preserves existing supported instructions. See [installer details](Tools/StandardsOnlyInstaller/README.md).
 
@@ -107,8 +111,8 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.61.3
-**Unity target:** Unity 6.6 (6000.6.3f1)
+**Version:** 0.61.4
+**Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft technique package
 **Primary audience:** Human developers
 **Secondary audience:** AI maintaining the documentation source

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts BigBang Technique
 
-**Version:** 1.6.1
+**Version:** 1.6.2
 **Status:** Normative installation and removal boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
@@ -9,7 +9,7 @@ The manifest selects this owner for independent prerequisite preparation, initia
 
 ## Identity and completion
 
-Geurts Game Forge BigBang is `com.geurts.gameforge.bigbang`, an independent Windows Editor-only UPM package at the root of its own `Geurtsy/GeurtsGameForgeBigBang` Git repository. The supported baseline is Unity **6000.6.3f1**. Use the current catalogue for published BigBang versions and immutable sources.
+Geurts Game Forge BigBang is `com.geurts.gameforge.bigbang`, an independent Windows Editor-only UPM package at the root of its own `Geurtsy/GeurtsGameForgeBigBang` Git repository. The minimum supported Editor is Unity **6000.6.3f1**, with newer patches and Unity series eligible. Older or malformed versions remain blocked; an eligible version alone does not certify the dependency graph. Use the current catalogue for published BigBang versions and immutable sources.
 
 Completion means God is installed, compiled and available to open. BigBang does not establish scene, game, documentation or optional-brick setup. Runtime initialization and `SCN_BigBang` remain God-owned. God owns ongoing package management and its catalogue. God's Editor Commandments service owns documentation acquisition/replacement. Angels, project organization, project Git and the separate console migration remain outside this installer.
 
@@ -29,7 +29,7 @@ The published catalogue now identifies BigBang with the local Steam prerequisite
 
 ## Explicit current release resolution
 
-Resolve the latest published compatible God release on every explicit Get Latest Git Source action and again immediately before installation. Read stable `vMAJOR.MINOR.PATCH` tags from the verified official `Geurtsy/com.geurts.gameforge.god` Git repository using the user's Git credentials. Sort semantic versions rather than names and resolve annotated tags to their peeled commit. Ignore branches and prerelease tags. Verify the root package manifest at that exact commit: God identity, version matching the tag, and a supported Unity minimum. Skip well-formed releases requiring a newer Unity baseline; malformed identity/version metadata must fail visibly. Refuse a tag that moves between lookup and fetch.
+Resolve the latest published compatible God release on every explicit Get Latest Git Source action and again immediately before installation. Read stable `vMAJOR.MINOR.PATCH` tags from the verified official `Geurtsy/com.geurts.gameforge.god` Git repository using the user's Git credentials. Sort semantic versions rather than names and resolve annotated tags to their peeled commit. Ignore branches and prerelease tags. Verify the root package manifest at that exact commit: God identity, version matching the tag, and a supported Unity minimum. Compare each release's declared minimum against the actual current Editor, not a fixed 6000.6.3f1 target. Retain the stricter of the Forge floor and selected release minimum in the frozen operation and recheck it before dispatch and after reload. Skip well-formed releases requiring an Editor newer than the current one; malformed identity/version metadata must fail visibly. Refuse a tag that moves between lookup and fetch.
 
 The package's small data-only God definition supplies the official repository, minimum API compatibility profile, required vendor capabilities, supported handoff and tested baseline. It is not a fixed installation target. The minimum API profile introduced by BigBang 0.2.0 starts at God 0.27.0. Current-session API checks and actual successful compilation of the selected God remain required; the profile does not promise arbitrary future vendor compatibility.
 
@@ -39,7 +39,7 @@ A failed, missing or cancelled release check must not authorize installation fro
 
 Check prerequisites inspects local libraries, compilation and package inventory without starting a remote Git lookup. Provide a separate **Get Latest Git Source** button in the installation step. It retrieves and displays the latest verified God release and refreshes package inventory. After a script reload forgets the release selection, that button must reacquire it and enable installation when local readiness succeeds. A successful current compilation must not be requested again just to discover source. Both actions coalesce repeated clicks and block while Unity is busy. Install God rechecks the repository and readiness before freezing a target.
 
-Opening or restoring BigBang shows local information only. It must not download, install, purchase, check remote state, request compilation or retry automatically. **Check prerequisites** is explicit and local. **Get Latest Git Source** separately performs the current repository release check. **Install God** resolves again before freezing and dispatching its target. Identify Windows and the exact supported Editor; block installation during Play Mode, compilation, imports or builds. Verify current Editor-compatible assembly participation and the required actual vendor APIs without compile dependencies. Folder, DLL, define or previously loaded assembly presence alone is insufficient.
+Opening or restoring BigBang shows local information only. It must not download, install, purchase, check remote state, request compilation or retry automatically. **Check prerequisites** is explicit and local. **Get Latest Git Source** separately performs the current repository release check. **Install God** resolves again before freezing and dispatching its target. Identify Windows, the required minimum and exact detected Editor; block installation during Play Mode, compilation, imports or builds. Verify current Editor-compatible assembly participation and the required actual vendor APIs without compile dependencies. Folder, DLL, define or previously loaded assembly presence alone is insufficient.
 
 Successful supported compilation events and reload provide session evidence after relevant imports. Clear interrupted running/request flags after a domain reload without granting success from stale assemblies. An unmatched finish callback must stop the busy state while leaving evidence Unknown; equal boxed contexts represent the same compilation. Refresh local readiness when Unity becomes idle, without starting a remote lookup or installation. Failed compilation must invalidate stale loaded evidence. Missing evidence stays Unknown. An explicit check may request one readiness compilation after APIs are available; do not introduce repeated compilation requests or retry loops. Show technical availability separately from acquisition guidance and licence ownership. Report vendor versions only when reliable metadata supplies them.
 

@@ -1,8 +1,8 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Unity Technical Topic
 
-**Version:** 0.3.1
-**Unity target:** Unity 6.6 (6000.6.3f1)
+**Version:** 0.3.2
+**Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsUnityTechnique.md`
 
@@ -31,19 +31,20 @@ Use the versioned [Unity 6.6 Editor command-line reference](https://docs.unity.c
 
 ---
 
-## Unity 6000.6.3f1 Compatibility Baseline
+<a id="unity-600063f1-compatibility-baseline"></a>
+## Unity 6000.6.3f1 Minimum Compatibility Baseline
 
 ### Editor and dependency selection
 
 **Steam API is required for Geurts Unity projects through Steamworks.NET**, alongside the licensed Odin Inspector and Quantum Console baseline. Select and verify the official wrapper, managed APIs and Windows x64 native-plugin files under the [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md). Missing or incompatible wrapper evidence blocks BigBang installation and handoff. This project prerequisite adds no wrapper compile reference to God or BigBang and requires no native initialization, Steam client, account or AppID for local verification. BigBang must remain usable to explain and explicitly acquire missing prerequisites.
 
-Target **Unity 6.6 (6000.6.3f1)** for all new and modified Geurts Unity code, Editor tooling, tests, automation and C# examples. This technique owns the compatibility baseline; entry files and native AI routes continue to defer to the manifest. The documentation package version is independent of the Unity Editor version.
+Use **Unity 6.6 (6000.6.3f1) or newer**, retaining 6000.6.3f1 as the minimum for all new and modified Geurts Unity code, Editor tooling, tests, automation and C# examples. This technique owns the compatibility baseline; entry files and native AI routes continue to defer to the manifest. The documentation package version is independent of the Unity Editor version.
 
 Before Unity implementation, read `ProjectSettings/ProjectVersion.txt`, `Packages/manifest.json`, and `Packages/packages-lock.json` when available, then inspect the installed packages, assembly definitions, render pipeline, build targets, and scripting backend relevant to the task. Record the exact Editor patch and resolved dependency versions used for validation. In this documentation-only repository these Unity project files do not exist; do not fabricate them or claim that another repository's code has been upgraded. This implementation preflight does not expand the Commandments Companion's closed startup or Update permissions.
 
-Use exactly **6000.6.3f1** when establishing or updating the Editor baseline. Review its [release notes](https://unity.com/releases/editor/whats-new/6000.6.3f1), then commit the exact `ProjectVersion.txt` and package manifest/lockfile in the consuming project after a validated migration. A project pinned to an older Editor requires that migration; do not silently open it in another Editor or report it as 6000.6.3f1-compatible without evidence. A later Unity release does not replace this target automatically.
+**6000.6.3f1 is a minimum version, not an exact-version requirement.** Accept it and numerically newer Unity Editors, including later patches and later Unity series; do not impose equality or an artificial upper version ceiling. Compare major, minor, patch, release channel and revision numerically; prereleases below the final minimum and malformed/unknown versions remain blocked. Retain the exact chosen Editor in `ProjectVersion.txt` and the resolved package manifest/lockfile after any explicitly selected, validated migration. A newer existing Editor does not require a downgrade to the minimum. Review the selected Editor's release notes and record the exact version actually compiled and tested; version eligibility never certifies an untested release or dependency graph.
 
-Use the newest stable package release verified compatible with **6000.6.3f1** and the actual dependency graph. Review current package compatibility information and installed source before changing APIs. Read release history only when a requested migration requires it. Update required dependencies together through supported package workflows and retain reproducible versions; do not blindly select `latest`, preview/experimental releases, or dependencies requiring a later Editor. A compatible stable API takes precedence over a newer incompatible API.
+Use the newest stable package release verified compatible with the selected Editor **at or above 6000.6.3f1** and the actual dependency graph. Keep reusable Forge code compatible with the minimum unless an owner explicitly versions a higher requirement. Review current package compatibility information and installed source before changing APIs. Read release history only when a requested migration requires it. Update required dependencies together through supported package workflows and retain reproducible versions; do not blindly select `latest`, preview/experimental releases, or dependencies requiring an Editor newer than the selected one. A compatible stable API takes precedence over a newer incompatible API.
 
 **Odin Inspector and Quantum Console are required dependencies** for Geurts gameplay, reusable framework, runtime-system, and developer-tool implementation. Use current stable releases compatible with Unity 6.6 and the project's target platforms. Verify Odin was acquired through a licensed distribution and Quantum Console through its supported distribution; do not copy, vendor, or redistribute either package without the applicable rights. Missing dependencies are implementation blockers. If either dependency is missing, incompatible, or unlicensed, report that concrete blocker and do not create a fallback inspector, serializer, command console, or parallel diagnostics framework to bypass the requirement.
 
@@ -53,7 +54,7 @@ God owns the Commandments Editor service; the [Commandments Companion Technique]
 
 **BigBang is the narrow independent initial-installer exception.** `com.geurts.gameforge.bigbang` compiles before God, Odin Inspector and Quantum Console exist, without vendor, God, Input System, uGUI or TextMesh Pro assembly references and without `IBrick` registration. It uses an explicit Editor-only assembly and supported Unity Editor/UI Toolkit APIs to prepare the licensed libraries, install one verified immutable God target and hand over after successful compilation. Its missing-library UI is acquisition assistance, not a fallback inspector, serializer or console. Ordinary God and dependent bricks retain all required licensed-library rules. The manifest-selected [BigBang Technique](GeurtsBigBangTechnique.md) owns this initial-installation boundary; runtime initialization and `SCN_BigBang` remain owned by God.
 
-For a separately maintained UPM package migrated and verified against this baseline, declare `"unity": "6000.6"` and `"unityRelease": "3f1"` in its `package.json`. These fields declare the minimum Editor version; they do not prove compatibility without compilation and relevant tests in 6000.6.3f1. Consult the [package manifest reference](https://docs.unity.com/en-us/engine/6000.6/manual/packages-list/cus-pkg-lp/cus-pkg-development/cus-pkg-manifest/upm-manifest-pkg). Do not add a Unity package manifest to this documentation repository or change the companion's closed JSON schema to carry Editor requirements.
+For a separately maintained UPM package migrated and verified against this baseline, declare `"unity": "6000.6"` and `"unityRelease": "3f1"` in its `package.json`. These fields declare the minimum Editor version, not equality. Validate reusable package code at the minimum and affected behavior on the newer selected consumer Editor; record each actual version separately. A package with a deliberately higher minimum must declare it and remain unavailable to older Editors. Consult the [package manifest reference](https://docs.unity.com/en-us/engine/6000.6/manual/packages-list/cus-pkg-lp/cus-pkg-development/cus-pkg-manifest/upm-manifest-pkg). Do not add a Unity package manifest to this documentation repository or change the companion's closed JSON schema to carry Editor requirements.
 
 For Steam-related packages and Windows player changes, select the [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md). Verify a pinned Steamworks.NET release against this exact Editor, Windows x64, the actual backend and native-plugin settings; do not infer compatibility from managed compilation. Its local package prerequisite does not require native initialization, an AppID or release-pipeline setup. BigBang retains compile independence from Steamworks.NET as well as God and licensed libraries. Wrapper selection and real player/native acceptance remain pending the owning brick implementation.
 
@@ -65,7 +66,7 @@ For Steam-related packages and Windows player changes, select the [Steam Integra
 
 ### Current API choices
 
-Never use a Unity or dependency API marked deprecated or obsolete in 6000.6.3f1 in new or updated code, tests, tools or examples. Replace deprecated calls with supported APIs while preserving their behavior. Treat compiler deprecation warnings as failures for first-party code; do not suppress them or keep a deprecated call merely because it still compiles. Review the installed API documentation and compile in the exact target Editor before release.
+Never use a Unity or dependency API marked deprecated or obsolete in the minimum or selected newer Editor in new or updated code, tests, tools or examples. Replace deprecated calls with supported APIs while preserving their behavior. Treat compiler deprecation warnings as failures for first-party code; do not suppress them or keep a deprecated call merely because it still compiles. Review the installed API documentation and compile in the recorded selected Editor and retain minimum-version compatibility checks before release.
 
 Prefer serialized references, explicit dependency wiring, and cached component access over scene-wide discovery. When discovery is necessary, use `Object.FindAnyObjectByType<T>()` for an arbitrary match or `Object.FindObjectsByType<T>()` for all matches. Specify inactive-object handling deliberately. In Unity 6000.6, `FindFirstObjectByType` and the `FindObjectsByType` overloads taking `FindObjectsSortMode` are deprecated because their instance-ID ordering cannot be maintained. Never use them. See [object discovery](https://docs.unity.com/en-us/engine/6000.6/script-reference/unityengine/object/findobjectsbytype).
 
@@ -106,6 +107,6 @@ Review platform and package-specific changes only where those systems are used. 
 
 ### Verification and evidence
 
-For changed Unity implementation, compile in the exact selected **6000.6.3f1** Editor, resolve newly introduced errors and obsolete-API warnings, run relevant Edit Mode and Play Mode tests, and exercise affected behavior. Build and test the affected target player/backend when runtime compatibility is involved; Editor success does not prove IL2CPP, platform, or player compatibility. Report remaining third-party warnings or blockers separately.
+For changed Unity implementation, compile at the **6000.6.3f1 minimum** and in the exact selected newer consumer Editor when one is used, resolve newly introduced errors and obsolete-API warnings, run relevant Edit Mode and Play Mode tests, and exercise affected behavior. Build and test the affected target player/backend when runtime compatibility is involved; Editor success does not prove IL2CPP, platform, or player compatibility. Report remaining third-party warnings or blockers separately.
 
 For documentation-only changes, verify examples against versioned Unity and package references and run this repository's validator and isolated PowerShell automation suite. Report whether examples were actually compiled in Unity. These checks do not certify separate game or companion repositories. If the required Editor, package, platform module, or project is unavailable, state the exact unverified surface rather than claiming full compatibility.

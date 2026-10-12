@@ -1,8 +1,8 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Multiplayer Technical Topic
 
-**Version:** 0.2.0
-**Unity target:** Unity 6.6 (6000.6.3f1)
+**Version:** 0.2.1
+**Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsMultiplayerTechnique.md`
 
