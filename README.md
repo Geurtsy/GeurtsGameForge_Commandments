@@ -1,5 +1,7 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Standards without GameForge — 0.61.1
+# Standards without GameForge - 0.61.2
+
+[Download the Windows StandardsOnly installer 1.0.0](https://github.com/Geurtsy/GeurtsGameForge_Commandments/raw/main/Tools/StandardsOnlyInstaller/GeurtsStandardsOnlyInstaller-1.0.0.zip). Extract the ZIP, run `InstallStandardsOnly.bat`, select your Unity project and type `INSTALL`. It installs its pinned documentation 0.61.1 snapshot offline and preserves existing supported instructions. See [installer details](Tools/StandardsOnlyInstaller/README.md).
 
 The Commandments can now be adopted through the explicit **StandardsOnly** profile without installing GeurtsGameForge packages. Start at `AI_READ_FIRST.md` and the manifest, then read the [Standards-Only Technique](GeurtsTechniques/GeurtsStandardsOnlyTechnique.md). General naming, folders, coding, bootstrap and validation standards remain applicable. God, Angels, BigBang, brick/catalogue checks and framework integration APIs are conditional on actual Forge adoption. StandardsOnly requires no Steam/Steamworks.NET, Odin Inspector or Quantum Console, including Unity implementation. Those integrations are optional; native Unity inspectors and project-owned diagnostics are valid. No framework package or new updater is delivered by this documentation change.
 
@@ -105,7 +107,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.61.1
+**Version:** 0.61.2
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -342,6 +344,10 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 Angels owns **Install Codex guide**; God navigates to it and compatibility APIs forward to the same owner. Follow the [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) for an explicitly selected existing folder, including the project root, and the separate cancel-default replacement confirmation. Content/package updates never install or rewrite guides.
 
 ## Changelog
+
+### 0.61.2
+
+Add the tested StandardsOnly installer 1.0.0 as an immutable downloadable ZIP, including its source scripts and pinned documentation 0.61.1. Register the artifact and usage guide; validate the artifact version from its embedded metadata without executing installer code.
 
 ### 0.61.1
 
