@@ -2,7 +2,7 @@
 # Geurts Folder Structure Technique
 
 **Unity Project Structure - AI-First Automation and Human Developer Reference**
-**Version:** 0.16.5
+**Version:** 0.16.6
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers
@@ -42,6 +42,10 @@ Follow the [Technical Technique's absolute path requirement](GeurtsTechnicalTech
 Before creating template folders, adding children or planning a move, check the full destinations together with foreseeable dependency, cache, temporary and generated descendants. Leave room for package/version/hash suffixes, Unity import/build output and filenames beneath each new folder. Reuse an existing suitable owner rather than adding repeated project or feature names at multiple levels. Keep the template's required paths and stable identities intact; choose a shorter root for new work instead of silently abbreviating the registry.
 
 Report an over-limit path using its exact absolute spelling and character count, then select and verify a shorter location for new content. Do not silently rename or move existing user content. Any required migration of an existing project, Unity asset or folder needs explicit authorization and must preserve its content, GUIDs and references through the owning workflow. This guidance changes no literal template paths, creation profiles or automatic deletion permissions.
+
+## Standards-Only Folder Setup
+
+The manifest-selected [Standards-Only Technique](GeurtsStandardsOnlyTechnique.md) permits these folder standards and the separately invoked create-only PowerShell tool without GameForge packages. In **StandardsOnly**, use one complete official source copy at a recorded commit with its matching definition; the God-owned Update prerequisite below and Angels menu step are not applicable. Inspect compatibility and run only the explicitly authorized folder operation. Keep all definition ownership, path, containment, preservation and scene/API requirements. The existing **ForgeUse** setup route still requires its separately confirmed God Update before every full-profile run. This exception changes no creation profile, registry path or tool parameter, and starts no updater.
 
 ## Automation
 

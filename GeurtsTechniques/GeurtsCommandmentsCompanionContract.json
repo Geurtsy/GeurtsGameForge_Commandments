@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0.0",
-  "packageVersion": "0.60.1",
+  "packageVersion": "0.61.0",
   "source": {
     "repository": "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git",
     "branch": "main",
@@ -14,6 +14,7 @@
   "validationEntries": [
     "AI_READ_FIRST.md",
     "GeurtsTechniqueManifest.md",
+    "GeurtsTechniques/GeurtsStandardsOnlyTechnique.md",
     "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md",
     "GeurtsTechniques/GeurtsCommandmentsCompanionContract.json",
     "Tools/AIAgentInstructionTemplates/copilot-instructions.md",

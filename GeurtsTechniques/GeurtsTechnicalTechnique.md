@@ -1,12 +1,16 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Version:** 0.20.2
+**Version:** 0.20.3
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
 
-This is the short mandatory technical core for first-party game code, bricks, Editor tools, tests and automation. Read additional technical topics only when the manifest selects them. Use the current published packages in the catalogue; an installed older version is a compatibility fact, not the target for new guidance. Changelogs and historical release summaries are never routine mandatory reading. A requested migration or historical review selects its own history explicitly. No reading rule authorizes package installation or live-project changes.
+This is the short mandatory technical core for first-party game code, bricks, Editor tools, tests and automation. Read additional technical topics only when the manifest selects them. For an explicitly adopted Forge integration, use the current published packages in the catalogue; an installed older version is a compatibility fact, not the target for new guidance. Changelogs and historical release summaries are never routine mandatory reading. A requested migration or historical review selects its own history explicitly. No reading rule authorizes package installation or live-project changes.
+
+## Standards-Only Applicability
+
+The manifest-selected [Standards-Only Technique](GeurtsStandardsOnlyTechnique.md) applies this technical core to projects without Geurts Game Forge packages. Its boundary makes brick reuse, God lifecycle/logging contracts, Forge-owned Editor APIs and framework package requirements conditional on actual Forge adoption. General technical priorities, supported Unity APIs, preservation, bootstrap lifetime and validation remain applicable. Steam (including Steamworks.NET), Odin Inspector and Quantum Console are optional in StandardsOnly. Their mandatory dependency and no-fallback clauses do not apply unless that integration is explicitly selected. Native Unity authoring and project-owned diagnostics are valid. The Windows target baseline remains unless separately changed. Do not install framework packages or recreate their APIs to satisfy standalone work.
 
 ## Technical Priority Order
 

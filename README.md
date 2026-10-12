@@ -1,4 +1,10 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
+# Standards without GameForge — 0.61.0
+
+The Commandments can now be adopted through the explicit **StandardsOnly** profile without installing GeurtsGameForge packages. Start at `AI_READ_FIRST.md` and the manifest, then read the [Standards-Only Technique](GeurtsTechniques/GeurtsStandardsOnlyTechnique.md). General naming, folders, coding, bootstrap and validation standards remain applicable. God, Angels, BigBang, brick/catalogue checks and framework integration APIs are conditional on actual Forge adoption. StandardsOnly requires no Steam/Steamworks.NET, Odin Inspector or Quantum Console, including Unity implementation. Those integrations are optional; native Unity inspectors and project-owned diagnostics are valid. No framework package or new updater is delivered by this documentation change.
+
+For a standalone project, explicitly instruct its agent: **Use GeurtsGameForge_Commandments in the StandardsOnly profile without installing or using GeurtsGameForge packages.** Preserve the complete source copy's commit and existing user instructions. Existing Forge projects keep their current requirements and separately confirmed content-update workflow.
+
 # Spacious Editor layouts — 0.60.1
 
 The current catalogue selects [God 0.39.1](https://github.com/Geurtsy/com.geurts.gameforge.god/releases/tag/v0.39.1) and [BigBang 0.8.5](https://github.com/Geurtsy/GeurtsGameForgeBigBang/releases/tag/v0.8.5). They apply the existing 12-point insets, 8-point rows, 16-point sections and 24-point workflow separation, with full-height wrapped text, compact source fields and scrollable setup actions. God also applies supported Odin property spacing and restores high-DPI and native list style state after drawing. The Theme and Appearance requirements remain unchanged.
@@ -99,7 +105,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.60.1
+**Version:** 0.61.0
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -337,10 +343,14 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 ## Changelog
 
+### 0.61.0
+
+Add the explicit StandardsOnly profile for adopting development standards without GameForge. Steam, Odin Inspector and Quantum Console are optional; native Unity authoring and project-owned diagnostics are valid. Preserve general standards and existing Forge integration requirements.
 
 ### 0.60.1
 
 Catalogue maintenance selects the separately published God and BigBang spacing fixes. The existing Theme and Appearance requirements remain unchanged. Native evidence belongs to the owning releases; adoption remains manual.
+
 
 ### 0.60.0
 

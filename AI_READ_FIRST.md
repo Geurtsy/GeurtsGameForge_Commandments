@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge AI Entry Point
 
-**Version:** 0.60.1
+**Version:** 0.61.0
 **Purpose:** First documentation entry and session boundary, before manifest resolution.
 **Required package path:** `AI_READ_FIRST.md`
 
@@ -34,6 +34,10 @@ Use `MAJOR.MINOR.PATCH` (for example, `1.4.2`):
 Reset the lower components when increasing a higher component. For pre-1.0 packages, continue to increment versions and clearly document breaking changes.
 
 Bump each affected independently released package and the documentation package when its content changes. Keep package.json, runtime-reported versions, documentation manifest/contract/catalogue metadata and changelogs consistent. Individually versioned techniques advance when their own rules change; unchanged schema versions and historical records do not need artificial changes. A catalogue pin must resolve to the exact published package identity and version. Validate that the new version exceeds the previous published version before merging or publishing. Do not describe an equal-number changed release as a normal successful version update.
+
+## Standards Without GameForge
+
+The Commandments may be adopted as development standards without installing or using Geurts Game Forge packages. An explicit instruction to use documentation without GameForge selects the manifest's **StandardsOnly** usage profile and its [Standards-Only Technique](GeurtsTechniques/GeurtsStandardsOnlyTechnique.md). The manifest selects the profile before generic subjects. Source-only use requires no God, Angels, BigBang or companion; framework-specific requirements are conditional. Steam, Odin Inspector and Quantum Console are optional in StandardsOnly, including Unity implementation. General standards remain binding. This entry grants no installation, update or project-write authority.
 
 ## Local Package Boundary
 

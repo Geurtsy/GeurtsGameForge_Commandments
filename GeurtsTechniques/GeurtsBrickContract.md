@@ -1,10 +1,14 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.22.1
+**Version:** 1.22.2
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
+
+## Standards-Only Boundary
+
+For ordinary game work in the manifest's **StandardsOnly** profile, this contract and Catalogue are not selected solely because the project follows Commandments. No brick inventory, catalogue lookup, mandatory God dependency, brick reuse or installation request is required. The [Standards-Only Technique](GeurtsStandardsOnlyTechnique.md) owns that boundary. Explicit Forge integration and Forge maintenance still select and follow this contract in full; no existing package is removed or disabled by the profile.
 
 ## Use existing bricks
 

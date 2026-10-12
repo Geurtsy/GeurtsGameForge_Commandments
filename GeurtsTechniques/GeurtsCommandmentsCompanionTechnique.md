@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Commandments Service and Companion Compatibility Technique
 
-**Version:** 3.2.4
+**Version:** 3.2.5
 **Contract schema:** 3.0.0
 **Status:** Draft normative technique
 **Primary audience:** God Editor service and compatibility adapter maintainers
@@ -14,7 +14,7 @@ God **0.29.0 or newer** owns Commandments viewing, acquisition, explicit version
 
 God is a Windows-only, Editor-service owner installed through Unity Package Manager from `Geurtsy/com.geurts.gameforge.god`. It requires separately installed licensed Odin Inspector and Quantum Console assemblies. The passive compatibility adapter in `Geurtsy/com.geurts.gameforge.commandments` has no God or other Unity Package Manager package dependency, no vendor references, no lifecycle callbacks, no network transport and no menu or console-command registrations. It cannot acquire content without the supported God service.
 
-`Geurtsy/GeurtsGameForge_Commandments` remains the sole source and authority for generic Geurts Game Forge documentation. This repository contains no Commandments Companion plugin code or God implementation. Ordinary Markdown tools can read local Commandments without any Unity package. Content releases do not require a God release while schema 3.0.0 and the pinned setup payloads remain supported. God must not bundle a generic Commandments copy in `Documentation~/`.
+`Geurtsy/GeurtsGameForge_Commandments` remains the sole source and authority for generic Geurts Game Forge documentation. This repository contains no Commandments Companion plugin code or God implementation. Ordinary Markdown tools can read local Commandments without any Unity package. The manifest's **StandardsOnly** profile and [Standards-Only Technique](GeurtsStandardsOnlyTechnique.md) also permit applying the documentation as development standards without Forge packages. Manual official source checkout/snapshot acquisition is outside this God-owned service lifecycle; it grants no managed-target replacement or agent-route authority and does not create a second updater. Content releases do not require a God release while schema 3.0.0 and the pinned setup payloads remain supported. God must not bundle a generic Commandments copy in `Documentation~/`.
 
 There is no external installer, Windows bootstrap, batch-driven setup, or separate companion setup action for content acquisition. BigBang may install prerequisites and God, then offer this God-owned update through the public API after verified compilation. The God service owns the confirmation and acquisition; BigBang adds no content engine or mutation target.
 
