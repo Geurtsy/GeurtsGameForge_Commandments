@@ -1,9 +1,13 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Minimum Unity version — 0.61.4
+# BigBang operation-state maintenance — 0.61.5
+
+The catalogue advances BigBang to its higher immutable operation-state fix after owner acceptance and publication. Its bounded file replacement preserves committed installation intent, retains persistent errors and keeps package dispatch unchanged. Unity 6000.6.3f1 remains the minimum; God and all other catalogue sources retain their existing releases. Adopt the published package through Unity Package Manager and acquire this documentation through God's separately confirmed Update.
+
+# Minimum Unity version — 0.61.5
 
 Unity **6000.6.3f1 is the minimum**, with newer patches and later Unity series eligible. Existing newer projects need no downgrade. BigBang compares full numeric Editor versions and resolves God releases against the current Editor; frozen targets retain any stricter owner minimum. Catalogue entries impose no artificial upper ceiling. This admission policy does not claim that every future Editor/dependency graph was tested: each release keeps exact scoped evidence. The Unity Technique owns the detailed compatibility and validation rules.
 
-# Standards without GameForge - 0.61.4
+# Standards without GameForge - 0.61.5
 
 [Download the Windows StandardsOnly installer 1.0.0](https://github.com/Geurtsy/GeurtsGameForge_Commandments/raw/main/Tools/StandardsOnlyInstaller/GeurtsStandardsOnlyInstaller-1.0.0.zip). Extract the ZIP, run `InstallStandardsOnly.bat`, select your Unity project and type `INSTALL`. It installs its pinned documentation 0.61.1 snapshot offline and preserves existing supported instructions. See [installer details](Tools/StandardsOnlyInstaller/README.md).
 
@@ -111,7 +115,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.61.4
+**Version:** 0.61.5
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft technique package
 **Primary audience:** Human developers

@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.61.4",
-  "publishedUtc": "2026-10-12T15:01:42.0635183Z",
+  "packageVersion": "0.61.5",
+  "publishedUtc": "2026-10-12T16:37:43.8709782Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
       "name": "Geurts Game Forge BigBang",
-      "description": "Independent prerequisite preparation, verified God handoff and reviewed BigCrunch removal. Unity 6000.6.3f1 is a numeric minimum; newer patches/series are eligible. God release discovery compares with the current Editor and freezes any stricter release minimum through dispatch/reload. All 185 independent Editor checks passed on both 6000.6.3f1 and 6000.6.5f1, zero failures/skips. Native 6000.6.5f1 inspection confirms minimum admission and genuine missing-library findings without God/vendor references. Existing package/source/compilation gates remain; native Steam and untested future compatibility are not certified. Consumer adoption is explicit.",
+      "description": "Independent prerequisite preparation, verified God handoff and reviewed BigCrunch removal. Operation-state replacement safely handles transient Windows error 1175 with five bounded attempts and fresh path guards; committed intent and single dispatch are preserved. Unity 6000.6.3f1 remains the minimum. Both 6000.6.3f1 and 6000.6.5f1 passed 194 owning Editor tests plus one private responsive-layout check, with zero failures/skips. The real open-project probe reproduced the error and passed 100 replacements with the bounded retry; isolated Light-skin desktop prerequisite actions persisted state. Native Steam, physical-device and untested future compatibility remain unverified. Consumer adoption is explicit.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
-      "version": "0.8.7",
+      "version": "0.8.8",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#a8d846e75d8a97c3fd0a0a49766b7a4782a2f077",
+      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#5bcbdf7bc0e7d110082e3bd7bbeedaa2c3d8e0d9",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [],
