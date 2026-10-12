@@ -1,5 +1,5 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# Standards without GameForge — 0.61.0
+# Standards without GameForge — 0.61.1
 
 The Commandments can now be adopted through the explicit **StandardsOnly** profile without installing GeurtsGameForge packages. Start at `AI_READ_FIRST.md` and the manifest, then read the [Standards-Only Technique](GeurtsTechniques/GeurtsStandardsOnlyTechnique.md). General naming, folders, coding, bootstrap and validation standards remain applicable. God, Angels, BigBang, brick/catalogue checks and framework integration APIs are conditional on actual Forge adoption. StandardsOnly requires no Steam/Steamworks.NET, Odin Inspector or Quantum Console, including Unity implementation. Those integrations are optional; native Unity inspectors and project-owned diagnostics are valid. No framework package or new updater is delivered by this documentation change.
 
@@ -105,7 +105,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.61.0
+**Version:** 0.61.1
 **Unity target:** Unity 6.6 (6000.6.3f1)
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -343,7 +343,7 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 ## Changelog
 
-### 0.61.0
+### 0.61.1
 
 Add the explicit StandardsOnly profile for adopting development standards without GameForge. Steam, Odin Inspector and Quantum Console are optional; native Unity authoring and project-owned diagnostics are valid. Preserve general standards and existing Forge integration requirements.
 
