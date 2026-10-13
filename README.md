@@ -1,13 +1,19 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
-# BigBang operation-state maintenance — 0.61.5
+## 0.61.6 — 13 October 2026
 
-The catalogue advances BigBang to its higher immutable operation-state fix after owner acceptance and publication. Its bounded file replacement preserves committed installation intent, retains persistent errors and keeps package dispatch unchanged. Unity 6000.6.3f1 remains the minimum; God and all other catalogue sources retain their existing releases. Adopt the published package through Unity Package Manager and acquire this documentation through God's separately confirmed Update.
+Catalogue-wide Windows x64 Steam preparation retains optional providers and Editor-only ownership. Steam backend selection, stripped artifacts and local persistence have separate source-bound acceptance; real account/service/depot checks remain pending. Consumer adoption remains explicit.
 
-# Minimum Unity version — 0.61.5
+# Catalogue-wide Steam preparation — 0.61.6
+
+The catalogue advances Steam to 0.3.0, Angels to 0.9.6 and Audio to 0.9.4 after owning source acceptance and immutable publication. Steam validates Mono or IL2CPP against the actual Windows x64 build profile and records that backend in its customer receipt. Angels safely retries the specific transient Windows replacement error while preserving concurrent edits. Audio retains readable form space in small panels. The other nine owner pins and Unity 6000.6.3f1 minimum remain unchanged.
+
+All catalogue owners participate in source/dependency/action checks. Nine runtime owners pass lifecycle and cold-process local persistence checks in High-stripped Windows Mono/IL2CPP artifacts on Unity 6000.6.3f1 and 6000.6.5f1; Editor owners remain excluded. This is preparation for Steam development. Real AppID, partner entitlement, native launch/overlay, published services and depot acceptance require the game's Steamworks setup. Install package releases manually through Unity Package Manager and acquire this documentation through God's separately confirmed Update.
+
+# Minimum Unity version — 0.61.6
 
 Unity **6000.6.3f1 is the minimum**, with newer patches and later Unity series eligible. Existing newer projects need no downgrade. BigBang compares full numeric Editor versions and resolves God releases against the current Editor; frozen targets retain any stricter owner minimum. Catalogue entries impose no artificial upper ceiling. This admission policy does not claim that every future Editor/dependency graph was tested: each release keeps exact scoped evidence. The Unity Technique owns the detailed compatibility and validation rules.
 
-# Standards without GameForge - 0.61.5
+# Standards without GameForge - 0.61.6
 
 [Download the Windows StandardsOnly installer 1.0.0](https://github.com/Geurtsy/GeurtsGameForge_Commandments/raw/main/Tools/StandardsOnlyInstaller/GeurtsStandardsOnlyInstaller-1.0.0.zip). Extract the ZIP, run `InstallStandardsOnly.bat`, select your Unity project and type `INSTALL`. It installs its pinned documentation 0.61.1 snapshot offline and preserves existing supported instructions. See [installer details](Tools/StandardsOnlyInstaller/README.md).
 
@@ -115,7 +121,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.61.5
+**Version:** 0.61.6
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft technique package
 **Primary audience:** Human developers

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.61.5",
-  "publishedUtc": "2026-10-12T16:37:43.8709782Z",
+  "packageVersion": "0.61.6",
+  "publishedUtc": "2026-10-13T01:05:39.8836299Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -55,13 +55,13 @@
     {
       "id": "com.geurts.gameforge.steam",
       "name": "Geurts Game Forge Steam",
-      "description": "Optional Windows x64 integration with local mode by default, guarded customer-player launch, opt-in achievements/stats and bounded account-qualified Remote Storage. Explicit authored actions separate cache changes/server acknowledgement and preserve conflicts or uncertain writes. Persistent distribution profiles create preview-only SteamPipe templates with unresolved IDs before onboarding; real-ID drafts require clean customer receipts and complete inventories. Unity 6000.6.3f1: 56 Steam Editor tests plus one literal recipe, three PlayMode passes with one optional Diagnostics skip, and 11 Windows local player checks; desktop authoring/rendering separately scoped. Real native Steam/account/overlay/server/cloud/depot acceptance remains unverified. Cloud is explicit payload transfer, not automatic SaveLoad slot synchronization. God 0.39.0 is the only mandatory Forge peer; pinned Steamworks.NET installed separately. Manual consumer adoption.",
+      "description": "Optional Windows x64 Steam provider with Mono/IL2CPP saved/profile backend matching and actual-backend customer receipts. Both tested Editors pass 61 owning Editor/recipe checks with zero failures/skips. The all-owner High-stripped Mono/IL2CPP artifacts on Unity 6000.6.3f1 and 6000.6.5f1 each pass 75 lifecycle, 10 write and 3 cold-read checks in local mode. Real native game/account/overlay/service/cloud/depot acceptance remains unverified pending actual game setup. Consumer adoption is explicit and manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.steam",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#e6f8f7024edced81e3357d767338ec7b52c4f168",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#1b1536ab96003e1eaab49373a4d9e8626b607f3f",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -101,13 +101,13 @@
     {
       "id": "com.geurts.gameforge.angels",
       "name": "Geurts Game Forge Angels",
-      "description": "Reviewed optional project tools and asset organization: ignored destinations, isolated naming requests, bounded audio-coverage history, anti-alias resampling and current paused-import progress corrected. Real paid model naming accuracy remains unverified. Unity 6000.6.3f1: 372 actual successful test executions, zero failed, 5 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
+      "description": "Editor-only organization and Game Design authoring. GDD replacement retries only transient Windows error 1175, with five bounded attempts and fresh expected-byte/path guards; concurrent edits and persistent errors remain protected. Minimum Editor: 378 owning/recipe checks passed, zero failures, three opt-in Codex skips; newer Editor: 77 GDD/replacement/recipe checks passed. Source-matched all-owner Steam preparation is separate from native account/depot acceptance. Consumer adoption is explicit.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
-      "version": "0.9.5",
+      "version": "0.9.6",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#e4b9866a134a8bed627278d877d123cb7ef3a20c",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#ae8667cc63aa1aa98eba2fddecb079bcdb2cd77c",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -192,13 +192,13 @@
     {
       "id": "com.geurts.gameforge.audio",
       "name": "Geurts Game Forge Audio",
-      "description": "Guarded Audio authoring, metadata-path bounds, local binding Help, lossless compatible settings overrides and public descriptions/tooltips. Optional FMOD 0.2.3 has separate licensed/native evidence. Unity 6000.6.3f1: 26 actual successful test executions, zero failed, 0 conditional skips across the named owner runs. Current source-matched scopes, native Windows Mono/IL2CPP evidence and remaining acceptance limits are recorded in the owning release. Consumer adoption is manual.",
+      "description": "Shared owned audio with optional playback integrations. Compact panels retain readable form space, independently scrolling actions and early tab wrapping. Both tested Editors pass 26 owning/recipe checks with zero failures/skips and actual attached offscreen captures at four sizes. Runtime lifecycle passes in the all-owner High-stripped Windows Mono/IL2CPP cohort. Complete physical input, skin/DPI, playback/listening/device/FMOD and native Steam acceptance remain unverified. Consumer adoption is explicit.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
-      "version": "0.9.3",
+      "version": "0.9.4",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#942f5a0d4511a647bf9729d4a46a52c8409f1ce3",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#51ff80e7cf2e18b7a49cfafacb2b475f75636cd4",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [

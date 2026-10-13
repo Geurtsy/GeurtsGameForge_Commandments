@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Steam Integration Technique
 
-**Version:** 0.3.1
+**Version:** 0.3.2
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md`
@@ -79,6 +79,12 @@ Remote Storage transfers require an already owned connected session, account/app
 An explicitly requested distribution workflow can create reviewed preview-only SteamPipe drafts while partner AppID/depot IDs remain zero. Use unresolved placeholders, Preview=1, no SetLive and no credentials or automatic uploader execution. Validate create-only short regular paths, keep draft/cache output outside customer content, recheck the frozen profile and actual content immediately before writing, and preserve existing/partial drafts with actionable results.
 
 Real-ID drafts require a matching clean customer-build receipt and unchanged complete artifact inventory. Customer mode requires the actual game AppID, rejects sample 480 and development builds, verifies generated player configuration and the exact supported native-plugin output, and remains player-only. Optional restart precedes initialization; true requires this process to quit without initializing. Build receipts must leave native/distribution acceptance unverified until the real checks occur. Partner-account creation, fees/private details, dashboard configuration, authorized upload, branch promotion and entitlement/depot installation are external actions with their own explicit scope; preparation never performs them implicitly.
+
+## Catalogue-wide preparation
+
+Every catalogue owner must retain Windows x64 preparation appropriate to its scope. Runtime bricks compile and use their ordinary bootstrap-owned services without the optional Steam provider or a native Steam session. Editor-only installers, maintenance tools and passive adapters retain their Editor boundary and stay out of players. Verify exact published owner sources, required external dependencies and declared operations in an isolated Git-resolved cohort; declarations alone never certify readiness.
+
+For the Steam provider, supported Mono and IL2CPP preparation requires the saved Windows Backend value to match the selected Windows x64 Build Profile. Preserve existing Mono defaults. Exercise stripped artifacts for each advertised backend, ordinary service discovery/start/disable/restart/stop, bootstrap-preserving content transitions and local persistence across fresh processes. Record the exact Editor, backend, stripping level, source commits and dependency profile. A tested backend does not imply native account, overlay, service or depot acceptance. Unsupported or mismatched profiles remain blocked with an actionable explanation; do not change a profile implicitly.
 
 ## Evidence and acceptance
 
