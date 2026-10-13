@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.61.6",
-  "publishedUtc": "2026-10-13T01:05:39.8836299Z",
+  "packageVersion": "0.62.0",
+  "publishedUtc": "2026-10-13T06:49:31.1833779Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",

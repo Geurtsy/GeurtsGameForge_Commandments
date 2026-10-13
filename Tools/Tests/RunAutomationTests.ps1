@@ -1,5 +1,5 @@
 # RunAutomationTests.ps1
-# Version: 0.61.6
+# Version: 0.62.0
 
 [CmdletBinding()]
 param(
@@ -311,7 +311,7 @@ try {
     $draftManifestText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniqueManifest.md"))
     $draftReadmeText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "README.md"))
     $targetMigrationText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "Migrations/v0.47.0.md"))
-    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.61\.6\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.46\.0|package v0\.46\.0)[^\r\n]{0,80}(?:is|was|has been) released') "v0.61.6 remains a Draft target release with a planned snapshot rather than a completed-release claim"
+    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.61\.6\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.46\.0|package v0\.46\.0)[^\r\n]{0,80}(?:is|was|has been) released') "v0.62.0 remains a Draft target release with a planned snapshot rather than a completed-release claim"
 
     $gfiContractText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md"))
     Assert-True ($gfiContractText -match '(?i)sole primary source and authority for all Geurts Game Forge documentation' -and $gfiContractText.Contains("<PluginPackageRoot>/Documentation~/") -and $gfiContractText -match '(?i)must not ship a bundled or fallback copy of Geurts documentation') "Frozen GFI v2 keeps this repository authoritative and plugin Documentation~ plugin-specific"
@@ -355,9 +355,9 @@ try {
         ".github/instructions/geurts-unity.instructions.md|replace-complete-file",
         ".github/instructions/geurts-game-design.instructions.md|replace-complete-file"
     )
-    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.61.6" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.61.6, and the official exact-main-commit archive source"
+    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.62.0" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.62.0, and the official exact-main-commit archive source"
     Assert-True ([string]$companionContract.destination.projectRelativePath -ceq "GeurtsGameForgeCommandments" -and [string]$companionContract.destination.replacement -ceq "complete-directory" -and [string]$companionContract.destination.access -ceq "logically-read-only") "Companion contract names the one logically-read-only complete documentation destination"
-    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 15) "Current companion contract names the exact fifteen unique package-v0.61.6 source-validation entries"
+    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 15) "Current companion contract names the exact fifteen unique package-v0.62.0 source-validation entries"
     Assert-True (($actualCompanionRoutes -join "|") -ceq ($expectedCompanionRoutes -join "|") -and ($actualConfirmationTargets -join "|") -ceq ($expectedConfirmationTargets -join "|") -and [string]$companionContract.updateUi.actionLabel -ceq "Update Geurts Game Forge Commandments" -and [string]$companionContract.updateUi.confirmationDefault -ceq "cancel" -and [string]$companionContract.updateUi.cancelResult -ceq "no-network-or-filesystem-change") "Companion contract fixes three template routes and one cancel-default four-target Update confirmation"
     Assert-True ($companionTechniqueText -match '(?i)one confirmation dialog' -and $companionTechniqueText -match '(?i)no earlier preview, dry run[^\r\n]{0,100}second confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set') "Confirmation uses the built-in schema-3.0.0 target set before acquisition and cannot authorize a changed downloaded target set"
     Assert-True ($companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative') "Schema 3.0.0 keeps package versions and safe validation entries forward-compatible while mutation routes remain fixed"
@@ -1026,7 +1026,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     $folderDefinitionContract = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json
     $folderToolContractText = [System.IO.File]::ReadAllText($folderScript)
     $managerToolContractText = [System.IO.File]::ReadAllText($manageScript)
-    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.6\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.61.6" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.61.6"
+    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.6\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.62.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.62.0"
 
     $versionMismatchAuthority = Join-Path $testRoot "folder-version-mismatch-authority"
     New-Item -ItemType Directory -Path $versionMismatchAuthority | Out-Null
@@ -1492,6 +1492,8 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         @{ Name = "deprecated-sort-find"; Code = 'var items = UnityEngine.Object.FindObjectsByType<UnityEngine.Collider>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);' },
         @{ Name = "legacy-input"; Code = 'float movement = UnityEngine.Input.GetAxis("Horizontal");' },
         @{ Name = "legacy-rpc"; Code = '[ServerRpc] public void PingServerRpc() { }' },
+        @{ Name = "qualified-unity-rpc-with-fishnet"; Code = "using FishNet.Object;`r`n[Unity.Netcode.ServerRpc] public void PingServerRpc() { }" },
+        @{ Name = "ambiguous-rpc-namespaces"; Code = "using FishNet.Object;`r`nusing Unity.Netcode;`r`n[ServerRpc] public void PingServerRpc() { }" },
         @{ Name = "legacy-uxml"; Code = 'public class Factory : UxmlFactory<Example> { }' },
         @{ Name = "file-namespace"; Code = 'namespace Example;' },
         @{ Name = "global-using"; Code = 'global using UnityEngine;' },
@@ -1507,8 +1509,20 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     }
 
 
+    $fishNetRpcFixture = New-StaticValidationFixture -Parent $testRoot -Name 'static-fishnet-rpc'
+    $fishNetRpcPath = Join-Path $fishNetRpcFixture 'GeurtsTechniques/GeurtsMultiplayerTechnique.md'
+    $fishNetRpcFence = "`r`n" + '```csharp' + "`r`nusing FishNet.Object;`r`n[ServerRpc] public void RequestServerRpc() { }`r`n" + '```' + "`r`n"
+    Write-Utf8 -Path $fishNetRpcPath -Text ([IO.File]::ReadAllText($fishNetRpcPath) + $fishNetRpcFence)
+    $fishNetRpcRun = Invoke-TestScript -Path $validatorScript -Arguments @('-RepositoryRoot', $fishNetRpcFixture)
+    Assert-True ($fishNetRpcRun.Code -eq 0 -and $fishNetRpcRun.Output.Contains('[PASS] Unity C# example patterns')) 'Validator accepts explicitly namespaced FishNet ServerRpc without treating it as legacy Unity Netcode'
+
     # Each fixture reintroduces a different audited cross-document contradiction.
     $consistencyCases = @(
+        @{ Name = 'multiplayer-framework'; Path = 'GeurtsTechniques/GeurtsMultiplayerTechnique.md'; Old = '**FishNet** as the networking framework'; New = '**Unity Netcode for GameObjects** as the networking framework'; Check = 'Selected multiplayer stack and authority' },
+        @{ Name = 'multiplayer-steam-transport'; Path = 'GeurtsTechniques/GeurtsMultiplayerTechnique.md'; Old = '**FishySteamworks** through **Steamworks.NET** as the Steam gameplay transport'; New = '**Tugboat** as the Steam gameplay transport'; Check = 'Selected multiplayer stack and authority' },
+        @{ Name = 'multiplayer-host-topology'; Path = 'GeurtsTechniques/GeurtsMultiplayerTechnique.md'; Old = '**Client-Host** as the selected player topology'; New = '**Dedicated Server** as the selected player topology'; Check = 'Selected multiplayer stack and authority' },
+        @{ Name = 'multiplayer-network-priority'; Path = 'GeurtsTechniques/GeurtsTechnicalTechnique.md'; Old = 'network efficiency overrides all other priorities'; New = 'readability overrides all other priorities'; Check = 'Technical priority ownership' },
+        @{ Name = 'multiplayer-steam-owner-drift'; Path = 'GeurtsTechniques/GeurtsSteamIntegrationTechnique.md'; Old = '**FishNet**, **FishySteamworks** through **Steamworks.NET**, and **Client-Host** player hosting'; New = '**Unity Netcode for GameObjects** player hosting'; Check = 'Selected multiplayer stack and authority' },
         @{ Name = 'duplicate-numeric-allocation'; Path = 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'; Old = 'first free `_0`, `_1`, `_2`'; New = 'stable GUID suffix'; Check = 'Estimated naming scans and exclusions' },
         @{ Name = 'duplicate-nested-number'; Path = 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'; Old = 'never append nested numbers'; New = 'append another number after the first'; Check = 'Estimated naming scans and exclusions' },
         @{ Name = 'folder-reader-version'; Path = 'Tools/CreateGeurtsFolderStructure.ps1'; Old = '0\.16\.6'; New = '0\.16\.0'; Check = 'Folder technique reader version parity' },

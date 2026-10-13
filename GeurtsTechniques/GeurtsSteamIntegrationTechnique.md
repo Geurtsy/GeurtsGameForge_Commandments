@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Steam Integration Technique
 
-**Version:** 0.3.2
+**Version:** 0.4.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md`
@@ -65,6 +65,10 @@ Select a **Windows x64 Build Profile**, effective scene list, scripting backend,
 Customer artifact checks must reject `steam_appid.txt`, sample/development AppID configuration, credentials and unintended test binaries. Once distribution work is authorized, verify the real game's Steam-launched depot build, launch options, account/entitlement cases and clean-machine behavior. These future checks do not require creating a release pipeline now.
 
 ## Optional services and gameplay storage
+
+For Geurts Game Forge Steam multiplayer, the [Multiplayer Technique](GeurtsMultiplayerTechnique.md#selected-framework-steam-transport-and-player-topology) selects **FishNet**, **FishySteamworks** through **Steamworks.NET**, and **Client-Host** player hosting. That owner defines replication, host authority, network-efficiency controls and local-versus-Steam transport tests. This Steam owner retains native initialization/callback/shutdown, account/AppID, Windows artifact and release evidence. Reuse one bootstrap-owned native session; selecting the transport does not authorize another SteamManager or duplicate initialization.
+
+Multiplayer remains an optional game capability. Implementing it uses the selected stack without making FishNet a universal project prerequisite, a God/BigBang compile dependency or a falsely released networking feature. A different framework or dedicated-server deployment needs an explicit user/project requirement. Local Host/client tests may use Tugboat with native Steam inactive; actual FishySteamworks acceptance requires its separately configured real Steam context. Preserve manual acquisition and existing installations.
 
 Achievements, stats, leaderboards, matchmaking, networking, Workshop, DLC, commerce, Steam Input and DRM are separate optional capabilities. Implement and verify only the selected service; targeting Steam does not install or require them. Steam Input is not a Steam Deck requirement. Do not treat Steam identity as a local save key without an explicit migration/account policy.
 
