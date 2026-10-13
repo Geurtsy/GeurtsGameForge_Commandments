@@ -214,7 +214,7 @@ function New-TestProject([string]$Parent, [string]$Name) {
 function New-StaticValidationFixture([string]$Parent, [string]$Name) {
     $path = Join-Path $Parent $Name
     New-Item -ItemType Directory -Path $path | Out-Null
-    foreach ($entryName in @("AI_READ_FIRST.md", "GeurtsTechniqueManifest.md", "GeurtsTechniques", "History", "Ideas", "Migrations", "README.md", "Tools")) {
+    foreach ($entryName in @(".gitattributes", "AI_READ_FIRST.md", "GeurtsTechniqueManifest.md", "GeurtsTechniques", "History", "Ideas", "Migrations", "README.md", "Tools")) {
         Copy-Item -LiteralPath (Join-Path $RepositoryRoot $entryName) -Destination $path -Recurse -Force
     }
     $previousPreference = $ErrorActionPreference
@@ -311,7 +311,7 @@ try {
     $draftManifestText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniqueManifest.md"))
     $draftReadmeText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "README.md"))
     $targetMigrationText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "Migrations/v0.47.0.md"))
-    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.61\.6\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.46\.0|package v0\.46\.0)[^\r\n]{0,80}(?:is|was|has been) released') "v0.62.0 remains a Draft target release with a planned snapshot rather than a completed-release claim"
+    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.62\.0\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.46\.0|package v0\.46\.0)[^\r\n]{0,80}(?:is|was|has been) released') "v0.62.0 remains a Draft target release with a planned snapshot rather than a completed-release claim"
 
     $gfiContractText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md"))
     Assert-True ($gfiContractText -match '(?i)sole primary source and authority for all Geurts Game Forge documentation' -and $gfiContractText.Contains("<PluginPackageRoot>/Documentation~/") -and $gfiContractText -match '(?i)must not ship a bundled or fallback copy of Geurts documentation') "Frozen GFI v2 keeps this repository authoritative and plugin Documentation~ plugin-specific"
