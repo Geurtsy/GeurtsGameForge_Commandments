@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: FORGE-DEVELOPMENT-ONLY -->
 # Contributing to Commandments
 
-**Version:** 0.62.1
+**Version:** 0.62.2
 
 This repository owns generic development standards, contracts and their source-only maintenance tools. God, bricks and the compatibility adapter own their implementations. Project-specific design stays in the game's `Docs/GameDesign/`.
 
@@ -28,6 +28,8 @@ This runs offline source checks and isolated regressions. Windows CI also runs s
 Before catalogue publication, follow the [Brick Contract's source gate](GeurtsTechniques/GeurtsBrickContract.md#publish-before-installing-or-updating). Supply all released owners' Git checkouts with their exact objects already fetched. Identity, version, dependencies, capabilities and declared operations must agree. Missing private-source access is a publication blocker; ordinary CI does not claim to verify those repositories.
 
 ## Merge and publish
+
+Completed updates to this repository must reach remote `main`. The same standing delivery authorization applies independently to every Geurts Game Forge package source repository; follow the [Automation Technique](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#codex-delivery-to-main) for the complete scope and blocker rules.
 
 Commit the complete candidate, fetch the official history and release tags, then run:
 

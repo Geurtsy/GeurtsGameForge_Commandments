@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.11.1
+**Version:** 0.11.2
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers and compatible Unity integrations
@@ -39,6 +39,8 @@ Use a host-provided pending automation objective only after the user explicitly 
 Apply the [Technical Technique's complete path preflight](GeurtsTechnicalTechnique.md#absolute-path-length-and-workspace-roots) to every Codex and GameForge project before creating, copying, extracting or moving content. Check foreseeable dependency/cache/temporary/generated descendants, report the exact offending path and length, and use a shorter location for new task-owned work. Existing user content requires explicit authorization to move. This guidance installs no automatic path checker.
 
 ## Codex Delivery to Main
+
+This rule applies independently to **every Geurts Game Forge package source repository**, including God, BigBang, the passive Commandments compatibility adapter, and every current or future brick owner, as well as **`Geurtsy/GeurtsGameForge_Commandments` itself**. For a task that changes multiple owners, commit and deliver each changed repository to its own remote `main`. A Unity test or consumer project is not a substitute delivery destination for those sources.
 
 Codex must always merge completed, appropriately validated changes into the owning repository's `main` branch unless the current user explicitly specifies another destination or asks to leave the work unmerged. Do not stop at a local edit, feature branch, draft or open pull request when the authorized work can be safely completed and merged. The user's request for implementation supplies standing authorization for this delivery step; do not ask for redundant merge permission.
 
