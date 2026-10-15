@@ -1,5 +1,5 @@
 # RunAutomationTests.ps1
-# Version: 0.62.0
+# Version: 0.62.1
 
 [CmdletBinding()]
 param(
@@ -214,8 +214,15 @@ function New-TestProject([string]$Parent, [string]$Name) {
 function New-StaticValidationFixture([string]$Parent, [string]$Name) {
     $path = Join-Path $Parent $Name
     New-Item -ItemType Directory -Path $path | Out-Null
-    foreach ($entryName in @(".gitattributes", "AI_READ_FIRST.md", "GeurtsTechniqueManifest.md", "GeurtsTechniques", "History", "Ideas", "Migrations", "README.md", "Tools")) {
-        Copy-Item -LiteralPath (Join-Path $RepositoryRoot $entryName) -Destination $path -Recurse -Force
+    if (-not $script:StaticFixtureFiles) {
+        $script:StaticFixtureFiles = @(& git -C $RepositoryRoot ls-files --cached)
+        if ($LASTEXITCODE -ne 0) { throw 'Unable to enumerate the source fixture inventory.' }
+    }
+    foreach ($relative in $script:StaticFixtureFiles) {
+        $destination = Join-Path $path $relative
+        $parent = Split-Path -Parent $destination
+        if (-not (Test-Path -LiteralPath $parent -PathType Container)) { New-Item -ItemType Directory -Path $parent -Force | Out-Null }
+        Copy-Item -LiteralPath (Join-Path $RepositoryRoot $relative) -Destination $destination -Force
     }
     $previousPreference = $ErrorActionPreference
     $ErrorActionPreference = "Continue"
@@ -267,6 +274,11 @@ try {
     $script:Failed += $audienceResults.failed
     foreach ($audienceFailure in $audienceResults.failures) { $script:FailureMessages.Add("Audience: $audienceFailure") | Out-Null }
 
+    $publicationResults = & (Join-Path $PSScriptRoot 'TestGeurtsPublication.ps1') -RepositoryRoot $RepositoryRoot -OutputFormat Json | ConvertFrom-Json
+    $script:Passed += $publicationResults.passed
+    $script:Failed += $publicationResults.failed
+    foreach ($publicationFailure in $publicationResults.failures) { $script:FailureMessages.Add("Publication: $publicationFailure") | Out-Null }
+
     $sourceResults = & (Join-Path $PSScriptRoot 'TestGeurtsBrickSources.ps1') -RepositoryRoot $RepositoryRoot -OutputFormat Json | ConvertFrom-Json
     $script:Passed += $sourceResults.passed
     $script:Failed += $sourceResults.failed
@@ -311,7 +323,7 @@ try {
     $draftManifestText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniqueManifest.md"))
     $draftReadmeText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "README.md"))
     $targetMigrationText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "Migrations/v0.47.0.md"))
-    Assert-True ($draftManifestText -match '(?im)^\*\*Version:\*\*\s*0\.62\.0\s*$' -and $draftManifestText -match '(?im)^\*\*Status:\*\*\s*Draft normative package manifest\s*$' -and $draftReadmeText -match '(?im)^\*\*Status:\*\*\s*Draft technique package\s*$' -and $targetMigrationText -match '(?i)planned transition' -and $targetMigrationText -match '(?i)target-release snapshot' -and $targetMigrationText -notmatch '(?i)(?:v0\.46\.0|package v0\.46\.0)[^\r\n]{0,80}(?:is|was|has been) released') "v0.62.0 remains a Draft target release with a planned snapshot rather than a completed-release claim"
+    Assert-True ($draftManifestText.Contains('Draft describes specification maturity, not whether a Git release exists.') -and $draftReadmeText -match '(?m)^\*\*Status:\*\*\s*\S') "Specification maturity remains independent of Git release publication"
 
     $gfiContractText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md"))
     Assert-True ($gfiContractText -match '(?i)sole primary source and authority for all Geurts Game Forge documentation' -and $gfiContractText.Contains("<PluginPackageRoot>/Documentation~/") -and $gfiContractText -match '(?i)must not ship a bundled or fallback copy of Geurts documentation') "Frozen GFI v2 keeps this repository authoritative and plugin Documentation~ plugin-specific"
@@ -355,9 +367,9 @@ try {
         ".github/instructions/geurts-unity.instructions.md|replace-complete-file",
         ".github/instructions/geurts-game-design.instructions.md|replace-complete-file"
     )
-    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.62.0" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.62.0, and the official exact-main-commit archive source"
+    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.62.1" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.62.1, and the official exact-main-commit archive source"
     Assert-True ([string]$companionContract.destination.projectRelativePath -ceq "GeurtsGameForgeCommandments" -and [string]$companionContract.destination.replacement -ceq "complete-directory" -and [string]$companionContract.destination.access -ceq "logically-read-only") "Companion contract names the one logically-read-only complete documentation destination"
-    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 15) "Current companion contract names the exact fifteen unique package-v0.62.0 source-validation entries"
+    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 15) "Current companion contract names the exact fifteen unique package-v0.62.1 source-validation entries"
     Assert-True (($actualCompanionRoutes -join "|") -ceq ($expectedCompanionRoutes -join "|") -and ($actualConfirmationTargets -join "|") -ceq ($expectedConfirmationTargets -join "|") -and [string]$companionContract.updateUi.actionLabel -ceq "Update Geurts Game Forge Commandments" -and [string]$companionContract.updateUi.confirmationDefault -ceq "cancel" -and [string]$companionContract.updateUi.cancelResult -ceq "no-network-or-filesystem-change") "Companion contract fixes three template routes and one cancel-default four-target Update confirmation"
     Assert-True ($companionTechniqueText -match '(?i)one confirmation dialog' -and $companionTechniqueText -match '(?i)no earlier preview, dry run[^\r\n]{0,100}second confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set') "Confirmation uses the built-in schema-3.0.0 target set before acquisition and cannot authorize a changed downloaded target set"
     Assert-True ($companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative') "Schema 3.0.0 keeps package versions and safe validation entries forward-compatible while mutation routes remain fixed"
@@ -1026,7 +1038,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     $folderDefinitionContract = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json
     $folderToolContractText = [System.IO.File]::ReadAllText($folderScript)
     $managerToolContractText = [System.IO.File]::ReadAllText($manageScript)
-    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.6\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.62.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.62.0"
+    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.6\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.62.1" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.62.1"
 
     $versionMismatchAuthority = Join-Path $testRoot "folder-version-mismatch-authority"
     New-Item -ItemType Directory -Path $versionMismatchAuthority | Out-Null
@@ -1733,6 +1745,26 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     Write-Utf8 -Path $versionAvailabilityTechnique -Text ([System.IO.File]::ReadAllText($versionAvailabilityTechnique) + "`nPackage-version ordering determines whether an Update is available even when commit IDs match.`n")
     $versionAvailabilityValidation = Invoke-TestScript -Path $validatorScript -Arguments @("-RepositoryRoot", $versionAvailabilityFixture)
     Assert-True ($versionAvailabilityValidation.Code -ne 0 -and $versionAvailabilityValidation.Output.Contains("Frozen GFI v2 receipt lifecycle")) "Static validation rejects package-version-based availability inside the frozen GFI v2 contract"
+
+    foreach ($publicationCase in @('missing-workflow', 'write-permission', 'stale-current-version', 'pending-wrapper')) {
+        $fixture = New-StaticValidationFixture -Parent $testRoot -Name ('static-publication-' + $publicationCase)
+        if ($publicationCase -eq 'missing-workflow') { Remove-Item -LiteralPath (Join-Path $fixture '.github/workflows/validate.yml') }
+        elseif ($publicationCase -eq 'write-permission') {
+            $file = Join-Path $fixture '.github/workflows/validate.yml'
+            Write-Utf8 $file ([IO.File]::ReadAllText($file).Replace('contents: read', 'contents: write'))
+        }
+        elseif ($publicationCase -eq 'stale-current-version') {
+            $file = Join-Path $fixture 'README.md'
+            Write-Utf8 $file ("Current God 0.1.0 is the installation target.`r`n" + [IO.File]::ReadAllText($file))
+        }
+        else {
+            $file = Join-Path $fixture 'GeurtsTechniques/GeurtsUnityTechnique.md'
+            Write-Utf8 $file ([IO.File]::ReadAllText($file) + "`r`nWrapper selection and real player/native acceptance remain pending the owning brick implementation.`r`n")
+        }
+        $run = Invoke-TestScript -Path $validatorScript -Arguments @('-RepositoryRoot', $fixture)
+        $expected = if ($publicationCase -in @('missing-workflow', 'write-permission')) { 'Publication workflow' } else { 'Current guidance and history' }
+        Assert-True ($run.Code -ne 0 -and $run.Output.Contains('[FAIL] ' + $expected)) ('Validator rejects ' + $publicationCase)
+    }
 
     $supportingSurfaceFixture = New-StaticValidationFixture -Parent $testRoot -Name "static-supporting-surface-contradictions"
     $supportingSurfaceReadme = Join-Path $supportingSurfaceFixture "README.md"
