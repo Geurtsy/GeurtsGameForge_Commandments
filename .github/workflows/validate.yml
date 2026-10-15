@@ -1,0 +1,50 @@
+# Version: 1.0.0
+name: Commandments validation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ['v*']
+  merge_group:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: commandments-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate Commandments
+    runs-on: windows-2025
+    timeout-minutes: 45
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+          persist-credentials: false
+      - name: Check publication version
+        env:
+          RELEASE_TAG: ${{ github.ref_type == 'tag' && github.ref_name || '' }}
+        run: |
+          & ./Tools/ValidateGeurtsPublication.ps1 -ExpectedTag $env:RELEASE_TAG
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Validate with Windows PowerShell 5.1
+        shell: powershell
+        run: |
+          & ./Tools/ValidateGeurtsDocumentation.ps1
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Validate with PowerShell 7 and run regressions
+        run: |
+          New-Item -ItemType Directory -Path C:/ggf-tmp -Force | Out-Null
+          $env:TEMP = 'C:/ggf-tmp'
+          $env:TMP = 'C:/ggf-tmp'
+          & ./Tools/ValidateGeurtsDocumentation.ps1 -RunAutomationTests
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

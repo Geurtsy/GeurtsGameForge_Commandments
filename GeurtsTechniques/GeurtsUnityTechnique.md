@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Unity Technical Topic
 
-**Version:** 0.3.2
+**Version:** 0.3.3
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsUnityTechnique.md`
@@ -56,7 +56,7 @@ God owns the Commandments Editor service; the [Commandments Companion Technique]
 
 For a separately maintained UPM package migrated and verified against this baseline, declare `"unity": "6000.6"` and `"unityRelease": "3f1"` in its `package.json`. These fields declare the minimum Editor version, not equality. Validate reusable package code at the minimum and affected behavior on the newer selected consumer Editor; record each actual version separately. A package with a deliberately higher minimum must declare it and remain unavailable to older Editors. Consult the [package manifest reference](https://docs.unity.com/en-us/engine/6000.6/manual/packages-list/cus-pkg-lp/cus-pkg-development/cus-pkg-manifest/upm-manifest-pkg). Do not add a Unity package manifest to this documentation repository or change the companion's closed JSON schema to carry Editor requirements.
 
-For Steam-related packages and Windows player changes, select the [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md). Verify a pinned Steamworks.NET release against this exact Editor, Windows x64, the actual backend and native-plugin settings; do not infer compatibility from managed compilation. Its local package prerequisite does not require native initialization, an AppID or release-pipeline setup. BigBang retains compile independence from Steamworks.NET as well as God and licensed libraries. Wrapper selection and real player/native acceptance remain pending the owning brick implementation.
+For Steam-related packages and Windows player changes, select the [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md). Verify a pinned Steamworks.NET release against this exact Editor, Windows x64, the actual backend and native-plugin settings; do not infer compatibility from managed compilation. Its local package prerequisite does not require native initialization, an AppID or release-pipeline setup. BigBang retains compile independence from Steamworks.NET as well as God and licensed libraries. Use the catalogue-selected BigBang release's `Documentation~/SteamPreparation.md` for its tested immutable wrapper profile. Local prerequisite and Windows preparation evidence remain separate from real native/account/overlay/distribution acceptance; retain the owning release's explicit limits.
 
 ### C# and .NET
 
