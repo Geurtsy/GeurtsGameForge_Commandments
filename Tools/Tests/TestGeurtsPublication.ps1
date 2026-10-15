@@ -48,6 +48,10 @@ try {
     $null = Invoke-GeurtsPublicationGit $root @('tag', 'v0.62.1')
     $tagged = Get-GeurtsPublicationResult -Root $root -Tag 'v0.62.1'
     Assert-Publication (-not $tagged.changed) 'A matching immutable tag can be validated after publication'
+    Write-PublicationFixture $root '00.62.2' 'Invalid leading-zero version'
+    Assert-PublicationFailure { Get-GeurtsPublicationResult -Root $root } 'exactly one stable' 'Leading-zero versions cannot normalize into a valid release'
+    Write-PublicationFixture $root '0.62.2.0' 'Invalid four-part version'
+    Assert-PublicationFailure { Get-GeurtsPublicationResult -Root $root } 'exactly one stable' 'Four-part versions cannot pass the three-part release contract'
     $shallow = Join-Path $fixture 'shallow'
     $url = 'file:///' + $root.Replace('\', '/')
     $null = Invoke-GeurtsPublicationGit $fixture @('clone', '--quiet', '--depth', '1', $url, $shallow)

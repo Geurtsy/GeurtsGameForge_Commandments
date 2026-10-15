@@ -130,7 +130,7 @@ try {
     $manifestText = if (Test-Path -LiteralPath $manifestPath -PathType Leaf) { [System.IO.File]::ReadAllText($manifestPath) } else { "" }
     $packageMatch = [regex]::Match($manifestText, '(?im)^\*\*Version:\*\*\s*(?<Version>\d+\.\d+\.\d+)')
     $packageVersion = if ($packageMatch.Success) { $packageMatch.Groups["Version"].Value } else { $null }
-    Add-Check "Package version" ($packageVersion -match "^\d+\.\d+\.\d+$") "Manifest package version is $packageVersion."
+    Add-Check "Package version" ($packageVersion -cmatch '^(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)$') "Manifest package version is $packageVersion."
 
     $entryPolicy = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "AI_READ_FIRST.md"))
     $versionPolicyValid = $entryPolicy.Contains("Before planning or editing any part of Geurts Game Forge") -and

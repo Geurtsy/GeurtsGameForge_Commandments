@@ -30,7 +30,7 @@ function Invoke-GeurtsPublicationGit([string]$Root, [string[]]$Arguments) {
 
 function Get-GeurtsPublicationVersion([string]$Root, [string]$Commit) {
     $manifest = Invoke-GeurtsPublicationGit $Root @('show', ($Commit + ':GeurtsTechniqueManifest.md'))
-    $versions = [regex]::Matches($manifest, '(?m)^\*\*Version:\*\*\s*(\d+\.\d+\.\d+)\s*$')
+    $versions = [regex]::Matches($manifest, '(?m)^\*\*Version:\*\*\s*((?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*))\s*$')
     if ($versions.Count -ne 1) { throw "Commit $Commit must declare exactly one stable documentation version." }
     return [version]$versions[0].Groups[1].Value
 }
@@ -49,7 +49,7 @@ function Get-GeurtsPublicationResult {
     $candidate = Invoke-GeurtsPublicationGit $rootPath @('rev-parse', '--verify', '--end-of-options', ($Ref + '^{commit}'))
     $candidateVersion = Get-GeurtsPublicationVersion $rootPath $candidate
     $releases = @(foreach ($name in ((Invoke-GeurtsPublicationGit $rootPath @('for-each-ref', '--format=%(refname:short)', 'refs/tags')) -split "`n")) {
-        if ($name -cmatch '^v(?<Version>\d+\.\d+\.\d+)$') {
+        if ($name -cmatch '^v(?<Version>(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*))$') {
             [pscustomobject]@{ name = $name; version = [version]$Matches.Version }
         }
     })
