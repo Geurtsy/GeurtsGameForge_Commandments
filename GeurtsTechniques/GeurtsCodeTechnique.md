@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Code Technical Topic
 
-**Version:** 0.1.3
+**Version:** 0.1.4
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsCodeTechnique.md`
@@ -12,7 +12,21 @@
 
 The manifest-selected [Naming Technique](GeurtsNamingTechnique.md) owns first-party asset, scene GameObject and prefab-root names, and the script filename/class-name exemption. Select it before creating, naming, renaming or reviewing applicable content. Code-symbol conventions, command names and machine-readable ID values below remain Technical subjects. Preserve fixed Unity, package and tool contracts through the Naming Technique's exceptions.
 
+### ScriptableObjects and Object References
+
+**Use ScriptableObjects extensively as the default for reusable, Inspector-authored game definitions, shared configuration, action assets and event channels.** Reuse suitable existing asset types and compose behaviour through typed references. Keep ordinary per-instance behaviour on components; do not create an asset for every transient value or turn shared assets into hidden global state.
+
+**Connect Unity assets, prefabs, components and scene objects through strongly typed serialized object references, assigned by drag and drop or an object picker in the Editor.** Prefer direct references to ScriptableObject definitions over string content IDs and registries. Avoid string IDs, object names, hierarchy paths and string-keyed lookups for connections that can be represented by object references. Do not substitute a hash of a string for a direct reference or add a lookup layer merely to avoid exposing a reference field.
+
+Expose required references clearly, with tooltips and actionable authoring validation. Report missing, incompatible or invalid references before use; do not silently fall back to a name search. Respect asset/scene ownership and lifetime: reusable assets must not depend on a particular scene instance; provide scene-local connections through an owning component. Keep authored shared data separate from mutable per-instance/session state, with explicit state ownership and reset/cleanup. Do not use authored asset mutation as player-save storage.
+
+IDs are exceptions when a supported persistence format, network protocol, dynamic-content/addressable loading boundary, external integration or existing versioned contract requires an identity that cannot use a direct Unity reference. Document the concrete boundary and use the owning system's typed identity/reference where available. Resolve and validate external identities at that boundary, retain the resulting object reference for use within its valid lifetime, and avoid repeated lookup work in frame/tick loops. Do not serialize raw Unity object references across processes or treat runtime instance IDs as persistent identities. Preserve existing fixed identities until a coordinated versioned migration updates their consumers.
+
+For new and affected workflows, verify Editor assignment, missing-reference feedback, serialization/reload and reference lifetime in the applicable scene/player context. Apply the existing technical priorities, including the multiplayer override. This policy governs new and maintained implementations; it does not certify released bricks or migrate installed assets automatically.
+
 ### ID Names
+
+Use IDs only for the boundary exceptions above; the naming rules below do not require introducing IDs where object references suffice.
 
 **All freely authored ID names must use `lower_snake_case`: lowercase words separated by a single underscore (`_`), never a hyphen (`-`).** This applies throughout first-party games and Geurts bricks, including UI Foundations element IDs, screen and control IDs, and authored content, settings, action and event IDs.
 
