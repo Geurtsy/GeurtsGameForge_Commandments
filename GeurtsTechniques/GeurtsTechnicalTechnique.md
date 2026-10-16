@@ -121,7 +121,7 @@ For changed C# scripts, apply the Code topic's naming, tooltips, XML summaries f
 
 Apply this guidance only within the five-priority order defined above and the applicable project GDD. It is not a second priority list.
 
-- Prefer frame-rate stability over shorter loading times when the applicable design facts do not require a different player-facing trade-off.
+- **Prioritise FPS and frame-rate stability over lower RAM usage, smaller storage footprint and shorter loading times.** When these goals conflict, accept higher RAM use, larger stored data or longer loading/preparation to improve sustained FPS and reduce stutter. Use representative measurements to verify the trade-off.
 - Prefer runtime performance over editor convenience when gameplay experience is materially affected.
 - For multiplayer work, apply the network-efficiency override defined in **Multiplayer Exception** above.
 

@@ -35,7 +35,7 @@ God is maintained in its own [com.geurts.gameforge.god repository](https://githu
 
 [Settings System0.6](https://github.com/Geurtsy/com.geurts.gameforge.settings) provides Your Settings, Connections and Auto Settings Menu with reviewed native creation/connection and retained shared source feedback. Authored defaults stay intact while owned runtime copies signal actual readiness. [UI Foundations0.12](https://github.com/Geurtsy/com.geurts.gameforge.userinterface) supplies reviewed generated menus, optional catalogue/preview cooperation and retained Panel Renderer/UIDocument support. Both require minimum God0.33.1 and remain independent; unrelated callbacks/routes are preserved. Exact native/Windows/optional-peer evidence is in each owning package; full rendered/physical/device acceptance remains unverified.
 
-The guided path is **Create Setting → choose type/default → Connect Target and consumers → Create and Connect → configure Auto Settings Menu → Refresh Preview → Connect to My Menu → check in the game**. Use the package's [authoring guide](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/v0.6.0/Documentation~/Authoring.md) for supported fields, consumer ownership and independent public APIs. Update packages manually through God; catalogue publication does not install them.
+The guided path is **Create Setting â†’ choose type/default â†’ Connect Target and consumers â†’ Create and Connect â†’ configure Auto Settings Menu â†’ Refresh Preview â†’ Connect to My Menu â†’ check in the game**. Use the package's [authoring guide](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/v0.6.0/Documentation~/Authoring.md) for supported fields, consumer ownership and independent public APIs. Update packages manually through God; catalogue publication does not install them.
 
 [Audio0.8.2](https://github.com/Geurtsy/com.geurts.gameforge.audio) owns shared playback, reusable sound identities, music/ambience/dialogue, category controls and setup. New configurations use Unity clips. Optional Audio-owned FMOD0.2.2 lives at Integrations~/FMOD, with no independent brick/catalogue entry. Installation/selection/Studio actions remain explicit and assignments separate. The installer uses exact frozen source 61c3201e593dd6be5020211fbda5e1154bce74ad. Existing native IDs/GUIDs and legacy destinations remain supported; no consumer update is performed by publication.
 
@@ -102,7 +102,7 @@ Use Windows, Unity **6000.6.3f1 or newer**, and the [current catalogue](GeurtsTe
 
 ## God dashboard
 
-Standalone brick menus open their own larger Editor windows, including Game Forge God, Build Forge, God-owned Commandments, Diagnostics, Scene Loading and User Interface Foundations. New floating windows target 1000 × 760 Editor points, reduced to fit the main Editor area where space permits, and remain resizable and dockable. Each supported minimum stays in force, so a smaller main Editor area may not fully contain the window. Opening an existing window preserves its size, position and docking layout. God's Commandments view reuses its canonical theme; the adapter owns no dashboard.
+Standalone brick menus open their own larger Editor windows, including Game Forge God, Build Forge, God-owned Commandments, Diagnostics, Scene Loading and User Interface Foundations. New floating windows target 1000 Ã— 760 Editor points, reduced to fit the main Editor area where space permits, and remain resizable and dockable. Each supported minimum stays in force, so a smaller main Editor area may not fully contain the window. Opening an existing window preserves its size, position and docking layout. God's Commandments view reuses its canonical theme; the adapter owns no dashboard.
 
 All catalogue entries and the main **Dependencies** section start collapsed. Click a catalogue heading or arrow to expand or collapse that card independently. Collapsed cards keep the package name, installation/lifecycle state and update status visible; expand a card to view its details and package actions. Each window retains its expansion choices through searches, filters, catalogue refreshes and script reloads.
 
@@ -308,17 +308,18 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 ## Changelog
 
-### 0.62.3 — 16 October 2026
+### 0.62.3 â€” 16 October 2026
 
 - Require meaningful XML summaries for every first-party C# class and short XML summaries for every method, regardless of accessibility.
 - Require implementation comments explaining complex routines and logic; retain concise comments, partial-class ownership and vendor/generated preservation.
+- Prioritise FPS and frame-rate stability over RAM usage, storage footprint and loading time within Efficiency.
 
-### 0.62.2 — 15 October 2026
+### 0.62.2 â€” 15 October 2026
 
 - Makes delivery to remote `main` explicit for every package source repository and Commandments itself, independently for each owner changed by a task.
 - Clarifies the source-contribution route without changing brick pins, schemas, frozen installer payloads or consumer installation.
 
-### 0.62.1 — 15 October 2026
+### 0.62.1 â€” 15 October 2026
 
 - Adds Windows CI, an offline publication-version gate and isolated release regressions. New approved infrastructure remains inert in copied documentation.
 - Corrects current Unity/Steam guidance, separates draft maturity from publication, and adds concise contributor and unchanged-licence guidance.
