@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.11.2
+**Version:** 0.11.3
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers and compatible Unity integrations
@@ -33,6 +33,24 @@ Use a host-provided pending automation objective only after the user explicitly 
 - Work in small, reversible increments and validate after meaningful changes.
 - Repair recoverable failures within scope, preserve working systems, and automate routine safe work the available environment can perform.
 - Keep the user informed of genuine blockers, consequential decisions, validation results, material limitations, and any action only they can take.
+
+## Proportionate Testing
+
+**Add tests for distinct behaviour or credible regression risks, not to increase test counts.** Inspect and reuse existing coverage before writing a new case. Extend an existing test or use representative parameterized cases when they exercise the same contract. Retain separate cases for meaningfully different boundaries, failure modes, lifecycle or supported environments; do not duplicate assertions under different names or mirror implementation details.
+
+Do not add automated tests solely for reversible, low-impact prose, formatting or cosmetic changes when inspection and existing checks adequately verify them. For behaviour changes, choose the smallest useful checks of observable outcomes and relevant failures. A bug regression should fail when the bug is reintroduced. Avoid speculative test infrastructure and exhaustive combinations without a concrete risk.
+
+Use focused checks while editing. Run required final validation once for the completed candidate in an accepted environment; successful required CI can supply that evidence without a duplicate local full-suite run. Reuse evidence only for the identical source tree, relevant inputs and tested environment. Changes, failures, stale evidence or an unresolved concern justify affected reruns or broader checks; repeating an unchanged successful run needs a concrete reason. Keep actual source/environment coverage explicit. Required repository, platform and publication gates remain binding; do not delete useful coverage or bypass checks to reduce compute.
+
+## Efficient AI Tool Use
+
+**Minimise avoidable tool calls, compute, output and repeated work while completing the authorized outcome.**
+
+- Follow manifest selection and audience/section filters. Search relevant paths with `rg` before broad reads; retain already-read unchanged content within the current task, and refresh it when its source or applicability changes. Never substitute stale memory for required current reading.
+- Prefer a suitable supported API, connector or CLI. Batch independent searches and reads; parallelize only independent, safe operations. Keep dependent work, mutations and approvals in their required order.
+- Request concise results and read only the relevant ranges, fields or diagnostics. Preserve complete required evidence in files when useful; do not dump large logs or generated data into context. Detect truncation and retrieve missing relevant content before relying on it.
+- Reuse validated discoveries and results with their source/version and freshness limits. Avoid duplicate scans, downloads, builds, speculative dependencies and overlapping work. Stop expanding validation after the requested outcome and required checks are satisfied unless new evidence identifies a gap.
+- Wait for asynchronous work with bounded waits and backoff or change notifications. Avoid tight polling, repeated unchanged status reads and automatic expensive retries without diagnosing the cause. Report meaningful progress and blockers concisely.
 
 ## Codex Project and GameForge Path Preflight
 
