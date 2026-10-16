@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: FORGE-DEVELOPMENT-ONLY -->
 # Contributing to Commandments
 
-**Version:** 0.62.8
+**Version:** 0.62.9
 
 This repository owns generic development standards, contracts and their source-only maintenance tools. God, bricks and the compatibility adapter own their implementations. Project-specific design stays in the game's `Docs/GameDesign/`.
 
@@ -11,7 +11,7 @@ Start at [AI_READ_FIRST.md](AI_READ_FIRST.md), then the [manifest](GeurtsTechniq
 
 Use concise, literal instructions with explicit applicability, inputs, outputs and failure behavior. Prefer one authoritative rule over repeated prose. Keep historical evidence under `History/` and outside routine AI reading. Inspect existing code before extending it; avoid extra dependencies, network requests and repeated expensive checks.
 
-Work on Windows in a short source checkout. Follow the [technical priorities, path preflight and CRLF policy](GeurtsTechniques/GeurtsTechnicalTechnique.md). Preserve unrelated work and all frozen payload bytes. Stage every intended new file so the validator can compare the complete Git inventory with the manifest registry.
+Use the Automation owner's [Git-only source-control policy](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#git-source-control). Work on Windows in a short source checkout. Follow the [technical priorities, path preflight and CRLF policy](GeurtsTechniques/GeurtsTechnicalTechnique.md). Preserve unrelated work and all frozen payload bytes. Stage every intended new file so the validator can compare the complete Git inventory with the manifest registry.
 
 Every delivered change needs an appropriate higher documentation version. Update the entry, manifest registry, current metadata, changed tool versions and changelog together. Bump a technique when its own guidance changes; keep unchanged schemas, installer artifacts, historical records and brick pins intact. The entry point owns the detailed version rules.
 
