@@ -1,12 +1,12 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Multiplayer Technical Topic
 
-**Version:** 0.3.0
+**Version:** 0.3.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsMultiplayerTechnique.md`
 
-The manifest selects this owner for networking, replicated state and multiplayer implementation. The [Technical Technique's Multiplayer Exception](GeurtsTechnicalTechnique.md#multiplayer-exception) retains network efficiency as the highest multiplayer priority.
+The manifest selects this owner for networking, replicated state and multiplayer implementation. The [Technical Technique's Multiplayer Exception](GeurtsTechnicalTechnique.md#multiplayer-exception) makes latency the highest multiplayer priority, followed by bandwidth efficiency before the normal code priorities.
 
 ## Selected Framework, Steam Transport and Player Topology
 
@@ -29,13 +29,13 @@ The [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) retains ow
 
 ## Multiplayer Efficiency Rule
 
-- Minimise RPC calls and recipient fan-out. Batch updates where possible and synchronize only data required for gameplay correctness.
+- Apply the Technical owner's latency-first, bandwidth-second order. Minimise RPC calls and recipient fan-out; batch updates only when doing so does not increase gameplay latency. Synchronize only data required for gameplay correctness.
 - Configure FishNet observer/interest conditions so each client receives only relevant objects and state; preserve readiness and correct state when relevance changes.
-- Use changed-value synchronization, supported packing/quantization and compact serializers with precision justified by gameplay. Set tick/send intervals per workload rather than transmitting every object at maximum frequency. Avoid unnecessary transform properties, repeated unchanged payloads and cosmetic state that can be derived locally.
+- Use changed-value synchronization, supported packing/quantization and compact serializers with precision justified by gameplay. Set tick/send intervals for low latency in the actual workload, then reduce traffic where that latency is preserved; do not lower update frequency solely to save bandwidth when it increases gameplay delay. Avoid unnecessary transform properties, repeated unchanged payloads and cosmetic state that can be derived locally.
 - Choose reliable or unreliable delivery intentionally for each message's correctness and recovery needs. Bound message sizes, queues, retries and request rates; avoid excessive retransmission or fragmented payloads.
-- Do not sacrifice network efficiency for local code convenience. Measure actual bytes, message/packet rates, host upload, synchronization delay and resource use under representative and adverse conditions. Selecting FishNet or Steam relay does not itself establish an efficiency improvement.
+- Do not sacrifice latency for bandwidth savings or other code priorities. Measure gameplay response and synchronization delay first, then actual bytes, message/packet rates, host upload and resource use under representative and adverse conditions. Record before/after latency and bandwidth for the chosen trade-off. Selecting FishNet or Steam relay does not itself establish an efficiency improvement.
 
-The multiplayer network-efficiency override applies regardless of the selected networking framework. This topic implements that rule; it does not replace or reorder the Technical Technique's priorities.
+The Technical owner's latency-first, bandwidth-second multiplayer override applies regardless of the selected networking framework. This topic implements that rule; it does not replace or reorder the Technical Technique's priorities.
 
 ## Local Testing and Steam Acceptance
 
@@ -49,7 +49,7 @@ Before releasing Client-Host behavior, exercise both the host's local client and
 
 Before releasing affected networking behavior, exercise the selected transport with the project's supported authority/topology and player counts. Require relevant cases: representative and adverse latency/jitter/loss, disconnect/reconnect during active work, host/server loss or transfer where supported, late joining/state resynchronization where supported, duplicate/stale/out-of-order messages, and invalid or unauthorized requests. Verify authoritative state, rejection of invalid input, bounded queues/retries and owned cleanup; failures must not silently corrupt state or claim synchronization. Mark genuinely unsupported cases not applicable with a reason.
 
-Record the exact build/backend, transport/version, roles, player count, test workload, network conditions, duration, result and limits. Compare bandwidth, message rate/size, synchronization delay and resource use with budgets chosen from the project's design and measured baseline. No universal latency/FPS/player-count threshold is imposed. Automated simulations supplement the real multi-instance/network checks needed for the behavior claimed; unperformed cases remain unverified and cannot pass the affected release gate. This requirement installs no networking package and creates no project game-design facts.
+Record the exact build/backend, transport/version, roles, player count, test workload, network conditions, duration, result and limits. Compare gameplay response and synchronization delay first, then bandwidth, message rate/size and resource use with budgets chosen from the project's design and measured baseline. No universal latency/FPS/player-count threshold is imposed. Automated simulations supplement the real multi-instance/network checks needed for the behavior claimed; unperformed cases remain unverified and cannot pass the affected release gate. This requirement installs no networking package and creates no project game-design facts.
 
 ## Framework References
 

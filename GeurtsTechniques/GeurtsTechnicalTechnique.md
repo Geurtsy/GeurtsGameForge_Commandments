@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Version:** 0.20.5
+**Version:** 0.20.6
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
@@ -30,7 +30,12 @@ These priorities are not equal. A higher priority wins over a lower priority wit
 
 ### Multiplayer Exception
 
-For multiplayer systems, **network efficiency overrides all other priorities**. This override applies regardless of the selected networking framework.
+For multiplayer systems, **latency overrides all other code priorities**. Apply the multiplayer override in this strict order:
+
+1. **Latency** - Minimise network and gameplay response delay before every other code priority, including bandwidth savings, FPS and extendibility.
+2. **Bandwidth efficiency** - Minimise transmitted data and unnecessary traffic without compromising latency.
+
+Only after these priorities, apply the five Core Principles above. When saving bandwidth would increase gameplay latency, prefer the lower-latency option and record its bandwidth cost. This override applies regardless of the selected networking framework.
 
 Cross-document applicability and conflicts defer to the manifest. This technique's priority order applies only to actual technical trade-offs within its assigned subject.
 
@@ -123,7 +128,7 @@ Apply this guidance only within the five-priority order defined above and the ap
 
 - **Prioritise FPS and frame-rate stability over lower RAM usage, smaller storage footprint and shorter loading times.** When these goals conflict, accept higher RAM use, larger stored data or longer loading/preparation to improve sustained FPS and reduce stutter. Use representative measurements to verify the trade-off.
 - Prefer runtime performance over editor convenience when gameplay experience is materially affected.
-- For multiplayer work, apply the network-efficiency override defined in **Multiplayer Exception** above.
+- For multiplayer work, apply the latency-first, bandwidth-second override defined in **Multiplayer Exception** above.
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Existing fragment links
