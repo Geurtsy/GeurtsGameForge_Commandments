@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.11.3
+**Version:** 0.11.4
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers and compatible Unity integrations
@@ -35,6 +35,10 @@ Use a host-provided pending automation objective only after the user explicitly 
 - Keep the user informed of genuine blockers, consequential decisions, validation results, material limitations, and any action only they can take.
 
 ## Proportionate Testing
+
+**Do not write, expand or run unit tests unless absolutely necessary.** Reduce AI tool compute by preferring existing evidence, inspection, static validation, compilation or a small smoke/integration check when these adequately verify the change at lower cost.
+
+An exception must address a concrete material correctness or regression risk that adequate lower-cost checks cannot cover, or an unavoidable required acceptance gate. Briefly record the risk, why cheaper evidence is insufficient, and the smallest useful unit test or subset. Reuse existing tests where possible. Do not create test infrastructure, chase coverage percentages or run a whole unit suite by habit. A changed method, new class or generic best-practice claim alone does not establish necessity.
 
 **Add tests for distinct behaviour or credible regression risks, not to increase test counts.** Inspect and reuse existing coverage before writing a new case. Extend an existing test or use representative parameterized cases when they exercise the same contract. Retain separate cases for meaningfully different boundaries, failure modes, lifecycle or supported environments; do not duplicate assertions under different names or mirror implementation details.
 

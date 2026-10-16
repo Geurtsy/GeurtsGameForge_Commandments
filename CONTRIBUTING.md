@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: FORGE-DEVELOPMENT-ONLY -->
 # Contributing to Commandments
 
-**Version:** 0.62.7
+**Version:** 0.62.8
 
 This repository owns generic development standards, contracts and their source-only maintenance tools. God, bricks and the compatibility adapter own their implementations. Project-specific design stays in the game's `Docs/GameDesign/`.
 
@@ -23,7 +23,7 @@ Run from the source checkout:
 & ./Tools/ValidateGeurtsDocumentation.ps1 -RunAutomationTests
 ```
 
-This runs offline source checks and isolated regressions. Windows CI also runs static validation with Windows PowerShell 5.1. Follow the Automation owner's [proportionate testing](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#proportionate-testing) and [efficient AI tool use](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#efficient-ai-tool-use). Use focused checks while iterating; the required successful PR CI supplies the complete suite for the final candidate without a duplicate local full-suite run. Preserve each required host/publication gate and rerun affected checks when source, inputs or environment change. These checks establish documentation/tool behavior, not Unity player or native-service acceptance.
+This runs offline source checks and isolated regressions. Windows CI also runs static validation with Windows PowerShell 5.1. Follow the Automation owner's [proportionate testing](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#proportionate-testing) and [efficient AI tool use](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#efficient-ai-tool-use). Apply that owner's unit-test necessity rule before adding or running unit tests. Use focused checks while iterating; the required successful PR CI supplies the complete suite for the final candidate without a duplicate local full-suite run. Preserve each required host/publication gate and rerun affected checks when source, inputs or environment change. These checks establish documentation/tool behavior, not Unity player or native-service acceptance.
 
 Before catalogue publication, follow the [Brick Contract's source gate](GeurtsTechniques/GeurtsBrickContract.md#publish-before-installing-or-updating). Supply all released owners' Git checkouts with their exact objects already fetched. Identity, version, dependencies, capabilities and declared operations must agree. Missing private-source access is a publication blocker; ordinary CI does not claim to verify those repositories.
 
