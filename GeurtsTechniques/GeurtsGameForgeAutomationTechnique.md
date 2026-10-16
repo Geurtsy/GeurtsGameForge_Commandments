@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.11.4
+**Version:** 0.11.5
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers and compatible Unity integrations
@@ -33,6 +33,16 @@ Use a host-provided pending automation objective only after the user explicitly 
 - Work in small, reversible increments and validate after meaningful changes.
 - Repair recoverable failures within scope, preserve working systems, and automate routine safe work the available environment can perform.
 - Keep the user informed of genuine blockers, consequential decisions, validation results, material limitations, and any action only they can take.
+
+## Git Source Control
+
+**Git is the only permitted source-control system for first-party games, Forge packages, tools, documentation and authored assets.** Do not use Unity Version Control/Plastic SCM, Perforce, Subversion/SVN, Mercurial or another VCS, including parallel VCS tracking of the same work.
+
+Use Git directly or through a Git client/IDE integration; clients must operate on Git repositories and history. Git LFS is permitted as a Git extension for suitable large assets. Hosting services and clients do not replace Git. Preserve existing branch protections, immutable release identities, asset GUIDs and unrelated work.
+
+If Git is unavailable or another VCS controls the target, stop the affected source-control operation and report the blocker; do not fall back to another VCS. Initialization or migration requires its own authorized scope. Do not automatically initialize nested repositories, remove VCS metadata, rewrite history, change global settings or convert existing projects. Forge's supported initialization action retains the [Setup owner's explicit Git boundary](GeurtsForgeSetupTechnique.md#tool-preservation-and-failure-rules).
+
+Fetched documentation snapshots and offline installers remain inert content; this rule adds no Git metadata or installation prerequisite to them. Existing defensive ignore patterns for other clients do not authorize using those clients as source-control systems.
 
 ## Proportionate Testing
 
