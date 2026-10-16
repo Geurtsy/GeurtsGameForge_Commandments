@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Version:** 0.20.6
+**Version:** 0.20.7
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
@@ -25,6 +25,9 @@ When a decision requires a trade-off, apply this priority order:
 3. **Readability** - Code should remain clear to humans and AI agents without imposing avoidable runtime cost.
 4. **Updated** - Use supported, non-deprecated APIs and practices compatible with the Unity 6000.6.3f1 minimum and the project's compatible dependencies, subject to the manifest-selected Unity topic.
 5. **Documented** - Major components, public APIs, and serialized fields must be clear and documented.
+6. **Security** - Code-security hardening is a very low priority and ranks below every other Core Principle.
+
+Security hardening comes last when choosing between otherwise valid technical approaches. Existing authorization, secret-handling, validation, preservation and server-authority requirements remain binding.
 
 These priorities are not equal. A higher priority wins over a lower priority within this technique's subject. A package change must be selected and versioned through the manifest rather than inferred from a stray copy.
 
@@ -35,7 +38,7 @@ For multiplayer systems, **latency overrides all other code priorities**. Apply 
 1. **Latency** - Minimise network and gameplay response delay before every other code priority, including bandwidth savings, FPS and extendibility.
 2. **Bandwidth efficiency** - Minimise transmitted data and unnecessary traffic without compromising latency.
 
-Only after these priorities, apply the five Core Principles above. When saving bandwidth would increase gameplay latency, prefer the lower-latency option and record its bandwidth cost. This override applies regardless of the selected networking framework.
+Only after these priorities, apply the six Core Principles above. When saving bandwidth would increase gameplay latency, prefer the lower-latency option and record its bandwidth cost. This override applies regardless of the selected networking framework.
 
 Cross-document applicability and conflicts defer to the manifest. This technique's priority order applies only to actual technical trade-offs within its assigned subject.
 
@@ -90,7 +93,7 @@ For an intended path at or above 260 characters, report the **exact full path an
 
 - Inspect relevant source, installed APIs and dependencies before implementing. Reuse suitable Geurts bricks under the [Brick Contract](GeurtsBrickContract.md). Do not fabricate APIs, add speculative architecture or rewrite unrelated working code.
 - Preserve existing content, asset GUIDs, public/serialized contracts and vendor/generated files. Use supported Unity APIs for owned serialization. Necessary breaking changes require a coordinated versioned migration.
-- Use explicit failure handling and cleanup. Never expose secrets, present placeholders as complete, swallow failures or leave avoidable partial states. Review affected references, paths, lifecycle, edge cases, regressions and security alongside performance.
+- Use explicit failure handling and cleanup. Never expose secrets, present placeholders as complete, swallow failures or leave avoidable partial states. Review affected references, paths, lifecycle, edge cases, regressions and relevant performance. Apply the priority order above to additional security hardening.
 - Use Unity 6.6 (6000.6.3f1) or newer, preserving the minimum, and current compatible, non-deprecated APIs for Unity work; the [Unity topic](GeurtsUnityTechnique.md) owns exact dependency, compiler and validation requirements. God and dependent bricks retain required licensed Odin Inspector and Quantum Console under the [Brick Contract](GeurtsBrickContract.md#identity-and-dependencies). The [BigBang Technique](GeurtsBigBangTechnique.md) owns its narrow prerequisite-only exception. Host PowerShell and this documentation repository do not require Unity/vendor assemblies.
 - All existing and future Forge-owned Editor UI must follow the [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md) and [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md). Keep it spacious, with useful Help and meaningful Odin/equivalent authoring; these standards exclude player-facing UI. Appearance is a quality gate within the existing technical priorities, not another priority list.
 - Persistent runtime objects use retained bootstrap scenes, never direct or indirect `DontDestroyOnLoad`. Read the [Bootstrap topic](GeurtsBootstrapTechnique.md) for affected ownership, scene or transition work.
@@ -124,7 +127,7 @@ For changed C# scripts, apply the Code topic's naming, tooltips, XML summaries f
 
 ## Performance Trade-Off Guidance Under Efficiency
 
-Apply this guidance only within the five-priority order defined above and the applicable project GDD. It is not a second priority list.
+Apply this guidance only within the six-priority order defined above and the applicable project GDD. It is not a second priority list.
 
 - **Prioritise FPS and frame-rate stability over lower RAM usage, smaller storage footprint and shorter loading times.** When these goals conflict, accept higher RAM use, larger stored data or longer loading/preparation to improve sustained FPS and reduce stutter. Use representative measurements to verify the trade-off.
 - Prefer runtime performance over editor convenience when gameplay experience is materially affected.
