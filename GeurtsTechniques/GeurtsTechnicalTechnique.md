@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Version:** 0.20.4
+**Version:** 0.20.5
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
@@ -115,7 +115,7 @@ Design every new or materially changed first-party component so humans and Codex
 
 Implement the complete authorized outcome, including affected registration, references, tests and documentation. Verify normal/failure paths, repeatability, cleanup, compatibility and relevant performance. Report actual evidence and unavailable checks honestly; compilation alone does not establish rendered UI, physical input or Windows-player acceptance. Follow the Automation owner for questions, delivery and computer-control boundaries.
 
-For changed C# scripts, apply the Code topic's naming, tooltips, public-class and public-method XML descriptions and Major Component Help. For Unity changes, apply the Unity topic's exact compile/test/build requirements. Validate no-code and supported API use where applicable; avoid unnecessary per-frame allocations and unjustified expensive `Update()` logic. Read Bootstrap, Authoring, Audio, Commands, Diagnostics, multiplayer and project-design guidance only for affected work, as selected by the manifest.
+For changed C# scripts, apply the Code topic's naming, tooltips, XML summaries for all classes and methods, explanatory comments for complex logic, and Major Component Help. For Unity changes, apply the Unity topic's exact compile/test/build requirements. Validate no-code and supported API use where applicable; avoid unnecessary per-frame allocations and unjustified expensive `Update()` logic. Read Bootstrap, Authoring, Audio, Commands, Diagnostics, multiplayer and project-design guidance only for affected work, as selected by the manifest.
 
 ## Performance Trade-Off Guidance Under Efficiency
 

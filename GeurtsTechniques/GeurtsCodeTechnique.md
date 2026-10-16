@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Code Technical Topic
 
-**Version:** 0.1.2
+**Version:** 0.1.3
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsCodeTechnique.md`
@@ -80,27 +80,24 @@ Provide Help at the point of use. Components with an Editor surface must expose 
 
 Keep Help accurate for the supported component version and update it whenever setup or behaviour changes. Verify that a user can follow its instructions to complete a representative setup and use workflow. This policy does not certify existing releases or authorize automatic edits to installed components or user content; apply it to new and affected components during maintenance.
 
-### Public Classes
+<a id="public-classes"></a>
+### Classes
 
-**Every first-party public C# class must include a meaningful XML `/// <summary>` description immediately above its declaration (before any declaration attributes).** This includes public static, abstract, generic and nested classes in Geurts bricks, ordinary game code, runtime systems, Editor tools and tests.
+**Every first-party C# class, regardless of accessibility, must include a meaningful XML `/// <summary>` description immediately above its declaration (before any declaration attributes).** This includes public, internal, protected, private, static, abstract, generic and nested classes in Geurts bricks, ordinary game code, runtime systems, Editor tools and tests.
 
-Describe the class's purpose and responsibility so a caller can understand when and why to use it. Empty summaries, a repetition of the class name, ordinary `//` comments or `<inheritdoc/>` alone do not satisfy this requirement. Keep the XML well formed and accurate as the class changes. Add `<remarks>` for relevant setup, ownership, lifetime, constraints or usage guidance, and `<typeparam>` descriptions for generic type parameters where present.
+Describe what the class does and its responsibility. Empty summaries, repetition of the class name, ordinary `//` comments or `<inheritdoc/>` alone do not satisfy this requirement. Keep the XML well formed and accurate as the class changes. Add `<remarks>` for relevant setup, ownership, lifetime, constraints or usage guidance, and `<typeparam>` descriptions for generic type parameters where present.
 
-For a partial class, place the complete class description on one primary first-party declaration that is maintained by the project; avoid duplicate class summaries on every part. Document the complete class, including relevant behavior supplied by its other parts. Preserve vendor and generated files; maintain documentation through an owned declaration or the supported generator/source when appropriate.
+For a partial class, place the complete class description on one primary first-party declaration maintained by the project; avoid duplicate class summaries on every part. Document relevant behavior supplied by the other parts. Preserve vendor and generated files; maintain documentation through an owned declaration or the supported generator/source when appropriate.
 
-Review the public classes in the affected implementation before publication. This requirement does not certify existing releases or authorize unrelated edits to installed packages, third-party code or generated output. Class descriptions supplement the separate public-method XML documentation and Major Component Help requirements; they do not replace either.
+Review all classes and methods in the affected implementation before publication. Apply these rules to new and affected first-party code during maintenance; this does not certify existing releases or authorize unrelated edits to installed packages, third-party code or generated output. Summaries supplement Major Component Help and do not replace it.
 
-### Public Methods
+<a id="public-methods"></a>
+<a id="private-methods"></a>
+### Methods
 
-Every publicly accessible method must include an XML `/// <summary>` comment.
+**Every first-party C# method, regardless of accessibility, must include a short, meaningful XML `/// <summary>` comment immediately above its declaration (before any declaration attributes).** This includes public, internal, protected and private methods, static and generic methods, overrides, Unity lifecycle callbacks and coroutine methods.
 
-The summary must clearly and succinctly describe:
-
-- The method's purpose.
-- Expected behaviour.
-- Important side effects.
-
-Use `/// <param>` and `/// <returns>` tags for parameters and return values.
+State what the method does, its expected behavior and important side effects. Empty summaries, repetition of the method name, ordinary `//` comments or `<inheritdoc/>` alone are insufficient. Keep summaries concise; add relevant detail in `<remarks>`. Use `<param>` for parameters, `<returns>` for a returned value and `<typeparam>` for generic type parameters where present.
 
 ```csharp
 /// <summary>
@@ -113,12 +110,8 @@ public void ApplyDamage(float damageAmount)
 }
 ```
 
-### Private Methods
+### Complex Routines and Logic
 
-Private methods should have a brief comment above the method declaration when their intent or logic is not obvious.
+**Complex routines must contain explanatory comments describing what they do.** This includes methods, constructors, local functions, callbacks and coroutine or asynchronous routines when their logic is complex. Place comments beside the relevant implementation steps or blocks; a declaration summary alone is insufficient.
 
-XML documentation is not required for private methods.
-
-Do not comment every line. Focus on intent, usage, and non-obvious logic.
-
-Comments must be updated when behaviour changes.
+Explain the algorithm or major phases, non-obvious decisions, state transitions and relevant ordering, timing, ownership or cleanup constraints. Describe intent and reasons rather than restating syntax. Do not comment every line. Keep summaries and implementation comments accurate when behavior changes.
