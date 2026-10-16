@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Version:** 0.20.7
+**Version:** 0.20.8
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
@@ -98,6 +98,7 @@ For an intended path at or above 260 characters, report the **exact full path an
 - All existing and future Forge-owned Editor UI must follow the [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md) and [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md). Keep it spacious, with useful Help and meaningful Odin/equivalent authoring; these standards exclude player-facing UI. Appearance is a quality gate within the existing technical priorities, not another priority list.
 - Persistent runtime objects use retained bootstrap scenes, never direct or indirect `DontDestroyOnLoad`. Read the [Bootstrap topic](GeurtsBootstrapTechnique.md) for affected ownership, scene or transition work.
 - Use Diagnostics when a compatible provider is available; ordinary logs are no-op when unavailable, while genuine failures remain independently visible. The [Diagnostics Technique](GeurtsDiagnosticsTechnique.md) owns capture, audience, commands and metrics. A runtime console and FMOD are optional; installing the licensed QC library does not require installing a console.
+- For Unity data modelling and object connections, select the [Code topic's ScriptableObject and object-reference rules](GeurtsCodeTechnique.md#scriptableobjects-and-object-references) and the [Authoring topic](GeurtsAuthoringTechnique.md#scriptableobject-and-reference-authoring).
 - First-party asset and script names follow the [Naming Technique](GeurtsNamingTechnique.md); freely authored ID values use `lower_snake_case`, preserving fixed schema, vendor, package, GUID and hash formats. The [Code topic](GeurtsCodeTechnique.md) owns exact validation and code-documentation rules.
 
 <!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->

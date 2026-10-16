@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Authoring Technical Topic
 
-**Version:** 0.1.2
+**Version:** 0.1.3
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsAuthoringTechnique.md`
@@ -13,6 +13,10 @@ Use UI Toolkit for new Geurts UI work. Inspect the existing UI before changing i
 All existing and future Forge-owned Editor UI must comply with the manifest-selected [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md) and [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md). Reuse God's shared `ForgeEditorTheme` API and `ForgeEditorTheme.uss` for dark sci-fi surfaces and green accents; God's Commandments view uses that same canonical implementation directly. Preserve meaningful Odin configuration and use UI Toolkit for new custom Editor UI. Editor appearance is a first-class quality requirement and Definition of Done gate, with tabs, labelled collapsible sections, useful severity callouts and inline authoring findings owned by Appearance. This gate does not add or reorder the technical priorities above, change the multiplayer override or alter dependency/serialization rules. These Editor-only standards do not change runtime or player-facing game UI.
 
 For new custom UXML controls, use `[UxmlElement]` on a partial class and `[UxmlAttribute]` for exposed attributes, following the Unity 6.6 UxmlElement reference. Avoid new `UxmlFactory`/`UxmlTraits` implementations. Use supported UXML/USS and verify data binding and lifecycle cleanup in the actual runtime or Editor context.
+
+## ScriptableObject and Reference Authoring
+
+Follow the [Code topic's ScriptableObject and object-reference rules](GeurtsCodeTechnique.md#scriptableobjects-and-object-references) for asset composition, typed drag-and-drop/object-picker connections, required-reference feedback and state ownership. Provide these connections through the supported Inspector workflow; do not require users to type string IDs for ordinary object wiring. The Code topic owns boundary exceptions and migration rules.
 
 ## Odin Inspector Usage
 
