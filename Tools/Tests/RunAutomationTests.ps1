@@ -1,5 +1,5 @@
 # RunAutomationTests.ps1
-# Version: 0.62.7
+# Version: 0.62.8
 
 [CmdletBinding()]
 param(
@@ -367,9 +367,9 @@ try {
         ".github/instructions/geurts-unity.instructions.md|replace-complete-file",
         ".github/instructions/geurts-game-design.instructions.md|replace-complete-file"
     )
-    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.62.7" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.62.7, and the official exact-main-commit archive source"
+    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.62.8" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.62.8, and the official exact-main-commit archive source"
     Assert-True ([string]$companionContract.destination.projectRelativePath -ceq "GeurtsGameForgeCommandments" -and [string]$companionContract.destination.replacement -ceq "complete-directory" -and [string]$companionContract.destination.access -ceq "logically-read-only") "Companion contract names the one logically-read-only complete documentation destination"
-    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 15) "Current companion contract names the exact fifteen unique package-v0.62.7 source-validation entries"
+    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 15) "Current companion contract names the exact fifteen unique package-v0.62.8 source-validation entries"
     Assert-True (($actualCompanionRoutes -join "|") -ceq ($expectedCompanionRoutes -join "|") -and ($actualConfirmationTargets -join "|") -ceq ($expectedConfirmationTargets -join "|") -and [string]$companionContract.updateUi.actionLabel -ceq "Update Geurts Game Forge Commandments" -and [string]$companionContract.updateUi.confirmationDefault -ceq "cancel" -and [string]$companionContract.updateUi.cancelResult -ceq "no-network-or-filesystem-change") "Companion contract fixes three template routes and one cancel-default four-target Update confirmation"
     Assert-True ($companionTechniqueText -match '(?i)one confirmation dialog' -and $companionTechniqueText -match '(?i)no earlier preview, dry run[^\r\n]{0,100}second confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set') "Confirmation uses the built-in schema-3.0.0 target set before acquisition and cannot authorize a changed downloaded target set"
     Assert-True ($companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative') "Schema 3.0.0 keeps package versions and safe validation entries forward-compatible while mutation routes remain fixed"
@@ -1038,7 +1038,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     $folderDefinitionContract = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json
     $folderToolContractText = [System.IO.File]::ReadAllText($folderScript)
     $managerToolContractText = [System.IO.File]::ReadAllText($manageScript)
-    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.6\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.62.7" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.62.7"
+    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.6\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.62.8" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.62.8"
 
     $versionMismatchAuthority = Join-Path $testRoot "folder-version-mismatch-authority"
     New-Item -ItemType Directory -Path $versionMismatchAuthority | Out-Null
