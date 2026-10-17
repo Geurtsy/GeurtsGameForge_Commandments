@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: FORGE-DEVELOPMENT-ONLY -->
 # Contributing to Commandments
 
-**Version:** 0.62.9
+**Version:** 0.62.10
 
 This repository owns generic development standards, contracts and their source-only maintenance tools. God, bricks and the compatibility adapter own their implementations. Project-specific design stays in the game's `Docs/GameDesign/`.
 
@@ -13,7 +13,15 @@ Use concise, literal instructions with explicit applicability, inputs, outputs a
 
 Use the Automation owner's [Git-only source-control policy](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#git-source-control). Work on Windows in a short source checkout. Follow the [technical priorities, path preflight and CRLF policy](GeurtsTechniques/GeurtsTechnicalTechnique.md). Preserve unrelated work and all frozen payload bytes. Stage every intended new file so the validator can compare the complete Git inventory with the manifest registry.
 
-Every delivered change needs an appropriate higher documentation version. Update the entry, manifest registry, current metadata, changed tool versions and changelog together. Bump a technique when its own guidance changes; keep unchanged schemas, installer artifacts, historical records and brick pins intact. The entry point owns the detailed version rules.
+Every delivered change needs an appropriate higher documentation version. The integration owner assigns it before delivery, following the shared queue below. Update the entry, manifest registry, current metadata, changed tool versions and changelog together. Bump a technique when its own guidance changes; keep unchanged schemas, installer artifacts, historical records and brick pins intact. The entry point owns the detailed version rules.
+
+## Queue an update
+
+All contributors use the Automation owner's [shared integration queue](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#shared-integration-queue). In this source repository, scoped pull requests form the shared queue and one integrator processes a ready request at a time. Follow declared dependencies, then oldest-ready order; name the integrator in the pull request before final integration. Do not merge a second request while the prior request's publication and outcome are unfinished.
+
+Prepare the task on an isolated branch and submit the exact source commit, scope, proposed version increment/reason, dependencies, implementation and validation evidence, and unverified checks. The integrator handles final version/registry/changelog reconciliation, required checks and publication; the contributor and integrator may be the same person. Workers do not repeatedly update versions or rebase solely because unrelated requests land. An initial request can precede the final version assignment, but its complete versioned candidate must pass every required gate before merging.
+
+Use the validation and publication steps below for that final candidate. After publishing, perform and record the queue owner's explicit pull checks, verify remote `main` and the matching immutable release, and record the delivered commits, version, validation and remaining checks in the pull request's outcome. A queued or open request is not a completed update. This is a shared contributor procedure; GitHub enforcement is not added by these instructions.
 
 ## Validate
 

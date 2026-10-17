@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.11.5
+**Version:** 0.11.6
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers and compatible Unity integrations
@@ -9,7 +9,7 @@
 
 ## Purpose
 
-This technique defines concise, reusable operational behaviour for AI-assisted game development. It does not define a document resolver, technical priority system, integration lifecycle, or product feature. `GeurtsTechniqueManifest.md` alone decides when this technique applies, where it is read, and which subject owner resolves a conflict.
+This technique defines concise, reusable operational behaviour for AI-assisted game development. It does not define a document resolver, technical priority system, product integration lifecycle, or product feature. `GeurtsTechniqueManifest.md` alone decides when this technique applies, where it is read, and which subject owner resolves a conflict.
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ### Provenance
@@ -70,13 +70,36 @@ Use focused checks while editing. Run required final validation once for the com
 
 Apply the [Technical Technique's complete path preflight](GeurtsTechnicalTechnique.md#absolute-path-length-and-workspace-roots) to every Codex and GameForge project before creating, copying, extracting or moving content. Check foreseeable dependency/cache/temporary/generated descendants, report the exact offending path and length, and use a shorter location for new task-owned work. Existing user content requires explicit authorization to move. This guidance installs no automatic path checker.
 
+## Shared Integration Queue
+
+**Route every completed update through one shared integration queue per owning Git repository.** This applies to human contributors and AI chats/agents on every machine, including game, Forge package and Commandments source work. Contributors prepare changes independently; one integration owner at a time integrates, assigns final versions and publishes to `main`. A contributor may also act as integrator, but must follow the same queue and completion checks.
+
+Use the repository's documented queue commands or contributor procedure. A scoped pull-request queue processed serially by a named integrator is sufficient when dedicated automation is absent. Keep queue order, ownership and outcomes visible to all contributors; a machine-local lock alone cannot coordinate multiple machines. This documentation adds no queue service or GitHub enforcement. Do not change repository permissions, accounts, apps or branch protections merely to adopt it.
+
+### Contributor handoff
+
+- Work on a focused task branch in an isolated worktree or clone, preserving the original checkout, index, uncommitted changes and live Unity state.
+- Submit the exact source commit, base/dependencies, scope, proposed version increment and reason, implementation details, validation results and evidence, tested inputs/environment, and every unverified check with its next step.
+- Leave the final version assignment, shared release metadata/history and publication to the integrator. Task-specific documentation remains part of the task. Every update still needs its own appropriate higher version before delivery, including small edits without a build; use the entry point's SemVer rules or an explicit owning-project version policy.
+- Continue independent work without repeatedly rebasing, renumbering or rerunning unchanged checks solely because unrelated `main` work landed. Refresh a queued submission when its own content, relevant dependencies, acceptance conditions or required checks change. Respect required branch-current gates.
+
+### Integration and completion
+
+1. Claim the next ready submission through the shared queue's exclusive ownership mechanism. Preserve recorded dependencies and deterministic order. Do not process simultaneously from another machine or take over an active integrator; failed ownership recovery must follow the repository's documented procedure.
+2. Fetch current `main` and release/version history, integrate the exact queued source, and resolve actual overlaps in the isolated integration checkout. Assign the next version from the final scope and current shared history, accounting for all contributors' previously unaccounted changes once. Keep affected source, runtime/build metadata and tracked version history consistent. Never reuse a released version for changed content. Missing or conflicting version evidence blocks assignment.
+3. Validate the final combined candidate with the required repository checks, reviews and protections. Reuse prior evidence only where its relevant source, inputs, dependencies and environment remain unchanged; record what it covers. Run affected checks for real changes or failures, plus unavoidable final gates. An unrelated upstream commit alone does not justify repeating every worker's validation.
+4. Publish the completed candidate to remote `main` through the supported non-force push or approved pull-request process. If upstream moves, reconcile the integration candidate and version there, rerunning affected checks; return only genuine task conflicts or failures to their owner. After publication, explicitly pull `main` from the same remote with `git pull --ff-only <remote> main` in the integration checkout. Also pull into the original checkout when it is already on `main` and its index/local changes can be preserved. Never switch the user's branch, auto-stash unrelated work, discard edits or reset a checkout to make synchronization succeed.
+5. Record the delivered source and verified remote-main commits, assigned version, validation evidence, unverified checks and post-publication pull results in the queue outcome. Verify that remote `main` contains the intended changes and complete required immutable releases. A queued submission, successful worker check or candidate push is not delivery. Report a blocked pull, merge, version assignment or release with its exact remaining step; do not claim completion or consume the same update/version twice on retry.
+
+Queue tooling, storage, lock recovery, version-history format and build delivery remain owned by each repository. Document their supported contributor steps there. This workflow does not itself require a player build, install dependencies or update consumer copies.
+
 ## Codex Delivery to Main
 
 This rule applies independently to **every Geurts Game Forge package source repository**, including God, BigBang, the passive Commandments compatibility adapter, and every current or future brick owner, as well as **`Geurtsy/GeurtsGameForge_Commandments` itself**. For a task that changes multiple owners, commit and deliver each changed repository to its own remote `main`. A Unity test or consumer project is not a substitute delivery destination for those sources.
 
 Codex must always merge completed, appropriately validated changes into the owning repository's `main` branch unless the current user explicitly specifies another destination or asks to leave the work unmerged. Do not stop at a local edit, feature branch, draft or open pull request when the authorized work can be safely completed and merged. The user's request for implementation supplies standing authorization for this delivery step; do not ask for redundant merge permission.
 
-Follow the repository's supported merge workflow, required checks and branch protections. Keep the merge scoped to the requested changes, preserve unrelated work and unsaved Unity state, and verify that the intended commit is present on remote `main` when a remote exists. This rule does not authorize force-pushing, bypassing failed checks or protections, or merging unrelated or incomplete work. If a real blocker prevents the merge, finish the safe work available and report the exact blocker and remaining delivery step without claiming a successful merge.
+Use the [shared integration queue](#shared-integration-queue) for this delivery, preserving the repository's supported merge workflow, required checks and branch protections. Keep the merge scoped to the requested changes, preserve unrelated work and unsaved Unity state, and verify that the intended commit is present on remote `main` when a remote exists. This rule does not authorize force-pushing, bypassing failed checks or protections, or merging unrelated or incomplete work. If a real blocker prevents the merge, finish the safe work available and report the exact blocker and remaining delivery step without claiming a successful merge.
 
 ### Remote publication and consumer installation
 
