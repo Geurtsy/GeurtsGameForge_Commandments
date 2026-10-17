@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.11.7
+**Version:** 0.11.8
 **Status:** Draft normative technique
 **Primary audience:** AI coding agents and automated development systems
 **Secondary audience:** Human developers and compatible Unity integrations
@@ -119,6 +119,17 @@ For every brick feature or maintenance change, follow the Brick Contract's publi
 Avoid using the user's computer interactively for tests. By default, do not activate or focus application windows, inject mouse or keyboard input, manipulate the desktop, or use computer-use tools to run tests or gather test screenshots. Prefer background command-line checks, supported APIs and connectors, headless or batch tests, and isolated fixtures that preserve the user's live work. Ordinary local file operations and background tests remain allowed when they do not take over the desktop or disturb live application state.
 
 Interactive testing requires the current user to explicitly request or authorize that exception. If a required test cannot be completed without interactive computer control, report that exact unverified surface and its practical verification path. Do not treat missing interactive evidence as a pass or silently waive the owning technique's acceptance gates.
+
+### Background processes must preserve desktop input
+
+**Background automation must not open foreground windows, steal keyboard focus, capture input or interrupt the user's desktop.** This applies to all games using these standards, including future games and StandardsOnly projects, and to supporting Forge tools. Cover the complete process tree: queue processors, Git and its helpers, shells, credential prompts, validation tools and unattended Editor/player tests, from startup through failure handling and shutdown. A hidden or detached parent, redirected output, batch mode or loss of focus alone does not establish that child processes remain hidden.
+
+- Suppress console creation at launch for every console subprocess. On Windows, use `CREATE_NO_WINDOW` or the host API's supported equivalent. Do not combine it with `DETACHED_PROCESS` or `CREATE_NEW_CONSOLE`; Windows ignores the no-window flag in those combinations. Do not open a window and hide or minimize it afterwards. The flag does not hide GUI applications; they need their own supported headless/non-interactive mode or an isolated test environment.
+- Keep background Git and credential helpers non-interactive, capture output in logs and report missing access as a concrete blocker. Do not open terminal, browser sign-in or credential dialogs from an unattended job. User-authorized authentication is a separate explicit foreground action.
+- Do not activate windows, inject input, block desktop input or change global focus/input settings to make automation work. Preserve the user's normal Editor, game and other application sessions. If a tool cannot guarantee this boundary, do not launch it unattended; record the exact blocked check and its supported verification path.
+- Before deploying or materially changing a background launcher, verify it from a genuinely detached/background parent with no inherited console. Exercise representative children, including Git/helpers and validation commands, and applicable startup/failure paths. Record evidence of console/window suppression and absence of focus/input takeover without injecting input into the user's desktop. An attached terminal run or one idle-window sample alone is insufficient evidence; retain any unverified GUI/helper path explicitly.
+
+Windows flag behavior is defined by [Microsoft's process creation flags](https://learn.microsoft.com/en-us/windows/win32/procthread/process-creation-flags). The owning repository implements and validates its launch mechanism; this documentation does not install one or certify existing launchers.
 
 Use the user's PC interactively for implementation only when it is absolutely necessary to complete the authorized change correctly. First use suitable file tools, supported APIs, connectors or command-line methods where they can perform the work correctly. When those methods cannot implement the required operation, use computer control for the minimum necessary implementation step, preserve open scenes, unsaved content, settings and application layout, and release control promptly. Necessary implementation control does not authorize incidental interactive testing. Continue to use validated Unity Editor APIs for Unity-owned serialization under the boundary below.
 
