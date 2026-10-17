@@ -310,9 +310,9 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 ### 0.62.10 — 17 October 2026
 
-- Require one shared contributor integration queue per repository, with isolated task work and serialized final version assignment, validation and publication to main.
+- For games we work on using Commandments as their technical documentation, require one shared contributor integration queue per game repository, with isolated task work and serialized final version assignment, validation and publication to main.
 - Reuse valid evidence and avoid repeated worker rebases for unrelated changes; require post-publication pulls and verified completion records.
-- Add the Commandments source contributor procedure without installing queue tools, changing GitHub enforcement or updating consumer copies.
+- Preserve Forge package and Commandments source contribution workflows; install no queue tools, change no GitHub enforcement and update no consumer copies.
 
 ### 0.62.9 — 16 October 2026
 

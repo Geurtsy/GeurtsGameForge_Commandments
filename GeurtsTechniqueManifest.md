@@ -144,7 +144,7 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `GeurtsTechniques/GeurtsEditorAppearanceTechnique.md` | 0.1.6 | Editor workflows, Help, tabs, sections, callouts and inline findings. |
 | `GeurtsTechniques/GeurtsDiagnosticsTechnique.md` | 0.4.1 | Optional capture, commands, history, health, sessions and metrics. |
 | `GeurtsTechniques/GeurtsBrickCatalogue.json` | 0.62.10 | Current published packages and immutable Git targets. |
-| `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md` | 0.11.6 | Shared contributor queue, serialized versioning, validation, delivery and computer-control boundaries. |
+| `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md` | 0.11.6 | Game contributor queue, serialized versioning, validation, delivery and computer-control boundaries. |
 | `GeurtsTechniques/GeurtsFolderStructureTechnique.md` | 0.16.6 | Normative folder meanings, placement, reuse and safe extension. |
 | `GeurtsTechniques/GeurtsFolderStructureDefinition.json` | 0.62.10 | Exact folder registry and creation profiles. |
 | `GeurtsTechniques/GeurtsAIAgentSetupTechnique.md` | 3.1.2 | Exact routes, consent boundaries and separately invoked manual manager. |
