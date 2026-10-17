@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge AI Entry Point
 
-**Version:** 0.62.9
+**Version:** 0.62.10
 **Purpose:** First documentation entry and session boundary, before manifest resolution.
 **Required package path:** `AI_READ_FIRST.md`
 
@@ -32,6 +32,8 @@ Use `MAJOR.MINOR.PATCH` (for example, `1.4.2`):
 | Patch | Bug fixes, documentation corrections and small compatible improvements. | Fix a version display or clarify instructions. |
 
 Reset the lower components when increasing a higher component. For pre-1.0 packages, continue to increment versions and clearly document breaking changes.
+
+For games we work on using GeurtsGameForge_Commandments as their technical documentation, use the Automation owner's [shared integration queue](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#shared-integration-queue) for contributor handoff and serialized final version assignment. Independent game task branches need not repeatedly renumber when unrelated work lands; each completed game update still receives its higher version before delivery. Forge package sources and this documentation repository retain their existing contribution and publication processes.
 
 Bump each affected independently released package and the documentation package when its content changes. Keep package.json, runtime-reported versions, documentation manifest/contract/catalogue metadata and changelogs consistent. Individually versioned techniques advance when their own rules change; unchanged schema versions and historical records do not need artificial changes. A catalogue pin must resolve to the exact published package identity and version. Validate that the new version exceeds the previous published version before merging or publishing. Do not describe an equal-number changed release as a normal successful version update.
 
