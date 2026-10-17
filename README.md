@@ -67,7 +67,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.62.10
+**Version:** 0.62.11
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -307,6 +307,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 Angels owns **Install Codex guide**; God navigates to it and compatibility APIs forward to the same owner. Follow the [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) for an explicitly selected existing folder, including the project root, and the separate cancel-default replacement confirmation. Content/package updates never install or rewrite guides.
 
 ## Changelog
+
+### 0.62.11 — 17 October 2026
+
+- For games using Commandments as technical documentation, worker chats submit once and end their turn with a pending queue ID; one background processor owns versioning, validation, main publication and post-push pulls.
+- Prohibit worker polling, competing processors, automatic requeues and replacement-checkout loops. Require processor preflight, exclusive ownership, retained failure evidence and one actionable alert before explicit recovery.
+- Keep queued work distinct from verified delivery and later task handoff; preserve Forge package/documentation contribution workflows and manual consumer updates.
 
 ### 0.62.10 — 17 October 2026
 
