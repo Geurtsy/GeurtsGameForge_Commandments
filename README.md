@@ -67,7 +67,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.62.11
+**Version:** 0.62.12
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -308,6 +308,11 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 ## Changelog
 
+### 0.62.12 — 17 October 2026
+
+- Automation Technique 0.11.8 requires background game automation and every subprocess to preserve desktop input and focus, including future games and StandardsOnly projects.
+- Require launch-time console suppression, non-interactive authentication, supported GUI/headless isolation and detached-parent validation. Document Windows flag incompatibilities; retain explicit blockers and unverified helper paths instead of opening prompts or taking over the desktop.
+- Documentation-only guidance; no installed consumer copy, launcher, dependency, frozen payload or schema is changed.
 ### 0.62.11 — 17 October 2026
 
 - For games using Commandments as technical documentation, worker chats submit once and end their turn with a pending queue ID; one background processor owns versioning, validation, main publication and post-push pulls.
