@@ -67,7 +67,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.62.12
+**Version:** 0.62.13
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -307,6 +307,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 Angels owns **Install Codex guide**; God navigates to it and compatibility APIs forward to the same owner. Follow the [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) for an explicitly selected existing folder, including the project root, and the separate cancel-default replacement confirmation. Content/package updates never install or rewrite guides.
 
 ## Changelog
+
+### 0.62.13 — 18 October 2026
+
+- Automation Technique 0.11.9 requires [renewable leases and automatic abandoned-owner recovery](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#automated-publisher-leases-and-recovery) for automated cross-machine game publishers, including future games and StandardsOnly projects; manual named-integrator pull-request queues remain valid.
+- Require persistent fast-forward ownership history, monotonic expiry observations, heartbeats during long checks, atomic fencing of code/results/checkpoints, exact control-ref verification and confirmed-stopped legacy migration. Preserve existing roots/settings during explicit runner upgrades and keep real access, dirty-work, validation and pull failures visible.
+- Documentation-only requirements; no game implementation, installed consumer, brick pin, schema, frozen payload or offline installer is changed. Each adopting game must implement and validate its own compatible policy; one healthy configured processor is still needed.
 
 ### 0.62.12 — 17 October 2026
 
