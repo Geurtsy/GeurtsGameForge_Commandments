@@ -67,7 +67,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.62.13
+**Version:** 0.62.14
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -301,12 +301,20 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - `Migrations/v0.11.0.md` - non-normative transition guide for the independent companion and closed whole-file AI-route contract.
 - `Migrations/v0.9.0.md`, `Migrations/v0.8.0.md`, and `Migrations/v0.7.0.md` - superseded historical notes; they do not define an executable current workflow.
 - `Ideas/GameForgeIntelligenceIdeas.md` - non-normative historical product pointer.
+- [GeurtsGameForgeGitFlow implementation reminder](Ideas/GeurtsGameForgeGitFlowPlan.md) - PLANNED Editor-only brick; small milestones, no available package or installation action.
 
 ## Codex guide installation
 
 Angels owns **Install Codex guide**; God navigates to it and compatibility APIs forward to the same owner. Follow the [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) for an explicitly selected existing folder, including the project root, and the separate cancel-default replacement confirmation. Content/package updates never install or rewrite guides.
 
 ## Changelog
+
+### 0.62.14 — 19 October 2026
+
+- Automation Technique 0.12.0 extends the existing [shared integration owner](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#shared-integration-queue) with portable source-bound evidence, safe bounded repair/whitespace, native merged compatibility identities and committed-runner upgrades/recovery. Preserve project-owned strict/advisory acceptance, original IDs/receipts/versions, required gates, non-force fencing and actual pulls.
+- Require complete native raw-input/order proofs after restoration, versioning, gameplay and final commit; silence from startup; hidden non-interactive children; compatible time budgets and inspection that cannot corrupt a concurrent pull's fetch state. Missing evidence and genuine ownership/access/native failures remain actionable.
+- Add the small [GeurtsGameForgeGitFlow plan](Ideas/GeurtsGameForgeGitFlowPlan.md), explicitly PLANNED with shared Editor/API controller milestones. Documentation only: no brick implementation, package pin, installed consumer, game processor, frozen payload, schema or offline installer is changed.
+
 
 ### 0.62.13 — 18 October 2026
 
