@@ -67,7 +67,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.62.15
+**Version:** 0.62.16
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft technique package
 **Primary audience:** Human developers
@@ -301,13 +301,19 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - `Migrations/v0.11.0.md` - non-normative transition guide for the independent companion and closed whole-file AI-route contract.
 - `Migrations/v0.9.0.md`, `Migrations/v0.8.0.md`, and `Migrations/v0.7.0.md` - superseded historical notes; they do not define an executable current workflow.
 - `Ideas/GameForgeIntelligenceIdeas.md` - non-normative historical product pointer.
-- [GeurtsGameForgeGitFlow milestones](Ideas/GeurtsGameForgeGitFlowPlan.md) - read-only Editor viewer published; submission, publishing and recovery remain planned. Native presentation limits and manual adoption are explicit.
+- [GeurtsGameForgeGitFlow milestones](Ideas/GeurtsGameForgeGitFlowPlan.md) - generic submit-once publisher published with queue-owned versions, fenced leases and receipts; broad recovery and optional AI remain planned. Native presentation limits and manual adoption are explicit.
 
 ## Codex guide installation
 
 Angels owns **Install Codex guide**; God navigates to it and compatibility APIs forward to the same owner. Follow the [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) for an explicitly selected existing folder, including the project root, and the separate cancel-default replacement confirmation. Content/package updates never install or rewrite guides.
 
 ## Changelog
+
+### 0.62.16 — 19 October 2026
+
+- Publish the [GitFlow generic publisher milestone](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/releases/tag/v0.2.0): shared no-code/API policy authoring, submit-once handoff and an independent deterministic Windows host with declared version file/required commands, renewable fenced leases, atomic publication and source-bound receipts.
+- Record exact owning acceptance and remaining native UI/access limits in the release. Original clean-candidate/receipt continuation retains IDs, versions and attempts; general conflict recovery, safe whitespace correction, native identity adapters, committed-runner migration and optional authorized AI repair remain planned.
+- Keep all other brick pins, normative techniques, schemas and frozen payloads unchanged. Source publication does not install a consumer, replace a running runner or change Dreadvault's processor.
 
 ### 0.62.15 — 19 October 2026
 
