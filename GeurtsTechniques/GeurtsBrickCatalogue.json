@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "packageVersion": "0.62.15",
-  "publishedUtc": "2026-10-19T13:11:38.1770314Z",
+  "publishedUtc": "2026-10-19T13:16:57.5340694Z",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -263,11 +263,11 @@
       "name": "Geurts Game Forge GitFlow",
       "description": "Editor-only read-only queue, processor observation, lease and receipt viewer with one shared API/UI service. Refresh is explicit, bounded and timestamped; unknown ownership and retained failures stay visible. Unity 6000.6.3f1: eight owning acceptance fixtures passed, zero failed/skipped, including byte/index/ref preservation and HTTPS helper cancellation. Native rendered UI remains unverified. Public HTTPS and absolute local remotes only; submission, publisher, retry and recovery are not implemented. Consumer installation is manual.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#5a3a002995afb7999171d91c3ce98e2417c9c6db",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#d353993ff861d941de294bc9312883f621dcc07d",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [

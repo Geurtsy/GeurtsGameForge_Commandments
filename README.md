@@ -311,7 +311,7 @@ Angels owns **Install Codex guide**; God navigates to it and compatibility APIs 
 
 ### 0.62.15 — 19 October 2026
 
-- Publish the first [GitFlow source milestone](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/releases/tag/v0.1.0) in the authoritative catalogue: one read-only queue/processor/lease/receipt service, public API and no-code Editor view using God. Explicit bounded refresh preserves dated observations and actionable unknown/failure states.
+- Publish the first [GitFlow source milestone](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/releases/tag/v0.1.1) in the authoritative catalogue: one read-only queue/processor/lease/receipt service, public API and no-code Editor view using God. Explicit bounded refresh preserves dated observations and actionable unknown/failure states.
 - Unity 6000.6.3f1: eight owning disposable-Git/Editor acceptance fixtures passed, zero failed/skipped; exact source, receipts and report hashes are pinned in owning evidence. Native rendered layout, docking, skins/scaling and transient window visibility remain unverified; observed PID presence never certifies ownership. No publisher, submission, retry, configuration write or recovery capability is released.
 - Consumer installation stays manual. No live Unity consumer, Dreadvault processor/runner, other brick pin, schema or frozen payload is changed. The GitFlow plan now distinguishes implemented inspection from later planned milestones.
 
