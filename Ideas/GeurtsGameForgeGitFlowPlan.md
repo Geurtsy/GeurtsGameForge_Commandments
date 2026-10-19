@@ -1,25 +1,25 @@
 <!-- GEURTS-AUDIENCE: FORGE-DEVELOPMENT-ONLY -->
-# GeurtsGameForgeGitFlow — implementation reminder
+# GeurtsGameForgeGitFlow — implementation milestones
 
-**Version:** 0.1.0
-**Status:** PLANNED — not implemented, available or installed
+**Version:** 0.2.0
+**Status:** Read-only viewer published; later milestones PLANNED
 **Required package path:** `Ideas/GeurtsGameForgeGitFlowPlan.md`
 
-Proposed brick name: **GeurtsGameForgeGitFlow**. This is a small planning reminder, not a scheduled task, package release, supported API or installation instruction. No repository URL, package ID, version pin or operation ID is reserved here. The [Automation Technique](../GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#shared-integration-queue) remains the normative workflow owner; this plan does not alter any repository's contribution or acceptance policy.
+The owning source is [Geurtsy/com.geurts.gameforge.gitflow](https://github.com/Geurtsy/com.geurts.gameforge.gitflow), package `com.geurts.gameforge.gitflow`. Use the current Catalogue for its exact released version/commit and owning validation evidence. Source publication does not install a consumer. The [Automation Technique](../GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#shared-integration-queue) remains the normative workflow owner and retains every repository's acceptance policy.
 
-## Intended scope
+## Implemented inspection milestone
 
-Plan an Editor-only no-code workflow and documented public API over the **same deterministic controller**. It should offer idempotent submission, read-only queue/receipt viewing with refresh time, actual processor health, guarded same-ID recovery and explicit stopped-owner upgrades. The configured background host must not need an open AI chat or an open Editor. Integrate through existing God contracts and UI owners where applicable; inspect real supported capabilities before designing extensions. Preserve optional peer dependencies and manual consumer adoption.
+The Editor-only no-code viewer and documented API share one lifecycle-owned read-only inspection service, God theme/menu integration and the supported inspect_queue operation. Explicit bounded refresh displays immutable queue/control observations, recorded source/size/version/commit, matching receipts, raw validation claims, local processor observations, lease states, failures and refresh timestamps. It never submits, starts a processor, acquires a lock, retries or saves configuration. Only public HTTPS and absolute local remotes are supported.
 
-AI repair is optional and separately user-authorized, with explicit project-selected model/reasoning, bounded context and truthful provenance. The controller and independent required gates remain outside proposal writes. Native derived-output owners are project adapters, not hardcoded game rules. This is queue recovery, not a general settings migration/rollback framework.
+Eight owning disposable-Git/Editor fixtures passed on Unity 6000.6.3f1, zero failures/skips. They exercise preservation, faults, receipts, installed operation discovery/dispatch, UI/API result identity, HTTPS helper cancellation and cleanup. Native rendered layout/docking/skins/scaling and transient window visibility remain unverified. PID presence cannot certify ownership; lease audit dates cannot prove expiry; validation claims and current-main ancestry are not revalidated by the viewer. Refer to the exact owner release for limits and evidence. No game processor, runner or live consumer is changed.
 
-## Small implementation plan
+## Remaining planned milestones
 
 | Priority | Deliverable | Acceptance milestone |
 |---|---|---|
-| 1 | Read-only repository/policy discovery and health/receipt viewer. | Distinguish unconfigured, stopped, busy, validating, retained failure and released lease; show source, actual phase, refresh time and actionable evidence without remote polling on every repaint. |
-| 2 | One shared submit/publisher service with no-code controls and API. | Submit once returns a stable ID; one locally exclusive/fenced publisher performs project-owned versioning, required gates, native derived-output proofs and verified publication/pulls. No duplicate update/version on recovery. |
-| 3 | Guarded retention, recovery and committed-runner upgrade. | Preserve exact candidate/index/history and settings/root, reject live/stale owners, honor known compatibility, restore normal all-requests mode after scoped maintenance. |
-| 4 | Owning-source and UI/fault fixtures, then a separately authorized release. | Real disposable Git races/crashes, source-bound missing evidence, literal-safe whitespace, native proof drift, old/new helper flags and config restoration pass; Editor/API share results and guards. Verify startup silence, hidden/non-interactive children, no desktop focus/input takeover and honest unavailable surfaces. |
+| 2 | Idempotent submission and one independent deterministic publisher, with shared no-code/API controls. | Workers submit once and stop; the configured host runs without an open chat or Editor. Preserve exact submitted IDs/sources and project-owned required gates. |
+| 3 | Queue-owned versions, fenced renewable leases, validation and publication receipts. | One locally exclusive publisher; atomic non-force fencing, source-bound evidence and verified publication/pulls. Recovery never assigns a second version to an already delivered request. |
+| 4 | Same-ID recovery, literal-safe whitespace correction, native derived identities and committed-runner upgrades. | Preserve candidate/index/history/settings/evidence, reject unknown/live owners, honor known compatibility, and restore normal all-request mode after scoped maintenance. |
+| 5 | Optional separately authorized AI repair. | Explicit project-selected model/reasoning, bounded complete context/proposals, protected controllers and independent gates, truthful provenance and retained failures. |
 
-**Next action reminder:** before implementation, inspect existing God services and the current catalogue, select the owning source repository and applicable Technical/Unity/Code/Editor UI/Brick owners, then propose the smallest first milestone. Publish only after real implementation and source/UI/failure evidence; add catalogue metadata only under its real planned/released contract. Do not install this plan into games or claim these milestones already passed.
+Later milestones have no implemented operations in the first viewer release. Keep optional peers optional and consumer adoption manual. Native derived-output owners remain project adapters, never hardcoded game rules. This is queue recovery, not a general settings migration/rollback framework.
