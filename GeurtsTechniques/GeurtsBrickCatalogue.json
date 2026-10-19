@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.62.15",
+  "packageVersion": "0.62.16",
   "publishedUtc": "2026-10-19T13:16:57.5340694Z",
   "bricks": [
     {
@@ -261,13 +261,13 @@
     {
       "id": "com.geurts.gameforge.gitflow",
       "name": "Geurts Game Forge GitFlow",
-      "description": "Editor-only read-only queue, processor observation, lease and receipt viewer with one shared API/UI service. Refresh is explicit, bounded and timestamped; unknown ownership and retained failures stay visible. Unity 6000.6.3f1: eight owning acceptance fixtures passed, zero failed/skipped, including byte/index/ref preservation and HTTPS helper cancellation. Native rendered UI remains unverified. Public HTTPS and absolute local remotes only; submission, publisher, retry and recovery are not implemented. Consumer installation is manual.",
+      "description": "Editor-only native/legacy read-only inspection, shared no-code/API policy authoring, submit-once handoff and a separately extracted independent Windows/.NET 10 generic publisher. Declared plain SemVer file, pinned required console tools, protected controllers, request dependencies, fenced renewable leases, atomic publication/receipts and bounded original-candidate/receipt continuation. Eleven Unity 6000.6.3f1 fixtures and ten detached real-Git scenarios passed; source/recipe-bound evidence is in the owning release. Native rendered UI and real private HTTPS remain unverified. General conflict/whitespace/native-identity repair, runner migration and optional AI repair remain planned. Consumer and runner adoption are manual; no Dreadvault processor change.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow",
-      "version": "0.1.1",
+      "version": "0.2.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#d353993ff861d941de294bc9312883f621dcc07d",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#c726a1ec047ae0efd9b4b87b9c8dc0cd194beee6",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
