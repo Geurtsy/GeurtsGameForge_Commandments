@@ -3,6 +3,10 @@
 
 Development standards and contracts for humans and AI agents. Start at [AI_READ_FIRST.md](AI_READ_FIRST.md), then the [manifest](GeurtsTechniqueManifest.md). Source contributors also follow [CONTRIBUTING.md](CONTRIBUTING.md). Current brick versions and immutable Git sources belong only in the [catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json).
 
+## Runtime and compilation rules in 0.62.18
+
+The [Unity topic](GeurtsTechniques/GeurtsUnityTechnique.md#collider-movement-and-trigger-based-detection) now owns physics-based collider movement, trigger-driven detection, coroutine scheduling and the zero-warning main gate. The [Code topic](GeurtsTechniques/GeurtsCodeTechnique.md#scriptableobjects-and-object-references) makes the ScriptableObject architecture explicit; the [Technical core](GeurtsTechniques/GeurtsTechnicalTechnique.md#performance-trade-off-guidance-under-efficiency) retains measured FPS priority over memory, storage and load-time savings. This is a documentation policy update; consumers adopt it manually.
+
 ## AI reading efficiency in 0.62.17
 
 The catalogue now leads with package purpose and limits. Each package's AI entry routes tasks to exact current guides; repeated Angels and BigBang instructions have one complete owner. The [practical integration contract](GeurtsTechniques/GeurtsBrickContract.md#current-installation-and-practical-game-integration) requires reproducible disposable tests and current setup defaults. See the coordinated release for the exact updated owner pins and validation. Consumer package and Commandments updates remain separate manual actions.
@@ -71,7 +75,7 @@ Diagnostics 0.6.0 adds **Select text** / **Exit selection** to runtime and Edito
 
 Game Forge God distinguishes **Planned**, **Available** and **Installed** independently of update status. `released: false` marks an unreleased catalogue entry; `released: true` marks a published release. Installed is determined from the actual Unity project. Unreleased entries carry no installation actions or update checks. Their package identifiers reserve catalogue identities; release versions, sources and verified compatibility are selected when the packages are implemented and published.
 
-**Version:** 0.62.17
+**Version:** 0.62.18
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft technique package
 **Primary audience:** Human developers
