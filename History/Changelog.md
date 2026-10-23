@@ -6,6 +6,13 @@
 
 Non-normative release evidence, preserved from the 0.62.0 README. Versions, planned statuses and test counts describe their recorded context; use the current manifest and catalogue for requirements. Read only for requested history or an applicable migration.
 
+## 0.62.18 - 2026-10-24
+
+- Require physics APIs for collider movement, trigger-based detection and owned coroutines instead of Update polling, retaining required physics callbacks.
+- Strengthen ScriptableObject architecture and measured FPS priority over storage, memory and loading savings.
+- Require warnings-as-errors and zero compiler warnings/errors before every main publication; remove the older third-party-warning allowance.
+- Documentation-only policy update; no installed packages, Unity projects or game-design files are changed or certified.
+
 ## 0.62.17 - 2026-10-23
 
 - Compact catalogue purposes and package task routing; centralize repeated guidance.

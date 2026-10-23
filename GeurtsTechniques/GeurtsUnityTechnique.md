@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Unity Technical Topic
 
-**Version:** 0.3.3
+**Version:** 0.3.4
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsUnityTechnique.md`
@@ -66,7 +66,7 @@ For Steam-related packages and Windows player changes, select the [Steam Integra
 
 ### Current API choices
 
-Never use a Unity or dependency API marked deprecated or obsolete in the minimum or selected newer Editor in new or updated code, tests, tools or examples. Replace deprecated calls with supported APIs while preserving their behavior. Treat compiler deprecation warnings as failures for first-party code; do not suppress them or keep a deprecated call merely because it still compiles. Review the installed API documentation and compile in the recorded selected Editor and retain minimum-version compatibility checks before release.
+Never use a Unity or dependency API marked deprecated or obsolete in the minimum or selected newer Editor in new or updated code, tests, tools or examples. Replace deprecated calls with supported APIs while preserving their behavior. The [zero-warning compilation gate](#zero-warning-compilation-gate) applies to all compiler warnings, including deprecation warnings; do not suppress them or keep a deprecated call merely because it still compiles. Review the installed API documentation and compile in the recorded selected Editor and retain minimum-version compatibility checks before release.
 
 Prefer serialized references, explicit dependency wiring, and cached component access over scene-wide discovery. When discovery is necessary, use `Object.FindAnyObjectByType<T>()` for an arbitrary match or `Object.FindObjectsByType<T>()` for all matches. Specify inactive-object handling deliberately. In Unity 6000.6, `FindFirstObjectByType` and the `FindObjectsByType` overloads taking `FindObjectsSortMode` are deprecated because their instance-ID ordering cannot be maintained. Never use them. See [object discovery](https://docs.unity.com/en-us/engine/6000.6/script-reference/unityengine/object/findobjectsbytype).
 
@@ -83,9 +83,21 @@ Use the **Input System** package and input actions for new input work. Inspect t
 
 Use **Build Profiles** for new build configuration guidance and select the intended profile, scene list, platform, and scripting defines explicitly in automation. Do not assume legacy Build Settings instructions or one shared scene list describe every build. Existing supported build APIs may remain when they meet the same requirements. See Build Profiles.
 
+### Collider movement and trigger-based detection
+
+**Never move any object with a `Collider` or `Collider2D` through `transform.position`.** This includes triggers, compound-collider children, movement, spawning/repositioning and teleports. Do not bypass the rule through `localPosition`, `Translate`, transform-based tweens/animation or movement of an ancestor that carries the collider along. Use the owning `Rigidbody`/`Rigidbody2D` and supported physics movement APIs; keep static colliders stationary. An existing `CharacterController` uses its supported controller movement APIs without adding a competing Rigidbody; any unsupported repositioning requirement needs an explicit scoped decision. Preserve the intended body type and simulation behaviour: use forces/velocity for dynamic bodies and appropriate physics movement for kinematic bodies. Apply continuous movement at the physics timestep; intentional teleports use the body's physics position API, with explicit velocity/contact handling. Do not silently change an existing controller or serialized body setup.
+
+**Avoid raycasting, overlap spheres and other expensive physics queries; use trigger-driven detection instead.** This includes 2D equivalents, shape casts, repeated overlap checks and non-allocating variants: avoiding allocation does not eliminate the query cost. Configure the correct trigger/body combination and collision layers, handle enter/exit callbacks, and retain only the needed nearby references. Clean up membership when objects disable, despawn, return to a pool or unload; do not rely on an exit callback always occurring. Avoid continuous `OnTriggerStay` polling when enter/exit state suffices. Triggers still have simulation cost; constrain their size, layers and active count, and profile representative gameplay. If triggers cannot express a required behaviour, report the concrete limitation for an explicitly scoped decision rather than silently introducing query-based polling.
+
+Use the versioned Unity references for [Rigidbody movement](https://docs.unity.com/en-us/engine/6000.6/script-reference/unityengine/rigidbody/moveposition), [2D body movement](https://docs.unity.com/en-us/engine/6000.6/script-reference/unityengine/rigidbody2d/moveposition) and [trigger callbacks](https://docs.unity.com/en-us/engine/6000.6/script-reference/unityengine/collider/ontriggerenter). Verify movement and detection in the actual body/layer configuration; this documentation does not retrofit installed controllers.
+
 ### Async and lifecycle
 
-For Unity-oriented async operations, prefer `UnityEngine.Awaitable` where appropriate. Await each pooled instance only once. Preserve `Task` for suitable .NET/library interoperation and coroutines for appropriate existing frame-based workflows. Do not mechanically convert working code. Observe cancellation and exceptions, cancel work when its owner or application exits, and return to the main thread before using Unity APIs that require it. Do not hide failures in unobserved fire-and-forget work. See Awaitable and the async programming guide.
+**Use coroutines instead of `void Update()` for first-party recurring gameplay work.** Prefer event callbacks when no periodic work is needed; otherwise start an owned coroutine only while needed and yield at the lowest frequency that meets the behaviour. Do not replace `Update` with a coroutine that still performs unnecessary work every frame. Choose scaled or unscaled waits deliberately, avoid repeated yield allocations, prevent duplicate routines, and explicitly stop/reset work when its owner disables, despawns, returns to a pool or unloads. Coroutines run synchronous work on the main thread and are not automatically faster; profile the result. See [Unity's coroutine guidance](https://docs.unity.com/en-us/engine/6000.6/manual/scripting/coroutines-section).
+
+Retain required engine callbacks, including `FixedUpdate` for physics-timestep movement and trigger callbacks for detection. These are not replacements for general-purpose `Update` polling. A genuine API-required `Update` integration must be identified and explicitly approved in scope rather than hidden in a wrapper. Apply this rule to new and affected code; do not rewrite unrelated or vendor components.
+
+For genuinely asynchronous Unity operations, prefer `UnityEngine.Awaitable` where appropriate. Await each pooled instance only once. Preserve `Task` for suitable .NET/library interoperation. This async API choice does not replace the coroutine rule for recurring gameplay work. Observe cancellation and exceptions, cancel work when its owner or application exits, and return to the main thread before using Unity APIs that require it. Do not hide failures in unobserved fire-and-forget work. See Awaitable and the async programming guide.
 
 Respect the project's Enter Play Mode settings. When domain reload is disabled, reset owned static state deliberately and prevent duplicate event subscriptions across play sessions. Release subscriptions and resources at the appropriate runtime or Editor lifecycle boundary; Editor tools must account for assembly reload and window teardown. Test repeated entry and exit with the settings the project actually uses. See domain reload behavior.
 
@@ -105,8 +117,16 @@ Review platform and package-specific changes only where those systems are used. 
 
 <!-- GEURTS-SECTION:END -->
 
+### Zero-warning compilation gate
+
+**Every push or merge to `main` must have zero compiler warnings and zero compiler errors for the final candidate. Treat all compiler warnings as errors.** Configure the owning project's supported compiler/build settings and CI to enforce warnings-as-errors for applicable Editor and player compilations; verify the effective configuration rather than relying on an IDE display or a successful exit code alone. This gate also applies to non-Unity compiled projects following these standards through their own compiler settings.
+
+Retain complete compiler logs and require a completed, successful compile with no warning/error diagnostics. Include resolved dependencies: a third-party compiler warning still blocks publication. Resolve it through a supported dependency update or the owning source change; do not edit vendor/generated files, suppress warnings, lower warning levels or add exclusions merely to obtain a pass. Missing tooling, incomplete logs, skipped compilation or an unverified dependency graph is a blocker, not a zero-warning result. If upstream integration changes compilation inputs, revalidate the combined candidate before it reaches `main`.
+
+Use proportionate checks for the changed surface without waiving this gate. Existing compilation evidence may be reused only for identical relevant source, inputs, dependencies and environment. A documentation-only repository with no compiled implementation uses its required documentation checks; report compilation as not applicable, never as a verified zero-warning Unity build. This documentation establishes the policy; it does not configure or certify existing projects automatically.
+
 ### Verification and evidence
 
-For changed Unity implementation, compile at the **6000.6.3f1 minimum** and in the exact selected newer consumer Editor when one is used, resolve newly introduced errors and obsolete-API warnings, run relevant Edit Mode and Play Mode tests, and exercise affected behavior. Build and test the affected target player/backend when runtime compatibility is involved; Editor success does not prove IL2CPP, platform, or player compatibility. Report remaining third-party warnings or blockers separately.
+For changed Unity implementation, compile at the **6000.6.3f1 minimum** and in the exact selected newer consumer Editor when one is used, satisfy the zero-warning compilation gate, run relevant Edit Mode and Play Mode tests, and exercise affected behavior. Build and test the affected target player/backend when runtime compatibility is involved; Editor success does not prove IL2CPP, platform, or player compatibility. Remaining compiler warnings, including third-party warnings, block publication; report the exact blocker and supported resolution.
 
 For documentation-only changes, verify examples against versioned Unity and package references and run this repository's validator and isolated PowerShell automation suite. Report whether examples were actually compiled in Unity. These checks do not certify separate game or companion repositories. If the required Editor, package, platform module, or project is unavailable, state the exact unverified surface rather than claiming full compatibility.
