@@ -1,10 +1,16 @@
 <!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
+
 # Commandments release history
 
 **Version:** 1.0.0
 
 Non-normative release evidence, preserved from the 0.62.0 README. Versions, planned statuses and test counts describe their recorded context; use the current manifest and catalogue for requirements. Read only for requested history or an applicable migration.
 
+## 0.62.16 - 2026-10-23
+
+- Compact catalogue purposes and package task routing; centralize repeated guidance.
+- Require reproducible isolated recipe setup, current API defaults and runnable save/load evidence.
+- Package updates remain manual; live Unity projects and Docs/GameDesign are preserved.
 ## Archived overview from 0.62.0
 
 ## 0.62.0 — 13 October 2026
