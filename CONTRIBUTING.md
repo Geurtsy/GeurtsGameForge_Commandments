@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: FORGE-DEVELOPMENT-ONLY -->
 # Contributing to Commandments
 
-**Version:** 0.62.16
+**Version:** 0.62.17
 
 This repository owns generic development standards, contracts and their source-only maintenance tools. God, bricks and the compatibility adapter own their implementations. Project-specific design stays in the game's `Docs/GameDesign/`.
 
@@ -32,6 +32,8 @@ Before catalogue publication, follow the [Brick Contract's source gate](GeurtsTe
 ## Merge and publish
 
 Completed updates to this repository must reach remote `main`. The same standing delivery authorization applies independently to every Geurts Game Forge package source repository; follow the [Automation Technique](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#codex-delivery-to-main) for the complete scope and blocker rules.
+
+Before choosing a release version, inspect published releases, unpublished drafts and remote tags. Choose a version unused by every other update; never reuse another draft or replace its assets. Reserve only your own draft after committing the candidate. Before creating a tag or uploading assets, verify that draft ownership and intended source match this task. Preserve immutable tags and report any collision instead of bypassing protection.
 
 Commit the complete candidate, fetch the official history and release tags, then run:
 

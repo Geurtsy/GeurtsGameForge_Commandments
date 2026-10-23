@@ -6,7 +6,7 @@
 
 Non-normative release evidence, preserved from the 0.62.0 README. Versions, planned statuses and test counts describe their recorded context; use the current manifest and catalogue for requirements. Read only for requested history or an applicable migration.
 
-## 0.62.16 - 2026-10-23
+## 0.62.17 - 2026-10-23
 
 - Compact catalogue purposes and package task routing; centralize repeated guidance.
 - Require reproducible isolated recipe setup, current API defaults and runnable save/load evidence.
