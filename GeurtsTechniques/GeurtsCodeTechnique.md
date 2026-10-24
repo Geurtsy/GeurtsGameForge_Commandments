@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Code Technical Topic
 
-**Version:** 0.1.5
+**Version:** 0.1.6
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsCodeTechnique.md`
@@ -14,7 +14,7 @@ The manifest-selected [Naming Technique](GeurtsNamingTechnique.md) owns first-pa
 
 ### ScriptableObjects and Object References
 
-**Use ScriptableObjects extensively as the default for reusable, Inspector-authored game definitions, shared configuration, action assets and event channels.** Build a ScriptableObject-based architecture around these authored assets, with thin components consuming and composing them through supported APIs; keep normal setup and connections available without code. Reuse suitable existing asset types and compose behaviour through typed references. Keep ordinary per-instance behaviour on components; do not create an asset for every transient value or turn shared assets into hidden global state.
+**Use ScriptableObjects extensively as the default for reusable, Inspector-authored game definitions, shared configuration, action assets and event channels.** Compose suitable existing asset types through typed references and thin components, retaining normal no-code setup. Keep per-instance behaviour on components; avoid assets for every transient value and hidden shared global state.
 
 **Connect Unity assets, prefabs, components and scene objects through strongly typed serialized object references, assigned by drag and drop or an object picker in the Editor.** Prefer direct references to ScriptableObject definitions over string content IDs and registries. Avoid string IDs, object names, hierarchy paths and string-keyed lookups for connections that can be represented by object references. Do not substitute a hash of a string for a direct reference or add a lookup layer merely to avoid exposing a reference field.
 
