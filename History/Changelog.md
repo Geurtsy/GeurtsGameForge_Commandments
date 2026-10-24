@@ -6,6 +6,13 @@
 
 Non-normative release evidence, preserved from the 0.62.0 README. Versions, planned statuses and test counts describe their recorded context; use the current manifest and catalogue for requirements. Read only for requested history or an applicable migration.
 
+## 0.62.19 - 2026-10-24
+
+- Apply all five option A audit decisions: documented coroutine/query exceptions and explicit initial/Editor collider placement boundaries.
+- Centralize the strict zero-warning/warnings-as-errors main gate in Automation, preserving the existing Unity fragment link and Unity-specific compilation checks.
+- Compact ScriptableObject and FPS prose without dropping state ownership, no-code use, performance evidence or platform limits.
+- Preserve package pins, frozen payloads, live Unity projects and game-design content; this release changes documentation policy only.
+
 ## 0.62.18 - 2026-10-24
 
 - Require physics APIs for collider movement, trigger-based detection and owned coroutines instead of Update polling, retaining required physics callbacks.

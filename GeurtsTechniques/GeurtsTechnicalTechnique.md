@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Version:** 0.20.10
+**Version:** 0.20.11
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
@@ -124,13 +124,13 @@ Design every new or materially changed first-party component so humans and Codex
 
 Implement the complete authorized outcome, including affected registration, references, tests and documentation. Verify normal/failure paths, repeatability, cleanup, compatibility and relevant performance. Report actual evidence and unavailable checks honestly; compilation alone does not establish rendered UI, physical input or Windows-player acceptance. Follow [Automation](GeurtsGameForgeAutomationTechnique.md#proportionate-testing) for proportionate tests, [efficient AI tools](GeurtsGameForgeAutomationTechnique.md#efficient-ai-tool-use), questions, delivery and computer control.
 
-For changed C# scripts, apply the Code topic's naming, tooltips, XML summaries for all classes/methods, complex-logic comments and Major Component Help. The [Unity topic](GeurtsUnityTechnique.md) owns collider movement, trigger detection, coroutine scheduling and zero-warning compile/test/build gates. Validate no-code/API use and avoid per-frame allocations. Select other affected topics through the manifest.
+For changed C# scripts, apply the Code topic's naming, tooltips, XML summaries for all classes/methods, complex-logic comments and Major Component Help. The [Unity topic](GeurtsUnityTechnique.md) owns physics, scheduling and Unity compile/test/build checks; [Automation](GeurtsGameForgeAutomationTechnique.md#zero-warning-compilation-gate) owns the generic compilation gate. Validate no-code/API use and avoid per-frame allocations. Select other affected topics through the manifest.
 
 ## Performance Trade-Off Guidance Under Efficiency
 
 Apply this guidance only within the six-priority order defined above and the applicable project GDD. It is not a second priority list.
 
-- **Prioritise FPS and frame-rate stability over lower RAM usage, smaller storage footprint and shorter loading times.** When these goals conflict, accept higher RAM use, larger stored data or longer loading/preparation to improve sustained FPS and reduce stutter. Verify representative runtime FPS, frame times and stutter; resource savings must not worsen gameplay FPS. Respect target-platform resource limits.
+- **Prioritise FPS and frame-rate stability over lower RAM usage, smaller storage footprint and shorter loading times.** Accept higher RAM/storage use or longer preparation when representative FPS/frame-time measurements demonstrate improved sustained FPS or reduced stutter, within target-platform resource limits.
 - Prefer runtime performance over editor convenience when gameplay experience is materially affected.
 - For multiplayer work, apply the latency-first, bandwidth-second override defined in **Multiplayer Exception** above.
 
