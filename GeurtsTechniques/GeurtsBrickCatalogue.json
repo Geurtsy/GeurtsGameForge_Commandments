@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.62.19",
+  "packageVersion": "0.63.0",
   "publishedUtc": "2026-10-23T16:23:12.945123Z",
   "bricks": [
     {
@@ -111,7 +111,8 @@
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
-        "Odin Inspector"
+        "Odin Inspector",
+        "Quantum Console"
       ],
       "dependencies": [
         {

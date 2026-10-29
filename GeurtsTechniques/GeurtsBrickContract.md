@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.22.4
+**Version:** 1.23.0
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -12,7 +12,7 @@ For ordinary game work in the manifest's **StandardsOnly** profile, this contrac
 
 ## Use existing bricks
 
-Codex and other AI coding agents must proactively inspect the installed brick inventory and this package's `GeurtsTechniques/GeurtsBrickCatalogue.json` before planning or implementing a Geurts Unity solution. Read the relevant brick documentation and supported interfaces, then reuse or extend suitable available Geurts Game Forge bricks instead of recreating covered functionality. Identify the concrete missing capability or incompatibility before choosing a custom substitute. A planned or catalogued entry alone is not an installed, usable capability: verify the actual installed version and the availability required by the task. Request installation as an explicit user action; do not silently install or enable dependencies. This obligation applies across all bricks, but only suitable bricks needed for the solution should be used.
+Codex and other AI coding agents must proactively inspect the installed brick inventory and this package's `GeurtsTechniques/GeurtsBrickCatalogue.json` before planning or implementing a Geurts Unity solution. Use the manifest-selected [Brick AI Usage Guide](GeurtsBrickUsageGuide.md) to select the relevant owning guide and evidence. Read the relevant brick documentation and supported interfaces, then reuse or extend suitable available Geurts Game Forge bricks instead of recreating covered functionality. Identify the concrete missing capability or incompatibility before choosing a custom substitute. A planned or catalogued entry alone is not an installed, usable capability: verify the actual installed version and the availability required by the task. Request installation as an explicit user action; do not silently install or enable dependencies. This obligation applies across all bricks, but only suitable bricks needed for the solution should be used.
 
 ## Core module usability
 
@@ -22,7 +22,7 @@ Keep documented public APIs and extension points available for developers and Co
 
 ## Design all bricks with Codex in mind
 
-All existing and future Geurts Game Forge bricks must be designed and maintained with Codex in mind, following the Technical Technique's Codex compatibility requirement. Make each brick's purpose, reusable components, supported interfaces, extension points, configuration and dependency boundaries easy to discover from its documentation and predictable package structure. Provide useful version-accurate examples and repeatable checks so Codex can reliably compose and validate solutions with the brick. These same surfaces must remain usable by humans and other AI agents. Apply the requirement during new development and maintenance; this policy does not assert that every existing brick has already been audited.
+All existing and future Geurts Game Forge bricks must be designed and maintained with Codex in mind, following the Technical Technique's Codex compatibility requirement. Make each brick's purpose, reusable components, supported interfaces, extension points, configuration and dependency boundaries easy to discover from its documentation and predictable package structure. Provide useful version-accurate examples and repeatable checks so Codex can reliably compose and validate solutions with the brick. Package APIs and product interfaces remain accessible to their users; documentation targets AI agents exclusively. Apply the requirement during new development and maintenance; this policy does not assert that every existing brick has already been audited.
 
 Codex compatibility is an authoring and usability expectation. It does not require Codex, a live Unity connector, a plugin or AI calls at runtime, and it does not authorize installing every brick. Preserve the dependency rules below when composing a solution.
 
@@ -130,7 +130,7 @@ Each card shows identity, description, website, installed/available and lifecycl
 
 Game Forge God owns the Commandments content view and one Editor service. Package installation/update never acquires content. Display God tooling and installed/available content versions separately. The content action retains its one cancel-default, four-target confirmation, including first installation. Manual Update All cannot replace content. The saved-consent opening exception below retains its existing scope. Build Forge navigates to installed project-tool owners; retained God setup helpers forward to Angels under the Forge Setup Technique. The adapter owns no update surface.
 
-Version conflicts or unverified compatibility produce a clear Continue/Cancel warning, not an automatic compatibility block. Missing required tools or an operation Unity cannot perform must be reported accurately. Never claim that package installation proves compilation succeeded.
+Permitted version/compatibility uncertainty produces a clear Continue/Cancel warning only after all mandatory admission checks pass. Continue cannot override lower-target downgrade blocks, immutable-release identity, missing required tools, invalid/unverified source validation or other hard guards. A compatibility warning is never permission to bypass those failures. Missing required tools or an operation Unity cannot perform must be reported accurately. Never claim that package installation proves compilation succeeded.
 
 <!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->
 Use Unity Package Manager APIs, serialize operations, prevent conflicting clicks, preserve intent and useful outcomes across script reloads, and verify the actual resolved identity/version/commit. Self-update uses the same real Unity operation. Self-removal holds assembly reload only until the confirmed result allows deleting God's exact settings file, then releases the reload. It removes no dependencies automatically. The operation record remains under `Library/GeurtsGameForge/operations.json` after the manager removes itself.
@@ -164,6 +164,8 @@ God exposes the Commandments module preference through its public Editor API and
 ## Current installation and practical game integration
 
 Use the manifest-selected current catalogue as the single source of compatible released package versions and immutable installation URLs. Package guides route installation there and state dependency minimums separately; never copy a current Forge tag/version list into installation prose. Recheck the actual resolved graph and compilation. Historical release evidence is optional reference, not current API or mandatory onboarding.
+
+Every brick must maintain the usage contract defined by the [Documentation Maintenance Technique](GeurtsDocumentationMaintenanceTechnique.md): purpose/selection, exact identity/source/version/availability, prerequisites, supported entry points, minimal verified example, lifecycle/settings/dependencies, limits and success/failure verification. Keep the central index synchronized with its owning implementation guide. Planned entries/features must be explicitly unavailable; never invent sources or APIs. This adds no catalogue schema field.
 
 Each package's existing AI entry must provide a small task-to-guide table with exact local links and minimum reading for setup, supported API use and relevant failures. Route release validation separately for maintainers; it is not mandatory game onboarding. Reference actual current guides, never an absent or unnamed Getting Started document. Keep one complete explanation per topic, with concise essential consent/mutation/failure warnings and direct links elsewhere. Do not remove a warning needed to act safely in the current task.
 

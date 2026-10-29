@@ -3,8 +3,7 @@
 
 **Version:** 1.0.1
 **Status:** Approved normative technique
-**Primary audience:** AI coding agents, automated development systems, and compatible setup integrations
-**Secondary audience:** Human developers and package maintainers
+**Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsGitIgnoreTechnique.md`
 **Target path:** `<ProjectRoot>/.gitignore`
 

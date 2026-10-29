@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Code Technical Topic
 
-**Version:** 0.1.6
+**Version:** 0.2.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsCodeTechnique.md`
@@ -11,6 +11,10 @@
 ### Asset and Scene Object Names
 
 The manifest-selected [Naming Technique](GeurtsNamingTechnique.md) owns first-party asset, scene GameObject and prefab-root names, and the script filename/class-name exemption. Select it before creating, naming, renaming or reviewing applicable content. Code-symbol conventions, command names and machine-readable ID values below remain Technical subjects. Preserve fixed Unity, package and tool contracts through the Naming Technique's exceptions.
+
+### Full-word authored names
+
+Use full words in new class, method, property, field, parameter, enumeration and freely authored identifier names. The Naming Technique permits abbreviations only in the leading uppercase asset/scene TYPE prefix; scripts and code symbols have no such prefix. Preserve required casing and exact external/published contracts. Document existing abbreviated commands as legacy compliance gaps needing coordinated owner updates; do not silently rename APIs or serialized fields.
 
 ### ScriptableObjects and Object References
 
@@ -38,7 +42,7 @@ Use meaningful names composed of lowercase letters and digits, with single under
 | Master Volume | `master_volume` | `master-volume`, `Master_Volume` |
 | Player 1 Spawn | `player_1_spawn` | `player-1-spawn`, `Player1Spawn` |
 
-This rule governs machine-readable ID **values**, not display labels, C# symbol names, or file/folder names. For example, a C# property named `ElementId` keeps its code naming convention while its authored value is `main_menu_button`. Preserve required formats for GUIDs, hashes, vendor/protocol IDs, UPM package names, and fixed versioned schema tokens; do not rewrite those identities by globally replacing hyphens or changing case. New freely authored IDs follow this standard.
+This rule governs machine-readable ID **values**, not display labels, C# symbol names, or file/folder names. For example, a C# property named `ElementIdentifier` keeps its code naming convention while its authored value is `main_menu_button`. Preserve required formats for GUIDs, hashes, vendor/protocol IDs, UPM package names, and fixed versioned schema tokens; do not rewrite those identities by globally replacing hyphens or changing case. New freely authored IDs follow this standard.
 
 Validate the format and uniqueness within the owning ID scope during authoring and before use, observing that system's length limits and reserved names. Report invalid or duplicate IDs with an actionable message. Different labels can produce the same ID; do not silently overwrite another entry, append an arbitrary suffix, or normalize a persisted value behind the user's back.
 
@@ -62,7 +66,7 @@ float damageAmount = 10f;
 
 ```csharp
 [SerializeField, Tooltip("The maximum health value this entity can have.")]
-private float _maxHealth = 100f;
+private float _maximumHealth = 100f;
 ```
 
 ### Enums
@@ -70,7 +74,7 @@ private float _maxHealth = 100f;
 Enums must use all caps with underscores.
 
 ```csharp
-public enum AI_STATE
+public enum ARTIFICIAL_INTELLIGENCE_STATE
 {
     STATE_IDLE,
     STATE_PATROL,

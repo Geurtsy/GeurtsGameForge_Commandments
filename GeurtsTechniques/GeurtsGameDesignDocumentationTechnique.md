@@ -1,11 +1,10 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Design Documentation Technique
 
-**Game Design Documentation Discovery - AI and Human Developer Reference**  
+**Game Design Documentation Discovery - AI Agent Instructions**
 **Version:** 0.16.2
 **Status:** Draft normative technique
-**Primary audience:** AI coding agents and automated development systems
-**Secondary audience:** Human developers
+**Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md`
 
 > `GeurtsTechniqueManifest.md` selects this file and version from one validated package commit. This technique defines primary game-context routing, explicit GDD import, discovery and maintenance boundaries.
@@ -14,7 +13,7 @@
 
 ## Purpose
 
-This document defines how AI coding agents, automated development systems, and human developers discover, classify, maintain, and use project-specific game design documentation.
+This document defines how AI agents discover, classify, maintain, and use project-specific game design documentation.
 
 The Technical Technique defines how to build systems. Project-specific game design documentation defines what those systems should feel like, support, or express to the player.
 

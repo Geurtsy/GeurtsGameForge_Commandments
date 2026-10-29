@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Standards-Only Technique
 
-**Version:** 1.0.0
+**Version:** 1.0.1
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsStandardsOnlyTechnique.md`
 
@@ -60,6 +60,8 @@ Package requirements apply again to any explicitly adopted Forge integration and
 ## Use the Documentation Without Unity Packages
 
 Read a complete official source checkout or download one complete official source snapshot at a recorded exact commit. Use one validated package throughout the session. `GeurtsGameForgeCommandments/` is the conventional project-local location; an explicitly selected external checkout is also valid. Start at its `AI_READ_FIRST.md`, then its manifest. Do not mix remembered rules, partial copied techniques or files from another version.
+
+For the optional Windows routes, read the [Companion owner's standalone distinction](GeurtsCommandmentsCompanionTechnique.md#secondary-standalone-documentation-routes): the existing preservation installer and approved replacement requirement have different availability and mutation contracts. Neither requires licensed Unity libraries or installs additional software/packages. Game Forge integration remains the primary workflow.
 
 This manual source acquisition is not the God-owned project content Update operation. It invokes no Unity package or managed route replacement. Do not overwrite an existing documentation copy, edit user AI routes, create folders, inspect game design, install dependencies or perform setup merely because the standards were selected. Updating an existing copy or configuring a supported agent route is a separate authorized task that preserves user content; it must not impersonate the companion or expand its permissions. Normal session initialization reads the selected local copy without a remote check.
 

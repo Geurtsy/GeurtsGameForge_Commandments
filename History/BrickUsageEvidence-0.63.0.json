@@ -1,0 +1,603 @@
+{
+  "packageVersion": "0.63.0",
+  "status": "read-only source inspection; not Unity validation",
+  "inspectedDate": "2026-10-29",
+  "documentationBase": "142f5c3f11c6167bbeebe92d4477f4f0c1fbd758",
+  "bricks": [
+    {
+      "id": "com.geurts.gameforge.bigbang",
+      "version": "0.8.9",
+      "commit": "eb291ef5e6d2a1e9b16104d04f8b97f6dac9cc53",
+      "repository": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
+      "packageManifestVerified": true,
+      "capabilitiesBlob": "cf738d77087e5a5f1fd38905d1472935b5ba1e1b",
+      "guide": "Documentation~/GameIntegration.md",
+      "operations": [],
+      "recipeBytesMatch": null,
+      "plannedFeatures": [],
+      "executedTests": []
+    },
+    {
+      "id": "com.geurts.gameforge.documentation",
+      "version": "0.15.4",
+      "commit": "c1e5d2aa1d03ff2e32d3959c94aa2f3e785bed33",
+      "repository": "https://github.com/Geurtsy/com.geurts.gameforge.commandments",
+      "packageManifestVerified": true,
+      "capabilitiesBlob": "a5b9dea228a79feb25638011a7cce071f6ca20bb",
+      "guide": "Documentation~/AIUsability.md",
+      "operations": [],
+      "recipeBytesMatch": null,
+      "plannedFeatures": [],
+      "executedTests": []
+    },
+    {
+      "id": "com.geurts.gameforge.god",
+      "version": "0.39.4",
+      "commit": "b7a001234dd5b149cc767dd1ab305df4c6e876d7",
+      "repository": "https://github.com/Geurtsy/com.geurts.gameforge.god",
+      "packageManifestVerified": true,
+      "capabilitiesBlob": "ea40353ab63f26a8bbedd6d3f3e6a1d433c34306",
+      "guide": "Documentation~/GameIntegration.md",
+      "operations": [
+        {
+          "id": "inspect_sources",
+          "source": "Editor/ForgeAutomationProvider.cs",
+          "symbol": "ForgeAutomationProvider",
+          "sourceBlob": "ac3e278d4b1856d68be499a545bcb22ad1e5d223",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "setup_bootstrap",
+          "source": "Editor/ForgeAutomationProvider.cs",
+          "symbol": "ForgeAutomationProvider",
+          "sourceBlob": "ac3e278d4b1856d68be499a545bcb22ad1e5d223",
+          "symbolFound": true,
+          "idFound": true
+        }
+      ],
+      "recipeBytesMatch": true,
+      "plannedFeatures": [],
+      "executedTests": []
+    },
+    {
+      "id": "com.geurts.gameforge.steam",
+      "version": "0.3.1",
+      "commit": "44e5b61c6d9130682163d9536d91be67ed7d9a8d",
+      "repository": "https://github.com/Geurtsy/com.geurts.gameforge.steam",
+      "packageManifestVerified": true,
+      "capabilitiesBlob": "cacd0e5fa519c6b3102be5f47a862791379f392d",
+      "guide": "Documentation~/GameIntegration.md",
+      "operations": [
+        {
+          "id": "inspect_sources",
+          "source": "Editor/SteamPreparation.cs",
+          "symbol": "SteamAutomationProvider",
+          "sourceBlob": "b8f5c192bb62103d8ad0f8295911f7afcbd09b72",
+          "symbolFound": true,
+          "idFound": false,
+          "inheritedDeclaration": {
+            "repository": "https://github.com/Geurtsy/com.geurts.gameforge.god",
+            "commit": "b7a001234dd5b149cc767dd1ab305df4c6e876d7",
+            "source": "Editor/ForgeAutomationProvider.cs",
+            "sourceBlob": "ac3e278d4b1856d68be499a545bcb22ad1e5d223"
+          }
+        },
+        {
+          "id": "inspect_steam_preparation",
+          "source": "Editor/SteamPreparation.cs",
+          "symbol": "SteamAutomationProvider",
+          "sourceBlob": "b8f5c192bb62103d8ad0f8295911f7afcbd09b72",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "save_steam_configuration",
+          "source": "Editor/SteamPreparation.cs",
+          "symbol": "SteamAutomationProvider",
+          "sourceBlob": "b8f5c192bb62103d8ad0f8295911f7afcbd09b72",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "create_steam_distribution_draft",
+          "source": "Editor/SteamPreparation.cs",
+          "symbol": "SteamAutomationProvider",
+          "sourceBlob": "b8f5c192bb62103d8ad0f8295911f7afcbd09b72",
+          "symbolFound": true,
+          "idFound": true
+        }
+      ],
+      "recipeBytesMatch": true,
+      "plannedFeatures": [],
+      "executedTests": []
+    },
+    {
+      "id": "com.geurts.gameforge.diagnostics",
+      "version": "0.11.3",
+      "commit": "a8d7a850654be6c438aebe0881ff95e1bbf23957",
+      "repository": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics",
+      "packageManifestVerified": true,
+      "capabilitiesBlob": "f5766e92ca54d314ac555679e3fed4b80b0e0f5f",
+      "guide": "Documentation~/GameIntegration.md",
+      "operations": [
+        {
+          "id": "inspect_sources",
+          "source": "Editor/DiagnosticsAutomationProvider.cs",
+          "symbol": "DiagnosticsAutomationProvider",
+          "sourceBlob": "a8b3e2c5583e6609f7e806a0603257fe5f64558c",
+          "symbolFound": true,
+          "idFound": false,
+          "inheritedDeclaration": {
+            "repository": "https://github.com/Geurtsy/com.geurts.gameforge.god",
+            "commit": "b7a001234dd5b149cc767dd1ab305df4c6e876d7",
+            "source": "Editor/ForgeAutomationProvider.cs",
+            "sourceBlob": "ac3e278d4b1856d68be499a545bcb22ad1e5d223"
+          }
+        },
+        {
+          "id": "install_console",
+          "source": "Editor/DiagnosticsAutomationProvider.cs",
+          "symbol": "DiagnosticsAutomationProvider",
+          "sourceBlob": "a8b3e2c5583e6609f7e806a0603257fe5f64558c",
+          "symbolFound": true,
+          "idFound": true
+        }
+      ],
+      "recipeBytesMatch": true,
+      "plannedFeatures": [],
+      "executedTests": []
+    },
+    {
+      "id": "com.geurts.gameforge.angels",
+      "version": "0.9.7",
+      "commit": "67f76582819b48ea1091582d9e7ff2a4fdd93cb1",
+      "repository": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
+      "packageManifestVerified": true,
+      "capabilitiesBlob": "63a27323186d1ddbd7dd2ad44bdb0c97a4551600",
+      "guide": "Documentation~/GameIntegration.md",
+      "operations": [
+        {
+          "id": "inspect_sources",
+          "source": "Editor/AngelsAutomationProvider.cs",
+          "symbol": "AngelsAutomationProvider",
+          "sourceBlob": "e765f1103b00804bb21bf1efb3bcb896c70af502",
+          "symbolFound": true,
+          "idFound": false,
+          "inheritedDeclaration": {
+            "repository": "https://github.com/Geurtsy/com.geurts.gameforge.god",
+            "commit": "b7a001234dd5b149cc767dd1ab305df4c6e876d7",
+            "source": "Editor/ForgeAutomationProvider.cs",
+            "sourceBlob": "ac3e278d4b1856d68be499a545bcb22ad1e5d223"
+          }
+        },
+        {
+          "id": "create_folders",
+          "source": "Editor/AngelsAutomationProvider.cs",
+          "symbol": "AngelsAutomationProvider",
+          "sourceBlob": "e765f1103b00804bb21bf1efb3bcb896c70af502",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "install_root_guide",
+          "source": "Editor/AngelsAutomationProvider.cs",
+          "symbol": "AngelsAutomationProvider",
+          "sourceBlob": "e765f1103b00804bb21bf1efb3bcb896c70af502",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "install_selected_guide",
+          "source": "Editor/AngelsAutomationProvider.cs",
+          "symbol": "AngelsAutomationProvider",
+          "sourceBlob": "e765f1103b00804bb21bf1efb3bcb896c70af502",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "install_git_ignore",
+          "source": "Editor/AngelsAutomationProvider.cs",
+          "symbol": "AngelsAutomationProvider",
+          "sourceBlob": "e765f1103b00804bb21bf1efb3bcb896c70af502",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "install_fmod_attributes",
+          "source": "Editor/AngelsAutomationProvider.cs",
+          "symbol": "AngelsAutomationProvider",
+          "sourceBlob": "e765f1103b00804bb21bf1efb3bcb896c70af502",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "move_assets",
+          "source": "Editor/AngelsAutomationProvider.cs",
+          "symbol": "AngelsAutomationProvider",
+          "sourceBlob": "e765f1103b00804bb21bf1efb3bcb896c70af502",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "import_game_design",
+          "source": "Editor/AngelsAutomationProvider.cs",
+          "symbol": "AngelsAutomationProvider",
+          "sourceBlob": "e765f1103b00804bb21bf1efb3bcb896c70af502",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "inspect_git",
+          "source": "Editor/AngelsAutomationProvider.cs",
+          "symbol": "AngelsAutomationProvider",
+          "sourceBlob": "e765f1103b00804bb21bf1efb3bcb896c70af502",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "initialize_git",
+          "source": "Editor/AngelsAutomationProvider.cs",
+          "symbol": "AngelsAutomationProvider",
+          "sourceBlob": "e765f1103b00804bb21bf1efb3bcb896c70af502",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "make_primary_game_design",
+          "source": "Editor/AngelsAutomationProvider.cs",
+          "symbol": "AngelsAutomationProvider",
+          "sourceBlob": "e765f1103b00804bb21bf1efb3bcb896c70af502",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "configure_auto_sort",
+          "source": "Editor/AngelsAutomationProvider.cs",
+          "symbol": "AngelsAutomationProvider",
+          "sourceBlob": "e765f1103b00804bb21bf1efb3bcb896c70af502",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "configure_auto_rename",
+          "source": "Editor/AngelsAutomationProvider.cs",
+          "symbol": "AngelsAutomationProvider",
+          "sourceBlob": "e765f1103b00804bb21bf1efb3bcb896c70af502",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "test_codex_connection",
+          "source": "Editor/AngelsAutomationProvider.cs",
+          "symbol": "AngelsAutomationProvider",
+          "sourceBlob": "e765f1103b00804bb21bf1efb3bcb896c70af502",
+          "symbolFound": true,
+          "idFound": true
+        }
+      ],
+      "recipeBytesMatch": true,
+      "plannedFeatures": [],
+      "executedTests": []
+    },
+    {
+      "id": "com.geurts.gameforge.settings",
+      "version": "0.7.4",
+      "commit": "9863219766d79e4eadd9be2122082616f2a974b8",
+      "repository": "https://github.com/Geurtsy/com.geurts.gameforge.settings",
+      "packageManifestVerified": true,
+      "capabilitiesBlob": "3dc1d1f5e28f633cbd10eaed2a084060b00d534e",
+      "guide": "Documentation~/GameIntegration.md",
+      "operations": [
+        {
+          "id": "inspect_sources",
+          "source": "Editor/SettingsAutomationProvider.cs",
+          "symbol": "SettingsAutomationProvider",
+          "sourceBlob": "a6b425e66d352f74a86915d7e803139a1061d9e8",
+          "symbolFound": true,
+          "idFound": false,
+          "inheritedDeclaration": {
+            "repository": "https://github.com/Geurtsy/com.geurts.gameforge.god",
+            "commit": "b7a001234dd5b149cc767dd1ab305df4c6e876d7",
+            "source": "Editor/ForgeAutomationProvider.cs",
+            "sourceBlob": "ac3e278d4b1856d68be499a545bcb22ad1e5d223"
+          }
+        },
+        {
+          "id": "commit_setup",
+          "source": "Editor/SettingsAutomationProvider.cs",
+          "symbol": "SettingsAutomationProvider",
+          "sourceBlob": "a6b425e66d352f74a86915d7e803139a1061d9e8",
+          "symbolFound": true,
+          "idFound": true
+        }
+      ],
+      "recipeBytesMatch": true,
+      "plannedFeatures": [],
+      "executedTests": []
+    },
+    {
+      "id": "com.geurts.gameforge.sceneloading",
+      "version": "0.7.3",
+      "commit": "771f4fdeddb7334af1f8a34721148016d402ad27",
+      "repository": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading",
+      "packageManifestVerified": true,
+      "capabilitiesBlob": "39a224c9014a90251ccb04a53370bda224452189",
+      "guide": "Documentation~/GameIntegration.md",
+      "operations": [
+        {
+          "id": "inspect_sources",
+          "source": "Editor/SceneLoadingAutomationProvider.cs",
+          "symbol": "SceneLoadingAutomationProvider",
+          "sourceBlob": "1848b32a75fd02ae4c178ad2191e847e742bf3ce",
+          "symbolFound": true,
+          "idFound": false,
+          "inheritedDeclaration": {
+            "repository": "https://github.com/Geurtsy/com.geurts.gameforge.god",
+            "commit": "b7a001234dd5b149cc767dd1ab305df4c6e876d7",
+            "source": "Editor/ForgeAutomationProvider.cs",
+            "sourceBlob": "ac3e278d4b1856d68be499a545bcb22ad1e5d223"
+          }
+        },
+        {
+          "id": "save_settings",
+          "source": "Editor/SceneLoadingAutomationProvider.cs",
+          "symbol": "SceneLoadingAutomationProvider",
+          "sourceBlob": "1848b32a75fd02ae4c178ad2191e847e742bf3ce",
+          "symbolFound": true,
+          "idFound": true
+        }
+      ],
+      "recipeBytesMatch": true,
+      "plannedFeatures": [],
+      "executedTests": []
+    },
+    {
+      "id": "com.geurts.gameforge.saveload",
+      "version": "0.4.1",
+      "commit": "027437e3239cd0506b4abd8ce713b94a43b59b3b",
+      "repository": "https://github.com/Geurtsy/com.geurts.gameforge.saveload",
+      "packageManifestVerified": true,
+      "capabilitiesBlob": "31fb5ee8bfb7cee3ad0457d9325eb14b883c01ac",
+      "guide": "Documentation~/AIUsability.md",
+      "operations": [
+        {
+          "id": "inspect_sources",
+          "source": "Editor/SaveLoadAutomationProvider.cs",
+          "symbol": "SaveLoadAutomationProvider",
+          "sourceBlob": "18758a91c885a12d73690eed31f8270d6ae2aba5",
+          "symbolFound": true,
+          "idFound": false,
+          "inheritedDeclaration": {
+            "repository": "https://github.com/Geurtsy/com.geurts.gameforge.god",
+            "commit": "b7a001234dd5b149cc767dd1ab305df4c6e876d7",
+            "source": "Editor/ForgeAutomationProvider.cs",
+            "sourceBlob": "ac3e278d4b1856d68be499a545bcb22ad1e5d223"
+          }
+        },
+        {
+          "id": "create_profile",
+          "source": "Editor/SaveLoadAutomationProvider.cs",
+          "symbol": "SaveLoadAutomationProvider",
+          "sourceBlob": "18758a91c885a12d73690eed31f8270d6ae2aba5",
+          "symbolFound": true,
+          "idFound": true
+        }
+      ],
+      "recipeBytesMatch": null,
+      "plannedFeatures": [],
+      "executedTests": []
+    },
+    {
+      "id": "com.geurts.gameforge.audio",
+      "version": "0.9.5",
+      "commit": "199666d1fcb7ce688d111da07b40e6ae72f52b8d",
+      "repository": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
+      "packageManifestVerified": true,
+      "capabilitiesBlob": "ab947cf80a8cd7b78ff9912f28b246f4a401f2ab",
+      "guide": "Documentation~/GameIntegration.md",
+      "operations": [
+        {
+          "id": "inspect_sources",
+          "source": "Editor/AudioAutomationProvider.cs",
+          "symbol": "AudioAutomationProvider",
+          "sourceBlob": "8a67bae06d0db7f4cfbef02d4c06090bf3f8f0cf",
+          "symbolFound": true,
+          "idFound": false,
+          "inheritedDeclaration": {
+            "repository": "https://github.com/Geurtsy/com.geurts.gameforge.god",
+            "commit": "b7a001234dd5b149cc767dd1ab305df4c6e876d7",
+            "source": "Editor/ForgeAutomationProvider.cs",
+            "sourceBlob": "ac3e278d4b1856d68be499a545bcb22ad1e5d223"
+          }
+        },
+        {
+          "id": "create_configuration",
+          "source": "Editor/AudioAutomationProvider.cs",
+          "symbol": "AudioAutomationProvider",
+          "sourceBlob": "8a67bae06d0db7f4cfbef02d4c06090bf3f8f0cf",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "create_sound",
+          "source": "Editor/AudioAutomationProvider.cs",
+          "symbol": "AudioAutomationProvider",
+          "sourceBlob": "8a67bae06d0db7f4cfbef02d4c06090bf3f8f0cf",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "bind_audio",
+          "source": "Editor/AudioAutomationProvider.cs",
+          "symbol": "AudioAutomationProvider",
+          "sourceBlob": "8a67bae06d0db7f4cfbef02d4c06090bf3f8f0cf",
+          "symbolFound": true,
+          "idFound": true
+        }
+      ],
+      "recipeBytesMatch": true,
+      "plannedFeatures": [],
+      "executedTests": []
+    },
+    {
+      "id": "com.geurts.gameforge.userinterface",
+      "version": "0.13.3",
+      "commit": "317867819006339b502d4abbbe19a9d3042915b5",
+      "repository": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface",
+      "packageManifestVerified": true,
+      "capabilitiesBlob": "c17740ad6220590bf4fcbc0b10886b49ed0f754e",
+      "guide": "Documentation~/GameIntegration.md",
+      "operations": [
+        {
+          "id": "inspect_sources",
+          "source": "Editor/UiAutomationProvider.cs",
+          "symbol": "UiAutomationProvider",
+          "sourceBlob": "0f62e156e41ce1fe0d189839605258e2cf95c9b0",
+          "symbolFound": true,
+          "idFound": false,
+          "inheritedDeclaration": {
+            "repository": "https://github.com/Geurtsy/com.geurts.gameforge.god",
+            "commit": "b7a001234dd5b149cc767dd1ab305df4c6e876d7",
+            "source": "Editor/ForgeAutomationProvider.cs",
+            "sourceBlob": "ac3e278d4b1856d68be499a545bcb22ad1e5d223"
+          }
+        },
+        {
+          "id": "create_theme",
+          "source": "Editor/UiAutomationProvider.cs",
+          "symbol": "UiAutomationProvider",
+          "sourceBlob": "0f62e156e41ce1fe0d189839605258e2cf95c9b0",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "create_menu",
+          "source": "Editor/UiAutomationProvider.cs",
+          "symbol": "UiAutomationProvider",
+          "sourceBlob": "0f62e156e41ce1fe0d189839605258e2cf95c9b0",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "create_screen",
+          "source": "Editor/UiAutomationProvider.cs",
+          "symbol": "UiAutomationProvider",
+          "sourceBlob": "0f62e156e41ce1fe0d189839605258e2cf95c9b0",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "create_draft",
+          "source": "Editor/UiAutomationProvider.cs",
+          "symbol": "UiAutomationProvider",
+          "sourceBlob": "0f62e156e41ce1fe0d189839605258e2cf95c9b0",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "save_asset",
+          "source": "Editor/UiAutomationProvider.cs",
+          "symbol": "UiAutomationProvider",
+          "sourceBlob": "0f62e156e41ce1fe0d189839605258e2cf95c9b0",
+          "symbolFound": true,
+          "idFound": true
+        }
+      ],
+      "recipeBytesMatch": true,
+      "plannedFeatures": [],
+      "executedTests": []
+    },
+    {
+      "id": "com.geurts.gameforge.objectpooling",
+      "version": "0.8.3",
+      "commit": "605dcfd5909032f667032ec5e2d4c2a243faac67",
+      "repository": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling",
+      "packageManifestVerified": true,
+      "capabilitiesBlob": "d8692313b6961ac18d7ace1f8ea6b3b30ac4b63e",
+      "guide": "Documentation~/GameIntegration.md",
+      "operations": [
+        {
+          "id": "inspect_sources",
+          "source": "Editor/ObjectPoolingAutomationProvider.cs",
+          "symbol": "ObjectPoolingAutomationProvider",
+          "sourceBlob": "77a52b5d5c766428241b26d0c17ba55989c86afa",
+          "symbolFound": true,
+          "idFound": false,
+          "inheritedDeclaration": {
+            "repository": "https://github.com/Geurtsy/com.geurts.gameforge.god",
+            "commit": "b7a001234dd5b149cc767dd1ab305df4c6e876d7",
+            "source": "Editor/ForgeAutomationProvider.cs",
+            "sourceBlob": "ac3e278d4b1856d68be499a545bcb22ad1e5d223"
+          }
+        },
+        {
+          "id": "create_definition",
+          "source": "Editor/ObjectPoolingAutomationProvider.cs",
+          "symbol": "ObjectPoolingAutomationProvider",
+          "sourceBlob": "77a52b5d5c766428241b26d0c17ba55989c86afa",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "create_catalogue",
+          "source": "Editor/ObjectPoolingAutomationProvider.cs",
+          "symbol": "ObjectPoolingAutomationProvider",
+          "sourceBlob": "77a52b5d5c766428241b26d0c17ba55989c86afa",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "repair_identifier",
+          "source": "Editor/ObjectPoolingAutomationProvider.cs",
+          "symbol": "ObjectPoolingAutomationProvider",
+          "sourceBlob": "77a52b5d5c766428241b26d0c17ba55989c86afa",
+          "symbolFound": true,
+          "idFound": true
+        },
+        {
+          "id": "configure_scene",
+          "source": "Editor/ObjectPoolingAutomationProvider.cs",
+          "symbol": "ObjectPoolingAutomationProvider",
+          "sourceBlob": "77a52b5d5c766428241b26d0c17ba55989c86afa",
+          "symbolFound": true,
+          "idFound": true
+        }
+      ],
+      "recipeBytesMatch": true,
+      "plannedFeatures": [],
+      "executedTests": []
+    },
+    {
+      "id": "com.geurts.gameforge.gitflow",
+      "version": "0.1.2",
+      "commit": "a74071830b7aab17c47a10dbdb8eddc482625ddd",
+      "repository": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow",
+      "packageManifestVerified": true,
+      "capabilitiesBlob": "4dcb8a24e4d68ce37c99957e92d45072809b376c",
+      "guide": "Documentation~/AIUsability.md",
+      "operations": [
+        {
+          "id": "inspect_queue",
+          "source": "Editor/GitFlowBrick.cs",
+          "symbol": "GitFlowAutomationProvider",
+          "sourceBlob": "daeea8fc0c17aca93daf6204820942acef3115f9",
+          "symbolFound": true,
+          "idFound": true
+        }
+      ],
+      "recipeBytesMatch": null,
+      "plannedFeatures": [
+        {
+          "id": "submission_and_publisher",
+          "operations": []
+        },
+        {
+          "id": "recovery_and_repair",
+          "operations": []
+        }
+      ],
+      "executedTests": []
+    }
+  ]
+}

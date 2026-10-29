@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Commands Technical Topic
 
-**Version:** 0.1.2
+**Version:** 0.2.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsCommandsTechnique.md`
@@ -26,15 +26,17 @@ These requirements apply when the optional console is installed:
 
 ### Full Names Only
 
-Commands must use complete words. Do not use abbreviations.
+All command categories and action/name segments must use complete words. Do not use abbreviations. The asset/scene TYPE-prefix exception never applies to commands.
+
+The examples below are proposed names for new commands, not claims of implemented APIs. When documenting or calling real published/vendor commands, preserve their exact names and label abbreviated names as legacy compliance gaps. Correct those implementations through coordinated owning releases and consumer updates; this documentation task performs no API rename.
 
 Declare commands with Quantum Console's `[Command]` attribute and supply a useful description through the supported attribute API. Restrict supported platforms when a command is Editor- or development-only. Command parameters must be parseable, bounded, and validated before state changes.
 
 Use:
 
 ```text
-AI.GetState
-Performance.ShowFPS
+ArtificialIntelligence.GetState
+Performance.ShowFramesPerSecond
 ```
 
 Do not use:
@@ -52,9 +54,9 @@ Perf.FPS
 Examples:
 
 ```text
-AI.GetState
-Performance.ToggleStats
-Multiplayer.ShowNetworkStats
+ArtificialIntelligence.GetState
+Performance.ToggleStatistics
+Multiplayer.ShowNetworkStatistics
 ```
 
 ### Help Commands
@@ -69,7 +71,7 @@ Example output:
 
 ```text
 Available Categories:
-AI.Help
+ArtificialIntelligence.Help
 Performance.Help
 Multiplayer.Help
 ```
@@ -77,15 +79,15 @@ Multiplayer.Help
 Category-specific help command:
 
 ```text
-AI.Help
+ArtificialIntelligence.Help
 ```
 
 Example output:
 
 ```text
-AI Commands:
-AI.GetState
-AI.SetState
+Artificial Intelligence Commands:
+ArtificialIntelligence.GetState
+ArtificialIntelligence.SetState
 ```
 
 ### Command Classification

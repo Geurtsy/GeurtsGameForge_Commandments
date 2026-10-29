@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge AI Entry Point
 
-**Version:** 0.62.19
+**Version:** 0.63.0
 **Purpose:** First documentation entry and session boundary, before manifest resolution.
 **Required package path:** `AI_READ_FIRST.md`
 
@@ -18,6 +18,8 @@ The manifest alone selects and orders applicable techniques, owns package versio
 The manifest also owns `AI-READ`, `HUMAN-ONLY` and `FORGE-DEVELOPMENT-ONLY` audience tags and the read-only section reader. Read this entry and the manifest in full; apply their audience rules before loading the other selected documents.
 
 ## Mandatory Reading and Version Bumps
+
+Documentation is exclusively for AI agents; prioritize efficient, deterministic reading and instructions. The manifest selects the Documentation Maintenance Technique for every approved Game Forge change, including BigBang. Game Forge integration is primary; StandardsOnly remains an explicit secondary route. This does not reorder runtime technical priorities.
 
 Before planning or editing any part of Geurts Game Forge, read this documentation through the entry and manifest chain above. This includes package code, Editor UI, runtime code, tests, tools, catalogue data, configuration and documentation. Memory of an earlier session is not a substitute for reading the applicable current guidance.
 

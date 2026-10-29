@@ -1,11 +1,10 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Folder Structure Technique
 
-**Unity Project Structure - AI-First Automation and Human Developer Reference**
-**Version:** 0.16.6
+**Unity Project Structure - AI Agent Instructions**
+**Version:** 0.17.0
 **Status:** Draft normative technique
-**Primary audience:** AI coding agents and automated development systems
-**Secondary audience:** Human developers
+**Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsFolderStructureTechnique.md`
 
 > `GeurtsTechniqueManifest.md` selects this file and version from one validated package commit. This technique defines folder meaning and placement only.
@@ -14,7 +13,7 @@
 
 ## Purpose
 
-This document defines a stable, scalable Unity project structure for Geurts Game Forge. Its language is intentionally literal and deterministic so automated systems can make consistent placement decisions without sacrificing human readability.
+This document defines a stable, scalable Unity project structure for Geurts Game Forge. Its language is intentionally literal and deterministic so automated systems can make consistent placement decisions with minimal agent context.
 
 This Markdown document is the **explanatory authority** for folder meaning, placement, and constraints. `GeurtsTechniques/GeurtsFolderStructureDefinition.json` is the **automation authority** for the literal managed-folder registry and folder creation. Neither authority may contradict the other.
 
@@ -26,7 +25,7 @@ If the Markdown and JSON disagree, validation must fail. An agent or tool must n
 
 ## Design Goals
 
-- Minimise ambiguity with one clear purpose per folder, readable by humans, AI, and automation.
+- Minimise ambiguity with one clear purpose per folder, explicit for AI agents and automation.
 - Separate first-party, third-party, generated, and external content.
 - Support solo development, team scaling, and long-term consistency.
 - Make assets easy to locate, validate, and safely refactor.
@@ -45,7 +44,7 @@ Report an over-limit path using its exact absolute spelling and character count,
 
 ## Standards-Only Folder Setup
 
-The manifest-selected [Standards-Only Technique](GeurtsStandardsOnlyTechnique.md) permits these folder standards and the separately invoked create-only PowerShell tool without GameForge packages. In **StandardsOnly**, use one complete official source copy at a recorded commit with its matching definition; the God-owned Update prerequisite below and Angels menu step are not applicable. Inspect compatibility and run only the explicitly authorized folder operation. Keep all definition ownership, path, containment, preservation and scene/API requirements. The existing **ForgeUse** setup route still requires its separately confirmed God Update before every full-profile run. This exception changes no creation profile, registry path or tool parameter, and starts no updater.
+The manifest-selected [Standards-Only Technique](GeurtsStandardsOnlyTechnique.md) permits these folder standards and the separately invoked create-only PowerShell tool without GameForge packages. In **StandardsOnly**, use one complete official source copy at a recorded commit with its matching definition; the God-owned Update prerequisite below and Angels menu step are not applicable. Inspect compatibility and run only the explicitly authorized folder operation. Keep all definition ownership, path, containment, preservation and scene/API requirements. The existing **ForgeUse** setup route still requires its separately confirmed God Update before every full-profile run. This exception changes no creation profile, registry path or tool parameter, and starts no updater. The Companion owner distinguishes the existing offline preservation installer from the approved, unimplemented standalone replacement mode; neither performs folder setup.
 
 ## Automation
 
@@ -561,14 +560,14 @@ These rules name folders. The manifest-selected [Naming Technique](GeurtsNamingT
 - Use PascalCase for subfolders inside Unity content areas.
 - Keep names short and literal.
 - Prefer nouns over vague labels.
-- Avoid abbreviations unless team-standard.
+- Use full words for new folder names. Preserve fixed registry paths such as `AI`, `UI`, `VFX` and `SCN_DevPlayground`; existing contracts are not recommended names for new unconstrained folders.
 
 ---
 
 <!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->
 ## Machine-Readable Definition Contract
 
-The JSON `canonicalPath` property is a legacy serialized compatibility key. Preserve its exact key and required value for schema consumers, but use `Required package path` in human-facing metadata and prose.
+The JSON `canonicalPath` property is a legacy serialized compatibility key. Preserve its exact key and required value for schema consumers, but use `Required package path` in documentation metadata and prose.
 
 Before creating folders, any compatible folder-creation consumer must:
 
