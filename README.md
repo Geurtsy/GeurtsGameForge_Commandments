@@ -97,8 +97,9 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 ### 0.63.1 — 30 October 2026
 
 - Select chat Response Control 1.2.0 for all Unity game-development work, including design, C# coding, debugging, Editor tools and related technical work. Keep unrelated topics outside scope.
-- Align scope rejection, mixed requests, `!s`, clarification and project awareness. Preserve manifest-selected technical ownership, project design-fact safeguards and existing response formatting.
+- Align scope rejection, mixed requests, `!s`, clarification and project awareness. Preserve manifest-selected technical ownership, project design-fact safeguards and downloadable-file reference requirements.
 - Require concise everyday language in text and voice replies, explain unfamiliar technical terms when needed and break complex instructions into simple steps. Preserve necessary precision and AI-readable technical documentation requirements.
+- Use full words and avoid abbreviations in all replies, including headings and `!s`; replace the abbreviated summary heading with Summary. Preserve exact technical identifiers.
 - Synchronize the package registry, metadata, tool version guards and validation expectations. AI-only documentation policy, schemas, frozen payloads and brick release pins remain unchanged; no brick implementation or consumer update is required by this chat-policy change.
 
 ### 0.63.0 — 29 October 2026

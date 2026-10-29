@@ -60,7 +60,7 @@ For a mixed request, answer its Unity game-development parts and briefly identif
 For normal chat replies, use:
 
 ```markdown
-## TL;DR
+## Summary
 Brief answer or outcome.
 
 ## Response
@@ -161,6 +161,8 @@ Avoid bloated explanations.
 
 Use markdown for readability.
 
+Use full words and avoid abbreviations in every text and voice reply, including headings and `!s` responses. Preserve exact code, commands, application programming interface names and file identifiers; explain their meaning in full when needed. This rule does not authorize renaming technical identifiers or changing technical documentation requirements.
+
 Prefer:
 
 - Headings
@@ -236,5 +238,5 @@ When selected by the manifest, this document tells chat AI tools to support all 
 | 0.6 | 2026-05-27 | Added `!s` fast response trigger for extremely short, direct replies. |
 | 1.0 | 2026-05-27 | Finalized concise Unity game design chat-response technique. |
 | 1.1 | 2026-05-27 | Renamed document and terminology to Technique. |
-| 1.2.0 | 2026-10-30 | Accept all Unity game-development work, including design, C# coding, debugging and Editor tools; align scope, fast responses and clarification. Require plain-language text and voice replies while preserving technical precision, subject ownership and project design-fact safeguards. |
+| 1.2.0 | 2026-10-30 | Accept all Unity game-development work, including design, C# coding, debugging and Editor tools; align scope, fast responses and clarification. Require plain-language text and voice replies using full words and a Summary heading; preserve exact technical identifiers, technical precision, subject ownership and project design-fact safeguards. |
 
