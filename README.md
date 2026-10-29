@@ -97,11 +97,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
 
-### 0.64.0 � 30 October 2026
+### 0.64.0 — 30 October 2026
 
 - Supersede saved-consent automatic package/content updates with a current explicit Update action and owning confirmation for every update. Preserve exact mutation targets and separate AGENTS.md installation.
 - Retain existing read-only check/catalogue-refresh triggers, source publication and the background game-change integration queue. Keep legacy settings compatible without treating them as mutation authority.
 - Record the God APIs, handlers, settings and acceptance work required for implementation adoption. Preserve v0.63.0 and all historical evidence; installed behavior requires its own released implementation and consumer update.
+- Advance the passive compatibility adapter to published 0.16.0 with verified source/evidence hashes; retain the published God pin while its 0.40.0 candidate remains blocked and unpublished.
 
 ### 0.63.0 — 29 October 2026
 
