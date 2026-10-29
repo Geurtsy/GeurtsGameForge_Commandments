@@ -191,7 +191,7 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `Tools/Tests/RunAutomationTests.ps1` | 0.63.0 | Isolated automation and regression suite. |
 | `Tools/GeurtsDocumentationAudience.psm1` | 1.1.1 | Safe audience and manifest-controlled section reader. |
 | `Tools/ReadGeurtsDocumentation.ps1` | 1.1.1 | Read, preview or index selected Markdown without mutation. |
-| `Tools/Tests/TestDocumentationAudiences.ps1` | 1.1.4 | Audience, section selection, preview and boundary regressions. |
+| `Tools/Tests/TestDocumentationAudiences.ps1` | 1.1.5 | Audience, section selection, preview and boundary regressions. |
 | `Migrations/v0.40.0.md` | 0.40.0 | Historical transition; read only for a requested migration/review. |
 | `Migrations/v0.45.0.md` | 0.45.0 | Historical transition; read only for a requested migration/review. |
 | `GeurtsTechniques/GeurtsUnityTechnique.md` | 0.3.5 | Normative task-specific technical topic. |

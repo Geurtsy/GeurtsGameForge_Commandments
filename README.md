@@ -91,6 +91,7 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:END -->
 
+<!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
 
 ### 0.63.0 — 29 October 2026
@@ -101,3 +102,4 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - Distinguish the God-owned service, passive adapter, existing offline preservation installer and unimplemented standalone replacement requirement. Retain schema 3.0.0, the folder plus three-file target set, separate Codex guides and all data-loss/GDD boundaries.
 - Permit abbreviations only in leading uppercase asset/scene type prefixes for new governed names; use full words in commands, code symbols, identifiers and new folders. Preserve fixed contracts and report existing abbreviated command names as owner compliance gaps. Clarify that compatibility warnings cannot override hard update guards.
 - Update source validation and bounded negative regressions. No owning brick source, installer implementation, installed consumer or published release is changed by this documentation work. The chat-only version 1.1 guide remains unchanged; its off-topic rejection still differs from the broader session instructions and needs a separate response-policy update.
+<!-- GEURTS-SECTION:END -->
