@@ -1,5 +1,5 @@
 # ValidateGeurtsDocumentation.ps1
-# Version: 0.63.1
+# Version: 0.63.2
 
 [CmdletBinding()]
 param(
@@ -699,10 +699,10 @@ try {
     $activeGfiContractSurfaceText = @($gfiTechniqueText, $gfiMigrationText) -join [Environment]::NewLine
     $packageAvailabilityContradiction = $activeGfiContractSurfaceText -match '(?i)package[- ]version(?: ordering| equality| inequality)?\s+(?:alone\s+)?(?:determines|may determine|can determine)[^\r\n]{0,120}(?:availability|Update is available)'
     $sourceBoundaryValid = $gfiTechniqueText -match '(?im)^\*\*Version:\*\*\s*2\.0\.0\s*$' -and $gfiTechniqueText -match '(?im)^\*\*Compatibility schema:\*\*\s*2\.0\.0\s*$' -and $gfiRegistryRow.Success -and $gfiRegistryRow.Groups["Role"].Value -match '(?i)Historical frozen compatibility guide' -and $gfiRegistryRow.Groups["Role"].Value -match '(?i)no current updater authority' -and $gfiLifecycleOwnerRow.Success -and $gfiLifecycleOwnerRow.Groups["When"].Value -match '(?i)Only for a requested historical review or existing-installation migration' -and $gfiLifecycleOwnerRow.Groups["When"].Value -match '(?i)Not current package guidance' -and $manifestText -match '(?i)current setup, checking, and Update belong exclusively to the God-owned Commandments service' -and $gfiTechniqueText.Contains("https://github.com/Geurtsy/GeurtsGameForge_Documentation.git") -and $gfiTechniqueText -match '(?im)^Branch:\s*main\s*$' -and $gfiTechniqueText -match '(?i)sole primary source and authority for all Geurts Game Forge documentation' -and $gfiTechniqueText -match '(?i)documentation update[^\r\n]{0,120}must not require[^\r\n]{0,80}Unity-package release' -and $gfiTechniqueText -match '(?i)`<PluginPackageRoot>/Documentation~/`[^\r\n]{0,140}only plugin-specific' -and $gfiTechniqueText -match '(?i)must not embed, duplicate, redefine, or become authority' -and $gfiTechniqueText -match '(?i)must not ship a bundled or fallback copy of Geurts documentation' -and $activeGfiContractSurfaceText -notmatch '(?i)(?:may|must|shall)\s+(?:embed|bundle|duplicate)[^\r\n]{0,120}Geurts[^\r\n]{0,120}Documentation~'
-    Add-Check "Frozen GFI v2 source and compatibility boundary" $sourceBoundaryValid "The internally validated schema-2.0.0 contract remains available only for released-consumer compatibility; package v0.63.1 assigns current setup, checking, and Update exclusively to the Commandments Companion."
+    Add-Check "Frozen GFI v2 source and compatibility boundary" $sourceBoundaryValid "The internally validated schema-2.0.0 contract remains available only for released-consumer compatibility; package v0.63.2 assigns current setup, checking, and Update exclusively to the Commandments Companion."
 
     $manualTriggerValid = $gfiTechniqueText -match '(?i)There is one live project-local Geurts documentation copy' -and $gfiTechniqueText -match '(?i)On each normal Unity project launch or open[^\r\n]{0,180}exactly one lightweight remote metadata check' -and $gfiTechniqueText -match '(?i)obtains the authoritative current `main` head commit ID' -and $gfiTechniqueText -match '(?i)Update availability is determined only by commit identity' -and $gfiTechniqueText -match '(?is)exact destination directory exists.{0,300}remote `main` head commit ID differs.{0,120}Update is available' -and $gfiTechniqueText -match '(?i)commit IDs are identical, do not report an Update' -and $gfiTechniqueText -match '(?i)Package-version ordering or inequality is display-only and must not determine availability' -and $gfiTechniqueText -match '(?is)remote head commit ID is unavailable.{0,260}exact destination is absent.{0,260}no current receipt with a valid installed commit ID.{0,260}startup comparison result is unknown' -and $gfiTechniqueText -match '(?i)do not claim that an Update is available or that the installed copy is current by inspecting local files or comparing package versions' -and $gfiTechniqueText -match '(?i)notification check must not download documentation, install or synchronize files, inspect or hash the project-local copy, mutate any project path, recover content, or run reintegration' -and $gfiTechniqueText -match '(?i)failed or unavailable metadata request is non-blocking and leaves the local copy usable' -and $gfiTechniqueText -match '(?i)Ordinary AI/session initialization uses the existing local copy and performs no additional remote documentation check' -and $gfiTechniqueText -match '(?i)Local edits inside the detached writable copy do not affect update availability' -and $gfiTechniqueText -match '(?i)project-local copy is missing[^\r\n]{0,160}documentation as unavailable' -and $gfiTechniqueText -match '(?i)must not install, reconstruct, recover, or fetch it automatically' -and $gfiTechniqueText -match '(?i)only by explicitly invoking the Update action' -and $gfiTechniqueText -match '(?i)exposes exactly one documentation lifecycle action labelled' -and $gfiTechniqueText.Contains("Update Geurts Game Forge Documentation") -and $gfiMigrationText -match '(?i)remote head commit ID differs[^\r\n]{0,180}current installed receipt' -and $gfiMigrationText -match '(?i)Package version is display-only and never determines availability' -and $gfiMigrationText -match '(?i)no valid installed commit ID, availability is unknown' -and -not $packageAvailabilityContradiction
-    Add-Check "Frozen GFI v2 startup and manual trigger" $manualTriggerValid "The frozen released-consumer contract retains its internally coherent metadata-only launch check and explicit manual Update semantics without authorizing package-v0.63.1 behavior."
+    Add-Check "Frozen GFI v2 startup and manual trigger" $manualTriggerValid "The frozen released-consumer contract retains its internally coherent metadata-only launch check and explicit manual Update semantics without authorizing package-v0.63.2 behavior."
 
     $versionDisplayValid = $gfiTechniqueText.Contains("Installed Geurts Documentation: <version | Not installed | Unknown>") -and $gfiTechniqueText.Contains("GameForgeIntelligence Plugin: <version | Unknown>") -and $gfiTechniqueText -match '(?i)`Installed Geurts Documentation` comes only from the valid package-version field in the current installed receipt' -and $gfiTechniqueText -match '(?i)Never derive, refresh, or override that displayed version by reading, parsing, or hashing mutable project-local documentation files' -and $gfiTechniqueText -match '(?i)`Not installed` whenever the exact project-local destination is known to be missing, regardless of any receipt or retained history' -and $gfiTechniqueText -match '(?i)check only whether that exact directory exists[^\r\n]{0,160}must not inspect its contents' -and $gfiTechniqueText -match '(?i)`Unknown` when the directory exists but there is no current installed receipt[^\r\n]{0,220}new copy was not completed successfully' -and $gfiTechniqueText -match '(?i)recorded package version when the directory exists and the current installed receipt contains both a valid authoritative selected commit ID and a valid authoritative package version' -and $gfiTechniqueText -match '(?i)`GameForgeIntelligence Plugin` comes only from the canonical installed Unity package metadata for `com\.gameforge\.intelligence`' -and $gfiTechniqueText -match '(?i)Show `Unknown` if that canonical plugin version is unavailable or invalid' -and $gfiTechniqueText.Contains("Available Geurts Documentation: <version>") -and $gfiTechniqueText.Contains("Available Geurts Documentation: Update available (version unknown)") -and $gfiTechniqueText -match '(?i)available package version is display-only and never changes the commit-identity result' -and $gfiTechniqueText -match '(?i)package version, Game Forge Intelligence Technique version, compatibility schema version, and GameForgeIntelligence plugin version are distinct values' -and $gfiTechniqueText -match '(?i)label them separately as `Integration Technique` and `Compatibility Schema`' -and $activeGfiContractSurfaceText -notmatch '(?i)(?:may|must|shall)\s+(?:display|use)[^\r\n]{0,120}(?:compatibility schema|integration technique)[^\r\n]{0,120}(?:as|for)\s+(?:the\s+)?(?:installed Geurts Documentation|GameForgeIntelligence Plugin)' -and $gfiMigrationText -match '(?i)known missing destination shows `Not installed`' -and $gfiMigrationText -match '(?i)existing copy without a trustworthy current receipt and valid package version shows `Unknown`'
     Add-Check "Frozen GFI v2 separated versions" $versionDisplayValid "The frozen released-consumer contract keeps its documentation, plugin, technique, and schema values internally distinct."
@@ -794,7 +794,7 @@ try {
             }
         }
     }
-    Add-Check "Documentation companion closed contract" ($companionContractFailures.Count -eq 0) $(if ($companionContractFailures.Count) { $companionContractFailures -join "; " } else { "The current schema-3.0.0/package-v0.63.1 source contract fixes the official exact-commit archive, one managed directory, seventeen validation entries, one four-target confirmation, and three exact full-file route mappings." })
+    Add-Check "Documentation companion closed contract" ($companionContractFailures.Count -eq 0) $(if ($companionContractFailures.Count) { $companionContractFailures -join "; " } else { "The current schema-3.0.0/package-v0.63.2 source contract fixes the official exact-commit archive, one managed directory, seventeen validation entries, one four-target confirmation, and three exact full-file route mappings." })
 
     $gitOnlyFailures = New-Object System.Collections.Generic.List[string]
     $gitBrickCatalogue = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsBrickCatalogue.json")) | ConvertFrom-Json
@@ -813,7 +813,7 @@ try {
     Add-Check "Companion schema forward compatibility" $companionForwardCompatibilityValid "Schema 3.0.0 pins mutation paths, not documentation releases: packageVersion must match the same archive manifest, and later safe validation-entry lists remain consumable without a companion release."
 
     $companionTechniqueRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| 3\.2\.6 \| (?<Role>[^|]+) \|\r?$')
-    $companionContractRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| 0\.63\.1 \| (?<Role>[^|]+) \|\r?$')
+    $companionContractRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| 0\.63\.2 \| (?<Role>[^|]+) \|\r?$')
     $companionOwnerRow = [regex]::Match($manifestText, '(?m)^\| God-owned Windows Unity Editor Commandments source, metadata check, confirmed replacement, project-boundary, and AI-routing lifecycle \| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $companionContractOwnerRow = [regex]::Match($manifestText, '(?m)^\| Exact companion source, documentation destination, validation entries, confirmation targets, and template-to-route mappings \| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| (?<When>[^|]+) \|\r?$')
     $companionArchitectureValid = $companionTechniqueRegistryRow.Success -and $companionContractRegistryRow.Success -and
@@ -1261,7 +1261,7 @@ try {
         if (-not $technicalCoreText.Contains($route) -or -not $contributors.Contains($route)) { $topicFailures.Add("Efficiency policy is not routed through its Automation owner: $route") | Out-Null }
     }
     if ($codeText -match '(?i)XML documentation is not required for private methods') { $topicFailures.Add('Code topic exempts private methods from required XML summaries') | Out-Null }
-    if ($technicalCoreText -notmatch '(?m)^\*\*Version:\*\* 0\.20\.11\r?$' -or $technicalCoreText.Length -gt 24000 -or
+    if ($technicalCoreText -notmatch '(?m)^\*\*Version:\*\* 0\.20\.12\r?$' -or $technicalCoreText.Length -gt 24000 -or
         -not $technicalCoreText.Contains('No-Code Module Use and Code Extensions') -or
         -not $technicalCoreText.Contains('every full absolute file and folder path below 260 characters') -or
         $technicalCoreText -match '(?m)^## (?:Game Audio and Sound Design|Command Rules|Multiplayer Efficiency Rule|Odin Inspector Usage)\r?$') {
@@ -1976,6 +1976,34 @@ try {
         if ($audienceText -match '(?im)^\*\*(?:Primary audience|Secondary audience):\*\*|^\*\*Audience:\*\*[^\r\n]*human') { $documentationFailures.Add('Competing documentation audience in ' + $path) | Out-Null }
     }
     Add-Check 'AI documentation maintenance boundary' ($documentationFailures.Count -eq 0) $(if ($documentationFailures.Count) { $documentationFailures -join '; ' } else { 'Required maintenance scope, AI audience, subject routing and evidence limits are declared; runtime and product UI rules retain their owners.' })
+
+    # These explicit owner edges replace duplicated rules; a valid file link alone
+    # cannot prove that the required authoritative section is still reachable.
+    $ownerRouteFailures = New-Object System.Collections.Generic.List[string]
+    $ownerRoutes = @(
+        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsGameForgeAutomationTechnique.md'; Fragment = 'shared-integration-queue' },
+        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = '4-offline-startup-and-explicit-metadata-checks' },
+        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = '5-explicit-in-editor-update' },
+        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = 'consent-package-work-and-automatic-god-openings' },
+        @{ Consumer = 'GeurtsTechniques/GeurtsTechnicalTechnique.md'; Owner = 'GeurtsStandardsOnlyTechnique.md'; Fragment = 'general-standards-remain-applicable' },
+        @{ Consumer = 'GeurtsTechniques/GeurtsTechnicalTechnique.md'; Owner = 'GeurtsStandardsOnlyTechnique.md'; Fragment = 'framework-requirements-are-conditional' },
+        @{ Consumer = 'GeurtsTechniques/GeurtsBrickContract.md'; Owner = 'GeurtsTechnicalTechnique.md'; Fragment = 'no-code-module-use-and-code-extensions' },
+        @{ Consumer = 'GeurtsTechniques/GeurtsBrickContract.md'; Owner = 'GeurtsTechnicalTechnique.md'; Fragment = 'codex-compatibility' },
+        @{ Consumer = 'GeurtsTechniques/GeurtsBrickContract.md'; Owner = 'GeurtsDocumentationMaintenanceTechnique.md'; Fragment = 'ai-audience-and-efficiency' },
+        @{ Consumer = 'GeurtsTechniques/GeurtsBrickContract.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = 'public-editor-interfaces-and-no-code-use' },
+        @{ Consumer = 'GeurtsTechniques/GeurtsBrickContract.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = 'consent-package-work-and-automatic-god-openings' }
+    )
+    foreach ($route in $ownerRoutes) {
+        $consumerText = [IO.File]::ReadAllText((Join-Path $RepositoryRoot $route.Consumer))
+        $ownerRelative = 'GeurtsTechniques/' + $route.Owner
+        $ownerText = [IO.File]::ReadAllText((Join-Path $RepositoryRoot $ownerRelative))
+        $link = $(if ($route.Consumer.StartsWith('GeurtsTechniques/')) { $route.Owner } else { $ownerRelative }) + '#' + $route.Fragment
+        if (-not $consumerText.Contains('](' + $link + ')') -or $ownerRelative -cnotin $registrySet -or
+            $route.Fragment -cnotin @(& $getFragments $ownerText)) {
+            $ownerRouteFailures.Add($route.Consumer + ' must route to the registered owner section ' + $link) | Out-Null
+        }
+    }
+    Add-Check 'Consolidated subject owner routes' ($ownerRouteFailures.Count -eq 0) $(if ($ownerRouteFailures.Count) { $ownerRouteFailures -join '; ' } else { 'Entry, dependency and brick guidance point directly to existing registered owner sections; semantic completeness remains a maintenance review requirement.' })
 
     $standaloneValid = $companionTechniqueText.Contains('Game Forge integration through God is the primary supported path.') -and
         $companionTechniqueText.Contains('BigBang''s handoff never exempts God or its Commandments service from licensed Odin Inspector and Quantum Console.') -and
