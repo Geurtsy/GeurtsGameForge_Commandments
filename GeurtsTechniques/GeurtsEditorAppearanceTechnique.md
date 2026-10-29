@@ -3,8 +3,7 @@
 
 **Version:** 0.1.6
 **Status:** Normative mandatory standard
-**Primary audience:** Geurts Game Forge brick and Editor-tool maintainers
-**Secondary audience:** AI coding agents and human developers
+**Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsEditorAppearanceTechnique.md`
 
 ## 1. Scope and authority

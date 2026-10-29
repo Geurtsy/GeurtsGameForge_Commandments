@@ -3,8 +3,7 @@
 
 **Version:** 0.12.2
 **Status:** Draft normative technique
-**Primary audience:** AI coding agents and automated development systems
-**Secondary audience:** Human developers and compatible Unity integrations
+**Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md`
 
 ## Purpose

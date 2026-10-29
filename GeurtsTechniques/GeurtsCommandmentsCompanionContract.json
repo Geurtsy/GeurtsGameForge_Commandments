@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0.0",
-  "packageVersion": "0.62.19",
+  "packageVersion": "0.63.0",
   "source": {
     "repository": "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git",
     "branch": "main",
@@ -26,7 +26,9 @@
     "GeurtsTechniques/GeurtsEditorAppearanceTechnique.md",
     "GeurtsTechniques/GeurtsForgeSetupTechnique.md",
     "GeurtsTechniques/GeurtsForgeSetupContract.json",
-    "GeurtsTechniques/GeurtsSteamIntegrationTechnique.md"
+    "GeurtsTechniques/GeurtsSteamIntegrationTechnique.md",
+    "GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md",
+    "GeurtsTechniques/GeurtsBrickUsageGuide.md"
   ],
   "updateUi": {
     "actionLabel": "Update Geurts Game Forge Commandments",

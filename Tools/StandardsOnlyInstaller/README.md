@@ -1,7 +1,10 @@
-<!-- GEURTS-AUDIENCE: HUMAN-ONLY -->
+<!-- GEURTS-AUDIENCE: AI-READ -->
 # StandardsOnly Windows installer
 
-**Version:** 1.0.0
+**Version:** 1.0.1
+**Audience:** AI agents only
+
+Secondary optional route. This guide documents the unchanged installer artifact 1.0.0. The [approved standalone replacement requirement](../../GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#secondary-standalone-documentation-routes) is a separate unverified implementation; do not claim this artifact replaces existing documentation or the three Copilot routes.
 
 [Download GeurtsStandardsOnlyInstaller-1.0.0.zip](https://github.com/Geurtsy/GeurtsGameForge_Commandments/raw/main/Tools/StandardsOnlyInstaller/GeurtsStandardsOnlyInstaller-1.0.0.zip)
 

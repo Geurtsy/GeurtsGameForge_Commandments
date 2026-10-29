@@ -1,11 +1,10 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Commandments Service and Companion Compatibility Technique
 
-**Version:** 3.2.5
+**Version:** 3.2.6
 **Contract schema:** 3.0.0
 **Status:** Draft normative technique
-**Primary audience:** God Editor service and compatibility adapter maintainers
-**Secondary audience:** AI coding agents and human developers
+**Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md`
 
 ## 1. Scope and Ownership
@@ -16,7 +15,7 @@ God is a Windows-only, Editor-service owner installed through Unity Package Mana
 
 `Geurtsy/GeurtsGameForge_Commandments` remains the sole source and authority for generic Geurts Game Forge documentation. This repository contains no Commandments Companion plugin code or God implementation. Ordinary Markdown tools can read local Commandments without any Unity package. The manifest's **StandardsOnly** profile and [Standards-Only Technique](GeurtsStandardsOnlyTechnique.md) also permit applying the documentation as development standards without Forge packages. Manual official source checkout/snapshot acquisition is outside this God-owned service lifecycle; it grants no managed-target replacement or agent-route authority and does not create a second updater. Content releases do not require a God release while schema 3.0.0 and the pinned setup payloads remain supported. God must not bundle a generic Commandments copy in `Documentation~/`.
 
-There is no external installer, Windows bootstrap, batch-driven setup, or separate companion setup action for content acquisition. BigBang may install prerequisites and God, then offer this God-owned update through the public API after verified compilation. The God service owns the confirmation and acquisition; BigBang adds no content engine or mutation target.
+The God-owned service uses no external installer, Windows bootstrap or batch-driven setup. The optional standalone routes below are separate from God and BigBang. BigBang may install prerequisites and God, then offer this God-owned update through the public API after verified compilation. The God service owns the confirmation and acquisition; BigBang adds no content engine or mutation target.
 
 ### Public Editor interfaces and no-code use
 
@@ -208,3 +207,16 @@ The AGENTS.md Technique owns the separate **Install Codex guide** action. Docume
 ## Independent module preference
 
 God 0.29.0 exposes **Module enabled** in its Commandments view and public **ModuleEnabled**, **SetModuleEnabled(bool)** and **ModuleToggleUnavailableReason** Editor integration members. These retain the preference introduced by Companion 0.12.0 and the API previously used by God 0.24.0; the passive adapter forwards to this same service. The preference defaults on and is keyed by the normalized Unity project root in Editor preference storage, outside the project filesystem and installed package. It is independent of the last-successful commit signal and automatic-update consent. Turning it off blocks new metadata checks, content updates and setup writes, including queued window actions; installed package, guidance, routes and existing saved preferences remain untouched. Active Commandments Companion, host or Unity work must finish before switching; do not cancel in-flight work or introduce cleanup/deletion. Its window remains reachable for information and re-enabling. Turning it on starts no network or installation work. Preserve the normal explicit menu/check actions and all Update consent, validation and four-target boundaries. This preference changes neither contract schema 3.0.0 nor the Update target set.
+
+## Secondary standalone documentation routes
+
+Game Forge integration through God is the primary supported path. BigBang's handoff never exempts God or its Commandments service from licensed Odin Inspector and Quantum Console. The passive adapter remains vendor-free because it only forwards to God; it is not an independent content installer.
+
+The secondary standalone Windows documentation installer requires neither Odin Inspector nor Quantum Console, God, BigBang or Unity packages. It must install the complete documentation package and managed AI instruction files without installing additional software or packages. Do not invent an executable, repository or path for an unimplemented route.
+
+Two distinct standalone modes must not be conflated:
+
+- **Existing preservation installer:** [StandardsOnly installer 1.0.0](../Tools/StandardsOnlyInstaller/README.md) is the verified versioned offline artifact. It carries documentation 0.61.1, creates a complete initial copy and preserves a managed block in root AGENTS.md. It refuses differing existing documentation and does not replace Copilot routes. Its current behavior is not the replacement mode below. Preserve its immutable archive and own consent/preservation rules.
+- **Approved replacement requirement; implementation not verified:** a future standalone replacement mode uses exactly the current schema-3 documentation folder and three AI files listed in sections 3 and 5, with the same template bytes and one cancel-default confirmation before acquisition or mutation. The confirmation lists every exact target, loss of all local additions/edits, and no backup or rollback. There is no earlier preview/dry run or second confirmation. Declining changes nothing. Validate the complete candidate and unchanged supported target contract before replacement; report success only after all four targets verify. An interrupted replacement is partial/failed, never successful or automatically repaired. Every unlisted path stays untouched and uninspected, particularly Docs/GameDesign. Only necessary missing route parents may be created. AGENTS.md installation stays separate under its owning technique and requires its own explicit action; do not bundle it into this confirmation.
+
+This specification does not implement or release a replacement installer, grant startup/update consent or change the existing God service, three route mappings, schemas, frozen templates or legacy manual manager. Standalone adoption remains secondary and does not block the primary Forge workflow. Verify an owning implementation and its acceptance evidence before presenting replacement mode as available.

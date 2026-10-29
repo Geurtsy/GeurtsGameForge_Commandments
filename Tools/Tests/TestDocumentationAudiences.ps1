@@ -1,4 +1,4 @@
-# Version: 1.1.4
+# Version: 1.1.5
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
@@ -99,7 +99,7 @@ Shared ending.
     Assert-Audience ($brick.Content.Contains('## Use existing bricks') -and $brick.Content.Contains('Odin Inspector and Quantum Console') -and $brick.Content.Contains('Only after remote verification') -and $brick.Content.Contains('Never overwrite a brick source folder or offer a downgrade') -and $brick.Content.Contains('Install is explicit.') -and $brick.Content.Contains('Only `released: true` entries') -and -not $brick.Content.Contains('Implement `IBrick`')) 'Game consumers retain reuse, tools, release sources, Git delivery and downgrade guidance'
     $readmeGame = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'README.md'
     $readmeForge = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'README.md' -Mode ForgeDevelopment
-    Assert-Audience ($readmeGame.Content.Trim().Length -eq 0 -and $readmeForge.Content.Contains('## Maintenance') -and -not $readmeForge.Content.Contains('## Changelog')) 'README walkthroughs/history skip by default; source maintenance is Forge-only'
+    Assert-Audience ($readmeGame.Content.Contains('## Task index') -and -not $readmeGame.Content.Contains('## Source-Repository Validation') -and $readmeForge.Content.Contains('## Source-Repository Validation') -and -not $readmeGame.Content.Contains('## Changelog') -and -not $readmeForge.Content.Contains('## Changelog')) 'Selected AI index remains readable; source validation is Forge-only and history is optional'
     foreach ($payload in @('GeurtsTechniques/GeurtsAgentTechnique.md', 'GeurtsTechniques/GeurtsGitIgnoreTechnique.md')) {
         $raw = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot $payload))
         $expected = [regex]::Replace($raw, '\A<!-- GEURTS-AUDIENCE: AI-READ -->\r?\n', '')
@@ -281,7 +281,10 @@ Always retain this newly introduced requirement.
     $diagnosticsCore = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsDiagnosticsTechnique.md' -Sections core
     Assert-Audience ($diagnosticsCore.Content.Contains('ordinary Forge logs') -or $diagnosticsCore.Content.Contains('Ordinary Forge logs')) 'Real logging-only read retains unavailable-provider policy'
     Assert-Audience ($diagnosticsCore.Content.Contains('FORGE_AUDIENCE.PLAYER') -and $diagnosticsCore.Content.Contains('never evidence of success') -and -not $diagnosticsCore.Content.Contains('Background transparency')) 'Real Diagnostics core keeps audience/failure safeguards and skips overlay details'
-    foreach ($history in @('README.md', 'Migrations/v0.47.0.md', 'GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md')) {
+    $audioUsage = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsBrickUsageGuide.md' -Sections audio
+    Assert-Audience ($audioUsage.Content.Contains('## Audio') -and -not $audioUsage.Content.Contains('## BigBang') -and -not $audioUsage.Content.Contains('## God')) 'Brick usage selection loads the requested brick without unrelated controlled sections'
+    Assert-Audience ($audioUsage.Content.Contains('## Selection and evidence') -and $audioUsage.Content.Contains('## Review dependencies') -and $audioUsage.Content.Contains('no Unity build, installer, native service or gameplay workflow was executed')) 'Brick usage selection retains common requirements, owner follow-ups and evidence limits'
+    foreach ($history in @('History/README-0.62.19.md', 'Migrations/v0.47.0.md', 'GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md')) {
         Assert-Audience ((Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document $history).Content.Trim().Length -eq 0) "Routine GameUse skips history: $history"
     }
     $jsonPreview = & (Join-Path $RepositoryRoot 'Tools/ReadGeurtsDocumentation.ps1') -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsDiagnosticsTechnique.md' -Sections core -Preview -OutputFormat Json | ConvertFrom-Json

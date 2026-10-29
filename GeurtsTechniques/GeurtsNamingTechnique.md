@@ -1,10 +1,9 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Naming Technique
 
-**Version:** 0.1.6
+**Version:** 0.2.0
 **Status:** Draft normative technique
-**Primary audience:** AI coding agents and automated development systems
-**Secondary audience:** Human developers
+**Audience:** AI agents only
 **Framework:** GeurtsGameForge
 **Required package path:** `GeurtsTechniques/GeurtsNamingTechnique.md`
 **Subject:** Names of first-party project assets and scene objects; script filename and class-name exemption.
@@ -46,7 +45,7 @@ TYPE_Category_Description_VersionNumber
 Use the optional final number only when an additional version, variety or instance needs it. For example:
 
 ```text
-SND_UserInterface_SciFiClick
+SND_UserInterface_ScienceFictionClick
 FX_Spirits_OrbWavesAndSparks_1
 ```
 
@@ -56,6 +55,10 @@ FX_Spirits_OrbWavesAndSparks_1
 | Category | Owning purpose, system, or content domain. | CapitalCamelCase, also called PascalCase. |
 | Description | Specific identity or useful variant within the category. | CapitalCamelCase, also called PascalCase. |
 | VersionNumber (optional) | Number distinguishing an additional content version, variety or instance. | Unpadded ASCII decimal digits: `0`, `1`, `2`, ... `125`. |
+
+Only the leading uppercase TYPE prefix may be abbreviated. Category and Description must use full words; uppercase acronyms or familiar shorthand in those segments are not exceptions. The optional numeric suffix keeps its existing format. For new script names, code symbols, freely authored identifiers and folders, use full words under their owning casing rules. Command categories and actions always use full words; they have no TYPE-prefix exception.
+
+Preserve fixed published/vendor identifiers, package identities, schema tokens, registered paths and actual existing APIs when quoting or using them. Abbreviated existing command names are legacy compliance gaps requiring coordinated owner changes, not approved names for new commands. This documentation does not rename implemented APIs, assets or code.
 
 An applicable name MUST:
 
@@ -106,7 +109,7 @@ Use these identifiers for scene GameObjects, children, runtime instances, and pr
 | Type | Scene object role | Example |
 |---|---|---|
 | `ENV` | Non-interactable environmental object | `ENV_Environment_Terrain` |
-| `OBJ` | Interactable object | `OBJ_Environment_SciFiDoor` |
+| `OBJ` | Interactable object | `OBJ_Environment_ScienceFictionDoor` |
 | `UI` | Object whose primary role is user interface | `UI_UserInterface_SettingsPanel` |
 | `CTRL` | Object whose sole purpose is controlling the game | `CTRL_GameFlow_SessionManager` |
 | `CAM` | Dedicated camera object, including a camera rig | `CAM_Gameplay_MainView` |
@@ -119,8 +122,8 @@ Use these identifiers for scene GameObjects, children, runtime instances, and pr
 | `GRP` | Empty organizational container with no behaviour | `GRP_Lighting_CorridorLights` |
 | `ANC` | Dedicated attachment or placement anchor | `ANC_Character_RightHandAttachment` |
 | `MRK` | Dedicated reference marker or waypoint with no control logic | `MRK_Navigation_PatrolPoint01` |
-| `RIG` | Dedicated skeletal or animation rig helper | `RIG_Character_HandIkTarget` |
-| `VID` | Dedicated video playback object outside the UI | `VID_Cinematics_IntroProjection` |
+| `RIG` | Dedicated skeletal or animation rig helper | `RIG_Character_HandInverseKinematicsTarget` |
+| `VID` | Dedicated video playback object outside the UI | `VID_Cinematics_IntroductionProjection` |
 | `DBG` | Development-only diagnostic or visualization object | `DBG_Navigation_PathPreview` |
 | `MISC` | Other scene object role with no suitable registered type; use sparingly | `MISC_Development_PrototypeHelper` |
 
@@ -150,13 +153,13 @@ Use these identifiers for independently nameable asset base filenames. The Group
 
 | Group | Type | Asset kind | Example |
 |---|---|---|---|
-| Audio | `SND` | Sound effect | `SND_UserInterface_SciFiClick` |
+| Audio | `SND` | Sound effect | `SND_UserInterface_ScienceFictionClick` |
 | Audio | `MUS` | Music | `MUS_MainMenu_AmbientTheme` |
 | Audio | `VO` | Voice recording | `VO_Tutorial_Welcome` |
 | Audio | `AMB` | Ambient recording or soundscape | `AMB_Environment_ForestNight` |
 | Audio | `MIX` | Audio mixer | `MIX_Audio_MainMix` |
-| Media | `VID` | Video clip | `VID_Cinematics_IntroSequence` |
-| Media | `IMG` | Source image intended as artwork or reference, rather than a texture or sprite | `IMG_ConceptArt_SciFiDoorStudy` |
+| Media | `VID` | Video clip | `VID_Cinematics_IntroductionSequence` |
+| Media | `IMG` | Source image intended as artwork or reference, rather than a texture or sprite | `IMG_ConceptArt_ScienceFictionDoorStudy` |
 | Textures | `TEX` | Texture, including surface maps | `TEX_Environment_BrickWallAlbedo` |
 | Textures | `RTEX` | Render texture | `RTEX_UserInterface_MinimapView` |
 | Textures | `CRTEX` | Custom render texture | `CRTEX_Environment_WaterRipples` |
@@ -170,7 +173,7 @@ Use these identifiers for independently nameable asset base filenames. The Group
 | Rendering | `CSH` | Compute shader | `CSH_Rendering_ParticleSimulation` |
 | Rendering | `HLSL` | Shader include source | `HLSL_Rendering_NoiseFunctions` |
 | Rendering | `SHVAR` | Shader variant collection | `SHVAR_Rendering_GameplayWarmup` |
-| Geometry | `MOD` | Imported model source | `MOD_Environment_SciFiDoor` |
+| Geometry | `MOD` | Imported model source | `MOD_Environment_ScienceFictionDoor` |
 | Geometry | `MESH` | Separately saved mesh asset | `MESH_Environment_DoorPanel` |
 | Geometry | `BILL` | Separately saved billboard asset | `BILL_Environment_DistantTree` |
 | Sprites | `SPR` | Sprite source | `SPR_UserInterface_SettingsIcon` |
@@ -180,12 +183,12 @@ Use these identifiers for independently nameable asset base filenames. The Group
 | Animation | `AOVR` | Animator override controller | `AOVR_Character_HeavyEnemyLocomotion` |
 | Animation | `AVATAR` | Separately saved animation avatar asset | `AVATAR_Character_PlayerHumanoid` |
 | Animation | `MASK` | Avatar mask | `MASK_Character_UpperBody` |
-| Animation | `TL` | Timeline asset | `TL_Cinematics_IntroSequence` |
+| Animation | `TL` | Timeline asset | `TL_Cinematics_IntroductionSequence` |
 | Scenes and data | `SCN` | Scene asset | `SCN_MainMenu_TitleScreen` |
-| Scenes and data | `DATA` | Project-owned ScriptableObject asset | `DATA_Character_PlayerStats` |
+| Scenes and data | `DATA` | Project-owned ScriptableObject asset | `DATA_Character_PlayerStatistics` |
 | Text and structured files | `TXT` | General text asset | `TXT_Tutorial_WelcomeMessage` |
 | Text and structured files | `JSON` | JSON data file | `JSON_Localization_EnglishStrings` |
-| Text and structured files | `CSV` | CSV data file | `CSV_Balancing_WeaponStats` |
+| Text and structured files | `CSV` | CSV data file | `CSV_Balancing_WeaponStatistics` |
 | Text and structured files | `XML` | XML data file | `XML_Integration_ServiceSchema` |
 | Text and structured files | `YAML` | Authored YAML data file | `YAML_Balancing_DifficultyValues` |
 | Text and structured files | `BIN` | Authored binary data asset | `BIN_Navigation_PrecomputedRoutes` |
@@ -216,8 +219,8 @@ Use these identifiers for independently nameable asset base filenames. The Group
 - Select a specific semantic kind before a general fallback. A surface texture uses `TEX`; sprite artwork uses `SPR`; a music recording uses `MUS`; an authored JSON data file uses the `JSON` identifier rather than `TXT`.
 - Use `AMB` for ambient recordings, `IMG` for independently managed source artwork or reference images, and the format-specific identifiers for authored structured text files. Use broader types only when their meanings match the item.
 - Unity serialization format does not override semantic kind. A YAML-serialized scene remains `SCN`; a custom ScriptableObject remains `DATA`. The `YAML` identifier applies to separately authored YAML data files.
-- Both 2D and 3D physics materials use `PMAT`. If needed, distinguish dimensionality within the description: `PMAT_Physics_BouncySurface2D` and `PMAT_Physics_BouncySurface3D`.
-- Font source files and font assets use `FONT`. If needed, distinguish related assets within the description: `FONT_UserInterface_MainTypefaceSource` and `FONT_UserInterface_MainTypefaceSdf`.
+- Both 2D and 3D physics materials use `PMAT`. If needed, distinguish dimensionality within the description: `PMAT_Physics_BouncySurfaceTwoDimensions` and `PMAT_Physics_BouncySurfaceThreeDimensions`.
+- Font source files and font assets use `FONT`. If needed, distinguish related assets within the description: `FONT_UserInterface_MainTypefaceSource` and `FONT_UserInterface_MainTypefaceSignedDistanceField`.
 - Shader, compute shader, include, graph, and UI document entries describe rendering or UI assets. C# scripts remain exempt. Required shader names, include paths, and tool conventions remain subject to section 8.
 - Imported meshes, avatars, animation clips, sprite slices, mixer groups, and snapshots can be embedded or generated sub-assets. Apply an entry only when the item is independently nameable through its owning workflow.
 - Shared identifiers must retain a related meaning across registries. `VID` describes video media or dedicated playback. `FX` is a scene effect instance; `VFX` is a Visual Effect Graph asset. `CTRL` is a game-control scene object; `ACTRL` is an Animator controller asset.
@@ -248,13 +251,13 @@ A prefab asset's base filename MUST match its authored root GameObject name. Use
 | Prefab root / canonical scene object name | Prefab asset filename |
 |---|---|
 | `ENV_Environment_DecorativeRock` | `ENV_Environment_DecorativeRock.prefab` |
-| `OBJ_Environment_SciFiDoor` | `OBJ_Environment_SciFiDoor.prefab` |
+| `OBJ_Environment_ScienceFictionDoor` | `OBJ_Environment_ScienceFictionDoor.prefab` |
 | `UI_UserInterface_SettingsPanel` | `UI_UserInterface_SettingsPanel.prefab` |
 | `CTRL_GameFlow_SessionManager` | `CTRL_GameFlow_SessionManager.prefab` |
 | `LIT_Rendering_CorridorReflection` | `LIT_Rendering_CorridorReflection.prefab` |
 | `FX_Spirits_OrbWavesAndSparks_1` | `FX_Spirits_OrbWavesAndSparks_1.prefab` |
 
-The same rule applies when authoring a prefab directly, and to prefab variants. Describe a prefab variant within its root and asset name, for example `OBJ_Environment_SciFiDoorHeavy`.
+The same rule applies when authoring a prefab directly, and to prefab variants. Describe a prefab variant within its root and asset name, for example `OBJ_Environment_ScienceFictionDoorHeavy`.
 
 Multiple scene instances may require distinguishing descriptions or numeric suffixes. An instance-specific name does not require renaming its shared source prefab. The saved prefab retains its canonical root/asset correspondence.
 
@@ -265,23 +268,23 @@ Runtime and duplication workflows MUST produce compliant final names. Unity-gene
 Use the same `DATA` prefix across custom ScriptableObject purposes. Category and description provide the distinctions:
 
 ```text
-DATA_Audio_SciFiClickSettings
-DATA_Character_PlayerStats
-DATA_Character_PlayerStatsEasy
-DATA_Character_PlayerStatsHard
+DATA_Audio_ScienceFictionClickSettings
+DATA_Character_PlayerStatistics
+DATA_Character_PlayerStatisticsEasy
+DATA_Character_PlayerStatisticsHard
 DATA_Items_HealthPotion
 DATA_Events_PlayerDied
 DATA_GameFlow_SessionState
 ```
 
-The C# class and script filename remain exempt: `PlayerStats` and `PlayerStats.cs`. The asset name can be `DATA_Character_PlayerStats`.
+The C# class and script filename remain exempt: `PlayerStatistics` and `PlayerStatistics.cs`. The asset name can be `DATA_Character_PlayerStatistics`.
 
 ### 6.3 Categories Across Types
 
 Reuse a category for items serving the same domain:
 
 ```text
-SND_UserInterface_SciFiClick
+SND_UserInterface_ScienceFictionClick
 SPR_UserInterface_SettingsIcon
 UI_UserInterface_SettingsPanel
 ANIM_UserInterface_PanelOpen
@@ -294,8 +297,8 @@ Category vocabulary expresses purpose, not folder placement. Category names do n
 Keep meaningful semantic variant details inside Description:
 
 ```text
-SND_UserInterface_SciFiClickSoft
-SND_UserInterface_SciFiClickSharp
+SND_UserInterface_ScienceFictionClickSoft
+SND_UserInterface_ScienceFictionClickSharp
 TEX_Environment_BrickWallAlbedo
 TEX_Environment_BrickWallNormal
 ```
@@ -306,11 +309,11 @@ When an additional version, variety or instance needs a number, append an unders
 TYPE_CategoryName_DescriptionName_VersionNumber
 FX_Spirits_OrbWavesAndSparks_1
 FX_Spirits_OrbWavesAndSparks_2
-OBJ_Environment_SciFiDoor_1
-OBJ_Environment_SciFiDoor_2
+OBJ_Environment_ScienceFictionDoor_1
+OBJ_Environment_ScienceFictionDoor_2
 ```
 
-The number is optional. Start a new numbered series at `0`, then `1`, `2`, `3`, and so on, without leading zeros, retaining the normal file extension after it. Do not add a suffix to every item or increment names for ordinary source edits. Existing three-part names with numbers inside Description, such as `OBJ_Environment_SciFiDoor01`, remain valid; this rule does not authorize rewriting them.
+The number is optional. Start a new numbered series at `0`, then `1`, `2`, `3`, and so on, without leading zeros, retaining the normal file extension after it. Do not add a suffix to every item or increment names for ordinary source edits. Existing three-part names with numbers inside Description, such as `OBJ_Environment_ScienceFictionDoor01`, remain valid; this rule does not authorize rewriting them.
 
 ## 7. Script Exemption
 
@@ -320,7 +323,7 @@ Scripts MUST NOT use `TYPE_Category_Description`. Use **CapitalCamelCase**, also
 PlayerController.cs
 SceneLoader.cs
 AudioSettings.cs
-PlayerStats.cs
+PlayerStatistics.cs
 ```
 
 Unity script filenames MUST match their associated class names. For example, `PlayerController.cs` contains the corresponding `PlayerController` class.

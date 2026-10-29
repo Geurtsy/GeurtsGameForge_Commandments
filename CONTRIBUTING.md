@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: FORGE-DEVELOPMENT-ONLY -->
 # Contributing to Commandments
 
-**Version:** 0.62.19
+**Version:** 0.63.0
 
 This repository owns generic development standards, contracts and their source-only maintenance tools. God, bricks and the compatibility adapter own their implementations. Project-specific design stays in the game's `Docs/GameDesign/`.
 
@@ -9,7 +9,7 @@ For game queue implementations, the Automation owner's [automated publisher leas
 
 ## Read and change
 
-Start at [AI_READ_FIRST.md](AI_READ_FIRST.md), then the [manifest](GeurtsTechniqueManifest.md). Use `ForgeDevelopment` reading mode and select only the subjects needed for the change. Read one source commit; do not substitute remembered guidance or a managed project snapshot. Keep current requirements in their selected owner and link to them from other guides.
+Start at [AI_READ_FIRST.md](AI_READ_FIRST.md), then the [manifest](GeurtsTechniqueManifest.md). Use `ForgeDevelopment` reading mode and select only the subjects needed for the change. Read one source commit; do not substitute remembered guidance or a managed project snapshot. Keep current requirements in their selected owner and link to them from other guides. Apply the manifest-selected [Documentation Maintenance Technique](GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md) to every approved change, including affected brick usage contracts and cross-repository dependencies.
 
 Use concise, literal instructions with explicit applicability, inputs, outputs and failure behavior. Prefer one authoritative rule over repeated prose. Keep historical evidence under `History/` and outside routine AI reading. Inspect existing code before extending it; avoid extra dependencies, network requests and repeated expensive checks.
 

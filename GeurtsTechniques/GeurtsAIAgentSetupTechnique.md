@@ -2,10 +2,9 @@
 # Geurts AI Agent Setup Technique
 
 **Native AI Instruction Setup - Copilot and supported scoped routes**
-**Version:** 3.1.2
+**Version:** 3.1.3
 **Status:** Draft normative technique
-**Primary audience:** AI coding agents and automated development systems
-**Secondary audience:** Human developers
+**Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsAIAgentSetupTechnique.md`
 
 ## Purpose and Manifest Boundary
@@ -54,7 +53,7 @@ Confirmation intentionally authorizes discarding every existing byte in those th
 
 The companion reports Update success only after the complete documentation destination and all three route files are present and complete. A failure after mutation begins may leave a partial result; it must be reported as failure, and the only retry is another explicit confirmed Update. The companion must not inspect or change `Docs/GameDesign/`, run the manual manager, create GDD scaffolds, update the GDD manifest, create the full folder structure, or provision `.gitignore`.
 
-This deliberately bounded whole-file authority is the only exception to the preservation-based manual rules below.
+This deliberately bounded whole-file authority applies to the God service and the separately specified standalone replacement mode in the Companion owner. That standalone requirement is not implemented by the legacy manual manager or preservation installer. AGENTS.md remains separate; all other manual operations retain the preservation rules below.
 
 ## Legacy Manual Manager Preservation
 

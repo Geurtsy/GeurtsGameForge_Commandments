@@ -1,5 +1,5 @@
 # RunAutomationTests.ps1
-# Version: 0.62.19
+# Version: 0.63.0
 
 [CmdletBinding()]
 param(
@@ -352,7 +352,9 @@ try {
         "GeurtsTechniques/GeurtsEditorAppearanceTechnique.md",
         "GeurtsTechniques/GeurtsForgeSetupTechnique.md",
         "GeurtsTechniques/GeurtsForgeSetupContract.json",
-        "GeurtsTechniques/GeurtsSteamIntegrationTechnique.md"
+        "GeurtsTechniques/GeurtsSteamIntegrationTechnique.md",
+        "GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md",
+        "GeurtsTechniques/GeurtsBrickUsageGuide.md"
     )
     $expectedCompanionRoutes = @(
         "Tools/AIAgentInstructionTemplates/copilot-instructions.md|.github/copilot-instructions.md",
@@ -367,9 +369,9 @@ try {
         ".github/instructions/geurts-unity.instructions.md|replace-complete-file",
         ".github/instructions/geurts-game-design.instructions.md|replace-complete-file"
     )
-    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.62.19" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.62.19, and the official exact-main-commit archive source"
+    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.63.0" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.63.0, and the official exact-main-commit archive source"
     Assert-True ([string]$companionContract.destination.projectRelativePath -ceq "GeurtsGameForgeCommandments" -and [string]$companionContract.destination.replacement -ceq "complete-directory" -and [string]$companionContract.destination.access -ceq "logically-read-only") "Companion contract names the one logically-read-only complete documentation destination"
-    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 15) "Current companion contract names the exact fifteen unique package-v0.62.19 source-validation entries"
+    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 17) "Current companion contract names the exact seventeen unique package-v0.63.0 source-validation entries"
     Assert-True (($actualCompanionRoutes -join "|") -ceq ($expectedCompanionRoutes -join "|") -and ($actualConfirmationTargets -join "|") -ceq ($expectedConfirmationTargets -join "|") -and [string]$companionContract.updateUi.actionLabel -ceq "Update Geurts Game Forge Commandments" -and [string]$companionContract.updateUi.confirmationDefault -ceq "cancel" -and [string]$companionContract.updateUi.cancelResult -ceq "no-network-or-filesystem-change") "Companion contract fixes three template routes and one cancel-default four-target Update confirmation"
     Assert-True ($companionTechniqueText -match '(?i)one confirmation dialog' -and $companionTechniqueText -match '(?i)no earlier preview, dry run[^\r\n]{0,100}second confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set') "Confirmation uses the built-in schema-3.0.0 target set before acquisition and cannot authorize a changed downloaded target set"
     Assert-True ($companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative') "Schema 3.0.0 keeps package versions and safe validation entries forward-compatible while mutation routes remain fixed"
@@ -1038,7 +1040,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     $folderDefinitionContract = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json
     $folderToolContractText = [System.IO.File]::ReadAllText($folderScript)
     $managerToolContractText = [System.IO.File]::ReadAllText($manageScript)
-    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.16\.6\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.62.19" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.62.19"
+    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.17\.0\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.63.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.63.0"
 
     $versionMismatchAuthority = Join-Path $testRoot "folder-version-mismatch-authority"
     New-Item -ItemType Directory -Path $versionMismatchAuthority | Out-Null
@@ -1302,6 +1304,39 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         $steamRun = Invoke-TestScript -Path $validatorScript -Arguments @('-RepositoryRoot', $steamFixture)
         Assert-True ($steamRun.Code -ne 0 -and $steamRun.Output.Contains('[FAIL] ' + $steamCheck)) ('Steam validator rejects ' + $steamCase)
     }
+    # Each fixture changes one material requirement and checks its specific failure.
+    foreach ($case in @(
+        @{ Name = 'maintenance-route'; Path = 'GeurtsTechniqueManifest.md'; Old = 'Read the Documentation Maintenance Technique for every approved Game Forge change or documentation review.'; New = 'Read maintenance only if requested.'; Check = 'AI documentation maintenance boundary' },
+        @{ Name = 'human-audience'; Path = 'README.md'; Old = '**Audience:** AI agents only'; New = '**Audience:** AI agents and human developers'; Check = 'AI documentation maintenance boundary' },
+        @{ Name = 'maintenance-evidence'; Path = 'GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md'; Old = 'A passing validator is evidence of its implemented checks, not proof that every semantic contradiction is absent.'; New = 'A passing validator proves all semantics correct.'; Check = 'AI documentation maintenance boundary' },
+        @{ Name = 'standalone-availability'; Path = 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md'; Old = 'Approved replacement requirement; implementation not verified'; New = 'Replacement installer is released and verified'; Check = 'Secondary standalone scope and availability' },
+        @{ Name = 'standalone-targets'; Path = 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md'; Old = 'exactly the current schema-3 documentation folder and three AI files'; New = 'the documentation folder and four AI files'; Check = 'Secondary standalone scope and availability' },
+        @{ Name = 'standalone-gdd'; Path = 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md'; Old = 'Every unlisted path stays untouched and uninspected, particularly Docs/GameDesign.'; New = 'Inspect and repair Docs/GameDesign during replacement.'; Check = 'Secondary standalone scope and availability' },
+        @{ Name = 'standalone-software'; Path = 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md'; Old = 'without installing additional software or packages'; New = 'after installing extra runtime packages'; Check = 'Secondary standalone scope and availability' },
+        @{ Name = 'usage-coverage'; Path = 'GeurtsTechniques/GeurtsBrickUsageGuide.md'; Old = '**Catalogue ID:** `com.geurts.gameforge.audio`'; New = '**Catalogue ID:** `com.geurts.gameforge.unlisted`'; Check = 'Brick usage coverage and source parity' },
+        @{ Name = 'usage-pin'; Path = 'GeurtsTechniques/GeurtsBrickUsageGuide.md'; Old = 'eb291ef5e6d2a1e9b16104d04f8b97f6dac9cc53'; New = '0000000000000000000000000000000000000000'; Check = 'Brick usage coverage and source parity' },
+        @{ Name = 'usage-recipe'; Path = 'GeurtsTechniques/GeurtsBrickUsageGuide.md'; Old = '- **Example:** Import'; New = '- **Omitted:** Import'; Check = 'Brick usage coverage and source parity' },
+        @{ Name = 'command-abbreviation'; Path = 'GeurtsTechniques/GeurtsCommandsTechnique.md'; Old = 'ArtificialIntelligence.GetState'; New = 'AI.GetState'; Check = 'Full-word naming boundary' },
+        @{ Name = 'asset-abbreviation'; Path = 'GeurtsTechniques/GeurtsNamingTechnique.md'; Old = 'ScienceFiction'; New = 'SciFi'; Check = 'Full-word naming boundary' },
+        @{ Name = 'folder-abbreviation'; Path = 'GeurtsTechniques/GeurtsFolderStructureTechnique.md'; Old = 'Use full words for new folder names.'; New = 'Abbreviate new folder names when convenient.'; Check = 'Full-word naming boundary' },
+        @{ Name = 'warning-bypass'; Path = 'GeurtsTechniques/GeurtsBrickContract.md'; Old = 'Continue cannot override lower-target downgrade blocks, immutable-release identity, missing required tools, invalid/unverified source validation or other hard guards.'; New = 'Continue may override all admission failures.'; Check = 'Compatibility warning hard guards' }
+    )) {
+        $fixture = New-StaticValidationFixture -Parent $testRoot -Name ('static-doc-maintenance-' + $case.Name)
+        $path = Join-Path $fixture $case.Path
+        $text = [IO.File]::ReadAllText($path)
+        Assert-True ($text.Contains($case.Old)) ('Documentation ' + $case.Name + ' fixture changes actual content')
+        Write-Utf8 -Path $path -Text $text.Replace($case.Old, $case.New)
+        $run = Invoke-TestScript -Path $validatorScript -Arguments @('-RepositoryRoot', $fixture)
+        Assert-True ($run.Code -ne 0 -and $run.Output.Contains('[FAIL] ' + $case.Check)) ('Validator rejects documentation ' + $case.Name + ' regression')
+    }
+    $licensedFixture = New-StaticValidationFixture -Parent $testRoot -Name 'static-doc-angels-tools'
+    $licensedPath = Join-Path $licensedFixture 'GeurtsTechniques/GeurtsBrickCatalogue.json'
+    $licensedCatalogue = [IO.File]::ReadAllText($licensedPath) | ConvertFrom-Json
+    @($licensedCatalogue.bricks | Where-Object { $_.id -ceq 'com.geurts.gameforge.angels' })[0].requiredTools = @('Odin Inspector')
+    Write-Utf8 -Path $licensedPath -Text ($licensedCatalogue | ConvertTo-Json -Depth 10)
+    $licensedRun = Invoke-TestScript -Path $validatorScript -Arguments @('-RepositoryRoot', $licensedFixture)
+    Assert-True ($licensedRun.Code -ne 0 -and $licensedRun.Output.Contains('[FAIL] Dependent brick licensed tools')) 'Validator rejects missing Angels Quantum Console requirement'
+
     foreach ($aiCase in @('portable-route', 'planned-operations')) {
         $aiFixture = New-StaticValidationFixture -Parent $testRoot -Name ("static-ai-usability-" + $aiCase)
         if ($aiCase -eq 'portable-route') {
@@ -1537,7 +1572,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         @{ Name = 'multiplayer-steam-owner-drift'; Path = 'GeurtsTechniques/GeurtsSteamIntegrationTechnique.md'; Old = '**FishNet**, **FishySteamworks** through **Steamworks.NET**, and **Client-Host** player hosting'; New = '**Unity Netcode for GameObjects** player hosting'; Check = 'Selected multiplayer stack and authority' },
         @{ Name = 'duplicate-numeric-allocation'; Path = 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'; Old = 'first free `_0`, `_1`, `_2`'; New = 'stable GUID suffix'; Check = 'Estimated naming scans and exclusions' },
         @{ Name = 'duplicate-nested-number'; Path = 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'; Old = 'never append nested numbers'; New = 'append another number after the first'; Check = 'Estimated naming scans and exclusions' },
-        @{ Name = 'folder-reader-version'; Path = 'Tools/CreateGeurtsFolderStructure.ps1'; Old = '0\.16\.6'; New = '0\.16\.0'; Check = 'Folder technique reader version parity' },
+        @{ Name = 'folder-reader-version'; Path = 'Tools/CreateGeurtsFolderStructure.ps1'; Old = '0\.17\.0'; New = '0\.16\.0'; Check = 'Folder technique reader version parity' },
         @{ Name = 'logging-fallback'; Path = 'GeurtsTechniques/GeurtsDiagnosticsTechnique.md'; Old = '## Shared logging contract'; New = "## Logging Standards`r`n`r`nThe facade must fall back to Unity logging." },
         @{ Name = 'menu-network'; Path = 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md'; Old = 'Opening the Commandments menu or embedded view stays offline'; New = 'A deliberate Commandments Companion menu opening may request remote metadata' },
         @{ Name = 'tool-owner'; Path = 'README.md'; Old = 'Angels owns **Install Codex guide**'; New = 'God owns the separate **Install Codex guide**' },
@@ -1566,7 +1601,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         @{ Name = 'mandatory-console'; Path = 'GeurtsTechniques/GeurtsCommandsTechnique.md'; Old = 'Installing or enabling a runtime developer console is optional'; New = 'Every gameplay project must include a validated developer-console setup' },
         @{ Name = 'extra-status'; Path = 'GeurtsTechniques/GeurtsForgeSetupContract.json'; Old = '"not-applicable"'; New = '"not-applicable", "unavailable"' },
         @{ Name = 'false-success-outline'; Path = 'GeurtsTechniques/GeurtsEditorUIThemeTechnique.md'; Old = 'retain neutral borders and precise text'; New = 'receive green success borders' },
-        @{ Name = 'duplicate-migration'; Path = 'README.md'; Old = '## Supporting Documents'; New = "## Supporting Documents`r`n`r`n- ``Migrations/v0.11.0.md`` - duplicate reference." }
+        @{ Name = 'duplicate-migration'; Path = 'README.md'; Old = '## Reading modes and history'; New = "## Reading modes and history`r`n`r`n- ``Migrations/v0.11.0.md`` - first reference.`r`n- ``Migrations/v0.11.0.md`` - duplicate reference." }
     )
     foreach ($case in $consistencyCases) {
         $fixture = New-StaticValidationFixture -Parent $testRoot -Name ('static-consistency-' + $case.Name)
