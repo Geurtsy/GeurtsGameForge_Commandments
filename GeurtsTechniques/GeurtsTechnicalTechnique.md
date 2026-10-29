@@ -10,7 +10,7 @@ This is the short mandatory technical core for first-party game code, bricks, Ed
 
 ## Standards-Only Applicability
 
-For projects without Geurts Game Forge packages, apply the manifest-selected Standards-Only owner's [general standards and optional integrations](GeurtsStandardsOnlyTechnique.md#general-standards-remain-applicable) and [conditional framework requirements](GeurtsStandardsOnlyTechnique.md#framework-requirements-are-conditional) before this core's framework-specific clauses. That owner defines dependency exemptions; the shared technical rules remain binding. Explicit Forge adoption and maintenance retain their selected framework owners. Selecting standards grants no package-installation authority.
+When the manifest selects **StandardsOnly**, apply that owner's [general standards and optional integrations](GeurtsStandardsOnlyTechnique.md#general-standards-remain-applicable) and [conditional framework requirements](GeurtsStandardsOnlyTechnique.md#framework-requirements-are-conditional) before this core's framework-specific clauses. That owner defines dependency exemptions; the shared technical rules remain binding. Explicit Forge adoption and maintenance retain their selected framework owners. Selecting standards grants no package-installation authority.
 
 ## Technical Priority Order
 
