@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.0.0
+**Version:** 1.1.0
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -14,6 +14,8 @@ The [Catalogue](GeurtsBrickCatalogue.json) alone selects current installable ide
 **Declared requirements** come from the [Brick Contract](GeurtsBrickContract.md) and selected techniques. **Source evidence** below was checked read-only at exact pins: package.json, ForgeCapabilities.json, guide paths, operation provider declarations and linked recipe bytes where available. **Runtime evidence** remains the owner's source-matched validation; no Unity build, installer, native service or gameplay workflow was executed for this index. A declaration or passing documentation check does not certify functionality. Recheck the actual installed graph and available providers before use; unknown/mismatched evidence blocks the affected action.
 
 For every dependent brick, verify both licensed Odin Inspector and Quantum Console, supported Unity (6000.6.3f1 or newer), actual package dependencies and local Commandments before Editor mutation. BigBang and the passive adapter have the exact exceptions below. God is the only mandatory shared Geurts brick; optional peers stay optional. Explicit installation uses the Catalogue's Git source. Read each pinned owner's AIUsability task table, then its selected recipe/API guide; do not load release history for ordinary integration.
+
+Installed packages/bricks and managed documentation never update automatically. Every Update/Update All requires a current explicit user action and the owning confirmation; saved consent and God menu openings are not exceptions. Read-only checks retain their existing triggers. Verify implementation and installed behavior separately from this requirement; the [owner coordination record](../Migrations/v0.64.0.md) tracks adoption. Background game-change queue publication remains a separate authorized workflow.
 
 The examples below are bounded workflows derived from owner guides, not new APIs or approvals to run them. Retain owner consent, review, typed payloads, stale-review checks, operation guards and game design authority. Discover supported operations locally; inspect is read-only, execution is explicit and results retain actual partial/failure states. Direct APIs do not imply a generic operation ID. Runtime consumers borrow the existing bootstrap service and release owned resources; Editor-only services stay out of players. The [maintenance owner](GeurtsDocumentationMaintenanceTechnique.md) requires this index and the affected owning guide to stay synchronized.
 
@@ -60,6 +62,8 @@ The examples below are bounded workflows derived from owner guides, not new APIs
 - **Limits:** No second host/registry in a game. Editor APIs stay outside player assemblies; optional providers may be unavailable.
 
 [Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b7a001234dd5b149cc767dd1ab305df4c6e876d7/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b7a001234dd5b149cc767dd1ab305df4c6e876d7/Documentation~/AIUsabilityValidation.json). Recipe bytes matched the pinned guide during this review; its tests were not rerun here.
+
+The pinned God 0.39.4 source still contains automatic package/content update paths. They are superseded policy, not compliant recommended usage. A matching implementation release and consumer adoption remain outstanding; no documentation edit disables those installed handlers.
 
 ## Steam
 

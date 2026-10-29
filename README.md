@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.63.0
+**Version:** 0.64.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -17,6 +17,7 @@ Documentation is exclusively for AI agents. AI efficiency is the first documenta
 |---|---|
 | Apply any approved Game Forge change, including BigBang | [Documentation Maintenance Technique](GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md) |
 | Select and use a brick | [Brick AI Usage Guide](GeurtsTechniques/GeurtsBrickUsageGuide.md), [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md), [Catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json) |
+| Apply the current-action update requirement | [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md#explicit-updates-only), [Companion consent](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#current-action-confirmation-and-legacy-automatic-callers), [owner adoption](Migrations/v0.64.0.md) |
 | Install or update managed Commandments | [God-owned service and secondary standalone requirements](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md) |
 | Native routing or separately selected Codex guide | [AI Agent Setup](GeurtsTechniques/GeurtsAIAgentSetupTechnique.md), [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) |
 | Forge-owned Editor presentation | [Editor UI Theme Technique](GeurtsTechniques/GeurtsEditorUIThemeTechnique.md), [Editor Appearance Technique](GeurtsTechniques/GeurtsEditorAppearanceTechnique.md) |
@@ -24,6 +25,8 @@ Documentation is exclusively for AI agents. AI efficiency is the first documenta
 | Source validation and publication | [CONTRIBUTING.md](CONTRIBUTING.md) and the validation section below |
 
 The folder definition JSON `canonicalPath` property remains a legacy serialized compatibility key; documentation uses `Required package path`.
+
+Installed Forge packages/bricks and managed Commandments/documentation must never update automatically. Every update requires a current explicit user Update action and the owning confirmation. Saved consent and deliberate God menu openings are not exceptions. Existing read-only checks retain their trigger/consent boundaries; this does not stop authorized background game-change integration/publication. Documentation publication does not patch older installed God behavior.
 
 Current brick versions and immutable installation sources belong only in the Catalogue. The usage guide records pinned source evidence, not alternative installation targets. Planned features are unavailable. Documentation validation does not certify Unity compilation, native services, rendered interfaces or gameplay.
 
@@ -38,7 +41,7 @@ Use Windows, Unity **6000.6.3f1 or newer**, and the [current catalogue](GeurtsTe
 3. **Install required Steam API:** use BigBang's explicit Steamworks.NET acquisition action. Preserve an existing supported wrapper; resolve incompatible or duplicate imports before continuing.
 4. **Verify all prerequisites:** run the local check and resolve its findings. Steam need not be running; no login, AppID or native initialization is required for this check.
 5. **Get latest God source**, then **Install and verify God**. Wait for UPM resolution and successful compilation. A downloaded package or completed UPM request alone does not establish readiness.
-6. **Continue with God** using the explicit handoff. Opening God can apply the user's existing layout/opening preferences. Installation does not acquire Commandments or create scenes.
+6. **Continue with God** using the explicit handoff. The new manual-only update requirement needs a matching God implementation; verify the installed version against the owner adoption record. Layout preferences remain a separate subject. Installation does not acquire Commandments or create scenes.
 
 ### Manual installation
 
@@ -93,6 +96,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.64.0 — 30 October 2026
+
+- Supersede saved-consent automatic package/content updates with a current explicit Update action and owning confirmation for every update. Preserve exact mutation targets and separate AGENTS.md installation.
+- Retain existing read-only check/catalogue-refresh triggers, source publication and the background game-change integration queue. Keep legacy settings compatible without treating them as mutation authority.
+- Record the God APIs, handlers, settings and acceptance work required for implementation adoption. Preserve v0.63.0 and all historical evidence; installed behavior requires its own released implementation and consumer update.
 
 ### 0.63.0 â€” 29 October 2026
 

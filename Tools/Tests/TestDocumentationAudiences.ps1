@@ -1,4 +1,4 @@
-# Version: 1.1.5
+# Version: 1.1.6
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
@@ -97,6 +97,9 @@ Shared ending.
     Assert-Audience (-not $technical.Content.Contains('## Reusable Framework Compliance Header') -and $technicalForge.Content.Contains('## Reusable Framework Compliance Header') -and $technical.Content.Contains('## Technical Priority Order') -and $technical.Content.Contains('all first-party code Codex creates or materially updates') -and $technical.Content.Contains('ordinary project-specific/game code')) 'Framework header is conditional; shared technical priorities and obligations survive'
     $brick = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsBrickContract.md'
     Assert-Audience ($brick.Content.Contains('## Use existing bricks') -and $brick.Content.Contains('Odin Inspector and Quantum Console') -and $brick.Content.Contains('Only after remote verification') -and $brick.Content.Contains('Never overwrite a brick source folder or offer a downgrade') -and $brick.Content.Contains('Install is explicit.') -and $brick.Content.Contains('Only `released: true` entries') -and -not $brick.Content.Contains('Implement `IBrick`')) 'Game consumers retain reuse, tools, release sources, Git delivery and downgrade guidance'
+    Assert-Audience ($brick.Content.Contains('must never update automatically') -and $brick.Content.Contains('Previously saved consent is never an exception.') -and $brick.Content.Contains('Read-only availability checks retain their existing')) 'GameUse retains explicit-update authority and the separate read-only boundary'
+    $automationScope = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md'
+    Assert-Audience ($automationScope.Content.Contains('This does not stop the already-authorized background game-change integration queue')) 'GameUse retains the installed-update versus submitted source-publication distinction'
     $readmeGame = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'README.md'
     $readmeForge = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'README.md' -Mode ForgeDevelopment
     Assert-Audience ($readmeGame.Content.Contains('## Task index') -and -not $readmeGame.Content.Contains('## Source-Repository Validation') -and $readmeForge.Content.Contains('## Source-Repository Validation') -and -not $readmeGame.Content.Contains('## Changelog') -and -not $readmeForge.Content.Contains('## Changelog')) 'Selected AI index remains readable; source validation is Forge-only and history is optional'

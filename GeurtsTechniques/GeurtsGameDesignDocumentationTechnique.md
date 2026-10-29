@@ -2,7 +2,7 @@
 # Geurts Game Design Documentation Technique
 
 **Game Design Documentation Discovery - AI Agent Instructions**
-**Version:** 0.16.2
+**Version:** 0.16.3
 **Status:** Draft normative technique
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md`
@@ -110,7 +110,7 @@ The import must:
 
 ### Manual overwrite warning
 
-When an explicit import batch would replace existing content, preflight the entire batch and manifest before showing one warning listing the exact changed project-relative destinations and the project root. Explain that existing contents and local edits will be lost, no backup or rollback is created, and Cancel leaves the entire batch unchanged. **Cancel** is initially focused; Escape, Enter, closing the warning and cancellation do not authorize replacement. **Overwrite documents** grants one-time consent only for the displayed files and selected source bytes. This consent is never saved, inferred from an earlier import, or supplied by God's automatic package/documentation updates.
+When an explicit import batch would replace existing content, preflight the entire batch and manifest before showing one warning listing the exact changed project-relative destinations and the project root. Explain that existing contents and local edits will be lost, no backup or rollback is created, and Cancel leaves the entire batch unchanged. **Cancel** is initially focused; Escape, Enter, closing the warning and cancellation do not authorize replacement. **Overwrite documents** grants one-time consent only for the displayed files and selected source bytes. This consent is never saved, inferred from an earlier import, or supplied by any package/documentation action or saved setting.
 
 Identical content is reused without a warning. Two different selected files targeting the same destination remain a conflict even when overwrite is supported; do not silently choose a winner. Read-only destinations, invalid content, malformed routing and unsafe/linked paths fail before confirmation.
 

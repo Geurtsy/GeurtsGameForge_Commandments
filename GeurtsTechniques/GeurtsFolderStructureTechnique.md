@@ -2,7 +2,7 @@
 # Geurts Folder Structure Technique
 
 **Unity Project Structure - AI Agent Instructions**
-**Version:** 0.17.0
+**Version:** 0.17.1
 **Status:** Draft normative technique
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsFolderStructureTechnique.md`
@@ -88,7 +88,7 @@ The folder tool must report created, existing, skipped, invalid, and conflicted 
 
 The Unity project root itself must not be a junction, symbolic link, or other reparse point. Immediately before accepting an existing managed directory or creating a missing one, the tool must re-resolve containment below the validated project root and recheck the complete path chain for newly introduced reparse points; a failed recheck is a conflict and must not create a descendant outside the project.
 
-Before every **full-project-structure** setup run, including reruns, complete God's **Update Geurts Game Forge Commandments** with its per-invocation, cancel-default confirmation. This is required even when the local template is compatible. Wait for verified four-target success; a metadata check, package update or saved automatic consent is insufficient. Preserve local edits outside the managed targets before confirming their destructive replacement, following the [Commandments Companion Technique](GeurtsCommandmentsCompanionTechnique.md#5-explicit-in-editor-update). If Update is cancelled, fails or is unavailable offline, defer setup; local reading remains available. Folder setup is a separate explicit action and must never start an Update automatically.
+Before every **full-project-structure** setup run, including reruns, complete God's **Update Geurts Game Forge Commandments** with its per-invocation, cancel-default confirmation. This is required even when the local template is compatible. Wait for verified four-target success; a metadata check, package update or previously saved consent is insufficient. Preserve local edits outside the managed targets before confirming their destructive replacement, following the [Commandments Companion Technique](GeurtsCommandmentsCompanionTechnique.md#5-explicit-in-editor-update). If Update is cancelled, fails or is unavailable offline, defer setup; local reading remains available. Folder setup is a separate explicit action and must never start an Update automatically.
 
 In a Unity project with a project-local fetched documentation copy, invoke the copied folder tool with the Unity root explicitly:
 

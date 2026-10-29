@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Commandments Service and Companion Compatibility Technique
 
-**Version:** 3.2.6
+**Version:** 3.3.0
 **Contract schema:** 3.0.0
 **Status:** Draft normative technique
 **Audience:** AI agents only
@@ -39,13 +39,15 @@ The catalogue marks the adapter `compatibilityOnly: true`: it is available as an
 
 Keep local edits outside the four managed targets or preserve them manually before accepting content replacement. Never automatically rewrite AGENTS.md, migrate the older GeurtsGameForgeDocumentation folder, or touch Docs/GameDesign. See [v0.41.0 migration](../Migrations/v0.41.0.md) for the exact transition and ownership map.
 
-### Consent, package work and automatic God openings
+### Current action, confirmation and legacy automatic callers
 
-The content action remains exactly **Update Geurts Game Forge Commandments**. It must show the one cancel-default confirmation before archive acquisition, including on the first manual content installation. A manual God package installation or Update All never implies content consent. Content and package operations share busy guards; a package update is not a content update. Missing/incompatible APIs report an actionable update explanation and never create a second implementation.
+The content action remains exactly **Update Geurts Game Forge Commandments**. It must show the one cancel-default confirmation before archive acquisition, including on the first manual content installation. Every replacement requires a current explicit user Update action and that invocation's confirmation. There is no saved-consent or God-opening exception. A manual God package installation or Update All never implies content consent. Content and package operations share busy guards; a package update is not a content update. Missing/incompatible APIs report an actionable update explanation and never create a second implementation.
 
-God retains **Automatically update packages and documentation** and **Automatically refresh the catalogue** as separate default-off options. Saved schema-3 consent uses the unchanged `commandments_schema_3` token and exact four-target explanation, local-edit loss, no backup or rollback, and preservation of unlisted paths. Cancel leaves the preference off. The only per-invocation-confirmation exception is an opted-in deliberate God menu opening, never startup, a restored window or merely enabling an option/module.
+The Brick Contract owns the prohibition on automatic installed-package/content updates and the unchanged read-only checking boundaries. Previously saved consent, including `commandments_schema_3`, cannot authorize acquisition or replacement. Preserve compatible stored fields, the existing module preference key and schema-3 successful-commit key without resetting unrelated data; compatibility does not revive the old permission.
 
-God's public UpdateCommandmentsAutomaticallyAsync(Func<bool> stillAuthorized) is reserved for that opted-in sequence after successful package work. It checks metadata and acquires only when needed; failed checks do not authorize acquisition. Recheck live consent, God lifetime and operation guards after download and before the first replacement. Closing God or disabling consent stops pending replacement. Legacy schema-2 automatic callers are refused before work. There is no automatic retry or rollback. Keep the existing module preference key and schema-3 successful-commit key exactly; migration must not reset either.
+The existing public UpdateCommandmentsAutomaticallyAsync(Func<bool> stillAuthorized) and its bridge/controller callers must refuse automatic update attempts before archive acquisition or target mutation, even when the callback returns true. Retain callable signatures where compatibility requires them and report that an explicit Update is required; do not pretend that a blocked update succeeded or implement another updater. Supported explicit Update entry points still enforce the same confirmation, target validation, cancellation/failure rules and operation guards. A retry needs a new user action and confirmation. No automatic repair or rollback is authorized.
+
+Read-only metadata checks keep their existing explicit or opted-in deliberate God-opening triggers; they never chain into acquisition or replacement. This policy adds no startup, restored-window, option-toggle or AI-session check. Published God behavior must be verified separately: the old automatic API is implementation evidence, not permission to use it. See the [owning implementation coordination record](../Migrations/v0.64.0.md).
 
 ## 2. Closed Data Contract
 
@@ -101,7 +103,7 @@ Merely copying the scoped game-design instruction template to its listed target 
 
 ## 4. Offline Startup and Explicit Metadata Checks
 
-On each normal Unity project launch or open, the companion must not check remote metadata, refresh a catalogue or open an update popup. Restoring a dashboard must not schedule checks. Opening the Commandments menu or embedded view stays offline. Only an explicit metadata check, a confirmed Update, or the saved-consent deliberate God-opening sequence in section 1 may request the official repository's current `main` head commit; it compares that remote commit ID with one persistent companion-owned last-successful-installed commit value for this Unity project, held outside the Unity project filesystem and outside the installed UPM package, for example in host or Editor preference storage. The value must be keyed by a Unity-provided project identity or normalized project-root path derived without reading project content; a value for one project must never suppress availability in another. The companion must not create a project file or project path for this value. The check must not download an archive, inspect the managed documentation copy, inspect any AI target, mutate a managed project target, execute setup work, or synchronize content. A skipped, failed, or unavailable request is non-blocking.
+On each normal Unity project launch or open, the companion must not check remote metadata, refresh a catalogue or open an update popup. Restoring a dashboard must not schedule checks. Opening the Commandments menu or embedded view stays offline. Only an explicit metadata check, a currently confirmed Update, or a read-only check under the existing opted-in deliberate God-opening boundary in section 1 may request the official repository's current `main` head commit; it compares that remote commit ID with one persistent companion-owned last-successful-installed commit value for this Unity project, held outside the Unity project filesystem and outside the installed UPM package, for example in host or Editor preference storage. The value must be keyed by a Unity-provided project identity or normalized project-root path derived without reading project content; a value for one project must never suppress availability in another. The companion must not create a project file or project path for this value. The check must not download an archive, inspect the managed documentation copy, inspect any AI target, mutate a managed project target, execute setup work, or synchronize content. A skipped, failed, or unavailable request is non-blocking.
 
 An Update is available when the last-successful-installed commit value is missing or differs from the remote `main` head commit. Matching values mean only that the authoritative source has not advanced since the last fully successful companion Update; they do not validate or certify mutable local files. When the remote commit is unavailable, availability is unknown. The explicit Update action remains available in every state.
 
@@ -163,7 +165,7 @@ Validation must finish before the first destructive project mutation. After muta
 
 ## 7. Forbidden Behavior
 
-Outside the explicit saved-consent God-opening exception above, Documentation Update must not:
+There is no automatic-update exception. These exclusions apply even after an explicit Update confirmation. Documentation Update must not:
 
 - automatically download, install, replace, repair, or synchronize documentation or AI routes on Unity open;
 - scan for or execute `.bat`, `.cmd`, `.ps1`, or any other script from either the documentation package or the Unity project;
