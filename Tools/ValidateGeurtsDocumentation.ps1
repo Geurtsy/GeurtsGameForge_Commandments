@@ -907,6 +907,10 @@ try {
         $companionTechniqueText.Contains('Absent, zero, invalid, stale, mismatched or unsupported length displays Download size unavailable.') -and
         $companionTechniqueText.Contains('Never fall back to a range request, archive-body download or retry loop to discover size.') -and
         $companionTechniqueText.Contains('Confirmed Update and transfer observers do not add a size probe.') -and
+        $companionTechniqueText.Contains('Only that same explicit Check may also read bounded official Git-tree metadata for the exact candidate commit.') -and
+        $companionTechniqueText.Contains('require complete, non-truncated membership and verified documentation/package and archive boundaries before summing relevant blob sizes') -and
+        $companionTechniqueText.Contains('Label a supported sum Approximate uncompressed documentation/source file bytes, not compressed transfer size, installed allocation or total required disk space.') -and
+        $companionTechniqueText.Contains('Do not infer a compression ratio.') -and
         $companionTechniqueText.Contains('previously opted-in opening checks gain no new size request.') -and
         $companionTechniqueText.Contains('Source/version and size display authorize no content acquisition, replacement or new remote-check trigger.') -and
         $companionTechniqueText.Contains('Add no preview action, second confirmation, schema-3 field or project receipt.') -and
