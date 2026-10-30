@@ -903,6 +903,10 @@ try {
         $companionTechniqueText.Contains('GitHub repository disk size is not a documentation download estimate.') -and
         $companionTechniqueText.Contains('Received-byte progress is not a pre-download estimate.') -and
         $companionTechniqueText.Contains('Never download an archive merely to calculate its size.') -and
+        $companionTechniqueText.Contains('Only a user-invoked Check may issue one bounded header-only request for the exact candidate archive.') -and
+        $companionTechniqueText.Contains('Absent, zero, invalid, stale, mismatched or unsupported length displays Download size unavailable.') -and
+        $companionTechniqueText.Contains('Never fall back to a range request, archive-body download or retry loop to discover size.') -and
+        $companionTechniqueText.Contains('Confirmed Update and transfer observers do not add a size probe.') -and
         $companionTechniqueText.Contains('previously opted-in opening checks gain no new size request.') -and
         $companionTechniqueText.Contains('Source/version and size display authorize no content acquisition, replacement or new remote-check trigger.') -and
         $companionTechniqueText.Contains('Add no preview action, second confirmation, schema-3 field or project receipt.') -and
