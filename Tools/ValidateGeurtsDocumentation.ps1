@@ -1,5 +1,5 @@
 # ValidateGeurtsDocumentation.ps1
-# Version: 0.64.1
+# Version: 0.65.0
 
 [CmdletBinding()]
 param(
@@ -445,7 +445,7 @@ try {
     $steamText = if (Test-Path -LiteralPath $steamPath -PathType Leaf) { [IO.File]::ReadAllText($steamPath) } else { '' }
     $steamOwner = [regex]::Match($subjectSection.Value, '(?m)^\| Steam preparation, platform services and Windows release evidence \| `GeurtsTechniques/GeurtsSteamIntegrationTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $steamRoutingValid = $steamOwner.Success -and $registrySet.Contains($steamRelative) -and
-        [regex]::Matches($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsSteamIntegrationTechnique\.md` \| 0\.4\.1 \|').Count -eq 1 -and
+        [regex]::Matches($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsSteamIntegrationTechnique\.md` \| 0\.5\.0 \|').Count -eq 1 -and
         $resolverBody.Contains('Technical; Unity; Steam Integration; Code;')
     foreach ($topic in @('Steamworks.NET', 'BigBang', 'platform-service', 'bootstrap/native', 'build/distribution')) {
         if (-not $steamOwner.Groups['When'].Value.Contains($topic)) { $steamRoutingValid = $false }
@@ -455,7 +455,7 @@ try {
     }
     Add-Check 'Steam manifest routing' $steamRoutingValid 'One Steam owner follows Unity, covers prerequisites/services/builds, and is referenced by the affected subject owners.'
 
-    $steamAudienceValid = $steamText -match '(?im)^\*\*Version:\*\*\s*0\.4\.1\s*$' -and $steamText.StartsWith('<!-- GEURTS-AUDIENCE: AI-READ -->')
+    $steamAudienceValid = $steamText -match '(?im)^\*\*Version:\*\*\s*0\.5\.0\s*$' -and $steamText.StartsWith('<!-- GEURTS-AUDIENCE: AI-READ -->')
     foreach ($mode in @('GameUse', 'ForgeDevelopment')) {
         try {
             $steamRead = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document $steamRelative -Mode $mode
@@ -505,7 +505,7 @@ try {
     $steamOwnershipValid = $steamText -match '(?i)God remains the only mandatory shared Geurts brick' -and
         $steamText -match '(?i)Steam provider is an optional peer' -and
         $steamText -match '(?i)God must not acquire Steamworks\.NET references or native initialization' -and
-        $steamText -match '(?i)vendor-neutral' -and $steamText -match '(?i)Steam brick owns wrapper/native calls' -and
+        $steamText -match '(?i)vendor-neutral' -and $steamText -match '(?i)Steam brick owns its platform wrapper/native calls' -and
         $steamText -match '(?i)ordinary retained \*\*`SCN_BigBang`' -and
         $steamText -match '(?i)do not use direct or indirect `DontDestroyOnLoad`' -and
         $steamText -match '(?i)Native Steam activation is off by default in local unconfigured development' -and
@@ -819,7 +819,7 @@ try {
     Add-Check "Companion schema forward compatibility" $companionForwardCompatibilityValid "Schema 3.0.0 pins mutation paths, not documentation releases: packageVersion must match the same archive manifest, and later safe validation-entry lists remain consumable without a companion release."
 
     $companionTechniqueRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| 3\.3\.0 \| (?<Role>[^|]+) \|\r?$')
-    $companionContractRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| 0\.64\.1 \| (?<Role>[^|]+) \|\r?$')
+    $companionContractRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| 0\.65\.0 \| (?<Role>[^|]+) \|\r?$')
     $companionOwnerRow = [regex]::Match($manifestText, '(?m)^\| God-owned Windows Unity Editor Commandments source, metadata check, confirmed replacement, project-boundary, and AI-routing lifecycle \| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $companionContractOwnerRow = [regex]::Match($manifestText, '(?m)^\| Exact companion source, documentation destination, validation entries, confirmation targets, and template-to-route mappings \| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| (?<When>[^|]+) \|\r?$')
     $companionArchitectureValid = $companionTechniqueRegistryRow.Success -and $companionContractRegistryRow.Success -and
@@ -1288,7 +1288,7 @@ try {
         $topicPath = Join-Path $RepositoryRoot $topicRelative
         if (-not (Test-Path -LiteralPath $topicPath -PathType Leaf)) { $topicFailures.Add("Topic is missing: $topicRelative") | Out-Null; continue }
         $topicText = [IO.File]::ReadAllText($topicPath)
-        $topicVersion = if ($topic -ceq 'Unity') { '0.3.5' } elseif ($topic -ceq 'Code') { '0.2.0' } elseif ($topic -ceq 'Authoring') { '0.1.3' } elseif ($topic -ceq 'Naming') { '0.2.0' } elseif ($topic -ceq 'Commands') { '0.2.0' } elseif ($topic -ceq 'GameAI') { '0.2.1' } elseif ($topic -ceq 'Multiplayer') { '0.3.1' } else { '0.1.2' }
+        $topicVersion = if ($topic -ceq 'Unity') { '0.3.5' } elseif ($topic -ceq 'Code') { '0.2.0' } elseif ($topic -ceq 'Authoring') { '0.1.3' } elseif ($topic -ceq 'Naming') { '0.2.0' } elseif ($topic -ceq 'Commands') { '0.2.0' } elseif ($topic -ceq 'GameAI') { '0.2.1' } elseif ($topic -ceq 'Multiplayer') { '0.4.0' } else { '0.1.2' }
         if ($topicText -notmatch ('(?m)^\*\*Version:\*\* ' + [regex]::Escape($topicVersion) + '\r?$') -or $topicText -notmatch '(?m)^<!-- GEURTS-AUDIENCE: AI-READ -->\r?$') { $topicFailures.Add("Topic metadata is invalid: $topicRelative") | Out-Null }
         $topicTexts += $topicText
     }
@@ -1729,6 +1729,46 @@ try {
         $multiplayerFailures.Add('Steam selection must agree with the Multiplayer owner without making networking universal') | Out-Null
     }
     Add-Check 'Selected multiplayer stack and authority' ($multiplayerFailures.Count -eq 0) $(if ($multiplayerFailures.Count) { $multiplayerFailures -join '; ' } else { 'FishNet, FishySteamworks/Steamworks.NET and Client-Host are selected with framework-independent network priority, host authority, bootstrap ownership, compact relevant replication, separate local/Steam evidence and explicit acquisition. No runtime implementation or bandwidth result is certified.' })
+
+    # The kit requirement must not become an optional add-on or a false published capability.
+    $multiplayerKitFailures = New-Object 'System.Collections.Generic.List[string]'
+    foreach ($required in @(
+        '**Steam multiplayer support is required inside the Multiplayer kit.**',
+        'Do not offer a Steam-free Multiplayer edition',
+        'FishNet alone does not provide Steam services',
+        'one initializer, one callback pump and one shutdown owner',
+        'without requiring users to select that brick',
+        'never silently fall back to Tugboat',
+        'no verified owning implementation, installation source, supported Forge API'
+    )) {
+        if (-not $multiplayerText.Contains($required)) { $multiplayerKitFailures.Add('Missing built-in requirement: ' + $required) | Out-Null }
+    }
+    $multiplayerEntries = @($brickCatalogue.bricks | Where-Object { $_.id -ceq 'com.geurts.gameforge.multiplayer' })
+    if ($multiplayerEntries.Count -ne 1) { $multiplayerKitFailures.Add('Exactly one planned Multiplayer entry is required') | Out-Null }
+    else {
+        $plannedMultiplayer = $multiplayerEntries[0]
+        if ($plannedMultiplayer.released -ne $false -or $plannedMultiplayer.version -cne '' -or $plannedMultiplayer.sourceKind -cne '' -or $plannedMultiplayer.source -cne '') {
+            $multiplayerKitFailures.Add('Planned Multiplayer must not advertise a release or installation source') | Out-Null
+        }
+        foreach ($requiredTool in @('Odin Inspector', 'Quantum Console', 'FishNet', 'FishySteamworks', 'Steamworks.NET')) {
+            if (@($plannedMultiplayer.requiredTools) -cnotcontains $requiredTool) { $multiplayerKitFailures.Add('Missing Multiplayer prerequisite: ' + $requiredTool) | Out-Null }
+        }
+        if (@($plannedMultiplayer.dependencies).Count -ne 1 -or $plannedMultiplayer.dependencies[0].id -cne 'com.geurts.gameforge.god' -or $plannedMultiplayer.dependencies[0].minimumVersion -cne '') {
+            $multiplayerKitFailures.Add('Multiplayer must retain God without requiring the optional Steam brick') | Out-Null
+        }
+    }
+    foreach ($relative in @('GeurtsBrickContract.md', 'GeurtsSteamIntegrationTechnique.md', 'GeurtsBrickUsageGuide.md')) {
+        if (-not [IO.File]::ReadAllText((Join-Path $RepositoryRoot ('GeurtsTechniques/' + $relative))).Contains('GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support')) {
+            $multiplayerKitFailures.Add('Missing built-in ownership route: ' + $relative) | Out-Null
+        }
+    }
+    $multiplayerSetupText = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'))
+    if (-not $multiplayerSetupText.Contains('GeurtsMultiplayerTechnique.md#availability-setup-and-owner-handoff') -or
+        -not $steamMultiplayerText.Contains('Steam networking is required inside Multiplayer, never an optional separate kit') -or
+        -not $steamMultiplayerText.Contains('standalone Steam brick remains optional for its separate platform services and release preparation')) {
+        $multiplayerKitFailures.Add('Setup/Steam guidance must preserve required networking and separate optional platform services') | Out-Null
+    }
+    Add-Check 'Multiplayer built-in Steam kit boundary' ($multiplayerKitFailures.Count -eq 0) $(if ($multiplayerKitFailures.Count) { $multiplayerKitFailures -join '; ' } else { 'Multiplayer includes required Steam networking, remains planned/unavailable, preserves the optional platform brick and requires one native session. Owner links retain setup and evidence boundaries.' })
 
 
     # Policy consistency complements payload/schema checks: reject contradictions between owners.
