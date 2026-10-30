@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Steam Integration Technique
 
-**Version:** 0.5.0
+**Version:** 0.6.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md`
@@ -77,6 +77,16 @@ Gameplay saves stay local first through the owning persistence system, normally 
 The optional provider's cache changes and server acknowledgements are separate outcomes. Achievement/stat setters must not report server success from a cache setter. Commit explicitly, own and filter callbacks, retain rejected/unknown results and avoid automatic resets or high-frequency retries. The selected SDK profile determines the supported stats-readiness flow; do not call APIs removed from that pin. Keep exact dashboard API names and stat types, with meaningful no-code triggers and the same public service path.
 
 Remote Storage transfers require an already owned connected session, account/app opt-in, bounded complete payloads, strict scoped names and actual quota evidence. Reads carry the observed account, file, timestamp, length and content checksum. New-only writes preserve existing files; deliberate replacement rechecks the reviewed cache revision and rejects changed content or accounts. A cache review is not a cross-device atomic transaction. Cache write acknowledgement does not prove server synchronization or another-device visibility. Cancellation before dispatch differs from uncertain side effects after dispatch; timeout/shutdown/unknown I/O must never claim native writes were undone. Own and release call-result registrations, block unsafe retries and preserve local saves. General byte/text transfers do not imply automatic Save and Load slot synchronization or game-owned restore/merge policy.
+
+## Explicit presence and optional persistence cooperation
+
+Rich presence must use game-authored fields and published localization tokens with provider byte/count limits. Offer explicit no-code publication and the same public API. Scope each publication to its owning control; cleanup clears only unchanged owned fields for the original account. Foreign updates, account changes and uncertain cleanup must not trigger blanket clearing or silent republishing. Client metadata, friends, DLC observations, overlay requests and screenshots remain distinct from secure authentication, commerce, communication, actual rendering and upload acknowledgement.
+
+Optional Save and Load cloud cooperation must remain local first and consume neutral God contracts without making either concrete peer mandatory. Enablement is explicit for the observed account and exact slot; enabling uploads nothing. Bind create-only writes to approved account identity even when no remote revision exists. Review validated complete bytes and show both copies' timestamps/checksums before a separate keep-local or keep-cloud choice. Recheck account, provider, configuration and both reviewed copies at the relevant dispatch/commit boundary; reject stale or missing consent. No timestamp-based automatic winner or game merge policy may be inferred.
+
+Import through the persistence owner's normal bounded, checksum/version-aware atomic writer, retain the previous local primary as backup and leave gameplay restoration to the ordinary game-owned Load flow. Disabled, absent or failed cloud leaves local Save/Load usable. Preserve native uncertainty and do not equate withdrawal with undoing dispatched I/O. Test real-file round trips, stale copies, corrupt/newer data, quota/account changes, cancellation, disposal and unknown outcomes before declaring the integration tested; native multi-device acceptance remains separate. Never add Auto-Cloud mappings over the same explicit Remote Storage scope.
+
+This policy does not advertise candidate features as released. Verify current availability in the Catalogue and owning source-bound evidence; the usage index records pending candidates separately from published pins.
 
 ## Account-free distribution preparation
 

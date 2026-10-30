@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.65.0
+**Version:** 0.66.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.66.0 — 30 October 2026
+
+- Define explicit presence ownership and local-first optional cloud slot cooperation: account-bound opt-in, immutable copy review, separate transfer choice, commit-time preservation, backup and ordinary game-owned Load.
+- Record God 0.40.0, Steam 0.4.0 and Save and Load 0.5.0 as pending unavailable candidates. Preserve all published catalogue pins, Multiplayer policy and manual consumer adoption; native acceptance is not inferred.
+- Note the newer official wrapper without claiming it is the verified dependency profile. Retain implementation and test details in the owning candidate repositories.
 
 ### 0.65.0 — 30 October 2026
 
