@@ -1,5 +1,5 @@
 # ValidateGeurtsDocumentation.ps1
-# Version: 0.65.0
+# Version: 0.66.0
 
 [CmdletBinding()]
 param(
@@ -445,7 +445,7 @@ try {
     $steamText = if (Test-Path -LiteralPath $steamPath -PathType Leaf) { [IO.File]::ReadAllText($steamPath) } else { '' }
     $steamOwner = [regex]::Match($subjectSection.Value, '(?m)^\| Steam preparation, platform services and Windows release evidence \| `GeurtsTechniques/GeurtsSteamIntegrationTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $steamRoutingValid = $steamOwner.Success -and $registrySet.Contains($steamRelative) -and
-        [regex]::Matches($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsSteamIntegrationTechnique\.md` \| 0\.5\.0 \|').Count -eq 1 -and
+        [regex]::Matches($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsSteamIntegrationTechnique\.md` \| 0\.6\.0 \|').Count -eq 1 -and
         $resolverBody.Contains('Technical; Unity; Steam Integration; Code;')
     foreach ($topic in @('Steamworks.NET', 'BigBang', 'platform-service', 'bootstrap/native', 'build/distribution')) {
         if (-not $steamOwner.Groups['When'].Value.Contains($topic)) { $steamRoutingValid = $false }
@@ -455,7 +455,7 @@ try {
     }
     Add-Check 'Steam manifest routing' $steamRoutingValid 'One Steam owner follows Unity, covers prerequisites/services/builds, and is referenced by the affected subject owners.'
 
-    $steamAudienceValid = $steamText -match '(?im)^\*\*Version:\*\*\s*0\.5\.0\s*$' -and $steamText.StartsWith('<!-- GEURTS-AUDIENCE: AI-READ -->')
+    $steamAudienceValid = $steamText -match '(?im)^\*\*Version:\*\*\s*0\.6\.0\s*$' -and $steamText.StartsWith('<!-- GEURTS-AUDIENCE: AI-READ -->')
     foreach ($mode in @('GameUse', 'ForgeDevelopment')) {
         try {
             $steamRead = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document $steamRelative -Mode $mode
@@ -819,7 +819,7 @@ try {
     Add-Check "Companion schema forward compatibility" $companionForwardCompatibilityValid "Schema 3.0.0 pins mutation paths, not documentation releases: packageVersion must match the same archive manifest, and later safe validation-entry lists remain consumable without a companion release."
 
     $companionTechniqueRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| 3\.3\.0 \| (?<Role>[^|]+) \|\r?$')
-    $companionContractRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| 0\.65\.0 \| (?<Role>[^|]+) \|\r?$')
+    $companionContractRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| 0\.66\.0 \| (?<Role>[^|]+) \|\r?$')
     $companionOwnerRow = [regex]::Match($manifestText, '(?m)^\| God-owned Windows Unity Editor Commandments source, metadata check, confirmed replacement, project-boundary, and AI-routing lifecycle \| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $companionContractOwnerRow = [regex]::Match($manifestText, '(?m)^\| Exact companion source, documentation destination, validation entries, confirmation targets, and template-to-route mappings \| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| (?<When>[^|]+) \|\r?$')
     $companionArchitectureValid = $companionTechniqueRegistryRow.Success -and $companionContractRegistryRow.Success -and

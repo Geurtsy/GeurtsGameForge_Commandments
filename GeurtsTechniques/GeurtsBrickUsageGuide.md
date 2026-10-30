@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.2.0
+**Version:** 1.3.0
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -67,6 +67,8 @@ The examples below are bounded workflows derived from owner guides, not new APIs
 
 The pinned God 0.39.4 source still contains automatic package/content update paths. They are superseded policy, not compliant recommended usage. A matching implementation release and consumer adoption remain outstanding; no documentation edit disables those installed handlers.
 
+**Pending candidate, unavailable for normal installation:** God 0.40.0 adds neutral account-bound cloud, owned presence and client observation/action contracts. Current catalogue pins remain unchanged until owner acceptance and immutable publication. Candidate contracts do not establish real Steam readiness.
+
 ## Steam
 
 **Catalogue ID:** `com.geurts.gameforge.steam`
@@ -82,6 +84,8 @@ The pinned God 0.39.4 source still contains automatic package/content update pat
 - **Limits:** Real account, overlay, cloud/server and depot/customer-distribution acceptance remains separately unverified. A distribution draft is not deployment; no automatic Save and Load slot synchronization.
 
 [Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/44e5b61c6d9130682163d9536d91be67ed7d9a8d/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/44e5b61c6d9130682163d9536d91be67ed7d9a8d/Documentation~/AIUsabilityValidation.json). Recipe bytes matched the pinned guide during this review; its tests were not rerun here.
+
+**Pending candidate, unavailable for normal installation:** Steam 0.4.0 adds opt-in rich presence, bounded friends/application/DLC observations, explicit overlay/screenshot controls and account-approved cloud operations. Its owner retains a feature coverage matrix and exact acceptance blockers. The current catalogue release above remains the supported source; no candidate pin is installed or advertised as a release. The current official Steamworks.NET release is 2025.165.0; the selected 2025.164.1 profile is retained until coordinated owner/prerequisite validation. No implicit dependency update is authorized.
 
 ## Multiplayer
 
@@ -172,7 +176,9 @@ The pinned God 0.39.4 source still contains automatic package/content update pat
 - **Example:** Create a profile with one explicit participant, wire Save/Load result events, save its value to a named slot, change the value and load after targets are ready. Await the actual result; autosave stays off unless deliberately configured.
 - **Lifecycle/settings:** Use the active bootstrap service. Slot files live under Application.persistentDataPath/GeurtsGameForge/SaveLoad/<profile>/, separate from module settings. Dispose migration/owner tokens and cancel pending work through the owner.
 - **Verify:** Check real file roundtrip, corrupt/newer input preservation and participant failure/partial restore. Use the linked concrete gameplay recipe and its isolated test.
-- **Limits:** No implicit scene loading, arbitrary object graph serialization, cloud/network transport or automatic recovery. PARTIAL restore needs game-owned recovery; checksums do not authenticate data.
+- **Limits:** At the published pin, no implicit scene loading, arbitrary object graph serialization, cloud/network transport or automatic recovery. PARTIAL restore needs game-owned recovery; checksums do not authenticate data.
+
+**Pending candidate, unavailable for normal installation:** Save and Load 0.5.0 adds optional account-bound Steam cloud slot controls using neutral God capabilities. Explicit enablement uploads nothing; a read-only comparison precedes a separate keep-local or keep-cloud decision. Import preserves backup and does not restore gameplay. Local saving stays independent. Owner acceptance, supported dependency validation and immutable release remain outstanding; the published pin above does not expose this workflow. Apply the [Steam owner's cooperation policy](GeurtsSteamIntegrationTechnique.md#explicit-presence-and-optional-persistence-cooperation) when continuing the candidate.
 
 ## Audio
 
