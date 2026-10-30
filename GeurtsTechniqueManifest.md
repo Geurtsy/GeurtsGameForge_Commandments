@@ -183,9 +183,9 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `Migrations/v0.8.0.md` | 0.8.0 | Historical transition; read only for a requested migration/review. |
 | `Migrations/v0.7.0.md` | 0.7.0 | Historical transition; read only for a requested migration/review. |
 | `Tools/CreateAIAgentInstructionFiles.bat` | 0.9.0 | Compatibility launcher for managed AI setup. |
-| `Tools/ManageGeurtsAgentInstructions.ps1` | 0.64.0 | Optional preservation-based native-route manager. |
+| `Tools/ManageGeurtsAgentInstructions.ps1` | 0.64.1 | Optional preservation-based native-route manager. |
 | `Tools/CreateGeurtsFolderStructure.bat` | 0.9.0 | Compatibility launcher for definition-driven folder creation. |
-| `Tools/CreateGeurtsFolderStructure.ps1` | 0.64.0 | Explicit create-only folder operation. |
+| `Tools/CreateGeurtsFolderStructure.ps1` | 0.64.1 | Explicit create-only folder operation. |
 | `Tools/UpdateGameDesignManifest.ps1` | 0.10.0 | Deterministic GDD manifest maintainer. |
 | `Tools/NativeEntryMigrationCatalog.json` | 2.0.0 | Exact legacy route fingerprints, including v1.2.0. |
 | `Tools/ValidateGeurtsDocumentation.ps1` | 0.64.1 | Package and semantic validation. |
