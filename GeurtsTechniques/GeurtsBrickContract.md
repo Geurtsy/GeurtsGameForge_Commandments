@@ -16,15 +16,11 @@ Codex and other AI coding agents must proactively inspect the installed brick in
 
 ## Core module usability
 
-Every existing and future Geurts Game Forge brick/module must follow the Technical Technique's [No-Code Module Use and Code Extensions](GeurtsTechnicalTechnique.md#no-code-module-use-and-code-extensions) requirement. Normal setup, configuration, composition and use must be possible through supported Unity Editor controls and authored assets without user-written code. Only the narrow, documented special exceptions defined by that owner may require code. This includes foundational services and independent tools, while retaining their existing installation and dependency boundaries.
-
-Keep documented public APIs and extension points available for developers and Codex alongside the Editor workflow. Both paths reuse the same underlying implementation, validation and lifecycle rather than duplicating behaviour. Validate affected workflows and report current release gaps; this standard is not a claim that every catalogued brick already satisfies it.
+When developing or maintaining any existing or future brick/module, apply the Technical owner's [No-Code Module Use and Code Extensions](GeurtsTechnicalTechnique.md#no-code-module-use-and-code-extensions). It owns normal Editor use, supported code extensions, narrow exceptions and their validation. This contract retains brick-specific installation and dependency boundaries; the shared requirement does not certify existing releases.
 
 ## Design all bricks with Codex in mind
 
-All existing and future Geurts Game Forge bricks must be designed and maintained with Codex in mind, following the Technical Technique's Codex compatibility requirement. Make each brick's purpose, reusable components, supported interfaces, extension points, configuration and dependency boundaries easy to discover from its documentation and predictable package structure. Provide useful version-accurate examples and repeatable checks so Codex can reliably compose and validate solutions with the brick. Package APIs and product interfaces remain accessible to their users; documentation targets AI agents exclusively. Apply the requirement during new development and maintenance; this policy does not assert that every existing brick has already been audited.
-
-Codex compatibility is an authoring and usability expectation. It does not require Codex, a live Unity connector, a plugin or AI calls at runtime, and it does not authorize installing every brick. Preserve the dependency rules below when composing a solution.
+When developing or maintaining any brick, apply the Technical owner's [Codex compatibility](GeurtsTechnicalTechnique.md#codex-compatibility) requirements and the Documentation Maintenance owner's [AI audience and efficiency](GeurtsDocumentationMaintenanceTechnique.md#ai-audience-and-efficiency) rules. Those owners define discoverability, examples, evidence and documentation audience. Keep the dependency rules below; this routing grants no installation authority.
 
 ## Identity and dependencies
 
@@ -128,7 +124,7 @@ All existing and future brick Editor UI must follow the manifest-selected [Edito
 
 Each card shows identity, description, website, installed/available and lifecycle status, installed/available versions, dependencies, source and compatibility information. Show appropriate Install, Check for Updates, Update, Enable/Disable, Remove, Open Website and Retry actions. Shared actions include Refresh Catalogue, Install All, Check All for Updates and confirmed Update All, including God.
 
-Game Forge God owns the Commandments content view and one Editor service. Package installation/update never acquires content. Display God tooling and installed/available content versions separately. The content action retains its one cancel-default, four-target confirmation, including first installation. Manual Update All cannot replace content. Every content replacement requires a current explicit Update action and its own confirmation; package consent never substitutes for it. Build Forge navigates to installed project-tool owners; retained God setup helpers forward to Angels under the Forge Setup Technique. The adapter owns no update surface.
+For God's Commandments view, follow the Companion owner's [public Editor interfaces](GeurtsCommandmentsCompanionTechnique.md#public-editor-interfaces-and-no-code-use) and [current content action and confirmation](GeurtsCommandmentsCompanionTechnique.md#current-action-confirmation-and-legacy-automatic-callers). Manual Update All cannot replace content. Build Forge navigates to installed project-tool owners; retained God setup helpers forward to Angels under the Forge Setup Technique.
 
 Permitted version/compatibility uncertainty produces a clear Continue/Cancel warning only after all mandatory admission checks pass. Continue cannot override lower-target downgrade blocks, immutable-release identity, missing required tools, invalid/unverified source validation or other hard guards. A compatibility warning is never permission to bypass those failures. Missing required tools or an operation Unity cannot perform must be reported accurately. Never claim that package installation proves compilation succeeded.
 

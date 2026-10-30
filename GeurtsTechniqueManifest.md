@@ -102,7 +102,7 @@ StandardsOnly uses the existing `GameUse` audience filter for selected shared do
 | Approved project-root `.gitignore` payload | `GeurtsTechniques/GeurtsGitIgnoreTechnique.md` | When validating or provisioning that exact payload. |
 | FMOD project-root `.gitattributes` template and explicit installation | `GeurtsTechniques/GeurtsGitAttributesTechnique.md` | When provisioning or validating FMOD line-ending rules through Angels or another explicitly authorized installer. The pinned template retains historical God step numbering; current ownership belongs to Forge Setup. |
 | Codex guide template and user-selected installation | `GeurtsTechniques/GeurtsAgentTechnique.md` | When installing, validating or explaining a Codex guide. |
-| Chat-only response style and scope | `GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.1.md` | Only when a compatible chat interface explicitly selects it. It is never a coding or architecture standard. |
+| Chat-only response style and scope | `GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.2.0.md` | Only when a compatible chat interface explicitly selects it. It is never a coding or architecture standard. |
 | Technical topic: Unity | `GeurtsTechniques/GeurtsUnityTechnique.md` | When planning, changing or validating Unity code, physics, scheduling, dependencies, builds, APIs or Editor compatibility; owns collider movement, triggers, coroutines and Unity-specific compilation; Automation owns the generic compilation gate. Read migration material only for a requested migration. |
 | Steam preparation, platform services and Windows release evidence | `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md` | When planning, implementing, configuring or validating Steam preparation, Steamworks.NET dependencies, BigBang prerequisite admission, platform-service contracts, bootstrap/native lifecycle, or Steam Windows build/distribution artifacts. Read the whole selected technique in either audience mode. |
 | Technical topic: Code | `GeurtsTechniques/GeurtsCodeTechnique.md` | Before planning, creating or modifying C# code, ScriptableObject data models, object references, IDs, XML descriptions or component Help; owns reference-first design and identity-boundary exceptions. |
@@ -138,12 +138,12 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `Tools/ValidateGeurtsPublication.ps1` | 1.0.0 | Offline committed-candidate comparison against the newest stable release tag. |
 | `Tools/Tests/TestGeurtsPublication.ps1` | 1.0.0 | Isolated version-reuse, downgrade, tag and incomplete-history regressions. |
 | `History/Changelog.md` | 1.0.0 | Optional non-normative release history archived from the 0.62.0 README. |
-| `GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md` | 1.0.0 | AI-only, efficiency-first documentation impact and synchronized owner maintenance. |
+| `GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md` | 1.0.1 | AI-only, efficiency-first documentation impact and synchronized owner maintenance. |
 | `GeurtsTechniques/GeurtsBrickUsageGuide.md` | 1.1.0 | Selective per-brick usage, actual pinned sources, examples and evidence limits. |
 | `History/README-0.62.19.md` | 0.62.19 | Non-normative former overview and release records. |
 | `History/BrickUsageEvidence-0.63.0.json` | 0.63.0 | Read-only source inspection receipt, not Unity validation or current installation authority. |
 | `GeurtsTechniques/GeurtsStandardsOnlyTechnique.md` | 1.0.1 | StandardsOnly applicability, source-only adoption and conditional framework dependencies. |
-| `GeurtsTechniques/GeurtsTechnicalTechnique.md` | 0.20.11 | Normative shared technical core and priorities. |
+| `GeurtsTechniques/GeurtsTechnicalTechnique.md` | 0.20.12 | Normative shared technical core and priorities. |
 | `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md` | 0.4.0 | Windows x64 Steam preparation, independent prerequisites, optional provider and separate native/release evidence. |
 | `GeurtsTechniques/GeurtsNamingTechnique.md` | 0.2.0 | Asset/object names, type registries, script exemptions and preservation. |
 | `GeurtsTechniques/GeurtsBrickContract.md` | 1.24.0 | Brick reuse, dependencies, lifecycle, settings and package operations. |
@@ -166,7 +166,7 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `GeurtsTechniques/GeurtsAgentTechnique.md` | 1.3.0 | Portable preserving root guide plus pinned legacy selected-folder payload. |
 | `GeurtsTechniques/GeurtsGitIgnoreTechnique.md` | 1.0.1 | Pinned comprehensive .gitignore payload, including optional FMOD patterns. |
 | `GeurtsTechniques/GeurtsGitAttributesTechnique.md` | 1.0.1 | Pinned FMOD attributes payload and explicit installation. |
-| `GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.1.md` | 1.1 | Chat-only; not an implementation standard. |
+| `GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.2.0.md` | 1.2.0 | Chat-only Unity game-development scope; not an implementation standard. |
 | `Ideas/GameForgeIntelligenceIdeas.md` | 0.11.0 | Historical ideas; not normative. |
 | `Ideas/GeurtsGameForgeGitFlowPlan.md` | 0.2.0 | Read-only viewer published; submission, publisher and recovery milestones remain planned. |
 | `Migrations/v0.44.0.md` | 0.44.0 | Historical transition; read only for a requested migration/review. |

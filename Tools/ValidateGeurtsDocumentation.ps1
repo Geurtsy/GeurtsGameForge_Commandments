@@ -355,7 +355,7 @@ try {
         "GeurtsTechniques/GeurtsGitIgnoreTechnique.md",
         "GeurtsTechniques/GeurtsGitAttributesTechnique.md",
         "GeurtsTechniques/GeurtsAgentTechnique.md",
-        "GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.1.md"
+        "GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.2.0.md"
     )
     $subjectOwners = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
     if ($subjectSection.Success) {
@@ -888,6 +888,27 @@ try {
     Add-Check 'Update policy implementation evidence' $implementationEvidenceValid 'Documentation requirements remain distinct from owning implementation releases and actual consumer adoption.'
     Add-Check "God documentation content integration" $godContentIntegrationValid "Package management stays separate from companion-owned content replacement, including first installation, with the same confirmation and graceful missing-companion behavior."
 
+    $documentationIdentityValid = $aiReadFirstText.Contains('**Documentation source:** [Geurtsy/GeurtsGameForge_Commandments](https://github.com/Geurtsy/GeurtsGameForge_Commandments)') -and
+        $aiReadFirstText.Contains("Use the manifest's package version, never a game or brick version.") -and
+        $aiReadFirstText.Contains('A local snapshot alone cannot prove it is latest.') -and
+        $aiReadFirstText.Contains('Otherwise report Freshness unknown') -and
+        $aiReadFirstText.Contains('Distinguish Released, Pending and Unknown publication state using evidence for that exact revision') -and
+        $aiReadFirstText.Contains('This local identity check performs no automatic network check, download or update.') -and
+        $aiReadFirstText.Contains('Do not create a receipt or project file for this check.') -and
+        $companionTechniqueText.Contains('unknown freshness is not Latest.')
+    Add-Check 'Documentation identity and freshness' $documentationIdentityValid 'Entry identity is documentation-specific, source/revision-bound and local-only; publication and freshness cannot be inferred from a version or local snapshot.'
+    $documentationSizeValid = $companionTechniqueText.Contains('compressed transfer size for the actual archive bytes, and estimated installed/extracted disk size') -and
+        $companionTechniqueText.Contains('Bind every available size and version to the exact documentation candidate revision and archive identity.') -and
+        $companionTechniqueText.Contains('Label each value Exact, Estimated or Unknown according to its evidence') -and
+        $companionTechniqueText.Contains('GitHub repository disk size is not a documentation download estimate.') -and
+        $companionTechniqueText.Contains('Received-byte progress is not a pre-download estimate.') -and
+        $companionTechniqueText.Contains('Never download an archive merely to calculate its size.') -and
+        $companionTechniqueText.Contains('previously opted-in opening checks gain no new size request.') -and
+        $companionTechniqueText.Contains('Source/version and size display authorize no content acquisition, replacement or new remote-check trigger.') -and
+        $companionTechniqueText.Contains('Add no preview action, second confirmation, schema-3 field or project receipt.') -and
+        $companionTechniqueText.Contains('Required owner display behavior; implementation and acceptance are pending.')
+    Add-Check 'Documentation pre-download size boundary' $documentationSizeValid 'Transfer and extracted-size evidence stays candidate-bound, accurately labelled and independent of acquisition authority; owner implementation remains pending without schema or target expansion.'
+
     $forbiddenPluginPaths = @($trackedPaths | Where-Object { [System.IO.Path]::GetFileName($_) -ceq "package.json" -or [System.IO.Path]::GetExtension($_) -in @(".cs", ".asmdef", ".asmref") })
     Add-Check "No Unity companion implementation in documentation source" ($forbiddenPluginPaths.Count -eq 0) $(if ($forbiddenPluginPaths.Count) { "Unity package implementation files are tracked here: " + ($forbiddenPluginPaths -join ", ") } else { "No package.json, C#, asmdef, or asmref implementation file is tracked in this documentation repository." })
 
@@ -1238,8 +1259,8 @@ try {
     Add-Check 'Folder technique reader version parity' ($folderToolText.Contains($folderVersionGuard) -and $folderTechniqueTextForPathTerms -match $folderVersionGuard) 'The folder creator accepts the registered Folder Technique 0.17.1; unsupported explanatory authority versions remain blocked.'
 
     $chatSubjectRow = [regex]::Match($manifestText, '(?m)^\| Chat-only response style and scope \| `(?<Path>[^`]+)` \| (?<Applicability>[^|]+) \|\r?$')
-    $chatRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsAIResponseControlTechnique_V1\.1\.md` \| 1\.1 \| (?<Role>[^|]+) \|\r?$')
-    $chatOnlyValid = $chatSubjectRow.Success -and $chatSubjectRow.Groups["Path"].Value -ceq "GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.1.md" -and $chatSubjectRow.Groups["Applicability"].Value -match '(?i)compatible chat interface.*select' -and $chatSubjectRow.Groups["Applicability"].Value -match '(?i)never.*coding or architecture standard' -and $chatRegistryRow.Success -and $chatRegistryRow.Groups["Role"].Value -match '(?i)chat-only' -and $chatRegistryRow.Groups["Role"].Value -match '(?i)not an? implementation standard'
+    $chatRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsAIResponseControlTechnique_V1\.2\.0\.md` \| 1\.2\.0 \| (?<Role>[^|]+) \|\r?$')
+    $chatOnlyValid = $chatSubjectRow.Success -and $chatSubjectRow.Groups["Path"].Value -ceq "GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.2.0.md" -and $chatSubjectRow.Groups["Applicability"].Value -match '(?i)compatible chat interface.*select' -and $chatSubjectRow.Groups["Applicability"].Value -match '(?i)never.*coding or architecture standard' -and $chatRegistryRow.Success -and $chatRegistryRow.Groups["Role"].Value -match '(?i)chat-only' -and $chatRegistryRow.Groups["Role"].Value -match '(?i)not an? implementation standard'
     Add-Check "Chat-only classification" $chatOnlyValid "Manifest applicability and registry role independently classify Response Control as explicitly selected chat-only behaviour, never an implementation standard."
 
     $technicalRelative = "GeurtsTechniques/GeurtsTechnicalTechnique.md"
@@ -1282,7 +1303,7 @@ try {
         if (-not $technicalCoreText.Contains($route) -or -not $contributors.Contains($route)) { $topicFailures.Add("Efficiency policy is not routed through its Automation owner: $route") | Out-Null }
     }
     if ($codeText -match '(?i)XML documentation is not required for private methods') { $topicFailures.Add('Code topic exempts private methods from required XML summaries') | Out-Null }
-    if ($technicalCoreText -notmatch '(?m)^\*\*Version:\*\* 0\.20\.11\r?$' -or $technicalCoreText.Length -gt 24000 -or
+    if ($technicalCoreText -notmatch '(?m)^\*\*Version:\*\* 0\.20\.12\r?$' -or $technicalCoreText.Length -gt 24000 -or
         -not $technicalCoreText.Contains('No-Code Module Use and Code Extensions') -or
         -not $technicalCoreText.Contains('every full absolute file and folder path below 260 characters') -or
         $technicalCoreText -match '(?m)^## (?:Game Audio and Sound Design|Command Rules|Multiplayer Efficiency Rule|Odin Inspector Usage)\r?$') {
@@ -1997,6 +2018,36 @@ try {
         if ($audienceText -match '(?im)^\*\*(?:Primary audience|Secondary audience):\*\*|^\*\*Audience:\*\*[^\r\n]*human') { $documentationFailures.Add('Competing documentation audience in ' + $path) | Out-Null }
     }
     Add-Check 'AI documentation maintenance boundary' ($documentationFailures.Count -eq 0) $(if ($documentationFailures.Count) { $documentationFailures -join '; ' } else { 'Required maintenance scope, AI audience, subject routing and evidence limits are declared; runtime and product UI rules retain their owners.' })
+
+    # These explicit owner edges replace duplicated rules; a valid file link alone
+    # cannot prove that the required authoritative section is still reachable.
+    $ownerRouteFailures = New-Object System.Collections.Generic.List[string]
+    $ownerRoutes = @(
+        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsGameForgeAutomationTechnique.md'; Fragment = 'shared-integration-queue' },
+        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsBrickContract.md'; Fragment = 'explicit-updates-only' },
+        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = 'documentation-identity-and-pre-download-size' },
+        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = '4-offline-startup-and-explicit-metadata-checks' },
+        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = '5-explicit-in-editor-update' },
+        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = 'current-action-confirmation-and-legacy-automatic-callers' },
+        @{ Consumer = 'GeurtsTechniques/GeurtsTechnicalTechnique.md'; Owner = 'GeurtsStandardsOnlyTechnique.md'; Fragment = 'general-standards-remain-applicable' },
+        @{ Consumer = 'GeurtsTechniques/GeurtsTechnicalTechnique.md'; Owner = 'GeurtsStandardsOnlyTechnique.md'; Fragment = 'framework-requirements-are-conditional' },
+        @{ Consumer = 'GeurtsTechniques/GeurtsBrickContract.md'; Owner = 'GeurtsTechnicalTechnique.md'; Fragment = 'no-code-module-use-and-code-extensions' },
+        @{ Consumer = 'GeurtsTechniques/GeurtsBrickContract.md'; Owner = 'GeurtsTechnicalTechnique.md'; Fragment = 'codex-compatibility' },
+        @{ Consumer = 'GeurtsTechniques/GeurtsBrickContract.md'; Owner = 'GeurtsDocumentationMaintenanceTechnique.md'; Fragment = 'ai-audience-and-efficiency' },
+        @{ Consumer = 'GeurtsTechniques/GeurtsBrickContract.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = 'public-editor-interfaces-and-no-code-use' },
+        @{ Consumer = 'GeurtsTechniques/GeurtsBrickContract.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = 'current-action-confirmation-and-legacy-automatic-callers' }
+    )
+    foreach ($route in $ownerRoutes) {
+        $consumerText = [IO.File]::ReadAllText((Join-Path $RepositoryRoot $route.Consumer))
+        $ownerRelative = 'GeurtsTechniques/' + $route.Owner
+        $ownerText = [IO.File]::ReadAllText((Join-Path $RepositoryRoot $ownerRelative))
+        $link = $(if ($route.Consumer.StartsWith('GeurtsTechniques/')) { $route.Owner } else { $ownerRelative }) + '#' + $route.Fragment
+        if (-not $consumerText.Contains('](' + $link + ')') -or $ownerRelative -cnotin $registrySet -or
+            $route.Fragment -cnotin @(& $getFragments $ownerText)) {
+            $ownerRouteFailures.Add($route.Consumer + ' must route to the registered owner section ' + $link) | Out-Null
+        }
+    }
+    Add-Check 'Consolidated subject owner routes' ($ownerRouteFailures.Count -eq 0) $(if ($ownerRouteFailures.Count) { $ownerRouteFailures -join '; ' } else { 'Entry, dependency and brick guidance point directly to existing registered owner sections; semantic completeness remains a maintenance review requirement.' })
 
     $standaloneValid = $companionTechniqueText.Contains('Game Forge integration through God is the primary supported path.') -and
         $companionTechniqueText.Contains('BigBang''s handoff never exempts God or its Commandments service from licensed Odin Inspector and Quantum Console.') -and

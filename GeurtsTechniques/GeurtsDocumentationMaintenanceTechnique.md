@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Documentation Maintenance Technique
 
-**Version:** 1.0.0
+**Version:** 1.0.1
 **Audience:** AI agents only
 **Status:** Normative maintenance requirement
 **Required package path:** `GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md`
@@ -14,9 +14,9 @@ The manifest alone selects documents, versions, reading order and subject owners
 
 ## AI audience and efficiency
 
-Documentation is exclusively for AI agents. AI efficiency is the first documentation-design priority: minimize required context, ambiguity, repeated reads and tool work while preserving every necessary constraint. Write concise literal instructions with explicit triggers, inputs, outputs, ownership and failure behavior. Keep one authoritative rule and link its consumers to it. Prefer a small task-to-owner index and manifest-controlled sections over duplicate introductions, walkthroughs or current-version lists. Do not add human quick-starts or secondary-human audience requirements.
+Documentation is exclusively for AI agents. AI efficiency is the first documentation-design priority: minimize required context, ambiguity, repeated reads and tool work while preserving every necessary constraint. Write concise literal instructions with explicit triggers, inputs, outputs, ownership and failure behavior. Keep one authoritative rule and link its consumers to it. Keep the full normative rule in its manifest-selected subject owner; consumer pointers name that owner, link directly to the applicable section and state when to apply it. Verify the target contains the complete rule; do not replace it with a circular or vague pointer. Prefer a small task-to-owner index and manifest-controlled sections over duplicate introductions, walkthroughs or current-version lists. Do not add human quick-starts or secondary-human audience requirements.
 
-Efficiency never removes exact paths, dependency requirements, consent, preservation, safety, lifecycle or evidence boundaries. Keep payloads intact; do not hide required rules behind optional history. Technical runtime priorities and their multiplayer override remain owned by the Technical Technique and are unchanged by this documentation priority. Product UI still serves its users; AI-only documentation does not remove no-code usability, accessibility or meaningful in-product Help.
+Efficiency never removes exact paths, dependency requirements, consent, preservation, safety, lifecycle or evidence boundaries. Retain concise entry/applicability instructions and permission boundaries, exact machine-readable contracts, self-contained templates and executable installation steps. Keep payloads intact and historical records unchanged; do not hide required rules behind optional history. Technical runtime priorities and their multiplayer override remain owned by the Technical Technique and are unchanged by this documentation priority. Product UI still serves its users; AI-only documentation does not remove no-code usability, accessibility or meaningful in-product Help.
 
 Game Forge integration is the primary supported workflow. StandardsOnly and standalone installation are secondary, explicitly selected routes. Retain their documented dependency exemptions and limits without duplicating or weakening the primary workflow.
 

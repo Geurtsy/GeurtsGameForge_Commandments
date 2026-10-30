@@ -103,6 +103,23 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - Retain existing read-only check/catalogue-refresh triggers, source publication and the background game-change integration queue. Keep legacy settings compatible without treating them as mutation authority.
 - Record the God APIs, handlers, settings and acceptance work required for implementation adoption. Preserve v0.63.0 and all historical evidence; installed behavior requires its own released implementation and consumer update.
 - Advance the passive compatibility adapter to published 0.16.0 with verified source/evidence hashes; retain the published God pin while its 0.40.0 candidate remains blocked and unpublished.
+- Reconcile published 0.63.2, preserving Response Control 1.2.0 and consolidated subject-owner links. Route manual-only updates through their current owner sections, supersede the old response-selection audit and retain all owner acceptance/publication holds.
+- Identify documentation source/version/revision and honest publication/freshness state at entry. Require separately labelled pre-download transfer and extracted-size evidence for the exact candidate; preserve confirmation, schema, targets and offline startup. God display implementation remains pending.
+
+### 0.63.2 — 30 October 2026
+
+- Replace repeated queue and content-lifecycle summaries in the entry guide with direct, conditional pointers to Automation and the Commandments Companion owner. Keep the local-read, no-write and project-design boundaries explicit.
+- Route the Technical core's standards-only dependency explanation to the existing Standards-Only owner. Route copied brick usability, Codex compatibility and content-action rules to their existing Technical, Documentation Maintenance and Companion owners.
+- Clarify that full normative rules stay in their selected subject owner, with precise consumer pointers. Preserve concise routing and permission boundaries, exact schemas and payloads, self-contained templates, executable installation steps and historical records.
+- Validate all eleven consolidated owner links and their target sections, with two bounded negative regressions for a missing route and a missing owner section. No dependency/profile policy, implementation, installer payload or brick release pin changes.
+
+### 0.63.1 — 30 October 2026
+
+- Select chat Response Control 1.2.0 for all Unity game-development work, including design, C# coding, debugging, Editor tools and related technical work. Keep unrelated topics outside scope.
+- Align scope rejection, mixed requests, `!s`, clarification and project awareness. Preserve manifest-selected technical ownership, project design-fact safeguards and downloadable-file reference requirements.
+- Require concise everyday language in text and voice replies, explain unfamiliar technical terms when needed and break complex instructions into simple steps. Preserve necessary precision and AI-readable technical documentation requirements.
+- Use full words and avoid abbreviations in all replies, including headings and `!s`; replace the abbreviated summary heading with Summary. Preserve exact technical identifiers.
+- Synchronize the package registry, metadata, tool version guards and validation expectations. AI-only documentation policy, schemas, frozen payloads and brick release pins remain unchanged; no brick implementation or consumer update is required by this chat-policy change.
 
 ### 0.63.0 — 29 October 2026
 

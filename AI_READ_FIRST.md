@@ -2,6 +2,7 @@
 # Geurts Game Forge AI Entry Point
 
 **Version:** 0.64.0
+**Documentation source:** [Geurtsy/GeurtsGameForge_Commandments](https://github.com/Geurtsy/GeurtsGameForge_Commandments)
 **Purpose:** First documentation entry and session boundary, before manifest resolution.
 **Required package path:** `AI_READ_FIRST.md`
 
@@ -16,6 +17,12 @@ GeurtsTechniqueManifest.md
 The manifest alone selects and orders applicable techniques, owns package version resolution and subject ownership, and resolves cross-document conflicts. This file does not provide an alternate reading order or task-routing table.
 
 The manifest also owns `AI-READ`, `HUMAN-ONLY` and `FORGE-DEVELOPMENT-ONLY` audience tags and the read-only section reader. Read this entry and the manifest in full; apply their audience rules before loading the other selected documents.
+
+## Documentation Identity and Freshness
+
+After reading this entry and its same-copy manifest, identify the documentation source kind: authoritative source checkout, installed local snapshot, or unknown provenance. Use the manifest's package version, never a game or brick version. Record the exact documentation revision only when existing local Git or trustworthy acquisition evidence supplies it; otherwise report Unknown. Distinguish Released, Pending and Unknown publication state using evidence for that exact revision; a version number or local tag alone does not prove release. Existing last-successful-install metadata is comparison-only and does not prove local integrity. Do not create a receipt or project file for this check.
+
+A local snapshot alone cannot prove it is latest. Report Known outdated only when already available trustworthy authoritative evidence establishes that this documentation copy is older; a different hash alone may mean divergence. Otherwise report Freshness unknown, including when no remote comparison has been authorized. Identify the source/version before relying on an older copy, honor explicitly selected historical guidance and do not mix revisions or silently replace the selected source. This local identity check performs no automatic network check, download or update. The Companion owner's [documentation identity and pre-download size](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#documentation-identity-and-pre-download-size) governs acquisition displays and their evidence limits.
 
 ## Mandatory Reading and Version Bumps
 
@@ -35,7 +42,7 @@ Use `MAJOR.MINOR.PATCH` (for example, `1.4.2`):
 
 Reset the lower components when increasing a higher component. For pre-1.0 packages, continue to increment versions and clearly document breaking changes.
 
-For games we work on using GeurtsGameForge_Commandments as their technical documentation, use the Automation owner's [shared integration queue](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#shared-integration-queue). Worker chats submit once and end their turn with a pending queue ID; one background processor owns final version assignment, validation, main publication and post-push pulls. Automated cross-machine publishers must implement that owner's [renewable leases and bounded abandoned-owner recovery](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#automated-publisher-leases-and-recovery), [candidate/evidence safeguards](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#candidate-repair-and-validation-evidence), deterministic whitespace, native derived identities and explicit committed-runner upgrades. Each owning repository retains its documented acceptance policy; advisory checks require explicit authorization. Do not keep workers polling, retrying or operating competing processors. Each completed game update still receives its higher version before delivery. Forge package sources and this documentation repository retain their existing contribution and publication processes.
+For completed updates to games using GeurtsGameForge_Commandments, follow the Automation owner's [shared integration queue](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#shared-integration-queue) for submission, processor-owned versioning, validation, publication and recovery. Workers submit once, report the pending queue ID and end their turn. Each completed game update still receives its higher version before delivery. Forge package sources and this documentation repository retain their existing contribution and publication processes.
 
 Bump each affected independently released package and the documentation package when its content changes. Keep package.json, runtime-reported versions, documentation manifest/contract/catalogue metadata and changelogs consistent. Individually versioned techniques advance when their own rules change; unchanged schema versions and historical records do not need artificial changes. A catalogue pin must resolve to the exact published package identity and version. Validate that the new version exceeds the previous published version before merging or publishing. Do not describe an equal-number changed release as a normal successful version update.
 
@@ -61,7 +68,9 @@ Package membership and any integration lifecycle are outside this router's subje
 
 ## Session Boundary
 
-Before implementation, use one current source checkout or project-local fetched copy and record its commit when available. On Unity launch/open, God and its Commandments service perform no remote update check or catalogue refresh. Restored windows load local cached state only. Installed Forge packages/bricks and managed Commandments/documentation must never update automatically. Every update requires a current explicit user Update action and its owning confirmation; previously saved consent and deliberate God menu openings are not exceptions. Read-only checks keep their existing selected-owner triggers and consent boundaries. Ordinary AI/session initialization reads the existing local copy and performs no additional remote check or update. For manual Update, the companion performs replacement only after the user selects Update and accepts one confirmation, with Cancel as the default, covering the exact managed documentation and AI-route targets listed by its contract. The manifest-selected Brick Contract and Companion Technique own this manual-only update requirement; their source-publication workflow remains separate from consumer updates. There is no earlier preview or dry run and no second confirmation. When a documentation integration is involved, follow the manifest-selected integration technique; a direct source-repository AI session or another host does not require the companion. Do not inspect or select project GDD files here; the manifest first decides whether the GDD Technique applies.
+Before implementation, use one current source checkout or project-local fetched copy and record its commit when available. Ordinary AI/session initialization reads the existing local copy and performs no additional remote check or update. A direct source-repository AI session or another host does not require the companion.
+
+For the God-owned service's Unity startup behavior, views or metadata checks, apply the Companion owner's [offline startup and explicit checks](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#4-offline-startup-and-explicit-metadata-checks). For installed package/content updates, apply the Brick owner's [explicit updates only](GeurtsTechniques/GeurtsBrickContract.md#explicit-updates-only) and the Companion owner's [manual Update confirmation](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#5-explicit-in-editor-update) and [current action and legacy-caller rules](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#current-action-confirmation-and-legacy-automatic-callers) before any action. Every update requires a current explicit user Update action and its owning confirmation. This entry grants no update consent or project-write authority. Do not inspect or select project GDD files here; the manifest first decides whether the GDD Technique applies.
 
 ## Pre-Code Lock
 

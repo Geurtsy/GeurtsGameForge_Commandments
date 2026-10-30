@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Version:** 0.20.11
+**Version:** 0.20.12
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
@@ -10,7 +10,7 @@ This is the short mandatory technical core for first-party game code, bricks, Ed
 
 ## Standards-Only Applicability
 
-The manifest-selected [Standards-Only Technique](GeurtsStandardsOnlyTechnique.md) applies this technical core to projects without Geurts Game Forge packages. Its boundary makes brick reuse, God lifecycle/logging contracts, Forge-owned Editor APIs and framework package requirements conditional on actual Forge adoption. General technical priorities, supported Unity APIs, preservation, bootstrap lifetime and validation remain applicable. Steam (including Steamworks.NET), Odin Inspector and Quantum Console are optional in StandardsOnly. Their mandatory dependency and no-fallback clauses do not apply unless that integration is explicitly selected. Native Unity authoring and project-owned diagnostics are valid. The Windows target baseline remains unless separately changed. Do not install framework packages or recreate their APIs to satisfy standalone work.
+When the manifest selects **StandardsOnly**, apply that owner's [general standards and optional integrations](GeurtsStandardsOnlyTechnique.md#general-standards-remain-applicable) and [conditional framework requirements](GeurtsStandardsOnlyTechnique.md#framework-requirements-are-conditional) before this core's framework-specific clauses. That owner defines dependency exemptions; the shared technical rules remain binding. Explicit Forge adoption and maintenance retain their selected framework owners. Selecting standards grants no package-installation authority.
 
 ## Technical Priority Order
 
