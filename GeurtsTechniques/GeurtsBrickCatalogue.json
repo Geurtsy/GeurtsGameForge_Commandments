@@ -1,7 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.64.1",
-  "publishedUtc": "2026-10-29T17:11:57Z",
+  "packageVersion": "0.65.0",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -55,7 +54,7 @@
     {
       "id": "com.geurts.gameforge.steam",
       "name": "Geurts Game Forge Steam",
-      "description": "Optional Windows x64 Steam provider and release preparation. Local development starts without native Steam. Native Steam account, overlay and depot acceptance remain unverified pending real-game testing.",
+      "description": "Optional Windows x64 Steam platform provider and release preparation, separate from Multiplayer's required built-in Steam networking. Local development starts without native Steam. Native account, overlay and depot acceptance remain unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.steam",
       "version": "0.3.1",
       "released": true,
@@ -72,6 +71,32 @@
         {
           "id": "com.geurts.gameforge.god",
           "minimumVersion": "0.39.0"
+        }
+      ]
+    },
+    {
+      "id": "com.geurts.gameforge.multiplayer",
+      "name": "Geurts Game Forge Multiplayer",
+      "description": "Planned and unavailable: Client-Host multiplayer using FishNet with required built-in FishySteamworks/Steamworks.NET support. Steam networking is part of this kit, not an optional separate kit. Local Tugboat testing does not verify Steam. No implementation, install source or compatibility profile is published.",
+      "website": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/main/GeurtsTechniques/GeurtsMultiplayerTechnique.md",
+      "version": "",
+      "released": false,
+      "developmentOnly": false,
+      "sourceKind": "",
+      "source": "",
+      "minimumUnity": "6000.6",
+      "maximumUnity": "",
+      "requiredTools": [
+        "Odin Inspector",
+        "Quantum Console",
+        "FishNet",
+        "FishySteamworks",
+        "Steamworks.NET"
+      ],
+      "dependencies": [
+        {
+          "id": "com.geurts.gameforge.god",
+          "minimumVersion": ""
         }
       ]
     },

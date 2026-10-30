@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Multiplayer Technical Topic
 
-**Version:** 0.3.1
+**Version:** 0.4.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsMultiplayerTechnique.md`
@@ -16,7 +16,44 @@ This selection applies when implementing Forge multiplayer; single-player projec
 
 Select stable FishNet, FishySteamworks and Steamworks.NET releases verified together against the Unity minimum, selected newer Editor, Windows x64, actual scripting backend and dependency graph. Record versions and immutable source commits; no example, floating branch or untested latest release is a compatibility pin. Preserve vendor provenance and licence notices. Free FishNet is sufficient for the Host/client baseline; Pro features remain optional and require their actual selected licence and validation. A reusable Forge integration must respect the applicable dependency/add-on licence rather than copy vendor implementation into a competing networking solution.
 
-The [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) retains ownership of Steam prerequisites, native activation and release evidence. God remains the only mandatory shared Geurts brick. Keep FishNet and Steam SDK types out of God's neutral contracts and unrelated optional bricks; concrete cooperation between optional owners belongs in its separate integration owner. This selection does not publish a new networking brick or certify an existing catalogue entry.
+The [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) retains ownership of Steam prerequisites, native activation and release evidence. God remains the only mandatory shared Geurts brick. Keep FishNet and Steam SDK types out of God's neutral contracts and unrelated optional bricks. Apply the built-in Multiplayer ownership below instead of moving Steam networking into an optional integration package. This selection does not publish a new networking brick or certify an existing catalogue entry.
+
+## Multiplayer Kit and Built-In Steam Support
+
+**Steam multiplayer support is required inside the Multiplayer kit.** Selecting Multiplayer always includes its Steam transport integration, configuration, connection lifecycle and failure reporting. Do not offer a Steam-free Multiplayer edition or make Steam networking an optional separate kit, add-on or integration package. Local development mode changes which transport runs; it does not remove the required Steam implementation from the kit.
+
+The responsibilities are distinct:
+
+| Component | Responsibility within the required stack |
+|---|---|
+| FishNet | Network objects, replication, remote calls, prediction and host/server authority. FishNet alone does not provide Steam services. |
+| FishySteamworks | FishNet's Steam transport, using Steamworks.NET to connect through Steam networking. |
+| Steamworks.NET | Managed access to Valve's Steamworks APIs and the matching native binaries. |
+| Multiplayer kit | Built-in wiring, supported no-code setup and API extensions, transport selection, host/client connections, Steam-session coordination and cleanup. |
+
+These are required external dependencies of the selected Multiplayer implementation, not universal FishNet prerequisites for single-player Forge projects. Acquire them explicitly from their supported distributions and record a jointly verified immutable dependency profile before releasing Multiplayer. Do not vendor or redistribute third-party source outside its licence, install duplicate wrappers, invent package identifiers, or add Git URLs to a package's `package.json.dependencies`.
+
+The existing **Geurts Game Forge Steam** brick remains a separate optional platform-services and release-preparation brick. Preserve its identity, published source and supported services; this policy neither removes it nor turns it into a separate optional Steam multiplayer kit. Multiplayer must supply its required Steam networking without requiring users to select that brick. Unrelated achievements, stats, cloud storage, Workshop and distribution features remain outside Multiplayer's required networking scope. Lobby discovery, invitations and matchmaking need their own explicitly selected behavior and evidence; a transport connection alone does not implement them.
+
+### One native Steam session
+
+Multiplayer owns its required transport integration inside the kit, including the means to use one correctly owned native session when the standalone Steam brick is absent. If that brick is also enabled, both must cooperate through supported lifecycle/capability contracts with **one initializer, one callback pump and one shutdown owner**. Reuse a compatible existing owner; never initialize twice, take over another owner's session or stop it while another consumer still depends on it. Releasing Multiplayer connections must release only its registrations and owned resources. Provider failure/withdrawal must terminate affected Steam connections visibly and preserve unrelated local functionality.
+
+This is a required implementation contract, not a claim that the currently published Steam/God APIs already support this cooperation. Verify actual owner APIs and coordinate any necessary owner release before advertising combined support; missing ownership/cooperation evidence blocks that configuration. Keep SDK types out of God and use the Steam owner's native activation, callback and shutdown rules. The general separate-integration rule does not split this built-in Multiplayer responsibility into another kit.
+
+## Availability, Setup and Owner Handoff
+
+The [Catalogue](GeurtsBrickCatalogue.json) records `com.geurts.gameforge.multiplayer` as **planned and unavailable**, with no release version, source or verified God minimum. There is no verified owning implementation, installation source, supported Forge API, operation or executable recipe in this documentation update. The [usage index](GeurtsBrickUsageGuide.md#multiplayer) routes this declared requirement; do not present third-party setup instructions as a released Forge workflow.
+
+Before publishing the owning implementation:
+
+1. Verify God, licensed libraries, FishNet, FishySteamworks and Steamworks.NET against the actual Unity/Windows dependency profile. Keep installation explicit; local package checks must not initialize Steam or require an account/AppID.
+2. Provide supported Multiplayer Editor configuration for the retained bootstrap-owned NetworkManager, local Tugboat testing and the included Steam transport. Give native-test mode explicit AppID/session prerequisites and actionable blocked/failed results. Native activation remains off for unconfigured local development; never silently fall back to Tugboat after a requested Steam connection fails.
+3. Provide the same configuration, start/host/join, disconnect/stop and validation paths through supported public APIs. Publish exact owner entry points and a meaningful no-code/API recipe only after implementation and validation; selecting this specification creates none.
+4. Keep Multiplayer configuration in its own God-managed settings, preserving unrelated Steam settings and authored network content. Disable/stop must release connections, callbacks and owned resources; enable/restart uses retained settings with fresh prerequisite checks. No automatic project conversion or package update is authorized.
+5. Verify the Steam path with the standalone Steam brick absent and the combined configuration with it present, including disabled/failed providers, repeated Play, stop order and bootstrap transitions. Coordinate changes to Steam/God only if their actual APIs cannot satisfy the single-session contract. Record exact source pins, dependency minimums, owner guides and evidence before changing the planned catalogue entry to released.
+
+The outstanding implementation owner is Multiplayer; Steam/God lifecycle cooperation and compatible third-party versions remain unverified dependencies. This documentation repository contains no runtime implementation and does not certify another repository or installed project.
 
 ## Client-Host Authority and Runtime Ownership
 
@@ -39,7 +76,7 @@ The Technical owner's latency-first, bandwidth-second multiplayer override appli
 
 ## Local Testing and Steam Acceptance
 
-Use FishNet's included **Tugboat** transport for local Host/client testing without native Steam: Unity Editor Host plus one or more Windows clients on localhost, or separate PCs on a local network. Start one Host and join the other instances as clients. This needs no rented server or production AppID and preserves Steam's default-off unconfigured development boundary.
+Use FishNet's included **Tugboat** transport for local Host/client testing without native Steam: Unity Editor Host plus one or more Windows clients on localhost, or separate PCs on a local network. Start one Host and join the other instances as clients. This needs no rented server or production AppID and preserves Steam's default-off unconfigured development boundary. Tugboat is a testing mode inside the same Steam-capable kit; passing it cannot satisfy the required Steam release acceptance.
 
 Test the actual **FishySteamworks** Steam path separately using distinct Steam accounts on separate devices, with the deliberately configured test AppID/session and the chosen dependency profile. FishySteamworks documents that two separate instances on one device using the same Steam account cannot connect through its Steam transport; a single Host executable containing server and local client is supported. Local Tugboat results do not establish Steam routing, native account/authentication, lobby/invite integration, relay behavior or customer distribution acceptance. Sample AppID 480 retains the Steam owner's development-only boundary.
 
@@ -53,4 +90,6 @@ Record the exact build/backend, transport/version, roles, player count, test wor
 
 ## Framework References
 
-Use the documentation and source matching the installed releases: [FishNet](https://fish-networking.gitbook.io/docs), [observer/interest management](https://fish-networking.gitbook.io/docs/guides/features/observers), [NetworkTransform controls](https://fish-networking.gitbook.io/docs/fishnet-building-blocks/components/network-transform), [FishySteamworks setup and testing](https://github.com/FirstGearGames/FishySteamworks), and [Valve's modern Steam networking](https://partner.steamgames.com/doc/features/multiplayer/networking). References describe supported mechanisms, not verified Forge implementation or universal version pins.
+Primary references checked on 30 October 2026: [FishNet's FishySteamworks transport guide](https://fish-networking.gitbook.io/docs/fishnet-building-blocks/transports/fishysteamworks) explicitly requires Steamworks.NET; [the transport owner's setup and testing guide](https://github.com/FirstGearGames/FishySteamworks) documents host/client operation and separate-account/device testing; [Steamworks.NET installation](https://steamworks.github.io/installation/) supplies the official wrapper distribution. This verifies component selection, not a jointly tested release profile.
+
+Use the documentation and source matching the installed releases: [FishNet](https://fish-networking.gitbook.io/docs), [observer/interest management](https://fish-networking.gitbook.io/docs/guides/features/observers), [NetworkTransform controls](https://fish-networking.gitbook.io/docs/fishnet-building-blocks/components/network-transform), and [Valve's modern Steam networking](https://partner.steamgames.com/doc/features/multiplayer/networking). References describe supported mechanisms, not verified Forge implementation or universal version pins.

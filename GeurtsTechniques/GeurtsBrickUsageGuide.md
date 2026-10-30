@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.1.0
+**Version:** 1.2.0
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -9,7 +9,7 @@
 
 The manifest selects this index with the Brick Contract and Catalogue. Read the shared rules here and only the relevant brick sections through the manifest's controlled section reader. Game Forge integration is primary; StandardsOnly does not select bricks unless explicitly adopted.
 
-The [Catalogue](GeurtsBrickCatalogue.json) alone selects current installable identities, versions, immutable sources, Unity bounds and dependency minimums. Each section below records evidence at that catalogue pin, not a second installation target. All 13 current entries are released; no current catalogue brick is Planned. Planned features within released bricks remain unavailable. Future Planned entries require purpose, limits and an explicit unavailable state, with no invented API, action, installation source or executable example.
+The [Catalogue](GeurtsBrickCatalogue.json) alone selects current installable identities, versions, immutable sources, Unity bounds and dependency minimums. Released sections below record evidence at their catalogue pin, not a second installation target. Multiplayer is planned and unavailable; its required stack is not installation or compatibility evidence. Planned features within released bricks remain unavailable. Planned entries require purpose, limits and an explicit unavailable state, with no invented API, action, installation source or executable example.
 
 **Declared requirements** come from the [Brick Contract](GeurtsBrickContract.md) and selected techniques. **Source evidence** below was checked read-only at exact pins: package.json, ForgeCapabilities.json, guide paths, operation provider declarations and linked recipe bytes where available. **Runtime evidence** remains the owner's source-matched validation; no Unity build, installer, native service or gameplay workflow was executed for this index. A declaration or passing documentation check does not certify functionality. Recheck the actual installed graph and available providers before use; unknown/mismatched evidence blocks the affected action.
 
@@ -73,7 +73,7 @@ The pinned God 0.39.4 source still contains automatic package/content update pat
 **Evidence version:** `0.3.1`
 **Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/44e5b61c6d9130682163d9536d91be67ed7d9a8d/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/44e5b61c6d9130682163d9536d91be67ed7d9a8d/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/44e5b61c6d9130682163d9536d91be67ed7d9a8d/Documentation~/GameIntegration.md).
 
-- **Use:** Optional Windows x64 platform provider and Steam release preparation; distinguish wrapper readiness from native service readiness.
+- **Use:** Optional Windows x64 platform provider and Steam release preparation; distinguish wrapper readiness from native service readiness. Preserve this brick separately from Multiplayer's required built-in Steam networking; see the [Multiplayer owner](GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support).
 - **Prerequisites:** God, both licensed libraries, supported Steamworks.NET and its Windows plugin configuration. Native testing additionally needs an explicitly owned app context.
 - **Entry points:** Use the Steam Editor window; inspect_steam_preparation, save_steam_configuration and create_steam_distribution_draft are declared operations. Runtime services use God's optional platform contracts.
 - **Example:** Review a caller-owned SteamConfiguration draft, inspect findings, then explicitly save the unchanged reviewed draft. Keep native initialization off for local unconfigured development; saved configuration applies on the next launch.
@@ -82,6 +82,19 @@ The pinned God 0.39.4 source still contains automatic package/content update pat
 - **Limits:** Real account, overlay, cloud/server and depot/customer-distribution acceptance remains separately unverified. A distribution draft is not deployment; no automatic Save and Load slot synchronization.
 
 [Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/44e5b61c6d9130682163d9536d91be67ed7d9a8d/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/44e5b61c6d9130682163d9536d91be67ed7d9a8d/Documentation~/AIUsabilityValidation.json). Recipe bytes matched the pinned guide during this review; its tests were not rerun here.
+
+## Multiplayer
+
+**Catalogue ID:** `com.geurts.gameforge.multiplayer`
+**Availability:** Planned and unavailable, with no published version/source, verified compatibility profile or executable recipe.
+
+- **Use:** Client-Host multiplayer with required Steam networking inside the same kit. FishNet supplies networking; FishySteamworks and Steamworks.NET supply its Steam transport/API path. Local Tugboat testing is a mode, not a Steam-free edition.
+- **Prerequisites:** God, licensed Odin Inspector and Quantum Console, FishNet, FishySteamworks and Steamworks.NET on supported Unity/Windows x64. The catalogue leaves the unverified God minimum empty; the eventual owning release must verify and publish exact dependency minimums and the external profile. The existing Steam brick stays optional for separate platform services/release preparation.
+- **Lifecycle/settings:** The [Multiplayer owner](GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support) requires built-in transport ownership, God-managed module settings, retained bootstrap and one native Steam session, including coexistence with the Steam brick. Existing Steam/God APIs are not certified for that cooperation.
+- **Verify:** Apply the [setup handoff](GeurtsMultiplayerTechnique.md#availability-setup-and-owner-handoff), local and multi-device Steam tests and runtime acceptance before release. Record exact source, versions, configuration and unperformed checks.
+- **Limits:** This is a declared kit specification only. No Forge window, public API, operation, installation action or supported game recipe is available. Steam lobbies/invitations, host migration, other platform services and dedicated-server deployment are not inferred from transport selection.
+
+**Owner coordination:** The pinned Steam brick's [lifecycle guide](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/44e5b61c6d9130682163d9536d91be67ed7d9a8d/Documentation~/Lifecycle.md) describes its own initialization attempt guard, callback host and shutdown, including refusal to take over foreign integrations. A combined Multiplayer session-sharing workflow is not verified there. The future Multiplayer owner must verify supported cooperation and coordinate any required Steam/God changes; those repositories and their released pins are unchanged by this specification.
 
 ## Diagnostics
 

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.24.0
+**Version:** 1.25.0
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. The manifest continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -35,6 +35,8 @@ When developing or maintaining any brick, apply the Technical owner's [Codex com
 
 The [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) makes the Steam API through Steamworks.NET a mandatory external project prerequisite, including BigBang Install God and existing-God handoff admission. God remains the only mandatory shared Geurts brick. BigBang compiles/opens without the wrapper so it can explain and explicitly acquire the missing prerequisite; its readiness check verifies local managed APIs and Windows x64 plugin files without Steam/native initialization. The Steam runtime provider remains optional; God owns vendor-neutral shared contracts only, while the provider owns SDK types, native calls and lifecycle. Generic peers retain compile independence and local use without a running Steam service. Never add false released capabilities, Git dependency URLs in package.json or a wrapper compile reference to God/BigBang. Published releases retain their actual verified metadata until the consumer adopts newer packages manually.
 
+Selecting the Multiplayer kit requires its [built-in Steam networking stack](GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support). Keep that integration inside Multiplayer, not in an optional separate kit. FishNet, FishySteamworks and Steamworks.NET are its external dependencies; the standalone Steam brick stays optional for platform services/release preparation. Multiplayer must support its Steam path without that peer and satisfy the owner's single-native-session contract when both are present. This bounded ownership rule neither adds a mandatory shared peer nor changes other integrations. Planned Multiplayer remains unavailable until its real source, dependencies and acceptance evidence are published.
+
 ## Independent BigBang initial installer
 
 `com.geurts.gameforge.bigbang` is an independent Editor-only initial installer, not a runtime brick. It does not implement `IBrick`, declare God as a package dependency, or reference God or vendor assemblies. This narrow exception enables preparation before the required libraries and God exist. It explicitly resolves the latest published compatible God release from the official Git repository, verifies its manifest, then installs its frozen exact commit through UPM after prerequisite checks. Failed resolution cannot authorize an old bundled or cached target. Existing installations are inspected and preserved; no automatic replacement or downgrade is permitted. Runtime initialization, `SCN_BigBang`, ongoing package management and shared settings remain God-owned. God owns Commandments acquisition; BigBang hands over without acquiring it. See the manifest-selected [BigBang Technique](GeurtsBigBangTechnique.md).
@@ -48,7 +50,7 @@ Implement `IBrick` from God, apply `[Brick]` and Unity `[Preserve]`, and preserv
 
 God discovers implementations once per Editor/runtime context, rejects duplicate identities, starts in dependency order and stops consumers before providers. Bricks with unsatisfied dependencies stay registered with an explanation. Constructors must not start functionality. `Start` acquires resources; `Stop` releases them and must tolerate a partially failed start. Do not retain unmanaged subscriptions, tasks, scene objects or callbacks after stop. Do not mutate Unity project assets as an automatic side effect of registration.
 
-Use `BrickContext.Provide<T>`, `TryGet<T>`, `Subscribe<T>` and `Publish<T>` for optional cooperation. Contracts belong to God; provider implementations belong to their brick. God automatically withdraws owned capabilities and subscriptions on shutdown. Integrations requiring concrete APIs from two optional packages belong in a separate integration package.
+Use `BrickContext.Provide<T>`, `TryGet<T>`, `Subscribe<T>` and `Publish<T>` for optional cooperation. Contracts belong to God; provider implementations belong to their brick. God automatically withdraws owned capabilities and subscriptions on shutdown. Integrations requiring concrete APIs from two optional packages belong in a separate integration package, except Multiplayer's [required built-in Steam integration](GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support). Its native-session cooperation must use verified supported contracts; do not invent existing APIs or duplicate ownership.
 
 Use `BrickContext.Own(IDisposable)` for scoped check, inspection, network and other registration tokens. Cleanup continues through individual disposal failures. God owns the logging/session contracts; Diagnostics is an optional provider with only God as its brick dependency. Do not add a reverse God-to-Diagnostics dependency. Follow the manifest-selected Diagnostics Technique for that service's application-history and gameplay-session lifetimes.
 
@@ -82,6 +84,8 @@ The JSON contains data only: `schemaVersion`, `packageVersion`, optional `publis
 <!-- GEURTS-SECTION:END -->
 
 Only `released: true` entries with a real installable source receive installation actions. All Geurts Game Forge brick installations must use Git. Released entries use `sourceKind: git`, `developmentOnly: false` and an immutable commit or released tag, optionally with Unity's `?path=/Packages/...` form. Local folders, embedded copies, registry sources and local tarballs are unsupported installation sources. Source checkouts remain authoring workspaces only; isolated validation projects must also resolve candidate packages from Git. Do not invent future brick URLs or publish fixtures as real versions.
+
+For a planned/unavailable entry, set `released: false` and leave unverified `version`, `sourceKind`, `source` and dependency `minimumVersion` values empty. Retain required dependency identities and tools as declared requirements, with a clear unavailable description and a real specification website. These fields do not certify compatibility or provide an installation/update action. Populate release metadata only after the owning implementation passes the publication gate.
 
 God loads cached data immediately and combines it with Unity's installed package state. Unity startup, restored windows and default God openings do not request the catalogue or check remote updates. Package registration notifications rebuild local state only. Online checks require an explicit Refresh or Check action, or an opted-in deliberate God menu opening. Offline/unavailable/malformed data must retain useful cache contents and display an explanation. Unknown availability must not be labelled up to date.
 

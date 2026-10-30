@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.64.1
+**Version:** 0.65.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -18,6 +18,7 @@ Documentation is exclusively for AI agents. AI efficiency is the first documenta
 | Determine the primary game-platform scope and its exceptions | [Manifest primary game target](GeurtsTechniqueManifest.md#13-primary-game-target) |
 | Apply any approved Game Forge change, including BigBang | [Documentation Maintenance Technique](GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md) |
 | Select and use a brick | [Brick AI Usage Guide](GeurtsTechniques/GeurtsBrickUsageGuide.md), [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md), [Catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json) |
+| Plan Multiplayer with Steam built in | [Multiplayer owner](GeurtsTechniques/GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support), [planned availability and setup](GeurtsTechniques/GeurtsMultiplayerTechnique.md#availability-setup-and-owner-handoff) |
 | Apply the current-action update requirement | [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md#explicit-updates-only), [Companion consent](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#current-action-confirmation-and-legacy-automatic-callers), [owner adoption](Migrations/v0.64.0.md) |
 | Install or update managed Commandments | [God-owned service and secondary standalone requirements](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md) |
 | Native routing or separately selected Codex guide | [AI Agent Setup](GeurtsTechniques/GeurtsAIAgentSetupTechnique.md), [AGENTS.md Technique](GeurtsTechniques/GeurtsAgentTechnique.md) |
@@ -30,6 +31,8 @@ The folder definition JSON `canonicalPath` property remains a legacy serialized 
 Installed Forge packages/bricks and managed Commandments/documentation must never update automatically. Every update requires a current explicit user Update action and the owning confirmation. Saved consent and deliberate God menu openings are not exceptions. Existing read-only checks retain their trigger/consent boundaries; this does not stop authorized background game-change integration/publication. Documentation publication does not patch older installed God behavior.
 
 Current brick versions and immutable installation sources belong only in the Catalogue. The usage guide records pinned source evidence, not alternative installation targets. Planned features are unavailable. Documentation validation does not certify Unity compilation, native services, rendered interfaces or gameplay.
+
+Multiplayer is planned and unavailable. Its specification always includes Steam networking inside the kit through FishNet, FishySteamworks and Steamworks.NET. The released standalone Steam brick remains available for its separate platform services and release preparation; it is not an optional multiplayer transport kit. See the Multiplayer owner for required dependencies, shared native ownership and outstanding implementation evidence.
 
 ## Installing Forge: BigBang or manual
 
@@ -97,6 +100,13 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.65.0 — 30 October 2026
+
+- Require Steam networking inside the Multiplayer kit using FishNet, FishySteamworks and Steamworks.NET. Keep Client-Host authority, latency-first priorities, local Tugboat testing and separate real Steam acceptance.
+- Add an explicitly planned/unavailable Multiplayer catalogue entry and selective usage section, with no installation source or invented API. Preserve the existing Steam brick and every released package pin; clarify its separate platform-service/release-preparation role.
+- Align shared dependency, integration and setup rules with built-in Multiplayer ownership. Require one native session for standalone/combined use and record the outstanding Multiplayer implementation, compatible dependency profile and Steam/God cooperation checks.
+- Verify transport selection against primary official references; synchronize versions and add bounded semantic regressions for optional-kit drift, false availability and duplicate native ownership. Documentation validation does not certify runtime or consumer adoption.
 
 ### 0.64.1 — 30 October 2026
 
