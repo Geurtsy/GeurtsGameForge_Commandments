@@ -78,7 +78,7 @@ StandardsOnly uses the existing `GameUse` audience filter for selected shared do
 
 The Commandments primarily target **Steam games built with Unity for Windows x64 PCs**. Use this focus for game-platform guidance; it does not restrict conversation topics or remove explicitly selected StandardsOnly or user-approved project exceptions. Preserve the Unity minimum above and apply each selected owner's requirements.
 
-The [Technical owner](GeurtsTechniques/GeurtsTechnicalTechnique.md#windows-development-and-build-workflow) owns host/build scope changes; the [Steam owner](GeurtsTechniques/GeurtsSteamIntegrationTechnique.md#runtime-ownership-and-native-activation) retains optional-service and default-off native activation boundaries. This focus grants no installation or migration authority. Project-specific game requirements remain with the [GDD owner](GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md).
+The [Technical owner](GeurtsTechniques/GeurtsTechnicalTechnique.md#windows-development-and-build-workflow) owns host/build scope changes; the [Steam owner](GeurtsTechniques/GeurtsSteamIntegrationTechnique.md#runtime-ownership-and-native-activation) retains optional-service and default-off native activation boundaries. This focus grants no installation or migration authority. Project-specific game requirements remain with the [GDD owner](GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md#primary-game-context).
 
 ## 2. Subject Ownership and Applicability
 
