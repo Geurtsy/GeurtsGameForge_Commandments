@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.64.0
+**Version:** 0.64.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -15,6 +15,7 @@ Documentation is exclusively for AI agents. AI efficiency is the first documenta
 
 | Task | Selected owner or index |
 |---|---|
+| Determine the primary game-platform scope and its exceptions | [Manifest primary game target](GeurtsTechniqueManifest.md#13-primary-game-target) |
 | Apply any approved Game Forge change, including BigBang | [Documentation Maintenance Technique](GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md) |
 | Select and use a brick | [Brick AI Usage Guide](GeurtsTechniques/GeurtsBrickUsageGuide.md), [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md), [Catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json) |
 | Apply the current-action update requirement | [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md#explicit-updates-only), [Companion consent](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#current-action-confirmation-and-legacy-automatic-callers), [owner adoption](Migrations/v0.64.0.md) |
@@ -96,6 +97,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.64.1 — 30 October 2026
+
+- Make Steam games built with Unity for Windows x64 PCs the primary documentation target in the manifest's applicability rules. Route the AI entry, Technical and Steam owners and this index to that single authority.
+- Preserve StandardsOnly, explicit project exceptions, the Unity minimum, default-off native Steam development, game-design ownership and installation consent. This scope clarification changes no package implementation, published brick pin or consumer project.
+- Reuse the Steam target regression against the authoritative manifest; retain source/version/size guidance, frozen payloads and historical evidence.
 
 ### 0.64.0 — 30 October 2026
 

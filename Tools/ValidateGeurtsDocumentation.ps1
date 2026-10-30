@@ -1,5 +1,5 @@
 # ValidateGeurtsDocumentation.ps1
-# Version: 0.64.0
+# Version: 0.64.1
 
 [CmdletBinding()]
 param(
@@ -445,7 +445,7 @@ try {
     $steamText = if (Test-Path -LiteralPath $steamPath -PathType Leaf) { [IO.File]::ReadAllText($steamPath) } else { '' }
     $steamOwner = [regex]::Match($subjectSection.Value, '(?m)^\| Steam preparation, platform services and Windows release evidence \| `GeurtsTechniques/GeurtsSteamIntegrationTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $steamRoutingValid = $steamOwner.Success -and $registrySet.Contains($steamRelative) -and
-        [regex]::Matches($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsSteamIntegrationTechnique\.md` \| 0\.4\.0 \|').Count -eq 1 -and
+        [regex]::Matches($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsSteamIntegrationTechnique\.md` \| 0\.4\.1 \|').Count -eq 1 -and
         $resolverBody.Contains('Technical; Unity; Steam Integration; Code;')
     foreach ($topic in @('Steamworks.NET', 'BigBang', 'platform-service', 'bootstrap/native', 'build/distribution')) {
         if (-not $steamOwner.Groups['When'].Value.Contains($topic)) { $steamRoutingValid = $false }
@@ -455,7 +455,7 @@ try {
     }
     Add-Check 'Steam manifest routing' $steamRoutingValid 'One Steam owner follows Unity, covers prerequisites/services/builds, and is referenced by the affected subject owners.'
 
-    $steamAudienceValid = $steamText -match '(?im)^\*\*Version:\*\*\s*0\.4\.0\s*$' -and $steamText.StartsWith('<!-- GEURTS-AUDIENCE: AI-READ -->')
+    $steamAudienceValid = $steamText -match '(?im)^\*\*Version:\*\*\s*0\.4\.1\s*$' -and $steamText.StartsWith('<!-- GEURTS-AUDIENCE: AI-READ -->')
     foreach ($mode in @('GameUse', 'ForgeDevelopment')) {
         try {
             $steamRead = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document $steamRelative -Mode $mode
@@ -467,7 +467,13 @@ try {
     $cohortValid = $steamText.Contains('## Catalogue-wide preparation') -and $steamText.Contains('saved Windows Backend value to match the selected Windows x64 Build Profile') -and $steamText.Contains('Editor-only installers, maintenance tools and passive adapters retain their Editor boundary and stay out of players') -and $steamText.Contains('local persistence across fresh processes') -and $steamText.Contains('A tested backend does not imply native account, overlay, service or depot acceptance')
     Add-Check 'Catalogue-wide Steam preparation' $cohortValid 'Exact owner scope, optional native services, matching Mono/IL2CPP profiles, stripped artifacts and cold local persistence remain distinct from account and distribution acceptance.'
 
-    $steamScopeValid = $steamText -match '(?i)Steam on Windows x64 is the primary release target' -and
+    $platformTechnicalText = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsTechnicalTechnique.md'))
+    $steamScopeValid = $manifestText.Contains('### 1.3 Primary game target') -and
+        $manifestText.Contains('The Commandments primarily target **Steam games built with Unity for Windows x64 PCs**.') -and
+        $manifestText.Contains('it does not restrict conversation topics or remove explicitly selected StandardsOnly or user-approved project exceptions.') -and
+        $entryPolicy.Contains('(GeurtsTechniqueManifest.md#13-primary-game-target)') -and
+        $platformTechnicalText.Contains('(../GeurtsTechniqueManifest.md#13-primary-game-target)') -and
+        $steamText.Contains('(../GeurtsTechniqueManifest.md#13-primary-game-target)') -and
         $steamText -match '(?i)Steam Deck, Proton, SteamOS, Linux and macOS are outside' -and
         $steamText -match '(?i)prepared for Steam development' -and
         $steamText -match '(?i)before obtaining a game AppID or configuring a store page, depots, branches, SteamPipe uploads or a release pipeline' -and
@@ -475,7 +481,7 @@ try {
         $steamText -match '(?i)immutable Git commit' -and $steamText -match '(?i)consuming project.*Packages/manifest\.json' -and
         $steamText -match '(?i)Git URLs never belong in another package' -and
         $steamText -notmatch '(?i)(?:Steam Deck|Proton|SteamOS) (?:support|certification) is required'
-    Add-Check 'Steam target and preparation boundary' $steamScopeValid 'Windows x64 and pinned wrapper compatibility are explicit; Account-free optional-service/draft preparation is explicit; real AppID/distribution acceptance and other platforms remain pending.'
+    Add-Check 'Steam target and preparation boundary' $steamScopeValid 'The manifest owns the primary Unity/Steam/Windows x64 focus and its exceptions; entry and subject pointers resolve there. Pinned wrapper compatibility is explicit; Account-free optional-service/draft preparation is explicit; real AppID/distribution acceptance and other platforms remain pending.'
 
     $steamBigBangText = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsBigBangTechnique.md'))
     $steamAdmissionValid = $steamText -match '(?i)Steamworks\.NET is required before Install God and BigBang.s existing-God handoff' -and
@@ -813,7 +819,7 @@ try {
     Add-Check "Companion schema forward compatibility" $companionForwardCompatibilityValid "Schema 3.0.0 pins mutation paths, not documentation releases: packageVersion must match the same archive manifest, and later safe validation-entry lists remain consumable without a companion release."
 
     $companionTechniqueRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| 3\.3\.0 \| (?<Role>[^|]+) \|\r?$')
-    $companionContractRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| 0\.64\.0 \| (?<Role>[^|]+) \|\r?$')
+    $companionContractRegistryRow = [regex]::Match($manifestText, '(?m)^\| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| 0\.64\.1 \| (?<Role>[^|]+) \|\r?$')
     $companionOwnerRow = [regex]::Match($manifestText, '(?m)^\| God-owned Windows Unity Editor Commandments source, metadata check, confirmed replacement, project-boundary, and AI-routing lifecycle \| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $companionContractOwnerRow = [regex]::Match($manifestText, '(?m)^\| Exact companion source, documentation destination, validation entries, confirmation targets, and template-to-route mappings \| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| (?<When>[^|]+) \|\r?$')
     $companionArchitectureValid = $companionTechniqueRegistryRow.Success -and $companionContractRegistryRow.Success -and
@@ -1311,7 +1317,7 @@ try {
         if (-not $technicalCoreText.Contains($route) -or -not $contributors.Contains($route)) { $topicFailures.Add("Efficiency policy is not routed through its Automation owner: $route") | Out-Null }
     }
     if ($codeText -match '(?i)XML documentation is not required for private methods') { $topicFailures.Add('Code topic exempts private methods from required XML summaries') | Out-Null }
-    if ($technicalCoreText -notmatch '(?m)^\*\*Version:\*\* 0\.20\.12\r?$' -or $technicalCoreText.Length -gt 24000 -or
+    if ($technicalCoreText -notmatch '(?m)^\*\*Version:\*\* 0\.20\.13\r?$' -or $technicalCoreText.Length -gt 24000 -or
         -not $technicalCoreText.Contains('No-Code Module Use and Code Extensions') -or
         -not $technicalCoreText.Contains('every full absolute file and folder path below 260 characters') -or
         $technicalCoreText -match '(?m)^## (?:Game Audio and Sound Design|Command Rules|Multiplayer Efficiency Rule|Odin Inspector Usage)\r?$') {

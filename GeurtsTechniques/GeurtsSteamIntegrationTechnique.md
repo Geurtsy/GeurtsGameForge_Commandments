@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Steam Integration Technique
 
-**Version:** 0.4.0
+**Version:** 0.4.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md`
@@ -10,7 +10,7 @@ The manifest selects this owner for Steam preparation, Steamworks.NET prerequisi
 
 ## Target and delivery boundary
 
-**Steam on Windows x64 is the primary release target.** Steam Deck, Proton, SteamOS, Linux and macOS are outside the current target. Supporting Steam does not require Deck certification, controller-only design or another operating-system build. A different target needs an explicit scope change.
+Apply the manifest's [primary game target](../GeurtsTechniqueManifest.md#13-primary-game-target) when selecting the Steam release platform. Steam Deck, Proton, SteamOS, Linux and macOS are outside the current target. Supporting Steam does not require Deck certification, controller-only design or another operating-system build. A different target needs an explicit scope change.
 
 The first milestone is **prepared for Steam development**. A Unity project can reach it before obtaining a game AppID or configuring a store page, depots, branches, SteamPipe uploads or a release pipeline. When broader integration is explicitly requested, prepare optional services, customer launch policy and unresolved preview-only distribution drafts before onboarding. Leave partner-only settings, uploads, real native acceptance and release promotion pending their actual account/AppID context. Never invent a production AppID or claim release readiness from local preparation.
 
