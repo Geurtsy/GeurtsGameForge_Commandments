@@ -1,7 +1,8 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge AI Entry Point
 
-**Version:** 0.63.2
+**Version:** 0.64.0
+**Documentation source:** [Geurtsy/GeurtsGameForge_Commandments](https://github.com/Geurtsy/GeurtsGameForge_Commandments)
 **Purpose:** First documentation entry and session boundary, before manifest resolution.
 **Required package path:** `AI_READ_FIRST.md`
 
@@ -16,6 +17,12 @@ GeurtsTechniqueManifest.md
 The manifest alone selects and orders applicable techniques, owns package version resolution and subject ownership, and resolves cross-document conflicts. This file does not provide an alternate reading order or task-routing table.
 
 The manifest also owns `AI-READ`, `HUMAN-ONLY` and `FORGE-DEVELOPMENT-ONLY` audience tags and the read-only section reader. Read this entry and the manifest in full; apply their audience rules before loading the other selected documents.
+
+## Documentation Identity and Freshness
+
+After reading this entry and its same-copy manifest, identify the documentation source kind: authoritative source checkout, installed local snapshot, or unknown provenance. Use the manifest's package version, never a game or brick version. Record the exact documentation revision only when existing local Git or trustworthy acquisition evidence supplies it; otherwise report Unknown. Distinguish Released, Pending and Unknown publication state using evidence for that exact revision; a version number or local tag alone does not prove release. Existing last-successful-install metadata is comparison-only and does not prove local integrity. Do not create a receipt or project file for this check.
+
+A local snapshot alone cannot prove it is latest. Report Known outdated only when already available trustworthy authoritative evidence establishes that this documentation copy is older; a different hash alone may mean divergence. Otherwise report Freshness unknown, including when no remote comparison has been authorized. Identify the source/version before relying on an older copy, honor explicitly selected historical guidance and do not mix revisions or silently replace the selected source. This local identity check performs no automatic network check, download or update. The Companion owner's [documentation identity and pre-download size](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#documentation-identity-and-pre-download-size) governs acquisition displays and their evidence limits.
 
 ## Mandatory Reading and Version Bumps
 
@@ -63,7 +70,7 @@ Package membership and any integration lifecycle are outside this router's subje
 
 Before implementation, use one current source checkout or project-local fetched copy and record its commit when available. Ordinary AI/session initialization reads the existing local copy and performs no additional remote check or update. A direct source-repository AI session or another host does not require the companion.
 
-For the God-owned service's Unity startup behavior, views or metadata checks, apply the Companion owner's [offline startup and explicit checks](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#4-offline-startup-and-explicit-metadata-checks). For content replacement, read its [manual Update confirmation](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#5-explicit-in-editor-update) and [saved-consent God-opening exception](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#consent-package-work-and-automatic-god-openings) before any action. This entry grants no update consent or project-write authority. Do not inspect or select project GDD files here; the manifest first decides whether the GDD Technique applies.
+For the God-owned service's Unity startup behavior, views or metadata checks, apply the Companion owner's [offline startup and explicit checks](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#4-offline-startup-and-explicit-metadata-checks). For installed package/content updates, apply the Brick owner's [explicit updates only](GeurtsTechniques/GeurtsBrickContract.md#explicit-updates-only) and the Companion owner's [manual Update confirmation](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#5-explicit-in-editor-update) and [current action and legacy-caller rules](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#current-action-confirmation-and-legacy-automatic-callers) before any action. Every update requires a current explicit user Update action and its owning confirmation. This entry grants no update consent or project-write authority. Do not inspect or select project GDD files here; the manifest first decides whether the GDD Technique applies.
 
 ## Pre-Code Lock
 

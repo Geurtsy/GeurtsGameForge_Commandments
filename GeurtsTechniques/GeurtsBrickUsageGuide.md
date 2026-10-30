@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.0.0
+**Version:** 1.1.0
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -14,6 +14,8 @@ The [Catalogue](GeurtsBrickCatalogue.json) alone selects current installable ide
 **Declared requirements** come from the [Brick Contract](GeurtsBrickContract.md) and selected techniques. **Source evidence** below was checked read-only at exact pins: package.json, ForgeCapabilities.json, guide paths, operation provider declarations and linked recipe bytes where available. **Runtime evidence** remains the owner's source-matched validation; no Unity build, installer, native service or gameplay workflow was executed for this index. A declaration or passing documentation check does not certify functionality. Recheck the actual installed graph and available providers before use; unknown/mismatched evidence blocks the affected action.
 
 For every dependent brick, verify both licensed Odin Inspector and Quantum Console, supported Unity (6000.6.3f1 or newer), actual package dependencies and local Commandments before Editor mutation. BigBang and the passive adapter have the exact exceptions below. God is the only mandatory shared Geurts brick; optional peers stay optional. Explicit installation uses the Catalogue's Git source. Read each pinned owner's AIUsability task table, then its selected recipe/API guide; do not load release history for ordinary integration.
+
+Installed packages/bricks and managed documentation never update automatically. Every Update/Update All requires a current explicit user action and the owning confirmation; saved consent and God menu openings are not exceptions. Read-only checks retain their existing triggers. Verify implementation and installed behavior separately from this requirement; the [owner coordination record](../Migrations/v0.64.0.md) tracks adoption. Background game-change queue publication remains a separate authorized workflow.
 
 The examples below are bounded workflows derived from owner guides, not new APIs or approvals to run them. Retain owner consent, review, typed payloads, stale-review checks, operation guards and game design authority. Discover supported operations locally; inspect is read-only, execution is explicit and results retain actual partial/failure states. Direct APIs do not imply a generic operation ID. Runtime consumers borrow the existing bootstrap service and release owned resources; Editor-only services stay out of players. The [maintenance owner](GeurtsDocumentationMaintenanceTechnique.md) requires this index and the affected owning guide to stay synchronized.
 
@@ -34,16 +36,18 @@ The examples below are bounded workflows derived from owner guides, not new APIs
 ## Commandments Compatibility
 
 **Catalogue ID:** `com.geurts.gameforge.documentation`
-**Evidence version:** `0.15.4`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/c1e5d2aa1d03ff2e32d3959c94aa2f3e785bed33/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/c1e5d2aa1d03ff2e32d3959c94aa2f3e785bed33/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/c1e5d2aa1d03ff2e32d3959c94aa2f3e785bed33/Documentation~/AIUsability.md).
+**Evidence version:** `0.16.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/705d00078f8b5bad797dd297f99296fd59476451/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/705d00078f8b5bad797dd297f99296fd59476451/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/705d00078f8b5bad797dd297f99296fd59476451/Documentation~/AIUsability.md).
 
 - **Use:** Retain existing legacy Companion Editor callers during migration to God. Excluded from fresh installations and Install All.
 - **Prerequisites:** No God/vendor compile dependency; compatible God is required to perform delegated content work and God requires both licensed libraries.
-- **Entry points:** Retained DocumentationIntegration / CommandmentsIntegration forwarding; use God's supported CommandmentsIntegration for new Editor callers. No independent automation provider.
+- **Entry points:** Retained DocumentationIntegration / CommandmentsIntegration manual forwarding; use God's supported CommandmentsIntegration for new Editor callers. Legacy automatic update methods refuse locally before callbacks or God forwarding. No independent automation provider.
 - **Example:** With both packages verified, open God's Commandments view; retain the adapter while custom assemblies reference it. Migrate those references explicitly, then remove the adapter through UPM.
 - **Lifecycle/settings:** Passive Editor-only handoff; no startup acquisition, menu registrations, runtime service or independent updater.
-- **Verify:** Check actual installed identities and callable God owner. Confirm an absent owner reports unavailable and the adapter starts no acquisition.
-- **Limits:** The pinned Documentation~/README.md still says 0.15.3 while package/capabilities declare 0.15.4. Treat that version/install example as stale; use the Catalogue. Owner correction remains outstanding.
+- **Verify:** Check actual installed identities and callable God owner. Confirm an absent owner reports unavailable, automatic calls refuse without invoking consent callbacks, and the adapter starts no acquisition.
+- **Limits:** Updating this adapter cannot disable an older God dashboard updater. Paired God acceptance remains outstanding; the adapter's standalone tests do not establish it. The pinned owner guides now agree with release 0.16.0.
+
+[Owner validation](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/705d00078f8b5bad797dd297f99296fd59476451/Documentation~/AIUsabilityValidation.json) records four standalone Unity 6000.6.3f1 tests passed, zero failed/skipped, warnings treated as errors, and the supported example compiled with God absent. This review matched the released C# fingerprint, four evidence-file digests and [example](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/705d00078f8b5bad797dd297f99296fd59476451/Tools~/Examples/AutomationExample.cs) to its guide. Unity was not rerun here; see the [scoped adoption record](../Migrations/v0.64.0.md#verified-adapter-adoption).
 
 ## God
 
@@ -60,6 +64,8 @@ The examples below are bounded workflows derived from owner guides, not new APIs
 - **Limits:** No second host/registry in a game. Editor APIs stay outside player assemblies; optional providers may be unavailable.
 
 [Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b7a001234dd5b149cc767dd1ab305df4c6e876d7/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b7a001234dd5b149cc767dd1ab305df4c6e876d7/Documentation~/AIUsabilityValidation.json). Recipe bytes matched the pinned guide during this review; its tests were not rerun here.
+
+The pinned God 0.39.4 source still contains automatic package/content update paths. They are superseded policy, not compliant recommended usage. A matching implementation release and consumer adoption remain outstanding; no documentation edit disables those installed handlers.
 
 ## Steam
 
@@ -219,7 +225,7 @@ The examples below are bounded workflows derived from owner guides, not new APIs
 
 ## Review dependencies
 
-The passive adapter and GitFlow owner guides have the stale prose versions noted above; their pinned package manifests/capabilities match the Catalogue. Those owning repositories were not edited. Angels' Catalogue requiredTools was missing Quantum Console despite its pinned capability declaration and God dependency; this package corrects that metadata without changing its release pin. Existing owner guides also retain human-audience wording; adopt the AI-only maintenance rule in each affected owner's next authorized documentation update. Generic standards belong here; exact implementation corrections and recipe acceptance belong to those owners.
+The adapter owner corrected its guides in published 0.16.0; its current pin and scoped evidence are recorded above. GitFlow still has the stale prose version noted above. Both pinned package manifests/capabilities match the Catalogue. This documentation task did not edit those owning repositories. Angels' Catalogue requiredTools was missing Quantum Console despite its pinned capability declaration and God dependency; this package corrects that metadata without changing its release pin. Existing owner guides also retain human-audience wording; adopt the AI-only maintenance rule in each affected owner's next authorized documentation update. Generic standards belong here; exact implementation corrections and recipe acceptance belong to those owners.
 
 The optional Audio FMOD integration is not a separate current catalogue brick. Its owning Audio guide governs explicit adoption; do not invent a catalogue entry or source. Source inspection does not refresh consumer packages or their local Commandments copies.
 

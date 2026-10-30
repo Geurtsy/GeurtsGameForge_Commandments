@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.12.2
+**Version:** 0.13.0
 **Status:** Draft normative technique
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md`
@@ -68,6 +68,10 @@ Use focused checks while editing. Run required final validation once for the com
 ## Codex Project and GameForge Path Preflight
 
 Apply the [Technical Technique's complete path preflight](GeurtsTechnicalTechnique.md#absolute-path-length-and-workspace-roots) to every Codex and GameForge project before creating, copying, extracting or moving content. Check foreseeable dependency/cache/temporary/generated descendants, report the exact offending path and length, and use a shorter location for new task-owned work. Existing user content requires explicit authorization to move. This guidance installs no automatic path checker.
+
+## Installed Forge updates versus source delivery
+
+Installed Forge packages/bricks and managed Commandments/documentation never update automatically. The Brick Contract and Companion Technique require a current explicit user Update action and the owning confirmation; saved consent is not an exception. This does not stop the already-authorized background game-change integration queue or its publication after a user submits work. Source commits, repository publication and release creation do not authorize installing package/content updates into a consumer project. Read-only availability checks retain their existing owner-defined trigger and consent boundaries.
 
 ## Shared Integration Queue
 
