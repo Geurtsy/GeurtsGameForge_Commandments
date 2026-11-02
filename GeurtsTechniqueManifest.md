@@ -39,7 +39,7 @@ Select here, then filter before loading. Tags change reading scope, not authorit
 | `HUMAN-ONLY` | Legacy exclusion tag: skip optional history/reference unless the task explicitly needs it. |
 | `FORGE-DEVELOPMENT-ONLY` | Include only while developing/maintaining the affected Forge brick, API, tool, contract, documentation or automation. |
 
-Use **GameUse** for games using existing bricks or installing/configuring them; **ForgeDevelopment** for Forge development. Mixed tasks include only affected components' maintainer sections. Changelogs and historical release summaries are never mandatory routine reading in either mode. Current guidance targets Catalogue-published packages; setup, checking and Update belong exclusively to the God-owned Commandments service. Verify installed capabilities; this rule authorizes no installation, upgrade, downgrade or rewrite. Minimum API versions, fixed schema tokens and compatibility contracts remain binding, not historical recommendations.
+Use **GameUse** for making a game with existing bricks or installing/configuring them. Use **ForgeDevelopment** for developing Forge itself; mixed tasks include maintainer sections only for the affected component. Changelogs and historical release summaries are never mandatory routine reading in either mode. Current normative guidance targets the current published packages in the Catalogue. Current setup, checking, and Update belong exclusively to the God-owned Commandments service. Verify actual installed capabilities; this rule never installs, upgrades, downgrades or rewrites user content. Minimum API versions, fixed schema tokens and compatibility contracts remain binding, not old recommended targets.
 
 The first nonblank standalone comment sets a file audience. A section overrides it until END; no nesting. Untagged text is AI-READ. Use these markers outside fenced code:
 
@@ -230,7 +230,7 @@ Each listed path must have exactly one matching package file. Roles describe mem
 
 ### 3.1 Current versions and compatibility
 
-The Catalogue alone supplies current published brick versions and immutable installation targets; do not duplicate version lists in prose. Label minimum/introduced API versions and historical evidence. Registry versions describe documentation files, not installed bricks.
+Use the Catalogue as the single source for current published brick versions and immutable installation targets. Do not copy current-version lists into prose. Clearly label minimum/introduced API versions and historical evidence. Registry versions identify documentation files, not installed bricks.
 
 Preserve frozen AGENTS.md, Git Ignore and Git Attributes installer payload bytes and markers. This registry supplies document versions; marked blocks supply payload versions. Contract changes require a coordinated compatible installer release. Historical God step numbering does not transfer optional-tool ownership from Angels. A user-selected project root remains an allowed guide destination.
 
