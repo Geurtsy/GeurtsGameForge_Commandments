@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.67.0
+**Version:** 0.67.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,10 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.67.1 - 3 November 2026
+
+- Pin Angels 0.10.1 with the older-Codex connection fix and source-matched Unity evidence. Its licensed Quantum Console dependency uses the separately published private Unity 6.6 repair; vendor source is not included in Forge releases. Consumer updates remain explicit.
 
 ### 0.67.0 - 3 November 2026
 

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.3.0
+**Version:** 1.3.1
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -117,8 +117,8 @@ God 0.42.0 reads the explicitly declared schema-1 package registry or the suppor
 ## Angels
 
 **Catalogue ID:** `com.geurts.gameforge.angels`
-**Evidence version:** `0.10.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/c78e6c3b59c3cda7cfff1dd91111bca665e989b9/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/c78e6c3b59c3cda7cfff1dd91111bca665e989b9/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/c78e6c3b59c3cda7cfff1dd91111bca665e989b9/Documentation~/GameIntegration.md).
+**Evidence version:** `0.10.1`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/364e37e856eb913be53b33c11dc2c10b76d4c911/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/364e37e856eb913be53b33c11dc2c10b76d4c911/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/364e37e856eb913be53b33c11dc2c10b76d4c911/Documentation~/GameIntegration.md).
 
 - **Use:** Optional Editor project maintenance: folders, guides, Git, scoped asset organization and explicit design imports.
 - **Prerequisites:** God, both licensed libraries and compatible local Commandments. Codex naming/audio are separate optional account/tool integrations with explicit sharing and billing consent.
@@ -128,9 +128,9 @@ God 0.42.0 reads the explicitly declared schema-1 package registry or the suppor
 - **Verify:** Check cancellation, stale source/guidance refusal, GUID/meta preservation and actual/partial outcomes; choose a fresh review for retry.
 - **Limits:** Source/meta checks stream full file hashes; assets above 64 MiB do not fail solely because of source size. Preview, prompt and optional audio-decoding limits remain owner-defined. No Execute All, automatic primary GDD choice or startup scan. Documentation maintenance gives no GDD access. Optional paid inference is never implied by installation.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/c78e6c3b59c3cda7cfff1dd91111bca665e989b9/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/c78e6c3b59c3cda7cfff1dd91111bca665e989b9/Documentation~/AIUsabilityValidation.json). Recipe bytes match the pinned guide. The owner release evidence records successful recipe execution and the registry compatibility checks in a disposable Unity 6000.6.3f1 project using QC-2.6.7-private-Unity6000.6-compat03. Stock Quantum Console 2.6.7 failed the zero-warning compiler gate on both 6000.6.3f1 and 6000.6.7f1; these results do not establish supported-stock compatibility.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/364e37e856eb913be53b33c11dc2c10b76d4c911/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/364e37e856eb913be53b33c11dc2c10b76d4c911/Documentation~/AIUsabilityValidation.json). Ten focused EditMode checks passed in Unity 6000.6.3f1 with zero compiler diagnostics and warnings as errors, including real older-CLI image naming, safe failures, cancellation, the 120-second timeout and the GUID/meta-preserving recipe. The licensed Quantum Console 2.6.7 dependency uses the separately published private Dreadvault repair at adf27643807633516b6a2b54cf5b57346837b700, with all eight repaired files verified against that commit. Vendor source is not part of Angels and these results do not certify unmodified stock Quantum Console.
 
-Angels 0.10.0 requires God 0.42.0 and uses that shared reader for setup, guides, Git payloads and naming context. Reviewed guidance and context identity include raw registry bytes; prompts include only metadata for the existing selected documents. Installer payload versions, hashes and consent boundaries are unchanged.
+Angels 0.10.1 requires God 0.42.0 and uses that shared reader for setup, guides, Git payloads and naming context. Reviewed guidance and context identity include raw registry bytes; prompts include only metadata for the existing selected documents. Installer payload versions, hashes and consent boundaries are unchanged.
 
 ## Settings
 
