@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.65.0",
+  "packageVersion": "0.65.2",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -128,11 +128,11 @@
       "name": "Geurts Game Forge Angels",
       "description": "Optional Editor tools for project organization, reviewed naming, sorting and game-design document import. Paid Codex/audio analysis requires explicit setup and consent; scans preserve completed work on cancellation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
-      "version": "0.9.7",
+      "version": "0.9.8",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#67f76582819b48ea1091582d9e7ff2a4fdd93cb1",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#b11cacca5fc462a9552f7e2370b825fb870aa5e1",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [

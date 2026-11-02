@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.65.0
+**Version:** 0.65.2
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.65.2 — 3 November 2026
+
+- Pins Angels 0.9.8 with streamed complete-file hashing for naming and move review, removing the artificial 64 MiB source rejection while retaining full source/meta drift checks and bounded AI evidence.
+- Synchronizes the owning usage/evidence links and package metadata. Consumer adoption remains a separate explicit Update action.
 
 ### 0.65.0 — 30 October 2026
 
