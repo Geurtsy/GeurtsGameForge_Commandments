@@ -1,0 +1,831 @@
+{
+  "packageVersion": "0.67.0",
+  "baselineCommit": "436239b82e99c3beca2ed0aeaab0b3c6b278b863",
+  "counting": "Unicode characters; CRLF and CR normalized to LF; no tokenizer used",
+  "baseline": {
+    "entry": {
+      "AI_READ_FIRST.md": 9483,
+      "GeurtsTechniqueManifest.md": 39065
+    },
+    "entryTotal": 48548.0,
+    "tasks": [
+      {
+        "name": "ordinary_game_scripting",
+        "mode": "GameUse",
+        "includeHuman": false,
+        "documents": [
+          {
+            "document": "GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 6249,
+            "lookupCharacters": 0,
+            "previewCharacters": 1053
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 16365,
+            "lookupCharacters": 0,
+            "previewCharacters": 1796
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsUnityTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 22101,
+            "lookupCharacters": 0,
+            "previewCharacters": 543
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsCodeTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 12403,
+            "lookupCharacters": 0,
+            "previewCharacters": 685
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsNamingTechnique.md",
+            "sections": [
+              "core"
+            ],
+            "contentCharacters": 14419,
+            "lookupCharacters": 0,
+            "previewCharacters": 2290
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsBrickContract.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 34946,
+            "lookupCharacters": 0,
+            "previewCharacters": 3347
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsBrickCatalogue.json",
+            "sections": [],
+            "contentCharacters": 12606,
+            "lookupCharacters": 0,
+            "previewCharacters": 0
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 45903,
+            "lookupCharacters": 0,
+            "previewCharacters": 3329
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+            "sections": [
+              "core"
+            ],
+            "contentCharacters": 4451,
+            "lookupCharacters": 0,
+            "previewCharacters": 3044
+          }
+        ],
+        "entryCharacters": 48548.0,
+        "contentCharacters": 169443.0,
+        "lookupCharacters": 0.0,
+        "previewCharacters": 16087.0
+      },
+      {
+        "name": "brick_integration_audio",
+        "mode": "GameUse",
+        "includeHuman": false,
+        "documents": [
+          {
+            "document": "GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 6249,
+            "lookupCharacters": 0,
+            "previewCharacters": 1053
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 16365,
+            "lookupCharacters": 0,
+            "previewCharacters": 1796
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsUnityTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 22101,
+            "lookupCharacters": 0,
+            "previewCharacters": 543
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsCodeTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 12403,
+            "lookupCharacters": 0,
+            "previewCharacters": 685
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsAudioTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 2224,
+            "lookupCharacters": 0,
+            "previewCharacters": 517
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsBrickContract.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 34946,
+            "lookupCharacters": 0,
+            "previewCharacters": 3347
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsBrickCatalogue.json",
+            "sections": [],
+            "contentCharacters": 12606,
+            "lookupCharacters": 0,
+            "previewCharacters": 0
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 45903,
+            "lookupCharacters": 0,
+            "previewCharacters": 3329
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+            "sections": [
+              "audio"
+            ],
+            "contentCharacters": 6625,
+            "lookupCharacters": 0,
+            "previewCharacters": 3043
+          }
+        ],
+        "entryCharacters": 48548.0,
+        "contentCharacters": 159422.0,
+        "lookupCharacters": 0.0,
+        "previewCharacters": 14313.0
+      },
+      {
+        "name": "documentation_maintenance",
+        "mode": "ForgeDevelopment",
+        "includeHuman": false,
+        "documents": [
+          {
+            "document": "CONTRIBUTING.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 6748,
+            "lookupCharacters": 0,
+            "previewCharacters": 1004
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 6249,
+            "lookupCharacters": 0,
+            "previewCharacters": 1062
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 17378,
+            "lookupCharacters": 0,
+            "previewCharacters": 1991
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 45903,
+            "lookupCharacters": 0,
+            "previewCharacters": 3338
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+            "sections": [
+              "roots"
+            ],
+            "contentCharacters": 25859,
+            "lookupCharacters": 0,
+            "previewCharacters": 4565
+          }
+        ],
+        "entryCharacters": 48548.0,
+        "contentCharacters": 102137.0,
+        "lookupCharacters": 0.0,
+        "previewCharacters": 11960.0
+      },
+      {
+        "name": "standards_only_script",
+        "mode": "GameUse",
+        "includeHuman": false,
+        "documents": [
+          {
+            "document": "GeurtsTechniques/GeurtsStandardsOnlyTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 9466,
+            "lookupCharacters": 0,
+            "previewCharacters": 1260
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 16365,
+            "lookupCharacters": 0,
+            "previewCharacters": 1796
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsUnityTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 22101,
+            "lookupCharacters": 0,
+            "previewCharacters": 543
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsCodeTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 12403,
+            "lookupCharacters": 0,
+            "previewCharacters": 685
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsNamingTechnique.md",
+            "sections": [
+              "core"
+            ],
+            "contentCharacters": 14419,
+            "lookupCharacters": 0,
+            "previewCharacters": 2290
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 45903,
+            "lookupCharacters": 0,
+            "previewCharacters": 3329
+          }
+        ],
+        "entryCharacters": 48548.0,
+        "contentCharacters": 120657.0,
+        "lookupCharacters": 0.0,
+        "previewCharacters": 9903.0
+      },
+      {
+        "name": "mixed_forge_maintenance",
+        "mode": "ForgeDevelopment",
+        "includeHuman": false,
+        "documents": [
+          {
+            "document": "CONTRIBUTING.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 6748,
+            "lookupCharacters": 0,
+            "previewCharacters": 1004
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 6249,
+            "lookupCharacters": 0,
+            "previewCharacters": 1062
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 36150,
+            "lookupCharacters": 0,
+            "previewCharacters": 2508
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsCommandmentsCompanionContract.json",
+            "sections": [],
+            "contentCharacters": 2624,
+            "lookupCharacters": 0,
+            "previewCharacters": 0
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 17378,
+            "lookupCharacters": 0,
+            "previewCharacters": 1991
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 45903,
+            "lookupCharacters": 0,
+            "previewCharacters": 3338
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+            "sections": [
+              "roots",
+              "definition_contract",
+              "validation"
+            ],
+            "contentCharacters": 30419,
+            "lookupCharacters": 0,
+            "previewCharacters": 4563
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsAIAgentSetupTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 15446,
+            "lookupCharacters": 0,
+            "previewCharacters": 2175
+          }
+        ],
+        "entryCharacters": 48548.0,
+        "contentCharacters": 160917.0,
+        "lookupCharacters": 0.0,
+        "previewCharacters": 16641.0
+      },
+      {
+        "name": "historical_reference",
+        "mode": "GameUse",
+        "includeHuman": true,
+        "documents": [
+          {
+            "document": "GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 19610,
+            "lookupCharacters": 0,
+            "previewCharacters": 1993
+          }
+        ],
+        "entryCharacters": 48548.0,
+        "contentCharacters": 19610.0,
+        "lookupCharacters": 0.0,
+        "previewCharacters": 1993.0
+      }
+    ]
+  },
+  "candidate": {
+    "entry": {
+      "AI_READ_FIRST.md": 6395,
+      "GeurtsTechniqueManifest.md": 22224
+    },
+    "entryTotal": 28619.0,
+    "tasks": [
+      {
+        "name": "ordinary_game_scripting",
+        "mode": "GameUse",
+        "includeHuman": false,
+        "documents": [
+          {
+            "document": "GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 6249,
+            "lookupCharacters": 221,
+            "previewCharacters": 1626
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 16365,
+            "lookupCharacters": 173,
+            "previewCharacters": 2573
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsUnityTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 22101,
+            "lookupCharacters": 160,
+            "previewCharacters": 866
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsCodeTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 12403,
+            "lookupCharacters": 159,
+            "previewCharacters": 1070
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsNamingTechnique.md",
+            "sections": [
+              "core"
+            ],
+            "contentCharacters": 14419,
+            "lookupCharacters": 970,
+            "previewCharacters": 4232
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsBrickContract.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 34946,
+            "lookupCharacters": 190,
+            "previewCharacters": 4708
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsBrickCatalogue.json",
+            "sections": [],
+            "contentCharacters": 12606,
+            "lookupCharacters": 0,
+            "previewCharacters": 0
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 45903,
+            "lookupCharacters": 236,
+            "previewCharacters": 4736
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+            "sections": [
+              "core"
+            ],
+            "contentCharacters": 4451,
+            "lookupCharacters": 3223,
+            "previewCharacters": 7851
+          }
+        ],
+        "entryCharacters": 28619.0,
+        "contentCharacters": 169443.0,
+        "lookupCharacters": 5332.0,
+        "previewCharacters": 27662.0
+      },
+      {
+        "name": "brick_integration_audio",
+        "mode": "GameUse",
+        "includeHuman": false,
+        "documents": [
+          {
+            "document": "GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 6249,
+            "lookupCharacters": 221,
+            "previewCharacters": 1626
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 16365,
+            "lookupCharacters": 173,
+            "previewCharacters": 2573
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsUnityTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 22101,
+            "lookupCharacters": 160,
+            "previewCharacters": 866
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsCodeTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 12403,
+            "lookupCharacters": 159,
+            "previewCharacters": 1070
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsAudioTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 2224,
+            "lookupCharacters": 160,
+            "previewCharacters": 840
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsBrickContract.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 34946,
+            "lookupCharacters": 190,
+            "previewCharacters": 4708
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsBrickCatalogue.json",
+            "sections": [],
+            "contentCharacters": 12606,
+            "lookupCharacters": 0,
+            "previewCharacters": 0
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 45903,
+            "lookupCharacters": 236,
+            "previewCharacters": 4736
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+            "sections": [
+              "audio"
+            ],
+            "contentCharacters": 6625,
+            "lookupCharacters": 3223,
+            "previewCharacters": 7850
+          }
+        ],
+        "entryCharacters": 28619.0,
+        "contentCharacters": 159422.0,
+        "lookupCharacters": 4522.0,
+        "previewCharacters": 24269.0
+      },
+      {
+        "name": "documentation_maintenance",
+        "mode": "ForgeDevelopment",
+        "includeHuman": false,
+        "documents": [
+          {
+            "document": "CONTRIBUTING.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 7882,
+            "lookupCharacters": 179,
+            "previewCharacters": 1794
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 6249,
+            "lookupCharacters": 221,
+            "previewCharacters": 1635
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 17378,
+            "lookupCharacters": 173,
+            "previewCharacters": 2831
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 45903,
+            "lookupCharacters": 236,
+            "previewCharacters": 4745
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+            "sections": [
+              "roots"
+            ],
+            "contentCharacters": 25859,
+            "lookupCharacters": 2281,
+            "previewCharacters": 8728
+          }
+        ],
+        "entryCharacters": 28619.0,
+        "contentCharacters": 103271.0,
+        "lookupCharacters": 3090.0,
+        "previewCharacters": 19733.0
+      },
+      {
+        "name": "standards_only_script",
+        "mode": "GameUse",
+        "includeHuman": false,
+        "documents": [
+          {
+            "document": "GeurtsTechniques/GeurtsStandardsOnlyTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 9466,
+            "lookupCharacters": 217,
+            "previewCharacters": 1892
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 16365,
+            "lookupCharacters": 173,
+            "previewCharacters": 2573
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsUnityTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 22101,
+            "lookupCharacters": 160,
+            "previewCharacters": 866
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsCodeTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 12403,
+            "lookupCharacters": 159,
+            "previewCharacters": 1070
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsNamingTechnique.md",
+            "sections": [
+              "core"
+            ],
+            "contentCharacters": 14419,
+            "lookupCharacters": 970,
+            "previewCharacters": 4232
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 45903,
+            "lookupCharacters": 236,
+            "previewCharacters": 4736
+          }
+        ],
+        "entryCharacters": 28619.0,
+        "contentCharacters": 120657.0,
+        "lookupCharacters": 1915.0,
+        "previewCharacters": 15369.0
+      },
+      {
+        "name": "mixed_forge_maintenance",
+        "mode": "ForgeDevelopment",
+        "includeHuman": false,
+        "documents": [
+          {
+            "document": "CONTRIBUTING.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 7882,
+            "lookupCharacters": 179,
+            "previewCharacters": 1794
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 6249,
+            "lookupCharacters": 221,
+            "previewCharacters": 1635
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 36150,
+            "lookupCharacters": 203,
+            "previewCharacters": 3567
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsCommandmentsCompanionContract.json",
+            "sections": [],
+            "contentCharacters": 2681,
+            "lookupCharacters": 0,
+            "previewCharacters": 0
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 17378,
+            "lookupCharacters": 173,
+            "previewCharacters": 2831
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 45903,
+            "lookupCharacters": 236,
+            "previewCharacters": 4745
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+            "sections": [
+              "roots",
+              "definition_contract",
+              "validation"
+            ],
+            "contentCharacters": 30419,
+            "lookupCharacters": 2281,
+            "previewCharacters": 8726
+          },
+          {
+            "document": "GeurtsTechniques/GeurtsAIAgentSetupTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 15446,
+            "lookupCharacters": 198,
+            "previewCharacters": 3103
+          }
+        ],
+        "entryCharacters": 28619.0,
+        "contentCharacters": 162108.0,
+        "lookupCharacters": 3491.0,
+        "previewCharacters": 26401.0
+      },
+      {
+        "name": "historical_reference",
+        "mode": "GameUse",
+        "includeHuman": true,
+        "documents": [
+          {
+            "document": "GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md",
+            "sections": [
+              null
+            ],
+            "contentCharacters": 19610,
+            "lookupCharacters": 204,
+            "previewCharacters": 2864
+          }
+        ],
+        "entryCharacters": 28619.0,
+        "contentCharacters": 19610.0,
+        "lookupCharacters": 204.0,
+        "previewCharacters": 2864.0
+      }
+    ]
+  }
+}

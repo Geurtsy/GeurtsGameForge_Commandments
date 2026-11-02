@@ -1,0 +1,662 @@
+{
+  "schemaVersion": "1.0.0",
+  "packageVersion": "0.67.0",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "version": "1.0.0",
+      "role": "CRLF working-tree policy for authored text in the Windows documentation source checkout."
+    },
+    {
+      "path": "AI_READ_FIRST.md",
+      "version": "0.67.0",
+      "role": "Entry and session boundaries."
+    },
+    {
+      "path": "GeurtsTechniqueManifest.md",
+      "version": "0.67.0",
+      "role": "Selection, versions, ownership and reading scope."
+    },
+    {
+      "path": "README.md",
+      "version": "0.67.0",
+      "role": "Optional AI package index and primary installation route."
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "version": "0.67.0",
+      "role": "Concise source-contribution, validation, publication and unchanged-terms checklist."
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "version": "1.0.0",
+      "role": "Read-only Windows pull-request, main, tag and merge-queue validation."
+    },
+    {
+      "path": "Tools/ValidateGeurtsPublication.ps1",
+      "version": "1.0.0",
+      "role": "Offline committed-candidate comparison against the newest stable release tag."
+    },
+    {
+      "path": "Tools/Tests/TestGeurtsPublication.ps1",
+      "version": "1.0.0",
+      "role": "Isolated version-reuse, downgrade, tag and incomplete-history regressions."
+    },
+    {
+      "path": "History/Changelog.md",
+      "version": "1.0.0",
+      "role": "Optional non-normative release history archived from the 0.62.0 README."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md",
+      "version": "1.0.1",
+      "role": "AI-only, efficiency-first documentation impact and synchronized owner maintenance."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "version": "1.2.0",
+      "role": "Selective per-brick usage, actual pinned sources, examples and evidence limits."
+    },
+    {
+      "path": "History/README-0.62.19.md",
+      "version": "0.62.19",
+      "role": "Non-normative former overview and release records."
+    },
+    {
+      "path": "History/BrickUsageEvidence-0.63.0.json",
+      "version": "0.63.0",
+      "role": "Read-only source inspection receipt, not Unity validation or current installation authority."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsStandardsOnlyTechnique.md",
+      "version": "1.0.1",
+      "role": "StandardsOnly applicability, source-only adoption and conditional framework dependencies."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
+      "version": "0.20.13",
+      "role": "Normative shared technical core and priorities."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsSteamIntegrationTechnique.md",
+      "version": "0.5.0",
+      "role": "Windows x64 Steam preparation, independent prerequisites, optional provider and separate native/release evidence."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsNamingTechnique.md",
+      "version": "0.2.0",
+      "role": "Asset/object names, type registries, script exemptions and preservation."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsBrickContract.md",
+      "version": "1.25.0",
+      "role": "Brick reuse, dependencies, lifecycle, settings and package operations."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsForgeSetupTechnique.md",
+      "version": "1.8.3",
+      "role": "God foundation, optional owner contributions and setup safety."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsForgeSetupContract.json",
+      "version": "0.67.0",
+      "role": "Schema 1.0.0; setup Editor API 1.1 and contribution version 1."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsBigBangTechnique.md",
+      "version": "1.6.2",
+      "role": "Independent initial installer, verified God handoff and confirmed whole-Forge BigCrunch removal."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsEditorUIThemeTechnique.md",
+      "version": "1.5.4",
+      "role": "Shared palette, spacious geometry, accessibility and truthful status."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsEditorAppearanceTechnique.md",
+      "version": "0.1.6",
+      "role": "Editor workflows, Help, tabs, sections, callouts and inline findings."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsDiagnosticsTechnique.md",
+      "version": "0.4.1",
+      "role": "Optional capture, commands, history, health, sessions and metrics."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsBrickCatalogue.json",
+      "version": "0.67.0",
+      "role": "Current published packages and immutable Git targets."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md",
+      "version": "0.13.0",
+      "role": "Git delivery, compilation gate, proportionate validation, AI efficiency and shared integration queue."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+      "version": "0.17.1",
+      "role": "Normative folder meanings, placement, reuse and safe extension."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsFolderStructureDefinition.json",
+      "version": "0.67.0",
+      "role": "Exact folder registry and creation profiles."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsAIAgentSetupTechnique.md",
+      "version": "3.1.3",
+      "role": "Exact routes, consent boundaries and separately invoked manual manager."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md",
+      "version": "0.16.3",
+      "role": "Normative primary game context, discovery and preserved imports."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md",
+      "version": "3.3.0",
+      "role": "Normative God-owned content service and passive-adapter transition."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsCommandmentsCompanionContract.json",
+      "version": "0.67.0",
+      "role": "Schema 3.0.0; exact acquisition, consent and route mappings."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md",
+      "version": "2.0.0",
+      "role": "Historical frozen compatibility guide; no current updater authority."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsGameForgeIntelligenceIntegrationContract.md",
+      "version": "2.0.0",
+      "role": "Historical non-normative compatibility redirect; never selected as an authority."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsAgentTechnique.md",
+      "version": "1.3.0",
+      "role": "Portable preserving root guide plus pinned legacy selected-folder payload."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsGitIgnoreTechnique.md",
+      "version": "1.0.1",
+      "role": "Pinned comprehensive .gitignore payload, including optional FMOD patterns."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsGitAttributesTechnique.md",
+      "version": "1.0.1",
+      "role": "Pinned FMOD attributes payload and explicit installation."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.2.0.md",
+      "version": "1.2.0",
+      "role": "Chat-only Unity game-development scope; not an implementation standard."
+    },
+    {
+      "path": "Ideas/GameForgeIntelligenceIdeas.md",
+      "version": "0.11.0",
+      "role": "Historical ideas; not normative."
+    },
+    {
+      "path": "Ideas/GeurtsGameForgeGitFlowPlan.md",
+      "version": "0.2.0",
+      "role": "Read-only viewer published; submission, publisher and recovery milestones remain planned."
+    },
+    {
+      "path": "Migrations/v0.44.0.md",
+      "version": "0.44.0",
+      "role": "Historical transition; read only for a requested migration/review."
+    },
+    {
+      "path": "Migrations/v0.41.0.md",
+      "version": "0.41.0",
+      "role": "Historical transition; read only for a requested migration/review."
+    },
+    {
+      "path": "Migrations/v0.11.0.md",
+      "version": "0.11.0",
+      "role": "Historical transition; read only for a requested migration/review."
+    },
+    {
+      "path": "Migrations/v0.10.0.md",
+      "version": "0.10.0",
+      "role": "Historical transition; read only for a requested migration/review."
+    },
+    {
+      "path": "Migrations/v0.9.0.md",
+      "version": "0.9.0",
+      "role": "Historical transition; read only for a requested migration/review."
+    },
+    {
+      "path": "Migrations/v0.8.0.md",
+      "version": "0.8.0",
+      "role": "Historical transition; read only for a requested migration/review."
+    },
+    {
+      "path": "Migrations/v0.7.0.md",
+      "version": "0.7.0",
+      "role": "Historical transition; read only for a requested migration/review."
+    },
+    {
+      "path": "Tools/CreateAIAgentInstructionFiles.bat",
+      "version": "0.9.0",
+      "role": "Compatibility launcher for managed AI setup."
+    },
+    {
+      "path": "Tools/ManageGeurtsAgentInstructions.ps1",
+      "version": "0.67.0",
+      "role": "Optional preservation-based native-route manager."
+    },
+    {
+      "path": "Tools/CreateGeurtsFolderStructure.bat",
+      "version": "0.9.0",
+      "role": "Compatibility launcher for definition-driven folder creation."
+    },
+    {
+      "path": "Tools/CreateGeurtsFolderStructure.ps1",
+      "version": "0.67.0",
+      "role": "Explicit create-only folder operation."
+    },
+    {
+      "path": "Tools/UpdateGameDesignManifest.ps1",
+      "version": "0.10.0",
+      "role": "Deterministic GDD manifest maintainer."
+    },
+    {
+      "path": "Tools/NativeEntryMigrationCatalog.json",
+      "version": "2.0.0",
+      "role": "Exact legacy route fingerprints, including v1.2.0."
+    },
+    {
+      "path": "Tools/ValidateGeurtsDocumentation.ps1",
+      "version": "0.67.0",
+      "role": "Package and semantic validation."
+    },
+    {
+      "path": "Tools/ValidateGeurtsBrickSources.ps1",
+      "version": "1.1.0",
+      "role": "Publication-only exact Git package/capability and dependency validation."
+    },
+    {
+      "path": "Tools/Tests/TestGeurtsBrickSources.ps1",
+      "version": "1.1.0",
+      "role": "Isolated dependency and pinned-source regressions."
+    },
+    {
+      "path": "Tools/AIAgentInstructionTemplates/copilot-instructions.md",
+      "version": "1.3.0",
+      "role": "Exact installation payload; preserve bytes."
+    },
+    {
+      "path": "Tools/AIAgentInstructionTemplates/instructions/geurts-unity.instructions.md",
+      "version": "1.3.0",
+      "role": "Exact installation payload; preserve bytes."
+    },
+    {
+      "path": "Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md",
+      "version": "1.3.0",
+      "role": "Exact installation payload; preserve bytes."
+    },
+    {
+      "path": "Tools/AIAgentInstructionTemplates/GameDesign/README.md",
+      "version": "0.11.0",
+      "role": "Exact installation payload; preserve bytes."
+    },
+    {
+      "path": "Tools/AIAgentInstructionTemplates/GameDesign/GameDesignManifest.md",
+      "version": "0.7.0",
+      "role": "Exact installation payload; preserve bytes."
+    },
+    {
+      "path": "Tools/Tests/RunAutomationTests.ps1",
+      "version": "0.67.0",
+      "role": "Isolated automation and regression suite."
+    },
+    {
+      "path": "Tools/GeurtsDocumentationAudience.psm1",
+      "version": "2.0.0",
+      "role": "Safe audience and manifest-controlled section reader."
+    },
+    {
+      "path": "Tools/ReadGeurtsDocumentation.ps1",
+      "version": "2.0.0",
+      "role": "Read, preview or index selected Markdown without mutation."
+    },
+    {
+      "path": "Tools/Tests/TestDocumentationAudiences.ps1",
+      "version": "2.0.0",
+      "role": "Audience, section selection, preview and boundary regressions."
+    },
+    {
+      "path": "Migrations/v0.40.0.md",
+      "version": "0.40.0",
+      "role": "Historical transition; read only for a requested migration/review."
+    },
+    {
+      "path": "Migrations/v0.45.0.md",
+      "version": "0.45.0",
+      "role": "Historical transition; read only for a requested migration/review."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsUnityTechnique.md",
+      "version": "0.3.5",
+      "role": "Normative task-specific technical topic."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsCodeTechnique.md",
+      "version": "0.2.0",
+      "role": "Normative task-specific technical topic."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsAuthoringTechnique.md",
+      "version": "0.1.3",
+      "role": "Normative task-specific technical topic."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsBootstrapTechnique.md",
+      "version": "0.1.2",
+      "role": "Normative task-specific technical topic."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsAudioTechnique.md",
+      "version": "0.1.2",
+      "role": "Normative task-specific technical topic."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsGameAITechnique.md",
+      "version": "0.2.1",
+      "role": "Normative task-specific technical topic."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsCommandsTechnique.md",
+      "version": "0.2.0",
+      "role": "Normative task-specific technical topic."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsMultiplayerTechnique.md",
+      "version": "0.4.0",
+      "role": "Planned Multiplayer kit with required built-in Steam networking; FishNet, FishySteamworks/Steamworks.NET, Client-Host and acceptance."
+    },
+    {
+      "path": "Migrations/v0.46.0.md",
+      "version": "0.46.0",
+      "role": "Historical transition; read only for a requested migration/review."
+    },
+    {
+      "path": "Migrations/v0.47.0.md",
+      "version": "0.47.0",
+      "role": "AI usability transition; full-copy manual update and explicit owner installation."
+    },
+    {
+      "path": "History/BigBang.md",
+      "version": "0.1.0",
+      "role": "Optional historical release and incident evidence; never current installer requirements."
+    },
+    {
+      "path": "History/AISetup.md",
+      "version": "0.1.0",
+      "role": "Optional historical Companion/schema transition background; not a setup authority."
+    },
+    {
+      "path": "Migrations/v0.51.0.md",
+      "version": "0.51.0",
+      "role": "Historical Steam policy delivery before brick enforcement."
+    },
+    {
+      "path": "Migrations/v0.52.0.md",
+      "version": "0.52.0",
+      "role": "Manual adoption of released Steam preparation; native and distribution acceptance remain separate."
+    },
+    {
+      "path": "Migrations/v0.60.0.md",
+      "version": "0.60.0",
+      "role": "Manual option C adoption with account-free preparation and pending real Steam acceptance."
+    },
+    {
+      "path": "History/ForgeComplianceDelivery-0.59.2.json",
+      "version": "0.59.2",
+      "role": "Optional non-normative compliance audit, correction and owner-publication archive."
+    },
+    {
+      "path": "History/ForgeComplianceValidation-0.59.2.json",
+      "version": "0.59.2",
+      "role": "Optional non-normative full documentation validation receipt; never current subject guidance."
+    },
+    {
+      "path": "Tools/StandardsOnlyInstaller/README.md",
+      "version": "1.0.1",
+      "role": "Download, usage and preservation boundaries for the offline StandardsOnly installer."
+    },
+    {
+      "path": "Tools/StandardsOnlyInstaller/GeurtsStandardsOnlyInstaller-1.0.0.zip",
+      "version": "1.0.0",
+      "role": "Immutable offline installer with source scripts and the complete pinned documentation 0.61.1 snapshot; version declared by its Snapshot.json."
+    },
+    {
+      "path": "Migrations/v0.64.0.md",
+      "version": "0.64.0",
+      "role": "Manual-update adoption and exact God-owner implementation coordination; historical APIs are evidence, not current mutation permission."
+    },
+    {
+      "path": "GeurtsTechniques/GeurtsDocumentationRegistry.json",
+      "version": "0.67.0",
+      "role": "Manifest-owned package inventory and conditional section data; targeted retrieval only."
+    },
+    {
+      "path": "History/ReadingEfficiency-0.67.0.md",
+      "version": "0.67.0",
+      "role": "Optional non-normative upgrade evidence, obligations, consumer compatibility and reading measurements."
+    },
+    {
+      "path": "History/ReadingEfficiency-0.67.0.json",
+      "version": "0.67.0",
+      "role": "Optional baseline/candidate reading measurements for six explicit selection fixtures."
+    }
+  ],
+  "controlledSections": [
+    {
+      "document": "GeurtsTechniques/GeurtsDiagnosticsTechnique.md",
+      "id": "console",
+      "heading": "Runtime console and filters",
+      "whenRequired": "Console installation, controls, audience/filter integration or console changes."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsDiagnosticsTechnique.md",
+      "id": "selection",
+      "heading": "Console text selection and clipboard",
+      "whenRequired": "Console text selection, clipboard or renderer changes."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsDiagnosticsTechnique.md",
+      "id": "history",
+      "heading": "Application-session history",
+      "whenRequired": "Retained history, paging, replay or session-history integration."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsDiagnosticsTechnique.md",
+      "id": "commands",
+      "heading": "Commands and extensibility",
+      "whenRequired": "Declaring or invoking QC commands, help or execution policy."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsDiagnosticsTechnique.md",
+      "id": "inspection",
+      "heading": "Health and live read-only inspection",
+      "whenRequired": "Health/inspection providers or live diagnostics."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsDiagnosticsTechnique.md",
+      "id": "sessions",
+      "heading": "Gameplay sessions, zones and saves",
+      "whenRequired": "Cheats, gameplay sessions, zones, saves or authority hooks."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsDiagnosticsTechnique.md",
+      "id": "metrics",
+      "heading": "Six independent overlay metrics",
+      "whenRequired": "Configuring/implementing metrics or the overlay."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsDiagnosticsTechnique.md",
+      "id": "validation",
+      "heading": "Validation and migration",
+      "whenRequired": "Developing/testing Diagnostics; requested existing-installation migration."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+      "id": "roots",
+      "heading": "Non-Unity Root Folders",
+      "whenRequired": "Placing content in Docs, Builds, Tools, SourceAssets or External."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+      "id": "assets",
+      "heading": "Assets Folder Rules",
+      "whenRequired": "Placing first-party/vendor/addressable/generated assets or gizmos."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+      "id": "definitions",
+      "heading": "Folder Definitions",
+      "whenRequired": "Placing non-code project assets or needing detailed type-folder meaning."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+      "id": "scenes",
+      "heading": "Required Scene Structure",
+      "whenRequired": "Creating/validating scenes or scene folders."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+      "id": "definition_contract",
+      "heading": "Machine-Readable Definition Contract",
+      "whenRequired": "Developing/validating a managed-folder consumer or definition."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+      "id": "recommendations",
+      "heading": "Recommendations",
+      "whenRequired": "Selecting an expanded project profile."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+      "id": "minimal",
+      "heading": "Minimal Version",
+      "whenRequired": "Selecting/validating a minimal project profile."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+      "id": "expansion",
+      "heading": "Expansion Rule",
+      "whenRequired": "Adding project-specific organizational categories."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsFolderStructureTechnique.md",
+      "id": "validation",
+      "heading": "Definition of Done",
+      "whenRequired": "Maintaining/testing the reusable folder template."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsNamingTechnique.md",
+      "id": "types",
+      "heading": "5. Type Registry",
+      "whenRequired": "Naming/reviewing assets or scene objects; ordinary script filenames use the shared Script Exemption."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsNamingTechnique.md",
+      "id": "variants",
+      "heading": "6. Related Content and Variants",
+      "whenRequired": "Prefab roots, ScriptableObjects, related assets or description variants."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsNamingTechnique.md",
+      "id": "adoption",
+      "heading": "10. Commandments Integration and Adoption",
+      "whenRequired": "Maintaining/adopting this naming policy or requested existing-content migration."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "bigbang",
+      "heading": "BigBang",
+      "whenRequired": "Selecting, using, integrating or maintaining BigBang."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "documentation",
+      "heading": "Commandments Compatibility",
+      "whenRequired": "Selecting, using, integrating or maintaining Commandments Compatibility."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "god",
+      "heading": "God",
+      "whenRequired": "Selecting, using, integrating or maintaining God."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "steam",
+      "heading": "Steam",
+      "whenRequired": "Selecting, using, integrating or maintaining Steam."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "multiplayer",
+      "heading": "Multiplayer",
+      "whenRequired": "Selecting, planning, using or maintaining Multiplayer and its required built-in Steam support."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "diagnostics",
+      "heading": "Diagnostics",
+      "whenRequired": "Selecting, using, integrating or maintaining Diagnostics."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "angels",
+      "heading": "Angels",
+      "whenRequired": "Selecting, using, integrating or maintaining Angels."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "settings",
+      "heading": "Settings",
+      "whenRequired": "Selecting, using, integrating or maintaining Settings."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "sceneloading",
+      "heading": "Scene Loading",
+      "whenRequired": "Selecting, using, integrating or maintaining Scene Loading."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "saveload",
+      "heading": "Save and Load",
+      "whenRequired": "Selecting, using, integrating or maintaining Save and Load."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "audio",
+      "heading": "Audio",
+      "whenRequired": "Selecting, using, integrating or maintaining Audio."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "userinterface",
+      "heading": "User Interface",
+      "whenRequired": "Selecting, using, integrating or maintaining User Interface."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "objectpooling",
+      "heading": "Object Pooling",
+      "whenRequired": "Selecting, using, integrating or maintaining Object Pooling."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "gitflow",
+      "heading": "GitFlow",
+      "whenRequired": "Selecting, using, integrating or maintaining GitFlow."
+    }
+  ]
+}

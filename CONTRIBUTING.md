@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: FORGE-DEVELOPMENT-ONLY -->
 # Contributing to Commandments
 
-**Version:** 0.65.0
+**Version:** 0.67.0
 
 This repository owns generic development standards, contracts and their source-only maintenance tools. God, bricks and the compatibility adapter own their implementations. Project-specific design stays in the game's `Docs/GameDesign/`.
 
@@ -13,9 +13,9 @@ Start at [AI_READ_FIRST.md](AI_READ_FIRST.md), then the [manifest](GeurtsTechniq
 
 Use concise, literal instructions with explicit applicability, inputs, outputs and failure behavior. Prefer one authoritative rule over repeated prose. Keep historical evidence under `History/` and outside routine AI reading. Inspect existing code before extending it; avoid extra dependencies, network requests and repeated expensive checks.
 
-Use the Automation owner's [Git-only source-control policy](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#git-source-control). Work on Windows in a short source checkout. Follow the [technical priorities, path preflight and CRLF policy](GeurtsTechniques/GeurtsTechnicalTechnique.md). Preserve unrelated work and all frozen payload bytes. Stage every intended new file so the validator can compare the complete Git inventory with the manifest registry.
+Use the Automation owner's [Git-only source-control policy](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#git-source-control). Work on Windows in a short source checkout. Follow the [technical priorities, path preflight and CRLF policy](GeurtsTechniques/GeurtsTechnicalTechnique.md). Preserve unrelated work and all frozen payload bytes. Stage every intended new file so the validator can compare the complete Git inventory with the manifest-owned JSON registry.
 
-Every delivered change needs an appropriate higher documentation version. Update the entry, manifest registry, current metadata, changed tool versions and changelog together. Bump a technique when its own guidance changes; keep unchanged schemas, installer artifacts, historical records and brick pins intact. The entry point owns the detailed version rules.
+Every delivered change needs an appropriate higher documentation version. Update the entry, manifest-owned JSON registry, current metadata, changed tool versions and changelog together. Bump a technique when its own guidance changes; keep unchanged schemas, installer artifacts, historical records and brick pins intact. The entry point owns the detailed version rules.
 
 ## Validate
 
@@ -28,6 +28,12 @@ Run from the source checkout:
 This runs offline source checks and isolated regressions. Windows CI also runs static validation with Windows PowerShell 5.1. Follow the Automation owner's [proportionate testing](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#proportionate-testing) and [efficient AI tool use](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#efficient-ai-tool-use). Apply that owner's unit-test necessity rule before adding or running unit tests. Use focused checks while iterating; the required successful PR CI supplies the complete suite for the final candidate without a duplicate local full-suite run. Preserve each required host/publication gate and rerun affected checks when source, inputs or environment change. These checks establish documentation/tool behavior, not Unity player or native-service acceptance.
 
 Before catalogue publication, follow the [Brick Contract's source gate](GeurtsTechniques/GeurtsBrickContract.md#publish-before-installing-or-updating). Supply all released owners' Git checkouts with their exact objects already fetched. Identity, version, dependencies, capabilities and declared operations must agree. Missing private-source access is a publication blocker; ordinary CI does not claim to verify those repositories.
+
+## Registry maintenance and publication dependency
+
+The manifest declares GeurtsTechniques/GeurtsDocumentationRegistry.json as its sole inventory/section data source. Preserve file path/version/role and section document/ID/heading/whenRequired fields; do not add another routing policy or Markdown inventory. Reader previews provide targeted version and applicability data; a preview never satisfies rule reading. Use the manifest's plain-file fallback without PowerShell. Stage additions before inventory validation.
+
+This candidate's new registry format is incompatible with published God 0.39.4. Do not merge or release it onto the content feed until God publishes registry-aware archive validation, local foundation readiness and BuildForgeStatus watching, then the Catalogue pins that verified release. The exact owner/action and reading evidence are in [the optional upgrade record](History/ReadingEfficiency-0.67.0.md). This repository-only change neither modifies that owner nor certifies Unity compatibility. Preserve the three route mappings, confirmation, immutable snapshots and installer payloads.
 
 ## Merge and publish
 

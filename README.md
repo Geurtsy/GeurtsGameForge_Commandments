@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.65.0
+**Version:** 0.67.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -71,7 +71,7 @@ Package tools are inert content. The legacy manual manager does not implicitly c
 
 ## Reading modes and history
 
-Use the manifest's task selection before its audience/section reader. Read entry and manifest in full. GameUse includes selected shared rules; ForgeDevelopment also includes relevant maintainer sections. The legacy HUMAN-ONLY tag means optional historical/reference content, not a secondary human audience. It and IncludeHuman keep their compatible spelling. Templates and exact contracts retain their payloads.
+Use the manifest's task selection before its audience/section reader. Read entry and manifest in full. Retrieve only relevant file/version and section-condition records from the manifest-owned GeurtsTechniques/GeurtsDocumentationRegistry.json, preferably through the local reader Preview. Preview is metadata, not rule reading. Without PowerShell, apply the manifest plain-file fallback. GameUse includes selected shared rules; ForgeDevelopment also includes relevant maintainer sections. The legacy HUMAN-ONLY tag means optional historical/reference content, not a secondary human audience. It and IncludeHuman keep their compatible spelling. Templates and exact contracts retain their payloads.
 
 Historical release records are in [History/Changelog.md](History/Changelog.md) and the [archived 0.62.19 README](History/README-0.62.19.md). History is non-normative and never routine onboarding. Existing migrations apply only when the task selects the corresponding transition.
 
@@ -101,20 +101,28 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
 
-### 0.65.0 — 30 October 2026
+### 0.67.0 â€” 2 November 2026 â€” unpublished candidate
+
+- Extract the exact 87-file inventory and all 34 controlled sections into one manifest-owned JSON registry; add the registry and optional evidence records to complete package membership. Preserve task-owner selection, reading order, conditions, consent and payloads.
+- Compact the mandatory entry chain and expose targeted document/version/role and when-required metadata in the existing read-only reader. Retain complete reads, required/unmapped sections, original boundaries and both PowerShell hosts; reject missing/unsafe/ambiguous data without legacy fallback.
+- Synchronize package metadata and source checks; migrate existing audience regressions and add bounded format-failure cases. Reading measurements and obligation/consumer evidence are in History/ReadingEfficiency-0.67.0.md and its JSON companion.
+- Publication blocked: released God 0.39.4 requires the removed Markdown inventory for archive validation, foundation readiness and status watching. God must publish compatible support first; this candidate is not merged, released or installed. Schema-3 completeness gains the registry; target/confirmation semantics, brick pins and immutable artifacts stay unchanged.
+
+
+### 0.67.0 â€” 30 October 2026
 
 - Require Steam networking inside the Multiplayer kit using FishNet, FishySteamworks and Steamworks.NET. Keep Client-Host authority, latency-first priorities, local Tugboat testing and separate real Steam acceptance.
 - Add an explicitly planned/unavailable Multiplayer catalogue entry and selective usage section, with no installation source or invented API. Preserve the existing Steam brick and every released package pin; clarify its separate platform-service/release-preparation role.
 - Align shared dependency, integration and setup rules with built-in Multiplayer ownership. Require one native session for standalone/combined use and record the outstanding Multiplayer implementation, compatible dependency profile and Steam/God cooperation checks.
 - Verify transport selection against primary official references; synchronize versions and add bounded semantic regressions for optional-kit drift, false availability and duplicate native ownership. Documentation validation does not certify runtime or consumer adoption.
 
-### 0.64.1 — 30 October 2026
+### 0.64.1 â€” 30 October 2026
 
 - Make Steam games built with Unity for Windows x64 PCs the primary documentation target in the manifest's applicability rules. Route the AI entry, Technical and Steam owners and this index to that single authority.
 - Preserve StandardsOnly, explicit project exceptions, the Unity minimum, default-off native Steam development, game-design ownership and installation consent. This scope clarification changes no package implementation, published brick pin or consumer project.
 - Reuse the Steam target regression against the authoritative manifest; retain source/version/size guidance, frozen payloads and historical evidence.
 
-### 0.64.0 — 30 October 2026
+### 0.64.0 â€” 30 October 2026
 
 - Supersede saved-consent automatic package/content updates with a current explicit Update action and owning confirmation for every update. Preserve exact mutation targets and separate AGENTS.md installation.
 - Retain existing read-only check/catalogue-refresh triggers, source publication and the background game-change integration queue. Keep legacy settings compatible without treating them as mutation authority.
@@ -123,14 +131,14 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - Reconcile published 0.63.2, preserving Response Control 1.2.0 and consolidated subject-owner links. Route manual-only updates through their current owner sections, supersede the old response-selection audit and retain all owner acceptance/publication holds.
 - Identify documentation source/version/revision and honest publication/freshness state at entry. Require separately labelled pre-download transfer and extracted-size evidence for the exact candidate; preserve confirmation, schema, targets and offline startup. God display implementation remains pending.
 
-### 0.63.2 — 30 October 2026
+### 0.63.2 â€” 30 October 2026
 
 - Replace repeated queue and content-lifecycle summaries in the entry guide with direct, conditional pointers to Automation and the Commandments Companion owner. Keep the local-read, no-write and project-design boundaries explicit.
 - Route the Technical core's standards-only dependency explanation to the existing Standards-Only owner. Route copied brick usability, Codex compatibility and content-action rules to their existing Technical, Documentation Maintenance and Companion owners.
 - Clarify that full normative rules stay in their selected subject owner, with precise consumer pointers. Preserve concise routing and permission boundaries, exact schemas and payloads, self-contained templates, executable installation steps and historical records.
 - Validate all eleven consolidated owner links and their target sections, with two bounded negative regressions for a missing route and a missing owner section. No dependency/profile policy, implementation, installer payload or brick release pin changes.
 
-### 0.63.1 — 30 October 2026
+### 0.63.1 â€” 30 October 2026
 
 - Select chat Response Control 1.2.0 for all Unity game-development work, including design, C# coding, debugging, Editor tools and related technical work. Keep unrelated topics outside scope.
 - Align scope rejection, mixed requests, `!s`, clarification and project awareness. Preserve manifest-selected technical ownership, project design-fact safeguards and downloadable-file reference requirements.
@@ -138,7 +146,7 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - Use full words and avoid abbreviations in all replies, including headings and `!s`; replace the abbreviated summary heading with Summary. Preserve exact technical identifiers.
 - Synchronize the package registry, metadata, tool version guards and validation expectations. AI-only documentation policy, schemas, frozen payloads and brick release pins remain unchanged; no brick implementation or consumer update is required by this chat-policy change.
 
-### 0.63.0 — 29 October 2026
+### 0.63.0 â€” 29 October 2026
 
 - Make active documentation exclusively for AI agents, with efficiency first and Game Forge integration primary. Preserve runtime technical priorities and archive the former overview as history.
 - Select cross-repository documentation maintenance for every approved Game Forge change, including BigBang. Require synchronized per-brick usage contracts and truthful owner/evidence reporting.

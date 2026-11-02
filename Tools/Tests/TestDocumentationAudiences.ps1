@@ -1,4 +1,4 @@
-# Version: 1.1.6
+# Version: 2.0.0
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
@@ -112,12 +112,15 @@ Shared ending.
     # Independent fixture proves the reader cannot select project/GDD files or
     # follow a registered junction out of its documentation root.
     [void][System.IO.Directory]::CreateDirectory($fixture)
-    [System.IO.File]::WriteAllText((Join-Path $fixture 'GeurtsTechniqueManifest.md'), @'
-<!-- GEURTS-PACKAGE-FILES:BEGIN -->
-| `allowed.md` | 1.0.0 | Fixture |
-| `linked/secret.md` | 1.0.0 | Fixture |
-<!-- GEURTS-PACKAGE-FILES:END -->
-'@)
+    [void][IO.Directory]::CreateDirectory((Join-Path $fixture 'GeurtsTechniques'))
+    $registryPath = Join-Path $fixture 'GeurtsTechniques/GeurtsDocumentationRegistry.json'
+    [IO.File]::WriteAllText((Join-Path $fixture 'GeurtsTechniqueManifest.md'), "**Version:** 1.0.0`r`n<!-- GEURTS-REGISTRY: GeurtsTechniques/GeurtsDocumentationRegistry.json -->`r`n")
+    $fixtureRegistry = [pscustomobject]@{
+        schemaVersion = '1.0.0'; packageVersion = '1.0.0'
+        files = @('AI_READ_FIRST.md', 'GeurtsTechniqueManifest.md', 'GeurtsTechniques/GeurtsDocumentationRegistry.json', 'allowed.md', 'linked/secret.md') | ForEach-Object { [pscustomobject]@{path=$_; version='1.0.0'; role='Fixture'} }
+        controlledSections = @()
+    }
+    [IO.File]::WriteAllText($registryPath, ($fixtureRegistry | ConvertTo-Json -Depth 6))
     [System.IO.File]::WriteAllText((Join-Path $fixture 'allowed.md'), $sample)
     [System.IO.File]::WriteAllText((Join-Path $fixture 'unregistered.md'), 'Do not load this file.')
     $before = (Get-FileHash -LiteralPath (Join-Path $fixture 'allowed.md')).Hash
@@ -133,17 +136,13 @@ Shared ending.
     Assert-Audience ((Get-FileHash -LiteralPath (Join-Path $fixture 'allowed.md')).Hash -ceq $before) 'Reads preserve source file bytes'
 
     # Controlled partial reading must keep all untabled safety rules and literal fences.
-    $manifestPath = Join-Path $fixture 'GeurtsTechniqueManifest.md'
-    $sectionMap = @'
-<!-- GEURTS-READ-SECTIONS:BEGIN -->
-| Document | Section ID | Exact heading | When required |
-|---|---|---|---|
-| `scoped.md` | `audio` | Audio topic | Audio work only. |
-| `scoped.md` | `backend` | Maintainer backend | Provider implementation only. |
-<!-- GEURTS-READ-SECTIONS:END -->
-'@
-    $scopedManifest = [IO.File]::ReadAllText($manifestPath).Replace('<!-- GEURTS-PACKAGE-FILES:END -->', "| ``scoped.md`` | 1.0.0 | Fixture |`r`n| ``AI_READ_FIRST.md`` | 1.0.0 | Entry fixture |`r`n<!-- GEURTS-PACKAGE-FILES:END -->") + "`r`n" + $sectionMap
-    [IO.File]::WriteAllText($manifestPath, $scopedManifest)
+    $fixtureRegistry.files += [pscustomobject]@{path='scoped.md'; version='1.0.0'; role='Fixture'}
+    $fixtureRegistry.controlledSections = @(
+        [pscustomobject]@{document='scoped.md'; id='audio'; heading='Audio topic'; whenRequired='Audio work only.'},
+        [pscustomobject]@{document='scoped.md'; id='backend'; heading='Maintainer backend'; whenRequired='Provider implementation only.'}
+    )
+    $scopedManifest = $fixtureRegistry | ConvertTo-Json -Depth 6
+    [IO.File]::WriteAllText($registryPath, $scopedManifest)
     $scopedText = @'
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Fixture
@@ -183,18 +182,48 @@ Always retain this newly introduced requirement.
     }
     Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'AI_READ_FIRST.md' -Sections core } 'Bootstrap cannot be partially read'
     Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsGitIgnoreTechnique.md' -Sections core } 'Exact installer payload cannot be partially read'
+    # Each case retains the prior map invariant in the new single registry format.
     foreach ($brokenMap in @(
-        $scopedManifest.Replace('| `scoped.md` | `audio` | Audio topic | Audio work only. |', '| `scoped.md` | `audio` | Missing heading | Audio work only. |'),
-        $scopedManifest.Replace('<!-- GEURTS-READ-SECTIONS:END -->', ''),
-        $scopedManifest.Replace('| `scoped.md` | `backend` | Maintainer backend | Provider implementation only. |', '| `scoped.md` | `audio` | Maintainer backend | Provider implementation only. |'),
-        $scopedManifest.Replace('| `scoped.md` | `audio`', '| `unregistered.md` | `audio`'),
-        $scopedManifest.Replace('| `scoped.md` | `audio`', '| `AI_READ_FIRST.md` | `audio`'),
-        $scopedManifest.Replace('| `scoped.md` | `audio`', '| `scoped.md` | `core`')
+        $scopedManifest.Replace('"heading": "Audio topic"', '"heading": "Missing heading"'),
+        $scopedManifest.Substring(0, $scopedManifest.Length - 1),
+        $scopedManifest.Replace('"id": "backend"', '"id": "audio"'),
+        $scopedManifest.Replace('"document": "scoped.md"', '"document": "unregistered.md"'),
+        $scopedManifest.Replace('"document": "scoped.md"', '"document": "AI_READ_FIRST.md"'),
+        $scopedManifest.Replace('"id": "audio"', '"id": "core"'),
+        $scopedManifest.Replace('"whenRequired": "Audio work only."', '"whenRequired": ""'),
+        $scopedManifest.Replace('"schemaVersion": "1.0.0"', '"schemaVersion": "2.0.0"'),
+        $scopedManifest.Replace('"packageVersion": "1.0.0"', '"packageVersion": "1.0.1"'),
+        $scopedManifest.Replace('"path": "allowed.md"', '"path": "../allowed.md"'),
+        $scopedManifest.Replace('"path": "allowed.md"', '"path": "CON.md"'),
+        $scopedManifest.Replace('"path": "allowed.md"', '"path": "scoped.md"'),
+        $scopedManifest.Replace('"heading": "Maintainer backend"', '"heading": "Audio topic"'),
+        $scopedManifest.Replace('"schemaVersion": "1.0.0"', '"schemaVersion": "1.0.0", "schemaVersion": "1.0.0"')
     )) {
-        [IO.File]::WriteAllText($manifestPath, $brokenMap)
-        Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio -Preview } 'Malformed map fails before any preview or partial content is returned'
+        [IO.File]::WriteAllText($registryPath, $brokenMap)
+        Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio -Preview } 'Invalid registry/map fails before preview or partial content'
     }
-    [IO.File]::WriteAllText($manifestPath, $scopedManifest)
+    [IO.File]::WriteAllText($registryPath, $scopedManifest)
+    Assert-Audience ($preview.DocumentMetadata.version -ceq '1.0.0' -and
+        @($preview.Headings | Where-Object id -ceq 'audio')[0].whenRequired -ceq 'Audio work only.' -and
+        $preview.DocumentMetadata.controlledSections.Count -eq 2) 'Targeted preview exposes document version and exact applicability conditions'
+    $manifestPath = Join-Path $fixture 'GeurtsTechniqueManifest.md'
+    $validManifest = [IO.File]::ReadAllText($manifestPath)
+    foreach ($badManifest in @($validManifest.Replace('GEURTS-REGISTRY:', 'UNKNOWN:'),
+        ($validManifest + '<!-- GEURTS-PACKAGE-FILES:BEGIN -->'), ($validManifest + $validManifest))) {
+        [IO.File]::WriteAllText($manifestPath, $badManifest)
+        Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' } 'Conflicting or missing format declaration never falls back to legacy data'
+    }
+    [IO.File]::WriteAllText($manifestPath, $validManifest)
+    $registryBytes = [IO.File]::ReadAllBytes($registryPath)
+    Remove-Item -LiteralPath $registryPath
+    Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Preview } 'Missing registry fails visibly'
+    [IO.File]::WriteAllBytes($registryPath, $registryBytes)
+    $registryDirectory = Join-Path $fixture 'GeurtsTechniques'
+    $savedDirectory = Join-Path $fixture 'registry-source'
+    [IO.Directory]::Move($registryDirectory, $savedDirectory)
+    $registryLink = New-Item -ItemType Junction -Path $registryDirectory -Target $savedDirectory
+    try { Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Preview } 'Registry path chain cannot traverse a junction' }
+    finally { [IO.Directory]::Delete($registryLink.FullName); [IO.Directory]::Move($savedDirectory, $registryDirectory) }
     [IO.File]::WriteAllText($scopedPath, $scopedText + "`n<!-- GEURTS-SECTION:BEGIN UNKNOWN -->")
     Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio } 'Malformed unselected audience section cannot be hidden by partial selection'
     [IO.File]::WriteAllText($scopedPath, $scopedText.Replace("`n", "`r`n"))
