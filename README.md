@@ -106,7 +106,7 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - Extract the exact 87-file inventory and all 34 controlled sections into one manifest-owned JSON registry; add the registry and optional evidence records to complete package membership. Preserve task-owner selection, reading order, conditions, consent and payloads.
 - Compact the mandatory entry chain and expose targeted document/version/role and when-required metadata in the existing read-only reader. Retain complete reads, required/unmapped sections, original boundaries and both PowerShell hosts; reject missing/unsafe/ambiguous data without legacy fallback.
 - Synchronize package metadata and source checks; migrate existing audience regressions and add bounded format-failure cases. Reading measurements and obligation/consumer evidence are in History/ReadingEfficiency-0.67.0.md and its JSON companion.
-- Publication blocked: released God 0.39.4 requires the removed Markdown inventory for archive validation, foundation readiness and status watching. God must publish compatible support first; this candidate is not merged, released or installed. Schema-3 completeness gains the registry; target/confirmation semantics, brick pins and immutable artifacts stay unchanged.
+- Publication blocked: published God 0.39.4 and Angels 0.9.7 require the removed Markdown inventory for archive/readiness/status and Codex naming/guide/Git setup. Both owners must publish verified compatible support first; this candidate is not merged, released or installed. Schema-3 completeness gains the registry; target/confirmation semantics, brick pins and immutable artifacts stay unchanged.
 
 ### 0.65.0 — 30 October 2026
 

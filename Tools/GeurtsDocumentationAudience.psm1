@@ -52,10 +52,17 @@ function Read-GeurtsDocumentationRegistry {
             if ($objects.Count -eq 0) { throw 'Malformed registry JSON.' }
             [void]$objects.Pop()
         }
-        elseif ($json.Substring($token.Index + $token.Length) -match '^\s*:') {
-            if ($objects.Count -eq 0 -or $null -eq $objects.Peek()) { throw 'Malformed registry object.' }
-            $key = @(('[' + $token.Value + ']') | ConvertFrom-Json)[0]
-            if (-not $objects.Peek().Add([string]$key)) { throw "Duplicate registry JSON property: $key" }
+        else {
+            $after = $token.Index + $token.Length
+            while ($after -lt $json.Length -and [char]::IsWhiteSpace($json[$after])) { $after++ }
+            if ($after -lt $json.Length -and $json[$after] -eq [char]':') {
+                if ($objects.Count -eq 0 -or $null -eq $objects.Peek()) { throw 'Malformed registry object.' }
+                # Ordinary keys need no separate JSON parser invocation. Decode
+                # escaped keys so aliases still cannot evade duplicate detection.
+                $key = if ($token.Value.IndexOf([char]92) -lt 0) { $token.Value.Substring(1, $token.Length - 2) }
+                    else { @(('[' + $token.Value + ']') | ConvertFrom-Json)[0] }
+                if (-not $objects.Peek().Add([string]$key)) { throw "Duplicate registry JSON property: $key" }
+            }
         }
     }
     if ($objects.Count -ne 0) { throw 'Malformed registry JSON.' }

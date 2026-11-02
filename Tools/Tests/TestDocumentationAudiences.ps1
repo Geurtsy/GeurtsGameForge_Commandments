@@ -197,7 +197,8 @@ Always retain this newly introduced requirement.
         $scopedManifest.Replace('"path": "allowed.md"', '"path": "CON.md"'),
         $scopedManifest.Replace('"path": "allowed.md"', '"path": "scoped.md"'),
         $scopedManifest.Replace('"heading": "Maintainer backend"', '"heading": "Audio topic"'),
-        $scopedManifest.Replace('"schemaVersion": "1.0.0"', '"schemaVersion": "1.0.0", "schemaVersion": "1.0.0"')
+        $scopedManifest.Replace('"schemaVersion": "1.0.0"', '"schemaVersion": "1.0.0", "schemaVersion": "1.0.0"'),
+        $scopedManifest.Replace('"schemaVersion": "1.0.0"', '"schemaVersion": "1.0.0", "sch\u0065maVersion": "1.0.0"')
     )) {
         [IO.File]::WriteAllText($registryPath, $brokenMap)
         Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections audio -Preview } 'Invalid registry/map fails before preview or partial content'

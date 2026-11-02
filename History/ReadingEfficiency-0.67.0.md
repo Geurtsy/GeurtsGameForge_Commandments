@@ -34,7 +34,17 @@ Exact published God 0.39.4 source b7a001234dd5b149cc767dd1ab305df4c6e876d7:
 - Editor/BuildForgeStatus.cs WatchedPaths parses manifest Markdown rows for invalidation; it needs the registry and its listed paths instead.
 - Editor/Commandments/GitVersionMetadata.cs only parses the manifest Version header, which is retained. DocumentationPackageConstants.cs retains the exact documentation folder, three native routes, confirmation and schema. Those boundaries are unchanged here.
 
-Required owner: Geurtsy/com.geurts.gameforge.god. Publish a compatible higher God version supporting an explicitly selected JSON registry format for archive equality and readiness, update status watching, reject malformed new data without legacy fallback, and validate both currently supported old content and the new candidate through the owner's gates. Then pin the verified published God in this repository's Catalogue, refresh main/version collisions, rerun required candidate gates, merge this PR and create its new immutable content release. No God source is edited by this repository-only task. Existing installations still need their explicit package/content Update actions; no fleet compatibility is implied.
+Additional exact published Angels 0.9.7 source 67f76582819b48ea1091582d9e7ff2a4fdd93cb1:
+
+- Editor/AngelsCodexProjectContext.cs Capture requires one Markdown registry, then matches every selected document version against its table row before reading the primary GDD. It must instead validate the same-copy JSON, select only relevant file/section records, fingerprint the registry as part of context identity, retain full entry/manifest and applicable rules, and preserve existing context bounds/consent. No project GDD was read during this source audit.
+- Editor/CodexGuideInstaller.cs Load requires the Agent Technique table version before extracting its pinned template. Editor/PortableCodexGuide.cs Render can invoke that legacy loader while assessing existing root guides, so portable guide use inherits the dependency too. Preserve every frozen payload byte and current target/confirmation rules.
+- Editor/GitIgnoreTemplateReader.cs Extract requires the inventory marker block and matching technique version before checking its exact payload hash/line count.
+- Editor/BuildForgeGitAttributes.cs ReadPayload requires the exact technique/version table row alongside its existing hash/marker checks.
+- Editor/AngelsAssetMoves.cs and AngelsSetupProvider.cs fingerprint fixed guidance paths including the manifest/definition; compatible owner changes must include the indispensable registry wherever source identity/invalidations depend on it. The remaining package-scoped source search and inspected implementations found no independent content updater to migrate.
+
+Required second owner: Geurtsy/com.geurts.gameforge.angels. Publish registry-aware context, guide, Git Ignore and Git Attributes readers with their existing payload/consent/regular-path/version checks intact, plus bounded old/new-format and malformed-new-format regressions. Retain support for currently published old content during the coordinated transition without silently falling back after malformed new data. Verify the affected no-code/API workflows through that owner's acceptance gates. No Angels source is edited here.
+
+Required owner: Geurtsy/com.geurts.gameforge.god. Publish a compatible higher God version supporting an explicitly selected JSON registry format for archive equality and readiness, update status watching, reject malformed new data without legacy fallback, and validate both currently supported old content and the new candidate through the owner's gates. After both God and Angels publish compatible releases and their combined acceptance is verified, pin that compatible cohort in this repository's Catalogue, refresh main/version collisions, rerun required candidate gates, merge this PR and create its new immutable content release. No God or Angels source is edited by this repository-only task. Existing installations still need their explicit package/content Update actions; no fleet compatibility is implied.
 
 Passive adapter 0.16.0 at 705d00078f8b5bad797dd297f99296fd59476451 was inspected in Editor/DocumentationIntegration.cs: its GodForwarder resolves God public members and forwards requests, with no manifest parser. BigBang 0.8.9 at eb291ef5e6d2a1e9b16104d04f8b97f6dac9cc53 was inspected in Editor/FoundationBridge.cs: it resolves God by reflection and calls InspectLocalFoundation/UpdateCommandments; it inherits the God failure and has no independent inventory parser. Neither needs a separate content engine or source change for this format; compatible God support remains required. The initial guessed BigBang repository URL was unavailable; inspection used the Catalogue exact repository instead. Immutable StandardsOnlyInstaller 1.0.0 retains its embedded 0.61.1 source/tools and snapshot contract; it is not updated or a consumer of this new feed format. Native routes contain only entry pointers; their source bytes remain unchanged.
 
@@ -53,28 +63,28 @@ Entry/manifest are fully charged to every task. Candidate per-document metadata 
 | Mandatory entry file | Baseline | Candidate |
 |---|---:|---:|
 | AI_READ_FIRST.md | 9,483 | 6,395 |
-| GeurtsTechniqueManifest.md | 39,065 | 22,224 |
-| Combined | 48,548 | 28,619 |
+| GeurtsTechniqueManifest.md | 39,065 | 22,205 |
+| Combined | 48,548 | 28,600 |
 
-Reduction: **41.05%**. The 50% design target was missed. The candidate retains the full 9,413-character subject/applicability table, the numbered read sequence, conflict bullets and all 34 exact conditional records rather than trading obligation certainty for the metric. Existing identity/consent wording consumed by negative regressions is also retained. More reduction requires a separately reviewed editorial pass on routing/identity prose; it is not concealed by moving mandatory policy into data. The inventory and section map are no longer compulsory full-file reads.
+Reduction: **41.09%**. The 50% design target was missed. The candidate retains the full 9,413-character subject/applicability table, the numbered read sequence, conflict bullets and all 34 exact conditional records rather than trading obligation certainty for the metric. Existing identity/consent wording consumed by negative regressions is also retained. More reduction requires a separately reviewed editorial pass on routing/identity prose; it is not concealed by moving mandatory policy into data. The inventory and section map are no longer compulsory full-file reads.
 
 | Selection fixture | Baseline entry + content | Candidate + targeted metadata | Candidate + full previews | Candidate preview output | Preview/content calls |
 |---|---:|---:|---:|---:|---:|
-| ordinary_game_scripting | 217,991 | 203,394 | 225,724 | 27,662 | 17 |
-| brick_integration_audio | 207,970 | 192,563 | 212,310 | 24,269 | 17 |
-| documentation_maintenance | 150,685 | 134,980 | 151,623 | 19,733 | 10 |
-| standards_only_script | 169,205 | 151,191 | 164,645 | 15,369 | 12 |
-| mixed_forge_maintenance | 209,465 | 194,218 | 217,128 | 26,401 | 15 |
-| historical_reference | 68,158 | 48,433 | 51,093 | 2,864 | 2 |
+| ordinary_game_scripting | 217,991 | 203,375 | 225,705 | 27,662 | 17 |
+| brick_integration_audio | 207,970 | 192,544 | 212,291 | 24,269 | 17 |
+| documentation_maintenance | 150,685 | 135,109 | 151,752 | 19,733 | 10 |
+| standards_only_script | 169,205 | 151,172 | 164,626 | 15,369 | 12 |
+| mixed_forge_maintenance | 209,465 | 194,347 | 217,257 | 26,401 | 15 |
+| historical_reference | 68,158 | 48,414 | 51,074 | 2,864 | 2 |
 
-Baseline entry + content is the package-owned selection cost without optional previews (the conditions were already in the fully read manifest). Candidate + targeted metadata adds each selected Markdown's exact file/version/role/conditional records; candidate + full previews instead charges all actual preview output, including heading indexes/counts/conditions and JSON formatting. Do not add both metadata and preview columns together. These are package-context figures with the external guidance/GDD limitation above. The full JSON preserves baseline preview output too. The candidate call count includes one metadata preview plus one actual read per Markdown and one full read per JSON, excluding the two always-read entry files; a direct full read can omit its preview. No tokens or latency measurements are claimed.
+Baseline entry + content is the package-owned selection cost without optional previews (the conditions were already in the fully read manifest). Candidate + targeted metadata adds each selected Markdown's exact file/version/role/conditional records; candidate + full previews instead charges all actual preview output, including heading indexes/counts/conditions and JSON formatting. Do not add both metadata and preview columns together. These are package-context figures with the external guidance/GDD limitation above. The full JSON preserves baseline preview output too. The candidate call count includes one metadata preview plus one actual read per Markdown and one full read per JSON, excluding the two always-read entry files; a direct full read can omit its preview. No tokens or latency measurements are claimed. The parser avoids per-key JSON deserialization for ordinary unescaped keys and whole-tail string copies; escaped keys still decode before duplicate checks, covered by a dedicated alias regression. No persistent cache is introduced.
 
 Mechanical equivalence checks confirmed all baseline inventory paths/roles, all 34 section records, the complete subject table/conflicts and numbered read sequence. Selected owner order/section arrays match across all six fixtures. Selected Markdown subject counts remain equal except CONTRIBUTING; its new registry/publication constraints and the JSON contract completeness addition are included in candidate totals. Profile wording was shortened with the same explicit triggers, exemptions, modes and permission boundaries, as mapped above.
 
 ## Validation and delivery boundaries
 
 - PowerShell 7 static documentation validation: 112 checks passed on the candidate code before final evidence assembly.
-- Focused audience/registry regression suite: 147 passed, zero failed. No skipped check is counted as passed.
+- Focused audience/registry regression suite: 148 passed, zero failed, including escaped duplicate property aliases. No skipped check is counted as passed.
 - Full Windows PowerShell 5.1/static, PowerShell 7 automation and committed publication gates remain required on the completed committed candidate. Their exact results are retained in the PR checks and final delivery report, rather than predicting success here.
 - Unity compilation/player/native integration: not applicable to this documentation/PowerShell change and not performed. Published God source inspection proves the identified incompatibility, not a compatible Unity update.
-- This source record is candidate evidence. Remote main, release and consumer installation remain blocked/unperformed until the coordinated God owner work completes. Do not infer published/installed status from version metadata or a green documentation workflow.
+- This source record is candidate evidence. Remote main, release and consumer installation remain blocked/unperformed until the coordinated God and Angels owner work completes. Do not infer published/installed status from version metadata or a green documentation workflow.

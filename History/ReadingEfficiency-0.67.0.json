@@ -418,9 +418,9 @@
   "candidate": {
     "entry": {
       "AI_READ_FIRST.md": 6395,
-      "GeurtsTechniqueManifest.md": 22224
+      "GeurtsTechniqueManifest.md": 22205
     },
-    "entryTotal": 28619.0,
+    "entryTotal": 28600.0,
     "tasks": [
       {
         "name": "ordinary_game_scripting",
@@ -507,7 +507,7 @@
             "previewCharacters": 7851
           }
         ],
-        "entryCharacters": 28619.0,
+        "entryCharacters": 28600.0,
         "contentCharacters": 169443.0,
         "lookupCharacters": 5332.0,
         "previewCharacters": 27662.0
@@ -597,7 +597,7 @@
             "previewCharacters": 7850
           }
         ],
-        "entryCharacters": 28619.0,
+        "entryCharacters": 28600.0,
         "contentCharacters": 159422.0,
         "lookupCharacters": 4522.0,
         "previewCharacters": 24269.0
@@ -612,7 +612,7 @@
             "sections": [
               null
             ],
-            "contentCharacters": 7882,
+            "contentCharacters": 8030,
             "lookupCharacters": 179,
             "previewCharacters": 1794
           },
@@ -653,8 +653,8 @@
             "previewCharacters": 8728
           }
         ],
-        "entryCharacters": 28619.0,
-        "contentCharacters": 103271.0,
+        "entryCharacters": 28600.0,
+        "contentCharacters": 103419.0,
         "lookupCharacters": 3090.0,
         "previewCharacters": 19733.0
       },
@@ -718,7 +718,7 @@
             "previewCharacters": 4736
           }
         ],
-        "entryCharacters": 28619.0,
+        "entryCharacters": 28600.0,
         "contentCharacters": 120657.0,
         "lookupCharacters": 1915.0,
         "previewCharacters": 15369.0
@@ -733,7 +733,7 @@
             "sections": [
               null
             ],
-            "contentCharacters": 7882,
+            "contentCharacters": 8030,
             "lookupCharacters": 179,
             "previewCharacters": 1794
           },
@@ -801,8 +801,8 @@
             "previewCharacters": 3103
           }
         ],
-        "entryCharacters": 28619.0,
-        "contentCharacters": 162108.0,
+        "entryCharacters": 28600.0,
+        "contentCharacters": 162256.0,
         "lookupCharacters": 3491.0,
         "previewCharacters": 26401.0
       },
@@ -821,7 +821,7 @@
             "previewCharacters": 2864
           }
         ],
-        "entryCharacters": 28619.0,
+        "entryCharacters": 28600.0,
         "contentCharacters": 19610.0,
         "lookupCharacters": 204.0,
         "previewCharacters": 2864.0
