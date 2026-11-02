@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.2.0
+**Version:** 1.2.1
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -115,8 +115,8 @@ The pinned God 0.39.4 source still contains automatic package/content update pat
 ## Angels
 
 **Catalogue ID:** `com.geurts.gameforge.angels`
-**Evidence version:** `0.9.7`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/67f76582819b48ea1091582d9e7ff2a4fdd93cb1/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/67f76582819b48ea1091582d9e7ff2a4fdd93cb1/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/67f76582819b48ea1091582d9e7ff2a4fdd93cb1/Documentation~/GameIntegration.md).
+**Evidence version:** `0.9.8`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/b11cacca5fc462a9552f7e2370b825fb870aa5e1/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/b11cacca5fc462a9552f7e2370b825fb870aa5e1/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/b11cacca5fc462a9552f7e2370b825fb870aa5e1/Documentation~/GameIntegration.md).
 
 - **Use:** Optional Editor project maintenance: folders, guides, Git, scoped asset organization and explicit design imports.
 - **Prerequisites:** God, both licensed libraries and compatible local Commandments. Codex naming/audio are separate optional account/tool integrations with explicit sharing and billing consent.
@@ -124,9 +124,9 @@ The pinned God 0.39.4 source still contains automatic package/content update pat
 - **Example:** Preview only selected asset paths, inspect destinations/GUIDs and path-loader risks, retain original review rows, then apply after actual review and required confirmation. Verify each completed move and preserved unselected content.
 - **Lifecycle/settings:** Editor-only; settings use God's per-brick store. Stop/disable cancels pending owner requests; completed moves remain. Automatic sorting/naming is separately default-off.
 - **Verify:** Check cancellation, stale source/guidance refusal, GUID/meta preservation and actual/partial outcomes; choose a fresh review for retry.
-- **Limits:** No Execute All, automatic primary GDD choice or startup scan. Documentation maintenance gives no GDD access. Optional paid inference is never implied by installation.
+- **Limits:** Source/meta checks stream full file hashes; assets above 64 MiB do not fail solely because of source size. Preview, prompt and optional audio-decoding limits remain owner-defined. No Execute All, automatic primary GDD choice or startup scan. Documentation maintenance gives no GDD access. Optional paid inference is never implied by installation.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/67f76582819b48ea1091582d9e7ff2a4fdd93cb1/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/67f76582819b48ea1091582d9e7ff2a4fdd93cb1/Documentation~/AIUsabilityValidation.json). Recipe bytes matched the pinned guide during this review; its tests were not rerun here.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/b11cacca5fc462a9552f7e2370b825fb870aa5e1/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/b11cacca5fc462a9552f7e2370b825fb870aa5e1/Documentation~/AIUsabilityValidation.json). Owning validation records the source-matched recipe, oversized-file scan and stale-source checks with exact environments and limits.
 
 ## Settings
 
