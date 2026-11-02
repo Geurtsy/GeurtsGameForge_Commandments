@@ -20,9 +20,9 @@ For game-platform scope and exceptions, apply the manifest's [primary game targe
 
 ## Documentation Identity and Freshness
 
-After reading this entry and its same-copy manifest, identify the source as authoritative source checkout, installed local snapshot, or unknown provenance. Use the manifest's package version, never a game or brick version. Record the exact revision only from existing local Git or trustworthy acquisition evidence; otherwise report Unknown. Determine Released, Pending or Unknown publication state from evidence for that exact revision, not a version number or local tag. Last-successful-install metadata is comparison-only, not local-integrity proof. Create no receipt or project file for this check.
+After reading this entry and its same-copy manifest, identify the documentation source kind: authoritative source checkout, installed local snapshot, or unknown provenance. Use the manifest's package version, never a game or brick version. Record the exact documentation revision only when existing local Git or trustworthy acquisition evidence supplies it; otherwise report Unknown. Distinguish Released, Pending and Unknown publication state using evidence for that exact revision; a version number or local tag alone does not prove release. Existing last-successful-install metadata is comparison-only and does not prove local integrity. Do not create a receipt or project file for this check.
 
-A local snapshot cannot prove it is latest. Report Known outdated only when already available trustworthy authoritative evidence proves this copy is older; a different hash may indicate divergence. Otherwise report Freshness unknown, including when remote comparison is unauthorized. Identify the source/version before using an older copy, honor explicitly selected historical guidance, and never mix revisions or silently replace the selected source. This check performs no automatic network check, download or update. The Companion owner's [documentation identity and pre-download size](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#documentation-identity-and-pre-download-size) governs acquisition displays and evidence limits.
+A local snapshot alone cannot prove it is latest. Report Known outdated only when already available trustworthy authoritative evidence establishes that this documentation copy is older; a different hash alone may mean divergence. Otherwise report Freshness unknown, including when no remote comparison has been authorized. Identify the source/version before relying on an older copy, honor explicitly selected historical guidance and do not mix revisions or silently replace the selected source. This local identity check performs no automatic network check, download or update. The Companion owner's [documentation identity and pre-download size](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#documentation-identity-and-pre-download-size) governs acquisition displays and their evidence limits.
 
 ## Mandatory Reading and Version Bumps
 
@@ -52,13 +52,13 @@ An explicit instruction to use these standards without GameForge selects the man
 
 ## Local Package Boundary
 
-`Geurtsy/GeurtsGameForge_Commandments` is the sole authority for generic Geurts Game Forge documentation. God's Editor Commandments service may fetch an archive-based snapshot into:
+`Geurtsy/GeurtsGameForge_Commandments` is the sole source and authority for all generic Geurts Game Forge documentation. God's Editor Commandments service may fetch an archive-based snapshot into:
 
 ```text
 <ProjectRoot>/GeurtsGameForgeCommandments/
 ```
 
-God owns the service; the [Commandments Companion Technique](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md) owns its lifecycle and passive-adapter transition. The [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md#identity-and-dependencies) owns package and licensed-library dependencies. Authoritative Markdown remains readable without God. This repository contains no implementation; package Documentation~/ contains only implementation-specific guidance. Project-specific design stays separate:
+God owns the service; the [Commandments Companion Technique](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md) owns its lifecycle and passive-adapter transition. The [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md#identity-and-dependencies) owns package and licensed-library dependencies. Authoritative Markdown remains readable without God. No implementation belongs in this documentation repository; package Documentation~/ contains only implementation-specific guidance. Project-specific design stays separate:
 
 ```text
 <ProjectRoot>/Docs/GameDesign/
@@ -70,7 +70,7 @@ The manifest selects the package-membership and integration-lifecycle owners; th
 
 Before implementation, use one current source checkout or fetched project-local copy and record its commit when available. Ordinary AI/session initialization reads the existing local copy without additional remote checks or updates. Direct source-repository and other-host sessions require no companion.
 
-For Unity startup, views and metadata checks, apply the Companion owner's [offline startup and explicit checks](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#4-offline-startup-and-explicit-metadata-checks). For installed updates, apply the Brick owner's [explicit updates only](GeurtsTechniques/GeurtsBrickContract.md#explicit-updates-only), the Companion owner's [manual Update confirmation](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#5-explicit-in-editor-update) and [current action and legacy-caller rules](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#current-action-confirmation-and-legacy-automatic-callers) before acting. Every update requires a current explicit user Update action and its owning confirmation; this entry grants no consent or project-write authority. Do not inspect or select project GDD files here; the manifest first decides whether the GDD Technique applies.
+For the God-owned service's Unity startup behavior, views or metadata checks, apply the Companion owner's [offline startup and explicit checks](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#4-offline-startup-and-explicit-metadata-checks). For installed package/content updates, apply the Brick owner's [explicit updates only](GeurtsTechniques/GeurtsBrickContract.md#explicit-updates-only) and the Companion owner's [manual Update confirmation](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#5-explicit-in-editor-update) and [current action and legacy-caller rules](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#current-action-confirmation-and-legacy-automatic-callers) before any action. Every update requires a current explicit user Update action and its owning confirmation. This entry grants no update consent or project-write authority. Do not inspect or select project GDD files here; the manifest first decides whether the GDD Technique applies.
 
 ## Pre-Code Lock
 

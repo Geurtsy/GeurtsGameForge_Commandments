@@ -39,7 +39,7 @@ Select documents here first, then filter before loading them. Tags change readin
 | `HUMAN-ONLY` | Legacy exclusion tag: skip optional history/reference unless the task explicitly needs it. |
 | `FORGE-DEVELOPMENT-ONLY` | Include only while developing/maintaining the affected Forge brick, API, tool, contract, documentation or automation. |
 
-Use **GameUse** for making a game with existing bricks or installing/configuring them; use **ForgeDevelopment** for developing Forge. Mixed tasks include maintainer sections only for the affected component. Changelogs and historical release summaries are never mandatory routine reading in either mode. Current guidance targets published Catalogue packages. Current setup, checking, and Update belong exclusively to the God-owned Commandments service. Verify installed capabilities; these rules authorize no installation, upgrade, downgrade or user-content rewrite. Minimum API versions, fixed schema tokens and compatibility contracts remain binding, not old recommended targets.
+Use **GameUse** for making a game with existing bricks or installing/configuring them; use **ForgeDevelopment** for developing Forge. Mixed tasks include maintainer sections only for the affected component. Changelogs and historical release summaries are never mandatory routine reading in either mode. Current normative guidance targets the current published packages in the Catalogue. Current setup, checking, and Update belong exclusively to the God-owned Commandments service. Verify installed capabilities; these rules authorize no installation, upgrade, downgrade or user-content rewrite. Minimum API versions, fixed schema tokens and compatibility contracts remain binding, not old recommended targets.
 
 The first nonblank standalone comment sets a file audience. A section overrides it until END; no nesting. Untagged text is AI-READ. Use these markers outside fenced code:
 
@@ -147,7 +147,7 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 | `GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md` | 1.0.1 | AI-only, efficiency-first documentation impact and synchronized owner maintenance. |
 | `GeurtsTechniques/GeurtsBrickUsageGuide.md` | 1.2.0 | Selective per-brick usage, actual pinned sources, examples and evidence limits. |
 | `History/README-0.62.19.md` | 0.62.19 | Non-normative former overview and release records. |
-| `History/BrickUsageEvidence-0.63.0.json` | 0.63.0 | Read-only source inspection receipt, not Unity validation or current installation authority. |
+| `History/BrickUsageEvidence-0.63.0.json` | 0.63.0 | Read-only source inspection receipt; not Unity validation or current installation authority. |
 | `GeurtsTechniques/GeurtsStandardsOnlyTechnique.md` | 1.0.1 | StandardsOnly applicability, source-only adoption and conditional framework dependencies. |
 | `GeurtsTechniques/GeurtsTechnicalTechnique.md` | 0.20.13 | Normative shared technical core and priorities. |
 | `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md` | 0.5.0 | Windows x64 Steam preparation, independent prerequisites, optional provider and separate native/release evidence. |
@@ -267,7 +267,7 @@ An H1 or the next H2 ends a topic; H3–H6 belongs to its parent. ATX headings a
 | `GeurtsTechniques/GeurtsBrickUsageGuide.md` | `documentation` | Commandments Compatibility | Selecting, using, integrating or maintaining Commandments Compatibility. |
 | `GeurtsTechniques/GeurtsBrickUsageGuide.md` | `god` | God | Selecting, using, integrating or maintaining God. |
 | `GeurtsTechniques/GeurtsBrickUsageGuide.md` | `steam` | Steam | Selecting, using, integrating or maintaining Steam. |
-| `GeurtsTechniques/GeurtsBrickUsageGuide.md` | `multiplayer` | Multiplayer | Selecting, planning, using, integrating or maintaining Multiplayer and its required built-in Steam support. |
+| `GeurtsTechniques/GeurtsBrickUsageGuide.md` | `multiplayer` | Multiplayer | Selecting, planning, using or maintaining Multiplayer and its required built-in Steam support. |
 | `GeurtsTechniques/GeurtsBrickUsageGuide.md` | `diagnostics` | Diagnostics | Selecting, using, integrating or maintaining Diagnostics. |
 | `GeurtsTechniques/GeurtsBrickUsageGuide.md` | `angels` | Angels | Selecting, using, integrating or maintaining Angels. |
 | `GeurtsTechniques/GeurtsBrickUsageGuide.md` | `settings` | Settings | Selecting, using, integrating or maintaining Settings. |
