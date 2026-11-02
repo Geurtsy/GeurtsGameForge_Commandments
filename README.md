@@ -108,6 +108,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - Synchronize package metadata and source checks; migrate existing audience regressions and add bounded format-failure cases. Reading measurements and obligation/consumer evidence are in History/ReadingEfficiency-0.67.0.md and its JSON companion.
 - Pin published registry-compatible God 0.42.0 and Angels 0.10.0 and refresh their Usage Guide evidence. Owner acceptance used the recorded private Quantum Console validation profile; supported-stock compatibility is not claimed. Schema-3 completeness includes the registry; target/confirmation semantics and immutable installer payloads remain unchanged. Consumer adoption remains explicit.
 
+### 0.65.2 — 3 November 2026
+
+- Pins Angels 0.9.8 with streamed complete-file hashing for naming and move review, removing the artificial 64 MiB source rejection while retaining full source/meta drift checks and bounded AI evidence.
+- Synchronizes the owning usage/evidence links and package metadata. Consumer adoption remains a separate explicit Update action.
+
 ### 0.65.0 — 30 October 2026
 
 - Require Steam networking inside the Multiplayer kit using FishNet, FishySteamworks and Steamworks.NET. Keep Client-Host authority, latency-first priorities, local Tugboat testing and separate real Steam acceptance.
