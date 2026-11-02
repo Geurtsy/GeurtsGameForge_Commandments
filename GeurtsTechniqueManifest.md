@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technique Package Manifest
 
-**Version:** 0.65.0
+**Version:** 0.65.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package manifest
 **Publication policy:** Versioned Git releases; validated `main` is the content Update feed. Draft describes specification maturity, not whether a Git release exists.
@@ -9,9 +9,9 @@
 
 ## 1. Manifest Resolver
 
-This manifest is the single resolver for package-file selection, versions, subject ownership, applicability, post-entry reading order and cross-document conflicts. Use one active package's single validated commit; never mix files from other checkouts or versions. The contract resolves authoritative main's exact commit archive; a version alone does not select Git state.
+This manifest is the single resolver for package-file selection, versions, subject ownership, applicability, post-entry reading order and cross-document conflicts. Use one active package's single validated commit, never mixed checkouts or versions. The contract resolves authoritative main's exact commit archive; a version alone cannot select Git state.
 
-**Geurts Game Forge must follow every applicable rule in the full Commandments package**, including shared technical, code, naming, folder, authoring, UI, automation and validation requirements. This applies to bricks, runtime systems, Editor tools, tests and supporting automation. Forge-specific guidance supplements these shared rules; a document's name or the `ForgeDevelopment` reading mode does not exempt Forge from them. Select and apply the complete task-relevant guidance through this manifest's applicability, audience and conflict rules.
+**Geurts Game Forge must follow every applicable rule in the full Commandments package**, including shared technical, code, naming, folder, authoring, UI, automation and validation requirements. Apply this manifest's selection rules to bricks, runtime systems, Editor tools, tests and automation. Forge-specific guidance supplements shared rules; document names and `ForgeDevelopment` grant no exemption.
 
 Use this normative file read sequence; omit unselected subjects:
 
@@ -29,9 +29,9 @@ Use `<ProjectRoot>/GeurtsGameForgeCommandments/` for an installed copy. Normal A
 
 ### 1.1 Audience tags and efficient reading
 
-Documentation is exclusively for AI agents. AI efficiency is the first documentation-design priority, subject to preserving exact constraints and ownership. The selected Documentation Maintenance Technique owns this policy. Game Forge integration is primary; standalone use is secondary and explicit. These documentation priorities do not replace the Technical Technique's runtime priorities. The legacy HUMAN-ONLY tag and IncludeHuman switch remain compatibility spellings for optional history/reference retrieval; they do not assign a human audience to current guidance.
+Documentation is exclusively for AI agents. AI efficiency is the first documentation-design priority; the Documentation Maintenance Technique owns it, preserving exact constraints and ownership. Game Forge integration is primary; standalone use is secondary and explicit. The Technical Technique retains runtime priorities. HUMAN-ONLY and IncludeHuman remain legacy spellings for optional history/reference, not a human audience.
 
-Select documents here first, then filter before loading them. Tags change reading scope, never authority or permissions. Always read entry and manifest fully.
+Select here, then filter before loading. Tags change reading scope, not authority or permissions. Always read entry and manifest fully.
 
 | Tag | AI reading rule |
 |---|---|
@@ -39,7 +39,7 @@ Select documents here first, then filter before loading them. Tags change readin
 | `HUMAN-ONLY` | Legacy exclusion tag: skip optional history/reference unless the task explicitly needs it. |
 | `FORGE-DEVELOPMENT-ONLY` | Include only while developing/maintaining the affected Forge brick, API, tool, contract, documentation or automation. |
 
-Use **GameUse** for making a game with existing bricks or installing/configuring them. Use **ForgeDevelopment** for developing Forge itself; mixed tasks include maintainer sections only for the affected component. Changelogs and historical release summaries are never mandatory routine reading in either mode. Current normative guidance targets the current published packages in the Catalogue. Current setup, checking, and Update belong exclusively to the God-owned Commandments service. Verify actual installed capabilities; this rule never installs, upgrades, downgrades or rewrites user content. Minimum API versions, fixed schema tokens and compatibility contracts remain binding, not old recommended targets.
+Use **GameUse** for games using existing bricks or installing/configuring them; **ForgeDevelopment** for Forge development. Mixed tasks include only affected components' maintainer sections. Changelogs and historical release summaries are never mandatory routine reading in either mode. Current guidance targets Catalogue-published packages; setup, checking and Update belong exclusively to the God-owned Commandments service. Verify installed capabilities; this rule authorizes no installation, upgrade, downgrade or rewrite. Minimum API versions, fixed schema tokens and compatibility contracts remain binding, not historical recommendations.
 
 The first nonblank standalone comment sets a file audience. A section overrides it until END; no nesting. Untagged text is AI-READ. Use these markers outside fenced code:
 
@@ -58,13 +58,13 @@ Use the local read-only helper:
 & '<DocumentationRoot>/Tools/ReadGeurtsDocumentation.ps1' -Document 'GeurtsTechniques/GeurtsDiagnosticsTechnique.md' -Mode GameUse -Sections 'commands'
 ```
 
-Preview returns a level-two heading index and planned character counts without document content. It never counts as reading the rules. Sections uses only the controlled IDs below and always includes the preamble and every non-optional section. Use the reserved `core` ID for shared sections alone. With no Sections argument, existing whole-document behavior remains supported. Choose every conditional section relevant to the task; if uncertain, read the whole audience-filtered file. There is no output cap or silent truncation. Json counts characters, not tokens. IncludeHuman is only for explicitly needed historical/reference/migration content and does not enable Forge sections.
+Preview returns a level-two heading index and planned character counts, not content. It never counts as reading the rules. Sections accepts only the controlled IDs below, always retaining the preamble and non-optional sections; `core` selects shared sections alone. Omit Sections for whole-document reading. Select every relevant conditional section; when uncertain, read the whole audience-filtered file. There is no output cap or silent truncation. Json counts characters, not tokens. IncludeHuman permits only explicitly needed history/reference/migration content, not Forge sections.
 
-The reader stays inside manifest-listed Markdown in this package. It never discovers project/GDD files, writes, checks Git, uses the network or installs anything; God never executes copied scripts. Bootstrap files, exact installer techniques, templates, JSON and code are not eligible for partial selection; selected data/payloads remain intact. Without PowerShell, use the same marked audience boundaries and controlled sections. Malformed tags, fences or section maps fail closed. A new unlisted section is required by default. Keep dependency, version, consent, project/design ownership and failure rules shared. Audience-only annotations bump the package, not unchanged subject/payload versions. Validate with `Tools/ValidateGeurtsDocumentation.ps1 -RunAutomationTests`.
+The reader accesses only this package's manifest-listed Markdown: no project/GDD discovery, writes, Git checks, network or installation. God never executes copied scripts. Bootstrap files, exact installer techniques, templates, JSON and code cannot be partially selected; selected data/payloads remain intact. Without PowerShell, apply the same audience boundaries and controlled sections. Malformed tags, fences or section maps fail closed. A new unlisted section is required by default. Keep dependency, version, consent, project/design ownership and failure rules shared. Audience-only annotations bump the package, not unchanged subject/payload versions. Validate with `Tools/ValidateGeurtsDocumentation.ps1 -RunAutomationTests`.
 
 ### 1.2 Usage Profiles
 
-Usage profiles determine subject applicability before reading selected generic techniques. They are separate from the reader's audience modes.
+Usage profiles select subject applicability before generic techniques, independently of audience modes.
 
 | Usage profile | Select for | Boundary |
 |---|---|---|
@@ -72,7 +72,7 @@ Usage profiles determine subject applicability before reading selected generic t
 | **ForgeUse** | Making a game with, installing or configuring Geurts Game Forge packages. | Apply all task-relevant shared and framework owners; use the `GameUse` audience mode. |
 | **ForgeDevelopment** | Developing or maintaining Forge packages, tools, contracts or this documentation. | Apply all task-relevant shared and framework owners and their maintainer sections; use the `ForgeDevelopment` audience mode. |
 
-StandardsOnly uses the existing `GameUse` audience filter for selected shared documents; it is not a new `-Mode` argument. The Standards-Only Technique owns its semantic framework and third-party dependency exceptions, including the standalone folder-setup path. This applicability boundary is resolved before subject rules; it does not waive general standards, install/remove packages, change frozen payloads or expand service permissions. Ordinary package-aware tasks retain the existing applicability table below. An explicitly adopted Forge integration within an otherwise standalone project selects its framework owners only for that integration. Do not infer a profile switch from a folder name or missing package.
+StandardsOnly uses `GameUse`, not a new `-Mode`. The Standards-Only Technique owns framework/third-party dependency exceptions and standalone folder setup. Resolve the profile before subject rules; it waives no general standards and authorizes no package installation/removal, frozen-payload change or service expansion. Ordinary package-aware tasks follow the applicability table. In standalone projects, explicitly adopted Forge integrations select framework owners only for that integration. Never infer a profile switch from a folder name or missing package.
 
 ### 1.3 Primary game target
 
@@ -129,15 +129,15 @@ The [Technical owner](GeurtsTechniques/GeurtsTechnicalTechnique.md#windows-devel
 
 ## 3. Package File Registry
 
-Every listed path must exist, with exactly one matching package file. Roles describe membership, not additional mandatory reading or lifecycle authority. README, Ideas and historical/migration content stay outside routine reads. Files under `History/` are non-normative archives selected only for requested history or a migration needing their evidence.
+Each listed path must have exactly one matching package file. Roles describe membership, not extra reading or lifecycle authority. README, Ideas and historical/migration content are not routine reads. `History/` is non-normative, selected only for requested history or migration evidence.
 
 <!-- GEURTS-PACKAGE-FILES:BEGIN -->
 
 | Path | Version | Role |
 |---|---:|---|
 | `.gitattributes` | 1.0.0 | CRLF working-tree policy for authored text in the Windows documentation source checkout. |
-| `AI_READ_FIRST.md` | 0.65.0 | Entry and session boundaries. |
-| `GeurtsTechniqueManifest.md` | 0.65.0 | Selection, versions, ownership and reading scope. |
+| `AI_READ_FIRST.md` | 0.65.1 | Entry and session boundaries. |
+| `GeurtsTechniqueManifest.md` | 0.65.1 | Selection, versions, ownership and reading scope. |
 | `README.md` | 0.65.0 | Optional AI package index and primary installation route. |
 | `CONTRIBUTING.md` | 0.65.0 | Concise source-contribution, validation, publication and unchanged-terms checklist. |
 | `.github/workflows/validate.yml` | 1.0.0 | Read-only Windows pull-request, main, tag and merge-queue validation. |
@@ -230,9 +230,9 @@ Every listed path must exist, with exactly one matching package file. Roles desc
 
 ### 3.1 Current versions and compatibility
 
-Use the Catalogue as the single source for current published brick versions and immutable installation targets. Do not copy current-version lists into prose. Clearly label minimum/introduced API versions and historical evidence. Registry versions identify documentation files, not installed bricks.
+The Catalogue alone supplies current published brick versions and immutable installation targets; do not duplicate version lists in prose. Label minimum/introduced API versions and historical evidence. Registry versions describe documentation files, not installed bricks.
 
-Installer contracts in the registered AGENTS.md, Git Ignore and Git Attributes techniques are frozen: preserve their exact payload bytes and markers. Use this registry for document versions and the marked blocks for payload versions. Contract changes need a coordinated compatible installer release. Historical God step numbering does not move current optional-tool ownership from Angels. A user-selected project root remains an allowed guide destination.
+Preserve frozen AGENTS.md, Git Ignore and Git Attributes installer payload bytes and markers. This registry supplies document versions; marked blocks supply payload versions. Contract changes require a coordinated compatible installer release. Historical God step numbering does not transfer optional-tool ownership from Angels. A user-selected project root remains an allowed guide destination.
 
 ## 4. Controlled section reading
 
