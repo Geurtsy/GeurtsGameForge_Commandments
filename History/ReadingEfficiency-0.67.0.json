@@ -418,9 +418,9 @@
   "candidate": {
     "entry": {
       "AI_READ_FIRST.md": 6395,
-      "GeurtsTechniqueManifest.md": 22205
+      "GeurtsTechniqueManifest.md": 22243
     },
-    "entryTotal": 28600.0,
+    "entryTotal": 28638.0,
     "tasks": [
       {
         "name": "ordinary_game_scripting",
@@ -484,7 +484,7 @@
           {
             "document": "GeurtsTechniques/GeurtsBrickCatalogue.json",
             "sections": [],
-            "contentCharacters": 12606,
+            "contentCharacters": 12607,
             "lookupCharacters": 0,
             "previewCharacters": 0
           },
@@ -502,15 +502,15 @@
             "sections": [
               "core"
             ],
-            "contentCharacters": 4451,
+            "contentCharacters": 4493,
             "lookupCharacters": 3223,
-            "previewCharacters": 7851
+            "previewCharacters": 7852
           }
         ],
-        "entryCharacters": 28600.0,
-        "contentCharacters": 169443.0,
+        "entryCharacters": 28638.0,
+        "contentCharacters": 169486.0,
         "lookupCharacters": 5332.0,
-        "previewCharacters": 27662.0
+        "previewCharacters": 27663.0
       },
       {
         "name": "brick_integration_audio",
@@ -574,7 +574,7 @@
           {
             "document": "GeurtsTechniques/GeurtsBrickCatalogue.json",
             "sections": [],
-            "contentCharacters": 12606,
+            "contentCharacters": 12607,
             "lookupCharacters": 0,
             "previewCharacters": 0
           },
@@ -592,15 +592,15 @@
             "sections": [
               "audio"
             ],
-            "contentCharacters": 6625,
+            "contentCharacters": 6667,
             "lookupCharacters": 3223,
-            "previewCharacters": 7850
+            "previewCharacters": 7851
           }
         ],
-        "entryCharacters": 28600.0,
-        "contentCharacters": 159422.0,
+        "entryCharacters": 28638.0,
+        "contentCharacters": 159465.0,
         "lookupCharacters": 4522.0,
-        "previewCharacters": 24269.0
+        "previewCharacters": 24270.0
       },
       {
         "name": "documentation_maintenance",
@@ -612,7 +612,7 @@
             "sections": [
               null
             ],
-            "contentCharacters": 8030,
+            "contentCharacters": 7838,
             "lookupCharacters": 179,
             "previewCharacters": 1794
           },
@@ -653,8 +653,8 @@
             "previewCharacters": 8728
           }
         ],
-        "entryCharacters": 28600.0,
-        "contentCharacters": 103419.0,
+        "entryCharacters": 28638.0,
+        "contentCharacters": 103227.0,
         "lookupCharacters": 3090.0,
         "previewCharacters": 19733.0
       },
@@ -718,7 +718,7 @@
             "previewCharacters": 4736
           }
         ],
-        "entryCharacters": 28600.0,
+        "entryCharacters": 28638.0,
         "contentCharacters": 120657.0,
         "lookupCharacters": 1915.0,
         "previewCharacters": 15369.0
@@ -733,7 +733,7 @@
             "sections": [
               null
             ],
-            "contentCharacters": 8030,
+            "contentCharacters": 7838,
             "lookupCharacters": 179,
             "previewCharacters": 1794
           },
@@ -801,8 +801,8 @@
             "previewCharacters": 3103
           }
         ],
-        "entryCharacters": 28600.0,
-        "contentCharacters": 162256.0,
+        "entryCharacters": 28638.0,
+        "contentCharacters": 162064.0,
         "lookupCharacters": 3491.0,
         "previewCharacters": 26401.0
       },
@@ -821,11 +821,88 @@
             "previewCharacters": 2864
           }
         ],
-        "entryCharacters": 28600.0,
+        "entryCharacters": 28638.0,
         "contentCharacters": 19610.0,
         "lookupCharacters": 204.0,
         "previewCharacters": 2864.0
       }
     ]
+  },
+  "consumerCompatibility": {
+    "owners": {
+      "god": {
+        "id": 431930877,
+        "tag_name": "v0.42.0",
+        "target_commitish": "0118bac2ce7f15217fde398b038efcaa16b25b6b",
+        "immutable": true,
+        "draft": false,
+        "html_url": "https://github.com/Geurtsy/com.geurts.gameforge.god/releases/tag/v0.42.0",
+        "sourceCommit": "0118bac2ce7f15217fde398b038efcaa16b25b6b",
+        "assets": [
+          {
+            "name": "com.geurts.gameforge.god-0.42.0.zip",
+            "size": 12043812,
+            "digest": "sha256:b5df57e03a17a2836aa2dc525fc9162dac19864ddfed6e414880e8ea863e41f0"
+          },
+          {
+            "name": "com.geurts.gameforge.god-0.42.0.zip.sha256",
+            "size": 103,
+            "digest": "sha256:fe5363fa0f0d74dc12e2493a23826a0e567704e66f37b45bad2f38bb295a3a02"
+          },
+          {
+            "name": "Validation.json",
+            "size": 798,
+            "digest": "sha256:524376bb9edbd3fd31f676fb4f75ea32d29405bc45c1b9fd6700eed0f79f68f8"
+          }
+        ]
+      },
+      "angels": {
+        "id": 431953477,
+        "tag_name": "v0.10.0",
+        "target_commitish": "c78e6c3b59c3cda7cfff1dd91111bca665e989b9",
+        "immutable": true,
+        "draft": false,
+        "html_url": "https://github.com/Geurtsy/com.geurts.gameforge.angels/releases/tag/v0.10.0",
+        "sourceCommit": "c78e6c3b59c3cda7cfff1dd91111bca665e989b9",
+        "assets": [
+          {
+            "name": "com.geurts.gameforge.angels-0.10.0.zip",
+            "size": 1771139,
+            "digest": "sha256:32451892412688e7e9bc16937dfa7b05f72898f7308e7df96ceb2132d115214d"
+          },
+          {
+            "name": "com.geurts.gameforge.angels-0.10.0.zip.sha256",
+            "size": 106,
+            "digest": "sha256:c9317085437b6a6d1037ffe6ffaf5131bf6d8787a20605525f53174562c1a8d1"
+          },
+          {
+            "name": "Validation.json",
+            "size": 807,
+            "digest": "sha256:603923e116ddb3f2383fdd1220445020c80053fb0eb617f473c15a48d905faf6"
+          }
+        ]
+      }
+    },
+    "unityVersion": "6000.6.3f1",
+    "dependencyProfile": "QC-2.6.7-private-Unity6000.6-compat03",
+    "stockQuantumConsoleCompatible": false,
+    "stockCheckedEditors": [
+      "6000.6.3f1",
+      "6000.6.7f1"
+    ],
+    "consumerInstallationPerformed": false,
+    "finalCombinedAcceptance": {
+      "newFormat": {
+        "passed": 199,
+        "failed": 0,
+        "skipped": 0
+      },
+      "publishedLegacyFormat": {
+        "passed": 197,
+        "failed": 0,
+        "skipped": 0
+      },
+      "scope": "Overlapping scoped runs on the final God/Angels cohort; includes published Angels 0.9.8 large-asset fixes."
+    }
   }
 }

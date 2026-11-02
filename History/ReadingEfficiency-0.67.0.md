@@ -2,7 +2,7 @@
 # Reading-efficiency upgrade evidence
 
 **Version:** 0.67.0
-**Status:** Non-normative candidate evidence; no publication or consumer-install claim.
+**Status:** Non-normative source evidence with a verified published consumer cohort; no consumer-install claim.
 
 Baseline source: 436239b82e99c3beca2ed0aeaab0b3c6b278b863, documentation 0.65.0. Implementation uses a separate Windows checkout, ForgeDevelopment profile/mode. The original workspace is untouched. Current source has no tracked AGENTS.md; AI_READ_FIRST is its first entry. The older workspace AGENTS/AI_READ_FIRST/manifest were read before selecting this separate authoritative package.
 
@@ -63,28 +63,34 @@ Entry/manifest are fully charged to every task. Candidate per-document metadata 
 | Mandatory entry file | Baseline | Candidate |
 |---|---:|---:|
 | AI_READ_FIRST.md | 9,483 | 6,395 |
-| GeurtsTechniqueManifest.md | 39,065 | 22,205 |
-| Combined | 48,548 | 28,600 |
+| GeurtsTechniqueManifest.md | 39,065 | 22,243 |
+| Combined | 48,548 | 28,638 |
 
-Reduction: **41.09%**. The 50% design target was missed. The candidate retains the full 9,413-character subject/applicability table, the numbered read sequence, conflict bullets and all 34 exact conditional records rather than trading obligation certainty for the metric. Existing identity/consent wording consumed by negative regressions is also retained. More reduction requires a separately reviewed editorial pass on routing/identity prose; it is not concealed by moving mandatory policy into data. The inventory and section map are no longer compulsory full-file reads.
+Reduction: **41.01%**. The 50% design target was missed. The candidate retains the full 9,413-character subject/applicability table, the numbered read sequence, conflict bullets and all 34 exact conditional records rather than trading obligation certainty for the metric. Existing identity/consent wording consumed by negative regressions is also retained. More reduction requires a separately reviewed editorial pass on routing/identity prose; it is not concealed by moving mandatory policy into data. The inventory and section map are no longer compulsory full-file reads.
 
 | Selection fixture | Baseline entry + content | Candidate + targeted metadata | Candidate + full previews | Candidate preview output | Preview/content calls |
 |---|---:|---:|---:|---:|---:|
-| ordinary_game_scripting | 217,991 | 203,375 | 225,705 | 27,662 | 17 |
-| brick_integration_audio | 207,970 | 192,544 | 212,291 | 24,269 | 17 |
-| documentation_maintenance | 150,685 | 135,109 | 151,752 | 19,733 | 10 |
-| standards_only_script | 169,205 | 151,172 | 164,626 | 15,369 | 12 |
-| mixed_forge_maintenance | 209,465 | 194,347 | 217,257 | 26,401 | 15 |
-| historical_reference | 68,158 | 48,414 | 51,074 | 2,864 | 2 |
+| ordinary_game_scripting | 217,991 | 203,456 | 225,787 | 27,663 | 17 |
+| brick_integration_audio | 207,970 | 192,625 | 212,373 | 24,270 | 17 |
+| documentation_maintenance | 150,685 | 134,955 | 151,598 | 19,733 | 10 |
+| standards_only_script | 169,205 | 151,210 | 164,664 | 15,369 | 12 |
+| mixed_forge_maintenance | 209,465 | 194,193 | 217,103 | 26,401 | 15 |
+| historical_reference | 68,158 | 48,452 | 51,112 | 2,864 | 2 |
 
 Baseline entry + content is the package-owned selection cost without optional previews (the conditions were already in the fully read manifest). Candidate + targeted metadata adds each selected Markdown's exact file/version/role/conditional records; candidate + full previews instead charges all actual preview output, including heading indexes/counts/conditions and JSON formatting. Do not add both metadata and preview columns together. These are package-context figures with the external guidance/GDD limitation above. The full JSON preserves baseline preview output too. The candidate call count includes one metadata preview plus one actual read per Markdown and one full read per JSON, excluding the two always-read entry files; a direct full read can omit its preview. No tokens or latency measurements are claimed. The parser avoids per-key JSON deserialization for ordinary unescaped keys and whole-tail string copies; escaped keys still decode before duplicate checks, covered by a dedicated alias regression. No persistent cache is introduced.
 
-Mechanical equivalence checks confirmed all baseline inventory paths/roles, all 34 section records, the complete subject table/conflicts and numbered read sequence. Selected owner order/section arrays match across all six fixtures. Selected Markdown subject counts remain equal except CONTRIBUTING; its new registry/publication constraints and the JSON contract completeness addition are included in candidate totals. Profile wording was shortened with the same explicit triggers, exemptions, modes and permission boundaries, as mapped above.
+Mechanical equivalence checks confirmed all baseline inventory paths/roles, all 34 section records, the complete subject table/conflicts and numbered read sequence. Selected owner order/section arrays match across all six fixtures. Final candidate totals include the current CONTRIBUTING, Usage Guide and compatibility guidance, along with JSON completeness data. Original owner order, routing conditions and section selections remain unchanged. Profile wording was shortened with the same explicit triggers, exemptions, modes and permission boundaries, as mapped above.
 
 ## Validation and delivery boundaries
 
 - PowerShell 7 static documentation validation: 112 checks passed on the candidate code before final evidence assembly.
 - Focused audience/registry regression suite: 148 passed, zero failed, including escaped duplicate property aliases. No skipped check is counted as passed.
 - Full Windows PowerShell 5.1/static, PowerShell 7 automation and committed publication gates remain required on the completed committed candidate. Their exact results are retained in the PR checks and final delivery report, rather than predicting success here.
-- Unity compilation/player/native integration: not applicable to this documentation/PowerShell change and not performed. Published God source inspection proves the identified incompatibility, not a compatible Unity update.
-- This source record is candidate evidence. Remote main, release and consumer installation remain blocked/unperformed until the coordinated God and Angels owner work completes. Do not infer published/installed status from version metadata or a green documentation workflow.
+- Initial documentation-only stage did not run Unity. The coordinated follow-up uses the published owner acceptance linked below; it does not claim player/native or supported-stock library acceptance.
+- The initial owner publication hold is resolved by the verified cohort below. Final content main/release publication still requires the completed candidate checks and verified immutable release. No installed-consumer claim follows from source publication.
+
+## Coordinated owner compatibility completion
+
+The initial owner publication blockers above describe the original documentation-only stage. The follow-up publishes God 0.42.0 and Angels 0.10.0, whose immutable sources are pinned in the Catalogue and whose source-matched Unity evidence is linked in the Usage Guide. God owns the shared validated registry reader; Angels consumes it without duplicating task routing. Old/new inventories, malformed-new refusal, exact archive acquisition, installer preservation and registry-dependent context invalidation are covered by owner acceptance.
+
+Stock Quantum Console 2.6.7 produced the same six compiler diagnostics on Unity 6000.6.3f1 and 6000.6.7f1. Successful owner acceptance uses only the private disposable QC-2.6.7-private-Unity6000.6-compat03 profile. No vendor bytes enter a source release, and supported-stock or live-project adoption is not claimed. The original Unity failure logs, corrected fixture compilation and successful final XML/log hashes remain in owner evidence. Final documentation gates must pass for this completed cohort before main/release publication.

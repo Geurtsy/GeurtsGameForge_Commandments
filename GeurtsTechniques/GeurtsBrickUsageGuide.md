@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.2.0
+**Version:** 1.3.0
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -52,8 +52,8 @@ The examples below are bounded workflows derived from owner guides, not new APIs
 ## God
 
 **Catalogue ID:** `com.geurts.gameforge.god`
-**Evidence version:** `0.39.4`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b7a001234dd5b149cc767dd1ab305df4c6e876d7/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b7a001234dd5b149cc767dd1ab305df4c6e876d7/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b7a001234dd5b149cc767dd1ab305df4c6e876d7/Documentation~/GameIntegration.md).
+**Evidence version:** `0.42.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0118bac2ce7f15217fde398b038efcaa16b25b6b/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0118bac2ce7f15217fde398b038efcaa16b25b6b/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0118bac2ce7f15217fde398b038efcaa16b25b6b/Documentation~/GameIntegration.md).
 
 - **Use:** Foundation for every dependent brick: lifecycle, shared capabilities/settings, bootstrap, packages and Commandments.
 - **Prerequisites:** Licensed Odin Inspector and Quantum Console, resolved Unity dependencies and the Forge Steamworks.NET prerequisite. No optional peer brick or passive adapter is required.
@@ -63,9 +63,11 @@ The examples below are bounded workflows derived from owner guides, not new APIs
 - **Verify:** Check bootstrap/readiness independently of package presence; test absent, available, withdrawn and re-enabled capability states plus subscription disposal.
 - **Limits:** No second host/registry in a game. Editor APIs stay outside player assemblies; optional providers may be unavailable.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b7a001234dd5b149cc767dd1ab305df4c6e876d7/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b7a001234dd5b149cc767dd1ab305df4c6e876d7/Documentation~/AIUsabilityValidation.json). Recipe bytes matched the pinned guide during this review; its tests were not rerun here.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0118bac2ce7f15217fde398b038efcaa16b25b6b/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/0118bac2ce7f15217fde398b038efcaa16b25b6b/Documentation~/AIUsabilityValidation.json). Recipe bytes match the pinned guide. The owner release evidence records successful recipe execution and the registry compatibility checks in a disposable Unity 6000.6.3f1 project using QC-2.6.7-private-Unity6000.6-compat03. Stock Quantum Console 2.6.7 failed the zero-warning compiler gate on both 6000.6.3f1 and 6000.6.7f1; these results do not establish supported-stock compatibility.
 
-The pinned God 0.39.4 source still contains automatic package/content update paths. They are superseded policy, not compliant recommended usage. A matching implementation release and consumer adoption remain outstanding; no documentation edit disables those installed handlers.
+The pinned God 0.42.0 source still contains automatic package/content update paths. They are superseded policy, not compliant recommended usage. A matching implementation release and consumer adoption remain outstanding; no documentation edit disables those installed handlers.
+
+God 0.42.0 reads the explicitly declared schema-1 package registry or the supported historical manifest table through CommandmentsPackageRegistry. Archive/readiness checks retain exact membership, and status watching includes the registry. Invalid new-format data never falls back to the old table.
 
 ## Steam
 
@@ -115,8 +117,8 @@ The pinned God 0.39.4 source still contains automatic package/content update pat
 ## Angels
 
 **Catalogue ID:** `com.geurts.gameforge.angels`
-**Evidence version:** `0.9.7`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/67f76582819b48ea1091582d9e7ff2a4fdd93cb1/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/67f76582819b48ea1091582d9e7ff2a4fdd93cb1/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/67f76582819b48ea1091582d9e7ff2a4fdd93cb1/Documentation~/GameIntegration.md).
+**Evidence version:** `0.10.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/c78e6c3b59c3cda7cfff1dd91111bca665e989b9/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/c78e6c3b59c3cda7cfff1dd91111bca665e989b9/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/c78e6c3b59c3cda7cfff1dd91111bca665e989b9/Documentation~/GameIntegration.md).
 
 - **Use:** Optional Editor project maintenance: folders, guides, Git, scoped asset organization and explicit design imports.
 - **Prerequisites:** God, both licensed libraries and compatible local Commandments. Codex naming/audio are separate optional account/tool integrations with explicit sharing and billing consent.
@@ -126,7 +128,9 @@ The pinned God 0.39.4 source still contains automatic package/content update pat
 - **Verify:** Check cancellation, stale source/guidance refusal, GUID/meta preservation and actual/partial outcomes; choose a fresh review for retry.
 - **Limits:** No Execute All, automatic primary GDD choice or startup scan. Documentation maintenance gives no GDD access. Optional paid inference is never implied by installation.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/67f76582819b48ea1091582d9e7ff2a4fdd93cb1/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/67f76582819b48ea1091582d9e7ff2a4fdd93cb1/Documentation~/AIUsabilityValidation.json). Recipe bytes matched the pinned guide during this review; its tests were not rerun here.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/c78e6c3b59c3cda7cfff1dd91111bca665e989b9/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/c78e6c3b59c3cda7cfff1dd91111bca665e989b9/Documentation~/AIUsabilityValidation.json). Recipe bytes match the pinned guide. The owner release evidence records successful recipe execution and the registry compatibility checks in a disposable Unity 6000.6.3f1 project using QC-2.6.7-private-Unity6000.6-compat03. Stock Quantum Console 2.6.7 failed the zero-warning compiler gate on both 6000.6.3f1 and 6000.6.7f1; these results do not establish supported-stock compatibility.
+
+Angels 0.10.0 requires God 0.42.0 and uses that shared reader for setup, guides, Git payloads and naming context. Reviewed guidance and context identity include raw registry bytes; prompts include only metadata for the existing selected documents. Installer payload versions, hashes and consent boundaries are unchanged.
 
 ## Settings
 
@@ -238,7 +242,13 @@ The pinned God 0.39.4 source still contains automatic package/content update pat
 
 ## Review dependencies
 
-The adapter owner corrected its guides in published 0.16.0; its current pin and scoped evidence are recorded above. GitFlow still has the stale prose version noted above. Both pinned package manifests/capabilities match the Catalogue. This documentation task did not edit those owning repositories. Angels' Catalogue requiredTools was missing Quantum Console despite its pinned capability declaration and God dependency; this package corrects that metadata without changing its release pin. Existing owner guides also retain human-audience wording; adopt the AI-only maintenance rule in each affected owner's next authorized documentation update. Generic standards belong here; exact implementation corrections and recipe acceptance belong to those owners.
+The adapter owner corrected its guides in published 0.16.0; its current pin and scoped evidence are recorded above. GitFlow still has the stale prose version noted above. Both pinned package manifests/capabilities match the Catalogue. This documentation task did not edit those owning repositories. Angels' Catalogue requiredTools was missing Quantum Console despite its pinned capability declaration and God dependency; this package corrects that metadata; the coordinated registry upgrade also advances its release pin to 0.10.0. Existing owner guides also retain human-audience wording; adopt the AI-only maintenance rule in each affected owner's next authorized documentation update. Generic standards belong here; exact implementation corrections and recipe acceptance belong to those owners.
 
 The optional Audio FMOD integration is not a separate current catalogue brick. Its owning Audio guide governs explicit adoption; do not invent a catalogue entry or source. Source inspection does not refresh consumer packages or their local Commandments copies.
 
+
+<!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
+## Change Log
+
+- 1.3.0: Pin published God 0.42.0 and Angels 0.10.0 evidence, explain the coordinated registry transition and retain explicit dependency-validation limitations.
+<!-- GEURTS-SECTION:END -->

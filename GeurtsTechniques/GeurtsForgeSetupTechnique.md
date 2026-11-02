@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Forge initialization, bootstrap and project tools
 
-**Version:** 1.8.3
+**Version:** 1.9.0
 **Required package path:** `GeurtsTechniques/GeurtsForgeSetupTechnique.md`
 
 God is the required framework brick. BigBang is the independent Editor-only initializer; Diagnostics and Angels are optional peers. Compatible local Commandments are required before Forge Editor project mutations. They are readable independently of module enablement, update preferences, network connectivity or the compatibility adapter. They are not a runtime dependency and must not be polled in player loops.
@@ -108,6 +108,8 @@ Gitignore creates only a missing regular target from the approved exact payload;
 Failures are independently visible in owning status/health data even if logging capture is unavailable. Never infer success from logs. Report partial writes truthfully and retain enough state for a new explicit review. No backup, rollback or automatic retry is introduced.
 
 ## Upgrade and validation
+
+Registry-format Commandments 0.67.0 requires published God 0.42.0 or newer; Angels tools require the compatible 0.10.0 release or newer. The setup contract records the God minimum and the Catalogue owns exact installable pins. Select supported licensed dependencies separately: the owner registry acceptance used a documented private Quantum Console profile and does not establish stock 2.6.7 compatibility.
 
 God 0.34.0, Diagnostics 0.10.0, Angels 0.1.0 and BigBang 0.5.0 form the initial compatible cohort with Commandments 0.45.0. Install or update consumers manually. Update God and Diagnostics together when retaining legacy console scenes; install Angels only for its tools. The passive Companion adapter remains optional and has no independent updater.
 

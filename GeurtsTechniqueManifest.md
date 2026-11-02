@@ -135,7 +135,7 @@ This manifest owns the schema-1.0.0 supporting registry above: `packageVersion`,
 
 Use the Catalogue as the single source for current published brick versions and immutable install targets; avoid parallel lists. Label minimum/introduced APIs and historical evidence. Registry versions are document versions, never installed brick identities. Preserve frozen AGENTS.md, Git Ignore and Git Attributes payload bytes/markers; marked payload versions are separate. Changing installer contracts requires coordinated compatible owner releases. Historical God step numbers do not transfer optional-tool ownership from Angels. User-selected project roots remain valid guide destinations.
 
-**Publication boundary:** published God 0.39.4 and Angels 0.9.7 require the former Markdown inventory: God for archive/readiness/status, Angels for naming context and guide/gitignore/attributes setup. Keep this format off main until both owners publish verified registry support and the Catalogue pins that compatible cohort. No duplicate inventory or silent fallback. This candidate changes no installed consumer, schema-3 target/consent or frozen payload.
+**Publication boundary:** registry-format content requires the compatible published God 0.42.0 / Angels 0.10.0 cohort pinned in the Catalogue. God validates archive/readiness/status; Angels uses the shared reader for naming and guide/Git setup. Malformed new data never falls back. See the Usage Guide for exact owner evidence and its private dependency-profile limit. Existing consumers require their explicit package/content updates; target/consent semantics and frozen payloads are unchanged.
 
 ## 4. Controlled section reading
 
