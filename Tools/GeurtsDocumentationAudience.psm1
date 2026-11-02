@@ -1,5 +1,108 @@
-# Version: 1.1.1
+# Version: 2.0.0
 Set-StrictMode -Version Latest
+
+# Registry parsing is shared by the reader and source validator. No legacy fallback:
+# released God table consumers need a coordinated owner release before publication.
+function Get-GeurtsLocalPackageFile {
+    param([string]$Root, [string]$Relative)
+    if ($Relative -cnotmatch '^(?:[A-Za-z0-9_.-]+/)*[A-Za-z0-9_.-]+$') { throw "Unsafe package path: $Relative" }
+    foreach ($segment in $Relative.Split('/')) {
+        if ($segment -in @('.', '..') -or $segment.EndsWith('.') -or
+            $segment -match '^(?i:con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)') { throw "Unsafe package path: $Relative" }
+    }
+    $current = Get-Item -LiteralPath ([IO.Path]::GetFullPath($Root)) -Force -ErrorAction Stop
+    if (($current.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0) { throw 'Linked documentation roots are not supported.' }
+    foreach ($segment in $Relative.Split('/')) {
+        $current = Get-Item -LiteralPath (Join-Path $current.FullName $segment) -Force -ErrorAction Stop
+        if (($current.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0) { throw 'Linked documentation paths are not supported.' }
+    }
+    if ($current.PSIsContainer) { throw 'A documentation file was expected.' }
+    return $current.FullName
+}
+
+function Assert-GeurtsRegistryProperties {
+    param($Value, [string[]]$Names)
+    if ($null -eq $Value -or $Value -isnot [pscustomobject]) { throw 'Registry object expected.' }
+    $actual = @($Value.PSObject.Properties.Name | Sort-Object)
+    $expected = @($Names | Sort-Object)
+    if (($actual -join '|') -cne ($expected -join '|')) { throw 'Missing or unsupported registry fields.' }
+}
+
+function Read-GeurtsDocumentationRegistry {
+    [CmdletBinding()]
+    param([Parameter(Mandatory)][string]$RepositoryRoot)
+    $relative = 'GeurtsTechniques/GeurtsDocumentationRegistry.json'
+    $manifest = [IO.File]::ReadAllText((Get-GeurtsLocalPackageFile $RepositoryRoot 'GeurtsTechniqueManifest.md'))
+    $declaration = '<!-- GEURTS-REGISTRY: ' + $relative + ' -->'
+    if ([regex]::Matches($manifest, [regex]::Escape($declaration)).Count -ne 1 -or
+        [regex]::Matches($manifest, 'GEURTS-REGISTRY:').Count -ne 1 -or
+        $manifest -match 'GEURTS-(?:PACKAGE-FILES|READ-SECTIONS):') { throw 'Missing, duplicate or conflicting registry format declaration.' }
+    $version = [regex]::Matches($manifest, '(?m)^\*\*Version:\*\*[ \t]+((?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*))[ \t]*\r?$')
+    if ($version.Count -ne 1) { throw 'Manifest must declare exactly one package version.' }
+    $json = [IO.File]::ReadAllText((Get-GeurtsLocalPackageFile $RepositoryRoot $relative))
+    # ConvertFrom-Json in Windows PowerShell silently accepts duplicate properties.
+    # Inspect decoded object keys first, including escaped and case-variant aliases.
+    $objects = New-Object 'System.Collections.Generic.Stack[object]'
+    foreach ($token in [regex]::Matches($json, '"(?:[^"\\]|\\.)*"|[{}\[\]]')) {
+        if ($token.Value -ceq '{') {
+            $objects.Push((New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::OrdinalIgnoreCase)))
+        }
+        elseif ($token.Value -ceq '[') { $objects.Push($null) }
+        elseif ($token.Value -in @('}', ']')) {
+            if ($objects.Count -eq 0) { throw 'Malformed registry JSON.' }
+            [void]$objects.Pop()
+        }
+        else {
+            $after = $token.Index + $token.Length
+            while ($after -lt $json.Length -and [char]::IsWhiteSpace($json[$after])) { $after++ }
+            if ($after -lt $json.Length -and $json[$after] -eq [char]':') {
+                if ($objects.Count -eq 0 -or $null -eq $objects.Peek()) { throw 'Malformed registry object.' }
+                # Ordinary keys need no separate JSON parser invocation. Decode
+                # escaped keys so aliases still cannot evade duplicate detection.
+                $key = if ($token.Value.IndexOf([char]92) -lt 0) { $token.Value.Substring(1, $token.Length - 2) }
+                    else { @(('[' + $token.Value + ']') | ConvertFrom-Json)[0] }
+                if (-not $objects.Peek().Add([string]$key)) { throw "Duplicate registry JSON property: $key" }
+            }
+        }
+    }
+    if ($objects.Count -ne 0) { throw 'Malformed registry JSON.' }
+    $registry = $json | ConvertFrom-Json -ErrorAction Stop
+    Assert-GeurtsRegistryProperties $registry @('schemaVersion', 'packageVersion', 'files', 'controlledSections')
+    if ($registry.schemaVersion -isnot [string] -or $registry.schemaVersion -cne '1.0.0') { throw 'Unsupported documentation registry schema.' }
+    if ($registry.packageVersion -isnot [string] -or $registry.packageVersion -cne $version[0].Groups[1].Value) { throw 'Registry package version differs from the same-copy manifest.' }
+    if ($registry.files -isnot [array] -or $registry.files.Count -eq 0 -or $registry.controlledSections -isnot [array]) { throw 'Registry files and controlledSections must be arrays.' }
+    $paths = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::OrdinalIgnoreCase)
+    foreach ($file in $registry.files) {
+        Assert-GeurtsRegistryProperties $file @('path', 'version', 'role')
+        if ($file.path -isnot [string] -or $file.path -cnotmatch '^(?:[A-Za-z0-9_.-]+/)*[A-Za-z0-9_.-]+$') { throw 'Unsafe registry file path.' }
+        foreach ($segment in $file.path.Split('/')) {
+            if ($segment -in @('.', '..') -or $segment.EndsWith('.') -or
+                $segment -match '^(?i:con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)') { throw 'Unsafe registry file path.' }
+        }
+        if (-not $paths.Add($file.path)) { throw "Duplicate registry path: $($file.path)" }
+        if ($file.version -isnot [string] -or $file.version -cnotmatch '^(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)(?:\.(?:0|[1-9][0-9]*))?$' -or
+            $file.role -isnot [string] -or [string]::IsNullOrWhiteSpace($file.role)) { throw 'Invalid registry file version or role.' }
+    }
+    foreach ($required in @('AI_READ_FIRST.md', 'GeurtsTechniqueManifest.md', $relative)) {
+        $record = @($registry.files | Where-Object { $_.path -ceq $required })
+        if ($record.Count -ne 1 -or $record[0].version -cne $registry.packageVersion) { throw "Missing or mismatched registry bootstrap record: $required" }
+    }
+    $keys = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::OrdinalIgnoreCase)
+    $headings = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::Ordinal)
+    $protected = @('AI_READ_FIRST.md', 'GeurtsTechniqueManifest.md', 'GeurtsTechniques/GeurtsAgentTechnique.md', 'GeurtsTechniques/GeurtsGitIgnoreTechnique.md', 'GeurtsTechniques/GeurtsGitAttributesTechnique.md')
+    foreach ($section in $registry.controlledSections) {
+        Assert-GeurtsRegistryProperties $section @('document', 'id', 'heading', 'whenRequired')
+        if ($section.document -isnot [string] -or $section.document -cnotin @($registry.files.path) -or
+            -not $section.document.EndsWith('.md', [StringComparison]::Ordinal) -or $section.document -cin $protected -or
+            $section.document.StartsWith('Tools/AIAgentInstructionTemplates/', [StringComparison]::Ordinal)) { throw 'Controlled section must belong to registered, non-protected Markdown.' }
+        if ($section.id -isnot [string] -or $section.id -cnotmatch '^[a-z][a-z0-9]*(?:_[a-z0-9]+)*$' -or $section.id -ceq 'core' -or
+            -not $keys.Add($section.document + '|' + $section.id)) { throw 'Invalid or duplicate controlled-section ID.' }
+        if ($section.heading -isnot [string] -or [string]::IsNullOrWhiteSpace($section.heading) -or
+            $section.whenRequired -isnot [string] -or [string]::IsNullOrWhiteSpace($section.whenRequired) -or
+            -not $headings.Add($section.document + '|' + $section.heading)) { throw 'Empty condition or ambiguous controlled heading.' }
+    }
+    return $registry
+}
 
 function ConvertTo-GeurtsAudienceText {
     [CmdletBinding()]
@@ -109,22 +212,12 @@ function Read-GeurtsAudienceDocument {
         @($relative.Split('/') | Where-Object { $_ -in @('.', '..') }).Count -gt 0) {
         throw 'Document must be a relative Markdown path listed in the package manifest.'
     }
-    foreach ($candidate in @('GeurtsTechniqueManifest.md', $relative)) {
-        $current = Get-Item -LiteralPath $root -Force -ErrorAction Stop
-        if (($current.Attributes -band [System.IO.FileAttributes]::ReparsePoint) -ne 0) { throw 'Linked documentation roots are not supported.' }
-        foreach ($segment in $candidate.Split('/')) {
-            $current = Get-Item -LiteralPath (Join-Path $current.FullName $segment) -Force -ErrorAction Stop
-            if (($current.Attributes -band [System.IO.FileAttributes]::ReparsePoint) -ne 0) { throw 'Linked documentation paths are not supported.' }
-        }
-        if ($current.PSIsContainer) { throw 'A documentation file was expected.' }
-    }
-    $manifest = [System.IO.File]::ReadAllText((Join-Path $root 'GeurtsTechniqueManifest.md'))
-    $registry = [regex]::Match($manifest, '(?s)<!-- GEURTS-PACKAGE-FILES:BEGIN -->(.*?)<!-- GEURTS-PACKAGE-FILES:END -->')
-    $registered = @([regex]::Matches($registry.Groups[1].Value, '(?m)^\| `([^`]+)` \|') | ForEach-Object { $_.Groups[1].Value })
-    if (-not $registry.Success -or $relative -cnotin $registered) { throw "Document is not registered in this package: $relative" }
-    $text = [System.IO.File]::ReadAllText((Join-Path $root $relative))
+    $registry = Read-GeurtsDocumentationRegistry -RepositoryRoot $root
+    $record = @($registry.files | Where-Object { $_.path -ceq $relative })
+    if ($record.Count -ne 1) { throw "Document is not registered in this package: $relative" }
+    $text = [System.IO.File]::ReadAllText((Get-GeurtsLocalPackageFile $root $relative))
     $audienceRead = ConvertTo-GeurtsAudienceText -Text $text -Mode $Mode -IncludeHuman:$IncludeHuman
-    $sectionRead = Select-GeurtsDocumentSections -Manifest $manifest -RegisteredDocuments $registered -Document $relative -Source $text -Content $audienceRead.Content -SourceLines $audienceRead.SourceLines -Sections $Sections
+    $sectionRead = Select-GeurtsDocumentSections -SectionRecords @($registry.controlledSections) -Document $relative -Source $text -Content $audienceRead.Content -SourceLines $audienceRead.SourceLines -Sections $Sections
     [pscustomobject]@{
         Content = if ($Preview) { '' } else { $sectionRead.Content }
         FileAudience = $audienceRead.FileAudience
@@ -137,6 +230,10 @@ function Read-GeurtsAudienceDocument {
         SkippedSections = $sectionRead.SkippedSections
         PreviewOnly = [bool]$Preview
         Headings = $sectionRead.Headings
+        DocumentMetadata = [pscustomobject]@{ path = $record[0].path; version = $record[0].version; role = $record[0].role;
+            controlledSections = @($registry.controlledSections | Where-Object { $_.document -ceq $relative }) }
+        PackageVersion = $registry.packageVersion
+        RegistrySchemaVersion = $registry.schemaVersion
     }
 }
 
@@ -201,38 +298,22 @@ function Get-GeurtsHeadingParts {
 
 # Only the manifest may make a section conditional. Untabled content stays required.
 function Select-GeurtsDocumentSections {
-    param([string]$Manifest, [string[]]$RegisteredDocuments, [string]$Document, [string]$Source, [AllowEmptyString()][string]$Content, [int[]]$SourceLines, [string[]]$Sections)
+    param([object[]]$SectionRecords, [string]$Document, [string]$Source, [AllowEmptyString()][string]$Content, [int[]]$SourceLines, [string[]]$Sections)
     $protectedPaths = @('AI_READ_FIRST.md', 'GeurtsTechniqueManifest.md',
         'GeurtsTechniques/GeurtsAgentTechnique.md', 'GeurtsTechniques/GeurtsGitIgnoreTechnique.md',
         'GeurtsTechniques/GeurtsGitAttributesTechnique.md')
     $protected = $Document -cin $protectedPaths -or $Document.StartsWith('Tools/AIAgentInstructionTemplates/', [System.StringComparison]::Ordinal)
     if ($Sections -and $protected) { throw 'Bootstrap files and exact installer payloads do not support partial reading.' }
-    $maps = @([regex]::Matches($Manifest, '(?s)<!-- GEURTS-READ-SECTIONS:BEGIN -->(.*?)<!-- GEURTS-READ-SECTIONS:END -->'))
-    $hasMapMarker = $Manifest.Contains('GEURTS-READ-SECTIONS:')
     $idToHeading = New-Object 'System.Collections.Generic.Dictionary[string,string]' ([System.StringComparer]::Ordinal)
     $headingToId = New-Object 'System.Collections.Generic.Dictionary[string,string]' ([System.StringComparer]::Ordinal)
-    if ($hasMapMarker) {
-        if ($maps.Count -ne 1 -or ([regex]::Matches($Manifest, '<!-- GEURTS-READ-SECTIONS:BEGIN -->')).Count -ne 1 -or
-            ([regex]::Matches($Manifest, '<!-- GEURTS-READ-SECTIONS:END -->')).Count -ne 1) { throw 'Malformed controlled-section registry.' }
-        $seenKeys = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
-        foreach ($row in $maps[0].Groups[1].Value -split '\r?\n') {
-            if ([string]::IsNullOrWhiteSpace($row) -or $row -ceq '| Document | Section ID | Exact heading | When required |' -or $row -ceq '|---|---|---|---|') { continue }
-            if ($row -cnotmatch '^\| `(?<Document>(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_.-]+\.md)` \| `(?<Id>[a-z][a-z0-9]*(?:_[a-z0-9]+)*)` \| (?<Heading>[^|]+) \| (?<When>[^|]+) \|$') { throw 'Malformed controlled-section row.' }
-            $mappedDocument, $id, $heading = $Matches.Document, $Matches.Id, $Matches.Heading
-            if ($mappedDocument -cnotin $RegisteredDocuments -or $mappedDocument -cin $protectedPaths -or
-                $mappedDocument.StartsWith('Tools/AIAgentInstructionTemplates/', [System.StringComparison]::Ordinal)) {
-                throw 'Controlled sections must belong to registered, non-protected Markdown documents.'
-            }
-            if ($id -ceq 'core' -or [string]::IsNullOrWhiteSpace($Matches.When) -or [string]::IsNullOrWhiteSpace($heading) -or
-                -not $seenKeys.Add($mappedDocument + '|' + $id)) { throw 'Empty condition or duplicate controlled-section ID.' }
-            if ($mappedDocument -ceq $Document) {
-                if ($protected -or $headingToId.ContainsKey($heading)) { throw 'Protected payload or duplicate controlled heading in section registry.' }
-                $idToHeading.Add($id, $heading)
-                $headingToId.Add($heading, $id)
-            }
+    $conditions = @{}
+    foreach ($record in $SectionRecords) {
+        if ($record.document -ceq $Document) {
+            $idToHeading.Add($record.id, $record.heading)
+            $headingToId.Add($record.heading, $record.id)
+            $conditions[$record.id] = $record.whenRequired
         }
     }
-    elseif ($Sections) { throw 'This package has no controlled-section registry; read the whole document.' }
     $rawParts = @(Get-GeurtsHeadingParts -Text $Source)
     foreach ($heading in $headingToId.Keys) {
         if (@($rawParts | Where-Object { $_.Level -eq 2 -and $_.Heading -ceq $heading }).Count -ne 1) { throw "Missing or duplicate controlled heading: $heading" }
@@ -272,7 +353,8 @@ function Select-GeurtsDocumentSections {
         $include = -not $Sections -or -not $optional -or $selected.Contains($id)
         if ($part.Level -eq 2 -and $part.Visible) {
             [void]$index.Add([pscustomobject]@{ id = $id; heading = $part.Heading; sourceLine = $part.Line;
-                required = -not $optional; selected = $include; characters = $length })
+                required = -not $optional; selected = $include; characters = $length;
+                whenRequired = if ($optional) { $conditions[$id] } else { 'Always in the selected audience mode.' } })
         }
         if ($include) { [void]$output.Append($Content.Substring($part.Start, $length)) }
         elseif ($part.Visible) { $skipped++ }
@@ -280,4 +362,4 @@ function Select-GeurtsDocumentSections {
     [pscustomobject]@{ Content = $output.ToString(); Headings = $index.ToArray(); SkippedSections = $skipped }
 }
 
-Export-ModuleMember -Function ConvertTo-GeurtsAudienceText, Read-GeurtsAudienceDocument
+Export-ModuleMember -Function ConvertTo-GeurtsAudienceText, Read-GeurtsAudienceDocument, Read-GeurtsDocumentationRegistry

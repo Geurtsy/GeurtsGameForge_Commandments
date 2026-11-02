@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.65.2
+**Version:** 0.67.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -71,7 +71,7 @@ Package tools are inert content. The legacy manual manager does not implicitly c
 
 ## Reading modes and history
 
-Use the manifest's task selection before its audience/section reader. Read entry and manifest in full. GameUse includes selected shared rules; ForgeDevelopment also includes relevant maintainer sections. The legacy HUMAN-ONLY tag means optional historical/reference content, not a secondary human audience. It and IncludeHuman keep their compatible spelling. Templates and exact contracts retain their payloads.
+Use the manifest's task selection before its audience/section reader. Read entry and manifest in full. Retrieve only relevant file/version and section-condition records from the manifest-owned GeurtsTechniques/GeurtsDocumentationRegistry.json, preferably through the local reader Preview. Preview is metadata, not rule reading. Without PowerShell, apply the manifest plain-file fallback. GameUse includes selected shared rules; ForgeDevelopment also includes relevant maintainer sections. The legacy HUMAN-ONLY tag means optional historical/reference content, not a secondary human audience. It and IncludeHuman keep their compatible spelling. Templates and exact contracts retain their payloads.
 
 Historical release records are in [History/Changelog.md](History/Changelog.md) and the [archived 0.62.19 README](History/README-0.62.19.md). History is non-normative and never routine onboarding. Existing migrations apply only when the task selects the corresponding transition.
 
@@ -100,6 +100,13 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.67.0 - 3 November 2026
+
+- Extract the exact 87-file inventory and all 34 controlled sections into one manifest-owned JSON registry; add the registry and optional evidence records to complete package membership. Preserve task-owner selection, reading order, conditions, consent and payloads.
+- Compact the mandatory entry chain and expose targeted document/version/role and when-required metadata in the existing read-only reader. Retain complete reads, required/unmapped sections, original boundaries and both PowerShell hosts; reject missing/unsafe/ambiguous data without legacy fallback.
+- Synchronize package metadata and source checks; migrate existing audience regressions and add bounded format-failure cases. Reading measurements and obligation/consumer evidence are in History/ReadingEfficiency-0.67.0.md and its JSON companion.
+- Pin published registry-compatible God 0.42.0 and Angels 0.10.0 and refresh their Usage Guide evidence. Owner acceptance used the recorded private Quantum Console validation profile; supported-stock compatibility is not claimed. Schema-3 completeness includes the registry; target/confirmation semantics and immutable installer payloads remain unchanged. Consumer adoption remains explicit.
 
 ### 0.65.2 — 3 November 2026
 

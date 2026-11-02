@@ -1,4 +1,4 @@
-# Version: 1.1.1
+# Version: 2.0.0
 [CmdletBinding()]
 param(
     [Parameter(Mandatory)][string]$Document,
@@ -27,15 +27,19 @@ try {
             skippedSections = $result.SkippedSections
             previewOnly = $result.PreviewOnly
             headings = $result.Headings
+            packageVersion = $result.PackageVersion
+            registrySchemaVersion = $result.RegistrySchemaVersion
+            documentMetadata = $result.DocumentMetadata
         }
         if (-not $Preview) { $metadata['content'] = $result.Content }
         [pscustomobject]$metadata | ConvertTo-Json -Depth 4
     }
     elseif ($Preview) {
         "Preview only; required rules have not been read. Planned reading: $($result.ReadingCharacters) characters."
+        "$($result.DocumentMetadata.path) | document $($result.DocumentMetadata.version) | package $($result.PackageVersion) | $($result.DocumentMetadata.role)"
         foreach ($heading in $result.Headings) {
             $id = if ($heading.required) { 'required' } else { $heading.id }
-            "[$id] $($heading.heading) | source line $($heading.sourceLine) | $($heading.characters) characters | selected: $($heading.selected)"
+            "[$id] $($heading.heading) | source line $($heading.sourceLine) | $($heading.characters) characters | selected: $($heading.selected) | when required: $($heading.whenRequired)"
         }
     }
     else { $result.Content }

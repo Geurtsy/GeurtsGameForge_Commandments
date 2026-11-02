@@ -1,5 +1,5 @@
 # RunAutomationTests.ps1
-# Version: 0.65.2
+# Version: 0.67.0
 
 [CmdletBinding()]
 param(
@@ -320,6 +320,24 @@ try {
     Assert-True (($attributesResult -join "`n").Contains('Assets/_Project/Scripts/Example.cs: eol: crlf') -and
         ($attributesResult -join "`n").Contains('Assets/Plugins/Other.bundle: eol: crlf')) 'FMOD exceptions retain the Windows default for unrelated paths'
 
+    # Storage moved to JSON; preserve the exact Git membership invariant through
+    # observable failures rather than just asserting the parser's representation.
+    foreach ($inventoryCase in @('missing-record', 'extra-record')) {
+        $inventoryFixture = New-StaticValidationFixture -Parent $testRoot -Name ('static-inventory-' + $inventoryCase)
+        $inventoryPath = Join-Path $inventoryFixture 'GeurtsTechniques/GeurtsDocumentationRegistry.json'
+        $inventory = [IO.File]::ReadAllText($inventoryPath) | ConvertFrom-Json
+        if ($inventoryCase -eq 'missing-record') {
+            $inventory.files = @($inventory.files | Where-Object path -CNE 'README.md')
+        }
+        else {
+            $inventory.files += [pscustomobject]@{path='NotTracked.md'; version='1.0.0'; role='Fixture'}
+            Write-Utf8 -Path (Join-Path $inventoryFixture 'NotTracked.md') -Text "<!-- GEURTS-AUDIENCE: AI-READ -->`r`n**Version:** 1.0.0`r`n"
+        }
+        Write-Utf8 -Path $inventoryPath -Text ($inventory | ConvertTo-Json -Depth 6)
+        $inventoryRun = Invoke-TestScript -Path $validatorScript -Arguments @('-RepositoryRoot', $inventoryFixture)
+        Assert-True ($inventoryRun.Code -ne 0 -and $inventoryRun.Output.Contains('[FAIL] Git-tracked package inventory')) "Registry rejects $inventoryCase against actual Git membership"
+    }
+
     $draftManifestText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniqueManifest.md"))
     $draftReadmeText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "README.md"))
     $targetMigrationText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "Migrations/v0.47.0.md"))
@@ -340,6 +358,7 @@ try {
     $expectedCompanionValidationEntries = @(
         "AI_READ_FIRST.md",
         "GeurtsTechniqueManifest.md",
+        "GeurtsTechniques/GeurtsDocumentationRegistry.json",
         "GeurtsTechniques/GeurtsStandardsOnlyTechnique.md",
         "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md",
         "GeurtsTechniques/GeurtsCommandmentsCompanionContract.json",
@@ -369,9 +388,9 @@ try {
         ".github/instructions/geurts-unity.instructions.md|replace-complete-file",
         ".github/instructions/geurts-game-design.instructions.md|replace-complete-file"
     )
-    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.65.2" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.65.2, and the official exact-main-commit archive source"
+    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.67.0" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.67.0, and the official exact-main-commit archive source"
     Assert-True ([string]$companionContract.destination.projectRelativePath -ceq "GeurtsGameForgeCommandments" -and [string]$companionContract.destination.replacement -ceq "complete-directory" -and [string]$companionContract.destination.access -ceq "logically-read-only") "Companion contract names the one logically-read-only complete documentation destination"
-    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 17) "Current companion contract names the exact seventeen unique package-v0.65.2 source-validation entries"
+    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 18) "Current companion contract names the exact eighteen unique package-v0.67.0 source-validation entries"
     Assert-True (($actualCompanionRoutes -join "|") -ceq ($expectedCompanionRoutes -join "|") -and ($actualConfirmationTargets -join "|") -ceq ($expectedConfirmationTargets -join "|") -and [string]$companionContract.updateUi.actionLabel -ceq "Update Geurts Game Forge Commandments" -and [string]$companionContract.updateUi.confirmationDefault -ceq "cancel" -and [string]$companionContract.updateUi.cancelResult -ceq "no-network-or-filesystem-change") "Companion contract fixes three template routes and one cancel-default four-target Update confirmation"
     Assert-True ($companionTechniqueText -match '(?i)one confirmation dialog' -and $companionTechniqueText -match '(?i)no earlier preview, dry run[^\r\n]{0,100}second confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set') "Confirmation uses the built-in schema-3.0.0 target set before acquisition and cannot authorize a changed downloaded target set"
     Assert-True ($companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative') "Schema 3.0.0 keeps package versions and safe validation entries forward-compatible while mutation routes remain fixed"
@@ -1040,7 +1059,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     $folderDefinitionContract = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json
     $folderToolContractText = [System.IO.File]::ReadAllText($folderScript)
     $managerToolContractText = [System.IO.File]::ReadAllText($manageScript)
-    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.17\.1\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.65.2" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.65.2"
+    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.17\.1\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.67.0" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.67.0"
 
     $versionMismatchAuthority = Join-Path $testRoot "folder-version-mismatch-authority"
     New-Item -ItemType Directory -Path $versionMismatchAuthority | Out-Null
