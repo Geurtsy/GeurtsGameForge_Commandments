@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge AI Entry Point
 
-**Version:** 0.67.1
+**Version:** 0.67.2
 **Documentation source:** [Geurtsy/GeurtsGameForge_Commandments](https://github.com/Geurtsy/GeurtsGameForge_Commandments)
 **Purpose:** First documentation entry and session boundary.
 **Required package path:** `AI_READ_FIRST.md`

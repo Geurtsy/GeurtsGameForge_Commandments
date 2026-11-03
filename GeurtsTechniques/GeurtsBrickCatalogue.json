@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.67.1",
+  "packageVersion": "0.67.2",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -38,11 +38,11 @@
       "name": "Geurts Game Forge God",
       "description": "Required foundation for brick lifecycle, shared services, retained bootstrap, package management and Editor-only Commandments tools. Does not require optional peer bricks.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.42.0",
+      "version": "0.43.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#0118bac2ce7f15217fde398b038efcaa16b25b6b",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#5bab056bd33c873ccd3edce2814ae7870cdfb119",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -56,11 +56,11 @@
       "name": "Geurts Game Forge Steam",
       "description": "Optional Windows x64 Steam platform provider and release preparation, separate from Multiplayer's required built-in Steam networking. Local development starts without native Steam. Native account, overlay and depot acceptance remain unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.steam",
-      "version": "0.3.1",
+      "version": "0.4.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#44e5b61c6d9130682163d9536d91be67ed7d9a8d",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#eb1ce5ac0d29ae30520c76f693df62a2ff8f7202",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -70,7 +70,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.39.0"
+          "minimumVersion": "0.43.0"
         }
       ]
     },

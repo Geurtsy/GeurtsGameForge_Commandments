@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.67.1
+**Version:** 0.67.2
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.67.2 — 4 November 2026
+
+- Pin the validated God 0.43.0 and Steam 0.4.0 source releases and describe shared native lifetime ownership.
+- Record managed and local-socket acceptance separately from unverified native Steam, overlay and distribution. Multiplayer remains a planned catalogue entry; its implementation candidate is not advertised as a released install.
+- Preserve all subject rules, schema identities, frozen installer payloads and consumer update/confirmation boundaries.
 
 ### 0.67.1 - 3 November 2026
 
