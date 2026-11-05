@@ -103,7 +103,7 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 ### 0.67.3 — 6 November 2026
 
-- Pin published Scene Loading 0.7.4 and its source-matched owner/native evidence; record caller-owned runtime-scene preservation and explicit caller cleanup during authored content replacement. Multiplayer remains planned and unavailable.
+- Pin published Scene Loading 0.7.5 and its source-matched owner/native and unfiltered compilation evidence; record caller-owned runtime-scene preservation and explicit caller cleanup during authored content replacement. Multiplayer remains planned and unavailable.
 - Synchronize documentation package metadata and exact-version checks; retain unchanged technique and schema versions, other brick pins, frozen installer payloads and explicit consumer-update boundaries.
 
 ### 0.67.2 — 4 November 2026

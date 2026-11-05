@@ -174,11 +174,11 @@
       "name": "Geurts Game Forge Scene Loading and Bootstrap",
       "description": "Additive scene destinations, retained bootstrap, readiness and transition presentation. Use for content replacement without unloading bootstrap; optional pool cooperation does not add a peer dependency.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading",
-      "version": "0.7.4",
+      "version": "0.7.5",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#e0223d6b3f1d11772a199060ddd54bf8d48984d1",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#6cd0982523f68d9a4a0bcd5b5bca9db0a4f59a8a",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [

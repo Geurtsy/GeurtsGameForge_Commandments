@@ -155,8 +155,8 @@ Angels 0.10.1 requires God 0.42.0 and uses that shared reader for setup, guides,
 ## Scene Loading
 
 **Catalogue ID:** `com.geurts.gameforge.sceneloading`
-**Evidence version:** `0.7.4`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/e0223d6b3f1d11772a199060ddd54bf8d48984d1/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/e0223d6b3f1d11772a199060ddd54bf8d48984d1/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/e0223d6b3f1d11772a199060ddd54bf8d48984d1/Documentation~/GameIntegration.md).
+**Evidence version:** `0.7.5`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/6cd0982523f68d9a4a0bcd5b5bca9db0a4f59a8a/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/6cd0982523f68d9a4a0bcd5b5bca9db0a4f59a8a/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/6cd0982523f68d9a4a0bcd5b5bca9db0a4f59a8a/Documentation~/GameIntegration.md).
 
 - **Use:** Additive destination transitions with retained bootstrap and owned content replacement.
 - **Prerequisites:** God, both licensed libraries and resolved Unity dependencies. Saved scene assets, explicit destination IDs and enabled Build Profile scenes are required.
@@ -166,7 +166,7 @@ Angels 0.10.1 requires God 0.42.0 and uses that shared reader for setup, guides,
 - **Verify:** Confirm target content loads, prior authored content is replaced, bootstrap and caller-owned runtime scenes stay loaded, the caller explicitly releases its runtime scenes, invalid destinations preserve state and callbacks are removed.
 - **Limits:** No second loader or DontDestroyOnLoad. Request acceptance is not completion; no immediate retry loop or promised rollback.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/e0223d6b3f1d11772a199060ddd54bf8d48984d1/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/e0223d6b3f1d11772a199060ddd54bf8d48984d1/Documentation~/AIUsabilityValidation.json). The published record reports 141 owner/native cases passed, zero failed/skipped, including caller physics-scene/root retention, authored content replacement and explicit caller cleanup. It records tested candidate `de25c777e1d40951ccf0634fc5a62855401796a0`; the links above identify the published merge. Game-specific rendered flow remains separate acceptance.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/6cd0982523f68d9a4a0bcd5b5bca9db0a4f59a8a/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/6cd0982523f68d9a4a0bcd5b5bca9db0a4f59a8a/Documentation~/AIUsabilityValidation.json). The published record reports 141 owner/native cases passed, zero failed/skipped, including caller physics-scene/root retention, authored content replacement and explicit caller cleanup. It records tested candidate `a555da718401ee2767a2e99476dea929c7e55673`; the links above identify the published merge. Its three owning assemblies passed unfiltered warnings-as-errors compilation. Game-specific rendered flow remains separate acceptance.
 
 ## Save and Load
 
@@ -254,7 +254,7 @@ The optional Audio FMOD integration is not a separate current catalogue brick. I
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Change Log
 
-- 1.4.1: Refresh published Scene Loading 0.7.4 source/evidence links and caller-owned runtime-scene lifecycle; preserve planned Multiplayer availability and other brick evidence.
+- 1.4.1: Refresh published Scene Loading 0.7.5 source/evidence links, unfiltered compilation evidence and caller-owned runtime-scene lifecycle; preserve planned Multiplayer availability and other brick evidence.
 - 1.4.0: Update the God/Steam source cohort and shared native lifetime evidence; retain planned Multiplayer availability and native acceptance limits.
 - 1.3.0: Pin published God 0.42.0 and Angels 0.10.0 evidence, explain the coordinated registry transition and retain explicit dependency-validation limitations.
 <!-- GEURTS-SECTION:END -->
