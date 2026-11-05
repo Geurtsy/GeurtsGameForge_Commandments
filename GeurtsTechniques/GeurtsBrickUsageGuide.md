@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.4.0
+**Version:** 1.4.1
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -155,18 +155,18 @@ Angels 0.10.1 requires God 0.42.0 and uses that shared reader for setup, guides,
 ## Scene Loading
 
 **Catalogue ID:** `com.geurts.gameforge.sceneloading`
-**Evidence version:** `0.7.3`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/771f4fdeddb7334af1f8a34721148016d402ad27/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/771f4fdeddb7334af1f8a34721148016d402ad27/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/771f4fdeddb7334af1f8a34721148016d402ad27/Documentation~/GameIntegration.md).
+**Evidence version:** `0.7.4`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/e0223d6b3f1d11772a199060ddd54bf8d48984d1/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/e0223d6b3f1d11772a199060ddd54bf8d48984d1/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/e0223d6b3f1d11772a199060ddd54bf8d48984d1/Documentation~/GameIntegration.md).
 
 - **Use:** Additive destination transitions with retained bootstrap and owned content replacement.
 - **Prerequisites:** God, both licensed libraries and resolved Unity dependencies. Saved scene assets, explicit destination IDs and enabled Build Profile scenes are required.
 - **Entry points:** Use Scene Action assets/callbacks for normal use. Custom callers resolve SceneLoadingRuntime.Service; save_settings is the declared settings action.
 - **Example:** Author a destination and main scene, validate it, then invoke the owner's transition once. Await its result and idle state before releasing progress observers or deciding recovery.
-- **Lifecycle/settings:** SCN_BigBang remains loaded; Scene Loading owns native transitions. Cancellation drains already accepted Unity work; disable/unload must release caller references safely.
-- **Verify:** Confirm target content loads, prior content is replaced, bootstrap stays loaded, invalid destinations preserve state and callbacks are removed.
+- **Lifecycle/settings:** SCN_BigBang remains loaded; Scene Loading owns authored content transitions. Caller-created pathless scenes remain caller-owned and require explicit caller cleanup. Cancellation drains already accepted Unity work; disable/unload must release caller references safely.
+- **Verify:** Confirm target content loads, prior authored content is replaced, bootstrap and caller-owned runtime scenes stay loaded, the caller explicitly releases its runtime scenes, invalid destinations preserve state and callbacks are removed.
 - **Limits:** No second loader or DontDestroyOnLoad. Request acceptance is not completion; no immediate retry loop or promised rollback.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/771f4fdeddb7334af1f8a34721148016d402ad27/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/771f4fdeddb7334af1f8a34721148016d402ad27/Documentation~/AIUsabilityValidation.json). Recipe bytes matched the pinned guide during this review; its tests were not rerun here.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/e0223d6b3f1d11772a199060ddd54bf8d48984d1/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.sceneloading/blob/e0223d6b3f1d11772a199060ddd54bf8d48984d1/Documentation~/AIUsabilityValidation.json). The published record reports 141 owner/native cases passed, zero failed/skipped, including caller physics-scene/root retention, authored content replacement and explicit caller cleanup. It records tested candidate `de25c777e1d40951ccf0634fc5a62855401796a0`; the links above identify the published merge. Game-specific rendered flow remains separate acceptance.
 
 ## Save and Load
 
@@ -254,6 +254,7 @@ The optional Audio FMOD integration is not a separate current catalogue brick. I
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Change Log
 
+- 1.4.1: Refresh published Scene Loading 0.7.4 source/evidence links and caller-owned runtime-scene lifecycle; preserve planned Multiplayer availability and other brick evidence.
 - 1.4.0: Update the God/Steam source cohort and shared native lifetime evidence; retain planned Multiplayer availability and native acceptance limits.
 - 1.3.0: Pin published God 0.42.0 and Angels 0.10.0 evidence, explain the coordinated registry transition and retain explicit dependency-validation limitations.
 <!-- GEURTS-SECTION:END -->

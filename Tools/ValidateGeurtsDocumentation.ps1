@@ -1,5 +1,5 @@
 # ValidateGeurtsDocumentation.ps1
-# Version: 0.67.2
+# Version: 0.67.3
 
 [CmdletBinding()]
 param(
@@ -815,7 +815,7 @@ try {
     Add-Check "Companion schema forward compatibility" $companionForwardCompatibilityValid "Schema 3.0.0 pins mutation paths, not documentation releases: packageVersion must match the same archive manifest, and later safe validation-entry lists remain consumable without a companion release."
 
     $companionTechniqueRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md' '3.3.0'
-    $companionContractRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionContract.json' '0.67.2'
+    $companionContractRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionContract.json' '0.67.3'
     $companionOwnerRow = [regex]::Match($manifestText, '(?m)^\| God-owned Windows Unity Editor Commandments source, metadata check, confirmed replacement, project-boundary, and AI-routing lifecycle \| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $companionContractOwnerRow = [regex]::Match($manifestText, '(?m)^\| Exact companion source, documentation destination, validation entries, confirmation targets, and template-to-route mappings \| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| (?<When>[^|]+) \|\r?$')
     $companionArchitectureValid = ($null -ne $companionTechniqueRegistryRow) -and ($null -ne $companionContractRegistryRow) -and

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.67.2",
+  "packageVersion": "0.67.3",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -174,11 +174,11 @@
       "name": "Geurts Game Forge Scene Loading and Bootstrap",
       "description": "Additive scene destinations, retained bootstrap, readiness and transition presentation. Use for content replacement without unloading bootstrap; optional pool cooperation does not add a peer dependency.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading",
-      "version": "0.7.3",
+      "version": "0.7.4",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#771f4fdeddb7334af1f8a34721148016d402ad27",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.sceneloading.git#e0223d6b3f1d11772a199060ddd54bf8d48984d1",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.67.2
+**Version:** 0.67.3
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.67.3 — 6 November 2026
+
+- Pin published Scene Loading 0.7.4 and its source-matched owner/native evidence; record caller-owned runtime-scene preservation and explicit caller cleanup during authored content replacement. Multiplayer remains planned and unavailable.
+- Synchronize documentation package metadata and exact-version checks; retain unchanged technique and schema versions, other brick pins, frozen installer payloads and explicit consumer-update boundaries.
 
 ### 0.67.2 — 4 November 2026
 
