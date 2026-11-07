@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Diagnostics Technique
 
-**Version:** 0.4.2
+**Version:** 0.4.3
 **Required package path:** `GeurtsTechniques/GeurtsDiagnosticsTechnique.md`
 **Release selection:** Use the current Brick Catalogue for published versions, dependencies and immutable sources; verify the actual installed package and supported APIs. The shared Editor theme is governed by the manifest-selected Editor UI Theme Technique.
 
@@ -40,7 +40,7 @@ The runtime developer console is optional during setup and throughout game devel
 
 Use the existing Quantum Console canvas, input, parser, execution, history suggestions and lifecycle. Embed Diagnostics controls and its paged/virtualized log presentation into that console. The scoped extension of QC's existing uGUI is intentional; it is not a new competing runtime UI framework. Keep exactly one console and one Input System EventSystem across scene changes. Opening the console suspends configured gameplay action maps but does not pause simulation. Closing it restores only the input maps that this integration suspended.
 
-While the installed console is open in retained `SCN_BigBang`, Diagnostics must keep it in front of game-authored screen UI, including persistent UI and canvases/UI Toolkit panels created or reprioritized after opening. Enforce render and pointer priority through the existing console connection; restore temporary game-UI ordering on close or provider stop. Preserve the separate fullscreen/metrics-overlay order inside the console. BigBang remains an Editor-only installer; God retains bootstrap ownership and its passive compatibility bridge. The pinned Diagnostics owner guide defines the supported runtime implementation, separately licensed QC compatibility repair and exact acceptance evidence.
+While the installed console is open in retained `SCN_BigBang`, Diagnostics must keep it in front of game-authored screen UI, including persistent UI and canvases/UI Toolkit panels created or reprioritized after opening. Include native `PanelRenderer` and legacy `UIDocument` components. Enforce render and pointer priority through the existing console connection; restore temporary game-UI ordering on close or provider stop. Preserve the separate fullscreen/metrics-overlay order inside the console. BigBang remains an Editor-only installer; God retains bootstrap ownership and its passive compatibility bridge. The pinned Diagnostics owner guide defines the supported runtime implementation, separately licensed QC compatibility repair and exact acceptance evidence.
 
 Present the runtime controls as visibly separate groups with readable labels:
 

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technique Package Manifest
 
-**Version:** 0.67.4
+**Version:** 0.67.5
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package manifest
 **Publication policy:** Validated main is the content feed; immutable versioned releases. Draft describes specification maturity, not whether a Git release exists.
