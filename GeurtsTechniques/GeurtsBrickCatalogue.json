@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.67.4",
+  "packageVersion": "0.67.5",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -105,11 +105,11 @@
       "name": "Geurts Game Forge Diagnostics",
       "description": "Optional game diagnostics: logs, health checks, inspected values, session history, commands and Windows metrics. Runtime console installation is a separate opt-in action.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics",
-      "version": "0.11.4",
+      "version": "0.11.5",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#c564a524cd57c854d07f02d3f2a164e0f593b1f6",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#0070d3fb9ddf470373180f07994b6875f5dc387e",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [

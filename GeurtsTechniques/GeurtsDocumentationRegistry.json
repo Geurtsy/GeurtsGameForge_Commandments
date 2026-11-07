@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "packageVersion": "0.67.4",
+  "packageVersion": "0.67.5",
   "files": [
     {
       "path": ".gitattributes",
@@ -9,22 +9,22 @@
     },
     {
       "path": "AI_READ_FIRST.md",
-      "version": "0.67.4",
+      "version": "0.67.5",
       "role": "Entry and session boundaries."
     },
     {
       "path": "GeurtsTechniqueManifest.md",
-      "version": "0.67.4",
+      "version": "0.67.5",
       "role": "Selection, versions, ownership and reading scope."
     },
     {
       "path": "README.md",
-      "version": "0.67.4",
+      "version": "0.67.5",
       "role": "Optional AI package index and primary installation route."
     },
     {
       "path": "CONTRIBUTING.md",
-      "version": "0.67.4",
+      "version": "0.67.5",
       "role": "Concise source-contribution, validation, publication and unchanged-terms checklist."
     },
     {
@@ -54,7 +54,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
-      "version": "1.4.2",
+      "version": "1.4.3",
       "role": "Selective per-brick usage, actual pinned sources, examples and evidence limits."
     },
     {
@@ -99,7 +99,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsForgeSetupContract.json",
-      "version": "0.67.4",
+      "version": "0.67.5",
       "role": "Schema 1.0.0; setup Editor API 1.1 and contribution version 1."
     },
     {
@@ -119,12 +119,12 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsDiagnosticsTechnique.md",
-      "version": "0.4.2",
+      "version": "0.4.3",
       "role": "Optional capture, commands, history, health, sessions and metrics."
     },
     {
       "path": "GeurtsTechniques/GeurtsBrickCatalogue.json",
-      "version": "0.67.4",
+      "version": "0.67.5",
       "role": "Current published packages and immutable Git targets."
     },
     {
@@ -139,7 +139,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsFolderStructureDefinition.json",
-      "version": "0.67.4",
+      "version": "0.67.5",
       "role": "Exact folder registry and creation profiles."
     },
     {
@@ -159,7 +159,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsCommandmentsCompanionContract.json",
-      "version": "0.67.4",
+      "version": "0.67.5",
       "role": "Schema 3.0.0; exact acquisition, consent and route mappings."
     },
     {
@@ -244,7 +244,7 @@
     },
     {
       "path": "Tools/ManageGeurtsAgentInstructions.ps1",
-      "version": "0.67.4",
+      "version": "0.67.5",
       "role": "Optional preservation-based native-route manager."
     },
     {
@@ -254,7 +254,7 @@
     },
     {
       "path": "Tools/CreateGeurtsFolderStructure.ps1",
-      "version": "0.67.4",
+      "version": "0.67.5",
       "role": "Explicit create-only folder operation."
     },
     {
@@ -269,7 +269,7 @@
     },
     {
       "path": "Tools/ValidateGeurtsDocumentation.ps1",
-      "version": "0.67.4",
+      "version": "0.67.5",
       "role": "Package and semantic validation."
     },
     {
@@ -309,7 +309,7 @@
     },
     {
       "path": "Tools/Tests/RunAutomationTests.ps1",
-      "version": "0.67.4",
+      "version": "0.67.5",
       "role": "Isolated automation and regression suite."
     },
     {
@@ -439,7 +439,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsDocumentationRegistry.json",
-      "version": "0.67.4",
+      "version": "0.67.5",
       "role": "Manifest-owned package inventory and conditional section data; targeted retrieval only."
     },
     {

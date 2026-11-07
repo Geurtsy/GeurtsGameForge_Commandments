@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.67.4
+**Version:** 0.67.5
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,10 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.67.5 — 7 November 2026
+
+- Publish Diagnostics native PanelRenderer foreground coverage and exact release evidence, retaining legacy UI Document and canvas behavior.
 
 ### 0.67.4 — 7 November 2026
 
