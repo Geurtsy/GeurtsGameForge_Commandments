@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.67.3
+**Version:** 0.67.4
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.67.4 — 7 November 2026
+
+- Require the open bootstrap Diagnostics console to remain above game screen UI, including later-created canvases and UI Toolkit panels, with temporary ordering restored on close or stop.
+- Advance the Diagnostics catalogue/usage evidence to the foreground release and its explicit Geurts-maintained QC Unity 6.6 compatibility repair. Source publication and consumer adoption remain separate.
 
 ### 0.67.3 — 6 November 2026
 

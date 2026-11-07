@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.4.1
+**Version:** 1.4.2
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -105,18 +105,18 @@ Steam 0.4.0 requires God 0.43.0 for native sharing. It borrows a matching Multip
 ## Diagnostics
 
 **Catalogue ID:** `com.geurts.gameforge.diagnostics`
-**Evidence version:** `0.11.3`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/a8d7a850654be6c438aebe0881ff95e1bbf23957/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/a8d7a850654be6c438aebe0881ff95e1bbf23957/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/a8d7a850654be6c438aebe0881ff95e1bbf23957/Documentation~/GameIntegration.md).
+**Evidence version:** `0.11.4`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/c564a524cd57c854d07f02d3f2a164e0f593b1f6/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/c564a524cd57c854d07f02d3f2a164e0f593b1f6/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/c564a524cd57c854d07f02d3f2a164e0f593b1f6/Documentation~/GameIntegration.md).
 
 - **Use:** Optional logging, health/inspection, history, metrics and console tooling.
-- **Prerequisites:** God and licensed Odin Inspector/Quantum Console. Runtime console implantation is optional and separately confirmed; required console resources follow its setup guide.
+- **Prerequisites:** God, runtime UIElements and separately licensed Odin Inspector/Quantum Console. The verified QC 2.6.7 baseline requires the explicit [owner compatibility repair](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/c564a524cd57c854d07f02d3f2a164e0f593b1f6/Documentation~/QuantumConsoleUnity66Compatibility.md). Runtime console implantation remains optional and separately confirmed.
 - **Entry points:** Use Diagnostics' Editor views; inspect_sources and install_console are declared operations. Extend health/inspection through the linked GameTargetDiagnostics recipe.
 - **Example:** Register one game-owned read-only health check and inspection callback; inspect failing then recovered target state, and dispose its registration. Install a console only if requested.
-- **Lifecycle/settings:** God owns shared logging/session contracts; Diagnostics supplies capture. Ordinary uncaptured logs are no-ops; actual failures remain visible in owner status. Release only owned registrations.
+- **Lifecycle/settings:** God owns shared logging/session contracts; Diagnostics supplies capture. Ordinary uncaptured logs are no-ops; actual failures remain visible in owner status. Release only owned registrations. The open retained-bootstrap console stays above later-created and persistent game screen UI; closing it restores temporary priorities.
 - **Verify:** Exercise failure, recovery and teardown independently of capture; console input/presentation needs its own acceptance.
 - **Limits:** No parallel command UI or logging framework. Command filters do not confer gameplay or host/server authority.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/a8d7a850654be6c438aebe0881ff95e1bbf23957/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/a8d7a850654be6c438aebe0881ff95e1bbf23957/Documentation~/AIUsabilityValidation.json). Recipe bytes matched the pinned guide during this review; its tests were not rerun here.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/c564a524cd57c854d07f02d3f2a164e0f593b1f6/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/c564a524cd57c854d07f02d3f2a164e0f593b1f6/Documentation~/AIUsabilityValidation.json). Owner evidence covers the recipe, graphics Play Mode and rendered Windows Mono release/development plus stripped IL2CPP acceptance. It distinguishes the Geurts-maintained QC repair and final incremental builds from unmodified stock QC, warning-free cold IL2CPP builds, physical input and live-consumer acceptance.
 
 ## Angels
 
