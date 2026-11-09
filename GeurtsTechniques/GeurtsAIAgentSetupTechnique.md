@@ -2,14 +2,14 @@
 # Geurts AI Agent Setup Technique
 
 **Native AI Instruction Setup - Copilot and supported scoped routes**
-**Version:** 3.1.3
+**Version:** 3.1.4
 **Status:** Draft normative technique
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsAIAgentSetupTechnique.md`
 
 ## Purpose and Manifest Boundary
 
-This technique owns the three exact native AI routes used by the Commandments Companion, the companion's whole-file replacement exception, and the separate optional manual manager's managed regions, exact-fingerprint legacy migration, and create-if-missing GDD scaffolds. `GeurtsTechniqueManifest.md` selects this file and version, determines its place in the package read order, and resolves cross-document applicability and conflicts.
+This technique owns the three exact native AI routes used by the Commandments Companion, the companion's whole-file replacement exception, and the separate optional manual manager's managed regions, exact-fingerprint legacy migration, and create-if-missing GDD scaffolds. `AGENTS.md` selects this file and version, determines its place in the package read order, and resolves cross-document applicability and conflicts.
 
 Native entries remain concise. They route an agent into the project-local fetched copy and do not duplicate package policy, integration lifecycle, technical priorities, game-design rules, or product behaviour.
 
@@ -18,10 +18,10 @@ Native entries remain concise. They route an agent into the project-local fetche
 Every Geurts-managed native AI entry routes first to:
 
 ```text
-GeurtsGameForgeCommandments/AI_READ_FIRST.md
+GeurtsGameForgeCommandments/AGENTS.md
 ```
 
-AI_READ_FIRST.md is the first documentation entry and routes to the package manifest. Routes must use that entry directly and must not bypass manifest selection by pointing to a technique.
+AGENTS.md is the single startup authority and selects specialist owners directly. Routes must use it directly rather than a legacy redirect or a specialist technique.
 
 The Commandments Companion's closed whole-file mappings are:
 
@@ -35,9 +35,9 @@ The Commandments Companion's closed whole-file mappings are:
 
 The AGENTS.md Technique owns the separately installed Codex guide. The legacy manual manager handles only the three Copilot routes and must leave Codex guide files untouched.
 
-These routes can guide only AI tools that support the applicable native instruction surface or have been explicitly instructed to read and follow `AI_READ_FIRST.md`. Creating the files does not make every AI product discover or obey the Geurts documentation automatically.
+These routes can guide only AI tools that support the applicable native instruction surface or have been explicitly instructed to read and follow `AGENTS.md`. Creating the files does not make every AI product discover or obey the Geurts documentation automatically.
 
-Every v1.3.0 route template gives all Forge project work the same concise rule: before any Geurts Game Forge project work, read and follow `GeurtsGameForgeCommandments/AI_READ_FIRST.md`, then treat the installed documentation selected through its manifest chain as the source of truth for that work.
+Every v1.4.0 route template gives all Forge project work the same concise rule: before any Geurts Game Forge project work, read and follow `GeurtsGameForgeCommandments/AGENTS.md`, then treat the installed documentation selected by AGENTS.md as the source of truth for that work.
 
 This includes planning, code, assets, scenes, documentation, setup, reviews and validation. Scoped `applyTo` patterns select their additional route files; they do not narrow the global Copilot route. Reading a route grants no new file access or mutation authority.
 
@@ -139,16 +139,16 @@ These independent opt-ins describe optional manual manager use. The companion's 
 
 ## Delegated Setup Subjects
 
-- Folder creation uses the copied `Tools/CreateGeurtsFolderStructure.ps1` with explicit `-ProjectRoot`; folder meaning and permitted creation remain owned by the manifest-selected Folder Structure Technique and Definition.
-- Project-root `.gitignore` payload and preservation behaviour remain owned by the manifest-selected Git Ignore Technique.
-- Documentation checking, acquisition, complete destination replacement, exact route mappings, and companion-specific reading remain owned exclusively by the manifest-selected Commandments Companion Technique and Contract. The frozen Game Forge Intelligence 2.0 technique exists only for released-consumer compatibility; its historical updater is non-applicable and it is not a companion dependency.
+- Folder creation uses the copied `Tools/CreateGeurtsFolderStructure.ps1` with explicit `-ProjectRoot`; folder meaning and permitted creation remain owned by the AGENTS-selected Folder Structure Technique and Definition.
+- Project-root `.gitignore` payload and preservation behaviour remain owned by the AGENTS-selected Git Ignore Technique.
+- Documentation checking, acquisition, complete destination replacement, exact route mappings, and companion-specific reading remain owned exclusively by the AGENTS-selected Commandments Companion Technique and Contract. The frozen Game Forge Intelligence 2.0 technique exists only for released-consumer compatibility; its historical updater is non-applicable and it is not a companion dependency.
 
 ## Maintenance
 
-When a managed template changes, update its version, normalized payload hash, migration catalog, companion contract mapping and validation entries, manifest registry row, manual-manager behaviour, regression tests, and validator expectations together. Never update a template without preserving the manual manager's safe migration and opt-out contract. Companion Update still replaces each mapped target as a complete file after confirmation.
+When a managed template changes, update its version, normalized payload hash, migration catalog, companion contract mapping and validation entries, AGENTS-owned registry row, manual-manager behaviour, regression tests, and validator expectations together. Never update a template without preserving the manual manager's safe migration and opt-out contract. Companion Update still replaces each mapped target as a complete file after confirmation.
 
-Existing routes adopt v1.3.0 through the normal confirmed content Update. Save any local instructions from its three overwrite targets elsewhere first. The separately authorized manual manager also accepts v1.2.0 managed regions under its existing backup, opt-out and surrounding-content preservation rules.
+Existing routes adopt v1.4.0 through the normal confirmed content Update. Save any local instructions from its three overwrite targets elsewhere first. The separately authorized manual manager also accepts v1.2.0 and v1.3.0 managed regions under its existing backup, opt-out and surrounding-content preservation rules.
 
 ## Separate Codex guide installation
 
-The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AI_READ_FIRST.md. No guide is automatically created at the project root or shipped as a standalone file inside this documentation package. Use the current catalogue for published installation targets. Read the [rename migration](../Migrations/v0.40.0.md) only when the requested work migrates legacy `GeurtsGameForgeDocumentation/` content or schema-2 integration/consent. Read the [ownership migration](../Migrations/v0.41.0.md) only when transitioning an independent Companion integration to the God-owned service. Already-renamed schema-3 installations using God do not require either historical guide for a normal update. Earlier transition background is in the optional [AI setup archive](../History/AISetup.md).
+The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AGENTS.md. No project guide is automatically created at the project root or shipped as a standalone template; the package-root AGENTS.md is the documentation authority. Use the current catalogue for published installation targets. Read the [rename migration](../Migrations/v0.40.0.md) only when the requested work migrates legacy `GeurtsGameForgeDocumentation/` content or schema-2 integration/consent. Read the [ownership migration](../Migrations/v0.41.0.md) only when transitioning an independent Companion integration to the God-owned service. Already-renamed schema-3 installations using God do not require either historical guide for a normal update. Earlier transition background is in the optional [AI setup archive](../History/AISetup.md).

@@ -8,7 +8,7 @@
 
 ## Purpose and authority
 
-This technique owns the project-root FMOD line-ending template and its explicit Build Forge installation contract. The manifest selects it when provisioning or validating these attributes. The Technical Technique continues to own Windows CRLF authoring for first-party files; these narrow vendor rules retain FMOD's required LF endings. They do not select another build platform or add an FMOD dependency to God.
+This technique owns the project-root FMOD line-ending template and its explicit Build Forge installation contract. AGENTS.md selects it when provisioning or validating these attributes. The Technical Technique continues to own Windows CRLF authoring for first-party files; these narrow vendor rules retain FMOD's required LF endings. They do not select another build platform or add an FMOD dependency to God.
 
 The two rules follow [FMOD's source-control guidance](https://fmod.com/docs/2.03/unity/user-guide.html#line-endings) for its default `Assets/Plugins/FMOD` installation. Relocated integrations need manually reviewed project-specific patterns. Git attributes affect future Git conversion; installing this file does not rewrite vendor files, renormalize tracked content or change the Git index.
 

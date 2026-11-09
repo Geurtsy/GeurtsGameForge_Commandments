@@ -1,4 +1,4 @@
-# Version: 1.0.0
+# Version: 1.0.1
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot,
@@ -23,7 +23,7 @@ function Assert-PublicationFailure([scriptblock]$Action, [string]$Pattern, [stri
     Assert-Publication ($message -match $Pattern) $Name
 }
 function Write-PublicationFixture([string]$Root, [string]$Version, [string]$Content) {
-    [IO.File]::WriteAllText((Join-Path $Root 'GeurtsTechniqueManifest.md'), "# Fixture`r`n`r`n**Version:** $Version`r`n", $encoding)
+    [IO.File]::WriteAllText((Join-Path $Root 'AGENTS.md'), "# Fixture`r`n`r`n**Version:** $Version`r`n", $encoding)
     [IO.File]::WriteAllText((Join-Path $Root 'README.md'), ($Content + "`r`n"), $encoding)
     $null = Invoke-GeurtsPublicationGit $Root @('add', '--all')
     $null = Invoke-GeurtsPublicationGit $Root @('-c', 'user.name=Publication fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '--quiet', '-m', 'Fixture snapshot')
@@ -60,6 +60,21 @@ try {
     Assert-PublicationFailure { Get-GeurtsPublicationResult -Root $root } 'higher than published' 'A lower documentation version fails'
     $null = Invoke-GeurtsPublicationGit $root @('tag', 'v9.9.9')
     Assert-PublicationFailure { Get-GeurtsPublicationResult -Root $root } 'differs from its committed' 'A release tag with mismatched metadata fails'
+    # Historic tags may use the manifest; a present malformed AGENTS must never fall back.
+    $legacy = Join-Path $fixture 'legacy'
+    $null = New-Item -ItemType Directory -Path $legacy
+    $null = Invoke-GeurtsPublicationGit $legacy @('init', '--quiet')
+    [IO.File]::WriteAllText((Join-Path $legacy 'GeurtsTechniqueManifest.md'), "**Version:** 1.0.0`r`n", $encoding)
+    $null = Invoke-GeurtsPublicationGit $legacy @('add', '--all')
+    $null = Invoke-GeurtsPublicationGit $legacy @('-c', 'user.name=Publication fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '--quiet', '-m', 'Historic manifest')
+    $null = Invoke-GeurtsPublicationGit $legacy @('tag', 'v1.0.0')
+    Assert-Publication ((Get-GeurtsPublicationResult -Root $legacy).candidateVersion -ceq '1.0.0') 'Historical publication without AGENTS uses its committed manifest'
+    Write-PublicationFixture $legacy '1.1.0' 'Single-entry adoption'
+    Assert-Publication ((Get-GeurtsPublicationResult -Root $legacy).candidateVersion -ceq '1.1.0') 'Current AGENTS version wins over the stale compatibility manifest'
+    [IO.File]::WriteAllText((Join-Path $legacy 'AGENTS.md'), "# Malformed current entry`r`n", $encoding)
+    $null = Invoke-GeurtsPublicationGit $legacy @('add', '--all')
+    $null = Invoke-GeurtsPublicationGit $legacy @('-c', 'user.name=Publication fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '--quiet', '-m', 'Invalid present entry')
+    Assert-PublicationFailure { Get-GeurtsPublicationResult -Root $legacy } 'exactly one stable' 'Malformed present AGENTS refuses fallback to a valid legacy manifest'
     $untagged = Join-Path $fixture 'untagged'
     $null = New-Item -ItemType Directory -Path $untagged
     $null = Invoke-GeurtsPublicationGit $untagged @('init', '--quiet')

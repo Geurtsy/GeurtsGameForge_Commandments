@@ -6,11 +6,11 @@
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md`
 
-The manifest selects this owner for Steam preparation, Steamworks.NET prerequisites, platform-service boundaries and Steam validation. Technical retains its priorities and no-code/API rules; Unity owns compatibility; BigBang owns installer admission; Brick Contract owns dependencies/lifecycle; Forge Setup owns shared readiness; Bootstrap owns retained scenes.
+AGENTS.md selects this owner for Steam preparation, Steamworks.NET prerequisites, platform-service boundaries and Steam validation. Technical retains its priorities and no-code/API rules; Unity owns compatibility; BigBang owns installer admission; Brick Contract owns dependencies/lifecycle; Forge Setup owns shared readiness; Bootstrap owns retained scenes.
 
 ## Target and delivery boundary
 
-Apply the manifest's [primary game target](../GeurtsTechniqueManifest.md#13-primary-game-target) when selecting the Steam release platform. Steam Deck, Proton, SteamOS, Linux and macOS are outside the current target. Supporting Steam does not require Deck certification, controller-only design or another operating-system build. A different target needs an explicit scope change.
+Apply AGENTS.md's [primary game target](../AGENTS.md#13-primary-game-target) when selecting the Steam release platform. Steam Deck, Proton, SteamOS, Linux and macOS are outside the current target. Supporting Steam does not require Deck certification, controller-only design or another operating-system build. A different target needs an explicit scope change.
 
 The first milestone is **prepared for Steam development**. A Unity project can reach it before obtaining a game AppID or configuring a store page, depots, branches, SteamPipe uploads or a release pipeline. When broader integration is explicitly requested, prepare optional services, customer launch policy and unresolved preview-only distribution drafts before onboarding. Leave partner-only settings, uploads, real native acceptance and release promotion pending their actual account/AppID context. Never invent a production AppID or claim release readiness from local preparation.
 
@@ -105,4 +105,4 @@ Unperformed checks remain unknown. Documentation/host tests, mocked providers an
 
 Later brick acceptance must cover wrapper/God/vendor-absent BigBang compilation, missing/partial/incompatible imports, stale evidence and dispatch rechecks, offline local admission, installed-God preservation, provider absence/disable/failure, repeated Play and scene transitions, initialization failures/cleanup, callback ownership, supported Windows backends and stripped artifacts. Real native and distribution checks require their actual client/AppID/entitlement/graphics context. Record scripted, rendered and physical-input evidence separately under Unity and Automation rules.
 
-For documentation publication, validate manifest routing/membership, subject versions, audience visibility, semantic boundaries, the closed schema-3 content contract, exact published catalogue sources and the candidate archive. Keep local preparation evidence separate from native and distribution acceptance. Publish a higher immutable Commandments release only after the advertised owner releases and exact pins are verified. Preserve manual consumer adoption.
+For documentation publication, validate AGENTS routing and registry membership, subject versions, audience visibility, semantic boundaries, the closed schema-3 content contract, exact published catalogue sources and the candidate archive. Keep local preparation evidence separate from native and distribution acceptance. Publish a higher immutable Commandments release only after the advertised owner releases and exact pins are verified. Preserve manual consumer adoption.

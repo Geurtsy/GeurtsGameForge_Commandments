@@ -5,7 +5,7 @@
 **Status:** Normative installation and removal boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
-The manifest selects this owner for independent prerequisite preparation, initial God installation and verified handoff. Technical owns implementation priorities; Brick Contract owns ordinary brick dependencies; Editor UI Theme owns presentation and visual acceptance; Automation owns validation and delivery. BigBang resolves only its initial God release; God retains the package catalogue and ongoing dependency/update planner.
+AGENTS.md selects this owner for independent prerequisite preparation, initial God installation and verified handoff. Technical owns implementation priorities; Brick Contract owns ordinary brick dependencies; Editor UI Theme owns presentation and visual acceptance; Automation owns validation and delivery. BigBang resolves only its initial God release; God retains the package catalogue and ongoing dependency/update planner.
 
 ## Identity and completion
 

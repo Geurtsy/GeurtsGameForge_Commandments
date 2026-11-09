@@ -1,13 +1,13 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.67.5
+**Version:** 0.68.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
 **Documentation source repository:** `Geurtsy/GeurtsGameForge_Commandments`
 
-Start at [AI_READ_FIRST.md](AI_READ_FIRST.md), then [GeurtsTechniqueManifest.md](GeurtsTechniqueManifest.md). The manifest is the sole resolver; this optional index does not select additional reading. Source contributions also follow [CONTRIBUTING.md](CONTRIBUTING.md).
+Start at [AGENTS.md](AGENTS.md), the sole startup and package resolver; this optional index does not select additional reading. Source contributions also follow [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Documentation is exclusively for AI agents. AI efficiency is the first documentation-design priority: concise deterministic guidance, one owner per rule, minimum task-relevant context and accurate evidence. Preserve exact constraints and safety/ownership boundaries. The separate runtime technical priorities are unchanged.
 
@@ -15,7 +15,7 @@ Documentation is exclusively for AI agents. AI efficiency is the first documenta
 
 | Task | Selected owner or index |
 |---|---|
-| Determine the primary game-platform scope and its exceptions | [Manifest primary game target](GeurtsTechniqueManifest.md#13-primary-game-target) |
+| Determine the primary game-platform scope and its exceptions | [Manifest primary game target](AGENTS.md#13-primary-game-target) |
 | Apply any approved Game Forge change, including BigBang | [Documentation Maintenance Technique](GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md) |
 | Select and use a brick | [Brick AI Usage Guide](GeurtsTechniques/GeurtsBrickUsageGuide.md), [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md), [Catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json) |
 | Plan Multiplayer with Steam built in | [Multiplayer owner](GeurtsTechniques/GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support), [planned availability and setup](GeurtsTechniques/GeurtsMultiplayerTechnique.md#availability-setup-and-owner-handoff) |
@@ -71,7 +71,7 @@ Package tools are inert content. The legacy manual manager does not implicitly c
 
 ## Reading modes and history
 
-Use the manifest's task selection before its audience/section reader. Read entry and manifest in full. Retrieve only relevant file/version and section-condition records from the manifest-owned GeurtsTechniques/GeurtsDocumentationRegistry.json, preferably through the local reader Preview. Preview is metadata, not rule reading. Without PowerShell, apply the manifest plain-file fallback. GameUse includes selected shared rules; ForgeDevelopment also includes relevant maintainer sections. The legacy HUMAN-ONLY tag means optional historical/reference content, not a secondary human audience. It and IncludeHuman keep their compatible spelling. Templates and exact contracts retain their payloads.
+Use the AGENTS.md task selection before its audience/section reader. Read AGENTS.md in full. Retrieve only relevant file/version and section-condition records from the AGENTS-owned GeurtsTechniques/GeurtsDocumentationRegistry.json, preferably through the local reader Preview. Preview is metadata, not rule reading. Without PowerShell, apply the AGENTS.md plain-file fallback. GameUse includes selected shared rules; ForgeDevelopment also includes relevant maintainer sections. The legacy HUMAN-ONLY tag means optional historical/reference content, not a secondary human audience. It and IncludeHuman keep their compatible spelling. Templates and exact contracts retain their payloads.
 
 Historical release records are in [History/Changelog.md](History/Changelog.md) and the [archived 0.62.19 README](History/README-0.62.19.md). History is non-normative and never routine onboarding. Existing migrations apply only when the task selects the corresponding transition.
 
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.68.0 — 9 November 2026
+
+- Consolidated session, version, task routing, applicability and conflict rules in AGENTS.md; specialists stay separate. Legacy entry/manifest filenames are compatibility redirects only.
+- Updated current routes, local reader, validation and regression checks; schema-3 target/confirmation boundaries and historical Codex payloads and standalone artifacts remain intact; new explicit guide installations route directly to AGENTS.md. God/Angels consumer adoption must be verified before compatible publication.
 
 ### 0.67.5 — 7 November 2026
 

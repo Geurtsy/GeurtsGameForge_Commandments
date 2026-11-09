@@ -1,21 +1,20 @@
 <!-- GEURTS-AUDIENCE: FORGE-DEVELOPMENT-ONLY -->
 # Contributing to Commandments
 
-**Version:** 0.67.5
-
+**Version:** 0.68.0
 This repository owns generic development standards, contracts and their source-only maintenance tools. God, bricks and the compatibility adapter own their implementations. Project-specific design stays in the game's `Docs/GameDesign/`.
 
 For game queue implementations, the Automation owner's [automated publisher leases and recovery](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#automated-publisher-leases-and-recovery) and [candidate/evidence safeguards](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#candidate-repair-and-validation-evidence) define the required safety, derived-output and committed-runner upgrade workflow. Acceptance policy remains project-owned; this documentation does not authorize blanket advisory checks. This source repository continues to use the scoped pull-request and release process below; publishing guidance installs no game processor.
 
 ## Read and change
 
-Start at [AI_READ_FIRST.md](AI_READ_FIRST.md), then the [manifest](GeurtsTechniqueManifest.md). Use `ForgeDevelopment` reading mode and select only the subjects needed for the change. Read one source commit; do not substitute remembered guidance or a managed project snapshot. Keep current requirements in their selected owner and link to them from other guides. Apply the manifest-selected [Documentation Maintenance Technique](GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md) to every approved change, including affected brick usage contracts and cross-repository dependencies.
+Start at [AGENTS.md](AGENTS.md), the single startup authority. Use `ForgeDevelopment` reading mode and select only the subjects needed for the change. Read one source commit; do not substitute remembered guidance or a managed project snapshot. Keep current requirements in their selected owner and link to them from other guides. Apply the AGENTS-selected [Documentation Maintenance Technique](GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md) to every approved change, including affected brick usage contracts and cross-repository dependencies.
 
 Use concise, literal instructions with explicit applicability, inputs, outputs and failure behavior. Prefer one authoritative rule over repeated prose. Keep historical evidence under `History/` and outside routine AI reading. Inspect existing code before extending it; avoid extra dependencies, network requests and repeated expensive checks.
 
-Use the Automation owner's [Git-only source-control policy](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#git-source-control). Work on Windows in a short source checkout. Follow the [technical priorities, path preflight and CRLF policy](GeurtsTechniques/GeurtsTechnicalTechnique.md). Preserve unrelated work and all frozen payload bytes. Stage every intended new file so the validator can compare the complete Git inventory with the manifest-owned JSON registry.
+Use the Automation owner's [Git-only source-control policy](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#git-source-control). Work on Windows in a short source checkout. Follow the [technical priorities, path preflight and CRLF policy](GeurtsTechniques/GeurtsTechnicalTechnique.md). Preserve unrelated work and all frozen payload bytes. Stage every intended new file so the validator can compare the complete Git inventory with the AGENTS-owned JSON registry.
 
-Every delivered change needs an appropriate higher documentation version. Update the entry, manifest-owned JSON registry, current metadata, changed tool versions and changelog together. Bump a technique when its own guidance changes; keep unchanged schemas, installer artifacts, historical records and brick pins intact. The entry point owns the detailed version rules.
+Every delivered change needs an appropriate higher documentation version. Update the entry, AGENTS-owned JSON registry, current metadata, changed tool versions and changelog together. Bump a technique when its own guidance changes; keep unchanged schemas, installer artifacts, historical records and brick pins intact. The entry point owns the detailed version rules.
 
 ## Validate
 
@@ -31,7 +30,7 @@ Before catalogue publication, follow the [Brick Contract's source gate](GeurtsTe
 
 ## Registry maintenance and publication dependency
 
-The manifest declares GeurtsTechniques/GeurtsDocumentationRegistry.json as its sole inventory/section data source. Preserve file path/version/role and section document/ID/heading/whenRequired fields; do not add another routing policy or Markdown inventory. Reader previews provide targeted version and applicability data; a preview never satisfies rule reading. Use the manifest's plain-file fallback without PowerShell. Stage additions before inventory validation.
+AGENTS.md declares GeurtsTechniques/GeurtsDocumentationRegistry.json as its sole inventory/section data source. Preserve file path/version/role and section document/ID/heading/whenRequired fields; do not add another routing policy or Markdown inventory. Reader previews provide targeted version and applicability data; a preview never satisfies rule reading. Use the AGENTS.md plain-file fallback without PowerShell. Stage additions before inventory validation.
 
 Registry-format publication requires compatible published God and Angels releases, verified together and pinned in the Catalogue. The coordinated cohort is God 0.42.0 and Angels 0.10.0; their exact source/evidence links and dependency-profile limitation are in the Usage Guide and [upgrade record](History/ReadingEfficiency-0.67.0.md). Preserve both demonstrated formats, malformed-new refusal, raw registry invalidation, the three route mappings, confirmation and frozen installer payloads. Source publication does not update installed consumers.
 

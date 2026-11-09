@@ -12,11 +12,11 @@
 
 Define consistent, type-first names for GeurtsGameForge Unity content. An AI reader must be able to classify an item, select a prefix, construct its name, and identify exceptions without inventing additional conventions.
 
-This technique is part of the GeurtsGameForge Commandments. MUST and MUST NOT express requirements; SHOULD expresses a recommendation. Its package applicability begins when the authoritative manifest selects it in a validated publication. Publication does not update a consumer or authorize an existing-content migration.
+This technique is part of the GeurtsGameForge Commandments. MUST and MUST NOT express requirements; SHOULD expresses a recommendation. Its package applicability begins when the authoritative AGENTS.md selects it in a validated publication. Publication does not update a consumer or authorize an existing-content migration.
 
-`GeurtsTechniqueManifest.md` selects this technique and assigns its naming subject. The manifest continues to own document selection, read order, versions, applicability, and cross-document conflict resolution. This technique must not establish a competing reading order.
+`AGENTS.md` selects this technique and assigns its naming subject. AGENTS.md continues to own document selection, read order, versions, applicability, and cross-document conflict resolution. This technique must not establish a competing reading order.
 
-Folder meaning and placement belong to the manifest-selected Folder Structure Technique. Language implementation and technical constraints belong to the selected Technical Technique. Git attributes and repository text handling belong to their selected owner where applicable. Naming must not silently change those subjects, package identities, public APIs, or fixed integration names. Machine-readable ID values retain the [Code Technique's ID standard](GeurtsCodeTechnique.md#id-names); they are distinct from asset filenames and GameObject names.
+Folder meaning and placement belong to the AGENTS-selected Folder Structure Technique. Language implementation and technical constraints belong to the selected Technical Technique. Git attributes and repository text handling belong to their selected owner where applicable. Naming must not silently change those subjects, package identities, public APIs, or fixed integration names. Machine-readable ID values retain the [Code Technique's ID standard](GeurtsCodeTechnique.md#id-names); they are distinct from asset filenames and GameObject names.
 
 ## 2. Applicability
 
@@ -328,7 +328,7 @@ PlayerStatistics.cs
 
 Unity script filenames MUST match their associated class names. For example, `PlayerController.cs` contains the corresponding `PlayerController` class.
 
-This exemption does not require every code identifier to use CapitalCamelCase. Parameters, fields, methods, properties, namespaces, and other identifiers continue to follow the manifest-selected technical and language conventions. Fixed-name entry scripts and external tool contracts follow section 8.
+This exemption does not require every code identifier to use CapitalCamelCase. Parameters, fields, methods, properties, namespaces, and other identifiers continue to follow the AGENTS-selected technical and language conventions. Fixed-name entry scripts and external tool contracts follow section 8.
 
 ## 8. Exceptions and Preservation
 
@@ -340,7 +340,7 @@ Apply an exception before applying the generic pattern when the owning contract 
 | Generated assets and imported sub-assets | Preserve their generation/import ownership. Do not rename them directly in the filesystem. |
 | Fixed Unity, build, integration, or tool names | Preserve the exact required identity. Record the concrete contract that prevents applying the pattern. |
 | Package IDs, assembly identities, and public APIs | Do not rename them as a side effect of asset naming. Assembly table entries apply only where filename contracts allow. |
-| Managed folders and technique documents | Preserve names owned by the manifest, folder registry, or other selected subject authority. This document remains `GeurtsNamingTechnique.md`. |
+| Managed folders and technique documents | Preserve names owned by AGENTS.md, the folder registry, or other selected subject authority. This document remains `GeurtsNamingTechnique.md`. |
 | Existing first-party content outside a requested migration | Report any naming discrepancy; do not silently rename it. |
 
 Naming alone does not authorize moving content, changing folder ownership, installing dependencies, modifying consumer packages, or editing project design facts.
@@ -370,7 +370,7 @@ This technique defines naming policy. It does not by itself deliver a validator,
 
 ## 10. Commandments Integration and Adoption
 
-Integrate this technique through the authoritative GeurtsGameForge documentation repository. The manifest MUST register the file, select its naming subject for applicable asset and scene-object creation or review, and determine its place in the existing reading order. Keep other subject ownership intact.
+Integrate this technique through the authoritative GeurtsGameForge documentation repository. AGENTS.md MUST register the file, select its naming subject for applicable asset and scene-object creation or review, and determine its place in the existing reading order. Keep other subject ownership intact.
 
 Update affected documentation versions, package membership, required references, and changelog entries. Preserve this technique's CRLF line endings and run the repository's required package and automation checks before publication. Complete the owning Git delivery workflow and verify remote publication.
 

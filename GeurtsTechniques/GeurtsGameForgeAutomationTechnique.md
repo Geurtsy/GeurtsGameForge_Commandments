@@ -8,7 +8,7 @@
 
 ## Purpose
 
-This technique defines concise, reusable operational behaviour for AI-assisted game development. It does not define a document resolver, technical priority system, product integration lifecycle, or product feature. `GeurtsTechniqueManifest.md` alone decides when this technique applies, where it is read, and which subject owner resolves a conflict.
+This technique defines concise, reusable operational behaviour for AI-assisted game development. It does not define a document resolver, technical priority system, product integration lifecycle, or product feature. `AGENTS.md` alone decides when this technique applies, where it is read, and which subject owner resolves a conflict.
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ### Provenance
@@ -21,7 +21,7 @@ Reusable operational guidance was selectively adapted from the supplied Game For
 
 The current explicit user instruction is the active request whether it arrives through an embedded game-development interface or a direct coding-agent prompt. The interface does not change its authority.
 
-Use a host-provided pending automation objective only after the user explicitly asks to start or continue that pending work. A pending artifact does not silently override a newer direct request, the manifest-selected subject owners, project-specific design facts, or safety boundaries.
+Use a host-provided pending automation objective only after the user explicitly asks to start or continue that pending work. A pending artifact does not silently override a newer direct request, the AGENTS-selected subject owners, project-specific design facts, or safety boundaries.
 
 ## Operational Behaviour
 
@@ -59,7 +59,7 @@ Use focused checks while editing. Run required final validation once for the com
 
 **Minimise avoidable tool calls, compute, output and repeated work while completing the authorized outcome.**
 
-- Follow manifest selection and audience/section filters. Search relevant paths with `rg` before broad reads; retain already-read unchanged content within the current task, and refresh it when its source or applicability changes. Never substitute stale memory for required current reading.
+- Follow AGENTS.md selection and audience/section filters. Search relevant paths with `rg` before broad reads; retain already-read unchanged content within the current task, and refresh it when its source or applicability changes. Never substitute stale memory for required current reading.
 - Prefer a suitable supported API, connector or CLI. Batch independent searches and reads; parallelize only independent, safe operations. Keep dependent work, mutations and approvals in their required order.
 - Request concise results and read only the relevant ranges, fields or diagnostics. Preserve complete required evidence in files when useful; do not dump large logs or generated data into context. Detect truncation and retrieve missing relevant content before relying on it.
 - Reuse validated discoveries and results with their source/version and freshness limits. Avoid duplicate scans, downloads, builds, speculative dependencies and overlapping work. Stop expanding validation after the requested outcome and required checks are satisfied unless new evidence identifies a gap.
@@ -205,9 +205,9 @@ Background Editor Play Mode, player, video, UI/effects and multiplayer tests mus
 
 ## Approach and Questions
 
-Choose a reasonable implementation by applying project evidence and the manifest-selected Technical Technique. Do not add a separate decision framework or require a multi-option comparison for routine work.
+Choose a reasonable implementation by applying project evidence and the AGENTS-selected Technical Technique. Do not add a separate decision framework or require a multi-option comparison for routine work.
 
-Ask the user only when alternatives materially change gameplay, architecture, scope, safety, cost, or another genuinely consequential outcome, when a manifest-selected subject owner requires an answer, or when new authority is required. Otherwise proceed with reversible routine details that can be inferred safely.
+Ask the user only when alternatives materially change gameplay, architecture, scope, safety, cost, or another genuinely consequential outcome, when a AGENTS-selected subject owner requires an answer, or when new authority is required. Otherwise proceed with reversible routine details that can be inferred safely.
 
 ## Unity-Owned Serialization
 
@@ -221,7 +221,7 @@ Product-specific modes, services, APIs, credentials, feature policy, runtime set
 
 ## Definition of Done
 
-Automation is complete when the active request is resolved within scope, relevant project evidence and manifest-selected authorities were used, safe routine work was completed, consequential uncertainty was surfaced, relevant validation passed, Codex completed the required delivery to main unless the user specified otherwise, and the result reports the change and a practical verification path. Any actual merge blocker or unavailable interactive validation remains explicitly reported.
+Automation is complete when the active request is resolved within scope, relevant project evidence and AGENTS-selected authorities were used, safe routine work was completed, consequential uncertainty was surfaced, relevant validation passed, Codex completed the required delivery to main unless the user specified otherwise, and the result reports the change and a practical verification path. Any actual merge blocker or unavailable interactive validation remains explicitly reported.
 
 ## Supported operations and inspection evidence
 

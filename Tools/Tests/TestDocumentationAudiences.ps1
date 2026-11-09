@@ -1,4 +1,4 @@
-# Version: 2.0.0
+# Version: 2.0.1
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
@@ -66,11 +66,11 @@ Shared ending.
         Assert-Rejected { ConvertTo-GeurtsAudienceText -Text $invalid } "Malformed tag/fence fails closed: $invalid"
     }
 
-    foreach ($bootstrap in @('AI_READ_FIRST.md', 'GeurtsTechniqueManifest.md')) {
+    foreach ($bootstrap in @('AGENTS.md', 'AI_READ_FIRST.md', 'GeurtsTechniqueManifest.md')) {
         $raw = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot $bootstrap))
         foreach ($mode in @('GameUse', 'ForgeDevelopment')) {
             $read = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document $bootstrap -Mode $mode
-            Assert-Audience ($read.SkippedLines -eq 0 -and $read.Content.Contains('GeurtsTechniqueManifest.md')) "$bootstrap remains completely AI-readable in $mode"
+            Assert-Audience ($read.SkippedLines -eq 0 -and $read.Content.Contains('AGENTS.md')) "$bootstrap remains completely AI-readable in $mode"
         }
     }
     $namingRaw = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsNamingTechnique.md'))
@@ -106,6 +106,9 @@ Shared ending.
     foreach ($payload in @('GeurtsTechniques/GeurtsAgentTechnique.md', 'GeurtsTechniques/GeurtsGitIgnoreTechnique.md')) {
         $raw = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot $payload))
         $expected = [regex]::Replace($raw, '\A<!-- GEURTS-AUDIENCE: AI-READ -->\r?\n', '')
+        if ($payload -ceq 'GeurtsTechniques/GeurtsAgentTechnique.md') {
+            $expected = [regex]::Replace($expected, '(?s)<!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->.*?<!-- GEURTS-SECTION:END -->\r?\n?', '')
+        }
         Assert-Audience ((Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document $payload).Content -ceq $expected) "$payload preserves its full literal installer payload"
     }
 
@@ -114,17 +117,17 @@ Shared ending.
     [void][System.IO.Directory]::CreateDirectory($fixture)
     [void][IO.Directory]::CreateDirectory((Join-Path $fixture 'GeurtsTechniques'))
     $registryPath = Join-Path $fixture 'GeurtsTechniques/GeurtsDocumentationRegistry.json'
-    [IO.File]::WriteAllText((Join-Path $fixture 'GeurtsTechniqueManifest.md'), "**Version:** 1.0.0`r`n<!-- GEURTS-REGISTRY: GeurtsTechniques/GeurtsDocumentationRegistry.json -->`r`n")
+    [IO.File]::WriteAllText((Join-Path $fixture 'AGENTS.md'), "**Version:** 1.0.0`r`n<!-- GEURTS-REGISTRY: GeurtsTechniques/GeurtsDocumentationRegistry.json -->`r`n")
     $fixtureRegistry = [pscustomobject]@{
         schemaVersion = '1.0.0'; packageVersion = '1.0.0'
-        files = @('AI_READ_FIRST.md', 'GeurtsTechniqueManifest.md', 'GeurtsTechniques/GeurtsDocumentationRegistry.json', 'allowed.md', 'linked/secret.md') | ForEach-Object { [pscustomobject]@{path=$_; version='1.0.0'; role='Fixture'} }
+        files = @('AGENTS.md', 'GeurtsTechniques/GeurtsDocumentationRegistry.json', 'allowed.md', 'linked/secret.md') | ForEach-Object { [pscustomobject]@{path=$_; version='1.0.0'; role='Fixture'} }
         controlledSections = @()
     }
     [IO.File]::WriteAllText($registryPath, ($fixtureRegistry | ConvertTo-Json -Depth 6))
     [System.IO.File]::WriteAllText((Join-Path $fixture 'allowed.md'), $sample)
     [System.IO.File]::WriteAllText((Join-Path $fixture 'unregistered.md'), 'Do not load this file.')
     $before = (Get-FileHash -LiteralPath (Join-Path $fixture 'allowed.md')).Hash
-    Assert-Audience ((Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'allowed.md').Content -ceq $game.Content) 'Explicit registered file is read without a Git checkout'
+    Assert-Audience ((Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'allowed.md').Content -ceq $game.Content) 'Explicit registered file reads without Git or either legacy startup alias'
     foreach ($path in @('../outside.md', 'Docs/GameDesign/../../allowed.md', 'unregistered.md', 'C:/outside.md', 'allowed.json')) {
         Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document $path } "Reader rejects out-of-scope selection: $path"
     }
@@ -135,13 +138,19 @@ Shared ending.
     finally { [System.IO.Directory]::Delete($link.FullName) }
     Assert-Audience ((Get-FileHash -LiteralPath (Join-Path $fixture 'allowed.md')).Hash -ceq $before) 'Reads preserve source file bytes'
 
+    $entryPath = Join-Path $fixture 'AGENTS.md'
+    $entryOriginal = [IO.File]::ReadAllText($entryPath)
+    [IO.File]::WriteAllText($entryPath, ($entryOriginal + "<!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->`r`nHidden startup policy.`r`n<!-- GEURTS-SECTION:END -->`r`n"))
+    Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'AGENTS.md' } 'Startup authority refuses audience-hidden policy rather than returning a partial entry'
+    [IO.File]::WriteAllText($entryPath, $entryOriginal)
+
     # Controlled partial reading must keep all untabled safety rules and literal fences.
     $fixtureRegistry.files += [pscustomobject]@{path='scoped.md'; version='1.0.0'; role='Fixture'}
     $fixtureRegistry.controlledSections = @(
         [pscustomobject]@{document='scoped.md'; id='audio'; heading='Audio topic'; whenRequired='Audio work only.'},
         [pscustomobject]@{document='scoped.md'; id='backend'; heading='Maintainer backend'; whenRequired='Provider implementation only.'}
     )
-    $scopedManifest = $fixtureRegistry | ConvertTo-Json -Depth 6
+    $scopedManifest = ($fixtureRegistry | ConvertTo-Json -Depth 6).Replace(':  ', ': ')
     [IO.File]::WriteAllText($registryPath, $scopedManifest)
     $scopedText = @'
 <!-- GEURTS-AUDIENCE: AI-READ -->
@@ -164,7 +173,7 @@ Always retain this newly introduced requirement.
 '@
     $scopedPath = Join-Path $fixture 'scoped.md'
     [IO.File]::WriteAllText($scopedPath, $scopedText.Replace("`n", "`r`n"))
-    [IO.File]::WriteAllText((Join-Path $fixture 'AI_READ_FIRST.md'), $sample)
+    # Preserve the startup authority's version and registry declaration during partial-read fixtures.
     $scopedBefore = (Get-FileHash -LiteralPath $scopedPath).Hash
     $whole = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md'
     $core = Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections core
@@ -180,7 +189,7 @@ Always retain this newly introduced requirement.
     foreach ($ids in @(@('unknown'), @('audio','audio'), @('backend'))) {
         Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'scoped.md' -Sections $ids } "Reject unknown, duplicate or audience-hidden selection: $($ids -join ',')"
     }
-    Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'AI_READ_FIRST.md' -Sections core } 'Bootstrap cannot be partially read'
+    Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $fixture -Document 'AGENTS.md' -Sections core } 'Bootstrap cannot be partially read'
     Assert-Rejected { Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document 'GeurtsTechniques/GeurtsGitIgnoreTechnique.md' -Sections core } 'Exact installer payload cannot be partially read'
     # Each case retains the prior map invariant in the new single registry format.
     foreach ($brokenMap in @(
@@ -188,7 +197,7 @@ Always retain this newly introduced requirement.
         $scopedManifest.Substring(0, $scopedManifest.Length - 1),
         $scopedManifest.Replace('"id": "backend"', '"id": "audio"'),
         $scopedManifest.Replace('"document": "scoped.md"', '"document": "unregistered.md"'),
-        $scopedManifest.Replace('"document": "scoped.md"', '"document": "AI_READ_FIRST.md"'),
+        $scopedManifest.Replace('"document": "scoped.md"', '"document": "AGENTS.md"'),
         $scopedManifest.Replace('"id": "audio"', '"id": "core"'),
         $scopedManifest.Replace('"whenRequired": "Audio work only."', '"whenRequired": ""'),
         $scopedManifest.Replace('"schemaVersion": "1.0.0"', '"schemaVersion": "2.0.0"'),
@@ -207,7 +216,7 @@ Always retain this newly introduced requirement.
     Assert-Audience ($preview.DocumentMetadata.version -ceq '1.0.0' -and
         @($preview.Headings | Where-Object id -ceq 'audio')[0].whenRequired -ceq 'Audio work only.' -and
         $preview.DocumentMetadata.controlledSections.Count -eq 2) 'Targeted preview exposes document version and exact applicability conditions'
-    $manifestPath = Join-Path $fixture 'GeurtsTechniqueManifest.md'
+    $manifestPath = Join-Path $fixture 'AGENTS.md'
     $validManifest = [IO.File]::ReadAllText($manifestPath)
     foreach ($badManifest in @($validManifest.Replace('GEURTS-REGISTRY:', 'UNKNOWN:'),
         ($validManifest + '<!-- GEURTS-PACKAGE-FILES:BEGIN -->'), ($validManifest + $validManifest))) {

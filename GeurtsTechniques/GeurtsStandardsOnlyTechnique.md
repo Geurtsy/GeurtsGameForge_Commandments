@@ -7,7 +7,7 @@
 
 ## Purpose and Authority
 
-Use **StandardsOnly** when a project adopts the Commandments as development standards without using Geurts Game Forge packages. `GeurtsTechniqueManifest.md` selects this technique before the task's generic subjects and owns all reading order, version resolution and conflicts. This technique owns only the standards-only applicability boundary; each selected subject retains its actual technical rules.
+Use **StandardsOnly** when a project adopts the Commandments as development standards without using Geurts Game Forge packages. `AGENTS.md` selects this technique before the task's generic subjects and owns all reading order, version resolution and conflicts. This technique owns only the standards-only applicability boundary; each selected subject retains its actual technical rules.
 
 StandardsOnly is a usage profile, not a new PowerShell reader mode, a package, an installer or a claim that a game has been migrated. The existing `GameUse` audience filter is suitable for reading selected shared documents. Audience filtering alone does not remove framework-specific sentences; apply this profile's boundary as well.
 
@@ -17,7 +17,7 @@ An explicit user instruction or project-authored instruction selects StandardsOn
 
 ```text
 Use GeurtsGameForge_Commandments in the StandardsOnly profile.
-Read GeurtsGameForgeCommandments/AI_READ_FIRST.md and its manifest.
+Read GeurtsGameForgeCommandments/AGENTS.md.
 Apply the selected development standards without installing or using GeurtsGameForge packages.
 ```
 
@@ -27,7 +27,7 @@ Do not infer package adoption from the documentation's name, the presence of a d
 
 ## General Standards Remain Applicable
 
-Select task-relevant Technical, Unity, Code, Authoring, Naming, Folder Structure, Bootstrap, Audio, GameAI, Multiplayer, Automation, Game Design Documentation and Git subject techniques through the manifest. Their general requirements remain binding, including technical priorities, supported APIs, documentation, naming and script exemptions, ownership, preservation, bootstrap scene lifetime, safe serialized changes, validation and truthful evidence.
+Select task-relevant Technical, Unity, Code, Authoring, Naming, Folder Structure, Bootstrap, Audio, GameAI, Multiplayer, Automation, Game Design Documentation and Git subject techniques through AGENTS.md. Their general requirements remain binding, including technical priorities, supported APIs, documentation, naming and script exemptions, ownership, preservation, bootstrap scene lifetime, safe serialized changes, validation and truthful evidence.
 
 The required `SCN_BigBang` and `SCN_DevPlayground` scenes, folder placement and build order remain project standards. The name `SCN_BigBang` does not require the BigBang installer or God: the standalone project implements its own bootstrap using the documented retained-scene lifetime rules.
 
@@ -59,7 +59,7 @@ Package requirements apply again to any explicitly adopted Forge integration and
 
 ## Use the Documentation Without Unity Packages
 
-Read a complete official source checkout or download one complete official source snapshot at a recorded exact commit. Use one validated package throughout the session. `GeurtsGameForgeCommandments/` is the conventional project-local location; an explicitly selected external checkout is also valid. Start at its `AI_READ_FIRST.md`, then its manifest. Do not mix remembered rules, partial copied techniques or files from another version.
+Read a complete official source checkout or download one complete official source snapshot at a recorded exact commit. Use one validated package throughout the session. `GeurtsGameForgeCommandments/` is the conventional project-local location; an explicitly selected external checkout is also valid. Start at its `AGENTS.md`. Do not mix remembered rules, partial copied techniques or files from another version.
 
 For the optional Windows routes, read the [Companion owner's standalone distinction](GeurtsCommandmentsCompanionTechnique.md#secondary-standalone-documentation-routes): the existing preservation installer and approved replacement requirement have different availability and mutation contracts. Neither requires licensed Unity libraries or installs additional software/packages. Game Forge integration remains the primary workflow.
 

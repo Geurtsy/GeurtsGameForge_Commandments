@@ -6,7 +6,7 @@
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsMultiplayerTechnique.md`
 
-The manifest selects this owner for networking, replicated state and multiplayer implementation. The [Technical Technique's Multiplayer Exception](GeurtsTechnicalTechnique.md#multiplayer-exception) makes latency the highest multiplayer priority, followed by bandwidth efficiency before the normal code priorities.
+AGENTS.md selects this owner for networking, replicated state and multiplayer implementation. The [Technical Technique's Multiplayer Exception](GeurtsTechnicalTechnique.md#multiplayer-exception) makes latency the highest multiplayer priority, followed by bandwidth efficiency before the normal code priorities.
 
 ## Selected Framework, Steam Transport and Player Topology
 

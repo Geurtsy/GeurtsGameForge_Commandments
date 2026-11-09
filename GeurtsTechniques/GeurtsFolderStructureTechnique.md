@@ -7,7 +7,7 @@
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsFolderStructureTechnique.md`
 
-> `GeurtsTechniqueManifest.md` selects this file and version from one validated package commit. This technique defines folder meaning and placement only.
+> `AGENTS.md` selects this file and version from one validated package commit. This technique defines folder meaning and placement only.
 
 ---
 
@@ -17,7 +17,7 @@ This document defines a stable, scalable Unity project structure for Geurts Game
 
 This Markdown document is the **explanatory authority** for folder meaning, placement, and constraints. `GeurtsTechniques/GeurtsFolderStructureDefinition.json` is the **automation authority** for the literal managed-folder registry and folder creation. Neither authority may contradict the other.
 
-The manifest resolves cross-document selection, applicability, and conflicts. This document and the JSON definition do not establish an alternate document order.
+AGENTS.md resolves cross-document selection, applicability, and conflicts. This document and the JSON definition do not establish an alternate document order.
 
 If the Markdown and JSON disagree, validation must fail. An agent or tool must not guess which path to create.
 
@@ -44,7 +44,7 @@ Report an over-limit path using its exact absolute spelling and character count,
 
 ## Standards-Only Folder Setup
 
-The manifest-selected [Standards-Only Technique](GeurtsStandardsOnlyTechnique.md) permits these folder standards and the separately invoked create-only PowerShell tool without GameForge packages. In **StandardsOnly**, use one complete official source copy at a recorded commit with its matching definition; the God-owned Update prerequisite below and Angels menu step are not applicable. Inspect compatibility and run only the explicitly authorized folder operation. Keep all definition ownership, path, containment, preservation and scene/API requirements. The existing **ForgeUse** setup route still requires its separately confirmed God Update before every full-profile run. This exception changes no creation profile, registry path or tool parameter, and starts no updater. The Companion owner distinguishes the existing offline preservation installer from the approved, unimplemented standalone replacement mode; neither performs folder setup.
+The AGENTS-selected [Standards-Only Technique](GeurtsStandardsOnlyTechnique.md) permits these folder standards and the separately invoked create-only PowerShell tool without GameForge packages. In **StandardsOnly**, use one complete official source copy at a recorded commit with its matching definition; the God-owned Update prerequisite below and Angels menu step are not applicable. Inspect compatibility and run only the explicitly authorized folder operation. Keep all definition ownership, path, containment, preservation and scene/API requirements. The existing **ForgeUse** setup route still requires its separately confirmed God Update before every full-profile run. This exception changes no creation profile, registry path or tool parameter, and starts no updater. The Companion owner distinguishes the existing offline preservation installer from the approved, unimplemented standalone replacement mode; neither performs folder setup.
 
 ## Automation
 
@@ -140,7 +140,7 @@ ProjectRoot/
 ```
 
 - `.github/` and `.github/instructions/` may be created by the optional manual native-entry manager or by the Commandments Companion only as missing parents for its exact contract-listed AI routes. They also may hold unrelated GitHub-native repository configuration. The folder-structure tool must not create them as part of the 76-path project profile.
-- `GeurtsGameForgeCommandments/` is the placement boundary for a detached project-local snapshot managed as logically read-only content, not a machine-readable managed folder. The folder-structure tool has no creation, replacement, or lifecycle authority for it. The manifest-selected Commandments Companion Technique and Contract own their explicit confirmed Update boundary.
+- `GeurtsGameForgeCommandments/` is the placement boundary for a detached project-local snapshot managed as logically read-only content, not a machine-readable managed folder. The folder-structure tool has no creation, replacement, or lifecycle authority for it. The AGENTS-selected Commandments Companion Technique and Contract own their explicit confirmed Update boundary.
 - Directories below `GeurtsGameForgeCommandments/` are deliberately absent from the folder definition, so a new tracked source directory does not require a folder-schema change.
 - The native-entry manager may create its assigned `.github` paths but may never delete existing directories or user content through the folder-definition contract. A confirmed companion Update separately authorizes whole-file replacement of only its three contract-listed AI routes; every unlisted path inside `.github/` remains uninspected and untouched.
 - `Docs/` and `Docs/GameDesign/` remain members of the full project profile and additionally delegate the closed `gdd-scaffolding` profile to the native-entry manager, so missing GDD scaffolding can be created without granting that manager access to unrelated folders.
@@ -174,7 +174,7 @@ Rules:
 
 - Treat this directory as logically read-only managed reference content. This is an ownership rule, not a requirement to set Windows read-only attributes. A confirmed companion Update discards and replaces its complete contents without inspecting or preserving local drift.
 - The folder-definition tool must not create, populate, update, replace, or remove it.
-- The manifest-selected Commandments Companion Technique and Contract own the companion's explicit fetch-and-replace operation. Normal Unity launch/open performs no remote metadata check or catalogue refresh; AI/session initialization receives no lifecycle authority from this folder technique.
+- The AGENTS-selected Commandments Companion Technique and Contract own the companion's explicit fetch-and-replace operation. Normal Unity launch/open performs no remote metadata check or catalogue refresh; AI/session initialization receives no lifecycle authority from this folder technique.
 - God owns the Commandments Editor service; the [Commandments Companion Technique](GeurtsCommandmentsCompanionTechnique.md) owns its lifecycle and passive-adapter transition. The [Brick Contract](GeurtsBrickContract.md#identity-and-dependencies) owns package and licensed-library dependencies. Authoritative Markdown content remains readable without God. The content action grants no additional project access. Never use a generic template as the target game's design authority.
 - Do not store project-specific GDD files here.
 - Keep project-specific game design documentation under `Docs/GameDesign/`.
@@ -318,7 +318,7 @@ Art/
 
 ### Audio/
 
-Imported audio clips and Unity mixer assets. Editable sessions and original recordings belong in `SourceAssets/Audio/`. Use the current Audio package's Unity built-in default; FMOD is completely optional. Follow the manifest-selected Audio Technique's [Game Audio and Sound Design standard](GeurtsAudioTechnique.md#game-audio-and-sound-design), the catalogue, and the installed Audio package documentation for the prerequisites of that release.
+Imported audio clips and Unity mixer assets. Editable sessions and original recordings belong in `SourceAssets/Audio/`. Use the current Audio package's Unity built-in default; FMOD is completely optional. Follow the AGENTS-selected Audio Technique's [Game Audio and Sound Design standard](GeurtsAudioTechnique.md#game-audio-and-sound-design), the catalogue, and the installed Audio package documentation for the prerequisites of that release.
 
 ```text
 Audio/
@@ -521,7 +521,7 @@ Folders organize content; assembly and build rules still need explicit configura
 - Put Editor-only code in an Editor-only assembly. An `Editor/` child beneath a parent runtime asmdef can belong to that runtime assembly unless it has an appropriate separate Editor-only asmdef or asmref. Follow [Unity's assembly definition guidance](https://docs.unity3d.com/6000.6/Documentation/Manual/assembly-definitions-intro.html).
 - `Testing/`, `EditMode/`, and `PlayMode/` names do not configure test assemblies or exclude test code from players. Configure test assemblies through the installed Unity Test Framework and verify their intended platforms and references. The template creates directories only. See [Unity's test assembly workflow](https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/workflow-create-test-assembly.html).
 - Networking, localization, Addressables, and FMOD folders do not install or activate those optional systems. Do not add `Resources/` or `StreamingAssets/` merely as organizational folders: they have specific loading and build behaviour. Use them only when the owning system requires that behaviour. See [Unity's special folder rules](https://docs.unity3d.com/6000.6/Documentation/Manual/SpecialFolders.html).
-- Check new assets import successfully, tests remain in test assemblies, Editor code stays out of Windows players, and the applicable build/scene rules still hold. Use the manifest-selected Technical and Automation techniques for validation; folder presence alone is not proof of a working feature.
+- Check new assets import successfully, tests remain in test assemblies, Editor code stays out of Windows players, and the applicable build/scene rules still hold. Use the AGENTS-selected Technical and Automation techniques for validation; folder presence alone is not proof of a working feature.
 
 ---
 
@@ -555,7 +555,7 @@ Avoid:
 
 ## Naming Guidance for Folders
 
-These rules name folders. The manifest-selected [Naming Technique](GeurtsNamingTechnique.md) owns asset filenames, scene GameObject names, prefab roots and script filename/class names. Keep the exact managed folder paths and required scene identities; their owning contracts take precedence over the generic content naming pattern.
+These rules name folders. The AGENTS-selected [Naming Technique](GeurtsNamingTechnique.md) owns asset filenames, scene GameObject names, prefab roots and script filename/class names. Keep the exact managed folder paths and required scene identities; their owning contracts take precedence over the generic content naming pattern.
 
 - Use PascalCase for subfolders inside Unity content areas.
 - Keep names short and literal.
@@ -733,7 +733,7 @@ A folder-definition change is complete only when:
 - upgrading an older template preserves existing files, `.meta` identities, and timestamps;
 - unsafe paths, collisions, and reparse-point changes remain rejected;
 - no scene assets, assembly definitions, packages, or feature content are generated by folder creation;
-- the manifest and affected integration references are updated in the same change.
+- AGENTS.md and affected integration references are updated in the same change.
 <!-- GEURTS-SECTION:END -->
 
 ## User-selected Codex guide placement

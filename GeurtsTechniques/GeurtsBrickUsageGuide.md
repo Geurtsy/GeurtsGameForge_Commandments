@@ -7,7 +7,7 @@
 
 ## Selection and evidence
 
-The manifest selects this index with the Brick Contract and Catalogue. Read the shared rules here and only the relevant brick sections through the manifest's controlled section reader. Game Forge integration is primary; StandardsOnly does not select bricks unless explicitly adopted.
+AGENTS.md selects this index with the Brick Contract and Catalogue. Read the shared rules here and only the relevant brick sections through the AGENTS-owned controlled section reader. Game Forge integration is primary; StandardsOnly does not select bricks unless explicitly adopted.
 
 The [Catalogue](GeurtsBrickCatalogue.json) alone selects current installable identities, versions, immutable sources, Unity bounds and dependency minimums. Released sections below record evidence at their catalogue pin, not a second installation target. Multiplayer is planned and unavailable; its required stack is not installation or compatibility evidence. Planned features within released bricks remain unavailable. Planned entries require purpose, limits and an explicit unavailable state, with no invented API, action, installation source or executable example.
 

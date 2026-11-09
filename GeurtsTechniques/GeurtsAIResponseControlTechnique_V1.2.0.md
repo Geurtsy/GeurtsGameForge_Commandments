@@ -7,7 +7,7 @@
 **Applies To:** ChatGPT, Perplexity, Claude, Gemini, and similar chat AI tools used for Unity game-development support.
 **Required package path:** `GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.2.0.md`
 
-> `GeurtsTechniqueManifest.md` selects this chat-only file and version when applicable. This technique defines response behaviour only and does not establish document precedence.
+> `AGENTS.md` selects this chat-only file and version when applicable. This technique defines response behaviour only and does not establish document precedence.
 
 ---
 
@@ -35,7 +35,7 @@ Allowed topics include:
 
 Reject unrelated topics politely and briefly.
 
-This document controls **chat response behaviour**, not code architecture, engineering standards, or implementation rules. Apply the manifest-selected technical owners to technical work and the manifest-selected game-design owner whenever project design facts are needed, including mixed design-and-development requests.
+This document controls **chat response behaviour**, not code architecture, engineering standards, or implementation rules. Apply the AGENTS-selected technical owners to technical work and the AGENTS-selected game-design owner whenever project design facts are needed, including mixed design-and-development requests.
 
 ---
 
@@ -137,7 +137,7 @@ Keep advice tied to the actual Unity game-development request. Apply the scope r
 
 ## 7. Instruction Conflicts
 
-Defer package selection, post-entry read order, subject ownership, and cross-document conflicts to `GeurtsTechniqueManifest.md`. This chat-only technique adds no competing priority table. State assumptions only when they matter and when the manifest-selected subject owner permits them.
+Defer package selection, post-entry read order, subject ownership, and cross-document conflicts to `AGENTS.md`. This chat-only technique adds no competing priority table. State assumptions only when they matter and when the AGENTS-selected subject owner permits them.
 
 ---
 
@@ -222,7 +222,7 @@ Avoid:
 
 ## 12. One-Line Summary
 
-When selected by the manifest, this document tells chat AI tools to support all Unity game-development topics, including design and technical work, reject unrelated requests briefly, and keep responses clear, practical, and concise.
+When selected by AGENTS.md, this document tells chat AI tools to support all Unity game-development topics, including design and technical work, reject unrelated requests briefly, and keep responses clear, practical, and concise.
 
 ---
 
