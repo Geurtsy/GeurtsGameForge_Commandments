@@ -103,6 +103,8 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 ### 0.68.0 — 9 November 2026
 
+- Pin God 0.44.2 with concise expandable Compatibility findings and reviewed native layout evidence; pin Compatibility 0.1.1 with the Unicode admission correction. Source publication and explicit consumer migration remain separate.
+
 - Consolidated session, version, task routing, applicability and conflict rules in AGENTS.md; specialists stay separate. Legacy entry/manifest filenames are compatibility redirects only.
 - Updated current routes, local reader, validation and regression checks; schema-3 target/confirmation boundaries and historical Codex payloads and standalone artifacts remain intact; new explicit guide installations route directly to AGENTS.md. God/Angels consumer adoption must be verified before compatible publication.
 
