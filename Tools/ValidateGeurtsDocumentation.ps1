@@ -1,6 +1,5 @@
 # ValidateGeurtsDocumentation.ps1
-# Version: 0.67.5
-
+# Version: 0.68.0
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot,
@@ -126,17 +125,17 @@ try {
     if (-not (Test-Path -LiteralPath $RepositoryRoot -PathType Container)) { throw "Repository root does not exist: $RepositoryRoot" }
 
     Import-Module (Join-Path $PSScriptRoot "GeurtsDocumentationAudience.psm1") -Force
-    $manifestPath = Join-Path $RepositoryRoot "GeurtsTechniqueManifest.md"
+    $manifestPath = Join-Path $RepositoryRoot "AGENTS.md"
     $manifestText = if (Test-Path -LiteralPath $manifestPath -PathType Leaf) { [System.IO.File]::ReadAllText($manifestPath) } else { "" }
     $packageMatch = [regex]::Match($manifestText, '(?im)^\*\*Version:\*\*\s*(?<Version>\d+\.\d+\.\d+)')
     $packageVersion = if ($packageMatch.Success) { $packageMatch.Groups["Version"].Value } else { $null }
-    Add-Check "Package version" ($packageVersion -cmatch '^(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)$') "Manifest package version is $packageVersion."
+    Add-Check "Package version" ($packageVersion -cmatch '^(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)$') "AGENTS.md package version is $packageVersion."
 
-    $entryPolicy = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "AI_READ_FIRST.md"))
+    $entryPolicy = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "AGENTS.md"))
     $versionPolicyValid = $entryPolicy.Contains("Before planning or editing any part of Geurts Game Forge") -and
         $entryPolicy.Contains("no matter how small") -and $entryPolicy.Contains("Never publish changed content under the same version") -and
         $entryPolicy.Contains('MAJOR.MINOR.PATCH') -and $entryPolicy.Contains("new version exceeds the previous published version")
-    Add-Check "Mandatory reading and version policy" $versionPolicyValid "AI_READ_FIRST requires current documentation reading and an appropriate version bump for every update, however small."
+    Add-Check "Mandatory reading and version policy" $versionPolicyValid "AGENTS.md requires current documentation reading and an appropriate version bump for every update, however small."
 
     $standardsPath = Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsStandardsOnlyTechnique.md'
     $standardsText = if (Test-Path -LiteralPath $standardsPath -PathType Leaf) { [IO.File]::ReadAllText($standardsPath) } else { '' }
@@ -178,7 +177,7 @@ try {
     Add-Check 'Publication workflow' $workflowValid 'Windows CI has the required check, complete history, read-only permissions and publication/static/automation gates.'
     $contributorPath = Join-Path $RepositoryRoot 'CONTRIBUTING.md'
     $contributors = if (Test-Path -LiteralPath $contributorPath -PathType Leaf) { [IO.File]::ReadAllText($contributorPath) } else { '' }
-    $contributorValid = $contributors.Contains('[AI_READ_FIRST.md](AI_READ_FIRST.md)') -and
+    $contributorValid = $contributors.Contains('[AGENTS.md](AGENTS.md)') -and
         $contributors.Contains('./Tools/ValidateGeurtsPublication.ps1') -and
         $contributors.Contains('No repository-wide licence has been declared.') -and
         $contributors.Contains('preserves the existing terms and adds no licence grant.')
@@ -236,9 +235,9 @@ try {
                 if (-not $relative.StartsWith('Tools/AIAgentInstructionTemplates/') -and -not $filtered.HasFileTag) {
                     throw 'Documentation requires an explicit file audience tag.'
                 }
-                if ($relative -in @('AI_READ_FIRST.md', 'GeurtsTechniqueManifest.md') -and
+                if ($relative -in @('AGENTS.md') -and
                     ($filtered.FileAudience -cne 'AI-READ' -or $filtered.SkippedLines -gt 0)) {
-                    throw 'Entry and manifest must remain completely AI-readable.'
+                    throw 'AGENTS.md must remain completely AI-readable.'
                 }
             }
         }
@@ -275,7 +274,7 @@ try {
     }
     Add-Check "Git-tracked package inventory" ($trackedInventoryFailures.Count -eq 0 -and $trackedSet.Count -gt 0 -and $trackedSet.Count -eq $registrySet.Count) $(if ($trackedInventoryFailures.Count) { $trackedInventoryFailures -join "; " } else { "The manifest registry exactly matches all $($trackedSet.Count) Git-tracked source files." })
 
-    $expectedTopLevel = @(".gitattributes", ".github", "AI_READ_FIRST.md", "CONTRIBUTING.md", "GeurtsTechniqueManifest.md", "GeurtsTechniques", "History", "Ideas", "Migrations", "README.md", "Tools") | Sort-Object
+    $expectedTopLevel = @(".gitattributes", ".github", "AGENTS.md", "AI_READ_FIRST.md", "CONTRIBUTING.md", "GeurtsTechniqueManifest.md", "GeurtsTechniques", "History", "Ideas", "Migrations", "README.md", "Tools") | Sort-Object
     $actualTopLevel = @($trackedPaths | ForEach-Object { ($_ -split '/')[0] } | Sort-Object -Unique)
     $topLevelValid = $actualTopLevel.Count -eq $expectedTopLevel.Count
     if ($topLevelValid) {
@@ -288,7 +287,7 @@ try {
     Add-Check "Current source tree shape" ($topLevelValid -and $hiddenPathsValid) $(if (-not $topLevelValid) { "Top-level tracked entries differ: " + ($actualTopLevel -join ", ") } elseif (-not $hiddenPathsValid) { "Current tracked hidden paths differ: " + ($currentHiddenTracked -join ", ") } else { "The registered top-level entries and exact approved hidden paths are tracked; copied workflow content remains inert." })
 
     $resolverFailures = New-Object System.Collections.Generic.List[string]
-    $resolverSection = [regex]::Match($manifestText, '(?ms)^## 1\. Manifest Resolver\s*(?<Body>.*?)(?=^## 2\.)')
+    $resolverSection = [regex]::Match($manifestText, '(?ms)^## 1\. Startup Resolver\s*(?<Body>.*?)(?=^## 2\.)')
     $subjectSection = [regex]::Match($manifestText, '(?ms)^## 2\. Subject Ownership and Applicability\s*(?<Body>.*?)(?=^## 3\.)')
     if (-not $resolverSection.Success) { $resolverFailures.Add("manifest resolver section is missing") | Out-Null }
     if (-not $subjectSection.Success) { $resolverFailures.Add("subject ownership and applicability section is missing") | Out-Null }
@@ -306,7 +305,7 @@ try {
             $firstRead = $sequenceLines[0].Groups["Text"].Value
             $secondRead = $sequenceLines[1].Groups["Text"].Value
             $thirdRead = $sequenceLines[2].Groups["Text"].Value
-            if ($firstRead.IndexOf("AI_READ_FIRST.md", [System.StringComparison]::Ordinal) -lt 0 -or $secondRead.IndexOf("manifest", [System.StringComparison]::OrdinalIgnoreCase) -lt 0) { $resolverFailures.Add("file-read sequence does not start AI_READ_FIRST.md then manifest") | Out-Null }
+            if ($firstRead.IndexOf("AGENTS.md", [System.StringComparison]::Ordinal) -lt 0 -or $secondRead.IndexOf("CONTRIBUTING.md", [System.StringComparison]::Ordinal) -lt 0) { $resolverFailures.Add("file-read sequence does not start AGENTS.md then CONTRIBUTING.md for source work") | Out-Null }
             if (@($sequenceLines | Where-Object { $_.Groups["Text"].Value -match '(?i)current user|user instruction' }).Count -gt 0) { $resolverFailures.Add("user authority is incorrectly represented as a file-read item") | Out-Null }
         }
         $genericPosition = $resolverBody.IndexOf("selected generic subject techniques", [System.StringComparison]::OrdinalIgnoreCase)
@@ -373,7 +372,7 @@ try {
         if ($techniqueText -match '(?im)^##\s+(?:[0-9]+\.\s*)?Manifest Resolver\s*$' -or $techniqueText -match '(?im)^##\s+(?:[0-9]+\.\s*)?Subject Ownership and Applicability\s*$' -or $techniqueText -match '(?m)^\|\s*Subject\s*\|\s*Manifest-selected owner\s*\|') { $alternateResolverFiles.Add($technique.Name) | Out-Null }
     }
     if ($alternateResolverFiles.Count -gt 0) { $resolverFailures.Add("competing cross-document resolver structure: " + ($alternateResolverFiles -join ", ")) | Out-Null }
-    Add-Check "Central manifest resolver" ($resolverFailures.Count -eq 0) $(if ($resolverFailures.Count) { $resolverFailures -join "; " } else { "The manifest alone defines a contiguous AI_READ_FIRST-to-manifest read sequence, selected owners, applicability, ordering, and conflict resolution; all selected paths exist." })
+    Add-Check "Single startup authority" ($resolverFailures.Count -eq 0) $(if ($resolverFailures.Count) { $resolverFailures -join "; " } else { "AGENTS.md alone defines the startup read sequence, selected owners, applicability, ordering, and conflict resolution; all selected paths exist." })
 
     $namingPath = Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsNamingTechnique.md'
     $namingText = if (Test-Path -LiteralPath $namingPath -PathType Leaf) { [System.IO.File]::ReadAllText($namingPath) } else { '' }
@@ -440,7 +439,7 @@ try {
     $steamText = if (Test-Path -LiteralPath $steamPath -PathType Leaf) { [IO.File]::ReadAllText($steamPath) } else { '' }
     $steamOwner = [regex]::Match($subjectSection.Value, '(?m)^\| Steam preparation, platform services and Windows release evidence \| `GeurtsTechniques/GeurtsSteamIntegrationTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $steamRoutingValid = $steamOwner.Success -and $registrySet.Contains($steamRelative) -and
-        ($null -ne (Find-RegistryFile $steamRelative '0.5.0')) -and
+        ($null -ne (Find-RegistryFile $steamRelative '0.5.1')) -and
         $resolverBody.Contains('Technical; Unity; Steam Integration; Code;')
     foreach ($topic in @('Steamworks.NET', 'BigBang', 'platform-service', 'bootstrap/native', 'build/distribution')) {
         if (-not $steamOwner.Groups['When'].Value.Contains($topic)) { $steamRoutingValid = $false }
@@ -450,7 +449,7 @@ try {
     }
     Add-Check 'Steam manifest routing' $steamRoutingValid 'One Steam owner follows Unity, covers prerequisites/services/builds, and is referenced by the affected subject owners.'
 
-    $steamAudienceValid = $steamText -match '(?im)^\*\*Version:\*\*\s*0\.5\.0\s*$' -and $steamText.StartsWith('<!-- GEURTS-AUDIENCE: AI-READ -->')
+    $steamAudienceValid = $steamText -match '(?im)^\*\*Version:\*\*\s*0\.5\.1\s*$' -and $steamText.StartsWith('<!-- GEURTS-AUDIENCE: AI-READ -->')
     foreach ($mode in @('GameUse', 'ForgeDevelopment')) {
         try {
             $steamRead = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document $steamRelative -Mode $mode
@@ -466,9 +465,9 @@ try {
     $steamScopeValid = $manifestText.Contains('### 1.3 Primary game target') -and
         $manifestText.Contains('The Commandments primarily target **Steam games built with Unity for Windows x64 PCs**.') -and
         $manifestText.Contains('it does not restrict conversation topics or remove explicitly selected StandardsOnly or user-approved project exceptions.') -and
-        $entryPolicy.Contains('(GeurtsTechniqueManifest.md#13-primary-game-target)') -and
-        $platformTechnicalText.Contains('(../GeurtsTechniqueManifest.md#13-primary-game-target)') -and
-        $steamText.Contains('(../GeurtsTechniqueManifest.md#13-primary-game-target)') -and
+        $entryPolicy.Contains('### 1.3 Primary game target') -and
+        $platformTechnicalText.Contains('(../AGENTS.md#13-primary-game-target)') -and
+        $steamText.Contains('(../AGENTS.md#13-primary-game-target)') -and
         $steamText -match '(?i)Steam Deck, Proton, SteamOS, Linux and macOS are outside' -and
         $steamText -match '(?i)prepared for Steam development' -and
         $steamText -match '(?i)before obtaining a game AppID or configuring a store page, depots, branches, SteamPipe uploads or a release pipeline' -and
@@ -497,7 +496,7 @@ try {
     }
     Add-Check 'Steam independent local prerequisite' $steamAdmissionValid 'Installation and handoff require local Steam API evidence; numbered Red/Orange/Green steps preserve independent compilation and native-free local inspection.'
 
-    $steamOwnershipValid = $steamText -match '(?i)God remains the only mandatory shared Geurts brick' -and
+    $steamOwnershipValid = $steamText.Contains('Shared Forge prerequisites follow the [Brick Contract](GeurtsBrickContract.md#required-compatibility-prerequisite-core)') -and
         $steamText -match '(?i)Steam provider is an optional peer' -and
         $steamText -match '(?i)God must not acquire Steamworks\.NET references or native initialization' -and
         $steamText -match '(?i)vendor-neutral' -and $steamText -match '(?i)Steam brick owns its platform wrapper/native calls' -and
@@ -556,10 +555,20 @@ try {
             ([IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md')).Contains('Preserve manual consumer installation.'))
     }
     Add-Check 'Steam policy publication boundary' $steamPublicationValid 'Released local preparation has exact owner pins and neutral God prerequisites; native/overlay and distribution acceptance remain separate and manual adoption is explicit.'
-    $aiReadFirstText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "AI_READ_FIRST.md"))
+    $aiReadFirstText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "AGENTS.md"))
     $aiCommitBoundaryValid = $aiReadFirstText -match "(?i)active package.?s single validated commit" -and $aiReadFirstText -notmatch '(?i)(?:manifest[^\r\n]{0,80}select(?:s|ed)?[^\r\n]{0,40}commit|commit[^\r\n]{0,40}selected by (?:the )?manifest)'
-    $aiRouterValid = $aiReadFirstText -match '(?i)immediately continue to' -and $aiReadFirstText -match '(?i)GeurtsTechniqueManifest\.md' -and $aiReadFirstText -match '(?i)Do not inspect or select project GDD files here' -and $aiReadFirstText -match '(?i)manifest first decides whether the GDD Technique applies' -and $aiReadFirstText -notmatch '(?i)timestamp|fingerprint' -and $aiCommitBoundaryValid
-    Add-Check "Documentation entry router" $aiRouterValid "AI_READ_FIRST routes immediately to the manifest, refers to the active package's validated commit without making the manifest select Git state, and performs no pre-manifest GDD inspection or fingerprint selection."
+    $legacyEntry = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'AI_READ_FIRST.md'))
+    $legacyManifest = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniqueManifest.md'))
+    $aiRouterValid = $aiReadFirstText.Contains('There is no mandatory second startup file.') -and
+        $aiReadFirstText.Contains('AGENTS.md` alone owns startup') -and
+        $aiReadFirstText.Contains('this file is available and has been fully read') -and
+        $aiReadFirstText.Contains('the applicability table below first decides whether the GDD Technique applies')
+    foreach ($alias in @($legacyEntry, $legacyManifest)) {
+        $aiRouterValid = $aiRouterValid -and $alias.Contains('Non-normative compatibility redirect') -and
+            $alias.Contains('[AGENTS.md](AGENTS.md)') -and $alias.Length -lt 1600 -and
+            $alias -notmatch '(?m)^\| Subject \|' -and $alias -notmatch '(?m)^## .*Resolver'
+    }
+    Add-Check "Documentation entry router" $aiRouterValid "AGENTS.md owns all startup/routing rules; legacy filenames are bounded non-authoritative redirects, never additional startup requirements."
 
     $gitIgnoreFailures = New-Object System.Collections.Generic.List[string]
     $gitIgnoreRelative = "GeurtsTechniques/GeurtsGitIgnoreTechnique.md"
@@ -643,7 +652,7 @@ try {
             $manifestText.Contains('| FMOD project-root `.gitattributes` template and explicit installation | `GeurtsTechniques/GeurtsGitAttributesTechnique.md` |')
     }
     catch { $attributesValid = $false }
-    Add-Check 'FMOD .gitattributes payload' $attributesValid 'The two-line UTF-8 payload, exact target/hash, 1.0.1 versions and manifest-selected owner agree.'
+    Add-Check 'FMOD .gitattributes payload' $attributesValid 'The two-line UTF-8 payload, exact target/hash, 1.0.1 versions and AGENTS-selected owner agree.'
 
     $requiredPathFailures = New-Object System.Collections.Generic.List[string]
     $legacyGfiRedirectRelative = "GeurtsTechniques/GeurtsGameForgeIntelligenceIntegrationContract.md"
@@ -657,7 +666,7 @@ try {
     Add-Check "Technique required-path metadata" ($requiredPathFailures.Count -eq 0) $(if ($requiredPathFailures.Count) { "Missing or incorrect required package path metadata: " + ($requiredPathFailures -join ", ") } else { "Every normative technique declares its required package path; the legacy redirect is checked separately." })
 
     $plainPathFailures = New-Object System.Collections.Generic.List[string]
-    $packageMetadataPaths = @("AI_READ_FIRST.md", "GeurtsTechniqueManifest.md")
+    $packageMetadataPaths = @("AGENTS.md", "AI_READ_FIRST.md", "GeurtsTechniqueManifest.md")
     $packageMetadataPaths += @(Get-ChildItem -LiteralPath (Join-Path $RepositoryRoot "GeurtsTechniques") -Filter "*.md" -File | ForEach-Object { "GeurtsTechniques/" + $_.Name } | Where-Object { $_ -cne $legacyGfiRedirectRelative })
     $packageMetadataPaths += @(Get-ChildItem -LiteralPath (Join-Path $RepositoryRoot "Ideas") -Filter "*.md" -File | ForEach-Object { "Ideas/" + $_.Name })
     $packageMetadataPaths += @(Get-ChildItem -LiteralPath (Join-Path $RepositoryRoot "Migrations") -Filter "*.md" -File | ForEach-Object { "Migrations/" + $_.Name })
@@ -725,6 +734,7 @@ try {
     }
 
     $expectedValidationEntries = @(
+        "AGENTS.md",
         "AI_READ_FIRST.md",
         "GeurtsTechniqueManifest.md",
         "GeurtsTechniques/GeurtsDocumentationRegistry.json",
@@ -796,7 +806,7 @@ try {
             }
         }
     }
-    Add-Check "Documentation companion closed contract" ($companionContractFailures.Count -eq 0) $(if ($companionContractFailures.Count) { $companionContractFailures -join "; " } else { "The current schema-3.0.0/package-v0.64.0 source contract fixes the official exact-commit archive, one managed directory, seventeen validation entries, one four-target confirmation, and three exact full-file route mappings." })
+    Add-Check "Documentation companion closed contract" ($companionContractFailures.Count -eq 0) $(if ($companionContractFailures.Count) { $companionContractFailures -join "; " } else { "The current schema-3.0.0/package-v0.68.0 source contract fixes the official exact-commit archive, one managed directory, nineteen validation entries, one four-target confirmation, and three exact full-file route mappings." })
 
     $gitOnlyFailures = New-Object System.Collections.Generic.List[string]
     $gitBrickCatalogue = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsBrickCatalogue.json")) | ConvertFrom-Json
@@ -811,11 +821,11 @@ try {
     }
     Add-Check "Git-only brick delivery and downgrade boundary" ($gitOnlyFailures.Count -eq 0) $(if ($gitOnlyFailures.Count) { $gitOnlyFailures -join '; ' } else { 'Released bricks use immutable Git sources; remote-first delivery and downgrade/source preservation rules are present.' })
 
-    $companionForwardCompatibilityValid = $companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)valid version and exactly match the package manifest in the same archive' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release while schema 3\.0\.0 remains supported' -and $companionTechniqueText -match '(?i)`validationEntries` is the archive.?s closed current completeness list' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative before mutation' -and $companionTechniqueText -match '(?i)Validation entries grant no project-read or project-write authority'
-    Add-Check "Companion schema forward compatibility" $companionForwardCompatibilityValid "Schema 3.0.0 pins mutation paths, not documentation releases: packageVersion must match the same archive manifest, and later safe validation-entry lists remain consumable without a companion release."
+    $companionForwardCompatibilityValid = $companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)valid version and exactly match the AGENTS.md package version in the same archive' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release while schema 3\.0\.0 remains supported' -and $companionTechniqueText -match '(?i)`validationEntries` is the archive.?s closed current completeness list' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative before mutation' -and $companionTechniqueText -match '(?i)Validation entries grant no project-read or project-write authority'
+    Add-Check "Companion schema forward compatibility" $companionForwardCompatibilityValid "Schema 3.0.0 pins mutation paths, not documentation releases: packageVersion must match the same archive AGENTS.md, and later safe validation-entry lists remain consumable without a companion release."
 
-    $companionTechniqueRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md' '3.3.0'
-    $companionContractRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionContract.json' '0.67.5'
+    $companionTechniqueRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md' '3.3.1'
+    $companionContractRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionContract.json' '0.68.0'
     $companionOwnerRow = [regex]::Match($manifestText, '(?m)^\| God-owned Windows Unity Editor Commandments source, metadata check, confirmed replacement, project-boundary, and AI-routing lifecycle \| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $companionContractOwnerRow = [regex]::Match($manifestText, '(?m)^\| Exact companion source, documentation destination, validation entries, confirmation targets, and template-to-route mappings \| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| (?<When>[^|]+) \|\r?$')
     $companionArchitectureValid = ($null -ne $companionTechniqueRegistryRow) -and ($null -ne $companionContractRegistryRow) -and
@@ -837,9 +847,9 @@ try {
     $godFirstValid = $godEntries.Count -eq 1 -and
         @($godEntries[0].dependencies | Where-Object { $_.id -ceq "com.geurts.gameforge.documentation" }).Count -eq 0 -and
         $brickContractText.Contains('Commandments Companion is optional, not a required package or assembly dependency') -and
-        $brickContractText.Contains('Install God first from its real Git source') -and
+        $brickContractText.Contains('Install the published Compatibility core and prepare compatible licensed prerequisites before installing God from its real Git source') -and
         $brickContractText.Contains('The user-facing package-management window and menu are named **Game Forge God**')
-    Add-Check "God-first optional Commandments Companion boundary" $godFirstValid "God installs independently, exposes the optional Commandments Companion package through Game Forge God, and does not declare a reverse dependency in the catalogue."
+    Add-Check "God-first optional Commandments Companion boundary" $godFirstValid "God requires the independent Compatibility prerequisite, exposes the optional Commandments Companion through Game Forge God, and has no reverse documentation package dependency."
 
     $installedMenusValid = $brickContractText.Contains('**Installed Brick Menus**') -and
         $brickContractText.Contains('Include installed disabled bricks and installed packages absent from the catalogue') -and
@@ -891,7 +901,7 @@ try {
     Add-Check "God documentation content integration" $godContentIntegrationValid "Package management stays separate from companion-owned content replacement, including first installation, with the same confirmation and graceful missing-companion behavior."
 
     $documentationIdentityValid = $aiReadFirstText.Contains('**Documentation source:** [Geurtsy/GeurtsGameForge_Commandments](https://github.com/Geurtsy/GeurtsGameForge_Commandments)') -and
-        $aiReadFirstText.Contains("Use the manifest's package version, never a game or brick version.") -and
+        $aiReadFirstText.Contains("Use this file's package version, never a game or brick version.") -and
         $aiReadFirstText.Contains('A local snapshot alone cannot prove it is latest.') -and
         $aiReadFirstText.Contains('Otherwise report Freshness unknown') -and
         $aiReadFirstText.Contains('Distinguish Released, Pending and Unknown publication state using evidence for that exact revision') -and
@@ -944,7 +954,7 @@ try {
     $downloadedContractExpansionContradiction = $companionActiveSurfaceText -match '(?i)downloaded contract may (?:change|expand|add)[^\r\n]{0,100}(?:mutation|destination|effect|mapping|target)'
     $companionConfirmationValid = $companionTechniqueText -match '(?i)exposes exactly one lifecycle action' -and $companionTechniqueText.Contains("Update Geurts Game Forge Commandments") -and $companionTechniqueText -match '(?i)Selecting it immediately shows one confirmation dialog' -and $companionTechniqueText -match '(?i)There is no earlier preview, dry run, check phase, setup screen, or second confirmation' -and $companionTechniqueText -match '(?i)Cancel is the initially focused and default response' -and $companionTechniqueText -match '(?i)declining must cause no network or filesystem change' -and $companionTechniqueText -match '(?i)confirmation must identify all four destructive targets and no implied broader scope' -and $companionTechniqueText -match '(?i)every local change in those targets will be overwritten and lost' -and $companionTechniqueText -match '(?i)`Docs/GameDesign/` and every unlisted project path will not be accessed or changed' -and $companionTechniqueText -match '(?i)No archive acquisition or project mutation may begin before affirmative confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition[^\r\n]{0,220}must carry this exact supported destination, four-target list, and three template-to-target mappings' -and $companionTechniqueText -match '(?i)After confirmation and download[^\r\n]{0,120}parse the archive.?s contract' -and $companionTechniqueText -match '(?i)pre-approved source selection, destination, action, confirmation behavior[^\r\n]{0,180}mapping order before the first project mutation' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set' -and -not $downloadedContractExpansionContradiction
     $comparisonStateFailureContradiction = $companionActiveSurfaceText -match '(?i)comparison-state (?:write|persistence) failure[^\r\n]{0,120}(?:reclassifies|invalidates|undoes|rolls back)[^\r\n]{0,80}(?:content|managed-target|replacement|Update)'
-    $companionCompletionValid = $companionUpdateOrderValid -and $companionTechniqueText -match '(?i)exact resolved main-head commit' -and $companionTechniqueText -match '(?i)archive pinned to that exact commit' -and $companionTechniqueText -match '(?i)readability of every contract-listed validation entry' -and $companionTechniqueText -match '(?i)support for contract schema 3\.0\.0' -and $companionTechniqueText -match '(?i)equality between the contract and manifest package versions' -and $companionTechniqueText -match '(?i)directly materialize the complete validated archive tree' -and $companionTechniqueText -match '(?i)result contains no `\.git` metadata or continuing repository, worktree, branch, remote, or synchronization connection' -and $companionTechniqueText -match '(?i)After every managed-target verification passes, report the content Update as successful and attempt to write' -and $companionTechniqueText -match '(?i)comparison-state write fails, report a warning[^\r\n]{0,160}do not reclassify, undo, or repair the successful four-target replacement' -and $companionTechniqueText -match '(?i)reports failure plainly and never reports partial completion as success' -and $companionTechniqueText -match '(?i)no automatic repair or recovery flow' -and -not $comparisonStateFailureContradiction
+    $companionCompletionValid = $companionUpdateOrderValid -and $companionTechniqueText -match '(?i)exact resolved main-head commit' -and $companionTechniqueText -match '(?i)archive pinned to that exact commit' -and $companionTechniqueText -match '(?i)readability of every contract-listed validation entry' -and $companionTechniqueText -match '(?i)support for contract schema 3\.0\.0' -and $companionTechniqueText -match '(?i)equality between the contract and AGENTS.md package versions' -and $companionTechniqueText -match '(?i)directly materialize the complete validated archive tree' -and $companionTechniqueText -match '(?i)result contains no `\.git` metadata or continuing repository, worktree, branch, remote, or synchronization connection' -and $companionTechniqueText -match '(?i)After every managed-target verification passes, report the content Update as successful and attempt to write' -and $companionTechniqueText -match '(?i)comparison-state write fails, report a warning[^\r\n]{0,160}do not reclassify, undo, or repair the successful four-target replacement' -and $companionTechniqueText -match '(?i)reports failure plainly and never reports partial completion as success' -and $companionTechniqueText -match '(?i)no automatic repair or recovery flow' -and -not $comparisonStateFailureContradiction
     Add-Check "Companion confirmation and complete update" ($companionConfirmationValid -and $companionCompletionValid) "One cancel-default confirmation authorizes only the four listed replacements; content success requires all four targets, while later comparison-state persistence failure warns without undoing that success."
 
     $companionBoundaryValid = $companionTechniqueText -match '(?i)complete replacement of those three files from the exact template mappings' -and $companionTechniqueText -match '(?i)may create only the missing parent directories required to materialize the listed targets' -and $companionTechniqueText -match '(?i)preserve every unlisted file and directory within those parents' -and $companionTechniqueText -match '(?i)Every other project path is outside the lifecycle' -and $companionTechniqueText -match '(?i)must not enumerate, inspect, create, validate, hash, modify, or delete anything under' -and $companionTechniqueText.Contains("<ProjectRoot>/Docs/GameDesign/") -and $companionTechniqueText -match '(?i)must not discover additional work from repository contents' -and $companionTechniqueText -match '(?i)scan for or execute `\.bat`, `\.cmd`, `\.ps1`, or any other script from either the documentation package or the Unity project' -and $companionTechniqueText -match '(?i)complete documentation tree is copied as inert content' -and $companionTechniqueText -match '(?i)presence of tools within that tree does not authorize their execution'
@@ -957,24 +967,24 @@ try {
     $minimalLifecycleValid = $missingCompanionExclusions.Count -eq 0 -and -not $affirmativeLifecycleContradiction -and $companionTechniqueText -match '(?i)not a general setup-plan format, script manifest, extensible task engine, or permission catalogue' -and $companionTechniqueText -match '(?i)does not merge managed regions, preserve content in those files, honor a native-entry opt-out, migrate legacy content' -and $companionForbiddenSection.Groups["Body"].Value -match '(?i)inspect or preserve local drift' -and $companionTechniqueText.Contains('The God-owned service uses no external installer, Windows bootstrap or batch-driven setup.') -and $companionTechniqueText -match '(?i)no automatic repair or recovery flow'
     Add-Check "Companion minimal lifecycle exclusions" $minimalLifecycleValid "The companion contract has no preview/dry-run, second confirmation, setup engine, external bootstrap, script execution, drift handling, backup, rollback, journal, quarantine, migration, or recovery machinery."
 
-    $aiRoutingLimitationValid = $companionTechniqueText -match '(?i)do not make every AI product obey the documentation automatically' -and $companionTechniqueText -match '(?i)AI tool must support the applicable native instruction file or be explicitly instructed to read and follow `AI_READ_FIRST\.md`' -and $companionTechniqueText -match '(?i)Tools that ignore those instruction surfaces may not discover or follow the Geurts documentation' -and $companionTechniqueText -match '(?i)must not claim universal AI control or compliance'
-    Add-Check "Companion AI-routing limitation" $aiRoutingLimitationValid "The contract accurately limits routing to tools that support the declared native files or are explicitly instructed to follow AI_READ_FIRST.md."
+    $aiRoutingLimitationValid = $companionTechniqueText -match '(?i)do not make every AI product obey the documentation automatically' -and $companionTechniqueText -match '(?i)AI tool must support the applicable native instruction file or be explicitly instructed to read and follow `AGENTS\.md`' -and $companionTechniqueText -match '(?i)Tools that ignore those instruction surfaces may not discover or follow the Geurts documentation' -and $companionTechniqueText -match '(?i)must not claim universal AI control or compliance'
+    Add-Check "Companion AI-routing limitation" $aiRoutingLimitationValid "The contract accurately limits routing to tools that support the declared native files or are explicitly instructed to follow AGENTS.md."
 
     $codexTechniquePath = Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsAgentTechnique.md"
     $codexTechnique = [System.IO.File]::ReadAllText($codexTechniquePath)
-    $codexTemplate = [regex]::Matches($codexTechnique, '(?ms)^<!-- GEURTS-CODEX-GUIDE-BEGIN version="1\.1\.0" -->\r?\n```markdown\r?\n(?<Body>.*?)^```\r?\n<!-- GEURTS-CODEX-GUIDE-END -->')
-    $codexValid = $codexTemplate.Count -eq 1 -and [regex]::Matches($codexTechnique, 'GEURTS-CODEX-GUIDE-BEGIN').Count -eq 1 -and [regex]::Matches($codexTechnique, 'GEURTS-CODEX-GUIDE-END').Count -eq 1 -and -not (Test-Path -LiteralPath (Join-Path $RepositoryRoot "AGENTS.md")) -and -not (Test-Path -LiteralPath (Join-Path $RepositoryRoot "AGENT.md")) -and -not (Test-Path -LiteralPath (Join-Path $RepositoryRoot "Tools/AIAgentInstructionTemplates/AGENTS.md"))
+    $codexTemplate = [regex]::Matches($codexTechnique, '(?ms)^<!-- GEURTS-CODEX-GUIDE-BEGIN version="1\.2\.0" -->\r?\n```markdown\r?\n(?<Body>.*?)^```\r?\n<!-- GEURTS-CODEX-GUIDE-END -->')
+    $codexValid = $codexTemplate.Count -eq 1 -and [regex]::Matches($codexTechnique, 'GEURTS-CODEX-GUIDE-BEGIN').Count -eq 1 -and [regex]::Matches($codexTechnique, 'GEURTS-CODEX-GUIDE-END').Count -eq 1 -and (Test-Path -LiteralPath (Join-Path $RepositoryRoot "AGENTS.md")) -and -not (Test-Path -LiteralPath (Join-Path $RepositoryRoot "AGENT.md")) -and -not (Test-Path -LiteralPath (Join-Path $RepositoryRoot "Tools/AIAgentInstructionTemplates/AGENTS.md"))
     if ($codexTemplate.Count -eq 1) {
         $codexBody = $codexTemplate[0].Groups["Body"].Value
-        $codexValid = $codexValid -and [regex]::Matches($codexBody, [regex]::Escape('{{GEURTS_DOCUMENTATION_ENTRY_POINT}}')).Count -eq 1 -and $codexBody.Contains('GeurtsTechniqueManifest.md') -and $codexBody.Contains('Every update, however small') -and -not $codexBody.Contains('Documentation/AGENTS.md')
+        $codexValid = $codexValid -and [regex]::Matches($codexBody, [regex]::Escape('{{GEURTS_DOCUMENTATION_ENTRY_POINT}}')).Count -eq 1 -and $codexBody.Contains('selected by that AGENTS.md') -and $codexBody.Contains('Every update, however small') -and -not $codexBody.Contains('Documentation/AGENTS.md')
     }
     Add-Check "Codex guide template and retired routes" $codexValid "The sole technique template has one exact-entry placeholder and mandatory manifest/version guidance; deprecated standalone guides are absent."
 
-    $portableTemplate = [regex]::Matches($codexTechnique, '(?ms)^<!-- GEURTS-CODEX-ROOT-TEMPLATE:BEGIN version="1\.0\.0" -->\r?\n```markdown\r?\n(?<Body>.*?)^```\r?\n<!-- GEURTS-CODEX-ROOT-TEMPLATE:END -->')
-    $portableValid = $portableTemplate.Count -eq 1 -and @($documentationRegistry.files | Where-Object { $_.path -ceq 'GeurtsTechniques/GeurtsAgentTechnique.md' -and $_.version -ceq '1.3.0' }).Count -eq 1 -and $codexTechnique.Contains('byte-for-byte') -and $codexTechnique.Contains('Reinstallation is idempotent') -and $codexTechnique.Contains('Never install on startup or as part of Commandments Update') -and $codexTechnique.Contains('Unsupported or duplicate markers') -and $codexTechnique.Contains('Recheck source/target bytes after review')
+    $portableTemplate = [regex]::Matches($codexTechnique, '(?ms)^<!-- GEURTS-CODEX-ROOT-TEMPLATE:BEGIN version="1\.1\.0" -->\r?\n```markdown\r?\n(?<Body>.*?)^```\r?\n<!-- GEURTS-CODEX-ROOT-TEMPLATE:END -->')
+    $portableValid = $portableTemplate.Count -eq 1 -and @($documentationRegistry.files | Where-Object { $_.path -ceq 'GeurtsTechniques/GeurtsAgentTechnique.md' -and $_.version -ceq '1.4.0' }).Count -eq 1 -and $codexTechnique.Contains('byte-for-byte') -and $codexTechnique.Contains('Reinstallation is idempotent') -and $codexTechnique.Contains('Never install on startup or as part of Commandments Update') -and $codexTechnique.Contains('Unsupported or duplicate markers') -and $codexTechnique.Contains('Recheck source/target bytes after review')
     if ($portableTemplate.Count -eq 1) {
         $body = $portableTemplate[0].Groups['Body'].Value
-        $portableValid = $portableValid -and [regex]::Matches($body, [regex]::Escape('./GeurtsGameForgeCommandments/AI_READ_FIRST.md')).Count -eq 1 -and $body -notmatch '[A-Za-z]:[\\/]' -and $body.Contains('relative to the directory containing this AGENTS.md')
+        $portableValid = $portableValid -and [regex]::Matches($body, [regex]::Escape('./GeurtsGameForgeCommandments/AGENTS.md')).Count -eq 1 -and $body -notmatch '[A-Za-z]:[\\/]' -and $body.Contains('relative to the directory containing this AGENTS.md')
     }
     Add-Check "Portable root onboarding boundary" $portableValid "Portable routing is separately versioned, project-relative, preserving, explicit, cancel-default and outside Commandments Update."
     $automationPolicy = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md'))
@@ -988,14 +998,14 @@ try {
         "Tools/AIAgentInstructionTemplates/instructions/geurts-unity.instructions.md",
         "Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md"
     )
-    $expectedTemplateVersion = "1.3.0"
-    $expectedProjectRouteText = 'Before any Geurts Game Forge project work, read and follow `GeurtsGameForgeCommandments/AI_READ_FIRST.md`; it routes to the installed, manifest-selected documentation. Treat that documentation as the source of truth for the work.'
+    $expectedTemplateVersion = "1.4.0"
+    $expectedProjectRouteText = 'Before any Geurts Game Forge project work, read and follow `GeurtsGameForgeCommandments/AGENTS.md`; it is the single startup authority for the installed documentation. Treat that documentation as the source of truth for the work.'
     $expectedManagedRegionHashes = @{
-        "Tools/AIAgentInstructionTemplates/copilot-instructions.md|copilot-body" = "92e4a7ae1ff00f20480b217108a028bce40276a97d4caa3b614588fdf75874bc"
+        "Tools/AIAgentInstructionTemplates/copilot-instructions.md|copilot-body" = "455cfab9a523049d2b084a26edce863013e04b71347f94b7d8e423b45da93e14"
         "Tools/AIAgentInstructionTemplates/instructions/geurts-unity.instructions.md|unity-frontmatter" = "98e4fd786bbd1474e28d3800b91d749c29ff2acf94b89ef821d6860645829688"
-        "Tools/AIAgentInstructionTemplates/instructions/geurts-unity.instructions.md|unity-body" = "206ef83ff9c5aa0ba24b363a8c6a5735793cb697435dbeb2dce90b8a117bef91"
+        "Tools/AIAgentInstructionTemplates/instructions/geurts-unity.instructions.md|unity-body" = "7b223d3972b7157beb9e53e5a5d69fb21be83418367f16bee26961dc7ad18b79"
         "Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md|game-design-frontmatter" = "334b60274fe81a1891e1500785d29a249a0d4e32957bb665a770402163fa2cd4"
-        "Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md|game-design-body" = "069e94f46d2860a040a8f9bbd5aa7a21e5bc888a38990c5e7d74a6b79d4982e4"
+        "Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md|game-design-body" = "879b4c726861fc8bd2163f9434a8ed278832f22e0685f98369d9812dc0e77570"
     }
     $routeFailures = New-Object System.Collections.Generic.List[string]
     $markerFailures = New-Object System.Collections.Generic.List[string]
@@ -1006,10 +1016,10 @@ try {
         $path = Join-Path $RepositoryRoot ($relative.Replace('/', [System.IO.Path]::DirectorySeparatorChar))
         $text = [System.IO.File]::ReadAllText($path)
         if ([regex]::Matches($text, [regex]::Escape($expectedProjectRouteText)).Count -ne 1) { $routeFailures.Add("$relative does not contain the exact approved project-wide route once") | Out-Null }
-        if ($text.IndexOf("GeurtsGameForgeCommandments/AI_READ_FIRST.md", [System.StringComparison]::Ordinal) -lt 0 -or $text.IndexOf("GeurtsGameForgeCommandments/AGENTS.md", [System.StringComparison]::Ordinal) -ge 0) { $routeFailures.Add("$relative does not route first through direct AI_READ_FIRST.md") | Out-Null }
+        if ($text.IndexOf("GeurtsGameForgeCommandments/AGENTS.md", [System.StringComparison]::Ordinal) -lt 0 -or $text.IndexOf("GeurtsGameForgeCommandments/AI_READ_FIRST.md", [System.StringComparison]::Ordinal) -ge 0) { $routeFailures.Add("$relative does not route first through direct AGENTS.md") | Out-Null }
         if ($text.IndexOf("network efficiency", [System.StringComparison]::OrdinalIgnoreCase) -ge 0) { $routeFailures.Add("$relative duplicates implementation policy instead of remaining a concise route") | Out-Null }
-        if ($text.IndexOf("installed, manifest-selected documentation", [System.StringComparison]::Ordinal) -lt 0 -or $text.IndexOf("owns the complete documentation chain", [System.StringComparison]::OrdinalIgnoreCase) -ge 0) {
-            $routeFailures.Add("$relative does not defer authority to the installed, manifest-selected documentation") | Out-Null
+        if ($text.IndexOf("single startup authority for the installed documentation", [System.StringComparison]::Ordinal) -lt 0 -or $text.IndexOf("owns the complete documentation chain", [System.StringComparison]::OrdinalIgnoreCase) -ge 0) {
+            $routeFailures.Add("$relative does not defer authority to the installed, AGENTS-selected documentation") | Out-Null
         }
         $begins = [regex]::Matches($text, 'GEURTS-MANAGED-BEGIN').Count
         $ends = [regex]::Matches($text, 'GEURTS-MANAGED-END').Count
@@ -1043,10 +1053,13 @@ try {
         }
     }
     foreach ($regionKey in $expectedManagedRegionHashes.Keys) { if (-not $seenManagedRegionKeys.Contains($regionKey)) { $markerFailures.Add("missing approved managed region $regionKey") | Out-Null } }
-    Add-Check "Managed native routes" ($routeFailures.Count -eq 0) $(if ($routeFailures.Count) { "Invalid managed route: " + ($routeFailures -join ", ") } else { "Every native template contains the exact concise project-wide route through direct AI_READ_FIRST.md into the installed manifest-selected source of truth." })
-    Add-Check "Managed template integrity" ($markerFailures.Count -eq 0 -and $seenManagedRegionKeys.Count -eq $expectedManagedRegionHashes.Count) $(if ($markerFailures.Count) { $markerFailures -join "; " } else { "All five approved v1.3.0 native managed regions and hashes are exact and valid." })
+    Add-Check "Managed native routes" ($routeFailures.Count -eq 0) $(if ($routeFailures.Count) { "Invalid managed route: " + ($routeFailures -join ", ") } else { "Every native template contains the exact concise project-wide route through direct AGENTS.md into the installed AGENTS-selected source of truth." })
+    Add-Check "Managed template integrity" ($markerFailures.Count -eq 0 -and $seenManagedRegionKeys.Count -eq $expectedManagedRegionHashes.Count) $(if ($markerFailures.Count) { $markerFailures -join "; " } else { "All five approved v1.4.0 native managed regions and hashes are exact and valid." })
 
     $expectedCatalogRecords = @(
+        ".github/copilot-instructions.md|copilot-instructions.md|1.3.0|c65f2a68fca920da356b99e10ce7515b1e776ed4fad03ac206d6fc6a4c0541e8",
+        ".github/instructions/geurts-unity.instructions.md|instructions/geurts-unity.instructions.md|1.3.0|f0f12605982f00dc64b4984f39427b9484301674c988b221cef39208f716cece",
+        ".github/instructions/geurts-game-design.instructions.md|instructions/geurts-game-design.instructions.md|1.3.0|5c74f6aa62b1997708c59ef9db37136375f6567893744c577223e06a40774827",
         ".github/copilot-instructions.md|copilot-instructions.md|0.4.0|d72006b497ed12ae97ef3d4ef9248f634af7159b7011434987ea3bd60cbd8da7",
         ".github/copilot-instructions.md|copilot-instructions.md|0.5.0|d72006b497ed12ae97ef3d4ef9248f634af7159b7011434987ea3bd60cbd8da7",
         ".github/copilot-instructions.md|copilot-instructions.md|0.6.0|cfeb6826447b74d391c7afa40f07e19171086ee0f6e8a107887360fa4e6fd7e3",
@@ -1284,7 +1297,7 @@ try {
         $topicPath = Join-Path $RepositoryRoot $topicRelative
         if (-not (Test-Path -LiteralPath $topicPath -PathType Leaf)) { $topicFailures.Add("Topic is missing: $topicRelative") | Out-Null; continue }
         $topicText = [IO.File]::ReadAllText($topicPath)
-        $topicVersion = if ($topic -ceq 'Unity') { '0.3.5' } elseif ($topic -ceq 'Code') { '0.2.0' } elseif ($topic -ceq 'Authoring') { '0.1.3' } elseif ($topic -ceq 'Naming') { '0.2.0' } elseif ($topic -ceq 'Commands') { '0.2.0' } elseif ($topic -ceq 'GameAI') { '0.2.1' } elseif ($topic -ceq 'Multiplayer') { '0.4.0' } else { '0.1.2' }
+        $topicVersion = if ($topic -ceq 'Unity') { '0.3.5' } elseif ($topic -ceq 'Code') { '0.2.0' } elseif ($topic -ceq 'Authoring') { '0.1.3' } elseif ($topic -ceq 'Naming') { '0.2.0' } elseif ($topic -ceq 'Commands') { '0.2.0' } elseif ($topic -ceq 'GameAI') { '0.2.1' } elseif ($topic -ceq 'Multiplayer') { '0.4.0' } elseif ($topic -ceq 'Bootstrap') { '0.1.3' } else { '0.1.2' }
         if ($topicText -notmatch ('(?m)^\*\*Version:\*\* ' + [regex]::Escape($topicVersion) + '\r?$') -or $topicText -notmatch '(?m)^<!-- GEURTS-AUDIENCE: AI-READ -->\r?$') { $topicFailures.Add("Topic metadata is invalid: $topicRelative") | Out-Null }
         $topicTexts += $topicText
     }
@@ -1313,7 +1326,7 @@ try {
         if (-not $technicalCoreText.Contains($route) -or -not $contributors.Contains($route)) { $topicFailures.Add("Efficiency policy is not routed through its Automation owner: $route") | Out-Null }
     }
     if ($codeText -match '(?i)XML documentation is not required for private methods') { $topicFailures.Add('Code topic exempts private methods from required XML summaries') | Out-Null }
-    if ($technicalCoreText -notmatch '(?m)^\*\*Version:\*\* 0\.20\.13\r?$' -or $technicalCoreText.Length -gt 24000 -or
+    if ($technicalCoreText -notmatch '(?m)^\*\*Version:\*\* 0\.20\.14\r?$' -or $technicalCoreText.Length -gt 24000 -or
         -not $technicalCoreText.Contains('No-Code Module Use and Code Extensions') -or
         -not $technicalCoreText.Contains('every full absolute file and folder path below 260 characters') -or
         $technicalCoreText -match '(?m)^## (?:Game Audio and Sound Design|Command Rules|Multiplayer Efficiency Rule|Odin Inspector Usage)\r?$') {
@@ -1423,11 +1436,19 @@ try {
         $bigBangFailures.Add('BigBang canonical subset generation or vendor exclusion is absent') | Out-Null
     }
     $bigBangCatalogueEntries = @($brickCatalogue.bricks | Where-Object { $_.id -ceq 'com.geurts.gameforge.bigbang' })
-    if ($bigBangCatalogueEntries.Count -ne 1 -or @($bigBangCatalogueEntries[0].dependencies).Count -ne 0 -or
+    $bigBangDependencyValid = $bigBangCatalogueEntries.Count -eq 1
+    if ($bigBangDependencyValid) {
+        $dependencies = @($bigBangCatalogueEntries[0].dependencies)
+        if ([version]$bigBangCatalogueEntries[0].version -ge [version]'0.9.0') {
+            $bigBangDependencyValid = $dependencies.Count -eq 1 -and $dependencies[0].id -ceq 'com.geurts.gameforge.compatibility' -and
+                [version]$dependencies[0].minimumVersion -ge [version]'0.1.0'
+        } else { $bigBangDependencyValid = $dependencies.Count -eq 0 }
+    }
+    if (-not $bigBangDependencyValid -or
         @($bigBangCatalogueEntries[0].requiredTools).Count -ne 0 -or -not $bigBangCatalogueEntries[0].released -or
         $bigBangCatalogueEntries[0].developmentOnly -or $bigBangCatalogueEntries[0].sourceKind -cne 'git' -or
         $bigBangCatalogueEntries[0].source -cnotmatch '^https://github\.com/Geurtsy/GeurtsGameForgeBigBang\.git#[a-f0-9]{40}$') {
-        $bigBangFailures.Add('BigBang catalogue must publish one immutable official Git source without God or external-tool dependencies') | Out-Null
+        $bigBangFailures.Add('BigBang catalogue must publish one immutable official Git source, retain its release-specific independent prerequisite boundary and have no God/vendor dependency') | Out-Null
     }
     Add-Check 'Independent BigBang initial-installer boundary' ($bigBangFailures.Count -eq 0) $(if ($bigBangFailures.Count) { $bigBangFailures -join '; ' } else { 'The manifest and immutable catalogue select the independent initial installer, explicit release resolution, frozen target, fresh compile/readback, recovery, canonical subset and acceptance gates without relaxing God/brick/Companion requirements.' })
 
@@ -1595,7 +1616,7 @@ try {
     Add-Check 'Editor Appearance policy' ($appearanceFailures.Count -eq 0) $(if ($appearanceFailures.Count) { $appearanceFailures -join '; ' } else { 'Appearance specifies meaningful Odin/equivalents, tabs, collapsible headers, severity callouts, inline findings, hidden-problem discovery and native acceptance without new dependency, logging or priority owners. This is not rendered UI certification.' })
 
     $unityTargetFailures = New-Object System.Collections.Generic.List[string]
-    foreach ($relative in @("README.md", "GeurtsTechniqueManifest.md", $technicalRelative)) {
+    foreach ($relative in @("README.md", "AGENTS.md", $technicalRelative)) {
         $targetText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot $relative))
         $targetMatches = @([regex]::Matches($targetText, '(?m)^\*\*Unity minimum:\*\*\s*(?<Target>[^\r\n]+)\r?$'))
         if ($targetMatches.Count -ne 1 -or $targetMatches[0].Groups["Target"].Value.Trim() -cne "Unity 6.6 (6000.6.3f1) or newer") {
@@ -1660,7 +1681,7 @@ try {
     $priorityPattern = '(?ms)^1\.\s+\*\*Extendibility\*\*.*?^2\.\s+\*\*Efficiency\*\*.*?^3\.\s+\*\*Readability\*\*.*?^4\.\s+\*\*Updated\*\*.*?^5\.\s+\*\*Documented\*\*'
     $technicalPriorityMatches = @([regex]::Matches($technicalCoreText, $priorityPattern))
     $duplicatePriorityFiles = New-Object System.Collections.Generic.List[string]
-    foreach ($relative in @("README.md", "AI_READ_FIRST.md", "GeurtsTechniqueManifest.md")) {
+    foreach ($relative in @("README.md", "AGENTS.md", "AI_READ_FIRST.md", "GeurtsTechniqueManifest.md")) {
         if ([regex]::IsMatch([System.IO.File]::ReadAllText((Join-Path $RepositoryRoot $relative)), $priorityPattern)) { $duplicatePriorityFiles.Add($relative) | Out-Null }
     }
     foreach ($technique in @(Get-ChildItem -LiteralPath (Join-Path $RepositoryRoot "GeurtsTechniques") -Filter "*.md" -File)) {
@@ -1671,7 +1692,7 @@ try {
     $technicalOwnerRow = [regex]::Match($manifestText, '(?m)^\| Technical implementation and technical trade-offs \| `GeurtsTechniques/GeurtsTechnicalTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $securityPriorityValid = $technicalCoreText -match '(?m)^6\.\s+\*\*Security\*\* - Code-security hardening is a very low priority and ranks below every other Core Principle\.\r?$' -and $technicalCoreText.Contains('Existing authorization, secret-handling, validation, preservation and server-authority requirements remain binding.')
     $priorityValid = $securityPriorityValid -and $technicalCoreText.Contains('Prioritise FPS and frame-rate stability over lower RAM usage, smaller storage footprint and shorter loading times.') -and $technicalPriorityMatches.Count -eq 1 -and $duplicatePriorityFiles.Count -eq 0 -and $technicalOwnerRow.Success -and $technicalOwnerRow.Groups["When"].Value -match '(?i)sole package owner of the six technical priorities and multiplayer override' -and $technicalCoreText -match '(?s)latency overrides all other code priorities.*?1\. \*\*Latency\*\*.*?2\. \*\*Bandwidth efficiency\*\*.*?Only after' -and $technicalText -match '(?i)override applies regardless of the selected networking framework'
-    Add-Check "Technical priority ownership" $priorityValid $(if ($duplicatePriorityFiles.Count) { "Competing full priority list: " + ($duplicatePriorityFiles -join ", ") } else { "The exact six priorities and framework-independent multiplayer override occur normatively only in the manifest-selected Technical Technique." })
+    Add-Check "Technical priority ownership" $priorityValid $(if ($duplicatePriorityFiles.Count) { "Competing full priority list: " + ($duplicatePriorityFiles -join ", ") } else { "The exact six priorities and framework-independent multiplayer override occur normatively only in the AGENTS-selected Technical Technique." })
 
     $technicalPolicyFailures = New-Object System.Collections.Generic.List[string]
     $odinSection = [regex]::Match($technicalText, '(?ms)^## Odin Inspector Usage\s*(?<Body>.*?)(?=^---\s*$)')
@@ -1808,6 +1829,25 @@ try {
         -not $setupText.Contains('unavailable is an explanation, not an additional status')) {
         $consistencyFailures.Add('Existing setup statuses must be preserved with an actionable unavailable reason') | Out-Null
     }
+    if ($setupContract.compatibilityOwner -cne 'com.geurts.gameforge.compatibility' -or
+        [version]$setupContract.minimumCompatibilityVersion -lt [version]'0.1.0' -or
+        [version]$setupContract.minimumGodVersion -lt [version]'0.44.0' -or
+        [version]$setupContract.minimumEditorApiVersion -lt [version]'1.3.0' -or
+        -not $brickContractText.Contains('## Required Compatibility prerequisite core') -or
+        -not $brickContractText.Contains('Compatibility never depends on either')) {
+        $consistencyFailures.Add('Required Compatibility setup ownership, independent dependency direction and minimum cohort are inconsistent') | Out-Null
+    }
+    $compatibilityEntries = @($brickCatalogue.bricks | Where-Object id -ceq 'com.geurts.gameforge.compatibility')
+    $requiresReleasedCompatibility = @($brickCatalogue.bricks | Where-Object {
+        $_.released -and (($_.id -ceq 'com.geurts.gameforge.god' -and [version]$_.version -ge [version]'0.44.0') -or
+            ($_.id -ceq 'com.geurts.gameforge.bigbang' -and [version]$_.version -ge [version]'0.9.0'))
+    }).Count -gt 0
+    if ($requiresReleasedCompatibility -and ($compatibilityEntries.Count -ne 1 -or -not $compatibilityEntries[0].released -or
+        [version]$compatibilityEntries[0].version -lt [version]'0.1.0' -or @($compatibilityEntries[0].dependencies).Count -ne 0 -or
+        @($compatibilityEntries[0].requiredTools).Count -ne 0 -or $compatibilityEntries[0].sourceKind -cne 'git' -or
+        $compatibilityEntries[0].source -cnotmatch '^https://github\.com/Geurtsy/com\.geurts\.gameforge\.compatibility\.git#[a-f0-9]{40}$')) {
+        $consistencyFailures.Add('A released consumer cohort requires its actually published independent Compatibility source; candidates must not become install actions') | Out-Null
+    }
     foreach ($rule in @('green for verified working/ready', 'orange for needs attention', 'red for an error', 'retain neutral borders and precise text')) {
         if (-not $themeText.Contains($rule)) { $consistencyFailures.Add("Status outline rule missing: $rule") | Out-Null }
     }
@@ -1874,7 +1914,7 @@ try {
     $gddAuthorityValid = $gddOwnerRow.Success -and $gddOwnerRow.Groups["When"].Value -match '(?i)player-facing work' -and $gddTechniqueText -match '(?i)load every relevant document identified by the project.?s current `GameDesignManifest\.md`' -and $gddTechniqueText -match '(?i)stop and ask' -and $gddTechniqueText -match '(?i)establish or change player-facing design intent' -and $gddTechniqueText -match '(?i)reversible technical detail' -and $gddTechniqueText -match '(?i)does not create, alter, or overwrite design intent'
     Add-Check "Project GDD authority" $gddAuthorityValid "The package manifest selects the GDD Technique; the project GameDesignManifest selects relevant project facts; missing design intent is asked, never invented."
 
-    $gddPrimaryRoutingValid = $manifestText -match '(?i)primary source of context about the game; technical design and implementation guidance still come from' -and $gddOwnerRow.Groups["When"].Value -match '(?i)GDD import, primary-document routing' -and $gddTechniqueText.Contains('<!-- GEURTS-GDD-PRIMARY-BEGIN version="1.0.0" -->') -and $gddTechniqueText.Contains('**Primary document:** `Docs/GameDesign/SelectedDocument.md`') -and $gddTechniqueText.Contains('<!-- GEURTS-GDD-PRIMARY-END -->') -and $gddTechniqueText -match '(?i)outside the existing `GEURTS-GDD-MANIFEST-BEGIN` table' -and $gddTechniqueText -match '(?i)primary selection takes precedence over the managed table.s `Authority` field for choosing primary game context only' -and $gddTechniqueText -match '(?i)Technical design and implementation guidance remains authoritative in the manifest-selected techniques' -and $gddTechniqueText -match '(?i)A document does not need a table row' -and $gddTechniqueText -match '(?i)preserves the primary and imported-document sections byte-for-byte' -and $gddTechniqueText -match '(?i)must not retarget the primary pointer' -and $gddTechniqueText -match '(?i)preserve the selected source bytes' -and $gddTechniqueText -match '(?i)without silently overwriting any existing file' -and $gddTechniqueText -match '(?i)Do not scan unrelated design documents or invoke `UpdateGameDesignManifest.ps1`' -and $gddTechniqueText -match '(?i)Duplicate, malformed, unsupported or nested primary markers are conflicts' -and $gddTechniqueText -match '(?i)three project AI-route files' -and $folderTechniqueText -match '(?i)user-selected Angels \*\*Import selected documents\*\* or legacy \*\*Import primary Game Design Document\*\* action may create only missing `Docs/` and `Docs/GameDesign/` parents'
+    $gddPrimaryRoutingValid = $manifestText -match '(?i)primary source of context about the game; technical design and implementation guidance still come from' -and $gddOwnerRow.Groups["When"].Value -match '(?i)GDD import, primary-document routing' -and $gddTechniqueText.Contains('<!-- GEURTS-GDD-PRIMARY-BEGIN version="1.0.0" -->') -and $gddTechniqueText.Contains('**Primary document:** `Docs/GameDesign/SelectedDocument.md`') -and $gddTechniqueText.Contains('<!-- GEURTS-GDD-PRIMARY-END -->') -and $gddTechniqueText -match '(?i)outside the existing `GEURTS-GDD-MANIFEST-BEGIN` table' -and $gddTechniqueText -match '(?i)primary selection takes precedence over the managed table.s `Authority` field for choosing primary game context only' -and $gddTechniqueText -match '(?i)Technical design and implementation guidance remains authoritative in the AGENTS-selected techniques' -and $gddTechniqueText -match '(?i)A document does not need a table row' -and $gddTechniqueText -match '(?i)preserves the primary and imported-document sections byte-for-byte' -and $gddTechniqueText -match '(?i)must not retarget the primary pointer' -and $gddTechniqueText -match '(?i)preserve the selected source bytes' -and $gddTechniqueText -match '(?i)without silently overwriting any existing file' -and $gddTechniqueText -match '(?i)Do not scan unrelated design documents or invoke `UpdateGameDesignManifest.ps1`' -and $gddTechniqueText -match '(?i)Duplicate, malformed, unsupported or nested primary markers are conflicts' -and $gddTechniqueText -match '(?i)three project AI-route files' -and $folderTechniqueText -match '(?i)user-selected Angels \*\*Import selected documents\*\* or legacy \*\*Import primary Game Design Document\*\* action may create only missing `Docs/` and `Docs/GameDesign/` parents'
     Add-Check "Primary GDD import routing" $gddPrimaryRoutingValid "Explicit Markdown import selects project game context through an independent primary section, preserves source/table/user bytes, keeps technical authority in Geurts documentation, and does not expand the companion boundary."
 
     $gddMultipleImportsValid = $gddTechniqueText.Contains('<!-- GEURTS-GDD-IMPORTS-BEGIN version="1.0.0" -->') -and $gddTechniqueText.Contains('<!-- GEURTS-GDD-IMPORTS-END -->') -and $gddTechniqueText.Contains('Preflight every selected document') -and $gddTechniqueText.Contains('Later imports preserve the primary') -and $gddTechniqueText.Contains('unprovided classification and precedence') -and $gddTechniqueText.Contains('No recursive scan is permitted') -and $gddTechniqueText.Contains('Missing or invalid supporting documents remain visible')
@@ -1904,7 +1944,7 @@ try {
     Add-Check "Frozen GFI v2 receipt lifecycle" $receiptLifecycleValid "The frozen released-consumer contract retains its internally coherent commit-identity and current-receipt lifecycle."
 
     $aiBoundaryDelegates = $aiReadFirstText.Contains("<ProjectRoot>/GeurtsGameForgeCommandments/") -and $aiReadFirstText.Contains("<ProjectRoot>/Docs/GameDesign/") -and $aiReadFirstText -match '(?i)(?:membership|integration lifecycle)[^\r\n]{0,100}outside this router.?s subject' -and $aiReadFirstText -match '(?i)manifest selects the applicable owner'
-    $folderBoundaryDelegates = $folderTechniqueTextForPathTerms -match '(?i)placement boundary for a detached, writable project-local fetched copy' -and $folderTechniqueTextForPathTerms -match '(?i)folder-structure tool has no creation, replacement, or lifecycle authority' -and $folderTechniqueTextForPathTerms -match '(?i)manifest-selected integration technique owns the explicit manual Update boundary'
+    $folderBoundaryDelegates = $folderTechniqueTextForPathTerms -match '(?i)placement boundary for a detached, writable project-local fetched copy' -and $folderTechniqueTextForPathTerms -match '(?i)folder-structure tool has no creation, replacement, or lifecycle authority' -and $folderTechniqueTextForPathTerms -match '(?i)AGENTS-selected integration technique owns the explicit manual Update boundary'
     $strictOverwriteBoundaryValid = $gfiTechniqueText -match '(?i)only project path this documentation Update may delete or replace' -and $gfiTechniqueText -match '(?i)Every file and byte there, and every other project file outside `<ProjectRoot>/GeurtsGameForgeDocumentation/`, must remain untouched' -and $gfiTechniqueText -match '(?i)documentation Update changes only `<ProjectRoot>/GeurtsGameForgeDocumentation/`' -and $gfiTechniqueText -match '(?i)must not invoke native-entry setup, GDD scaffolding, GDD manifest maintenance, folder creation, or `\.gitignore` provisioning' -and $gfiTechniqueText -match '(?i)must not invent project-specific GDD facts' -and $gfiTechniqueText -match '(?i)overwrite project-authored GDD' -and $gfiTechniqueText -match '(?i)silently overwrite user-authored native entries' -and $gfiTechniqueText -match '(?i)alter a differing project-root `\.gitignore`' -and $activeGfiContractSurfaceText -notmatch '(?i)(?:may|must|shall|will)\s+(?:also\s+)?(?:delete(?:\s+and\s+replace)?|replace|overwrite)\s+(?:the\s+)?(?:project-authored\s+)?`?(?:<ProjectRoot>/)?Docs/GameDesign'
     Add-Check "Frozen GFI v2 overwrite boundary" $strictOverwriteBoundaryValid "The frozen released-consumer contract remains bounded to its historical GeurtsGameForgeCommandments-only replacement and never touches Docs/GameDesign."
 
@@ -1944,8 +1984,8 @@ try {
 
     $draftStatusValid = @(
         @{ Path = "GeurtsTechniques/GeurtsFolderStructureTechnique.md"; Version = '0.17.1' },
-        @{ Path = "GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md"; Version = '0.16.3' },
-        @{ Path = "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md"; Version = '3.3.0' }
+        @{ Path = "GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md"; Version = '0.16.4' },
+        @{ Path = "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md"; Version = '3.3.1' }
     ) | ForEach-Object {
         $record = Find-RegistryFile $_.Path $_.Version
         ([IO.File]::ReadAllText((Join-Path $RepositoryRoot $_.Path)) -match '(?im)^\*\*Status:\*\* Draft normative technique\s*$') -and
@@ -2003,7 +2043,7 @@ try {
     Add-Check "Explicit Unity project roots" ($explicitRootFailures.Count -eq 0) $(if ($explicitRootFailures.Count) { "Unsafe or ambiguous project-root handling: " + ($explicitRootFailures -join ", ") } else { "All project-mutating PowerShell tools and launchers require an explicit Unity root with Assets, Packages, and ProjectSettings; none derives it from the copied Tools location." })
 
     $usageFailures = New-Object System.Collections.Generic.List[string]
-    $usageDocuments = @("README.md", "AI_READ_FIRST.md", "GeurtsTechniqueManifest.md", "Migrations/v0.11.0.md")
+    $usageDocuments = @("README.md", "AGENTS.md", "AI_READ_FIRST.md", "GeurtsTechniqueManifest.md", "Migrations/v0.11.0.md")
     $usageDocuments += @(Get-ChildItem -LiteralPath (Join-Path $RepositoryRoot "GeurtsTechniques") -Filter "*.md" -File | ForEach-Object { "GeurtsTechniques/" + $_.Name })
     $toolInvocationPattern = '(?i)(?:powershell|pwsh|\.bat).*?(?:ManageGeurtsAgentInstructions|CreateGeurtsFolderStructure|UpdateGameDesignManifest|CreateAIAgentInstructionFiles)'
     foreach ($relative in $usageDocuments) {
@@ -2077,12 +2117,12 @@ try {
     # cannot prove that the required authoritative section is still reachable.
     $ownerRouteFailures = New-Object System.Collections.Generic.List[string]
     $ownerRoutes = @(
-        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsGameForgeAutomationTechnique.md'; Fragment = 'shared-integration-queue' },
-        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsBrickContract.md'; Fragment = 'explicit-updates-only' },
-        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = 'documentation-identity-and-pre-download-size' },
-        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = '4-offline-startup-and-explicit-metadata-checks' },
-        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = '5-explicit-in-editor-update' },
-        @{ Consumer = 'AI_READ_FIRST.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = 'current-action-confirmation-and-legacy-automatic-callers' },
+        @{ Consumer = 'AGENTS.md'; Owner = 'GeurtsGameForgeAutomationTechnique.md'; Fragment = 'shared-integration-queue' },
+        @{ Consumer = 'AGENTS.md'; Owner = 'GeurtsBrickContract.md'; Fragment = 'explicit-updates-only' },
+        @{ Consumer = 'AGENTS.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = 'documentation-identity-and-pre-download-size' },
+        @{ Consumer = 'AGENTS.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = '4-offline-startup-and-explicit-metadata-checks' },
+        @{ Consumer = 'AGENTS.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = '5-explicit-in-editor-update' },
+        @{ Consumer = 'AGENTS.md'; Owner = 'GeurtsCommandmentsCompanionTechnique.md'; Fragment = 'current-action-confirmation-and-legacy-automatic-callers' },
         @{ Consumer = 'GeurtsTechniques/GeurtsTechnicalTechnique.md'; Owner = 'GeurtsStandardsOnlyTechnique.md'; Fragment = 'general-standards-remain-applicable' },
         @{ Consumer = 'GeurtsTechniques/GeurtsTechnicalTechnique.md'; Owner = 'GeurtsStandardsOnlyTechnique.md'; Fragment = 'framework-requirements-are-conditional' },
         @{ Consumer = 'GeurtsTechniques/GeurtsBrickContract.md'; Owner = 'GeurtsTechnicalTechnique.md'; Fragment = 'no-code-module-use-and-code-extensions' },
@@ -2151,8 +2191,8 @@ try {
     if (-not $usageText.Contains('Planned features within released bricks remain unavailable.') -or -not $usageText.Contains('no Unity build, installer, native service or gameplay workflow was executed')) { $usageFailures.Add('Usage availability/evidence boundary missing') | Out-Null }
     Add-Check 'Brick usage coverage and source parity' ($usageFailures.Count -eq 0) $(if ($usageFailures.Count) { $usageFailures -join '; ' } else { 'Every Catalogue entry has controlled usage, mandatory fields and matching version/source pins; execution evidence remains separate.' })
 
-    $dependentToolFailures = @($brickCatalogue.bricks | Where-Object { $_.released -and $_.id -cne 'com.geurts.gameforge.bigbang' -and $_.id -cne 'com.geurts.gameforge.documentation' -and (@($_.requiredTools) -cnotcontains 'Odin Inspector' -or @($_.requiredTools) -cnotcontains 'Quantum Console') } | ForEach-Object { $_.id })
-    Add-Check 'Dependent brick licensed tools' ($dependentToolFailures.Count -eq 0) $(if ($dependentToolFailures.Count) { 'Missing licensed requirement: ' + ($dependentToolFailures -join ', ') } else { 'All released dependent bricks declare both licensed tools; independent installer and passive adapter exceptions remain exact.' })
+    $dependentToolFailures = @($brickCatalogue.bricks | Where-Object { $_.released -and $_.id -cne 'com.geurts.gameforge.bigbang' -and $_.id -cne 'com.geurts.gameforge.documentation' -and $_.id -cne 'com.geurts.gameforge.compatibility' -and (@($_.requiredTools) -cnotcontains 'Odin Inspector' -or @($_.requiredTools) -cnotcontains 'Quantum Console') } | ForEach-Object { $_.id })
+    Add-Check 'Dependent brick licensed tools' ($dependentToolFailures.Count -eq 0) $(if ($dependentToolFailures.Count) { 'Missing licensed requirement: ' + ($dependentToolFailures -join ', ') } else { 'All released dependent bricks declare both licensed tools; independent Compatibility core, installer and passive adapter exceptions remain exact.' })
 
     $namingText = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsNamingTechnique.md'))
     $commandText = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsCommandsTechnique.md'))

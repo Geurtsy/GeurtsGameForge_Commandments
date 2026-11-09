@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "packageVersion": "0.67.5",
+  "packageVersion": "0.68.0",
   "files": [
     {
       "path": ".gitattributes",
@@ -8,23 +8,28 @@
       "role": "CRLF working-tree policy for authored text in the Windows documentation source checkout."
     },
     {
+      "path": "AGENTS.md",
+      "version": "0.68.0",
+      "role": "Single startup authority: session/version rules, selection, applicability, order, precedence and registry ownership."
+    },
+    {
       "path": "AI_READ_FIRST.md",
-      "version": "0.67.5",
-      "role": "Entry and session boundaries."
+      "version": "0.68.0",
+      "role": "Non-normative compatibility redirect; never required startup reading."
     },
     {
       "path": "GeurtsTechniqueManifest.md",
-      "version": "0.67.5",
-      "role": "Selection, versions, ownership and reading scope."
+      "version": "0.68.0",
+      "role": "Non-normative compatibility redirect; never required startup reading. Legacy registry locator only."
     },
     {
       "path": "README.md",
-      "version": "0.67.5",
+      "version": "0.68.0",
       "role": "Optional AI package index and primary installation route."
     },
     {
       "path": "CONTRIBUTING.md",
-      "version": "0.67.5",
+      "version": "0.68.0",
       "role": "Concise source-contribution, validation, publication and unchanged-terms checklist."
     },
     {
@@ -34,12 +39,12 @@
     },
     {
       "path": "Tools/ValidateGeurtsPublication.ps1",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "role": "Offline committed-candidate comparison against the newest stable release tag."
     },
     {
       "path": "Tools/Tests/TestGeurtsPublication.ps1",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "role": "Isolated version-reuse, downgrade, tag and incomplete-history regressions."
     },
     {
@@ -54,7 +59,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
-      "version": "1.4.3",
+      "version": "1.6.0",
       "role": "Selective per-brick usage, actual pinned sources, examples and evidence limits."
     },
     {
@@ -74,12 +79,12 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsTechnicalTechnique.md",
-      "version": "0.20.13",
+      "version": "0.20.14",
       "role": "Normative shared technical core and priorities."
     },
     {
       "path": "GeurtsTechniques/GeurtsSteamIntegrationTechnique.md",
-      "version": "0.5.0",
+      "version": "0.5.1",
       "role": "Windows x64 Steam preparation, independent prerequisites, optional provider and separate native/release evidence."
     },
     {
@@ -89,22 +94,22 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsBrickContract.md",
-      "version": "1.25.0",
+      "version": "1.26.0",
       "role": "Brick reuse, dependencies, lifecycle, settings and package operations."
     },
     {
       "path": "GeurtsTechniques/GeurtsForgeSetupTechnique.md",
-      "version": "1.9.0",
+      "version": "1.10.0",
       "role": "God foundation, optional owner contributions and setup safety."
     },
     {
       "path": "GeurtsTechniques/GeurtsForgeSetupContract.json",
-      "version": "0.67.5",
-      "role": "Schema 1.0.0; setup Editor API 1.1 and contribution version 1."
+      "version": "0.68.0",
+      "role": "Schema 1.0.0; setup Editor API 1.3, independent Compatibility prerequisite and contribution version 1."
     },
     {
       "path": "GeurtsTechniques/GeurtsBigBangTechnique.md",
-      "version": "1.6.2",
+      "version": "1.7.0",
       "role": "Independent initial installer, verified God handoff and confirmed whole-Forge BigCrunch removal."
     },
     {
@@ -124,7 +129,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsBrickCatalogue.json",
-      "version": "0.67.5",
+      "version": "0.68.0",
       "role": "Current published packages and immutable Git targets."
     },
     {
@@ -139,27 +144,27 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsFolderStructureDefinition.json",
-      "version": "0.67.5",
+      "version": "0.68.0",
       "role": "Exact folder registry and creation profiles."
     },
     {
       "path": "GeurtsTechniques/GeurtsAIAgentSetupTechnique.md",
-      "version": "3.1.3",
+      "version": "3.1.4",
       "role": "Exact routes, consent boundaries and separately invoked manual manager."
     },
     {
       "path": "GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md",
-      "version": "0.16.3",
+      "version": "0.16.4",
       "role": "Normative primary game context, discovery and preserved imports."
     },
     {
       "path": "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md",
-      "version": "3.3.0",
+      "version": "3.3.1",
       "role": "Normative God-owned content service and passive-adapter transition."
     },
     {
       "path": "GeurtsTechniques/GeurtsCommandmentsCompanionContract.json",
-      "version": "0.67.5",
+      "version": "0.68.0",
       "role": "Schema 3.0.0; exact acquisition, consent and route mappings."
     },
     {
@@ -174,8 +179,8 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsAgentTechnique.md",
-      "version": "1.3.0",
-      "role": "Portable preserving root guide plus pinned legacy selected-folder payload."
+      "version": "1.4.0",
+      "role": "Current direct guide templates and exact historical recognition payloads."
     },
     {
       "path": "GeurtsTechniques/GeurtsGitIgnoreTechnique.md",
@@ -244,7 +249,7 @@
     },
     {
       "path": "Tools/ManageGeurtsAgentInstructions.ps1",
-      "version": "0.67.5",
+      "version": "0.68.0",
       "role": "Optional preservation-based native-route manager."
     },
     {
@@ -254,7 +259,7 @@
     },
     {
       "path": "Tools/CreateGeurtsFolderStructure.ps1",
-      "version": "0.67.5",
+      "version": "0.68.0",
       "role": "Explicit create-only folder operation."
     },
     {
@@ -269,7 +274,7 @@
     },
     {
       "path": "Tools/ValidateGeurtsDocumentation.ps1",
-      "version": "0.67.5",
+      "version": "0.68.0",
       "role": "Package and semantic validation."
     },
     {
@@ -284,17 +289,17 @@
     },
     {
       "path": "Tools/AIAgentInstructionTemplates/copilot-instructions.md",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "role": "Exact installation payload; preserve bytes."
     },
     {
       "path": "Tools/AIAgentInstructionTemplates/instructions/geurts-unity.instructions.md",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "role": "Exact installation payload; preserve bytes."
     },
     {
       "path": "Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "role": "Exact installation payload; preserve bytes."
     },
     {
@@ -309,13 +314,13 @@
     },
     {
       "path": "Tools/Tests/RunAutomationTests.ps1",
-      "version": "0.67.5",
+      "version": "0.68.0",
       "role": "Isolated automation and regression suite."
     },
     {
       "path": "Tools/GeurtsDocumentationAudience.psm1",
-      "version": "2.0.0",
-      "role": "Safe audience and manifest-controlled section reader."
+      "version": "2.0.1",
+      "role": "Safe audience and AGENTS-controlled section reader."
     },
     {
       "path": "Tools/ReadGeurtsDocumentation.ps1",
@@ -324,7 +329,7 @@
     },
     {
       "path": "Tools/Tests/TestDocumentationAudiences.ps1",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "role": "Audience, section selection, preview and boundary regressions."
     },
     {
@@ -354,7 +359,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsBootstrapTechnique.md",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "role": "Normative task-specific technical topic."
     },
     {
@@ -439,8 +444,8 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsDocumentationRegistry.json",
-      "version": "0.67.5",
-      "role": "Manifest-owned package inventory and conditional section data; targeted retrieval only."
+      "version": "0.68.0",
+      "role": "AGENTS-owned package inventory and conditional section data; targeted retrieval only."
     },
     {
       "path": "History/ReadingEfficiency-0.67.0.md",
@@ -657,6 +662,18 @@
       "id": "gitflow",
       "heading": "GitFlow",
       "whenRequired": "Selecting, using, integrating or maintaining GitFlow."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "compatibility",
+      "heading": "Compatibility",
+      "whenRequired": "Selecting, using, integrating or maintaining Compatibility."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "archangels",
+      "heading": "Archangels",
+      "whenRequired": "Selecting, using, integrating or maintaining Archangels."
     }
   ]
 }

@@ -3,9 +3,9 @@
 
 **Version:** 0.4.3
 **Required package path:** `GeurtsTechniques/GeurtsDiagnosticsTechnique.md`
-**Release selection:** Use the current Brick Catalogue for published versions, dependencies and immutable sources; verify the actual installed package and supported APIs. The shared Editor theme is governed by the manifest-selected Editor UI Theme Technique.
+**Release selection:** Use the current Brick Catalogue for published versions, dependencies and immutable sources; verify the actual installed package and supported APIs. The shared Editor theme is governed by the AGENTS-selected Editor UI Theme Technique.
 
-The manifest selects this technique for Diagnostics integration, logging, console policy, runtime metrics, health checks, inspection and gameplay cheat-session hooks. Technical trade-offs remain owned by the Technical Technique; the Brick Contract owns general lifecycle/settings and the catalogue. This file does not authorize installing packages or replacing project design facts.
+AGENTS.md selects this technique for Diagnostics integration, logging, console policy, runtime metrics, health checks, inspection and gameplay cheat-session hooks. Technical trade-offs remain owned by the Technical Technique; the Brick Contract owns general lifecycle/settings and the catalogue. This file does not authorize installing packages or replacing project design facts.
 
 ## Ownership and availability
 

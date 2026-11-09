@@ -1,4 +1,4 @@
-# Version: 2.0.0
+# Version: 2.0.1
 Set-StrictMode -Version Latest
 
 # Registry parsing is shared by the reader and source validator. No legacy fallback:
@@ -32,13 +32,13 @@ function Read-GeurtsDocumentationRegistry {
     [CmdletBinding()]
     param([Parameter(Mandatory)][string]$RepositoryRoot)
     $relative = 'GeurtsTechniques/GeurtsDocumentationRegistry.json'
-    $manifest = [IO.File]::ReadAllText((Get-GeurtsLocalPackageFile $RepositoryRoot 'GeurtsTechniqueManifest.md'))
+    $manifest = [IO.File]::ReadAllText((Get-GeurtsLocalPackageFile $RepositoryRoot 'AGENTS.md'))
     $declaration = '<!-- GEURTS-REGISTRY: ' + $relative + ' -->'
     if ([regex]::Matches($manifest, [regex]::Escape($declaration)).Count -ne 1 -or
         [regex]::Matches($manifest, 'GEURTS-REGISTRY:').Count -ne 1 -or
         $manifest -match 'GEURTS-(?:PACKAGE-FILES|READ-SECTIONS):') { throw 'Missing, duplicate or conflicting registry format declaration.' }
     $version = [regex]::Matches($manifest, '(?m)^\*\*Version:\*\*[ \t]+((?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*))[ \t]*\r?$')
-    if ($version.Count -ne 1) { throw 'Manifest must declare exactly one package version.' }
+    if ($version.Count -ne 1) { throw 'AGENTS.md must declare exactly one package version.' }
     $json = [IO.File]::ReadAllText((Get-GeurtsLocalPackageFile $RepositoryRoot $relative))
     # ConvertFrom-Json in Windows PowerShell silently accepts duplicate properties.
     # Inspect decoded object keys first, including escaped and case-variant aliases.
@@ -69,7 +69,7 @@ function Read-GeurtsDocumentationRegistry {
     $registry = $json | ConvertFrom-Json -ErrorAction Stop
     Assert-GeurtsRegistryProperties $registry @('schemaVersion', 'packageVersion', 'files', 'controlledSections')
     if ($registry.schemaVersion -isnot [string] -or $registry.schemaVersion -cne '1.0.0') { throw 'Unsupported documentation registry schema.' }
-    if ($registry.packageVersion -isnot [string] -or $registry.packageVersion -cne $version[0].Groups[1].Value) { throw 'Registry package version differs from the same-copy manifest.' }
+    if ($registry.packageVersion -isnot [string] -or $registry.packageVersion -cne $version[0].Groups[1].Value) { throw 'Registry package version differs from the same-copy AGENTS.md.' }
     if ($registry.files -isnot [array] -or $registry.files.Count -eq 0 -or $registry.controlledSections -isnot [array]) { throw 'Registry files and controlledSections must be arrays.' }
     $paths = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::OrdinalIgnoreCase)
     foreach ($file in $registry.files) {
@@ -83,13 +83,13 @@ function Read-GeurtsDocumentationRegistry {
         if ($file.version -isnot [string] -or $file.version -cnotmatch '^(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)(?:\.(?:0|[1-9][0-9]*))?$' -or
             $file.role -isnot [string] -or [string]::IsNullOrWhiteSpace($file.role)) { throw 'Invalid registry file version or role.' }
     }
-    foreach ($required in @('AI_READ_FIRST.md', 'GeurtsTechniqueManifest.md', $relative)) {
+    foreach ($required in @('AGENTS.md', $relative)) {
         $record = @($registry.files | Where-Object { $_.path -ceq $required })
         if ($record.Count -ne 1 -or $record[0].version -cne $registry.packageVersion) { throw "Missing or mismatched registry bootstrap record: $required" }
     }
     $keys = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::OrdinalIgnoreCase)
     $headings = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::Ordinal)
-    $protected = @('AI_READ_FIRST.md', 'GeurtsTechniqueManifest.md', 'GeurtsTechniques/GeurtsAgentTechnique.md', 'GeurtsTechniques/GeurtsGitIgnoreTechnique.md', 'GeurtsTechniques/GeurtsGitAttributesTechnique.md')
+    $protected = @('AGENTS.md', 'AI_READ_FIRST.md', 'GeurtsTechniqueManifest.md', 'GeurtsTechniques/GeurtsAgentTechnique.md', 'GeurtsTechniques/GeurtsGitIgnoreTechnique.md', 'GeurtsTechniques/GeurtsGitAttributesTechnique.md')
     foreach ($section in $registry.controlledSections) {
         Assert-GeurtsRegistryProperties $section @('document', 'id', 'heading', 'whenRequired')
         if ($section.document -isnot [string] -or $section.document -cnotin @($registry.files.path) -or
@@ -210,13 +210,14 @@ function Read-GeurtsAudienceDocument {
     $relative = $Document.Replace('\', '/')
     if ($relative -notmatch '^(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_.-]+\.md$' -or
         @($relative.Split('/') | Where-Object { $_ -in @('.', '..') }).Count -gt 0) {
-        throw 'Document must be a relative Markdown path listed in the package manifest.'
+        throw 'Document must be a relative Markdown path listed in the AGENTS-owned package registry.'
     }
     $registry = Read-GeurtsDocumentationRegistry -RepositoryRoot $root
     $record = @($registry.files | Where-Object { $_.path -ceq $relative })
     if ($record.Count -ne 1) { throw "Document is not registered in this package: $relative" }
     $text = [System.IO.File]::ReadAllText((Get-GeurtsLocalPackageFile $root $relative))
     $audienceRead = ConvertTo-GeurtsAudienceText -Text $text -Mode $Mode -IncludeHuman:$IncludeHuman
+    if ($relative -ceq 'AGENTS.md' -and $audienceRead.SkippedLines -gt 0) { throw 'AGENTS.md must be read in full; startup rules cannot be audience-filtered.' }
     $sectionRead = Select-GeurtsDocumentSections -SectionRecords @($registry.controlledSections) -Document $relative -Source $text -Content $audienceRead.Content -SourceLines $audienceRead.SourceLines -Sections $Sections
     [pscustomobject]@{
         Content = if ($Preview) { '' } else { $sectionRead.Content }
@@ -296,10 +297,10 @@ function Get-GeurtsHeadingParts {
     $parts.ToArray()
 }
 
-# Only the manifest may make a section conditional. Untabled content stays required.
+# Only the AGENTS-owned registry may make a section conditional. Untabled content stays required.
 function Select-GeurtsDocumentSections {
     param([object[]]$SectionRecords, [string]$Document, [string]$Source, [AllowEmptyString()][string]$Content, [int[]]$SourceLines, [string[]]$Sections)
-    $protectedPaths = @('AI_READ_FIRST.md', 'GeurtsTechniqueManifest.md',
+    $protectedPaths = @('AGENTS.md', 'AI_READ_FIRST.md', 'GeurtsTechniqueManifest.md',
         'GeurtsTechniques/GeurtsAgentTechnique.md', 'GeurtsTechniques/GeurtsGitIgnoreTechnique.md',
         'GeurtsTechniques/GeurtsGitAttributesTechnique.md')
     $protected = $Document -cin $protectedPaths -or $Document.StartsWith('Tools/AIAgentInstructionTemplates/', [System.StringComparison]::Ordinal)

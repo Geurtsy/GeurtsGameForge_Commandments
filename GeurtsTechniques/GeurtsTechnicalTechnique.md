@@ -1,16 +1,16 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Version:** 0.20.13
+**Version:** 0.20.14
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
 
-This is the short mandatory technical core for first-party game code, bricks, Editor tools, tests and automation. Read additional technical topics only when the manifest selects them. For an explicitly adopted Forge integration, use the current published packages in the catalogue; an installed older version is a compatibility fact, not the target for new guidance. Changelogs and historical release summaries are never routine mandatory reading. A requested migration or historical review selects its own history explicitly. No reading rule authorizes package installation or live-project changes.
+This is the short mandatory technical core for first-party game code, bricks, Editor tools, tests and automation. Read additional technical topics only when AGENTS.md selects them. For an explicitly adopted Forge integration, use the current published packages in the catalogue; an installed older version is a compatibility fact, not the target for new guidance. Changelogs and historical release summaries are never routine mandatory reading. A requested migration or historical review selects its own history explicitly. No reading rule authorizes package installation or live-project changes.
 
 ## Standards-Only Applicability
 
-When the manifest selects **StandardsOnly**, apply that owner's [general standards and optional integrations](GeurtsStandardsOnlyTechnique.md#general-standards-remain-applicable) and [conditional framework requirements](GeurtsStandardsOnlyTechnique.md#framework-requirements-are-conditional) before this core's framework-specific clauses. That owner defines dependency exemptions; the shared technical rules remain binding. Explicit Forge adoption and maintenance retain their selected framework owners. Selecting standards grants no package-installation authority.
+When AGENTS.md selects **StandardsOnly**, apply that owner's [general standards and optional integrations](GeurtsStandardsOnlyTechnique.md#general-standards-remain-applicable) and [conditional framework requirements](GeurtsStandardsOnlyTechnique.md#framework-requirements-are-conditional) before this core's framework-specific clauses. That owner defines dependency exemptions; the shared technical rules remain binding. Explicit Forge adoption and maintenance retain their selected framework owners. Selecting standards grants no package-installation authority.
 
 ## Technical Priority Order
 
@@ -23,13 +23,13 @@ When a decision requires a trade-off, apply this priority order:
 1. **Extendibility** - Code must be modular and easy to expand.
 2. **Efficiency** - Avoid unnecessary runtime cost; when efficiency genuinely conflicts with readability, runtime efficiency wins.
 3. **Readability** - Code should remain clear to humans and AI agents without imposing avoidable runtime cost.
-4. **Updated** - Use supported, non-deprecated APIs and practices compatible with the Unity 6000.6.3f1 minimum and the project's compatible dependencies, subject to the manifest-selected Unity topic.
+4. **Updated** - Use supported, non-deprecated APIs and practices compatible with the Unity 6000.6.3f1 minimum and the project's compatible dependencies, subject to the AGENTS-selected Unity topic.
 5. **Documented** - Major components, public APIs, and serialized fields must be clear and documented.
 6. **Security** - Code-security hardening is a very low priority and ranks below every other Core Principle.
 
 Security hardening comes last when choosing between otherwise valid technical approaches. Existing authorization, secret-handling, validation, preservation and server-authority requirements remain binding.
 
-These priorities are not equal. A higher priority wins over a lower priority within this technique's subject. A package change must be selected and versioned through the manifest rather than inferred from a stray copy.
+These priorities are not equal. A higher priority wins over a lower priority within this technique's subject. A package change must be selected and versioned through AGENTS.md rather than inferred from a stray copy.
 
 ### Multiplayer Exception
 
@@ -40,7 +40,7 @@ For multiplayer systems, **latency overrides all other code priorities**. Apply 
 
 Only after these priorities, apply the six Core Principles above. When saving bandwidth would increase gameplay latency, prefer the lower-latency option and record its bandwidth cost. This override applies regardless of the selected networking framework.
 
-Cross-document applicability and conflicts defer to the manifest. This technique's priority order applies only to actual technical trade-offs within its assigned subject.
+Cross-document applicability and conflicts defer to AGENTS.md. This technique's priority order applies only to actual technical trade-offs within its assigned subject.
 
 ## No-Code Module Use and Code Extensions
 
@@ -70,7 +70,7 @@ Develop, test and build **on Windows for Windows, using Unity and Codex**. Use t
 
 Select the **Windows Build Profile**, scene list, architecture and scripting backend explicitly. Validate affected behaviour in the Windows Editor and, for runtime/build changes, the resulting Windows player. Preserve unrelated settings, profiles and open scenes.
 
-Apply the manifest's [primary game target](../GeurtsTechniqueManifest.md#13-primary-game-target) when choosing release platforms. The manifest-selected [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) owns preparation, Steamworks.NET prerequisites, optional platform services and evidence. Prepare projects before AppID/store/depot/release-pipeline setup; keep unconfigured local development usable. Steam Deck, Proton, SteamOS and other operating systems are outside this target. This policy does not certify or retrofit released bricks.
+Apply AGENTS.md's [primary game target](../AGENTS.md#13-primary-game-target) when choosing release platforms. The AGENTS-selected [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) owns preparation, Steamworks.NET prerequisites, optional platform services and evidence. Prepare projects before AppID/store/depot/release-pipeline setup; keep unconfigured local development usable. Steam Deck, Proton, SteamOS and other operating systems are outside this target. This policy does not certify or retrofit released bricks.
 
 **The Steam API through Steamworks.NET is a mandatory project prerequisite**, alongside Odin Inspector and Quantum Console. Verify its supported managed APIs and Windows x64 native-plugin files through the Steam Integration owner. BigBang verifies this requirement before installation and existing-God handoff. Native Steam activation, client/account/AppID checks and distribution remain separate; the independent installer still compiles and opens when prerequisites are missing.
 
@@ -94,7 +94,7 @@ For an intended path at or above 260 characters, report the **exact full path an
 - Inspect relevant source, installed APIs and dependencies before implementing. Reuse suitable Geurts bricks under the [Brick Contract](GeurtsBrickContract.md). Do not fabricate APIs, add speculative architecture or rewrite unrelated working code.
 - Preserve existing content, asset GUIDs, public/serialized contracts and vendor/generated files. Use supported Unity APIs for owned serialization. Necessary breaking changes require a coordinated versioned migration.
 - Use explicit failure handling and cleanup. Never expose secrets, present placeholders as complete, swallow failures or leave avoidable partial states. Review affected references, paths, lifecycle, edge cases, regressions and relevant performance. Apply the priority order above to additional security hardening.
-- Use Unity 6.6 (6000.6.3f1) or newer, preserving the minimum, and current compatible, non-deprecated APIs for Unity work; the [Unity topic](GeurtsUnityTechnique.md) owns exact dependency, compiler and validation requirements. God and dependent bricks retain required licensed Odin Inspector and Quantum Console under the [Brick Contract](GeurtsBrickContract.md#identity-and-dependencies). The [BigBang Technique](GeurtsBigBangTechnique.md) owns its narrow prerequisite-only exception. Host PowerShell and this documentation repository do not require Unity/vendor assemblies.
+- Use Unity 6.6 (6000.6.3f1) or newer, preserving the minimum, and current compatible, non-deprecated APIs for Unity work; the [Unity topic](GeurtsUnityTechnique.md) owns exact dependency, compiler and validation requirements. God and dependent bricks retain required licensed Odin Inspector and Quantum Console under the [Brick Contract](GeurtsBrickContract.md#identity-and-dependencies). The [Brick Contract](GeurtsBrickContract.md#required-compatibility-prerequisite-core) owns the required independent Compatibility core; the [BigBang Technique](GeurtsBigBangTechnique.md) owns its narrow prerequisite-only exception. Host PowerShell and this documentation repository do not require Unity/vendor assemblies.
 - All existing and future Forge-owned Editor UI must follow the [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md) and [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md). Keep it spacious, with useful Help and meaningful Odin/equivalent authoring; these standards exclude player-facing UI. Appearance is a quality gate within the existing technical priorities, not another priority list.
 - Persistent runtime objects use retained bootstrap scenes, never direct or indirect `DontDestroyOnLoad`. Read the [Bootstrap topic](GeurtsBootstrapTechnique.md) for affected ownership, scene or transition work.
 - Use Diagnostics when a compatible provider is available; ordinary logs are no-op when unavailable, while genuine failures remain independently visible. The [Diagnostics Technique](GeurtsDiagnosticsTechnique.md) owns capture, audience, commands and metrics. A runtime console and FMOD are optional; installing the licensed QC library does not require installing a console.
@@ -124,7 +124,7 @@ Design every new or materially changed first-party component so humans and Codex
 
 Implement the complete authorized outcome, including affected registration, references, tests and documentation. Verify normal/failure paths, repeatability, cleanup, compatibility and relevant performance. Report actual evidence and unavailable checks honestly; compilation alone does not establish rendered UI, physical input or Windows-player acceptance. Follow [Automation](GeurtsGameForgeAutomationTechnique.md#proportionate-testing) for proportionate tests, [efficient AI tools](GeurtsGameForgeAutomationTechnique.md#efficient-ai-tool-use), questions, delivery and computer control.
 
-For changed C# scripts, apply the Code topic's naming, tooltips, XML summaries for all classes/methods, complex-logic comments and Major Component Help. The [Unity topic](GeurtsUnityTechnique.md) owns physics, scheduling and Unity compile/test/build checks; [Automation](GeurtsGameForgeAutomationTechnique.md#zero-warning-compilation-gate) owns the generic compilation gate. Validate no-code/API use and avoid per-frame allocations. Select other affected topics through the manifest.
+For changed C# scripts, apply the Code topic's naming, tooltips, XML summaries for all classes/methods, complex-logic comments and Major Component Help. The [Unity topic](GeurtsUnityTechnique.md) owns physics, scheduling and Unity compile/test/build checks; [Automation](GeurtsGameForgeAutomationTechnique.md#zero-warning-compilation-gate) owns the generic compilation gate. Validate no-code/API use and avoid per-frame allocations. Select other affected topics through AGENTS.md.
 
 ## Performance Trade-Off Guidance Under Efficiency
 
@@ -211,11 +211,11 @@ These redirects preserve links from existing guides; they do not select addition
 
 <a id="combined-unity-cli-and-editor-workflow"></a>[combined-unity-cli-and-editor-workflow](GeurtsUnityTechnique.md#combined-unity-cli-and-editor-workflow)
 
-<a id="manifest-boundary"></a>[manifest-boundary](../GeurtsTechniqueManifest.md#1-manifest-resolver)
+<a id="manifest-boundary"></a>[manifest-boundary](../AGENTS.md#1-startup-resolver)
 
 <a id="selectively-adapted-engineering-guidance"></a>[selectively-adapted-engineering-guidance](#shared-implementation-boundaries)
 
-<a id="provenance-and-authority"></a>[provenance-and-authority](../GeurtsTechniqueManifest.md#1-manifest-resolver)
+<a id="provenance-and-authority"></a>[provenance-and-authority](../AGENTS.md#1-startup-resolver)
 
 <a id="understand-inspect-and-reuse"></a>[understand-inspect-and-reuse](#shared-implementation-boundaries)
 

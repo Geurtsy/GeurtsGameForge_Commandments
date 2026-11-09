@@ -1,4 +1,4 @@
-# Version: 1.0.0
+# Version: 1.0.1
 <#
 .SYNOPSIS
 Checks committed documentation against the newest locally available stable release tag.
@@ -29,7 +29,10 @@ function Invoke-GeurtsPublicationGit([string]$Root, [string[]]$Arguments) {
 }
 
 function Get-GeurtsPublicationVersion([string]$Root, [string]$Commit) {
-    $manifest = Invoke-GeurtsPublicationGit $Root @('show', ($Commit + ':GeurtsTechniqueManifest.md'))
+    $paths = Invoke-GeurtsPublicationGit $Root @('ls-tree', '--name-only', $Commit, '--', 'AGENTS.md')
+    # Historical releases predate the single entry; never use fallback when AGENTS exists.
+    $entry = if ($paths -ceq 'AGENTS.md') { 'AGENTS.md' } else { 'GeurtsTechniqueManifest.md' }
+    $manifest = Invoke-GeurtsPublicationGit $Root @('show', ($Commit + ':' + $entry))
     $versions = [regex]::Matches($manifest, '(?m)^\*\*Version:\*\*\s*((?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*))\s*$')
     if ($versions.Count -ne 1) { throw "Commit $Commit must declare exactly one stable documentation version." }
     return [version]$versions[0].Groups[1].Value

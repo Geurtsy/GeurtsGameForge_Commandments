@@ -1,11 +1,11 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts BigBang Technique
 
-**Version:** 1.6.2
+**Version:** 1.7.0
 **Status:** Normative installation and removal boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
-The manifest selects this owner for independent prerequisite preparation, initial God installation and verified handoff. Technical owns implementation priorities; Brick Contract owns ordinary brick dependencies; Editor UI Theme owns presentation and visual acceptance; Automation owns validation and delivery. BigBang resolves only its initial God release; God retains the package catalogue and ongoing dependency/update planner.
+AGENTS.md selects this owner for independent prerequisite preparation, initial God installation and verified handoff. Technical owns implementation priorities; Brick Contract owns ordinary brick dependencies; Editor UI Theme owns presentation and visual acceptance; Automation owns validation and delivery. BigBang resolves only its initial God release; God retains the package catalogue and ongoing dependency/update planner.
 
 ## Identity and completion
 
@@ -15,9 +15,15 @@ Completion means God is installed, compiled and available to open. BigBang does 
 
 ## Narrow independent-installer exception
 
-BigBang must compile with God, Odin Inspector, Quantum Console, Input System, uGUI and TextMesh Pro absent, including with a stale `ODIN_INSPECTOR` symbol. Use an explicit Editor-only assembly, Unity Editor, UI Toolkit and supported .NET APIs. Do not implement `IBrick`, reference God/vendor assemblies or declare God in `package.json.dependencies`. Declare only required built-in modules; Test Framework references remain confined to test assemblies. This is a narrow initial-installer exception. Ordinary God and dependent bricks retain their required licensed Odin Inspector and Quantum Console assemblies.
+BigBang must compile with God, Odin Inspector, Quantum Console, Input System, uGUI and TextMesh Pro absent, including with a stale `ODIN_INSPECTOR` symbol. Use an explicit Editor-only assembly, Unity Editor, UI Toolkit and supported .NET APIs. Do not implement `IBrick`, reference God/vendor assemblies or declare God in `package.json.dependencies`. Declare only its independent Compatibility prerequisite and required built-in modules; Test Framework references remain confined to test assemblies. This is a narrow initial-installer exception coordinated with the [required Compatibility core](GeurtsBrickContract.md#required-compatibility-prerequisite-core). Ordinary God and dependent bricks retain their required licensed Odin Inspector and Quantum Console assemblies.
 
 Acquire commercial libraries separately through their licensed distribution. The installer offers verified acquisition links, supported My Assets guidance and native licensed `.unitypackage` import selection. Unity or the vendor owns purchasing, licensing, account login, download and import selection. Do not infer licence ownership from imported files, copy or redistribute commercial assets, alter vendor-supported paths, or invoke reflected internal Asset Store APIs. A project unable to compile needs a documented manual import/recovery route.
+
+## Required compatibility preparation
+
+Require the published `com.geurts.gameforge.compatibility` core before God. It has no God/vendor compile reference and is the sole owner of compatibility profiles, private source preparation, supported project/reference settings and their detailed guidance. BigBang uses that owner's public inspection and navigation APIs; it does not copy transforms, implement another patcher or acquire a reverse God dependency.
+
+If licensed source already prevents Unity compilation, use Compatibility's standalone host route to validate and prepare a fresh private revision first. Import/select the reviewed dependency revisions through their existing native owner, explicitly apply any needed supported project profile through Compatibility, then verify prerequisites and install God. Each preparation, dependency import/update and profile change retains its separate explicit action/confirmation. Preserve existing God and project content; never patch installed/cache files automatically. A compatible profile declaration alone is not successful compilation.
 
 ## Steamworks.NET prerequisite policy
 
@@ -31,7 +37,7 @@ The published catalogue now identifies BigBang with the local Steam prerequisite
 
 Resolve the latest published compatible God release on every explicit Get Latest Git Source action and again immediately before installation. Read stable `vMAJOR.MINOR.PATCH` tags from the verified official `Geurtsy/com.geurts.gameforge.god` Git repository using the user's Git credentials. Sort semantic versions rather than names and resolve annotated tags to their peeled commit. Ignore branches and prerelease tags. Verify the root package manifest at that exact commit: God identity, version matching the tag, and a supported Unity minimum. Compare each release's declared minimum against the actual current Editor, not a fixed 6000.6.3f1 target. Retain the stricter of the Forge floor and selected release minimum in the frozen operation and recheck it before dispatch and after reload. Skip well-formed releases requiring an Editor newer than the current one; malformed identity/version metadata must fail visibly. Refuse a tag that moves between lookup and fetch.
 
-The package's small data-only God definition supplies the official repository, minimum API compatibility profile, required vendor capabilities, supported handoff and tested baseline. It is not a fixed installation target. The minimum API profile introduced by BigBang 0.2.0 starts at God 0.27.0. Current-session API checks and actual successful compilation of the selected God remain required; the profile does not promise arbitrary future vendor compatibility.
+The package's small data-only God definition supplies the official repository, minimum API compatibility profile, required vendor capabilities, supported handoff and tested baseline. It is not a fixed installation target. The historical API profile introduced by BigBang 0.2.0 started at God 0.27.0. The coordinated Compatibility consumer release requires God 0.44.0 or newer; the actual source definition and published Catalogue govern availability. Current-session API checks and actual successful compilation of the selected God remain required; the profile does not promise arbitrary future vendor compatibility.
 
 A failed, missing or cancelled release check must not authorize installation from the bundled profile or an old cache. Freeze the resolved version and exact commit for the operation before dispatch and retain them through reload and verification. A later repository update never changes an active installation. Changes to the compatibility profile require a newer BigBang release; discovering a newer compatible God does not. No floating `main` install, remote catalogue service, background updater or executable setup definition is permitted. Verify the selected published God's own manifest declares the Unity packages it uses; allow UPM to resolve them. Do not patch God or maintain a second dependency planner to compensate for missing declarations.
 
