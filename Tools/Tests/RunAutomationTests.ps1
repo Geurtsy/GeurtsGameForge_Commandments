@@ -1346,6 +1346,13 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         Assert-True ($run.Code -ne 0 -and $run.Output.Contains('[FAIL] ' + $case.Check)) ('Validator rejects current Update ' + $case.Name + ' regression')
     }
 
+    # Keep the negative usage-pin fixture aligned with the selected catalogue,
+    # rather than silently becoming a no-op after a legitimate owner release.
+    $usageCatalogue = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsBrickCatalogue.json')) | ConvertFrom-Json
+    $usageBigBang = @($usageCatalogue.bricks | Where-Object { $_.id -ceq 'com.geurts.gameforge.bigbang' })
+    if ($usageBigBang.Count -ne 1) { throw 'Usage-pin fixture requires exactly one BigBang catalogue entry.' }
+    $usageBigBangCommit = ([string]$usageBigBang[0].source -split '#')[-1]
+    if ($usageBigBangCommit -cnotmatch '^[0-9a-f]{40}$') { throw 'Usage-pin fixture requires the exact catalogue commit.' }
     # Each fixture changes one material requirement and checks its specific failure.
     foreach ($case in @(
         @{ Name = 'maintenance-route'; Path = 'AGENTS.md'; Old = 'Read the Documentation Maintenance Technique for every approved Game Forge change or documentation review.'; New = 'Read maintenance only if requested.'; Check = 'AI documentation maintenance boundary' },
@@ -1365,7 +1372,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         @{ Name = 'standalone-gdd'; Path = 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md'; Old = 'Every unlisted path stays untouched and uninspected, particularly Docs/GameDesign.'; New = 'Inspect and repair Docs/GameDesign during replacement.'; Check = 'Secondary standalone scope and availability' },
         @{ Name = 'standalone-software'; Path = 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md'; Old = 'without installing additional software or packages'; New = 'after installing extra runtime packages'; Check = 'Secondary standalone scope and availability' },
         @{ Name = 'usage-coverage'; Path = 'GeurtsTechniques/GeurtsBrickUsageGuide.md'; Old = '**Catalogue ID:** `com.geurts.gameforge.audio`'; New = '**Catalogue ID:** `com.geurts.gameforge.unlisted`'; Check = 'Brick usage coverage and source parity' },
-        @{ Name = 'usage-pin'; Path = 'GeurtsTechniques/GeurtsBrickUsageGuide.md'; Old = 'eb291ef5e6d2a1e9b16104d04f8b97f6dac9cc53'; New = '0000000000000000000000000000000000000000'; Check = 'Brick usage coverage and source parity' },
+        @{ Name = 'usage-pin'; Path = 'GeurtsTechniques/GeurtsBrickUsageGuide.md'; Old = $usageBigBangCommit; New = '0000000000000000000000000000000000000000'; Check = 'Brick usage coverage and source parity' },
         @{ Name = 'usage-recipe'; Path = 'GeurtsTechniques/GeurtsBrickUsageGuide.md'; Old = '- **Example:** Import'; New = '- **Omitted:** Import'; Check = 'Brick usage coverage and source parity' },
         @{ Name = 'command-abbreviation'; Path = 'GeurtsTechniques/GeurtsCommandsTechnique.md'; Old = 'ArtificialIntelligence.GetState'; New = 'AI.GetState'; Check = 'Full-word naming boundary' },
         @{ Name = 'asset-abbreviation'; Path = 'GeurtsTechniques/GeurtsNamingTechnique.md'; Old = 'ScienceFiction'; New = 'SciFi'; Check = 'Full-word naming boundary' },
