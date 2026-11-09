@@ -1,10 +1,12 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Bootstrap Technical Topic
 
-**Version:** 0.1.2
+**Version:** 0.1.3
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsBootstrapTechnique.md`
+
+The required Compatibility core is an Editor/source prerequisite under the [Brick Contract](GeurtsBrickContract.md#required-compatibility-prerequisite-core), not a runtime service or scene initializer. It creates no persistent object and adds no mandatory bootstrap scene or lifecycle host.
 
 ## Required Project Scenes
 

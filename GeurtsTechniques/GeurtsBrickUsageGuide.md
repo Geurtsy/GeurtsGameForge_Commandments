@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.4.3
+**Version:** 1.5.0
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -13,11 +13,17 @@ The [Catalogue](GeurtsBrickCatalogue.json) alone selects current installable ide
 
 **Declared requirements** come from the [Brick Contract](GeurtsBrickContract.md) and selected techniques. **Source evidence** below was checked read-only at exact pins: package.json, ForgeCapabilities.json, guide paths, operation provider declarations and linked recipe bytes where available. **Runtime evidence** remains the owner's source-matched validation; no Unity build, installer, native service or gameplay workflow was executed for this index. A declaration or passing documentation check does not certify functionality. Recheck the actual installed graph and available providers before use; unknown/mismatched evidence blocks the affected action.
 
-For every dependent brick, verify both licensed Odin Inspector and Quantum Console, supported Unity (6000.6.3f1 or newer), actual package dependencies and local Commandments before Editor mutation. BigBang and the passive adapter have the exact exceptions below. God is the only mandatory shared Geurts brick; optional peers stay optional. Explicit installation uses the Catalogue's Git source. Read each pinned owner's AIUsability task table, then its selected recipe/API guide; do not load release history for ordinary integration.
+For every dependent brick, verify both licensed Odin Inspector and Quantum Console, supported Unity (6000.6.3f1 or newer), actual package dependencies and local Commandments before Editor mutation. Compatibility, BigBang and the passive adapter have the exact independent exceptions below. God is the runtime/lifecycle foundation and requires the independent Compatibility core; optional peers stay optional. Explicit installation uses the Catalogue's Git source. Read each pinned owner's AIUsability task table, then its selected recipe/API guide; do not load release history for ordinary integration.
 
 Installed packages/bricks and managed documentation never update automatically. Every Update/Update All requires a current explicit user action and the owning confirmation; saved consent and God menu openings are not exceptions. Read-only checks retain their existing triggers. Verify implementation and installed behavior separately from this requirement; the [owner coordination record](../Migrations/v0.64.0.md) tracks adoption. Background game-change queue publication remains a separate authorized workflow.
 
 The examples below are bounded workflows derived from owner guides, not new APIs or approvals to run them. Retain owner consent, review, typed payloads, stale-review checks, operation guards and game design authority. Discover supported operations locally; inspect is read-only, execution is explicit and results retain actual partial/failure states. Direct APIs do not imply a generic operation ID. Runtime consumers borrow the existing bootstrap service and release owned resources; Editor-only services stay out of players. The [maintenance owner](GeurtsDocumentationMaintenanceTechnique.md) requires this index and the affected owning guide to stay synchronized.
+
+## Compatibility
+
+**Package ID:** `com.geurts.gameforge.compatibility`.
+
+Required independent Editor prerequisite for God and BigBang. The [Brick Contract](GeurtsBrickContract.md#required-compatibility-prerequisite-core) owns its dependency exception and consent boundary. Read the installed core's `Documentation~/AIUsability.md` and only the selected profile guide for exact supported inputs, transforms, public APIs and evidence. It has no God/vendor compile dependency or runtime host. Host preparation works before affected source compiles. No install source or success is implied until the Catalogue contains a verified published release; implementation is currently coordinated in owning source.
 
 ## BigBang
 
@@ -26,7 +32,7 @@ The examples below are bounded workflows derived from owner guides, not new APIs
 **Source:** [package manifest](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/eb291ef5e6d2a1e9b16104d04f8b97f6dac9cc53/package.json), [capabilities](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/eb291ef5e6d2a1e9b16104d04f8b97f6dac9cc53/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/eb291ef5e6d2a1e9b16104d04f8b97f6dac9cc53/Documentation~/GameIntegration.md).
 
 - **Use:** Prepare a fresh Forge Unity project and hand off to God; use BigCrunch only for separately requested whole-Forge removal.
-- **Prerequisites:** Windows, supported Unity and Git. BigBang itself compiles without God, Odin Inspector or Quantum Console; installation/handoff requires licensed Odin Inspector, Quantum Console and verified Steamworks.NET.
+- **Prerequisites:** Windows, supported Unity and Git. BigBang requires the independent Compatibility core and itself compiles without God, Odin Inspector or Quantum Console; installation/handoff requires licensed Odin Inspector, Quantum Console and verified Steamworks.NET.
 - **Entry points:** Use the six-step BigBang Editor workflow. No unattended installation controller or ForgeOperations action is supplied.
 - **Example:** Import the licensed libraries, explicitly acquire the supported Steamworks.NET wrapper, verify prerequisites, get the latest compatible God source, install and verify God, then Continue with God. Acquire Commandments separately in God.
 - **Lifecycle/settings:** Editor-only. Preserve existing God and frozen operation state; God owns ongoing packages and runtime bootstrap.

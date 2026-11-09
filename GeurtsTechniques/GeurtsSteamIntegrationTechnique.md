@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Steam Integration Technique
 
-**Version:** 0.5.0
+**Version:** 0.5.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md`
@@ -38,7 +38,7 @@ Revalidate local evidence immediately before installation dispatch. Package/sour
 
 ## Optional provider and shared contracts
 
-**God remains the only mandatory shared Geurts brick.** Steamworks.NET is an external project prerequisite; the Steam provider is an optional peer. God, BigBang and generic game/peer code must compile without the Steam provider. God must not acquire Steamworks.NET references or native initialization. Shared platform-service contracts in God stay vendor-neutral and describe availability, outcomes and useful failure reasons without SDK types.
+**Shared Forge prerequisites follow the [Brick Contract](GeurtsBrickContract.md#required-compatibility-prerequisite-core); the Steam provider remains optional.** Steamworks.NET is an external project prerequisite; the Steam provider is an optional peer. God, BigBang and generic game/peer code must compile without the Steam provider. God must not acquire Steamworks.NET references or native initialization. Shared platform-service contracts in God stay vendor-neutral and describe availability, outcomes and useful failure reasons without SDK types.
 
 The Steam brick owns its platform wrapper/native calls, initialization, callback dispatch, shutdown, Steam configuration, identity and overlay integration. Its release declares the tested package/API profile and separates implemented adapters from unverified real native behavior. Generic peers consume optional capabilities through God's existing registration/lifecycle. Concrete cooperation requiring two optional packages belongs in a separate integration owner, except for Multiplayer's [required built-in Steam support and single-session contract](GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support). That owner keeps transport integration inside Multiplayer and requires coordinated native ownership when both bricks are present; it does not claim existing APIs already support it. A missing, disabled, unconfigured or failed provider leaves unrelated local gameplay usable and reports its Steam-specific services as unavailable. Do not invent Steam identity, achievements or successful cloud writes.
 

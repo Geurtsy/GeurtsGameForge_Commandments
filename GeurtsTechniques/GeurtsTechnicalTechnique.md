@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Version:** 0.20.13
+**Version:** 0.20.14
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
@@ -94,7 +94,7 @@ For an intended path at or above 260 characters, report the **exact full path an
 - Inspect relevant source, installed APIs and dependencies before implementing. Reuse suitable Geurts bricks under the [Brick Contract](GeurtsBrickContract.md). Do not fabricate APIs, add speculative architecture or rewrite unrelated working code.
 - Preserve existing content, asset GUIDs, public/serialized contracts and vendor/generated files. Use supported Unity APIs for owned serialization. Necessary breaking changes require a coordinated versioned migration.
 - Use explicit failure handling and cleanup. Never expose secrets, present placeholders as complete, swallow failures or leave avoidable partial states. Review affected references, paths, lifecycle, edge cases, regressions and relevant performance. Apply the priority order above to additional security hardening.
-- Use Unity 6.6 (6000.6.3f1) or newer, preserving the minimum, and current compatible, non-deprecated APIs for Unity work; the [Unity topic](GeurtsUnityTechnique.md) owns exact dependency, compiler and validation requirements. God and dependent bricks retain required licensed Odin Inspector and Quantum Console under the [Brick Contract](GeurtsBrickContract.md#identity-and-dependencies). The [BigBang Technique](GeurtsBigBangTechnique.md) owns its narrow prerequisite-only exception. Host PowerShell and this documentation repository do not require Unity/vendor assemblies.
+- Use Unity 6.6 (6000.6.3f1) or newer, preserving the minimum, and current compatible, non-deprecated APIs for Unity work; the [Unity topic](GeurtsUnityTechnique.md) owns exact dependency, compiler and validation requirements. God and dependent bricks retain required licensed Odin Inspector and Quantum Console under the [Brick Contract](GeurtsBrickContract.md#identity-and-dependencies). The [Brick Contract](GeurtsBrickContract.md#required-compatibility-prerequisite-core) owns the required independent Compatibility core; the [BigBang Technique](GeurtsBigBangTechnique.md) owns its narrow prerequisite-only exception. Host PowerShell and this documentation repository do not require Unity/vendor assemblies.
 - All existing and future Forge-owned Editor UI must follow the [Editor UI Theme Technique](GeurtsEditorUIThemeTechnique.md) and [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md). Keep it spacious, with useful Help and meaningful Odin/equivalent authoring; these standards exclude player-facing UI. Appearance is a quality gate within the existing technical priorities, not another priority list.
 - Persistent runtime objects use retained bootstrap scenes, never direct or indirect `DontDestroyOnLoad`. Read the [Bootstrap topic](GeurtsBootstrapTechnique.md) for affected ownership, scene or transition work.
 - Use Diagnostics when a compatible provider is available; ordinary logs are no-op when unavailable, while genuine failures remain independently visible. The [Diagnostics Technique](GeurtsDiagnosticsTechnique.md) owns capture, audience, commands and metrics. A runtime console and FMOD are optional; installing the licensed QC library does not require installing a console.

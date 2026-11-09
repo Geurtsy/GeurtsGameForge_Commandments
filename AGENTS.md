@@ -31,7 +31,7 @@ Game updates use Automation's [shared integration queue](GeurtsTechniques/Geurts
 
 ## Standards Without GameForge
 
-Explicit use without GameForge selects this file's StandardsOnly profile and [Standards-Only owner](GeurtsTechniques/GeurtsStandardsOnlyTechnique.md) before generic subjects. No God, Angels, BigBang or companion is required for source-only use. Framework requirements are conditional; Steam, Odin Inspector and Quantum Console are optional, including Unity implementation. General standards remain binding. No installation, update or project-write authority is granted.
+Explicit use without GameForge selects this file's StandardsOnly profile and [Standards-Only owner](GeurtsTechniques/GeurtsStandardsOnlyTechnique.md) before generic subjects. No Compatibility, God, Angels, BigBang or companion is required for source-only use. Framework requirements are conditional; Steam, Odin Inspector and Quantum Console are optional, including Unity implementation. General standards remain binding. No installation, update or project-write authority is granted.
 
 ## Local Package Boundary
 

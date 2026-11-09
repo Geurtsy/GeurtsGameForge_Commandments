@@ -439,7 +439,7 @@ try {
     $steamText = if (Test-Path -LiteralPath $steamPath -PathType Leaf) { [IO.File]::ReadAllText($steamPath) } else { '' }
     $steamOwner = [regex]::Match($subjectSection.Value, '(?m)^\| Steam preparation, platform services and Windows release evidence \| `GeurtsTechniques/GeurtsSteamIntegrationTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $steamRoutingValid = $steamOwner.Success -and $registrySet.Contains($steamRelative) -and
-        ($null -ne (Find-RegistryFile $steamRelative '0.5.0')) -and
+        ($null -ne (Find-RegistryFile $steamRelative '0.5.1')) -and
         $resolverBody.Contains('Technical; Unity; Steam Integration; Code;')
     foreach ($topic in @('Steamworks.NET', 'BigBang', 'platform-service', 'bootstrap/native', 'build/distribution')) {
         if (-not $steamOwner.Groups['When'].Value.Contains($topic)) { $steamRoutingValid = $false }
@@ -449,7 +449,7 @@ try {
     }
     Add-Check 'Steam manifest routing' $steamRoutingValid 'One Steam owner follows Unity, covers prerequisites/services/builds, and is referenced by the affected subject owners.'
 
-    $steamAudienceValid = $steamText -match '(?im)^\*\*Version:\*\*\s*0\.5\.0\s*$' -and $steamText.StartsWith('<!-- GEURTS-AUDIENCE: AI-READ -->')
+    $steamAudienceValid = $steamText -match '(?im)^\*\*Version:\*\*\s*0\.5\.1\s*$' -and $steamText.StartsWith('<!-- GEURTS-AUDIENCE: AI-READ -->')
     foreach ($mode in @('GameUse', 'ForgeDevelopment')) {
         try {
             $steamRead = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document $steamRelative -Mode $mode
@@ -496,7 +496,7 @@ try {
     }
     Add-Check 'Steam independent local prerequisite' $steamAdmissionValid 'Installation and handoff require local Steam API evidence; numbered Red/Orange/Green steps preserve independent compilation and native-free local inspection.'
 
-    $steamOwnershipValid = $steamText -match '(?i)God remains the only mandatory shared Geurts brick' -and
+    $steamOwnershipValid = $steamText.Contains('Shared Forge prerequisites follow the [Brick Contract](GeurtsBrickContract.md#required-compatibility-prerequisite-core)') -and
         $steamText -match '(?i)Steam provider is an optional peer' -and
         $steamText -match '(?i)God must not acquire Steamworks\.NET references or native initialization' -and
         $steamText -match '(?i)vendor-neutral' -and $steamText -match '(?i)Steam brick owns its platform wrapper/native calls' -and
@@ -847,9 +847,9 @@ try {
     $godFirstValid = $godEntries.Count -eq 1 -and
         @($godEntries[0].dependencies | Where-Object { $_.id -ceq "com.geurts.gameforge.documentation" }).Count -eq 0 -and
         $brickContractText.Contains('Commandments Companion is optional, not a required package or assembly dependency') -and
-        $brickContractText.Contains('Install God first from its real Git source') -and
+        $brickContractText.Contains('Install the published Compatibility core and prepare compatible licensed prerequisites before installing God from its real Git source') -and
         $brickContractText.Contains('The user-facing package-management window and menu are named **Game Forge God**')
-    Add-Check "God-first optional Commandments Companion boundary" $godFirstValid "God installs independently, exposes the optional Commandments Companion package through Game Forge God, and does not declare a reverse dependency in the catalogue."
+    Add-Check "God-first optional Commandments Companion boundary" $godFirstValid "God requires the independent Compatibility prerequisite, exposes the optional Commandments Companion through Game Forge God, and has no reverse documentation package dependency."
 
     $installedMenusValid = $brickContractText.Contains('**Installed Brick Menus**') -and
         $brickContractText.Contains('Include installed disabled bricks and installed packages absent from the catalogue') -and
@@ -1297,7 +1297,7 @@ try {
         $topicPath = Join-Path $RepositoryRoot $topicRelative
         if (-not (Test-Path -LiteralPath $topicPath -PathType Leaf)) { $topicFailures.Add("Topic is missing: $topicRelative") | Out-Null; continue }
         $topicText = [IO.File]::ReadAllText($topicPath)
-        $topicVersion = if ($topic -ceq 'Unity') { '0.3.5' } elseif ($topic -ceq 'Code') { '0.2.0' } elseif ($topic -ceq 'Authoring') { '0.1.3' } elseif ($topic -ceq 'Naming') { '0.2.0' } elseif ($topic -ceq 'Commands') { '0.2.0' } elseif ($topic -ceq 'GameAI') { '0.2.1' } elseif ($topic -ceq 'Multiplayer') { '0.4.0' } else { '0.1.2' }
+        $topicVersion = if ($topic -ceq 'Unity') { '0.3.5' } elseif ($topic -ceq 'Code') { '0.2.0' } elseif ($topic -ceq 'Authoring') { '0.1.3' } elseif ($topic -ceq 'Naming') { '0.2.0' } elseif ($topic -ceq 'Commands') { '0.2.0' } elseif ($topic -ceq 'GameAI') { '0.2.1' } elseif ($topic -ceq 'Multiplayer') { '0.4.0' } elseif ($topic -ceq 'Bootstrap') { '0.1.3' } else { '0.1.2' }
         if ($topicText -notmatch ('(?m)^\*\*Version:\*\* ' + [regex]::Escape($topicVersion) + '\r?$') -or $topicText -notmatch '(?m)^<!-- GEURTS-AUDIENCE: AI-READ -->\r?$') { $topicFailures.Add("Topic metadata is invalid: $topicRelative") | Out-Null }
         $topicTexts += $topicText
     }
@@ -1326,7 +1326,7 @@ try {
         if (-not $technicalCoreText.Contains($route) -or -not $contributors.Contains($route)) { $topicFailures.Add("Efficiency policy is not routed through its Automation owner: $route") | Out-Null }
     }
     if ($codeText -match '(?i)XML documentation is not required for private methods') { $topicFailures.Add('Code topic exempts private methods from required XML summaries') | Out-Null }
-    if ($technicalCoreText -notmatch '(?m)^\*\*Version:\*\* 0\.20\.13\r?$' -or $technicalCoreText.Length -gt 24000 -or
+    if ($technicalCoreText -notmatch '(?m)^\*\*Version:\*\* 0\.20\.14\r?$' -or $technicalCoreText.Length -gt 24000 -or
         -not $technicalCoreText.Contains('No-Code Module Use and Code Extensions') -or
         -not $technicalCoreText.Contains('every full absolute file and folder path below 260 characters') -or
         $technicalCoreText -match '(?m)^## (?:Game Audio and Sound Design|Command Rules|Multiplayer Efficiency Rule|Odin Inspector Usage)\r?$') {
@@ -1436,11 +1436,19 @@ try {
         $bigBangFailures.Add('BigBang canonical subset generation or vendor exclusion is absent') | Out-Null
     }
     $bigBangCatalogueEntries = @($brickCatalogue.bricks | Where-Object { $_.id -ceq 'com.geurts.gameforge.bigbang' })
-    if ($bigBangCatalogueEntries.Count -ne 1 -or @($bigBangCatalogueEntries[0].dependencies).Count -ne 0 -or
+    $bigBangDependencyValid = $bigBangCatalogueEntries.Count -eq 1
+    if ($bigBangDependencyValid) {
+        $dependencies = @($bigBangCatalogueEntries[0].dependencies)
+        if ([version]$bigBangCatalogueEntries[0].version -ge [version]'0.9.0') {
+            $bigBangDependencyValid = $dependencies.Count -eq 1 -and $dependencies[0].id -ceq 'com.geurts.gameforge.compatibility' -and
+                [version]$dependencies[0].minimumVersion -ge [version]'0.1.0'
+        } else { $bigBangDependencyValid = $dependencies.Count -eq 0 }
+    }
+    if (-not $bigBangDependencyValid -or
         @($bigBangCatalogueEntries[0].requiredTools).Count -ne 0 -or -not $bigBangCatalogueEntries[0].released -or
         $bigBangCatalogueEntries[0].developmentOnly -or $bigBangCatalogueEntries[0].sourceKind -cne 'git' -or
         $bigBangCatalogueEntries[0].source -cnotmatch '^https://github\.com/Geurtsy/GeurtsGameForgeBigBang\.git#[a-f0-9]{40}$') {
-        $bigBangFailures.Add('BigBang catalogue must publish one immutable official Git source without God or external-tool dependencies') | Out-Null
+        $bigBangFailures.Add('BigBang catalogue must publish one immutable official Git source, retain its release-specific independent prerequisite boundary and have no God/vendor dependency') | Out-Null
     }
     Add-Check 'Independent BigBang initial-installer boundary' ($bigBangFailures.Count -eq 0) $(if ($bigBangFailures.Count) { $bigBangFailures -join '; ' } else { 'The manifest and immutable catalogue select the independent initial installer, explicit release resolution, frozen target, fresh compile/readback, recovery, canonical subset and acceptance gates without relaxing God/brick/Companion requirements.' })
 
@@ -1821,6 +1829,25 @@ try {
         -not $setupText.Contains('unavailable is an explanation, not an additional status')) {
         $consistencyFailures.Add('Existing setup statuses must be preserved with an actionable unavailable reason') | Out-Null
     }
+    if ($setupContract.compatibilityOwner -cne 'com.geurts.gameforge.compatibility' -or
+        [version]$setupContract.minimumCompatibilityVersion -lt [version]'0.1.0' -or
+        [version]$setupContract.minimumGodVersion -lt [version]'0.44.0' -or
+        [version]$setupContract.minimumEditorApiVersion -lt [version]'1.3.0' -or
+        -not $brickContractText.Contains('## Required Compatibility prerequisite core') -or
+        -not $brickContractText.Contains('Compatibility never depends on either')) {
+        $consistencyFailures.Add('Required Compatibility setup ownership, independent dependency direction and minimum cohort are inconsistent') | Out-Null
+    }
+    $compatibilityEntries = @($brickCatalogue.bricks | Where-Object id -ceq 'com.geurts.gameforge.compatibility')
+    $requiresReleasedCompatibility = @($brickCatalogue.bricks | Where-Object {
+        $_.released -and (($_.id -ceq 'com.geurts.gameforge.god' -and [version]$_.version -ge [version]'0.44.0') -or
+            ($_.id -ceq 'com.geurts.gameforge.bigbang' -and [version]$_.version -ge [version]'0.9.0'))
+    }).Count -gt 0
+    if ($requiresReleasedCompatibility -and ($compatibilityEntries.Count -ne 1 -or -not $compatibilityEntries[0].released -or
+        [version]$compatibilityEntries[0].version -lt [version]'0.1.0' -or @($compatibilityEntries[0].dependencies).Count -ne 0 -or
+        @($compatibilityEntries[0].requiredTools).Count -ne 0 -or $compatibilityEntries[0].sourceKind -cne 'git' -or
+        $compatibilityEntries[0].source -cnotmatch '^https://github\.com/Geurtsy/com\.geurts\.gameforge\.compatibility\.git#[a-f0-9]{40}$')) {
+        $consistencyFailures.Add('A released consumer cohort requires its actually published independent Compatibility source; candidates must not become install actions') | Out-Null
+    }
     foreach ($rule in @('green for verified working/ready', 'orange for needs attention', 'red for an error', 'retain neutral borders and precise text')) {
         if (-not $themeText.Contains($rule)) { $consistencyFailures.Add("Status outline rule missing: $rule") | Out-Null }
     }
@@ -2164,8 +2191,8 @@ try {
     if (-not $usageText.Contains('Planned features within released bricks remain unavailable.') -or -not $usageText.Contains('no Unity build, installer, native service or gameplay workflow was executed')) { $usageFailures.Add('Usage availability/evidence boundary missing') | Out-Null }
     Add-Check 'Brick usage coverage and source parity' ($usageFailures.Count -eq 0) $(if ($usageFailures.Count) { $usageFailures -join '; ' } else { 'Every Catalogue entry has controlled usage, mandatory fields and matching version/source pins; execution evidence remains separate.' })
 
-    $dependentToolFailures = @($brickCatalogue.bricks | Where-Object { $_.released -and $_.id -cne 'com.geurts.gameforge.bigbang' -and $_.id -cne 'com.geurts.gameforge.documentation' -and (@($_.requiredTools) -cnotcontains 'Odin Inspector' -or @($_.requiredTools) -cnotcontains 'Quantum Console') } | ForEach-Object { $_.id })
-    Add-Check 'Dependent brick licensed tools' ($dependentToolFailures.Count -eq 0) $(if ($dependentToolFailures.Count) { 'Missing licensed requirement: ' + ($dependentToolFailures -join ', ') } else { 'All released dependent bricks declare both licensed tools; independent installer and passive adapter exceptions remain exact.' })
+    $dependentToolFailures = @($brickCatalogue.bricks | Where-Object { $_.released -and $_.id -cne 'com.geurts.gameforge.bigbang' -and $_.id -cne 'com.geurts.gameforge.documentation' -and $_.id -cne 'com.geurts.gameforge.compatibility' -and (@($_.requiredTools) -cnotcontains 'Odin Inspector' -or @($_.requiredTools) -cnotcontains 'Quantum Console') } | ForEach-Object { $_.id })
+    Add-Check 'Dependent brick licensed tools' ($dependentToolFailures.Count -eq 0) $(if ($dependentToolFailures.Count) { 'Missing licensed requirement: ' + ($dependentToolFailures -join ', ') } else { 'All released dependent bricks declare both licensed tools; independent Compatibility core, installer and passive adapter exceptions remain exact.' })
 
     $namingText = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsNamingTechnique.md'))
     $commandText = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsCommandsTechnique.md'))
