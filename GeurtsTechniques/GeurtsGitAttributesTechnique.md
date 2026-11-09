@@ -14,7 +14,7 @@ The two rules follow [FMOD's source-control guidance](https://fmod.com/docs/2.03
 
 ## Template contract
 
-Read the Markdown as strict UTF-8, permitting a leading BOM on the document only. Require exactly one begin marker, one end marker, and the immediately enclosed `gitattributes` fence below. The marked region ends the document, apart from its optional final newline. Copy only the enclosed payload. Normalize its newlines to LF for validation, with exactly one terminal LF. Its SHA-256 is `d051cf466ba5bffc055905a79ae76f93a60e27a3dbb8fcd16b968bb80c3e3d2d`, and it contains exactly two lines. Marker version, declared technique version and manifest registry version must all equal `1.0.1`. A missing, malformed, modified or unsupported template must preserve the target and explain that Documentation needs updating; there is no bundled fallback payload.
+Read the Markdown as strict UTF-8, permitting a leading BOM on the document only. Require exactly one begin marker, one end marker, and the immediately enclosed `gitattributes` fence below. The marked region ends the document, apart from its optional final newline. Copy only the enclosed payload. Normalize its newlines to LF for validation, with exactly one terminal LF. Its SHA-256 is `d051cf466ba5bffc055905a79ae76f93a60e27a3dbb8fcd16b968bb80c3e3d2d`, and it contains exactly two lines. Marker version, declared technique version and AGENTS-owned registry version must all equal `1.0.1`. A missing, malformed, modified or unsupported template must preserve the target and explain that Documentation needs updating; there is no bundled fallback payload.
 
 ## Build Forge installation and verification
 

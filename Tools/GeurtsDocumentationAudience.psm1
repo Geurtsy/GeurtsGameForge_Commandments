@@ -69,7 +69,7 @@ function Read-GeurtsDocumentationRegistry {
     $registry = $json | ConvertFrom-Json -ErrorAction Stop
     Assert-GeurtsRegistryProperties $registry @('schemaVersion', 'packageVersion', 'files', 'controlledSections')
     if ($registry.schemaVersion -isnot [string] -or $registry.schemaVersion -cne '1.0.0') { throw 'Unsupported documentation registry schema.' }
-    if ($registry.packageVersion -isnot [string] -or $registry.packageVersion -cne $version[0].Groups[1].Value) { throw 'Registry package version differs from the same-copy manifest.' }
+    if ($registry.packageVersion -isnot [string] -or $registry.packageVersion -cne $version[0].Groups[1].Value) { throw 'Registry package version differs from the same-copy AGENTS.md.' }
     if ($registry.files -isnot [array] -or $registry.files.Count -eq 0 -or $registry.controlledSections -isnot [array]) { throw 'Registry files and controlledSections must be arrays.' }
     $paths = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::OrdinalIgnoreCase)
     foreach ($file in $registry.files) {

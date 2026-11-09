@@ -180,7 +180,7 @@
     {
       "path": "GeurtsTechniques/GeurtsAgentTechnique.md",
       "version": "1.4.0",
-      "role": "Portable preserving root guide plus pinned legacy selected-folder payload."
+      "role": "Current direct guide templates and exact historical recognition payloads."
     },
     {
       "path": "GeurtsTechniques/GeurtsGitIgnoreTechnique.md",
@@ -320,7 +320,7 @@
     {
       "path": "Tools/GeurtsDocumentationAudience.psm1",
       "version": "2.0.1",
-      "role": "Safe audience and manifest-controlled section reader."
+      "role": "Safe audience and AGENTS-controlled section reader."
     },
     {
       "path": "Tools/ReadGeurtsDocumentation.ps1",
@@ -445,7 +445,7 @@
     {
       "path": "GeurtsTechniques/GeurtsDocumentationRegistry.json",
       "version": "0.68.0",
-      "role": "Manifest-owned package inventory and conditional section data; targeted retrieval only."
+      "role": "AGENTS-owned package inventory and conditional section data; targeted retrieval only."
     },
     {
       "path": "History/ReadingEfficiency-0.67.0.md",
