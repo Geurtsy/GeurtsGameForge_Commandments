@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.5.0
+**Version:** 1.6.0
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -21,15 +21,25 @@ The examples below are bounded workflows derived from owner guides, not new APIs
 
 ## Compatibility
 
-**Package ID:** `com.geurts.gameforge.compatibility`.
+**Catalogue ID:** `com.geurts.gameforge.compatibility`
+**Evidence version:** `0.1.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/343df1102ed918e88dedca90af6e823b855854d3/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/343df1102ed918e88dedca90af6e823b855854d3/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/343df1102ed918e88dedca90af6e823b855854d3/Documentation~/AIUsability.md).
 
-Required independent Editor prerequisite for God and BigBang. The [Brick Contract](GeurtsBrickContract.md#required-compatibility-prerequisite-core) owns its dependency exception and consent boundary. Read the installed core's `Documentation~/AIUsability.md` and only the selected profile guide for exact supported inputs, transforms, public APIs and evidence. It has no God/vendor compile dependency or runtime host. Host preparation works before affected source compiles. No install source or success is implied until the Catalogue contains a verified published release; implementation is currently coordinated in owning source.
+- **Prerequisites:** Windows and Unity 6000.6.3f1 or newer; selected source must meet its owning profile. God and licensed vendor assemblies are not compile prerequisites.
+- **Entry points:** The pinned Compatibility owner task table and supported Compatibility tool; direct public APIs remain owned there.
+- **Example:** Explicitly call the owner's read-only `CompatibilityPreflight.Validate("ugui_2_6_0_unity66", selectedPrivateSourceRoot)` for a caller-selected private export, inspect its typed result, and prepare only after a separate explicit decision.
+- **Lifecycle/settings:** Editor-only independent core with no IBrick/runtime host. Native project-profile Apply is separate and confirmed; validation and menu opening grant no write or update consent.
+- **Use:** Required independent Editor prerequisite before God and BigBang on Unity 6000.6.3f1 or newer. It has no God, licensed-vendor or runtime-host dependency and no IBrick lifecycle requirement.
+- **Input:** Explicitly selected source and owning profile. Read the pinned owner's task table and only the selected profile documentation; transforms, hashes and known build limits stay in that package.
+- **Workflow:** Explicit Validate, private Prepare, then the supported owner import/UPM selection. Native API-profile Apply is a separate confirmed action. Host preparation is available before affected libraries can compile.
+- **Verify:** Source identity, supported target and complete dependency/compiler gates; source admission alone is not whole-build acceptance.
+- **Limits:** No automatic updates, installed-cache rewriting, paid-source redistribution or warning filters. Visual acceptance was user-waived, not passed; nonvisual source/preparation/compiler evidence remains required.
 
 ## BigBang
 
 **Catalogue ID:** `com.geurts.gameforge.bigbang`
-**Evidence version:** `0.8.9`
-**Source:** [package manifest](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/eb291ef5e6d2a1e9b16104d04f8b97f6dac9cc53/package.json), [capabilities](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/eb291ef5e6d2a1e9b16104d04f8b97f6dac9cc53/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/eb291ef5e6d2a1e9b16104d04f8b97f6dac9cc53/Documentation~/GameIntegration.md).
+**Evidence version:** `0.9.0`
+**Source:** [package manifest](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/2529d2d4f8ebb1423e45d658c3e0312ad3f01af4/package.json), [capabilities](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/2529d2d4f8ebb1423e45d658c3e0312ad3f01af4/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/2529d2d4f8ebb1423e45d658c3e0312ad3f01af4/Documentation~/GameIntegration.md).
 
 - **Use:** Prepare a fresh Forge Unity project and hand off to God; use BigCrunch only for separately requested whole-Forge removal.
 - **Prerequisites:** Windows, supported Unity and Git. BigBang requires the independent Compatibility core and itself compiles without God, Odin Inspector or Quantum Console; installation/handoff requires licensed Odin Inspector, Quantum Console and verified Steamworks.NET.
@@ -38,6 +48,8 @@ Required independent Editor prerequisite for God and BigBang. The [Brick Contrac
 - **Lifecycle/settings:** Editor-only. Preserve existing God and frozen operation state; God owns ongoing packages and runtime bootstrap.
 - **Verify:** Require actual resolved Git identity/commit, fresh successful compilation and available God handoff. A UPM success alone is insufficient.
 - **Limits:** No content acquisition, scene/GDD setup or optional-brick installation. Native Steam and interactive acceptance are separate.
+
+BigBang 0.9 targets actual released God 0.44, requires Core 0.1 first and performs no heavy prerequisite inventory while idle or in Play. Final released-target/controller/admission/pump coverage passed 97 native cases; six actual C# assemblies and its literal example passed default diagnostic policy.
 
 ## Commandments Compatibility
 
@@ -58,8 +70,8 @@ Required independent Editor prerequisite for God and BigBang. The [Brick Contrac
 ## God
 
 **Catalogue ID:** `com.geurts.gameforge.god`
-**Evidence version:** `0.43.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/5bab056bd33c873ccd3edce2814ae7870cdfb119/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/5bab056bd33c873ccd3edce2814ae7870cdfb119/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/5bab056bd33c873ccd3edce2814ae7870cdfb119/Documentation~/GameIntegration.md).
+**Evidence version:** `0.44.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/9e37333d3d36082171923e7707d2b9fcb3dd7bfe/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/9e37333d3d36082171923e7707d2b9fcb3dd7bfe/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/9e37333d3d36082171923e7707d2b9fcb3dd7bfe/Documentation~/GameIntegration.md).
 
 - **Use:** Foundation for every dependent brick: lifecycle, shared capabilities/settings, bootstrap, packages and Commandments.
 - **Prerequisites:** Licensed Odin Inspector and Quantum Console, resolved Unity dependencies and the Forge Steamworks.NET prerequisite. No optional peer brick or passive adapter is required.
@@ -69,19 +81,21 @@ Required independent Editor prerequisite for God and BigBang. The [Brick Contrac
 - **Verify:** Check bootstrap/readiness independently of package presence; test absent, available, withdrawn and re-enabled capability states plus subscription disposal.
 - **Limits:** No second host/registry in a game. Editor APIs stay outside player assemblies; optional providers may be unavailable.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/5bab056bd33c873ccd3edce2814ae7870cdfb119/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/5bab056bd33c873ccd3edce2814ae7870cdfb119/Documentation~/AIUsabilityValidation.json). Recipe bytes match the pinned guide. The current AppID-free cohort passed 612 Editor and 8 Play Mode tests on Unity 6000.6.3f1, using licensed Odin Inspector 4.1.0.0 and the game's installed compatibility-adjusted Quantum Console. Evidence records dependency/binary hashes and twelve Forge assemblies compiled with warnings as errors. Historical stock Quantum Console failures remain in the owning history; this does not establish supported-stock compatibility or native Steam acceptance.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/9e37333d3d36082171923e7707d2b9fcb3dd7bfe/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/9e37333d3d36082171923e7707d2b9fcb3dd7bfe/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
 
-The pinned God 0.43.0 source still contains automatic package/content update paths. They are superseded policy, not compliant recommended usage. A matching implementation release and consumer adoption remain outstanding; no documentation edit disables those installed handlers.
+Update policy requires a current explicit action and confirmation. Legacy automatic entry-point names do not grant update consent; a documentation edit does not change installed handlers.
 
-God 0.43.0 reads the explicitly declared schema-1 package registry or the supported historical manifest table through CommandmentsPackageRegistry. Archive/readiness checks retain exact membership, and status watching includes the registry. Invalid new-format data never falls back to the old table.
+God 0.44.0 reads the explicitly declared schema-1 package registry or the supported historical manifest table through CommandmentsPackageRegistry. Archive/readiness checks retain exact membership, and status watching includes the registry. Invalid new-format data never falls back to the old table.
 
-God 0.43.0 adds SDK-neutral native-session reservations and revocable leases. Providers initialize their own drivers, consumers share an exact application/account context, and pump arbitration runs once per frame. Register every callback/transport with the lease so owner withdrawal closes dependents before native shutdown. See the pinned PlatformContracts guide and current owner validation; managed driver tests do not establish real Steam acceptance.
+God retains SDK-neutral native-session reservations and revocable leases. Providers initialize their own drivers, consumers share an exact application/account context, and pump arbitration runs once per frame. Register every callback/transport with the lease so owner withdrawal closes dependents before native shutdown. See the pinned PlatformContracts guide and current owner validation; managed driver tests do not establish real Steam acceptance.
+
+God 0.44 reads version, registry and startup metadata from the single AGENTS.md authority, retains legacy package support and requires the independently published Compatibility 0.1.0 core. Its native owner regressions passed 152 cases.
 
 ## Steam
 
 **Catalogue ID:** `com.geurts.gameforge.steam`
-**Evidence version:** `0.4.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/eb1ce5ac0d29ae30520c76f693df62a2ff8f7202/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/eb1ce5ac0d29ae30520c76f693df62a2ff8f7202/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/eb1ce5ac0d29ae30520c76f693df62a2ff8f7202/Documentation~/GameIntegration.md).
+**Evidence version:** `0.4.1`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/60ae86fddab6d108b4f15037a954fb37a2f719df/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/60ae86fddab6d108b4f15037a954fb37a2f719df/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/60ae86fddab6d108b4f15037a954fb37a2f719df/Documentation~/GameIntegration.md).
 
 - **Use:** Optional Windows x64 platform provider and Steam release preparation; distinguish wrapper readiness from native service readiness. Preserve this brick separately from Multiplayer's required built-in Steam networking; see the [Multiplayer owner](GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support).
 - **Prerequisites:** God, both licensed libraries, supported Steamworks.NET and its Windows plugin configuration. Native testing additionally needs an explicitly owned app context.
@@ -91,9 +105,11 @@ God 0.43.0 adds SDK-neutral native-session reservations and revocable leases. Pr
 - **Verify:** Verify review causes no write/native startup, stale review blocks save, and explicit save reads back correctly. Native status must be observed separately.
 - **Limits:** Real account, overlay, cloud/server and depot/customer-distribution acceptance remains separately unverified. A distribution draft is not deployment; no automatic Save and Load slot synchronization.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/eb1ce5ac0d29ae30520c76f693df62a2ff8f7202/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/eb1ce5ac0d29ae30520c76f693df62a2ff8f7202/Documentation~/AIUsabilityValidation.json). Recipe bytes match the pinned guide and were compiled and exercised in the recorded AppID-free cohort. Preserve the owner validation record's exact dependency profile and limits.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/60ae86fddab6d108b4f15037a954fb37a2f719df/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/60ae86fddab6d108b4f15037a954fb37a2f719df/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
 
 Steam 0.4.0 requires God 0.43.0 for native sharing. It borrows a matching Multiplayer-owned context or reserves first and initializes its own driver. Borrower release preserves the native owner; withdrawal invalidates services and closes registered callbacks before shutdown. The AppID-free fixture exercises managed cooperation and reloads; actual native sharing, P2P, accounts/devices and overlay remain unverified.
+
+Steam 0.4.1 retains the backend for both exact official 2025.164.1 and reviewed maintained 2025.164.2-geurts.1 source versions. The maintained profile requires fresh central Windows x64 admission. Passive source/API checks and managed regressions do not certify native Steam account or session services.
 
 ## Multiplayer
 
@@ -124,11 +140,13 @@ Steam 0.4.0 requires God 0.43.0 for native sharing. It borrows a matching Multip
 
 [Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/0070d3fb9ddf470373180f07994b6875f5dc387e/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/0070d3fb9ddf470373180f07994b6875f5dc387e/Documentation~/AIUsabilityValidation.json). Owner evidence covers the recipe, graphics Play Mode and rendered Windows Mono release/development plus stripped IL2CPP acceptance, including independent native PanelRenderer and legacy UIDocument surfaces, pointer priority and close restoration. It distinguishes the Geurts-maintained QC repair and final incremental builds from unmodified stock QC, warning-free cold IL2CPP builds, physical input and live-consumer acceptance.
 
+The unlisted Diagnostics 0.11.6 candidate remains blocked by three real cold IL2CPP compiler warnings; visual waiver does not waive them. The 0.11.5 entry is a published identity, not cold-AOT zero-warning certification. Detailed compatibility findings remain in the Compatibility owner.
+
 ## Angels
 
 **Catalogue ID:** `com.geurts.gameforge.angels`
-**Evidence version:** `0.10.1`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/364e37e856eb913be53b33c11dc2c10b76d4c911/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/364e37e856eb913be53b33c11dc2c10b76d4c911/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/364e37e856eb913be53b33c11dc2c10b76d4c911/Documentation~/GameIntegration.md).
+**Evidence version:** `0.11.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/197f62e82967fd42601087aea8cf554443832d4f/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/197f62e82967fd42601087aea8cf554443832d4f/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/197f62e82967fd42601087aea8cf554443832d4f/Documentation~/GameIntegration.md).
 
 - **Use:** Optional Editor project maintenance: folders, guides, Git, scoped asset organization and explicit design imports.
 - **Prerequisites:** God, both licensed libraries and compatible local Commandments. Codex naming/audio are separate optional account/tool integrations with explicit sharing and billing consent.
@@ -138,15 +156,33 @@ Steam 0.4.0 requires God 0.43.0 for native sharing. It borrows a matching Multip
 - **Verify:** Check cancellation, stale source/guidance refusal, GUID/meta preservation and actual/partial outcomes; choose a fresh review for retry.
 - **Limits:** Source/meta checks stream full file hashes; assets above 64 MiB do not fail solely because of source size. Preview, prompt and optional audio-decoding limits remain owner-defined. No Execute All, automatic primary GDD choice or startup scan. Documentation maintenance gives no GDD access. Optional paid inference is never implied by installation.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/364e37e856eb913be53b33c11dc2c10b76d4c911/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/364e37e856eb913be53b33c11dc2c10b76d4c911/Documentation~/AIUsabilityValidation.json). Ten focused EditMode checks passed in Unity 6000.6.3f1 with zero compiler diagnostics and warnings as errors, including real older-CLI image naming, safe failures, cancellation, the 120-second timeout and the GUID/meta-preserving recipe. The licensed Quantum Console 2.6.7 dependency uses the separately published private Dreadvault repair at adf27643807633516b6a2b54cf5b57346837b700, with all eight repaired files verified against that commit. Vendor source is not part of Angels and these results do not certify unmodified stock Quantum Console.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/197f62e82967fd42601087aea8cf554443832d4f/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/197f62e82967fd42601087aea8cf554443832d4f/Documentation~/AIUsabilityValidation.json). Ten focused EditMode checks passed in Unity 6000.6.3f1 with zero compiler diagnostics and warnings as errors, including real older-CLI image naming, safe failures, cancellation, the 120-second timeout and the GUID/meta-preserving recipe. The licensed Quantum Console 2.6.7 dependency uses the separately published private Dreadvault repair at adf27643807633516b6a2b54cf5b57346837b700, with all eight repaired files verified against that commit. Vendor source is not part of Angels and these results do not certify unmodified stock Quantum Console. Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
 
-Angels 0.10.1 requires God 0.42.0 and uses that shared reader for setup, guides, Git payloads and naming context. Reviewed guidance and context identity include raw registry bytes; prompts include only metadata for the existing selected documents. Installer payload versions, hashes and consent boundaries are unchanged.
+Angels 0.11.0 requires God 0.44.0 and uses that shared reader for setup, guides, Git payloads and naming context. Reviewed guidance and context identity include raw registry bytes; prompts include only metadata for the existing selected documents. Installer payload versions, hashes and consent boundaries are unchanged.
+
+Current selected-folder and portable-root guide installations route directly to Commandments/AGENTS.md. Exact known legacy payload migration, unowned-content preservation and current confirmation remain required;98 native owner regressions passed.
+
+## Archangels
+
+**Catalogue ID:** `com.geurts.gameforge.archangels`
+**Evidence version:** `0.1.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.archangels/blob/9348b0338e424f4267e6d5f543cfca66d5559f96/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.archangels/blob/9348b0338e424f4267e6d5f543cfca66d5559f96/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.archangels/blob/9348b0338e424f4267e6d5f543cfca66d5559f96/Documentation~/AIUsability.md).
+
+- **Use:** Optional agent-setup brick. Keep it separate from Angels, God and Commandments; install only when selected.
+- **Prerequisites:** Unity 6000.6.3f1 or newer, God 0.44.0 and its required Core 0.1.0, licensed Odin Inspector and Quantum Console.
+- **Entry points:** Use the pinned owner's supported setup window and task table; operation IDs and APIs remain those declared by its capabilities.
+- **Example:** In an explicitly selected project with the required published dependencies, review setup status, choose one role and task request, save, then review generation and copy the request explicitly. Preserve an existing conflicting guide.
+- **Lifecycle/settings:** Editor-only optional God-owned brick. Keep saved package profiles and generated guidance separate from runtime services; close and dispose owned views through the owner contract.
+- **Input:** The current project, selected role/purpose and bounded task request; read the pinned owning setup guide.
+- **Workflow:** Review local setup status, save explicitly, then generate/review the selected guide and task request. Existing conflicts remain visible; suggestions are not approved project decisions.
+- **Verify:** The source-matched owner validation records11native cases, host checks and corrected default-diagnostic C# qualification. Visual acceptance was explicitly user-waived, not passed.
+- **Limits:** No automatic model launch, project overwrite, package update or live worker deployment. Optional host/IPC source is not an instruction to deploy it. Keep exact APIs, template details and support limits in the owning package.
 
 ## Settings
 
 **Catalogue ID:** `com.geurts.gameforge.settings`
-**Evidence version:** `0.7.4`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/9863219766d79e4eadd9be2122082616f2a974b8/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/9863219766d79e4eadd9be2122082616f2a974b8/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/9863219766d79e4eadd9be2122082616f2a974b8/Documentation~/GameIntegration.md).
+**Evidence version:** `0.7.5`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/06c440c9432149bc3f2d22041215f9b2d138ab52/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/06c440c9432149bc3f2d22041215f9b2d138ab52/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/06c440c9432149bc3f2d22041215f9b2d138ab52/Documentation~/GameIntegration.md).
 
 - **Use:** Authored game settings, typed providers, staged changes and local preference persistence.
 - **Prerequisites:** God and both licensed libraries; actual package.json lists Unity dependencies. Audio/UI peers remain optional.
@@ -156,7 +192,7 @@ Angels 0.10.1 requires God 0.42.0 and uses that shared reader for setup, guides,
 - **Verify:** Inspect Saved, Error, Conflicts and per-setting Outcomes; exercise Stage/Cancel, Apply, withdrawal and reload against isolated storage.
 - **Limits:** Do not create another settings service in a live game. Real display-device confirmation and platform storage permissions require separate evidence.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/9863219766d79e4eadd9be2122082616f2a974b8/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/9863219766d79e4eadd9be2122082616f2a974b8/Documentation~/AIUsabilityValidation.json). Recipe bytes matched the pinned guide during this review; its tests were not rerun here.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/06c440c9432149bc3f2d22041215f9b2d138ab52/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/06c440c9432149bc3f2d22041215f9b2d138ab52/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
 
 ## Scene Loading
 
@@ -177,8 +213,8 @@ Angels 0.10.1 requires God 0.42.0 and uses that shared reader for setup, guides,
 ## Save and Load
 
 **Catalogue ID:** `com.geurts.gameforge.saveload`
-**Evidence version:** `0.4.1`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/027437e3239cd0506b4abd8ce713b94a43b59b3b/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/027437e3239cd0506b4abd8ce713b94a43b59b3b/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/027437e3239cd0506b4abd8ce713b94a43b59b3b/Documentation~/AIUsability.md).
+**Evidence version:** `0.4.2`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/5c54778c75f897d425255342a1d397ff87aaad27/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/5c54778c75f897d425255342a1d397ff87aaad27/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/5c54778c75f897d425255342a1d397ff87aaad27/Documentation~/AIUsability.md).
 
 - **Use:** Local named gameplay slots with explicit participants and transactional restore.
 - **Prerequisites:** God, both licensed libraries, authored Save Profile and exactly its required participant set; no optional peer brick.
@@ -191,8 +227,8 @@ Angels 0.10.1 requires God 0.42.0 and uses that shared reader for setup, guides,
 ## Audio
 
 **Catalogue ID:** `com.geurts.gameforge.audio`
-**Evidence version:** `0.9.5`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/199666d1fcb7ce688d111da07b40e6ae72f52b8d/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/199666d1fcb7ce688d111da07b40e6ae72f52b8d/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/199666d1fcb7ce688d111da07b40e6ae72f52b8d/Documentation~/GameIntegration.md).
+**Evidence version:** `0.9.6`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/6180f1448c3ab07293f3505b70995654659134cb/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/6180f1448c3ab07293f3505b70995654659134cb/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/6180f1448c3ab07293f3505b70995654659134cb/Documentation~/GameIntegration.md).
 
 - **Use:** Unity clip playback, authored sounds, categories/mixing and scoped playback ownership.
 - **Prerequisites:** God, both licensed libraries, authored sound/configuration and explicit bootstrap binding. Unity audio is the default; FMOD requires separately selected integration and licensed backend.
@@ -202,13 +238,13 @@ Angels 0.10.1 requires God 0.42.0 and uses that shared reader for setup, guides,
 - **Verify:** Check the built-in backend's handle lifetime, completion/cancellation and cleanup. Run unattended tests silently; listening and actual device/native-backend acceptance are distinct.
 - **Limits:** No mandatory FMOD, global stop of unrelated voices, duplicate audio manager or claim that a source check proves audible quality.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/199666d1fcb7ce688d111da07b40e6ae72f52b8d/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/199666d1fcb7ce688d111da07b40e6ae72f52b8d/Documentation~/AIUsabilityValidation.json). Recipe bytes matched the pinned guide during this review; its tests were not rerun here.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/6180f1448c3ab07293f3505b70995654659134cb/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/6180f1448c3ab07293f3505b70995654659134cb/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
 
 ## User Interface
 
 **Catalogue ID:** `com.geurts.gameforge.userinterface`
-**Evidence version:** `0.13.3`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/317867819006339b502d4abbbe19a9d3042915b5/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/317867819006339b502d4abbbe19a9d3042915b5/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/317867819006339b502d4abbbe19a9d3042915b5/Documentation~/GameIntegration.md).
+**Evidence version:** `0.13.4`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/90146a5b25e2c853d803b0b00272ea3c173dc75b/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/90146a5b25e2c853d803b0b00272ea3c173dc75b/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/90146a5b25e2c853d803b0b00272ea3c173dc75b/Documentation~/GameIntegration.md).
 
 - **Use:** UI Toolkit menus/screens, navigation, typed actions and authored appearance.
 - **Prerequisites:** God, both licensed libraries and resolved UI/input packages; game-owned PanelRenderer/host, authored menu/screen and UiAction bindings.
@@ -218,13 +254,15 @@ Angels 0.10.1 requires God 0.42.0 and uses that shared reader for setup, guides,
 - **Verify:** Verify authored action dispatch, navigation/back and cleanup, then separately validate focus, input, resolution and rendered layout.
 - **Limits:** Existing UIDocument setups remain supported; no automatic scene conversion. Game policy chooses save/session/destination behavior.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/317867819006339b502d4abbbe19a9d3042915b5/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/317867819006339b502d4abbbe19a9d3042915b5/Documentation~/AIUsabilityValidation.json). Recipe bytes matched the pinned guide during this review; its tests were not rerun here.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/90146a5b25e2c853d803b0b00272ea3c173dc75b/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/90146a5b25e2c853d803b0b00272ea3c173dc75b/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
+
+The 0.13.4 release retains the two original graphics-bound EditorWindow failures and records the user visual waiver separately. Five headless settings cases and the integration recipe pass; eight release-guard controls reject compiler, unrelated functional and stale-waiver failures.
 
 ## Object Pooling
 
 **Catalogue ID:** `com.geurts.gameforge.objectpooling`
-**Evidence version:** `0.8.3`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/605dcfd5909032f667032ec5e2d4c2a243faac67/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/605dcfd5909032f667032ec5e2d4c2a243faac67/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/605dcfd5909032f667032ec5e2d4c2a243faac67/Documentation~/GameIntegration.md).
+**Evidence version:** `0.8.4`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/3089e5d809ecd2c37e83f4fc4fce70bcd3072fc3/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/3089e5d809ecd2c37e83f4fc4fce70bcd3072fc3/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/3089e5d809ecd2c37e83f4fc4fce70bcd3072fc3/Documentation~/GameIntegration.md).
 
 - **Use:** Repeated prefab spawning with bounded growth, prewarming and generation-bound leases.
 - **Prerequisites:** God, both licensed libraries, inactive prefab, ObjectPoolObject definition and explicit capacities/reset/lifetime configuration. Resources lookup is optional.
@@ -234,7 +272,7 @@ Angels 0.10.1 requires God 0.42.0 and uses that shared reader for setup, guides,
 - **Verify:** Check spawn/return/reuse, capacity rejection, reset and stale-lease refusal in the owning fixture.
 - **Limits:** Never Destroy pooled instances, use a GameObject reference as ownership proof or create another live pool service. Contact, particle/device and optional audio acceptance remain separate.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/605dcfd5909032f667032ec5e2d4c2a243faac67/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/605dcfd5909032f667032ec5e2d4c2a243faac67/Documentation~/AIUsabilityValidation.json). Recipe bytes matched the pinned guide during this review; its tests were not rerun here.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/3089e5d809ecd2c37e83f4fc4fce70bcd3072fc3/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/3089e5d809ecd2c37e83f4fc4fce70bcd3072fc3/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
 
 ## GitFlow
 
@@ -259,6 +297,8 @@ The optional Audio FMOD integration is not a separate current catalogue brick. I
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Change Log
+
+- 1.6.0: List actual immutable Core and optional Archangels releases; refresh the published owner cohort and preserve visual-waiver versus nonvisual evidence boundaries.
 
 - 1.4.1: Refresh published Scene Loading 0.7.5 source/evidence links, unfiltered compilation evidence and caller-owned runtime-scene lifecycle; preserve planned Multiplayer availability and other brick evidence.
 - 1.4.0: Update the God/Steam source cohort and shared native lifetime evidence; retain planned Multiplayer availability and native acceptance limits.

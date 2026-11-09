@@ -59,7 +59,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
-      "version": "1.5.0",
+      "version": "1.6.0",
       "role": "Selective per-brick usage, actual pinned sources, examples and evidence limits."
     },
     {
@@ -662,6 +662,18 @@
       "id": "gitflow",
       "heading": "GitFlow",
       "whenRequired": "Selecting, using, integrating or maintaining GitFlow."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "compatibility",
+      "heading": "Compatibility",
+      "whenRequired": "Selecting, using, integrating or maintaining Compatibility."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "archangels",
+      "heading": "Archangels",
+      "whenRequired": "Selecting, using, integrating or maintaining Archangels."
     }
   ]
 }

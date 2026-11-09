@@ -5,17 +5,22 @@
     {
       "id": "com.geurts.gameforge.bigbang",
       "name": "Geurts Game Forge BigBang",
-      "description": "Independent Editor installer: prepare required libraries and Steamworks.NET, verify God installation and hand off. BigCrunch separately reviews and confirms whole-Forge removal; game content and third-party libraries are retained.",
+      "description": "Independent explicit Compatibility-first installer, then licensed foundations and God; lightweight idle/Play updates. BigCrunch separately reviews and confirms whole-Forge removal while retaining game content and third-party libraries.",
       "website": "https://github.com/Geurtsy/GeurtsGameForgeBigBang",
-      "version": "0.8.9",
+      "version": "0.9.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#eb291ef5e6d2a1e9b16104d04f8b97f6dac9cc53",
+      "source": "https://github.com/Geurtsy/GeurtsGameForgeBigBang.git#2529d2d4f8ebb1423e45d658c3e0312ad3f01af4",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [],
-      "dependencies": []
+      "dependencies": [
+        {
+          "id": "com.geurts.gameforge.compatibility",
+          "minimumVersion": "0.1.0"
+        }
+      ]
     },
     {
       "id": "com.geurts.gameforge.documentation",
@@ -38,29 +43,34 @@
       "name": "Geurts Game Forge God",
       "description": "Required foundation for brick lifecycle, shared services, retained bootstrap, package management and Editor-only Commandments tools. Does not require optional peer bricks.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.43.0",
+      "version": "0.44.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#5bab056bd33c873ccd3edce2814ae7870cdfb119",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#9e37333d3d36082171923e7707d2b9fcb3dd7bfe",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console"
       ],
-      "dependencies": []
+      "dependencies": [
+        {
+          "id": "com.geurts.gameforge.compatibility",
+          "minimumVersion": "0.1.0"
+        }
+      ]
     },
     {
       "id": "com.geurts.gameforge.steam",
       "name": "Geurts Game Forge Steam",
       "description": "Optional Windows x64 Steam platform provider and release preparation, separate from Multiplayer's required built-in Steam networking. Local development starts without native Steam. Native account, overlay and depot acceptance remain unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.steam",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#eb1ce5ac0d29ae30520c76f693df62a2ff8f7202",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#60ae86fddab6d108b4f15037a954fb37a2f719df",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -128,11 +138,11 @@
       "name": "Geurts Game Forge Angels",
       "description": "Optional Editor tools for project organization, reviewed naming, sorting and game-design document import. Paid Codex/audio analysis requires explicit setup and consent; scans preserve completed work on cancellation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
-      "version": "0.10.1",
+      "version": "0.11.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#364e37e856eb913be53b33c11dc2c10b76d4c911",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#197f62e82967fd42601087aea8cf554443832d4f",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -142,7 +152,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.42.0"
+          "minimumVersion": "0.44.0"
         }
       ]
     },
@@ -151,11 +161,11 @@
       "name": "Geurts Game Forge Settings System",
       "description": "Game settings with authored panels, typed providers, reviewed Stage/Apply/Cancel and local persistence. Supports built-in sound controls and optional Audio/UI integrations; game-specific settings use public provider APIs.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.settings",
-      "version": "0.7.4",
+      "version": "0.7.5",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#9863219766d79e4eadd9be2122082616f2a974b8",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#06c440c9432149bc3f2d22041215f9b2d138ab52",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -197,11 +207,11 @@
       "name": "Geurts Game Forge Save and Load",
       "description": "Local gameplay saves with profiles, named slots, explicit participants, bounded atomic files and transactional restore. Includes no-code bindings and code extensions; cloud and network transport remain outside this module.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.saveload",
-      "version": "0.4.1",
+      "version": "0.4.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#027437e3239cd0506b4abd8ce713b94a43b59b3b",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#5c54778c75f897d425255342a1d397ff87aaad27",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -220,11 +230,11 @@
       "name": "Geurts Game Forge Audio",
       "description": "Game sound playback using built-in Unity audio by default, with owned handles, mixing and reusable authoring. FMOD is optional; listening, device and native-backend acceptance remain separate.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
-      "version": "0.9.5",
+      "version": "0.9.6",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#199666d1fcb7ce688d111da07b40e6ae72f52b8d",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#6180f1448c3ab07293f3505b70995654659134cb",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -243,11 +253,11 @@
       "name": "Geurts Game Forge User Interface Foundations",
       "description": "UI Toolkit menu/screen authoring, typed game actions, navigation and shared appearance. New hosts use PanelRenderer; existing UIDocument setups remain supported without automatic conversion.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface",
-      "version": "0.13.3",
+      "version": "0.13.4",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#317867819006339b502d4abbbe19a9d3042915b5",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#90146a5b25e2c853d803b0b00272ea3c173dc75b",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -266,11 +276,11 @@
       "name": "Geurts Game Forge Object Pooling",
       "description": "Reusable prefab pooling with bounded growth, prewarming, generation-bound leases and explicit reset/return ownership. Game adapters retain responsibility for their object lifetimes.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling",
-      "version": "0.8.3",
+      "version": "0.8.4",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#605dcfd5909032f667032ec5e2d4c2a243faac67",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#3089e5d809ecd2c37e83f4fc4fce70bcd3072fc3",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -305,6 +315,44 @@
         {
           "id": "com.geurts.gameforge.god",
           "minimumVersion": "0.39.3"
+        }
+      ]
+    },
+    {
+      "id": "com.geurts.gameforge.compatibility",
+      "name": "Geurts Game Forge Compatibility",
+      "description": "Required independent Editor preparation core for Unity 6000.6.3f1 or newer. Explicit source validation, private preparation and confirmed API-profile actions; no God, vendor or runtime-host dependency. Read its owning profiles and build limits.",
+      "website": "https://github.com/Geurtsy/com.geurts.gameforge.compatibility",
+      "version": "0.1.0",
+      "released": true,
+      "developmentOnly": false,
+      "sourceKind": "git",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.compatibility.git#343df1102ed918e88dedca90af6e823b855854d3",
+      "minimumUnity": "6000.6",
+      "maximumUnity": "",
+      "requiredTools": [],
+      "dependencies": []
+    },
+    {
+      "id": "com.geurts.gameforge.archangels",
+      "name": "Geurts Game Forge Archangels",
+      "description": "Optional Editor agent-setup brick for Unity 6000.6.3f1 or newer: saved roles, project guidance and explicit task-request preparation. Requires God 0.44 and its Compatibility prerequisite; no automatic model launch or package update.",
+      "website": "https://github.com/Geurtsy/com.geurts.gameforge.archangels",
+      "version": "0.1.0",
+      "released": true,
+      "developmentOnly": false,
+      "sourceKind": "git",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.archangels.git#9348b0338e424f4267e6d5f543cfca66d5559f96",
+      "minimumUnity": "6000.6",
+      "maximumUnity": "",
+      "requiredTools": [
+        "Odin Inspector",
+        "Quantum Console"
+      ],
+      "dependencies": [
+        {
+          "id": "com.geurts.gameforge.god",
+          "minimumVersion": "0.44.0"
         }
       ]
     }
