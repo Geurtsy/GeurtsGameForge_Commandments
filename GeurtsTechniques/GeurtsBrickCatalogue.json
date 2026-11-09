@@ -43,11 +43,11 @@
       "name": "Geurts Game Forge God",
       "description": "Required foundation for brick lifecycle, shared services, retained bootstrap, package management and Editor-only Commandments tools. Does not require optional peer bricks.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.44.0",
+      "version": "0.44.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#9e37333d3d36082171923e7707d2b9fcb3dd7bfe",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#9acffe077a098ba2db575fff0cacad96e9731761",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
