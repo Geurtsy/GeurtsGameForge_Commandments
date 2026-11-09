@@ -43,11 +43,11 @@
       "name": "Geurts Game Forge God",
       "description": "Required foundation for brick lifecycle, shared services, retained bootstrap, package management and Editor-only Commandments tools. Does not require optional peer bricks.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.44.1",
+      "version": "0.44.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#9acffe077a098ba2db575fff0cacad96e9731761",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#8f56309a37f17167b91c50d0a43b86183c1a8b6b",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -57,7 +57,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.compatibility",
-          "minimumVersion": "0.1.0"
+          "minimumVersion": "0.1.1"
         }
       ]
     },
@@ -323,11 +323,11 @@
       "name": "Geurts Game Forge Compatibility",
       "description": "Required independent Editor preparation core for Unity 6000.6.3f1 or newer. Explicit source validation, private preparation and confirmed API-profile actions; no God, vendor or runtime-host dependency. Read its owning profiles and build limits.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.compatibility",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.compatibility.git#343df1102ed918e88dedca90af6e823b855854d3",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.compatibility.git#6f52270fb94040d428e1aa2f853b30649d841bcd",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [],
