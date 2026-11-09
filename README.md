@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.68.0
+**Version:** 0.68.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.68.1 - 10 November 2026
+
+- Publish God 0.44.2 in the source catalogue at its existing immutable release commit, together with required Compatibility 0.1.1 and the exact dependency minimum.
+- Synchronize pinned usage evidence and package metadata. No package implementation, update consent or consumer installation changes.
 
 ### 0.68.0 — 9 November 2026
 

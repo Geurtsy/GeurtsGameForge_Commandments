@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.6.0
+**Version:** 1.6.1
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -22,8 +22,8 @@ The examples below are bounded workflows derived from owner guides, not new APIs
 ## Compatibility
 
 **Catalogue ID:** `com.geurts.gameforge.compatibility`
-**Evidence version:** `0.1.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/343df1102ed918e88dedca90af6e823b855854d3/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/343df1102ed918e88dedca90af6e823b855854d3/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/343df1102ed918e88dedca90af6e823b855854d3/Documentation~/AIUsability.md).
+**Evidence version:** `0.1.1`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/6f52270fb94040d428e1aa2f853b30649d841bcd/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/6f52270fb94040d428e1aa2f853b30649d841bcd/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/6f52270fb94040d428e1aa2f853b30649d841bcd/README.md).
 
 - **Prerequisites:** Windows and Unity 6000.6.3f1 or newer; selected source must meet its owning profile. God and licensed vendor assemblies are not compile prerequisites.
 - **Entry points:** The pinned Compatibility owner task table and supported Compatibility tool; direct public APIs remain owned there.
@@ -70,8 +70,8 @@ BigBang 0.9 targets actual released God 0.44, requires Core 0.1 first and perfor
 ## God
 
 **Catalogue ID:** `com.geurts.gameforge.god`
-**Evidence version:** `0.44.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/9e37333d3d36082171923e7707d2b9fcb3dd7bfe/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/9e37333d3d36082171923e7707d2b9fcb3dd7bfe/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/9e37333d3d36082171923e7707d2b9fcb3dd7bfe/Documentation~/GameIntegration.md).
+**Evidence version:** `0.44.2`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/8f56309a37f17167b91c50d0a43b86183c1a8b6b/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/8f56309a37f17167b91c50d0a43b86183c1a8b6b/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/8f56309a37f17167b91c50d0a43b86183c1a8b6b/Documentation~/GameIntegration.md).
 
 - **Use:** Foundation for every dependent brick: lifecycle, shared capabilities/settings, bootstrap, packages and Commandments.
 - **Prerequisites:** Licensed Odin Inspector and Quantum Console, resolved Unity dependencies and the Forge Steamworks.NET prerequisite. No optional peer brick or passive adapter is required.
@@ -81,7 +81,7 @@ BigBang 0.9 targets actual released God 0.44, requires Core 0.1 first and perfor
 - **Verify:** Check bootstrap/readiness independently of package presence; test absent, available, withdrawn and re-enabled capability states plus subscription disposal.
 - **Limits:** No second host/registry in a game. Editor APIs stay outside player assemblies; optional providers may be unavailable.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/9e37333d3d36082171923e7707d2b9fcb3dd7bfe/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/9e37333d3d36082171923e7707d2b9fcb3dd7bfe/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/8f56309a37f17167b91c50d0a43b86183c1a8b6b/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/8f56309a37f17167b91c50d0a43b86183c1a8b6b/Documentation~/AIUsabilityValidation.json). God 0.44.2 records 17 passing focused native checks, the integration recipe and 31 compiled assemblies with zero default-policy diagnostics. Its Compatibility report rendering was reviewed at 560 and 760 points on the recorded host; other display scales/skins and player/native-service behavior remain unverified. Consumer installation and updates remain separate explicit actions.
 
 Update policy requires a current explicit action and confirmation. Legacy automatic entry-point names do not grant update consent; a documentation edit does not change installed handlers.
 
@@ -89,7 +89,7 @@ God 0.44.0 reads the explicitly declared schema-1 package registry or the suppor
 
 God retains SDK-neutral native-session reservations and revocable leases. Providers initialize their own drivers, consumers share an exact application/account context, and pump arbitration runs once per frame. Register every callback/transport with the lease so owner withdrawal closes dependents before native shutdown. See the pinned PlatformContracts guide and current owner validation; managed driver tests do not establish real Steam acceptance.
 
-God 0.44 reads version, registry and startup metadata from the single AGENTS.md authority, retains legacy package support and requires the independently published Compatibility 0.1.0 core. Its native owner regressions passed 152 cases.
+God retains single-AGENTS startup and legacy package support. The current pin requires published Compatibility 0.1.1; its scoped uGUI metadata correction records native prerequisite admission and zero-diagnostic qualification, with no new visual, consumer-installation or native-service acceptance.
 
 ## Steam
 
