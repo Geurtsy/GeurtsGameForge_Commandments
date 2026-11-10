@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Unity Technical Topic
 
-**Version:** 0.3.5
+**Version:** 0.4.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsUnityTechnique.md`
@@ -57,6 +57,14 @@ God owns the Commandments Editor service; the [Commandments Companion Technique]
 For a separately maintained UPM package migrated and verified against this baseline, declare `"unity": "6000.6"` and `"unityRelease": "3f1"` in its `package.json`. These fields declare the minimum Editor version, not equality. Validate reusable package code at the minimum and affected behavior on the newer selected consumer Editor; record each actual version separately. A package with a deliberately higher minimum must declare it and remain unavailable to older Editors. Consult the [package manifest reference](https://docs.unity.com/en-us/engine/6000.6/manual/packages-list/cus-pkg-lp/cus-pkg-development/cus-pkg-manifest/upm-manifest-pkg). Do not add a Unity package manifest to this documentation repository or change the companion's closed JSON schema to carry Editor requirements.
 
 For Steam-related packages and Windows player changes, select the [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md). Verify a pinned Steamworks.NET release against this exact Editor, Windows x64, the actual backend and native-plugin settings; do not infer compatibility from managed compilation. Its local package prerequisite does not require native initialization, an AppID or release-pipeline setup. BigBang retains compile independence from Steamworks.NET as well as God and licensed libraries. Use the catalogue-selected BigBang release's `Documentation~/SteamPreparation.md` for its tested immutable wrapper profile. Local prerequisite and Windows preparation evidence remain separate from real native/account/overlay/distribution acceptance; retain the owning release's explicit limits.
+
+### Supported render pipeline and official Unity packages
+
+**Geurts Game Forge supports only Unity Universal Render Pipeline (URP) for now.** Apply this support boundary to all current and future Forge packages, rendering features, setup guidance, examples and validation profiles. HDRP is deferred and unsupported until the user explicitly chooses to adopt it and authorizes the necessary support/update work. Built-in Render Pipeline is unsupported. This is the user's Forge support policy, not a claim that Unity has deprecated either pipeline. StandardsOnly does not certify a standalone project's pipeline as Forge-supported.
+
+Keep `com.unity.render-pipelines.universal` and its shared `com.unity.render-pipelines.core` dependency on official Unity releases compatible with the selected Editor and resolved graph. Do not create, adopt or distribute custom compatibility forks, patched/embedded copies or vendor-source edits of either package, including to clear compiler warnings. Use supported first-party integrations or official compatible dependency releases; if these cannot resolve a problem, report the exact blocker and remaining owner work under the unchanged zero-warning gate. A historical experimental candidate is not an approved dependency.
+
+Before claiming support, verify the active URP configuration and exact official package provenance/versions, then validate the affected rendering behavior in the selected environment. Package presence or documentation publication alone proves neither rendering compatibility nor runtime enforcement. Keep unsupported-pipeline findings actionable; this policy grants no automatic package installation/update, pipeline conversion, render-setting change or deletion of existing content. Preserve live projects and report required explicit adoption/migration work. Implementing HDRP support later requires an explicit user decision, coordinated owner changes and validation before it can be advertised as supported.
 
 ### C# and .NET
 
