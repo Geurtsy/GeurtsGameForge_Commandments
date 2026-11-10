@@ -107,7 +107,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - Pin eleven package patch releases that include Unity-generated instruction metadata and reject absent/invalid sidecars at release validation.
 - Record bounded immutable Git import checks, fresh C# compilation and unchanged-behavior evidence reuse; preserve explicit consumer updates and existing native/player limits.
 
-### 0.70.0 — 10 November 2026
+### 0.70.1 — 11 November 2026
+
+- Publish Automatic Git LFS through the Catalogue with its standalone Git source, current God prerequisite and source-matched usage evidence. Consumer installation remains explicit.
+
+### 0.70.0 â€” 10 November 2026
 
 - Pin published Compatibility 0.2.0 and its exact owning source/evidence. Authorize bounded automatic local Compatibility repairs on Unity startup and package changes, with exact admission, private originals, native project-relative package adoption, status, pause and interrupted-operation guards.
 - Preserve manual Forge release/content updates, official Unity rendering packages, independent first-load bootstrap limits and full compilation/runtime verification boundaries.
@@ -128,26 +132,26 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - Publish God 0.44.2 in the source catalogue at its existing immutable release commit, together with required Compatibility 0.1.1 and the exact dependency minimum.
 - Synchronize pinned usage evidence and package metadata. No package implementation, update consent or consumer installation changes.
 
-### 0.68.0 — 9 November 2026
+### 0.68.0 â€” 9 November 2026
 
 - Consolidated session, version, task routing, applicability and conflict rules in AGENTS.md; specialists stay separate. Legacy entry/manifest filenames are compatibility redirects only.
 - Updated current routes, local reader, validation and regression checks; schema-3 target/confirmation boundaries and historical Codex payloads and standalone artifacts remain intact; new explicit guide installations route directly to AGENTS.md. God/Angels consumer adoption must be verified before compatible publication.
 
-### 0.67.5 — 7 November 2026
+### 0.67.5 â€” 7 November 2026
 
 - Publish Diagnostics native PanelRenderer foreground coverage and exact release evidence, retaining legacy UI Document and canvas behavior.
 
-### 0.67.4 — 7 November 2026
+### 0.67.4 â€” 7 November 2026
 
 - Require the open bootstrap Diagnostics console to remain above game screen UI, including later-created canvases and UI Toolkit panels, with temporary ordering restored on close or stop.
 - Advance the Diagnostics catalogue/usage evidence to the foreground release and its explicit Geurts-maintained QC Unity 6.6 compatibility repair. Source publication and consumer adoption remain separate.
 
-### 0.67.3 — 6 November 2026
+### 0.67.3 â€” 6 November 2026
 
 - Pin published Scene Loading 0.7.5 and its source-matched owner/native and unfiltered compilation evidence; record caller-owned runtime-scene preservation and explicit caller cleanup during authored content replacement. Multiplayer remains planned and unavailable.
 - Synchronize documentation package metadata and exact-version checks; retain unchanged technique and schema versions, other brick pins, frozen installer payloads and explicit consumer-update boundaries.
 
-### 0.67.2 — 4 November 2026
+### 0.67.2 â€” 4 November 2026
 
 - Pin the validated God 0.43.0 and Steam 0.4.0 source releases and describe shared native lifetime ownership.
 - Record managed and local-socket acceptance separately from unverified native Steam, overlay and distribution. Multiplayer remains a planned catalogue entry; its implementation candidate is not advertised as a released install.
@@ -164,25 +168,25 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - Synchronize package metadata and source checks; migrate existing audience regressions and add bounded format-failure cases. Reading measurements and obligation/consumer evidence are in History/ReadingEfficiency-0.67.0.md and its JSON companion.
 - Pin published registry-compatible God 0.42.0 and Angels 0.10.0 and refresh their Usage Guide evidence. Owner acceptance used the recorded private Quantum Console validation profile; supported-stock compatibility is not claimed. Schema-3 completeness includes the registry; target/confirmation semantics and immutable installer payloads remain unchanged. Consumer adoption remains explicit.
 
-### 0.65.2 — 3 November 2026
+### 0.65.2 â€” 3 November 2026
 
 - Pins Angels 0.9.8 with streamed complete-file hashing for naming and move review, removing the artificial 64 MiB source rejection while retaining full source/meta drift checks and bounded AI evidence.
 - Synchronizes the owning usage/evidence links and package metadata. Consumer adoption remains a separate explicit Update action.
 
-### 0.65.0 — 30 October 2026
+### 0.65.0 â€” 30 October 2026
 
 - Require Steam networking inside the Multiplayer kit using FishNet, FishySteamworks and Steamworks.NET. Keep Client-Host authority, latency-first priorities, local Tugboat testing and separate real Steam acceptance.
 - Add an explicitly planned/unavailable Multiplayer catalogue entry and selective usage section, with no installation source or invented API. Preserve the existing Steam brick and every released package pin; clarify its separate platform-service/release-preparation role.
 - Align shared dependency, integration and setup rules with built-in Multiplayer ownership. Require one native session for standalone/combined use and record the outstanding Multiplayer implementation, compatible dependency profile and Steam/God cooperation checks.
 - Verify transport selection against primary official references; synchronize versions and add bounded semantic regressions for optional-kit drift, false availability and duplicate native ownership. Documentation validation does not certify runtime or consumer adoption.
 
-### 0.64.1 — 30 October 2026
+### 0.64.1 â€” 30 October 2026
 
 - Make Steam games built with Unity for Windows x64 PCs the primary documentation target in the manifest's applicability rules. Route the AI entry, Technical and Steam owners and this index to that single authority.
 - Preserve StandardsOnly, explicit project exceptions, the Unity minimum, default-off native Steam development, game-design ownership and installation consent. This scope clarification changes no package implementation, published brick pin or consumer project.
 - Reuse the Steam target regression against the authoritative manifest; retain source/version/size guidance, frozen payloads and historical evidence.
 
-### 0.64.0 — 30 October 2026
+### 0.64.0 â€” 30 October 2026
 
 - Supersede saved-consent automatic package/content updates with a current explicit Update action and owning confirmation for every update. Preserve exact mutation targets and separate AGENTS.md installation.
 - Retain existing read-only check/catalogue-refresh triggers, source publication and the background game-change integration queue. Keep legacy settings compatible without treating them as mutation authority.
@@ -191,14 +195,14 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - Reconcile published 0.63.2, preserving Response Control 1.2.0 and consolidated subject-owner links. Route manual-only updates through their current owner sections, supersede the old response-selection audit and retain all owner acceptance/publication holds.
 - Identify documentation source/version/revision and honest publication/freshness state at entry. Require separately labelled pre-download transfer and extracted-size evidence for the exact candidate; preserve confirmation, schema, targets and offline startup. God display implementation remains pending.
 
-### 0.63.2 — 30 October 2026
+### 0.63.2 â€” 30 October 2026
 
 - Replace repeated queue and content-lifecycle summaries in the entry guide with direct, conditional pointers to Automation and the Commandments Companion owner. Keep the local-read, no-write and project-design boundaries explicit.
 - Route the Technical core's standards-only dependency explanation to the existing Standards-Only owner. Route copied brick usability, Codex compatibility and content-action rules to their existing Technical, Documentation Maintenance and Companion owners.
 - Clarify that full normative rules stay in their selected subject owner, with precise consumer pointers. Preserve concise routing and permission boundaries, exact schemas and payloads, self-contained templates, executable installation steps and historical records.
 - Validate all eleven consolidated owner links and their target sections, with two bounded negative regressions for a missing route and a missing owner section. No dependency/profile policy, implementation, installer payload or brick release pin changes.
 
-### 0.63.1 — 30 October 2026
+### 0.63.1 â€” 30 October 2026
 
 - Select chat Response Control 1.2.0 for all Unity game-development work, including design, C# coding, debugging, Editor tools and related technical work. Keep unrelated topics outside scope.
 - Align scope rejection, mixed requests, `!s`, clarification and project awareness. Preserve manifest-selected technical ownership, project design-fact safeguards and downloadable-file reference requirements.
@@ -206,7 +210,7 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - Use full words and avoid abbreviations in all replies, including headings and `!s`; replace the abbreviated summary heading with Summary. Preserve exact technical identifiers.
 - Synchronize the package registry, metadata, tool version guards and validation expectations. AI-only documentation policy, schemas, frozen payloads and brick release pins remain unchanged; no brick implementation or consumer update is required by this chat-policy change.
 
-### 0.63.0 — 29 October 2026
+### 0.63.0 â€” 29 October 2026
 
 - Make active documentation exclusively for AI agents, with efficiency first and Game Forge integration primary. Preserve runtime technical priorities and archive the former overview as history.
 - Select cross-repository documentation maintenance for every approved Game Forge change, including BigBang. Require synchronized per-brick usage contracts and truthful owner/evidence reporting.

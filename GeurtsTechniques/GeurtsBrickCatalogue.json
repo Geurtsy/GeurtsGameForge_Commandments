@@ -355,7 +355,32 @@
           "minimumVersion": "0.44.0"
         }
       ]
+    },
+    {
+      "id": "com.geurts.gameforge.gitlfs",
+      "name": "Geurts Game Forge Automatic Git LFS",
+      "description": "Editor-only automatic exact-file LFS tracking for new oversized assets. Configurable size/folders; preserves staged snapshots and never stages, commits, pushes or rewrites history.",
+      "website": "https://github.com/Geurtsy/com.geurts.gameforge.gitlfs",
+      "version": "0.1.1",
+      "released": true,
+      "developmentOnly": false,
+      "sourceKind": "git",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitlfs.git#2ebc750eb259043df567a124ea2ad44fb56820fd",
+      "minimumUnity": "6000.6",
+      "maximumUnity": "",
+      "requiredTools": [
+        "Odin Inspector",
+        "Quantum Console",
+        "Git for Windows",
+        "Git LFS"
+      ],
+      "dependencies": [
+        {
+          "id": "com.geurts.gameforge.god",
+          "minimumVersion": "0.44.3"
+        }
+      ]
     }
   ],
-  "publishedUtc": "2026-11-10T23:21:49Z"
+  "publishedUtc": "2026-11-10T23:30:01Z"
 }

@@ -59,7 +59,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
-      "version": "1.7.1",
+      "version": "1.8.1",
       "role": "Selective per-brick usage, actual pinned sources, examples and evidence limits."
     },
     {
@@ -674,6 +674,12 @@
       "id": "archangels",
       "heading": "Archangels",
       "whenRequired": "Selecting, using, integrating or maintaining Archangels."
+    },
+    {
+      "document": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
+      "id": "gitlfs",
+      "heading": "Automatic Git LFS",
+      "whenRequired": "Selecting, using, integrating or maintaining Automatic Git LFS."
     }
   ]
 }
