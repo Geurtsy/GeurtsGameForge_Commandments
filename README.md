@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.70.0
+**Version:** 0.70.2
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -101,6 +101,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.70.2 - 11 November 2026
+
+- Pin eleven package patch releases that include Unity-generated instruction metadata and reject absent/invalid sidecars at release validation.
+- Record bounded immutable Git import checks, fresh C# compilation and unchanged-behavior evidence reuse; preserve explicit consumer updates and existing native/player limits.
 
 ### 0.70.0 — 10 November 2026
 
