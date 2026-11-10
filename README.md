@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.68.2
+**Version:** 0.69.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -16,6 +16,7 @@ Documentation is exclusively for AI agents. AI efficiency is the first documenta
 | Task | Selected owner or index |
 |---|---|
 | Determine the primary game-platform scope and its exceptions | [Manifest primary game target](AGENTS.md#13-primary-game-target) |
+| Select a supported render pipeline or resolve Unity rendering dependencies | [Unity owner](GeurtsTechniques/GeurtsUnityTechnique.md#supported-render-pipeline-and-official-unity-packages) |
 | Apply any approved Game Forge change, including BigBang | [Documentation Maintenance Technique](GeurtsTechniques/GeurtsDocumentationMaintenanceTechnique.md) |
 | Select and use a brick | [Brick AI Usage Guide](GeurtsTechniques/GeurtsBrickUsageGuide.md), [Brick Contract](GeurtsTechniques/GeurtsBrickContract.md), [Catalogue](GeurtsTechniques/GeurtsBrickCatalogue.json) |
 | Plan Multiplayer with Steam built in | [Multiplayer owner](GeurtsTechniques/GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support), [planned availability and setup](GeurtsTechniques/GeurtsMultiplayerTechnique.md#availability-setup-and-owner-handoff) |
@@ -100,6 +101,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.69.0 - 10 November 2026
+
+- Restrict Forge support to URP. HDRP remains deferred until explicit adoption and support work; Built-in is unsupported. This pre-1.0 support-scope change advances the minor version.
+- Require official Unity URP and shared Render Pipelines Core releases; exclude custom compatibility forks and patched copies without weakening the zero-warning gate.
+- Route pipeline and provenance work to the Unity owner. Documentation publication does not install/update consumers, migrate settings or certify runtime enforcement.
 
 ### 0.68.2 - 10 November 2026
 

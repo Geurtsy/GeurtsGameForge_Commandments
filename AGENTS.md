@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Agent Instructions
 
-**Version:** 0.68.2
+**Version:** 0.69.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package instructions
 **Publication policy:** Validated main is the content feed; immutable versioned releases. Draft describes specification maturity, not whether a Git release exists.
@@ -116,7 +116,7 @@ StandardsOnly uses GameUse, not a new Mode; its owner defines framework/dependen
 
 The Commandments primarily target **Steam games built with Unity for Windows x64 PCs**. Use this focus for game-platform guidance; it does not restrict conversation topics or remove explicitly selected StandardsOnly or user-approved project exceptions. Preserve the Unity minimum above and apply each selected owner's requirements.
 
-The [Technical owner](GeurtsTechniques/GeurtsTechnicalTechnique.md#windows-development-and-build-workflow) owns host/build scope changes; the [Steam owner](GeurtsTechniques/GeurtsSteamIntegrationTechnique.md#runtime-ownership-and-native-activation) retains optional-service and default-off native activation boundaries. This focus grants no installation or migration authority. Project-specific game requirements remain with the [GDD owner](GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md#primary-game-context).
+For Forge render-pipeline support, package provenance and future adoption, apply the [Unity owner](GeurtsTechniques/GeurtsUnityTechnique.md#supported-render-pipeline-and-official-unity-packages). The [Technical owner](GeurtsTechniques/GeurtsTechnicalTechnique.md#windows-development-and-build-workflow) owns host/build scope changes; the [Steam owner](GeurtsTechniques/GeurtsSteamIntegrationTechnique.md#runtime-ownership-and-native-activation) retains optional-service and default-off native activation boundaries. This focus grants no installation or migration authority. Project-specific game requirements remain with the [GDD owner](GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md#primary-game-context).
 
 ## 2. Subject Ownership and Applicability
 
@@ -147,7 +147,7 @@ The [Technical owner](GeurtsTechniques/GeurtsTechnicalTechnique.md#windows-devel
 | FMOD project-root `.gitattributes` template and explicit installation | `GeurtsTechniques/GeurtsGitAttributesTechnique.md` | When provisioning or validating FMOD line-ending rules through Angels or another explicitly authorized installer. The pinned template retains historical God step numbering; current ownership belongs to Forge Setup. |
 | Codex guide template and user-selected installation | `GeurtsTechniques/GeurtsAgentTechnique.md` | When installing, validating or explaining a Codex guide. |
 | Chat-only response style and scope | `GeurtsTechniques/GeurtsAIResponseControlTechnique_V1.2.0.md` | Only when a compatible chat interface explicitly selects it. It is never a coding or architecture standard. |
-| Technical topic: Unity | `GeurtsTechniques/GeurtsUnityTechnique.md` | When planning, changing or validating Unity code, physics, scheduling, dependencies, builds, APIs or Editor compatibility; owns collider movement, triggers, coroutines and Unity-specific compilation; Automation owns the generic compilation gate. Read migration material only for a requested migration. |
+| Technical topic: Unity | `GeurtsTechniques/GeurtsUnityTechnique.md` | When planning, changing or validating Unity code, physics, scheduling, dependencies, builds, APIs or Editor compatibility; owns supported render pipelines and official Unity rendering packages, collider movement, triggers, coroutines and Unity-specific compilation; Automation owns the generic compilation gate. Read migration material only for a requested migration. |
 | Steam preparation, platform services and Windows release evidence | `GeurtsTechniques/GeurtsSteamIntegrationTechnique.md` | When planning, implementing, configuring or validating Steam preparation, Steamworks.NET dependencies, BigBang prerequisite admission, platform-service contracts, bootstrap/native lifecycle, or Steam Windows build/distribution artifacts. Read the whole selected technique in either audience mode. |
 | Technical topic: Code | `GeurtsTechniques/GeurtsCodeTechnique.md` | Before planning, creating or modifying C# code, ScriptableObject data models, object references, IDs, XML descriptions or component Help; owns reference-first design and identity-boundary exceptions. |
 | Technical topic: Authoring | `GeurtsTechniques/GeurtsAuthoringTechnique.md` | For component/ScriptableObject authoring, Odin, UXML or new custom UI; Editor Theme/Appearance additionally apply to Forge Editor surfaces. |

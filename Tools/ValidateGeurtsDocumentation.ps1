@@ -1,5 +1,5 @@
 # ValidateGeurtsDocumentation.ps1
-# Version: 0.68.2
+# Version: 0.69.0
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot,
@@ -806,7 +806,7 @@ try {
             }
         }
     }
-    Add-Check "Documentation companion closed contract" ($companionContractFailures.Count -eq 0) $(if ($companionContractFailures.Count) { $companionContractFailures -join "; " } else { "The current schema-3.0.0/package-v0.68.2 source contract fixes the official exact-commit archive, one managed directory, nineteen validation entries, one four-target confirmation, and three exact full-file route mappings." })
+    Add-Check "Documentation companion closed contract" ($companionContractFailures.Count -eq 0) $(if ($companionContractFailures.Count) { $companionContractFailures -join "; " } else { "The current schema-3.0.0/package-v0.69.0 source contract fixes the official exact-commit archive, one managed directory, nineteen validation entries, one four-target confirmation, and three exact full-file route mappings." })
 
     $gitOnlyFailures = New-Object System.Collections.Generic.List[string]
     $gitBrickCatalogue = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsBrickCatalogue.json")) | ConvertFrom-Json
@@ -825,7 +825,7 @@ try {
     Add-Check "Companion schema forward compatibility" $companionForwardCompatibilityValid "Schema 3.0.0 pins mutation paths, not documentation releases: packageVersion must match the same archive AGENTS.md, and later safe validation-entry lists remain consumable without a companion release."
 
     $companionTechniqueRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md' '3.3.1'
-    $companionContractRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionContract.json' '0.68.2'
+    $companionContractRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionContract.json' '0.69.0'
     $companionOwnerRow = [regex]::Match($manifestText, '(?m)^\| God-owned Windows Unity Editor Commandments source, metadata check, confirmed replacement, project-boundary, and AI-routing lifecycle \| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $companionContractOwnerRow = [regex]::Match($manifestText, '(?m)^\| Exact companion source, documentation destination, validation entries, confirmation targets, and template-to-route mappings \| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| (?<When>[^|]+) \|\r?$')
     $companionArchitectureValid = ($null -ne $companionTechniqueRegistryRow) -and ($null -ne $companionContractRegistryRow) -and
@@ -1297,7 +1297,7 @@ try {
         $topicPath = Join-Path $RepositoryRoot $topicRelative
         if (-not (Test-Path -LiteralPath $topicPath -PathType Leaf)) { $topicFailures.Add("Topic is missing: $topicRelative") | Out-Null; continue }
         $topicText = [IO.File]::ReadAllText($topicPath)
-        $topicVersion = if ($topic -ceq 'Unity') { '0.3.5' } elseif ($topic -ceq 'Code') { '0.2.0' } elseif ($topic -ceq 'Authoring') { '0.1.3' } elseif ($topic -ceq 'Naming') { '0.2.0' } elseif ($topic -ceq 'Commands') { '0.2.0' } elseif ($topic -ceq 'GameAI') { '0.2.1' } elseif ($topic -ceq 'Multiplayer') { '0.4.0' } elseif ($topic -ceq 'Bootstrap') { '0.1.3' } else { '0.1.2' }
+        $topicVersion = if ($topic -ceq 'Unity') { '0.4.0' } elseif ($topic -ceq 'Code') { '0.2.0' } elseif ($topic -ceq 'Authoring') { '0.1.3' } elseif ($topic -ceq 'Naming') { '0.2.0' } elseif ($topic -ceq 'Commands') { '0.2.0' } elseif ($topic -ceq 'GameAI') { '0.2.1' } elseif ($topic -ceq 'Multiplayer') { '0.4.0' } elseif ($topic -ceq 'Bootstrap') { '0.1.3' } else { '0.1.2' }
         if ($topicText -notmatch ('(?m)^\*\*Version:\*\* ' + [regex]::Escape($topicVersion) + '\r?$') -or $topicText -notmatch '(?m)^<!-- GEURTS-AUDIENCE: AI-READ -->\r?$') { $topicFailures.Add("Topic metadata is invalid: $topicRelative") | Out-Null }
         $topicTexts += $topicText
     }
