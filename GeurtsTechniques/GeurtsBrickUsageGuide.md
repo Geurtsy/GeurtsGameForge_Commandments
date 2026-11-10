@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.7.0
+**Version:** 1.8.0
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -290,6 +290,22 @@ The 0.13.4 release retains the two original graphics-bound EditorWindow failures
 - **Verify:** Check read completeness and actual findings. A receipt/PID/lease display does not prove current-main ancestry, check success, processor ownership or delivery.
 - **Limits:** Submission/publisher and recovery/repair are Planned and unavailable: no supported actions or installable separate source. Private authentication/SSH are unsupported. Pinned README says 0.1.1 while package/capabilities declare 0.1.2; owner correction is outstanding.
 
+## Automatic Git LFS
+
+**Catalogue ID:** `com.geurts.gameforge.gitlfs`
+**Evidence version:** `0.1.1`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.gitlfs/blob/2ebc750eb259043df567a124ea2ad44fb56820fd/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.gitlfs/blob/2ebc750eb259043df567a124ea2ad44fb56820fd/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.gitlfs/blob/2ebc750eb259043df567a124ea2ad44fb56820fd/Documentation~/AIUsability.md).
+
+- **Use:** Automatically add exact-file Git LFS rules for new oversized assets while Unity is in Edit Mode.
+- **Prerequisites:** God 0.44.3 or newer, Unity 6000.6.3f1 or newer, both licensed libraries, Git for Windows and Git LFS; existing project checkout. Source access follows the same authenticated private-repository requirement as the other private Forge owners.
+- **Entry points:** Explicitly install from Brick Manager, enable the brick, configure retained settings and use Scan Now or the enabled periodic scan. Repository-local LFS setup has its own confirmation. Direct integrations borrow the enabled GitLfsBrick service using the owner recipe; no generic ForgeOperations provider is declared.
+- **Example:** Keep the default Assets folder, 50 MiB threshold and 15-second interval, confirm local setup, then import a new oversized asset. Inspect the exact rule and reported status before staging through the normal Git workflow.
+- **Lifecycle/settings:** Editor-only; God owns retained settings. Stop/disable cancels scans and retains configuration. Invalid saved payloads remain intact and report validation errors.
+- **Verify:** Check effective attributes, unchanged working-file bytes and unchanged existing staged snapshot; explicitly stage a test asset and inspect its LFS pointer. Read the native recipe and qualification evidence below.
+- **Limits:** Never stages, commits, pushes or rewrites history. Previously staged snapshots require explicit re-addition. Remote upload/quota/account behavior, physical setup-confirmation interaction, other skins/scales, player and non-Windows behavior were not validated.
+
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.gitlfs/blob/2ebc750eb259043df567a124ea2ad44fb56820fd/Tools~/Examples/TrackingRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.gitlfs/blob/2ebc750eb259043df567a124ea2ad44fb56820fd/Documentation~/AIUsabilityValidation.json). Twenty-four focused real-Git/LFS tests pass. Twenty-one native recipe/settings/capability checks pass on each of Unity 6000.6.3f1 and 6000.6.8f1; both complete 31-assembly default-diagnostic compiler qualifications report zero diagnostics with unchanged inputs. Native dark-theme settings render targets at actual 560/760-point widths and the invalid-folder state were reviewed. The source fingerprint and tested Git pin distinguish compiled inputs from the final evidence-only commit. Publication makes the brick selectable; consumer installation remains explicit.
+
 ## Review dependencies
 
 The adapter owner corrected its guides in published 0.16.0; its current pin and scoped evidence are recorded above. GitFlow still has the stale prose version noted above. Both pinned package manifests/capabilities match the Catalogue. This coordinated update retains those two released sources and lists the newly published God/Angels cohort with the evidence above. Angels' Catalogue requiredTools includes Quantum Console, matching its pinned capability declaration and God dependency. Existing owner guides also retain human-audience wording; adopt the AI-only maintenance rule in each affected owner's next authorized documentation update. Generic standards belong here; exact implementation corrections and recipe acceptance belong to those owners.
@@ -299,6 +315,8 @@ The optional Audio FMOD integration is not a separate current catalogue brick. I
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Change Log
+
+- 1.8.0: Add the published Automatic Git LFS owner, exact source/evidence route, practical settings workflow and tested scope/limits.
 
 - 1.7.0: Describe automatic local Compatibility repairs, native lifecycle/pause/recovery limits and the narrow exception preserving manual Forge/content updates and official rendering packages.
 
