@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.69.0
+**Version:** 0.70.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -101,6 +101,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.70.0 — 10 November 2026
+
+- Pin published Compatibility 0.2.0 and its exact owning source/evidence. Authorize bounded automatic local Compatibility repairs on Unity startup and package changes, with exact admission, private originals, native project-relative package adoption, status, pause and interrupted-operation guards.
+- Preserve manual Forge release/content updates, official Unity rendering packages, independent first-load bootstrap limits and full compilation/runtime verification boundaries.
 
 ### 0.69.0 - 10 November 2026
 

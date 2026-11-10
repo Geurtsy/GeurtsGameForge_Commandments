@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.69.0",
+  "packageVersion": "0.70.0",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -321,13 +321,13 @@
     {
       "id": "com.geurts.gameforge.compatibility",
       "name": "Geurts Game Forge Compatibility",
-      "description": "Required independent Editor preparation core for Unity 6000.6.3f1 or newer. Explicit source validation, private preparation and confirmed API-profile actions; no God, vendor or runtime-host dependency. Read its owning profiles and build limits.",
+      "description": "Required independent Editor compatibility core. Reviewed fixes run automatically when Unity opens and packages change; project pause/status, private originals and project-relative package adoption. No God/vendor/runtime-host dependency; unknown sources and unsupported Editors remain visible.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.compatibility",
-      "version": "0.1.1",
+      "version": "0.2.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.compatibility.git#6f52270fb94040d428e1aa2f853b30649d841bcd",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.compatibility.git#972f0fae8db2033b3d5bfd561ce9a0276a327c83",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [],

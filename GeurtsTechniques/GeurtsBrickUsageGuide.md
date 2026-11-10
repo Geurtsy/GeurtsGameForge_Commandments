@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.6.2
+**Version:** 1.7.0
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -22,18 +22,18 @@ The examples below are bounded workflows derived from owner guides, not new APIs
 ## Compatibility
 
 **Catalogue ID:** `com.geurts.gameforge.compatibility`
-**Evidence version:** `0.1.1`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/6f52270fb94040d428e1aa2f853b30649d841bcd/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/6f52270fb94040d428e1aa2f853b30649d841bcd/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/6f52270fb94040d428e1aa2f853b30649d841bcd/README.md).
+**Evidence version:** `0.2.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/972f0fae8db2033b3d5bfd561ce9a0276a327c83/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/972f0fae8db2033b3d5bfd561ce9a0276a327c83/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/972f0fae8db2033b3d5bfd561ce9a0276a327c83/README.md).
 
 - **Prerequisites:** Windows and Unity 6000.6.3f1 or newer; selected source must meet its owning profile. God and licensed vendor assemblies are not compile prerequisites.
 - **Entry points:** The pinned Compatibility owner task table and supported Compatibility tool; direct public APIs remain owned there.
-- **Example:** Explicitly call the owner's read-only `CompatibilityPreflight.Validate("ugui_2_6_0_unity66", selectedPrivateSourceRoot)` for a caller-selected private export, inspect its typed result, and prepare only after a separate explicit decision.
-- **Lifecycle/settings:** Editor-only independent core with no IBrick/runtime host. Native project-profile Apply is separate and confirmed; validation and menu opening grant no write or update consent.
+- **Example:** Keep automatic repairs enabled, open Unity or change a selected dependency, then inspect the owner's Compatibility status. Unknown or edited sources are preserved with a reason; normal known repairs require no executable/folder selection or Apply action.
+- **Lifecycle/settings:** Editor-only independent core with no IBrick/runtime host. Reviewed local repairs and exact native API/warning-visibility settings run automatically in idle Edit Mode. Project pause stops new work; a dispatched UPM request may finish. Forge release/content updates retain current-action confirmation.
 - **Use:** Required independent Editor prerequisite before God and BigBang on Unity 6000.6.3f1 or newer. It has no God, licensed-vendor or runtime-host dependency and no IBrick lifecycle requirement.
-- **Input:** Explicitly selected source and owning profile. Read the pinned owner's task table and only the selected profile documentation; transforms, hashes and known build limits stay in that package.
-- **Workflow:** Explicit Validate, private Prepare, then the supported owner import/UPM selection. Native API-profile Apply is a separate confirmed action. Host preparation is available before affected libraries can compile.
+- **Input:** Actually installed exact supported dependencies; absent optional or licensed sources are not acquired. Read the pinned owner's selected profile guidance; transforms, hashes and evidence stay in that package.
+- **Workflow:** Automatic startup/package-change checks, private preparation, project-relative native local-source adoption or exact licensed C# repair with original/metadata retention. Status and pause are primary; advanced manual Validate/Prepare and host bootstrap remain for exceptional recovery. A first domain blocked before the core loads cannot execute its automation.
 - **Verify:** Source identity, supported target and complete dependency/compiler gates; source admission alone is not whole-build acceptance.
-- **Limits:** No automatic updates, installed-cache rewriting, paid-source redistribution or warning filters. Visual acceptance was user-waived, not passed; nonvisual source/preparation/compiler evidence remains required.
+- **Limits:** No automatic Forge release updates, cache rewriting, paid-source redistribution, uploads, warning filters or private Unity rendering replacements. Source admission is not full project/compiler/runtime acceptance; historical appearance waivers do not validate this feature.
 
 ## BigBang
 
@@ -89,7 +89,7 @@ God 0.44.0 reads the explicitly declared schema-1 package registry or the suppor
 
 God retains SDK-neutral native-session reservations and revocable leases. Providers initialize their own drivers, consumers share an exact application/account context, and pump arbitration runs once per frame. Register every callback/transport with the lease so owner withdrawal closes dependents before native shutdown. See the pinned PlatformContracts guide and current owner validation; managed driver tests do not establish real Steam acceptance.
 
-God retains single-AGENTS startup and legacy package support. The current pin requires published Compatibility 0.1.1; its scoped uGUI metadata correction records native prerequisite admission and zero-diagnostic qualification, with no new visual, consumer-installation or native-service acceptance.
+God retains single-AGENTS startup and legacy package support. The God manifest retains its Compatibility 0.1.1 minimum; the Catalogue selects published Compatibility 0.2.0 for automatic local repairs. The earlier minimum release's uGUI metadata evidence remains historical; current automatic-repair, native UI and reviewed-Editor evidence belongs to the pinned Compatibility owner. Consumer installation and game/native-service acceptance remain separate.
 
 Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/4722af18d0a83c873be28c24e08bf76cbc030113/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
 
@@ -299,6 +299,8 @@ The optional Audio FMOD integration is not a separate current catalogue brick. I
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Change Log
+
+- 1.7.0: Describe automatic local Compatibility repairs, native lifecycle/pause/recovery limits and the narrow exception preserving manual Forge/content updates and official rendering packages.
 
 - 1.6.0: List actual immutable Core and optional Archangels releases; refresh the published owner cohort and preserve visual-waiver versus nonvisual evidence boundaries.
 

@@ -1,5 +1,5 @@
 # ValidateGeurtsDocumentation.ps1
-# Version: 0.69.0
+# Version: 0.70.0
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot,
@@ -806,7 +806,7 @@ try {
             }
         }
     }
-    Add-Check "Documentation companion closed contract" ($companionContractFailures.Count -eq 0) $(if ($companionContractFailures.Count) { $companionContractFailures -join "; " } else { "The current schema-3.0.0/package-v0.69.0 source contract fixes the official exact-commit archive, one managed directory, nineteen validation entries, one four-target confirmation, and three exact full-file route mappings." })
+    Add-Check "Documentation companion closed contract" ($companionContractFailures.Count -eq 0) $(if ($companionContractFailures.Count) { $companionContractFailures -join "; " } else { "The current schema-3.0.0/package-v0.70.0 source contract fixes the official exact-commit archive, one managed directory, nineteen validation entries, one four-target confirmation, and three exact full-file route mappings." })
 
     $gitOnlyFailures = New-Object System.Collections.Generic.List[string]
     $gitBrickCatalogue = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsBrickCatalogue.json")) | ConvertFrom-Json
@@ -825,7 +825,7 @@ try {
     Add-Check "Companion schema forward compatibility" $companionForwardCompatibilityValid "Schema 3.0.0 pins mutation paths, not documentation releases: packageVersion must match the same archive AGENTS.md, and later safe validation-entry lists remain consumable without a companion release."
 
     $companionTechniqueRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md' '3.3.1'
-    $companionContractRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionContract.json' '0.69.0'
+    $companionContractRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionContract.json' '0.70.0'
     $companionOwnerRow = [regex]::Match($manifestText, '(?m)^\| God-owned Windows Unity Editor Commandments source, metadata check, confirmed replacement, project-boundary, and AI-routing lifecycle \| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $companionContractOwnerRow = [regex]::Match($manifestText, '(?m)^\| Exact companion source, documentation destination, validation entries, confirmation targets, and template-to-route mappings \| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| (?<When>[^|]+) \|\r?$')
     $companionArchitectureValid = ($null -ne $companionTechniqueRegistryRow) -and ($null -ne $companionContractRegistryRow) -and
@@ -1838,6 +1838,13 @@ try {
         $consistencyFailures.Add('Required Compatibility setup ownership, independent dependency direction and minimum cohort are inconsistent') | Out-Null
     }
     $compatibilityEntries = @($brickCatalogue.bricks | Where-Object id -ceq 'com.geurts.gameforge.compatibility')
+    $automaticCompatibilityValid = $brickContractText.Contains('automatic known compatibility repairs on Unity startup and package changes') -and
+        $brickContractText.Contains('project-local pause control and precise status') -and
+        $brickContractText.Contains('It never authorizes automatic Forge release installation/update, Commandments content Update') -and
+        $brickContractText.Contains('an unrelated compilation block preventing that first domain load needs the independent advanced host/bootstrap route') -and
+        $brickContractText.Contains('this exception never permits private rendering replacements or pipeline migration') -and
+        $brickContractText.Contains('legacy false-confirmation native APIs remain non-mutating')
+    Add-Check 'Automatic Compatibility repair boundary' $automaticCompatibilityValid 'Automatic reviewed local repairs preserve manual Forge/content updates, project pause/status, first-load recovery limits, official rendering and canceled manual API behavior.'
     $requiresReleasedCompatibility = @($brickCatalogue.bricks | Where-Object {
         $_.released -and (($_.id -ceq 'com.geurts.gameforge.god' -and [version]$_.version -ge [version]'0.44.0') -or
             ($_.id -ceq 'com.geurts.gameforge.bigbang' -and [version]$_.version -ge [version]'0.9.0'))
