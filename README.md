@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.68.1
+**Version:** 0.68.2
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.68.2 - 10 November 2026
+
+- Pin the repaired God 0.44.3 release: independent Compatibility catalogue admission, separate catalogue/selected/bulk checks, bounded cancellation and rejection of stale late results.
+- Synchronize pinned usage evidence and documentation metadata; existing update confirmations and consumer installation remain explicit.
 
 ### 0.68.1 - 10 November 2026
 

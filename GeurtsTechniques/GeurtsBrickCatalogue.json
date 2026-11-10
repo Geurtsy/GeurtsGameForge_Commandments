@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.68.1",
+  "packageVersion": "0.68.2",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -43,11 +43,11 @@
       "name": "Geurts Game Forge God",
       "description": "Required foundation for brick lifecycle, shared services, retained bootstrap, package management and Editor-only Commandments tools. Does not require optional peer bricks.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.44.2",
+      "version": "0.44.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#8f56309a37f17167b91c50d0a43b86183c1a8b6b",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#4722af18d0a83c873be28c24e08bf76cbc030113",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
