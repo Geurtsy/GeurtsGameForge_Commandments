@@ -19,6 +19,8 @@ Installed packages/bricks and managed documentation never update automatically. 
 
 The examples below are bounded workflows derived from owner guides, not new APIs or approvals to run them. Retain owner consent, review, typed payloads, stale-review checks, operation guards and game design authority. Discover supported operations locally; inspect is read-only, execution is explicit and results retain actual partial/failure states. Direct APIs do not imply a generic operation ID. Runtime consumers borrow the existing bootstrap service and release owned resources; Editor-only services stay out of players. The [maintenance owner](GeurtsDocumentationMaintenanceTechnique.md) requires this index and the affected owning guide to stay synchronized.
 
+The instruction-metadata patch cohort adds Unity-generated `AGENTS.md.meta` and release checks for missing/invalid sidecars. Unity 6000.6.8f1 imported all eleven exact instruction/metadata pairs from bounded immutable Git fixtures; a missing-sidecar control reproduced the original diagnostic. Fresh default-policy C# qualification passed 35 owning assemblies in 6000.6.3f1 and both Scene Loading production assemblies in 6000.6.8f1. Prior functional/rendered results retain their original tested commits and limits; the new owner `Documentation~/Validation/AssetMetadata/summary.json` explains reuse. Diagnostics additionally replaces the deprecated resource-import entry point with Unity's supported equivalent. No new cold IL2CPP, native-service or live-consumer acceptance is claimed. Consumers update only through a separately confirmed explicit package update.
+
 ## Compatibility
 
 **Catalogue ID:** `com.geurts.gameforge.compatibility`
@@ -34,8 +36,6 @@ The examples below are bounded workflows derived from owner guides, not new APIs
 - **Workflow:** Automatic startup/package-change checks, private preparation, project-relative native local-source adoption or exact licensed C# repair with original/metadata retention. Status and pause are primary; advanced manual Validate/Prepare and host bootstrap remain for exceptional recovery. A first domain blocked before the core loads cannot execute its automation.
 - **Verify:** Source identity, supported target and complete dependency/compiler gates; source admission alone is not whole-build acceptance.
 - **Limits:** No automatic Forge release updates, cache rewriting, paid-source redistribution, uploads, warning filters or private Unity rendering replacements. Source admission is not full project/compiler/runtime acceptance; historical appearance waivers do not validate this feature.
-
-The instruction-metadata patch cohort adds Unity-generated `AGENTS.md.meta` and release checks for missing/invalid sidecars. Unity 6000.6.8f1 imported all eleven exact instruction/metadata pairs from bounded immutable Git fixtures; a missing-sidecar control reproduced the original diagnostic. Fresh default-policy C# qualification passed 35 owning assemblies in 6000.6.3f1 and both Scene Loading production assemblies in 6000.6.8f1. Prior functional/rendered results retain their original tested commits and limits; the new owner `Documentation~/Validation/AssetMetadata/summary.json` explains reuse. Diagnostics additionally replaces the deprecated resource-import entry point with Unity's supported equivalent. No new cold IL2CPP, native-service or live-consumer acceptance is claimed. Consumers update only through a separately confirmed explicit package update.
 
 ## BigBang
 
