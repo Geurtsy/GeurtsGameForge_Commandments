@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.11.9
+**Version:** 1.11.10
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -84,8 +84,8 @@ The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared co
 ## God
 
 **Catalogue ID:** `com.geurts.gameforge.god`
-**Evidence version:** `0.47.2`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d2c985b1f11454a5917edc2a6729deb2bfaf0f5d/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d2c985b1f11454a5917edc2a6729deb2bfaf0f5d/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d2c985b1f11454a5917edc2a6729deb2bfaf0f5d/Documentation~/GameIntegration.md).
+**Evidence version:** `0.47.3`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7/Documentation~/GameIntegration.md).
 
 - **Use:** Foundation for every dependent brick: lifecycle, shared capabilities/settings, bootstrap, packages and Commandments.
 - **Prerequisites:** Licensed Odin Inspector and Quantum Console, resolved Unity dependencies and the Forge Steamworks.NET prerequisite. No optional peer brick or passive adapter is required.
@@ -95,7 +95,7 @@ The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared co
 - **Verify:** Check bootstrap/readiness independently of package presence; test absent, available, withdrawn and re-enabled capability states plus subscription disposal.
 - **Limits:** No second host/registry in a game. Editor APIs stay outside player assemblies; optional providers may be unavailable.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d2c985b1f11454a5917edc2a6729deb2bfaf0f5d/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d2c985b1f11454a5917edc2a6729deb2bfaf0f5d/Documentation~/AIUsabilityValidation.json). God 0.44.3 records 99 passing focused native checks, the integration recipe, actual authoritative catalogue refresh and 31 compiled assemblies with zero default-policy diagnostics. Its pinned cancellation and expanded local Help were rendered at 560 and 760 points; other display scales/skins and player/native-service behavior remain unverified. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7/Documentation~/AIUsabilityValidation.json). God 0.44.3 records 99 passing focused native checks, the integration recipe, actual authoritative catalogue refresh and 31 compiled assemblies with zero default-policy diagnostics. Its pinned cancellation and expanded local Help were rendered at 560 and 760 points; other display scales/skins and player/native-service behavior remain unverified. Consumer installation and updates remain separate explicit actions.
 
 Update policy requires a current explicit action and confirmation. Legacy automatic entry-point names do not grant update consent; a documentation edit does not change installed handlers.
 
@@ -105,7 +105,7 @@ God retains SDK-neutral native-session reservations and revocable leases. Provid
 
 God retains single-AGENTS startup and legacy package support. Its current manifest requires Compatibility 0.4.0, also selected by the Catalogue for the reviewed SDK preparation profiles and local repairs. The earlier minimum release's uGUI metadata evidence remains historical; current automatic-repair, native UI and reviewed-Editor evidence belongs to the pinned Compatibility owner. Consumer installation and game/native-service acceptance remain separate.
 
-Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d2c985b1f11454a5917edc2a6729deb2bfaf0f5d/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
+Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
 
 The earlier recorded cohort removed owning release/archive digest gates. Native tests and the complete combined156-assembly default-diagnostic qualification pass with zero diagnostics. God additionally fixes missing-metadata information-panel reload; Steam preserves account-pinned cloud contracts. Native Steam acceptance remains unverified; visual checks are not required.
 
@@ -116,6 +116,8 @@ The initial dependency-installation cohort passed 18 focused Unity cases, 21 hos
 Current root-onboarding evidence: God 0.46.0 supports schema 4. The confirmed content installation includes a portable root AGENTS.md managed block pointing to `./GeurtsGameForgeCommandments/AGENTS.md`; outside instructions are preserved. Schema-3 content retains its original targets. The actual exact-commit archive, initial installation, preservation, idempotence, conflicts and concurrent edits passed native checks; 34 source-bearing assemblies qualified with zero diagnostics. Source publication does not install consumer updates.
 
 God 0.47.2 permits a reviewed upgrade from exact Compatibility-managed SDK outputs, retaining the old folders and rejecting unmanaged copies. Its real queue admits only the two official SDK destinations. Private dependency declarations use existing noninteractive saved Git access at the selected commit after 403/404. Fourteen God cases and nine unchanged Multiplayer cases establish 23 distinct focused Unity checks; a real grouped UPM installation and automatic Compatibility adoption pass, as does production private-source lookup. The 84-assembly closure has zero default-policy diagnostics, with 11 affected assemblies requalified and 73 reused after complete input verification.
+
+Editor UI performance: Shared summaries and display strings reuse immutable evaluated results; unchanged warning controls and the canonical stylesheet are retained. Embedded Odin fallback redraws are bounded at four per second while native input still draws immediately. The review covers all 17 owners; independent installers and adapters retain their boundaries. The [current owner evidence](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7/Documentation~/AIUsabilityValidation.json) records ten focused nonvisual cohort checks, zero measured allocations for 10,000 cached shared-summary reads and a complete 111-assembly compiler closure with zero default-policy diagnostics. Failed fixture attempts and the corrected checks are retained separately. Unchanged runtime/recipe behavior retains its original source-bound scope; no visual checks, player/native acceptance or consumer installation is claimed.
 
 ## Steam
 
@@ -271,8 +273,8 @@ Cloud saving stays off by default. Review both local/cloud copies and the explic
 ## Audio
 
 **Catalogue ID:** `com.geurts.gameforge.audio`
-**Evidence version:** `0.9.7`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/04c750e7392f028ca696f44b1dc569387b995e9c/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/04c750e7392f028ca696f44b1dc569387b995e9c/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/04c750e7392f028ca696f44b1dc569387b995e9c/Documentation~/GameIntegration.md).
+**Evidence version:** `0.9.8`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/4bd99bae22e79e2e4f56096becbd527aeb2feb12/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/4bd99bae22e79e2e4f56096becbd527aeb2feb12/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/4bd99bae22e79e2e4f56096becbd527aeb2feb12/Documentation~/GameIntegration.md).
 
 - **Use:** Unity clip playback, authored sounds, categories/mixing and scoped playback ownership.
 - **Prerequisites:** God, both licensed libraries, authored sound/configuration and explicit bootstrap binding. Unity audio is the default; FMOD requires separately selected integration and licensed backend.
@@ -282,7 +284,9 @@ Cloud saving stays off by default. Review both local/cloud copies and the explic
 - **Verify:** Check the built-in backend's handle lifetime, completion/cancellation and cleanup. Run unattended tests silently; listening and actual device/native-backend acceptance are distinct.
 - **Limits:** No mandatory FMOD, global stop of unrelated voices, duplicate audio manager or claim that a source check proves audible quality.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/04c750e7392f028ca696f44b1dc569387b995e9c/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/04c750e7392f028ca696f44b1dc569387b995e9c/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/4bd99bae22e79e2e4f56096becbd527aeb2feb12/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/4bd99bae22e79e2e4f56096becbd527aeb2feb12/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
+
+Editor UI performance: Audio tab summaries refresh after actual finding or navigation changes; the live service/status poll and existing actions remain available. The [current owner evidence](https://github.com/Geurtsy/com.geurts.gameforge.audio/blob/4bd99bae22e79e2e4f56096becbd527aeb2feb12/Documentation~/AIUsabilityValidation.json) records ten focused nonvisual cohort checks, zero measured allocations for 10,000 cached shared-summary reads and a complete 111-assembly compiler closure with zero default-policy diagnostics. Failed fixture attempts and the corrected checks are retained separately. Unchanged runtime/recipe behavior retains its original source-bound scope; no visual checks, player/native acceptance or consumer installation is claimed.
 
 ## User Interface
 
@@ -303,8 +307,8 @@ Cloud saving stays off by default. Review both local/cloud copies and the explic
 ## Object Pooling
 
 **Catalogue ID:** `com.geurts.gameforge.objectpooling`
-**Evidence version:** `0.8.5`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/9f97c7a1475acecaaa05cabb69cd25bd837cbc82/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/9f97c7a1475acecaaa05cabb69cd25bd837cbc82/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/9f97c7a1475acecaaa05cabb69cd25bd837cbc82/Documentation~/GameIntegration.md).
+**Evidence version:** `0.8.6`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/34be4d225eacb1b88a5d13287ef6c0d3d29965ba/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/34be4d225eacb1b88a5d13287ef6c0d3d29965ba/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/34be4d225eacb1b88a5d13287ef6c0d3d29965ba/Documentation~/GameIntegration.md).
 
 - **Use:** Repeated prefab spawning with bounded growth, prewarming and generation-bound leases.
 - **Prerequisites:** God, both licensed libraries, inactive prefab, ObjectPoolObject definition and explicit capacities/reset/lifetime configuration. Resources lookup is optional.
@@ -314,7 +318,9 @@ Cloud saving stays off by default. Review both local/cloud copies and the explic
 - **Verify:** Check spawn/return/reuse, capacity rejection, reset and stale-lease refusal in the owning fixture.
 - **Limits:** Never Destroy pooled instances, use a GameObject reference as ownership proof or create another live pool service. Contact, particle/device and optional audio acceptance remain separate.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/9f97c7a1475acecaaa05cabb69cd25bd837cbc82/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/9f97c7a1475acecaaa05cabb69cd25bd837cbc82/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/34be4d225eacb1b88a5d13287ef6c0d3d29965ba/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/34be4d225eacb1b88a5d13287ef6c0d3d29965ba/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
+
+Editor UI performance: Search filters a cached definition inventory. Project changes and explicit creation refresh that inventory, and closing the view releases its references and listener. The [current owner evidence](https://github.com/Geurtsy/com.geurts.gameforge.objectpooling/blob/34be4d225eacb1b88a5d13287ef6c0d3d29965ba/Documentation~/AIUsabilityValidation.json) records ten focused nonvisual cohort checks, zero measured allocations for 10,000 cached shared-summary reads and a complete 111-assembly compiler closure with zero default-policy diagnostics. Failed fixture attempts and the corrected checks are retained separately. Unchanged runtime/recipe behavior retains its original source-bound scope; no visual checks, player/native acceptance or consumer installation is claimed.
 
 ## GitFlow
 
