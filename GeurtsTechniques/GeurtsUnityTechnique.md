@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Unity Technical Topic
 
-**Version:** 0.5.0
+**Version:** 0.6.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsUnityTechnique.md`
@@ -62,9 +62,11 @@ For Steam-related packages and Windows player changes, select the [Steam Integra
 
 **Geurts Game Forge supports only Unity Universal Render Pipeline (URP) for now.** Apply this support boundary to all current and future Forge packages, rendering features, setup guidance, examples and validation profiles. HDRP is deferred and unsupported until the user explicitly chooses to adopt it and authorizes the necessary support/update work. Built-in Render Pipeline is unsupported. This is the user's Forge support policy, not a claim that Unity has deprecated either pipeline. StandardsOnly does not certify a standalone project's pipeline as Forge-supported.
 
-Keep `com.unity.render-pipelines.universal` and its shared `com.unity.render-pipelines.core` dependency on official Unity releases compatible with the selected Editor and resolved graph. Do not create, adopt or distribute custom compatibility forks, patched/embedded copies or vendor-source edits of either package, including to clear compiler warnings. Use supported first-party integrations or official compatible dependency releases; if these cannot resolve a problem, report the exact blocker and remaining owner work under the unchanged zero-warning gate. A historical experimental candidate is not an approved dependency.
+Start `com.unity.render-pipelines.universal` and its shared `com.unity.render-pipelines.core` dependency from exact official Unity releases compatible with the selected Editor and resolved graph. The independent Compatibility brick may apply exact reviewed URP/Core repairs, including required Shader Graph repairs in that dependency chain. Use its source-admission profiles, private original retention, complete inventories and managed local UPM adoption; never edit Library/PackageCache or add an unreviewed rendering fork. Unknown versions and missing or ambiguous patch contexts fail closed. Do not suppress warnings, exclude features/sources, acquire absent packages, alter serialized names/types/defaults or silently migrate pipelines. Preserve GUIDs, upstream notices, resources and job/layout contracts; version maintained output and identify it separately from official source. Historical prototypes alone do not qualify a current output.
 
-Before claiming support, verify the active URP configuration and exact official package provenance/versions, then use only justified nonvisual checks of affected rendering configuration; never run visual checks. Package presence or documentation publication alone proves neither rendering compatibility nor runtime enforcement. Keep unsupported-pipeline findings actionable; this policy grants no automatic package installation/update, pipeline conversion, render-setting change or deletion of existing content. Preserve live projects and report required explicit adoption/migration work. Implementing HDRP support later requires an explicit user decision, coordinated owner changes and validation before it can be advertised as supported.
+The zero-warning gate remains mandatory across the actual compiler closure. Verify original/prepared identity, member/metadata preservation and affected shader, serialization and job contracts using only proportionate nonvisual checks under Automation. No rendered inspection or visual acceptance gate applies. Record actual versions, results and unperformed scope; source admission does not establish every rendering feature's behavior.
+
+Before claiming support, verify the active URP configuration and exact official/prepared package provenance and versions, then use justified nonvisual checks. Package presence or documentation publication alone proves neither rendering compatibility nor runtime enforcement. Keep unsupported-pipeline findings actionable; this policy grants no automatic Forge release update, pipeline conversion, render-setting migration or deletion of existing content. Preserve live projects and report explicit adoption work. Implementing HDRP support later requires an explicit user decision, coordinated owner changes and applicable nonvisual validation.
 
 ### C# and .NET
 

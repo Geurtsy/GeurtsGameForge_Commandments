@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Commandments Service and Companion Compatibility Technique
 
-**Version:** 3.3.1
+**Version:** 3.3.2
 **Contract schema:** 3.0.0
 **Status:** Draft normative technique
 **Audience:** AI agents only
@@ -167,7 +167,7 @@ No archive acquisition or project mutation may begin before affirmative confirma
 After affirmative confirmation, the companion performs this bounded sequence:
 
 1. Resolve the official repository's current `main` head commit and capture its exact commit ID.
-2. Download an archive pinned to that exact commit into a temporary location outside the Unity project.
+2. Download an archive pinned to that exact commit into a temporary location outside the Unity project. Do not require a checksum or content-digest match; apply the Brick Contract source/release/download validation policy.
 3. Perform basic pre-mutation validation: confirm the configured official source, the selected exact commit, safe relative archive paths, supported regular-file and directory entries, absence of Git metadata, readability of every contract-listed validation entry, readable single-authority entry `AGENTS.md`, support for contract schema 3.0.0, and equality between the contract and AGENTS.md package versions.
 4. Delete any existing `<ProjectRoot>/GeurtsGameForgeCommandments/` and directly materialize the complete validated archive tree at that exact destination. The result contains no `.git` metadata or continuing repository, worktree, branch, remote, or synchronization connection.
 5. Directly replace each of the three AI target files with the bytes of its mapped template from the same validated candidate. Create only a missing `.github/` or `.github/instructions/` parent needed for those exact files.

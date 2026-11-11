@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.10.0
+**Version:** 1.11.0
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -24,24 +24,26 @@ The instruction-metadata patch cohort adds Unity-generated `AGENTS.md.meta` and 
 ## Compatibility
 
 **Catalogue ID:** `com.geurts.gameforge.compatibility`
-**Evidence version:** `0.2.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/972f0fae8db2033b3d5bfd561ce9a0276a327c83/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/972f0fae8db2033b3d5bfd561ce9a0276a327c83/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/972f0fae8db2033b3d5bfd561ce9a0276a327c83/README.md).
+**Evidence version:** `0.3.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/3a84986c1695d214eb09eb4f0bfcc3c15b660f41/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/3a84986c1695d214eb09eb4f0bfcc3c15b660f41/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/3a84986c1695d214eb09eb4f0bfcc3c15b660f41/README.md).
 
 - **Prerequisites:** Windows and Unity 6000.6.3f1 or newer; selected source must meet its owning profile. God and licensed vendor assemblies are not compile prerequisites.
 - **Entry points:** The pinned Compatibility owner task table and supported Compatibility tool; direct public APIs remain owned there.
-- **Example:** Keep automatic repairs enabled, open Unity or change a selected dependency, then inspect the owner's Compatibility status. Unknown or edited sources are preserved with a reason; normal known repairs require no executable/folder selection or Apply action.
+- **Example:** Keep automatic repairs enabled, open Unity or change a selected dependency, then inspect the owner's Compatibility status. Unknown versions or missing/ambiguous patch contexts are preserved with a reason; normal known repairs require no executable/folder selection or Apply action.
 - **Lifecycle/settings:** Editor-only independent core with no IBrick/runtime host. Reviewed local repairs and exact native API/warning-visibility settings run automatically in idle Edit Mode. Project pause stops new work; a dispatched UPM request may finish. Forge release/content updates retain current-action confirmation.
 - **Use:** Required independent Editor prerequisite before God and BigBang on Unity 6000.6.3f1 or newer. It has no God, licensed-vendor or runtime-host dependency and no IBrick lifecycle requirement.
-- **Input:** Actually installed exact supported dependencies; absent optional or licensed sources are not acquired. Read the pinned owner's selected profile guidance; transforms, hashes and evidence stay in that package.
+- **Input:** Actually installed exact supported dependencies; absent optional or licensed sources are not acquired. Read the pinned owner's selected profile guidance; transforms, patch contexts and evidence stay in that package.
 - **Workflow:** Automatic startup/package-change checks, private preparation, project-relative native local-source adoption or exact licensed C# repair with original/metadata retention. Status and pause are primary; advanced manual Validate/Prepare and host bootstrap remain for exceptional recovery. A first domain blocked before the core loads cannot execute its automation.
 - **Verify:** Source identity, supported target and complete dependency/compiler gates; source admission alone is not whole-build acceptance.
-- **Limits:** No automatic Forge release updates, cache rewriting, paid-source redistribution, uploads, warning filters or private Unity rendering replacements. Source admission is not full project/compiler/runtime acceptance; historical appearance waivers do not validate this feature.
+- **Limits:** No automatic Forge release updates, cache rewriting, paid-source redistribution, uploads, warning filters, unreviewed rendering forks or pipeline migration. Exact reviewed URP/Core and required Shader Graph repairs belong to Compatibility. Source admission is not full project/compiler/runtime acceptance; historical appearance waivers do not validate this feature.
+
+Current qualification:29host checks,28native Core checks, complete raw C#/Python preparation parity and preserved original sources;23profiles/191file records. Reviewed Core/URP17.6.0 prepare as17.6.2-geurts.1; Shader Graph remains17.6.1-geurts.1. Source/release/download gates do not use content digests. File observations are not byte-integrity proof.
 
 ## BigBang
 
 **Catalogue ID:** `com.geurts.gameforge.bigbang`
-**Evidence version:** `0.9.1`
-**Source:** [package manifest](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/36d17c6323c50aecf75ce29dae9c91d1bedf0912/package.json), [capabilities](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/36d17c6323c50aecf75ce29dae9c91d1bedf0912/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/36d17c6323c50aecf75ce29dae9c91d1bedf0912/Documentation~/GameIntegration.md).
+**Evidence version:** `0.9.2`
+**Source:** [package manifest](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/d411efcd555416dc6281314f315ee8e7b682a38a/package.json), [capabilities](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/d411efcd555416dc6281314f315ee8e7b682a38a/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/GeurtsGameForgeBigBang/blob/d411efcd555416dc6281314f315ee8e7b682a38a/Documentation~/GameIntegration.md).
 
 - **Use:** Prepare a fresh Forge Unity project and hand off to God; use BigCrunch only for separately requested whole-Forge removal.
 - **Prerequisites:** Windows, supported Unity and Git. BigBang requires the independent Compatibility core and itself compiles without God, Odin Inspector or Quantum Console; installation/handoff requires licensed Odin Inspector, Quantum Console and verified Steamworks.NET.
@@ -52,6 +54,8 @@ The instruction-metadata patch cohort adds Unity-generated `AGENTS.md.meta` and 
 - **Limits:** No content acquisition, scene/GDD setup or optional-brick installation. Native Steam and interactive acceptance are separate.
 
 BigBang 0.9 targets actual released God 0.44, requires Core 0.1 first and performs no heavy prerequisite inventory while idle or in Play. Final released-target/controller/admission/pump coverage passed 97 native cases; six actual C# assemblies and its literal example passed default diagnostic policy.
+
+This update removes owning release/archive digest gates. Native tests and the complete combined156-assembly default-diagnostic qualification pass with zero diagnostics. God additionally fixes missing-metadata information-panel reload; Steam preserves account-pinned cloud contracts. Native Steam acceptance remains unverified; visual checks are not required.
 
 ## Commandments Compatibility
 
@@ -74,8 +78,8 @@ The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared co
 ## God
 
 **Catalogue ID:** `com.geurts.gameforge.god`
-**Evidence version:** `0.45.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/6fff35857e31095cded277ad87021c1fdaa6d994/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/6fff35857e31095cded277ad87021c1fdaa6d994/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/6fff35857e31095cded277ad87021c1fdaa6d994/Documentation~/GameIntegration.md).
+**Evidence version:** `0.45.1`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/3168fe9e57b20ca4d4bcfaa04c250ec13e519f89/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/3168fe9e57b20ca4d4bcfaa04c250ec13e519f89/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/3168fe9e57b20ca4d4bcfaa04c250ec13e519f89/Documentation~/GameIntegration.md).
 
 - **Use:** Foundation for every dependent brick: lifecycle, shared capabilities/settings, bootstrap, packages and Commandments.
 - **Prerequisites:** Licensed Odin Inspector and Quantum Console, resolved Unity dependencies and the Forge Steamworks.NET prerequisite. No optional peer brick or passive adapter is required.
@@ -85,7 +89,7 @@ The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared co
 - **Verify:** Check bootstrap/readiness independently of package presence; test absent, available, withdrawn and re-enabled capability states plus subscription disposal.
 - **Limits:** No second host/registry in a game. Editor APIs stay outside player assemblies; optional providers may be unavailable.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/6fff35857e31095cded277ad87021c1fdaa6d994/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/6fff35857e31095cded277ad87021c1fdaa6d994/Documentation~/AIUsabilityValidation.json). God 0.44.3 records 99 passing focused native checks, the integration recipe, actual authoritative catalogue refresh and 31 compiled assemblies with zero default-policy diagnostics. Its pinned cancellation and expanded local Help were rendered at 560 and 760 points; other display scales/skins and player/native-service behavior remain unverified. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/3168fe9e57b20ca4d4bcfaa04c250ec13e519f89/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/3168fe9e57b20ca4d4bcfaa04c250ec13e519f89/Documentation~/AIUsabilityValidation.json). God 0.44.3 records 99 passing focused native checks, the integration recipe, actual authoritative catalogue refresh and 31 compiled assemblies with zero default-policy diagnostics. Its pinned cancellation and expanded local Help were rendered at 560 and 760 points; other display scales/skins and player/native-service behavior remain unverified. Consumer installation and updates remain separate explicit actions.
 
 Update policy requires a current explicit action and confirmation. Legacy automatic entry-point names do not grant update consent; a documentation edit does not change installed handlers.
 
@@ -95,15 +99,15 @@ God retains SDK-neutral native-session reservations and revocable leases. Provid
 
 God retains single-AGENTS startup and legacy package support. The God manifest retains its Compatibility 0.1.1 minimum; the Catalogue selects published Compatibility 0.2.0 for automatic local repairs. The earlier minimum release's uGUI metadata evidence remains historical; current automatic-repair, native UI and reviewed-Editor evidence belongs to the pinned Compatibility owner. Consumer installation and game/native-service acceptance remain separate.
 
-Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/6fff35857e31095cded277ad87021c1fdaa6d994/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
+Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/3168fe9e57b20ca4d4bcfaa04c250ec13e519f89/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
 
-God 0.45.0 adds the optional vendor-neutral IForgeAccountCloudStorage contract without Steamworks types or native activation. The focused Steam adapter case exercises it; existing registry/configuration recipe evidence is reused only for unchanged relevant code. See [PlatformContracts](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/6fff35857e31095cded277ad87021c1fdaa6d994/Documentation~/PlatformContracts.md#account-pinned-cloud-transfers) and the owning source-bound validation for exact scope.
+This update removes owning release/archive digest gates. Native tests and the complete combined156-assembly default-diagnostic qualification pass with zero diagnostics. God additionally fixes missing-metadata information-panel reload; Steam preserves account-pinned cloud contracts. Native Steam acceptance remains unverified; visual checks are not required.
 
 ## Steam
 
 **Catalogue ID:** `com.geurts.gameforge.steam`
-**Evidence version:** `0.6.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/b87a9bf66e079f79af1a49754672940bfbbf3366/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/b87a9bf66e079f79af1a49754672940bfbbf3366/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/b87a9bf66e079f79af1a49754672940bfbbf3366/Documentation~/GameIntegration.md).
+**Evidence version:** `0.6.1`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/ae1c6c75e46717f599be10332c324025763ba3d2/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/ae1c6c75e46717f599be10332c324025763ba3d2/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/ae1c6c75e46717f599be10332c324025763ba3d2/Documentation~/GameIntegration.md).
 
 - **Use:** Optional Windows x64 platform provider and Steam release preparation; distinguish wrapper readiness from native service readiness. Preserve this brick separately from Multiplayer's required built-in Steam networking; see the [Multiplayer owner](GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support).
 - **Prerequisites:** God, both licensed libraries, supported Steamworks.NET and its Windows plugin configuration. Native testing additionally needs an explicitly owned app context.
@@ -113,26 +117,28 @@ God 0.45.0 adds the optional vendor-neutral IForgeAccountCloudStorage contract w
 - **Verify:** Verify review causes no write/native startup, stale review blocks save, and explicit save reads back correctly. Native status must be observed separately.
 - **Limits:** Real account, overlay, cloud/server and depot/customer-distribution acceptance remains separately unverified. A distribution draft is not deployment; no automatic Save and Load slot synchronization.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/b87a9bf66e079f79af1a49754672940bfbbf3366/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/b87a9bf66e079f79af1a49754672940bfbbf3366/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/ae1c6c75e46717f599be10332c324025763ba3d2/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/ae1c6c75e46717f599be10332c324025763ba3d2/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
 
 Steam 0.4.0 requires God 0.43.0 for native sharing. It borrows a matching Multiplayer-owned context or reserves first and initializes its own driver. Borrower release preserves the native owner; withdrawal invalidates services and closes registered callbacks before shutdown. The AppID-free fixture exercises managed cooperation and reloads; actual native sharing, P2P, accounts/devices and overlay remain unverified.
 
 Steam 0.4.1 retains the backend for both exact official 2025.164.1 and reviewed maintained 2025.164.2-geurts.1 source versions. The maintained profile requires fresh central Windows x64 admission. Passive source/API checks and managed regressions do not certify native Steam account or session services.
 
-The optional IForgeAccountCloudStorage provider pins reads and create/replacement writes to the selected actual Steam account, including files with no prior remote revision. Save and Load owns the slot/copy review and local import. Its one targeted controlled-backend account-contract case and affected-source compilation passed; native/server/device acceptance remains unverified under explicit user publication authorization. See [the owning account contract](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/b87a9bf66e079f79af1a49754672940bfbbf3366/Documentation~/OptionalServices.md#account-pinned-slot-integration).
+This update removes owning release/archive digest gates. Native tests and the complete combined156-assembly default-diagnostic qualification pass with zero diagnostics. God additionally fixes missing-metadata information-panel reload; Steam preserves account-pinned cloud contracts. Native Steam acceptance remains unverified; visual checks are not required.
 
 ## Multiplayer
 
 **Catalogue ID:** `com.geurts.gameforge.multiplayer`
-**Availability:** Unavailable in the catalogue. An implementation candidate has AppID-free validation; native compatibility and separate release acceptance remain unverified. No supported release source or executable game recipe is advertised here.
+**Evidence version:** `0.4.0`
+**Source:** [package manifest](https://github.com/Geurtsy/GeurtsGameForge/blob/dcc5473f229cc133b4775be92fea9181d4c1a512/Packages/com.geurts.gameforge.multiplayer/package.json), [capabilities](https://github.com/Geurtsy/GeurtsGameForge/blob/dcc5473f229cc133b4775be92fea9181d4c1a512/Packages/com.geurts.gameforge.multiplayer/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/GeurtsGameForge/blob/dcc5473f229cc133b4775be92fea9181d4c1a512/Packages/com.geurts.gameforge.multiplayer/Documentation~/GameIntegration.md).
 
-- **Use:** Client-Host multiplayer with required Steam networking inside the same kit. FishNet supplies networking; FishySteamworks and Steamworks.NET supply its Steam transport/API path. Local Tugboat testing is a mode, not a Steam-free edition.
-- **Prerequisites:** God, licensed Odin Inspector and Quantum Console, FishNet, FishySteamworks and Steamworks.NET on supported Unity/Windows x64. The catalogue leaves the unverified God minimum empty; the eventual owning release must verify and publish exact dependency minimums and the external profile. The existing Steam brick stays optional for separate platform services/release preparation.
-- **Lifecycle/settings:** The [Multiplayer owner](GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support) requires built-in transport ownership, God-managed module settings, retained bootstrap and one native Steam session, including coexistence with the Steam brick. God 0.43.0 and Steam 0.4.0 implement shared managed lifetimes; actual native cooperation remains unverified.
-- **Verify:** Apply the [setup handoff](GeurtsMultiplayerTechnique.md#availability-setup-and-owner-handoff), local and multi-device Steam tests and runtime acceptance before release. Record exact source, versions, configuration and unperformed checks.
-- **Limits:** No catalogue installation action or released supported game recipe is available. Implementation-candidate tools are outside released availability. Native Steam lobbies/invitations, host migration, other platform services and dedicated-server deployment are not certified by transport selection or local tests.
-
-**Owner coordination:** The pinned Steam brick's [lifecycle guide](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/eb1ce5ac0d29ae30520c76f693df62a2ff8f7202/Documentation~/Lifecycle.md) describes matching native leases, guarded module-owned initialization, single-frame pumping and dependent-first shutdown. Managed tests cover both owner orders and immediate withdrawal. The Multiplayer owner still needs actual Steam client/AppID/account/device acceptance before catalogue release. Local tests never establish native networking or overlay success.
+- **Use:** Generic FishNet Client-Host sessions with required built-in FishySteamworks/Steamworks.NET. Local Tugboat is a mode inside the same Steam-capable kit. Game replication/admission and host-loss presentation remain game-owned.
+- **Prerequisites:** God 0.44.4, separately licensed Odin Inspector/Quantum Console, FishNet and one Steamworks.NET installation on Unity 6000.6.3f1 or newer, Windows x64. FishySteamworks is included with its BSD notice. The owner records the exact privately maintained external compiler profile and its distribution/access limits; minimum versions alone do not certify arbitrary dependency combinations. The separate Steam brick remains optional.
+- **Entry points:** Open Tools > Geurts Game Forge > Multiplayer; create inactive templates and a protocol in Resources; assign typed references; add the session controller to the loaded SCN_BigBang; review/save defaults. Bind Host/Join/Stop and events through the Inspector. Start networking only through explicit action. No game code is required for simple Host/Join.
+- **Public API:** `MultiplayerTemplateBuilder.CreateCanonicalAt`, `MultiplayerSceneSetup.CreateProtocolAt`/`AddController`, `MultiplayerSessionController.Configure`/`Host`/`Join`/`Stop`; the same validation, God backend and owned runtime are used. Existing CreateAt filename outputs remain compatible. The lower-level `MultiplayerSessionRuntime` and operation table support game adapters.
+- **Lifecycle/settings:** [One native session](GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support), one existing God registry and retained ordinary bootstrap ownership. Disable/stop releases resources and withdraws capability observation; re-enable retains launch defaults. No hidden persistence, unsolicited Steam startup or transport fallback.
+- **Example:** Read the literal [status binding](https://github.com/Geurtsy/GeurtsGameForge/blob/dcc5473f229cc133b4775be92fea9181d4c1a512/Packages/com.geurts.gameforge.multiplayer/Tools~/Examples/MultiplayerGameRecipe.cs). The binding observes the existing God capability and follows disable/re-enable without creating another host.
+- **Verify:** Read [owner evidence](https://github.com/Geurtsy/GeurtsGameForge/blob/dcc5473f229cc133b4775be92fea9181d4c1a512/Packages/com.geurts.gameforge.multiplayer/Documentation~/AIUsabilityValidation.json) for actual executed compiler, local runtime and nonvisual player cases and dependency limits. Only actually executed cases count as passes.
+- **Limits:** Native FishySteamworks/account/device routing, overlay, Steam distribution and the combined native-owner path remain unverified until tested. Two-PC Steam testing is recommended before relying on it and is not an implementation/catalogue publication prerequisite. Local results do not establish native success. Invitations/matchmaking, game state replication, host migration and dedicated servers are not supplied by simple transport selection.
 
 ## Diagnostics
 

@@ -1,5 +1,5 @@
 # ValidateGeurtsDocumentation.ps1
-# Version: 0.72.0
+# Version: 0.73.0
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot,
@@ -441,7 +441,7 @@ try {
     $steamText = if (Test-Path -LiteralPath $steamPath -PathType Leaf) { [IO.File]::ReadAllText($steamPath) } else { '' }
     $steamOwner = [regex]::Match($subjectSection.Value, '(?m)^\| Steam preparation, platform services and Windows release evidence \| `GeurtsTechniques/GeurtsSteamIntegrationTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $steamRoutingValid = $steamOwner.Success -and $registrySet.Contains($steamRelative) -and
-        ($null -ne (Find-RegistryFile $steamRelative '0.5.1')) -and
+        ($null -ne (Find-RegistryFile $steamRelative '0.5.2')) -and
         $resolverBody.Contains('Technical; Unity; Steam Integration; Code;')
     foreach ($topic in @('Steamworks.NET', 'BigBang', 'platform-service', 'bootstrap/native', 'build/distribution')) {
         if (-not $steamOwner.Groups['When'].Value.Contains($topic)) { $steamRoutingValid = $false }
@@ -451,7 +451,7 @@ try {
     }
     Add-Check 'Steam manifest routing' $steamRoutingValid 'One Steam owner follows Unity, covers prerequisites/services/builds, and is referenced by the affected subject owners.'
 
-    $steamAudienceValid = $steamText -match '(?im)^\*\*Version:\*\*\s*0\.5\.1\s*$' -and $steamText.StartsWith('<!-- GEURTS-AUDIENCE: AI-READ -->')
+    $steamAudienceValid = $steamText -match '(?im)^\*\*Version:\*\*\s*0\.5\.2\s*$' -and $steamText.StartsWith('<!-- GEURTS-AUDIENCE: AI-READ -->')
     foreach ($mode in @('GameUse', 'ForgeDevelopment')) {
         try {
             $steamRead = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document $steamRelative -Mode $mode
@@ -527,7 +527,7 @@ try {
     $steamExtendedValid = $steamText.Contains('## Account-free distribution preparation') -and
         $steamText -match '(?i)unresolved placeholders, Preview=1, no SetLive' -and
         $steamText -match '(?i)partner AppID/depot IDs remain zero' -and
-        $steamText -match '(?i)matching clean customer-build receipt and unchanged complete artifact inventory' -and
+        $steamText -match '(?i)matching clean customer-build receipt and a complete artifact inventory' -and
         $steamText -match '(?i)cache changes and server acknowledgements are separate outcomes' -and
         $steamText -match '(?i)cache review is not a cross-device atomic transaction' -and
         $steamText -match '(?i)must never claim native writes were undone' -and
@@ -814,7 +814,7 @@ try {
     $gitBrickCatalogue = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsBrickCatalogue.json")) | ConvertFrom-Json
     $gitBrickContractText = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsBrickContract.md"))
     foreach ($brick in $gitBrickCatalogue.bricks) {
-        if ($brick.released -and ($brick.sourceKind -cne 'git' -or $brick.developmentOnly -or $brick.source -notmatch '^https://github\.com/[^/]+/[^/]+\.git(?:\?path=/[^#]+)?#[0-9a-f]{40}$')) {
+        if ($brick.released -and ($brick.sourceKind -cne 'git' -or $brick.developmentOnly -or $brick.source -notmatch '^https://github\.com/[^/]+/[^/]+\.git(?:\?path=[^#]+)?#[0-9a-f]{40}$')) {
             $gitOnlyFailures.Add("Released brick must have an immutable Git source: $($brick.id)") | Out-Null
         }
     }
@@ -826,7 +826,7 @@ try {
     $companionForwardCompatibilityValid = $companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)valid version and exactly match the AGENTS.md package version in the same archive' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release while schema 3\.0\.0 remains supported' -and $companionTechniqueText -match '(?i)`validationEntries` is the archive.?s closed current completeness list' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative before mutation' -and $companionTechniqueText -match '(?i)Validation entries grant no project-read or project-write authority'
     Add-Check "Companion schema forward compatibility" $companionForwardCompatibilityValid "Schema 3.0.0 pins mutation paths, not documentation releases: packageVersion must match the same archive AGENTS.md, and later safe validation-entry lists remain consumable without a companion release."
 
-    $companionTechniqueRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md' '3.3.1'
+    $companionTechniqueRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md' '3.3.2'
     $companionContractRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionContract.json' $packageVersion
     $companionOwnerRow = [regex]::Match($manifestText, '(?m)^\| God-owned Windows Unity Editor Commandments source, metadata check, confirmed replacement, project-boundary, and AI-routing lifecycle \| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $companionContractOwnerRow = [regex]::Match($manifestText, '(?m)^\| Exact companion source, documentation destination, validation entries, confirmation targets, and template-to-route mappings \| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| (?<When>[^|]+) \|\r?$')
@@ -1299,7 +1299,7 @@ try {
         $topicPath = Join-Path $RepositoryRoot $topicRelative
         if (-not (Test-Path -LiteralPath $topicPath -PathType Leaf)) { $topicFailures.Add("Topic is missing: $topicRelative") | Out-Null; continue }
         $topicText = [IO.File]::ReadAllText($topicPath)
-        $topicVersion = if ($topic -ceq 'Unity') { '0.5.0' } elseif ($topic -ceq 'Code') { '0.3.0' } elseif ($topic -ceq 'Authoring') { '0.1.4' } elseif ($topic -ceq 'Naming') { '0.2.0' } elseif ($topic -ceq 'Commands') { '0.2.0' } elseif ($topic -ceq 'GameAI') { '0.2.1' } elseif ($topic -ceq 'Multiplayer') { '0.4.0' } elseif ($topic -ceq 'Bootstrap') { '0.1.3' } else { '0.1.2' }
+        $topicVersion = if ($topic -ceq 'Unity') { '0.6.0' } elseif ($topic -ceq 'Code') { '0.3.0' } elseif ($topic -ceq 'Authoring') { '0.1.4' } elseif ($topic -ceq 'Naming') { '0.2.0' } elseif ($topic -ceq 'Commands') { '0.2.0' } elseif ($topic -ceq 'GameAI') { '0.2.1' } elseif ($topic -ceq 'Multiplayer') { '0.5.0' } elseif ($topic -ceq 'Bootstrap') { '0.1.3' } else { '0.1.2' }
         if ($topicText -notmatch ('(?m)^\*\*Version:\*\* ' + [regex]::Escape($topicVersion) + '\r?$') -or $topicText -notmatch '(?m)^<!-- GEURTS-AUDIENCE: AI-READ -->\r?$') { $topicFailures.Add("Topic metadata is invalid: $topicRelative") | Out-Null }
         $topicTexts += $topicText
     }
@@ -1740,7 +1740,8 @@ try {
         'local transport' = 'included \*\*Tugboat\*\* transport for local Host/client testing without native Steam'
         'actual Steam testing' = 'distinct Steam accounts on separate devices'
         'local evidence limit' = 'Local Tugboat results do not establish Steam routing'
-        'runtime release gate' = 'unperformed cases remain unverified and cannot pass the affected release gate'
+        'honest acceptance evidence' = 'unperformed cases remain unverified and cannot be reported as passed'
+        'separate native acceptance' = 'Native Steam/two-PC testing is recommended.*does not block implementation or catalogue publication'
     }
     foreach ($rule in $multiplayerRuntimeRules.GetEnumerator()) {
         if ($multiplayerText -notmatch $rule.Value) { $multiplayerFailures.Add("Missing multiplayer runtime boundary: $($rule.Key)") | Out-Null }
@@ -1760,22 +1761,27 @@ try {
         'FishNet alone does not provide Steam services',
         'one initializer, one callback pump and one shutdown owner',
         'without requiring users to select that brick',
-        'never silently fall back to Tugboat',
-        'no verified owning implementation, installation source, supported Forge API'
+        'never silently fall back to Tugboat'
     )) {
         if (-not $multiplayerText.Contains($required)) { $multiplayerKitFailures.Add('Missing built-in requirement: ' + $required) | Out-Null }
     }
     $multiplayerEntries = @($brickCatalogue.bricks | Where-Object { $_.id -ceq 'com.geurts.gameforge.multiplayer' })
-    if ($multiplayerEntries.Count -ne 1) { $multiplayerKitFailures.Add('Exactly one planned Multiplayer entry is required') | Out-Null }
+    if ($multiplayerEntries.Count -ne 1) { $multiplayerKitFailures.Add('Exactly one Multiplayer owner entry is required') | Out-Null }
     else {
         $plannedMultiplayer = $multiplayerEntries[0]
-        if ($plannedMultiplayer.released -ne $false -or $plannedMultiplayer.version -cne '' -or $plannedMultiplayer.sourceKind -cne '' -or $plannedMultiplayer.source -cne '') {
-            $multiplayerKitFailures.Add('Planned Multiplayer must not advertise a release or installation source') | Out-Null
+        if ($plannedMultiplayer.released -eq $true) {
+            if ($plannedMultiplayer.version -notmatch '^\d+\.\d+\.\d+$' -or $plannedMultiplayer.sourceKind -cne 'git' -or $plannedMultiplayer.source -notmatch '^https://github\.com/[^#]+#[0-9a-f]{40}$') {
+                $multiplayerKitFailures.Add('Released Multiplayer requires a version and exact immutable Git source; the shared source gate verifies its owner') | Out-Null
+            }
+        }
+        elseif ($plannedMultiplayer.version -cne '' -or $plannedMultiplayer.sourceKind -cne '' -or $plannedMultiplayer.source -cne '') {
+            $multiplayerKitFailures.Add('Unavailable Multiplayer must not advertise a release or installation source') | Out-Null
         }
         foreach ($requiredTool in @('Odin Inspector', 'Quantum Console', 'FishNet', 'FishySteamworks', 'Steamworks.NET')) {
             if (@($plannedMultiplayer.requiredTools) -cnotcontains $requiredTool) { $multiplayerKitFailures.Add('Missing Multiplayer prerequisite: ' + $requiredTool) | Out-Null }
         }
-        if (@($plannedMultiplayer.dependencies).Count -ne 1 -or $plannedMultiplayer.dependencies[0].id -cne 'com.geurts.gameforge.god' -or $plannedMultiplayer.dependencies[0].minimumVersion -cne '') {
+        if (@($plannedMultiplayer.dependencies).Count -ne 1 -or $plannedMultiplayer.dependencies[0].id -cne 'com.geurts.gameforge.god' -or
+            ($plannedMultiplayer.released -eq $true -and $plannedMultiplayer.dependencies[0].minimumVersion -notmatch '^\d+\.\d+\.\d+$')) {
             $multiplayerKitFailures.Add('Multiplayer must retain God without requiring the optional Steam brick') | Out-Null
         }
     }
@@ -1790,7 +1796,7 @@ try {
         -not $steamMultiplayerText.Contains('standalone Steam brick remains optional for its separate platform services and release preparation')) {
         $multiplayerKitFailures.Add('Setup/Steam guidance must preserve required networking and separate optional platform services') | Out-Null
     }
-    Add-Check 'Multiplayer built-in Steam kit boundary' ($multiplayerKitFailures.Count -eq 0) $(if ($multiplayerKitFailures.Count) { $multiplayerKitFailures -join '; ' } else { 'Multiplayer includes required Steam networking, remains planned/unavailable, preserves the optional platform brick and requires one native session. Owner links retain setup and evidence boundaries.' })
+    Add-Check 'Multiplayer built-in Steam kit boundary' ($multiplayerKitFailures.Count -eq 0) $(if ($multiplayerKitFailures.Count) { $multiplayerKitFailures -join '; ' } else { 'Multiplayer includes required Steam networking, preserves the optional platform brick and requires one native session. Released availability requires exact owning source evidence; native acceptance remains separately scoped.' })
 
 
     # Policy consistency complements payload/schema checks: reject contradictions between owners.
@@ -1847,9 +1853,15 @@ try {
         $brickContractText.Contains('project-local pause control and precise status') -and
         $brickContractText.Contains('It never authorizes automatic Forge release installation/update, Commandments content Update') -and
         $brickContractText.Contains('an unrelated compilation block preventing that first domain load needs the independent advanced host/bootstrap route') -and
-        $brickContractText.Contains('this exception never permits private rendering replacements or pipeline migration') -and
+        $brickContractText.Contains('this exception permits only exact reviewed rendering repairs through Compatibility, never unreviewed forks or pipeline migration') -and
         $brickContractText.Contains('legacy false-confirmation native APIs remain non-mutating')
-    Add-Check 'Automatic Compatibility repair boundary' $automaticCompatibilityValid 'Automatic reviewed local repairs preserve manual Forge/content updates, project pause/status, first-load recovery limits, official rendering and canceled manual API behavior.'
+    $hashFreeGatesValid = $brickContractText.Contains('Do not use content hashes, checksums or digest equality as gates') -and
+        $brickContractText.Contains('Compatibility source admission/preparation, release evidence or software/archive downloads') -and
+        $brickContractText.Contains('bounded patch contexts and expected match counts') -and
+        $brickContractText.Contains('actual functional/compiler acceptance') -and
+        $brickContractText.Contains('these observations do not certify byte integrity')
+    Add-Check 'Hash-free source release and download gates' $hashFreeGatesValid 'Source/preparation, release evidence and downloads retain identity/context/path/compiler checks without content-digest acceptance gates.'
+    Add-Check 'Automatic Compatibility repair boundary' $automaticCompatibilityValid 'Automatic reviewed local repairs preserve manual Forge/content updates, project pause/status, first-load recovery limits, exact reviewed rendering repairs and canceled manual API behavior.'
     $requiresReleasedCompatibility = @($brickCatalogue.bricks | Where-Object {
         $_.released -and (($_.id -ceq 'com.geurts.gameforge.god' -and [version]$_.version -ge [version]'0.44.0') -or
             ($_.id -ceq 'com.geurts.gameforge.bigbang' -and [version]$_.version -ge [version]'0.9.0'))
@@ -1997,7 +2009,7 @@ try {
     $draftStatusValid = @(
         @{ Path = "GeurtsTechniques/GeurtsFolderStructureTechnique.md"; Version = '0.17.1' },
         @{ Path = "GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md"; Version = '0.16.4' },
-        @{ Path = "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md"; Version = '3.3.1' }
+        @{ Path = "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md"; Version = '3.3.2' }
     ) | ForEach-Object {
         $record = Find-RegistryFile $_.Path $_.Version
         ([IO.File]::ReadAllText((Join-Path $RepositoryRoot $_.Path)) -match '(?im)^\*\*Status:\*\* Draft normative technique\s*$') -and
@@ -2097,7 +2109,7 @@ try {
     Add-Check 'Damaged settings preservation' ($brickRules.Contains('Preserve the original bytes') -and $brickRules.Contains('stop the affected configuration-dependent action') -and $brickRules.Contains('must never be treated as missing') -and $brickRules.Contains('For manual repair/reset') -and $brickRules.Contains('unsupported format')) 'Invalid module settings are preserved with scoped manual repair/reset and no silent defaults or conversion.'
     Add-Check 'Capability graph and Editor exposure gate' ($brickRules.Contains('Every feature action reference must resolve to exactly one root operation') -and $brickRules.Contains('without executing them') -and $brickRules.Contains('EveryInstalledDeclarationMatchesRealOwnerOperations') -and $brickRules.Contains('confirmation flags')) 'Release shape/graph checks and real discovered Editor action parity remain distinct from execution/runtime readiness.'
     $networkRules = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsMultiplayerTechnique.md'))
-    Add-Check 'Multiplayer fault acceptance' ($networkRules.Contains('latency/jitter/loss') -and $networkRules.Contains('disconnect/reconnect') -and $networkRules.Contains('invalid or unauthorized requests') -and $networkRules.Contains('budgets chosen') -and $networkRules.Contains('cannot pass the affected release gate')) 'Relevant multiplayer failures and project-specific network budgets require measured evidence.'
+    Add-Check 'Multiplayer fault acceptance' ($networkRules.Contains('latency/jitter/loss') -and $networkRules.Contains('disconnect/reconnect') -and $networkRules.Contains('invalid or unauthorized requests') -and $networkRules.Contains('budgets chosen') -and $networkRules.Contains('cannot be reported as passed')) 'Relevant multiplayer failures and project-specific network budgets require measured evidence; native acceptance remains separately scoped.'
     $aiRules = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsGameAITechnique.md'))
     Add-Check 'Repeatable game AI measurements' ($aiRules.Contains('warm-up') -and $aiRules.Contains('repeated runs') -and $aiRules.Contains('Compare the same workload before and after') -and $aiRules.Contains('project requirements') -and $aiRules.Contains('blocks the affected release')) 'Game-agent performance uses repeatable player workloads, actual budgets and truthful unverified coverage.'
 
@@ -2184,9 +2196,10 @@ try {
         $version = [regex]::Match($body, '(?m)^\*\*Evidence version:\*\* `(?<Value>[^`]+)`\r?$').Groups['Value'].Value
         if ($entry.released) {
             if ($version -cne [string]$entry.version) { $usageFailures.Add('Evidence version differs: ' + $identity) | Out-Null }
-            $source = [regex]::Match([string]$entry.source, '^(?<Repository>https://github\.com/[^#?]+)\.git#(?<Commit>[0-9a-f]{40})$')
+            $source = [regex]::Match([string]$entry.source, '^(?<Repository>https://github\.com/[^#?]+)\.git(?:\?path=(?<Path>[A-Za-z0-9_.~/-]+))?#(?<Commit>[0-9a-f]{40})$')
             $links = @([regex]::Matches($body, '\]\((?<Url>https://github\.com/[^)]+)\)'))
             $prefix = $source.Groups['Repository'].Value + '/blob/' + $source.Groups['Commit'].Value + '/'
+            if ($source.Groups['Path'].Success) { $prefix += $source.Groups['Path'].Value + '/' }
             if (-not $source.Success -or $links.Count -lt 3 -or @($links | Where-Object { -not $_.Groups['Url'].Value.StartsWith($prefix, [StringComparison]::Ordinal) }).Count -gt 0 -or -not $body.Contains($prefix + 'package.json)') -or -not $body.Contains($prefix + 'ForgeCapabilities.json)')) { $usageFailures.Add('Pinned source links differ: ' + $identity) | Out-Null }
             foreach ($field in @('Use', 'Prerequisites', 'Entry points', 'Example', 'Lifecycle/settings', 'Verify', 'Limits')) {
                 if ($body -notmatch ('(?m)^- \*\*' + [regex]::Escape($field) + ':\*\* \S')) { $usageFailures.Add('Missing ' + $field + ' for ' + $identity) | Out-Null }

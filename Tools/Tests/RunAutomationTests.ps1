@@ -1,5 +1,5 @@
 # RunAutomationTests.ps1
-# Version: 0.72.0
+# Version: 0.73.0
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot,
@@ -1410,8 +1410,9 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         @{ Name = 'asset-abbreviation'; Path = 'GeurtsTechniques/GeurtsNamingTechnique.md'; Old = 'ScienceFiction'; New = 'SciFi'; Check = 'Full-word naming boundary' },
         @{ Name = 'folder-abbreviation'; Path = 'GeurtsTechniques/GeurtsFolderStructureTechnique.md'; Old = 'Use full words for new folder names.'; New = 'Abbreviate new folder names when convenient.'; Check = 'Full-word naming boundary' },
         @{ Name = 'warning-bypass'; Path = 'GeurtsTechniques/GeurtsBrickContract.md'; Old = 'Continue cannot override lower-target downgrade blocks, immutable-release identity, missing required tools, invalid/unverified source validation or other hard guards.'; New = 'Continue may override all admission failures.'; Check = 'Compatibility warning hard guards' },
+        @{ Name = 'hash-free-release-policy'; Path = 'GeurtsTechniques/GeurtsBrickContract.md'; Old = 'Do not use content hashes, checksums or digest equality as gates'; New = 'Require digest equality as an acceptance gate'; Check = 'Hash-free source release and download gates' },
         @{ Name = 'compatibility-release-authority'; Path = 'GeurtsTechniques/GeurtsBrickContract.md'; Old = 'It never authorizes automatic Forge release installation/update, Commandments content Update'; New = 'It authorizes automatic Forge release installation/update and content Update'; Check = 'Automatic Compatibility repair boundary' },
-        @{ Name = 'compatibility-rendering-fork'; Path = 'GeurtsTechniques/GeurtsBrickContract.md'; Old = 'this exception never permits private rendering replacements or pipeline migration'; New = 'this exception permits private rendering replacements'; Check = 'Automatic Compatibility repair boundary' }
+        @{ Name = 'compatibility-rendering-fork'; Path = 'GeurtsTechniques/GeurtsBrickContract.md'; Old = 'this exception permits only exact reviewed rendering repairs through Compatibility, never unreviewed forks or pipeline migration'; New = 'this exception permits unreviewed rendering forks and pipeline migration'; Check = 'Automatic Compatibility repair boundary' }
     )) {
         $fixture = New-StaticValidationFixture -Parent $testRoot -Name ('static-doc-maintenance-' + $case.Name)
         $path = Join-Path $fixture $case.Path
@@ -1664,7 +1665,8 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         @{ Name = 'multiplayer-steam-owner-drift'; Path = 'GeurtsTechniques/GeurtsSteamIntegrationTechnique.md'; Old = '**FishNet**, **FishySteamworks** through **Steamworks.NET**, and **Client-Host** player hosting'; New = '**Unity Netcode for GameObjects** player hosting'; Check = 'Selected multiplayer stack and authority' },
         @{ Name = 'multiplayer-optional-steam-kit'; Path = 'GeurtsTechniques/GeurtsMultiplayerTechnique.md'; Old = '**Steam multiplayer support is required inside the Multiplayer kit.**'; New = '**Steam multiplayer support is an optional separate kit.**'; Check = 'Multiplayer built-in Steam kit boundary' },
         @{ Name = 'multiplayer-duplicate-native-owners'; Path = 'GeurtsTechniques/GeurtsMultiplayerTechnique.md'; Old = 'one initializer, one callback pump and one shutdown owner'; New = 'independent initializers, callback pumps and shutdown owners'; Check = 'Multiplayer built-in Steam kit boundary' },
-        @{ Name = 'multiplayer-false-install-source'; Path = 'GeurtsTechniques/GeurtsBrickCatalogue.json'; Old = '"sourceKind": ""'; New = '"sourceKind": "git"'; Check = 'Multiplayer built-in Steam kit boundary' },
+        @{ Name = 'multiplayer-missing-owner'; Path = 'GeurtsTechniques/GeurtsBrickCatalogue.json'; Old = '"id": "com.geurts.gameforge.multiplayer"'; New = '"id": "com.geurts.gameforge.missingmultiplayer"'; Check = 'Multiplayer built-in Steam kit boundary' },
+        @{ Name = 'multiplayer-native-publication-gate'; Path = 'GeurtsTechniques/GeurtsMultiplayerTechnique.md'; Old = 'does not block implementation or catalogue publication'; New = 'blocks implementation and catalogue publication'; Check = 'Selected multiplayer stack and authority' },
         @{ Name = 'multiplayer-optional-steam-owner'; Path = 'GeurtsTechniques/GeurtsSteamIntegrationTechnique.md'; Old = 'Steam networking is required inside Multiplayer, never an optional separate kit'; New = 'Steam networking is an optional separate kit'; Check = 'Multiplayer built-in Steam kit boundary' },
         @{ Name = 'duplicate-numeric-allocation'; Path = 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'; Old = 'first free `_0`, `_1`, `_2`'; New = 'stable GUID suffix'; Check = 'Estimated naming scans and exclusions' },
         @{ Name = 'duplicate-nested-number'; Path = 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'; Old = 'never append nested numbers'; New = 'append another number after the first'; Check = 'Estimated naming scans and exclusions' },
