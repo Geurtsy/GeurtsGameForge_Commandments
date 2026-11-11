@@ -101,6 +101,10 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
 
+### 0.74.2
+
+- Catalogue released GitFlow 0.5.1 and its saved-credential private HTTPS queue viewing. Record focused native/host acceptance and retain manual consumer installation. Other brick pins and contracts remain unchanged.
+
 ### 0.74.1
 
 - Catalogue God 0.47.2, Multiplayer 0.5.0 and Compatibility 0.4.0 for reviewed dependency installation with the newest verified compatible stable SDK sources. Preserve the published schema-4 root-onboarding and Angels updates. Consumer updates remain explicit.
