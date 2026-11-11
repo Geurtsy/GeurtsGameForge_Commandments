@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.73.3
+**Version:** 0.73.4
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,10 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.73.4
+
+- Catalogue God 0.47.0, Multiplayer 0.5.0 and Compatibility 0.4.0 for one confirmed installation of the newest verified compatible networking dependencies. Preserve explicit consumer adoption, original sources and separate native Steam acceptance.
 
 ### 0.73.3
 
