@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.74.2",
+  "packageVersion": "0.74.3",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -299,11 +299,11 @@
       "name": "Geurts Game Forge GitFlow",
       "description": "Editor saved-change capture, automatic publisher setup and a full modern Queue Panel with item statuses, empty/stopped messages and optional live reads. Strict required checks; existing policy is preserved. No automatic Forge update or legacy migration. Private HTTPS queue viewing uses existing saved Git credentials without sign-in prompts.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow",
-      "version": "0.5.1",
+      "version": "0.5.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#7302bbffeada8a6ce79698603ddba08a0dc472e0",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#d81f6715a86b3629bb2b1cfc5c1c8ca6e0965e47",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
