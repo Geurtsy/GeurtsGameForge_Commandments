@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.74.1",
+  "packageVersion": "0.74.2",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -297,13 +297,13 @@
     {
       "id": "com.geurts.gameforge.gitflow",
       "name": "Geurts Game Forge GitFlow",
-      "description": "Editor saved-change capture, automatic publisher setup and a full modern Queue Panel with item statuses, empty/stopped messages and optional live reads. Strict required checks; existing policy is preserved. No automatic Forge update or legacy migration.",
+      "description": "Editor saved-change capture, automatic publisher setup and a full modern Queue Panel with item statuses, empty/stopped messages and optional live reads. Strict required checks; existing policy is preserved. No automatic Forge update or legacy migration. Private HTTPS queue viewing uses existing saved Git credentials without sign-in prompts.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow",
-      "version": "0.5.0",
+      "version": "0.5.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#5273af8587136906429b4e28980a84a4fbd6ef64",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#7302bbffeada8a6ce79698603ddba08a0dc472e0",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -324,11 +324,11 @@
       "name": "Geurts Game Forge Compatibility",
       "description": "Required independent Editor compatibility core. Reviewed fixes run automatically when Unity opens and packages change; project pause/status, private originals and project-relative package adoption. No God/vendor/runtime-host dependency; unknown sources and unsupported Editors remain visible.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.compatibility",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.compatibility.git#fbc1ec9c5697860c1d668dcd4be89bda2fc903a1",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.compatibility.git#dc87a2d5cc1f4b1fe4bc777512abf006883214c0",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [],
