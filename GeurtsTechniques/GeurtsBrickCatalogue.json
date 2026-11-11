@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.71.0",
+  "packageVersion": "0.72.0",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -87,13 +87,13 @@
     {
       "id": "com.geurts.gameforge.multiplayer",
       "name": "Geurts Game Forge Multiplayer",
-      "description": "Planned and unavailable: Client-Host multiplayer using FishNet with required built-in FishySteamworks/Steamworks.NET support. Steam networking is part of this kit, not an optional separate kit. Local Tugboat testing does not verify Steam. No implementation, install source or compatibility profile is published.",
-      "website": "https://github.com/Geurtsy/GeurtsGameForge_Commandments/blob/main/GeurtsTechniques/GeurtsMultiplayerTechnique.md",
-      "version": "",
-      "released": false,
+      "description": "Reusable FishNet client-host sessions, bounded protocol lanes and built-in FishySteamworks/Steamworks.NET integration. Local Tugboat validation is separate from unverified native Steam/account/device acceptance.",
+      "website": "https://github.com/Geurtsy/GeurtsGameForge/tree/a13a5b332a8b6b333ff0fe29236dbaa7af49c794/Packages/com.geurts.gameforge.multiplayer",
+      "version": "0.4.0",
+      "released": true,
       "developmentOnly": false,
-      "sourceKind": "",
-      "source": "",
+      "sourceKind": "git",
+      "source": "https://github.com/Geurtsy/GeurtsGameForge.git?path=Packages/com.geurts.gameforge.multiplayer#a13a5b332a8b6b333ff0fe29236dbaa7af49c794",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -106,7 +106,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": ""
+          "minimumVersion": "0.44.4"
         }
       ]
     },

@@ -1,15 +1,17 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.8.2
+**Version:** 1.9.0
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
 ## Selection and evidence
 
+Planned features within released bricks remain unavailable.
+
 AGENTS.md selects this index with the Brick Contract and Catalogue. Read the shared rules here and only the relevant brick sections through the AGENTS-owned controlled section reader. Game Forge integration is primary; StandardsOnly does not select bricks unless explicitly adopted.
 
-The [Catalogue](GeurtsBrickCatalogue.json) alone selects current installable identities, versions, immutable sources, Unity bounds and dependency minimums. Released sections below record evidence at their catalogue pin, not a second installation target. Multiplayer is planned and unavailable; its required stack is not installation or compatibility evidence. Planned features within released bricks remain unavailable. Planned entries require purpose, limits and an explicit unavailable state, with no invented API, action, installation source or executable example.
+The [Catalogue](GeurtsBrickCatalogue.json) alone selects current installable identities, versions, immutable sources, Unity bounds and dependency minimums. Released sections below record evidence at their catalogue pin, not a second installation target. Multiplayer is released at its catalogue pin; its local evidence does not establish native Steam acceptance.
 
 **Declared requirements** come from the [Brick Contract](GeurtsBrickContract.md) and selected techniques. **Source evidence** below was checked read-only at exact pins: package.json, ForgeCapabilities.json, guide paths, operation provider declarations and linked recipe bytes where available. **Runtime evidence** remains the owner's source-matched validation; no Unity build, installer, native service or gameplay workflow was executed for this index. A declaration or passing documentation check does not certify functionality. Recheck the actual installed graph and available providers before use; unknown/mismatched evidence blocks the affected action.
 
@@ -120,15 +122,17 @@ Steam 0.4.1 retains the backend for both exact official 2025.164.1 and reviewed 
 ## Multiplayer
 
 **Catalogue ID:** `com.geurts.gameforge.multiplayer`
-**Availability:** Unavailable in the catalogue. An implementation candidate has AppID-free validation; native compatibility and separate release acceptance remain unverified. No supported release source or executable game recipe is advertised here.
+**Evidence version:** `0.4.0`
+**Source:** [package manifest](https://github.com/Geurtsy/GeurtsGameForge/blob/a13a5b332a8b6b333ff0fe29236dbaa7af49c794/Packages/com.geurts.gameforge.multiplayer/package.json), [capabilities](https://github.com/Geurtsy/GeurtsGameForge/blob/a13a5b332a8b6b333ff0fe29236dbaa7af49c794/Packages/com.geurts.gameforge.multiplayer/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/GeurtsGameForge/blob/a13a5b332a8b6b333ff0fe29236dbaa7af49c794/Packages/com.geurts.gameforge.multiplayer/Documentation~/GameIntegration.md).
 
-- **Use:** Client-Host multiplayer with required Steam networking inside the same kit. FishNet supplies networking; FishySteamworks and Steamworks.NET supply its Steam transport/API path. Local Tugboat testing is a mode, not a Steam-free edition.
-- **Prerequisites:** God, licensed Odin Inspector and Quantum Console, FishNet, FishySteamworks and Steamworks.NET on supported Unity/Windows x64. The catalogue leaves the unverified God minimum empty; the eventual owning release must verify and publish exact dependency minimums and the external profile. The existing Steam brick stays optional for separate platform services/release preparation.
-- **Lifecycle/settings:** The [Multiplayer owner](GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support) requires built-in transport ownership, God-managed module settings, retained bootstrap and one native Steam session, including coexistence with the Steam brick. God 0.43.0 and Steam 0.4.0 implement shared managed lifetimes; actual native cooperation remains unverified.
-- **Verify:** Apply the [setup handoff](GeurtsMultiplayerTechnique.md#availability-setup-and-owner-handoff), local and multi-device Steam tests and runtime acceptance before release. Record exact source, versions, configuration and unperformed checks.
-- **Limits:** No catalogue installation action or released supported game recipe is available. Implementation-candidate tools are outside released availability. Native Steam lobbies/invitations, host migration, other platform services and dedicated-server deployment are not certified by transport selection or local tests.
-
-**Owner coordination:** The pinned Steam brick's [lifecycle guide](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/eb1ce5ac0d29ae30520c76f693df62a2ff8f7202/Documentation~/Lifecycle.md) describes matching native leases, guarded module-owned initialization, single-frame pumping and dependent-first shutdown. Managed tests cover both owner orders and immediate withdrawal. The Multiplayer owner still needs actual Steam client/AppID/account/device acceptance before catalogue release. Local tests never establish native networking or overlay success.
+- **Use:** Generic FishNet Client-Host sessions with required built-in FishySteamworks/Steamworks.NET. Local Tugboat is a mode inside the same Steam-capable kit. Game replication/admission and host-loss presentation remain game-owned.
+- **Prerequisites:** God 0.44.4, separately licensed Odin Inspector/Quantum Console, FishNet and one Steamworks.NET installation on Unity 6000.6.3f1 or newer, Windows x64. FishySteamworks is included with its BSD notice. The owner records the exact privately maintained external compiler profile and its distribution/access limits; minimum versions alone do not certify arbitrary dependency combinations. The separate Steam brick remains optional.
+- **Entry points:** Open Tools > Geurts Game Forge > Multiplayer; create inactive templates and a protocol in Resources; assign typed references; add the session controller to the loaded SCN_BigBang; review/save defaults. Bind Host/Join/Stop and events through the Inspector. Start networking only through explicit action. No game code is required for simple Host/Join.
+- **Public API:** `MultiplayerTemplateBuilder.CreateCanonicalAt`, `MultiplayerSceneSetup.CreateProtocolAt`/`AddController`, `MultiplayerSessionController.Configure`/`Host`/`Join`/`Stop`; the same validation, God backend and owned runtime are used. Existing CreateAt filename outputs remain compatible. The lower-level `MultiplayerSessionRuntime` and operation table support game adapters.
+- **Lifecycle/settings:** [One native session](GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support), one existing God registry and retained ordinary bootstrap ownership. Disable/stop releases resources and withdraws capability observation; re-enable retains launch defaults. No hidden persistence, unsolicited Steam startup or transport fallback.
+- **Example:** Read the literal [status binding](https://github.com/Geurtsy/GeurtsGameForge/blob/a13a5b332a8b6b333ff0fe29236dbaa7af49c794/Packages/com.geurts.gameforge.multiplayer/Tools~/Examples/MultiplayerGameRecipe.cs). The binding observes the existing God capability and follows disable/re-enable without creating another host.
+- **Verify:** Read [owner evidence](https://github.com/Geurtsy/GeurtsGameForge/blob/a13a5b332a8b6b333ff0fe29236dbaa7af49c794/Packages/com.geurts.gameforge.multiplayer/Documentation~/AIUsabilityValidation.json) for actual executed compiler, local runtime, player and appearance cases and dependency limits. Only actually executed cases count as passes.
+- **Limits:** Native FishySteamworks/account/device routing, overlay, Steam distribution and the combined native-owner path remain unverified until tested. Two-PC Steam testing is recommended before relying on it and is not an implementation/catalogue publication prerequisite. Local results do not establish native success. Invitations/matchmaking, game state replication, host migration and dedicated servers are not supplied by simple transport selection.
 
 ## Diagnostics
 
