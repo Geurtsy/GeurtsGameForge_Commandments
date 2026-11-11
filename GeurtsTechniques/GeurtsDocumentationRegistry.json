@@ -170,7 +170,7 @@
     {
       "path": "GeurtsTechniques/GeurtsCommandmentsCompanionContract.json",
       "version": "0.74.0",
-      "role": "Schema 3.0.0; exact acquisition, consent and route mappings."
+      "role": "Schema 4.0.0; exact acquisition, consent and route mappings, including preserved root AGENTS.md."
     },
     {
       "path": "GeurtsTechniques/GeurtsGameForgeIntelligenceTechnique.md",
