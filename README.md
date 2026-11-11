@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.73.0
+**Version:** 0.73.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.73.1
+
+- Publish Settings 0.9.1 and UI Foundations 0.14.1 catalogue pins and mapping guidance: additional independent controls, complete collision validation and stacked editable conflict dialogs.
+- Existing consumer updates remain explicit; no live game installation is included.
+
 
 ### 0.73.0
 

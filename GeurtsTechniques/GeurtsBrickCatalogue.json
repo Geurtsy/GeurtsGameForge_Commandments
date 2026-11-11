@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.73.0",
+  "packageVersion": "0.73.1",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -159,13 +159,13 @@
     {
       "id": "com.geurts.gameforge.settings",
       "name": "Geurts Game Forge Settings System",
-      "description": "Game settings with reviewed automatic Unity definitions and provider wiring, typed game-owned adapters, Stage/Apply/Cancel and local persistence. Supports conditional URP and optional Audio/UI integrations; the game connects its UI.",
+      "description": "Game settings with reviewed Unity provider setup, local preferences and player-added alternate controls. Stage/Apply/Cancel validates every collision pair; optional UI Foundations supplies stacked editable conflict dialogs.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.settings",
-      "version": "0.8.0",
+      "version": "0.9.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#8b75c62bfc9edfc996b5e018f49e5a47df344ce7",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#14c268b89391b2b64fff0b1c0a68237a71b01da2",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -251,13 +251,13 @@
     {
       "id": "com.geurts.gameforge.userinterface",
       "name": "Geurts Game Forge User Interface Foundations",
-      "description": "UI Toolkit menu/screen authoring, typed game actions, navigation and shared appearance. New hosts use PanelRenderer; existing UIDocument setups remain supported without automatic conversion.",
+      "description": "UI Toolkit menus, navigation, typed actions and shared appearance, with editable stacked keybinding-conflict dialogs and alternate control lists. New hosts use PanelRenderer; existing UIDocument setups remain supported.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface",
-      "version": "0.13.5",
+      "version": "0.14.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#7384c03f1ec0023cbf9ba53ed1172a0f19b0853e",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#2bd0d4b96bca6ea32e537ca6f40a4bc79e903afc",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [

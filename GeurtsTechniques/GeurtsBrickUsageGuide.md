@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.11.0
+**Version:** 1.11.1
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -201,18 +201,19 @@ Confirmation focus maintenance: defer modal review until the requesting UI event
 ## Settings
 
 **Catalogue ID:** `com.geurts.gameforge.settings`
-**Evidence version:** `0.8.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/8b75c62bfc9edfc996b5e018f49e5a47df344ce7/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/8b75c62bfc9edfc996b5e018f49e5a47df344ce7/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/8b75c62bfc9edfc996b5e018f49e5a47df344ce7/Documentation~/GameIntegration.md).
+**Evidence version:** `0.9.1`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/14c268b89391b2b64fff0b1c0a68237a71b01da2/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/14c268b89391b2b64fff0b1c0a68237a71b01da2/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/14c268b89391b2b64fff0b1c0a68237a71b01da2/Documentation~/GameIntegration.md).
 
-- **Use:** Authored game settings, typed providers, staged changes and local preference persistence.
-- **Prerequisites:** God and both licensed libraries; actual package.json lists Unity dependencies. Audio/UI peers remain optional.
-- **Entry points:** Settings System > Your Settings > Automatic Unity settings setup creates definitions, a Resources catalogue and explicit providers. Select the owning scope/camera/authored gameplay maps, Review Automatic Setup, then Create and Connect All; save the scene and connect the game UI. `commit_automatic_setup` accepts the owner-generated `SettingsAutomaticSetupPlan`; stale targets/reviews are rejected. Individual `commit_setup` remains available. See the [exact authoring inputs](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/8b75c62bfc9edfc996b5e018f49e5a47df344ce7/Documentation~/Authoring.md#automatic-unity-setup).
-- **Example:** Configure an authored setting, stage a value and verify the target stays unchanged. Cancel discards the draft; apply only the reviewed complete draft, then inspect effective and persisted values.
-- **Lifecycle/settings:** Dispose provider registration when its target disappears. Settings owns saved preferences separately from God's module configuration and gameplay saves; apply includes all pending providers.
-- **Verify:** Inspect Saved, Error, Conflicts and per-setting Outcomes; exercise Stage/Cancel, Apply, withdrawal and reload against isolated storage.
-- **Limits:** Do not create another settings service in a live game. Real display-device confirmation and platform storage permissions require separate evidence.
+- **Use:** Authored game settings, shared pending edits, local preferences and additional independent player controls per action.
+- **Prerequisites:** God and both licensed libraries; required Unity packages are in package.json. UI/Audio remain optional. UI Foundations 0.14.0 renders the new binding lists and conflict popups.
+- **Entry points:** Settings System > Your Settings > Automatic Unity settings setup; select PlayerInput/gameplay maps and Include gameplay rebinding, Review Automatic Setup, then Create and Connect All. Save the scene and connect the catalogue to Auto Settings Menu. The catalogue retains typed action references so dynamically registered input rows remain visible. Individual commit_setup and commit_automatic_setup retain reviewed/stale-input guards. See [authoring](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/14c268b89391b2b64fff0b1c0a68237a71b01da2/Documentation~/Authoring.md#automatic-unity-setup).
+- **Example:** Keep Inventory's original I binding; add Tab, Q and 1 as additional controls. Each independently triggers Inventory. Capture stages edits; Cancel discards them. Apply validates all collisions and applies input-owned settings together, then saves. Reload preserves alternate binding identities and original authored assets.
+- **API:** SettingsInputProvider.EncodeAdditional/DecodeAdditional and ISettingsConflictCollection.ValidateAll; use the existing Stage/Capture/Apply service. See [mapping payload, ownership and limits](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/14c268b89391b2b64fff0b1c0a68237a71b01da2/Documentation~/StorageAndApi.md#help-player-control-mapping).
+- **Lifecycle/settings:** All views share one draft. Dispose registrations before the provider; existing player preferences and original authored assets are retained.
+- **Verify:** Inspect Conflicts, Outcomes, effective and persisted state; exercise capture/cancel, Apply and reload in isolation.
+- **Limits:** There is no preset slot count; existing structured-value/XML bounds remain. New alternates are simple controls; original composite/modifier fields remain supported. Physical input and rendered layout are unverified; no live game update is included.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/8b75c62bfc9edfc996b5e018f49e5a47df344ce7/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/8b75c62bfc9edfc996b5e018f49e5a47df344ce7/Documentation~/AIUsabilityValidation.json). The owning 0.8.0 evidence records six focused checks and complete 74-assembly default-diagnostic qualification. URP/Core/Shader Graph qualification uses explicitly user-approved private unused-declaration repairs, with serialized data/defaults retained. Stock Unity sources are not certified warning-free, and Settings does not distribute or automatically install those repairs. Visual checks were skipped and are not required. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/14c268b89391b2b64fff0b1c0a68237a71b01da2/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/14c268b89391b2b64fff0b1c0a68237a71b01da2/Documentation~/AIUsabilityValidation.json). Twelve focused Settings checks pass, including alternate save/reload, conflict resolution and the actual no-code setup controls. The 0.9.1 patch ships logs-only evidence. The 80-assembly graph qualifies with zero default-policy diagnostics: 14 changed assemblies were requalified and 66 reused after complete byte-identical input checks. Functional checks are reused because only package-version constants changed. The recorded existing private dependency profile does not certify stock sources. No visual checks were performed or required. Consumer updates remain explicit.
 
 ## Scene Loading
 
@@ -265,20 +266,18 @@ Cloud saving stays off by default. Review both local/cloud copies and the explic
 ## User Interface
 
 **Catalogue ID:** `com.geurts.gameforge.userinterface`
-**Evidence version:** `0.13.5`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/7384c03f1ec0023cbf9ba53ed1172a0f19b0853e/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/7384c03f1ec0023cbf9ba53ed1172a0f19b0853e/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/7384c03f1ec0023cbf9ba53ed1172a0f19b0853e/Documentation~/GameIntegration.md).
+**Evidence version:** `0.14.1`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2bd0d4b96bca6ea32e537ca6f40a4bc79e903afc/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2bd0d4b96bca6ea32e537ca6f40a4bc79e903afc/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2bd0d4b96bca6ea32e537ca6f40a4bc79e903afc/Documentation~/GameIntegration.md).
 
-- **Use:** UI Toolkit menus/screens, navigation, typed actions and authored appearance.
-- **Prerequisites:** God, both licensed libraries and resolved UI/input packages; game-owned PanelRenderer/host, authored menu/screen and UiAction bindings.
-- **Entry points:** Use the authoring UI and declared create_theme, create_menu, create_screen, create_draft and save_asset operations. Custom views use supported ScreenNavigator/UiAction APIs in the linked recipe.
-- **Example:** Assign a PanelRenderer before enabling a new host, author a menu/action, and connect scene callbacks through UiActionListener. Open, invoke the action, navigate Back and close using the owner workflow.
-- **Lifecycle/settings:** Host lifetime follows its scene/bootstrap owner. Create fresh views; dispose callbacks/subtrees on close without removing caller-owned siblings.
-- **Verify:** Verify authored action dispatch, navigation/back and cleanup, then separately validate focus, input, resolution and rendered layout.
-- **Limits:** Existing UIDocument setups remain supported; no automatic scene conversion. Game policy chooses save/session/destination behavior.
+- **Use:** UI Toolkit menus/screens, typed actions, shared appearance and stacked editable keybinding-conflict popups.
+- **Prerequisites:** God and both licensed libraries; game-owned rendering host and menu/action assets. Settings remains optional; its 0.9.0 binding lists enable Add Binding and per-control removal through neutral God contracts.
+- **Entry points:** Existing UI Foundations authoring and Auto Settings Menu connection; code extensions use UiSettingsBinding and UiSettingsPresenter with the existing service. See [mapping controls, no-code setup and popup ownership](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2bd0d4b96bca6ea32e537ca6f40a4bc79e903afc/Documentation~/AutoSettingsMenu.md#help-key-mapping-and-conflict-popups).
+- **Example:** Rebind a control to a used key. Both named controls, current/selected bindings and editable Change/Remove actions appear. Creating another collision opens a new foreground editor while retaining the exact earlier view and pending draft. Resolve and Continue to return; Apply remains blocked until every collision is resolved.
+- **Lifecycle/settings:** Dialogs share the service's one draft. Dismissal keeps edits; disposal withdraws only owned views and preserves unrelated popup layers. Existing navigator focus/modality/depth rules apply. Add/remove remains pending until Apply. No automatic swap, unbind, save or package update occurs.
+- **Verify:** Five focused UI checks cover nested editors, retained view identity, binding rows, withdrawal/readiness and the integration recipe. Nine release-guard controls pass.
+- **Limits:** Physical devices and rendered layout remain unverified. Existing UIDocument hosts remain supported without automatic conversion. Navigator depth and Settings storage bounds remain enforced.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/7384c03f1ec0023cbf9ba53ed1172a0f19b0853e/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/7384c03f1ec0023cbf9ba53ed1172a0f19b0853e/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
-
-The 0.13.4 release retains the two original graphics-bound EditorWindow failures and records the user visual waiver separately. Five headless settings cases and the integration recipe pass; eight release-guard controls reject compiler, unrelated functional and stale-waiver failures.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2bd0d4b96bca6ea32e537ca6f40a4bc79e903afc/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2bd0d4b96bca6ea32e537ca6f40a4bc79e903afc/Documentation~/AIUsabilityValidation.json). The 0.14.1 patch ships logs-only evidence. All 80 compiler assemblies in the shared graph qualify with zero default-policy diagnostics; the owner records 14 requalified and 66 input-identical reused assemblies, functional reuse for version-only code changes, exact Git pins and the existing reviewed private dependency-profile limit. No visual checks were performed or required. Consumer updates remain explicit.
 
 ## Object Pooling
 
