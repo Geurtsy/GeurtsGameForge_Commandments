@@ -41,7 +41,7 @@ Historical qualification:29host checks,28native Core checks, complete raw C#/Pyt
 
 The new exact optional profiles prepare official FishNet tag 4.7.3 and Steamworks.NET 2025.165.0. Outputs are 4.7.3-geurts.1 and 2025.165.1-geurts.1. Native/host preparation matches all 2300 members, with originals and metadata retained. The full 25-profile inventory has 307 reviewed file records. Other versions/custom sources remain unqualified.
 
-This dependency-installation cohort passed 18 focused Unity cases, 21 host safety checks and complete default-policy compilation of 84 assemblies with zero diagnostics. Native Steam, optional standalone-provider/account/device acceptance and live consumer adoption remain separate. Earlier results retain their original source/scope.
+The initial dependency-installation cohort passed 18 focused Unity cases, 21 host safety checks and complete default-policy compilation of 84 assemblies with zero diagnostics. Native Steam, optional standalone-provider/account/device acceptance and live consumer adoption remain separate. Earlier results retain their original source/scope.
 
 ## BigBang
 
@@ -82,8 +82,8 @@ The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared co
 ## God
 
 **Catalogue ID:** `com.geurts.gameforge.god`
-**Evidence version:** `0.47.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/85e31c128ff5f15745a42e021de8ebc13baab84e/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/85e31c128ff5f15745a42e021de8ebc13baab84e/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/85e31c128ff5f15745a42e021de8ebc13baab84e/Documentation~/GameIntegration.md).
+**Evidence version:** `0.47.2`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d2c985b1f11454a5917edc2a6729deb2bfaf0f5d/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d2c985b1f11454a5917edc2a6729deb2bfaf0f5d/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d2c985b1f11454a5917edc2a6729deb2bfaf0f5d/Documentation~/GameIntegration.md).
 
 - **Use:** Foundation for every dependent brick: lifecycle, shared capabilities/settings, bootstrap, packages and Commandments.
 - **Prerequisites:** Licensed Odin Inspector and Quantum Console, resolved Unity dependencies and the Forge Steamworks.NET prerequisite. No optional peer brick or passive adapter is required.
@@ -93,7 +93,7 @@ The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared co
 - **Verify:** Check bootstrap/readiness independently of package presence; test absent, available, withdrawn and re-enabled capability states plus subscription disposal.
 - **Limits:** No second host/registry in a game. Editor APIs stay outside player assemblies; optional providers may be unavailable.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/85e31c128ff5f15745a42e021de8ebc13baab84e/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/85e31c128ff5f15745a42e021de8ebc13baab84e/Documentation~/AIUsabilityValidation.json). God 0.44.3 records 99 passing focused native checks, the integration recipe, actual authoritative catalogue refresh and 31 compiled assemblies with zero default-policy diagnostics. Its pinned cancellation and expanded local Help were rendered at 560 and 760 points; other display scales/skins and player/native-service behavior remain unverified. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d2c985b1f11454a5917edc2a6729deb2bfaf0f5d/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d2c985b1f11454a5917edc2a6729deb2bfaf0f5d/Documentation~/AIUsabilityValidation.json). God 0.44.3 records 99 passing focused native checks, the integration recipe, actual authoritative catalogue refresh and 31 compiled assemblies with zero default-policy diagnostics. Its pinned cancellation and expanded local Help were rendered at 560 and 760 points; other display scales/skins and player/native-service behavior remain unverified. Consumer installation and updates remain separate explicit actions.
 
 Update policy requires a current explicit action and confirmation. Legacy automatic entry-point names do not grant update consent; a documentation edit does not change installed handlers.
 
@@ -101,17 +101,19 @@ God 0.44.0 reads the explicitly declared schema-1 package registry or the suppor
 
 God retains SDK-neutral native-session reservations and revocable leases. Providers initialize their own drivers, consumers share an exact application/account context, and pump arbitration runs once per frame. Register every callback/transport with the lease so owner withdrawal closes dependents before native shutdown. See the pinned PlatformContracts guide and current owner validation; managed driver tests do not establish real Steam acceptance.
 
-God retains single-AGENTS startup and legacy package support. The God manifest retains its Compatibility 0.1.1 minimum; the Catalogue selects published Compatibility 0.2.0 for automatic local repairs. The earlier minimum release's uGUI metadata evidence remains historical; current automatic-repair, native UI and reviewed-Editor evidence belongs to the pinned Compatibility owner. Consumer installation and game/native-service acceptance remain separate.
+God retains single-AGENTS startup and legacy package support. Its current manifest requires Compatibility 0.4.0, also selected by the Catalogue for the reviewed SDK preparation profiles and local repairs. The earlier minimum release's uGUI metadata evidence remains historical; current automatic-repair, native UI and reviewed-Editor evidence belongs to the pinned Compatibility owner. Consumer installation and game/native-service acceptance remain separate.
 
-Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/85e31c128ff5f15745a42e021de8ebc13baab84e/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
+Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d2c985b1f11454a5917edc2a6729deb2bfaf0f5d/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
 
 The earlier recorded cohort removed owning release/archive digest gates. Native tests and the complete combined156-assembly default-diagnostic qualification pass with zero diagnostics. God additionally fixes missing-metadata information-panel reload; Steam preserves account-pinned cloud contracts. Native Steam acceptance remains unverified; visual checks are not required.
 
 Multiplayer dependency installation resolves the release-qualified stable sources, reviews exact commits once, then uses one native UPM transaction. Missing SDKs are acquired through that explicit action; opening/checking God acquires nothing. Existing newer versions, custom imports and settings are preserved. The published schema-4 root-agent onboarding implementation from God 0.46.0 is retained; schema-3 content remains supported.
 
-This dependency-installation cohort passed 18 focused Unity cases, 21 host safety checks and complete default-policy compilation of 84 assemblies with zero diagnostics. Native Steam, optional standalone-provider/account/device acceptance and live consumer adoption remain separate. Earlier results retain their original source/scope.
+The initial dependency-installation cohort passed 18 focused Unity cases, 21 host safety checks and complete default-policy compilation of 84 assemblies with zero diagnostics. Native Steam, optional standalone-provider/account/device acceptance and live consumer adoption remain separate. Earlier results retain their original source/scope.
 
 Current root-onboarding evidence: God 0.46.0 supports schema 4. The confirmed content installation includes a portable root AGENTS.md managed block pointing to `./GeurtsGameForgeCommandments/AGENTS.md`; outside instructions are preserved. Schema-3 content retains its original targets. The actual exact-commit archive, initial installation, preservation, idempotence, conflicts and concurrent edits passed native checks; 34 source-bearing assemblies qualified with zero diagnostics. Source publication does not install consumer updates.
+
+God 0.47.2 permits a reviewed upgrade from exact Compatibility-managed SDK outputs, retaining the old folders and rejecting unmanaged copies. Its real queue admits only the two official SDK destinations. Private dependency declarations use existing noninteractive saved Git access at the selected commit after 403/404. Fourteen God cases and nine unchanged Multiplayer cases establish 23 distinct focused Unity checks; a real grouped UPM installation and automatic Compatibility adoption pass, as does production private-source lookup. The 84-assembly closure has zero default-policy diagnostics, with 11 affected assemblies requalified and 73 reused after complete input verification.
 
 ## Steam
 
@@ -152,7 +154,7 @@ This update removes owning release/archive digest gates. Native tests and the co
 
 Select Multiplayer Install/Update in God: the complete reviewed plan includes official FishNet release tag 4.7.3 (UPM 4.7.2), Steamworks.NET 2025.165.0 and included FishySteamworks 4.1.1. Newer unqualified upstream releases are reported; FishNet 4.7.4 was rejected for upstream Yak compiler errors. Compatibility 0.4.0 prepares the two external sources privately with original/metadata preservation. Cancellation, failed/offline resolution and stale review start no package request; custom/manual imports are preserved. Direct UPM installation outside God requires explicit external preparation.
 
-This dependency-installation cohort passed 18 focused Unity cases, 21 host safety checks and complete default-policy compilation of 84 assemblies with zero diagnostics. Native Steam, optional standalone-provider/account/device acceptance and live consumer adoption remain separate. Earlier results retain their original source/scope.
+The initial dependency-installation cohort passed 18 focused Unity cases, 21 host safety checks and complete default-policy compilation of 84 assemblies with zero diagnostics. Native Steam, optional standalone-provider/account/device acceptance and live consumer adoption remain separate. Earlier results retain their original source/scope.
 
 ## Diagnostics
 

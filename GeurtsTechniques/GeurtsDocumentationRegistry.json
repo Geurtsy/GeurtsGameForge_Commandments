@@ -279,7 +279,7 @@
     },
     {
       "path": "Tools/ValidateGeurtsDocumentation.ps1",
-      "version": "0.74.1",
+      "version": "0.74.0",
       "role": "Package and semantic validation."
     },
     {
@@ -319,7 +319,7 @@
     },
     {
       "path": "Tools/Tests/RunAutomationTests.ps1",
-      "version": "0.74.1",
+      "version": "0.74.0",
       "role": "Isolated automation and regression suite."
     },
     {
