@@ -4,6 +4,7 @@
 param(
     [string]$RepositoryRoot = (Split-Path -Parent $PSScriptRoot),
     [string]$BaseRevision,
+    [string]$ReleaseTag,
     [ValidateSet('Text', 'Json')][string]$OutputFormat = 'Json'
 )
 $ErrorActionPreference = 'Stop'
@@ -12,6 +13,22 @@ $reason = 'No trustworthy complete change range; run full regressions.'
 $paths = @()
 try {
     $root = [IO.Path]::GetFullPath($RepositoryRoot)
+    # Tag push events have no useful before SHA. Resolve an actual current tag
+    # and the newest prior stable ancestor release, never a guessed parent/range.
+    if (($BaseRevision -match '^0+$' -or [string]::IsNullOrWhiteSpace($BaseRevision)) -and
+        -not [string]::IsNullOrWhiteSpace($ReleaseTag)) {
+        if ($ReleaseTag -cnotmatch '^v(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)$') { throw 'Invalid stable release tag.' }
+        $tagCommit = [string](& git -C $root rev-parse --verify ($ReleaseTag + '^{commit}') 2>$null)
+        if ($LASTEXITCODE -ne 0) { throw 'Current release tag unavailable.' }
+        $headCommit = [string](& git -C $root rev-parse HEAD)
+        if ($LASTEXITCODE -ne 0 -or $tagCommit -cne $headCommit) { throw 'Release tag does not identify this candidate.' }
+        $priorTags = @(& git -C $root tag --merged HEAD --sort=-version:refname)
+        if ($LASTEXITCODE -ne 0) { throw 'Release ancestry unavailable.' }
+        $priorTags = @($priorTags | Where-Object { $_ -cne $ReleaseTag -and $_ -cmatch '^v(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)$' })
+        if ($priorTags.Count -eq 0) { throw 'No previous stable ancestor release.' }
+        $BaseRevision = [string](& git -C $root rev-parse --verify ($priorTags[0] + '^{commit}') 2>$null)
+        if ($LASTEXITCODE -ne 0) { throw 'Previous stable release unavailable.' }
+    }
     if ($BaseRevision -cnotmatch '^[0-9a-f]{40}$' -or $BaseRevision -match '^0+$') { throw 'Base must be an exact existing commit.' }
     & git -C $root cat-file -e ($BaseRevision + '^{commit}') 2>$null
     if ($LASTEXITCODE -ne 0) { throw 'Base commit unavailable.' }

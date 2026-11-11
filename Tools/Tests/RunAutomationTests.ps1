@@ -296,6 +296,7 @@ try {
     & git -C $scopeRoot -c core.autocrlf=false add --all
     & git -C $scopeRoot -c user.name=Fixture -c user.email=fixture@example.invalid -c core.hooksPath=NUL commit --quiet -m baseline
     if ($LASTEXITCODE -ne 0) { throw 'Unable to commit scope fixture.' }
+    & git -C $scopeRoot tag v1.0.0
     $selector = Join-Path $toolsRoot 'GetGeurtsValidationScope.ps1'
     foreach ($case in @('catalogue', 'versions', 'shared-policy', 'mixed-tool', 'new-unknown', 'deletion')) {
         $base = [string](& git -C $scopeRoot rev-parse HEAD)
@@ -319,11 +320,21 @@ try {
         $selection = & $selector -RepositoryRoot $scopeRoot -BaseRevision $base | ConvertFrom-Json
         $expected = if ($case -in @('catalogue','versions')) { 'Content' } else { 'Full' }
         Assert-True ($selection.scope -ceq $expected) ("Committed scope selection: $case -> $expected")
+        if ($case -eq 'catalogue') {
+            & git -C $scopeRoot tag v1.0.1
+            $tagSelection = & $selector -RepositoryRoot $scopeRoot -ReleaseTag v1.0.1 | ConvertFrom-Json
+            Assert-True ($tagSelection.scope -ceq 'Content' -and $tagSelection.base -ceq $base) 'Catalogue release tag uses verified stable ancestor history'
+            $missingTagSelection = & $selector -RepositoryRoot $scopeRoot -ReleaseTag v9.0.0 | ConvertFrom-Json
+            Assert-True ($missingTagSelection.scope -ceq 'Full') 'Unavailable release tag fails closed'
+        }
+
     }
     foreach ($invalidBase in @('', ('0' * 40), ('f' * 40))) {
         $selection = & $selector -RepositoryRoot $scopeRoot -BaseRevision $invalidBase | ConvertFrom-Json
         Assert-True ($selection.scope -ceq 'Full') 'Unknown/missing Git range fails closed'
     }
+    $staleTagSelection = & $selector -RepositoryRoot $scopeRoot -ReleaseTag v1.0.1 | ConvertFrom-Json
+    Assert-True ($staleTagSelection.scope -ceq 'Full') 'A tag for a different candidate fails closed'
     Write-Utf8 (Join-Path $scopeRoot 'AGENTS.md') 'Uncommitted policy.'
     $selection = & $selector -RepositoryRoot $scopeRoot -BaseRevision $base | ConvertFrom-Json
     Assert-True ($selection.scope -ceq 'Full') 'Uncommitted candidate fails closed'

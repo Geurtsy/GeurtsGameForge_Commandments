@@ -105,8 +105,8 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 - Make minimal, proportionate nonvisual validation the shared default for every Forge project's technical design and work; remove automatic multi-Editor/full-suite and visual acceptance requirements.
 - Require actual typed serialized drag-and-drop asset references on ScriptableObjects/components instead of path strings; preserve legitimate I/O and necessary content-delivery boundaries.
-- Scope CI to known content changes while retaining complete static checks on both PowerShell hosts and fail-closed full regressions for shared tooling/policy or unknown inputs.
-- Reuse successful registry structural validation only for identical raw authority bytes, with fresh safe-path checks and independent returned objects; remove duplicate positive static text validation and implementation-mirroring check-name inventories.
+- Scope CI, including verified release-tag ranges, to known content changes while retaining complete static checks on both PowerShell hosts and fail-closed full regressions for shared tooling/policy or unknown inputs.
+- Reuse successful registry structural validation only for identical authority text, with fresh safe-path checks and independent returned objects; remove duplicate positive static text validation and implementation-mirroring check-name inventories.
 - Preserve existing catalogue pins, immutable payloads, account/data/consent checks and manual consumer adoption.
 
 ### 0.71.2 - 11 November 2026

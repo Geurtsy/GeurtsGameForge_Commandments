@@ -40,8 +40,9 @@ jobs:
         id: scope
         env:
           VALIDATION_BASE: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha || github.event.before || '' }}
+          VALIDATION_TAG: ${{ github.ref_type == 'tag' && github.ref_name || '' }}
         run: |
-          $selection = & ./Tools/GetGeurtsValidationScope.ps1 -BaseRevision $env:VALIDATION_BASE | ConvertFrom-Json
+          $selection = & ./Tools/GetGeurtsValidationScope.ps1 -BaseRevision $env:VALIDATION_BASE -ReleaseTag $env:VALIDATION_TAG | ConvertFrom-Json
           "regressions=$($selection.scope)" >> $env:GITHUB_OUTPUT
           Write-Host "$($selection.scope): $($selection.reason)"
           $selection | ConvertTo-Json -Depth 4 >> $env:GITHUB_STEP_SUMMARY
