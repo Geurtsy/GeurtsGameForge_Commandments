@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.8.3
+**Version:** 1.8.4
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -74,8 +74,8 @@ The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared co
 ## God
 
 **Catalogue ID:** `com.geurts.gameforge.god`
-**Evidence version:** `0.44.4`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/057ac66731a9bc461d03790e6d55d074888512fd/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/057ac66731a9bc461d03790e6d55d074888512fd/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/057ac66731a9bc461d03790e6d55d074888512fd/Documentation~/GameIntegration.md).
+**Evidence version:** `0.44.5`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b3b36b7d8819a4dfbc10e9b29414b3613801470e/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b3b36b7d8819a4dfbc10e9b29414b3613801470e/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b3b36b7d8819a4dfbc10e9b29414b3613801470e/Documentation~/GameIntegration.md).
 
 - **Use:** Foundation for every dependent brick: lifecycle, shared capabilities/settings, bootstrap, packages and Commandments.
 - **Prerequisites:** Licensed Odin Inspector and Quantum Console, resolved Unity dependencies and the Forge Steamworks.NET prerequisite. No optional peer brick or passive adapter is required.
@@ -85,7 +85,7 @@ The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared co
 - **Verify:** Check bootstrap/readiness independently of package presence; test absent, available, withdrawn and re-enabled capability states plus subscription disposal.
 - **Limits:** No second host/registry in a game. Editor APIs stay outside player assemblies; optional providers may be unavailable.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/057ac66731a9bc461d03790e6d55d074888512fd/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/057ac66731a9bc461d03790e6d55d074888512fd/Documentation~/AIUsabilityValidation.json). God 0.44.3 records 99 passing focused native checks, the integration recipe, actual authoritative catalogue refresh and 31 compiled assemblies with zero default-policy diagnostics. Its pinned cancellation and expanded local Help were rendered at 560 and 760 points; other display scales/skins and player/native-service behavior remain unverified. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b3b36b7d8819a4dfbc10e9b29414b3613801470e/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b3b36b7d8819a4dfbc10e9b29414b3613801470e/Documentation~/AIUsabilityValidation.json). God 0.44.5 corrects settings-read failure cleanup: mandatory consumers stop before the provider, owned capabilities/subscriptions are withdrawn, and repair followed by Retry uses a fresh context. All 29 focused native Unity 6000.6.3f1 lifecycle/recipe cases passed; all 30 source-bearing native compiler responses qualified with zero default-policy diagnostics and unchanged inputs. The owner records the exact tested Git candidate and matching final C# fingerprint, reviewed private dependency profiles, and unchanged damaged-file/unrelated-brick behavior. This is not stock-vendor, Windows-player or full-foundation certification. Consumer installation and updates remain separate explicit actions.
 
 Update policy requires a current explicit action and confirmation. Legacy automatic entry-point names do not grant update consent; a documentation edit does not change installed handlers.
 
@@ -95,7 +95,7 @@ God retains SDK-neutral native-session reservations and revocable leases. Provid
 
 God retains single-AGENTS startup and legacy package support. The God manifest retains its Compatibility 0.1.1 minimum; the Catalogue selects published Compatibility 0.2.0 for automatic local repairs. The earlier minimum release's uGUI metadata evidence remains historical; current automatic-repair, native UI and reviewed-Editor evidence belongs to the pinned Compatibility owner. Consumer installation and game/native-service acceptance remain separate.
 
-Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/057ac66731a9bc461d03790e6d55d074888512fd/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
+Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/b3b36b7d8819a4dfbc10e9b29414b3613801470e/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
 
 ## Steam
 
@@ -323,6 +323,8 @@ The optional Audio FMOD integration is not a separate current catalogue brick. I
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Change Log
+
+- 1.8.4: Route God settings-failure cleanup to the published 0.44.5 source and its focused Unity/compiler evidence; preserve consumer-update and player-validation limits.
 
 - 1.8.0: Add the published Automatic Git LFS owner, exact source/evidence route, practical settings workflow and tested scope/limits.
 

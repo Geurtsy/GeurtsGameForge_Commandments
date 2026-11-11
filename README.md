@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.71.1
+**Version:** 0.71.3
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -101,6 +101,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.71.3 - 11 November 2026
+
+- Pin published God 0.44.5 settings-failure cleanup to its immutable release commit.
+- Update the owning usage/evidence route with 29 focused Unity cases, zero-diagnostic 30-assembly qualification and exact scope limits.
+- Preserve other package pins, installed consumers and manual update boundaries.
 
 ### 0.71.1 - 11 November 2026
 
