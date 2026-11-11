@@ -1,5 +1,5 @@
 # RunAutomationTests.ps1
-# Version: 0.73.1
+# Version: 0.73.0
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot,

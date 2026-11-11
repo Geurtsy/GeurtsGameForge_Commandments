@@ -103,7 +103,7 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 ### 0.73.1
 
-- Publish Settings 0.9.0 and UI Foundations 0.14.0 catalogue pins and mapping guidance: additional independent controls, complete collision validation and stacked editable conflict dialogs.
+- Publish Settings 0.9.1 and UI Foundations 0.14.1 catalogue pins and mapping guidance: additional independent controls, complete collision validation and stacked editable conflict dialogs.
 - Existing consumer updates remain explicit; no live game installation is included.
 
 

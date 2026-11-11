@@ -34,7 +34,7 @@
     },
     {
       "path": "CONTRIBUTING.md",
-      "version": "0.73.1",
+      "version": "0.73.0",
       "role": "Concise source-contribution, validation, publication and unchanged-terms checklist."
     },
     {
@@ -254,7 +254,7 @@
     },
     {
       "path": "Tools/ManageGeurtsAgentInstructions.ps1",
-      "version": "0.73.1",
+      "version": "0.73.0",
       "role": "Optional preservation-based native-route manager."
     },
     {
@@ -264,7 +264,7 @@
     },
     {
       "path": "Tools/CreateGeurtsFolderStructure.ps1",
-      "version": "0.73.1",
+      "version": "0.73.0",
       "role": "Explicit create-only folder operation."
     },
     {
@@ -279,7 +279,7 @@
     },
     {
       "path": "Tools/ValidateGeurtsDocumentation.ps1",
-      "version": "0.73.1",
+      "version": "0.73.0",
       "role": "Package and semantic validation."
     },
     {
@@ -319,7 +319,7 @@
     },
     {
       "path": "Tools/Tests/RunAutomationTests.ps1",
-      "version": "0.73.1",
+      "version": "0.73.0",
       "role": "Isolated automation and regression suite."
     },
     {
