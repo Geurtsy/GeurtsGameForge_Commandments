@@ -110,6 +110,18 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - Separates native Steam/account/device acceptance from Multiplayer implementation and catalogue publication. Unperformed checks stay explicitly unverified; other validation gates remain mandatory.
 - Publishes the exact-source Multiplayer catalogue entry and owner usage route after implementation qualification.
 
+### 0.72.2
+
+- Pin released Settings 0.8.0 and document automatic Unity setup, explicit UI ownership, source-repair qualification and nonvisual evidence limits.
+
+
+### 0.72.1 - 11 November 2026
+
+- Pin the published optional cloud-saving cohort: Save and Load 0.6.0, Steam 0.6.0 and God 0.45.0 at their verified immutable source commits.
+- Route account/copy review, guarded transfer and protected local import to Save and Load; Steam supplies account-pinned bytes through God. Local saving works without Steam.
+- Record focused passing checks and the explicit user authorization to publish without real Steam-server/second-device checks. No visual checks or live consumer/account changes.
+- Preserve the merged minimal-testing/no-visual/drag-and-drop policy, its scoped CI and every unrelated brick pin. No tool or regression-script changes.
+
 ### 0.72.0 - 11 November 2026
 
 - Make minimal, proportionate nonvisual validation the shared default for every Forge project's technical design and work; remove automatic multi-Editor/full-suite and visual acceptance requirements.

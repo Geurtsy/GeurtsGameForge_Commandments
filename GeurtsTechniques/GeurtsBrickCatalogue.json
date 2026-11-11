@@ -159,13 +159,13 @@
     {
       "id": "com.geurts.gameforge.settings",
       "name": "Geurts Game Forge Settings System",
-      "description": "Game settings with authored panels, typed providers, reviewed Stage/Apply/Cancel and local persistence. Supports built-in sound controls and optional Audio/UI integrations; game-specific settings use public provider APIs.",
+      "description": "Game settings with reviewed automatic Unity definitions and provider wiring, typed game-owned adapters, Stage/Apply/Cancel and local persistence. Supports conditional URP and optional Audio/UI integrations; the game connects its UI.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.settings",
-      "version": "0.7.6",
+      "version": "0.8.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#ff7f1180168872032ca48e7a45ad8f25b6093826",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#8b75c62bfc9edfc996b5e018f49e5a47df344ce7",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -205,13 +205,13 @@
     {
       "id": "com.geurts.gameforge.saveload",
       "name": "Geurts Game Forge Save and Load",
-      "description": "Local gameplay saves with profiles, named slots, explicit participants, bounded atomic files and transactional restore. Includes no-code bindings and code extensions; cloud and network transport remain outside this module.",
+      "description": "Local gameplay saves with optional reviewed Steam Cloud slot transfer. Use profiles, explicit participants and named slots; local saving works without Steam. Cloud is off by default and requires an explicit account/copy choice.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.saveload",
-      "version": "0.4.3",
+      "version": "0.6.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#cab71f4ce9c0cdfcffda989bba0c45063adc6b68",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#5b59241423dbe7bda3bf910e533c8adc814e4cd3",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -221,7 +221,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.38.4"
+          "minimumVersion": "0.45.0"
         }
       ]
     },
@@ -383,5 +383,5 @@
       ]
     }
   ],
-  "publishedUtc": "2026-11-11T00:15:15Z"
+  "publishedUtc": "2026-11-11T04:55:08.644893Z"
 }
