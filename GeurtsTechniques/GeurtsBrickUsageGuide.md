@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.11.2
+**Version:** 1.11.3
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -163,24 +163,24 @@ Confirmation focus maintenance: defer modal review until the requesting UI event
 ## Angels
 
 **Catalogue ID:** `com.geurts.gameforge.angels`
-**Evidence version:** `0.11.2`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/0a0148b5a1f5036a0335c8435bf052a74c6d94d6/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/0a0148b5a1f5036a0335c8435bf052a74c6d94d6/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/0a0148b5a1f5036a0335c8435bf052a74c6d94d6/Documentation~/GameIntegration.md).
+**Evidence version:** `0.12.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/Documentation~/GameIntegration.md).
 
 - **Use:** Optional Editor project maintenance: folders, guides, Git, scoped asset organization and explicit design imports.
 - **Prerequisites:** God, both licensed libraries and compatible local Commandments. Codex naming/audio are separate optional account/tool integrations with explicit sharing and billing consent.
-- **Entry points:** Use Angels' reviewed controls or supported AngelsAssetMoves.Preview/Apply APIs. Discover operation eligibility locally; current scans also have direct owner APIs and must not be invented as generic actions.
+- **Entry points:** In Game design context, use Add Markdown files to queue for one Windows multi-selection, then Import selected documents after review. Native selection changes no files; Cancel preserves the queue. Existing primary selection, 32-source limit and overwrite review apply. Supported code callers retain AngelsProjectTools.ImportGameDesign with explicit source paths. Use Angels' reviewed asset controls or supported AngelsAssetMoves.Preview/Apply APIs. Discover operation eligibility locally; current scans also have direct owner APIs and must not be invented as generic actions.
 - **Example:** Preview only selected asset paths, inspect destinations/GUIDs and path-loader risks, retain original review rows, then apply after actual review and required confirmation. Verify each completed move and preserved unselected content.
 - **Lifecycle/settings:** Editor-only; settings use God's per-brick store. Stop/disable cancels pending owner requests; completed moves remain. Automatic sorting/naming is separately default-off.
 - **Verify:** Check cancellation, stale source/guidance refusal, GUID/meta preservation and actual/partial outcomes; choose a fresh review for retry.
 - **Limits:** Source/meta checks stream full file hashes; assets above 64 MiB do not fail solely because of source size. Preview, prompt and optional audio-decoding limits remain owner-defined. No Execute All, automatic primary GDD choice or startup scan. Documentation maintenance gives no GDD access. Optional paid inference is never implied by installation.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/0a0148b5a1f5036a0335c8435bf052a74c6d94d6/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/0a0148b5a1f5036a0335c8435bf052a74c6d94d6/Documentation~/AIUsabilityValidation.json). Reused earlier owner evidence: ten focused EditMode checks passed in Unity 6000.6.3f1 with zero compiler diagnostics and warnings as errors, including real older-CLI image naming, safe failures, cancellation, the 120-second timeout and the GUID/meta-preserving recipe. The licensed Quantum Console 2.6.7 dependency uses the separately published private Dreadvault repair at adf27643807633516b6a2b54cf5b57346837b700, with all eight repaired files verified against that commit. Vendor source is not part of Angels and these results do not certify unmodified stock Quantum Console. Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/Documentation~/AIUsabilityValidation.json). Fourteen focused native functional cases passed in Unity 6000.6.3f1, including actual multi-file/single-file picker acceptance and cancellation with Unicode/spaced paths, batch preservation and the public integration recipe. Both owning assemblies and literal supported examples compiled with zero diagnostics under warnings as errors; recorded compiler inputs remained unchanged. Native dialog commands ran on an unselected private Windows desktop without controlling the user desktop. Visual checks are not performed or required under current Automation policy. External dependency releases retain their documented acceptance scope; no new player/account/Steam or live-consumer acceptance is claimed.
 
 Angels 0.11.0 requires God 0.44.0 and uses that shared reader for setup, guides, Git payloads and naming context. Reviewed guidance and context identity include raw registry bytes; prompts include only metadata for the existing selected documents. Current selected-folder guide 1.2.0 and portable-root guide 1.1.0 route directly to AGENTS.md. Exact historical guide 1.1.0/root 1.0.0 bytes remain available for safe migration; consent boundaries are unchanged.
 
 Current selected-folder and portable-root guide installations route directly to Commandments/AGENTS.md. Exact known legacy payload migration, unowned-content preservation and current confirmation remain required; the earlier single-entry cohort passed 98 native owner regressions.
 
-Confirmation focus maintenance: defer modal review until the requesting UI event finishes and prevent duplicate queued work. Nine combined Angels/Diagnostics native checks passed in both Unity 6000.6.3f1 and 6000.6.8f1 with zero focus warnings and compiler diagnostics. [Owner evidence](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/0a0148b5a1f5036a0335c8435bf052a74c6d94d6/Documentation~/Validation/ConfirmationFocus/summary.json) distinguishes fresh Editor checks from unchanged runtime/recipe acceptance reused at its original tested revision; physical input and new player acceptance are not claimed. Consumer updates remain explicit.
+Historical confirmation focus maintenance: defer modal review until the requesting UI event finishes and prevent duplicate queued work. Nine combined Angels/Diagnostics native checks passed in both Unity 6000.6.3f1 and 6000.6.8f1 with zero focus warnings and compiler diagnostics. [Owner evidence](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/Documentation~/Validation/ConfirmationFocus/summary.json) distinguishes fresh Editor checks from unchanged runtime/recipe acceptance reused at its original tested revision; physical input and new player acceptance are not claimed. Consumer updates remain explicit.
 
 ## Archangels
 

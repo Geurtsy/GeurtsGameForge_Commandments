@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.73.2
+**Version:** 0.73.3
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -101,10 +101,15 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
 
-### 0.73.2
+### 0.73.3
 
 - Publish the immutable GitFlow 0.5.0 catalogue pin and usage guidance for automatic publisher setup and the full Queue Panel.
 - Retain scoped nonvisual acceptance and the user's visual-check waiver. Consumer updates remain manual; unrelated pins, schemas and tool versions stay unchanged.
+
+### 0.73.2
+
+- Publish Angels 0.12.0 catalogue and usage evidence for multi-file Markdown selection in Game design context, retaining explicit batch import, primary selection and overwrite review.
+- Consumer package updates remain separate explicit actions.
 
 ### 0.73.1
 
