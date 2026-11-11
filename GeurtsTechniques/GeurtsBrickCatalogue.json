@@ -297,24 +297,25 @@
     {
       "id": "com.geurts.gameforge.gitflow",
       "name": "Geurts Game Forge GitFlow",
-      "description": "Editor-only read-only queue, lease, processor and receipt viewer. Refresh is explicit; it cannot submit, publish, retry or recover work. Supports public HTTPS and absolute local remotes.",
+      "description": "Editor saved-change capture, strict explicitly configured integration publisher and paged read-only queue console. Optional authorized local Codex repair; no automatic Forge updates or live-project migration.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow",
-      "version": "0.1.2",
+      "version": "0.3.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#a74071830b7aab17c47a10dbdb8eddc482625ddd",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#18c8ae508a9a9cd8154c6af957811356ab5cefd7",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console",
-        "Git for Windows"
+        "Git for Windows",
+        "Python 3.10+"
       ],
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.39.3"
+          "minimumVersion": "0.44.4"
         }
       ]
     },
@@ -381,6 +382,5 @@
         }
       ]
     }
-  ],
-  "publishedUtc": "2026-11-11T03:13:19Z"
+  ]
 }
