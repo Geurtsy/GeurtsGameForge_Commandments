@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.74.2
+**Version:** 0.74.3
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,10 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.74.3
+
+- Catalogue GitFlow 0.5.2 with larger complete-file repair/diagnosis limits and focused byte-boundary/conflict acceptance. Preserve explicit consumer updates and stopped-owner runner adoption.
 
 ### 0.74.2
 
