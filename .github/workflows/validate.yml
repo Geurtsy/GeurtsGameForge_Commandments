@@ -1,4 +1,4 @@
-# Version: 1.0.0
+# Version: 1.1.0
 name: Commandments validation
 
 on:
@@ -36,15 +36,32 @@ jobs:
         run: |
           & ./Tools/ValidateGeurtsPublication.ps1 -ExpectedTag $env:RELEASE_TAG
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Select relevant regressions
+        id: scope
+        env:
+          VALIDATION_BASE: ${{ github.event.pull_request.base.sha || github.event.merge_group.base_sha || github.event.before || '' }}
+        run: |
+          $selection = & ./Tools/GetGeurtsValidationScope.ps1 -BaseRevision $env:VALIDATION_BASE | ConvertFrom-Json
+          "regressions=$($selection.scope)" >> $env:GITHUB_OUTPUT
+          Write-Host "$($selection.scope): $($selection.reason)"
+          $selection | ConvertTo-Json -Depth 4 >> $env:GITHUB_STEP_SUMMARY
       - name: Validate with Windows PowerShell 5.1
         shell: powershell
         run: |
           & ./Tools/ValidateGeurtsDocumentation.ps1
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: Validate with PowerShell 7 and run regressions
+      - name: Validate with PowerShell 7
         run: |
           New-Item -ItemType Directory -Path C:/ggf-tmp -Force | Out-Null
           $env:TEMP = 'C:/ggf-tmp'
           $env:TMP = 'C:/ggf-tmp'
-          & ./Tools/ValidateGeurtsDocumentation.ps1 -RunAutomationTests
+          & ./Tools/ValidateGeurtsDocumentation.ps1
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Run relevant automation regressions
+        if: steps.scope.outputs.regressions != 'Content'
+        run: |
+          New-Item -ItemType Directory -Path C:/ggf-tmp -Force | Out-Null
+          $env:TEMP = 'C:/ggf-tmp'
+          $env:TMP = 'C:/ggf-tmp'
+          & ./Tools/Tests/RunAutomationTests.ps1
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

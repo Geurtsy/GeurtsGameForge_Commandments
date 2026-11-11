@@ -1,5 +1,5 @@
 # CreateGeurtsFolderStructure.ps1
-# Version: 0.71.1
+# Version: 0.72.0
 [CmdletBinding()]
 param(
     [string]$ProjectRoot,
@@ -149,9 +149,13 @@ try {
         throw "Folder definition is not valid JSON: $($_.Exception.Message)"
     }
 
+    $sourceEntry = Join-Path (Split-Path -Parent $PSScriptRoot) 'AGENTS.md'
+    $sourceVersion = [regex]::Matches([IO.File]::ReadAllText($sourceEntry), '(?m)^\*\*Version:\*\* ([0-9]+\.[0-9]+\.[0-9]+)\r?$')
+    if ($sourceVersion.Count -ne 1) { throw 'The same-copy AGENTS.md must declare exactly one package version.' }
+    $expectedPackageVersion = $sourceVersion[0].Groups[1].Value
     if ([string]$definition.schemaVersion -ne "1.0.0") { throw "Unsupported folder-definition schemaVersion '$($definition.schemaVersion)'." }
-    if ([string]$definition.definitionVersion -ne "0.13.0" -or [string]$definition.packageVersion -ne "0.71.1") {
-        throw "Folder definition version must be 0.13.0 and package version must be 0.71.1."
+    if ([string]$definition.definitionVersion -ne "0.13.0" -or [string]$definition.packageVersion -cne $expectedPackageVersion) {
+        throw "Folder definition version must be 0.13.0 and package version must match the same-copy AGENTS.md ($expectedPackageVersion)."
     }
     if ([string]$definition.canonicalPath -ne "GeurtsTechniques/GeurtsFolderStructureDefinition.json" -or [string]$definition.pathBase -ne "<ProjectRoot>" -or [string]$definition.pathSeparator -ne "/" -or [string]$definition.explanatoryAuthority -ne "GeurtsTechniques/GeurtsFolderStructureTechnique.md" -or [string]$definition.automationAuthority -ne "GeurtsTechniques/GeurtsFolderStructureDefinition.json") {
         throw "Folder definition declares an unsupported required path or path-base contract."

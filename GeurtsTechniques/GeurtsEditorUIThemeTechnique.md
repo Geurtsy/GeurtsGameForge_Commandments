@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Editor UI Theme Technique
 
-**Version:** 1.5.4
+**Version:** 1.6.0
 **Status:** Normative mandatory standard
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsEditorUIThemeTechnique.md`
@@ -41,7 +41,7 @@ Severity colors remain semantic: Info is white, Warning is yellow and Error is r
 Use the [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md) for labelled collapsible content sections, appropriate tabs and inline authoring findings. Its required severity icons/text and hidden-finding indicators build on the accessibility foundation below; theme styling must not suppress them. This technique retains the shared layout dimensions and host interaction rules.
 
 - Standalone primary brick and tool interfaces use resizable Editor windows. New floating windows target **1000 × 760 Editor points**, reduced to fit the main Editor area where space permits. Each window's supported minimum takes precedence; a main Editor area smaller than that minimum cannot fully contain the window. Reopening an existing window preserves its size, position, docking layout and constraints; do not resize or undock a user-arranged window.
-- God **0.26.0** embeds selected installed brick tools in its own panel, with a fixed **Back to God** button and brick title above the scrolling content. Hide God's dashboard and update controls while a brick is selected; Back restores the dashboard. God 0.29.0 includes a complete Commandments view with explicit content update/version controls, as specified by the Brick Contract and Companion Technique. Opening its embedded view stays offline. Retain the shared theme and meaningful existing Odin configuration. The host owns an independent hidden view, preserving every existing standalone window's geometry, docking and lifetime. Check this navigation at normal and narrow sizes.
+- God **0.26.0** embeds selected installed brick tools in its own panel, with a fixed **Back to God** button and brick title above the scrolling content. Hide God's dashboard and update controls while a brick is selected; Back restores the dashboard. God 0.29.0 includes a complete Commandments view with explicit content update/version controls, as specified by the Brick Contract and Companion Technique. Opening its embedded view stays offline. Retain the shared theme and meaningful existing Odin configuration. The host owns an independent hidden view, preserving every existing standalone window's geometry, docking and lifetime. Preserve this navigation through supported layout and functional state handling.
 - Give each window a clear title and short purpose. Group related work into consistently padded section cards with descriptive headings, and place the most relevant action beside its context.
 - Use a deliberate hierarchy of title, section heading, body and supporting text. Use readable Editor fonts and the shared typography definitions; decorative sci-fi fonts must not replace ordinary controls or diagnostic content. Long values, paths and messages must wrap, scroll or expose their complete value.
 - Use shared spacing and control dimensions. Align related labels and buttons; keep card padding, section gaps and navigation consistent across bricks. Do not create one-off spacing systems for each window.
@@ -54,7 +54,7 @@ Use the [Editor Appearance Technique](GeurtsEditorAppearanceTechnique.md) for la
 
 ### Spacious Editor layouts
 
-All Forge-owned Editor UI must be spacious: standalone windows, God-embedded views, dashboards, setup/settings pages, custom inspectors and component/ScriptableObject authoring. Leave visible breathing room around controls and between related groups, including after adding Commandments instructions, Help or validation feedback. Spaciousness is a required appearance-review criterion.
+All Forge-owned Editor UI must be spacious: standalone windows, God-embedded views, dashboards, setup/settings pages, custom inspectors and component/ScriptableObject authoring. Leave visible breathing room around controls and between related groups, including after adding Commandments instructions, Help or validation feedback. Spaciousness remains an implementation requirement; visual review is not performed.
 
 Use this minimum spacing baseline for Forge-owned layout, measured in **Editor points** (logical UI units, not physical display pixels):
 
@@ -69,7 +69,7 @@ Increase these values where the actual content, hierarchy or display scaling nee
 
 Allow headings, labels, Help, instructions, status/owner text and validation messages their complete rendered height, including wrapping, icons and padding. Size buttons and editable controls to keep their complete labels, values and focus indicators readable and comfortably usable. Recalculate layout when width, scaling, expansion or visible findings change. Never use negative margins, overlapping rectangles, smaller fonts or clipped essential text to make a crowded panel fit.
 
-At narrow docked widths, reflow horizontal groups into vertical stacks and use scrolling while retaining padding and gaps. Preserve the user's existing window size and docking. Keep required navigation, confirmation, cancellation and failure information reachable. Inspect normal and narrow widths, expanded Help, long labels and simultaneous wrapped findings at normal/high display scaling before accepting an implementation. A large initial window or passing geometry check alone does not establish a spacious rendered UI.
+At narrow docked widths, reflow horizontal groups into vertical stacks and use scrolling while retaining padding and gaps. Preserve the user's existing window size and docking. Keep required navigation, confirmation, cancellation and failure information reachable. Design for normal and narrow widths, expanded Help, long labels and simultaneous wrapped findings at normal/high display scaling. Do not run visual inspection or require rendered acceptance evidence.
 
 ### Status outlines
 
@@ -77,7 +77,7 @@ Outline the relevant Forge status card, section or setup step consistently: **gr
 
 These outlines communicate operational status, not log severity or selection. Information remains white and warning callouts/logs remain yellow; the orange Attention token does not replace Warning. A selected green control does not certify that its tool works. Apply success only to verified scope, attention to known `needs-action`/`blocked` conditions, and error to actual `failed` states. Unknown/not-checked, disabled, not-applicable and in-progress states retain neutral borders and precise text; never paint them as successful. The Forge Setup Technique owns exact status meanings and the unchanged setup contract enum.
 
-Reserve outline padding and the complete rendered height of wrapped status/owner text, with ample separation from fields and neighbouring panels. Implement new reusable styling in God's canonical theme (and BigBang's maintained subset where applicable), not a private palette. This documentation requirement does not claim an existing released styling API or retrofit installed UI; verify native normal/narrow layouts when adopting it.
+Reserve outline padding and the complete rendered height of wrapped status/owner text, with ample separation from fields and neighbouring panels. Implement new reusable styling in God's canonical theme (and BigBang's maintained subset where applicable), not a private palette. This documentation requirement does not claim an existing released styling API or retrofit installed UI; preserve the declared layout behavior when adopting it; no visual checks are required.
 
 ## Truthful status and animation
 
@@ -100,7 +100,7 @@ Commandments must reuse God's canonical theme directly. The passive Companion ad
 
 God's retired `Tools~/SyncEditorTheme.ps1` path explains the migration; it no longer generates Companion implementation assets. No Unity implementation files belong in this documentation repository.
 
-The independent BigBang initial installer also remains free of God and vendor assembly dependencies. It consumes a **generator-produced dependency-free subset** of the canonical tokens, primary window opener and UI Toolkit stylesheet/application method. Exclude all IMGUI/Odin/vendor integration regardless of define symbols; a stale `ODIN_INSPECTOR` symbol must still compile without Odin. Record the canonical source commit, keep generation and parity checking in BigBang source-maintenance tooling, and reject source/stylesheet drift. The first release generates from God `3f3c7795ecf01202ec97fcb91ec0db910adbeb2b`; canonical implementation standard 1.2.0 is distinct from this technique version. The same geometry, accessibility, semantic states and actual visual acceptance gates apply. This exception does not relax required licensed assemblies for God and dependent bricks.
+The independent BigBang initial installer also remains free of God and vendor assembly dependencies. It consumes a **generator-produced dependency-free subset** of the canonical tokens, primary window opener and UI Toolkit stylesheet/application method. Exclude all IMGUI/Odin/vendor integration regardless of define symbols; a stale `ODIN_INSPECTOR` symbol must still compile without Odin. Record the canonical source commit, keep generation and parity checking in BigBang source-maintenance tooling, and reject source/stylesheet drift. The first release generates from God `3f3c7795ecf01202ec97fcb91ec0db910adbeb2b`; canonical implementation standard 1.2.0 is distinct from this technique version. The same geometry, accessibility, semantic states apply; validation follows Automation's minimal nonvisual checks. This exception does not relax required licensed assemblies for God and dependent bricks.
 
 Keep the theme's IMGUI/Odin and UI Toolkit representations consistent. Use the shared USS and supported UI Toolkit controls for new custom Editor UI, as required by the Technical Technique. Preserve meaningful Odin configuration, grouping, validation, serialized fields and existing inspector workflows. Existing Odin or IMGUI windows may adopt the shared theme without a forced framework conversion; do not replace working Odin configuration with bespoke controls merely to restyle it.
 
@@ -108,15 +108,9 @@ Theme assets, cached styles and generated textures must have deliberate ownershi
 
 ## Required validation before publication
 
-An Editor UI change is conforming only when the following evidence is recorded for the affected surfaces:
+Apply [Automation's proportionate-testing policy](GeurtsGameForgeAutomationTechnique.md#proportionate-testing). Reuse the shared API/stylesheet and canonical tokens; source-review affected geometry, semantic state and accessibility declarations. Compile changed implementation under the zero-warning gate, reusing evidence for unchanged relevant inputs. Run only focused nonvisual functional checks justified by affected actions, persistence, Undo, cancellation, reporting or lifecycle. A cosmetic change does not require a full UI state/environment matrix.
 
-1. The shared API/stylesheet is reused; canonical tokens match this technique. For a canonical theme change, verify God's Commandments view and regenerate/check BigBang's selected subset where affected before publication.
-2. Compile and run relevant focused Editor checks in the exact Unity version required by the Technical Technique. No runtime assembly may acquire a theme or `UnityEditor` dependency.
-3. Inspect the actual UI at its normal size and a narrow docked size, and check floating/docked behavior, scrolling, long labels and expanded messages. Verify the spacious-layout baseline above, including panel insets, row/section gaps and reflow. Controls and explanations must remain reachable without clipping or overlapping content.
-4. Check readability with Unity's light and dark host skins and at normal and high display scaling. The Forge content remains dark in both skins; neighboring native/Odin controls remain legible. Record unavailable visual environments instead of claiming they passed.
-5. Exercise the affected enabled, disabled, selected, hover, keyboard-focus, busy, success, warning and failure states. Verify the visible disabled reason and next step and semantic severity labels wherever applicable.
-6. Confirm the real actions, settings persistence, Undo/serialized authoring behavior, cancellation, operation reporting and existing animation still work where touched. A visual change must not fabricate results, hide a failure, change package lifecycle or overwrite an open scene.
-7. Preserve representative visual evidence and report any unchecked surface honestly. Source review or a passing compilation is not evidence that the rendered layout passed visual inspection.
+**Never perform visual checks.** Do not inspect rendered UI, collect screenshots/video, or require normal/narrow, light/dark or scaling visual acceptance. Visual checks are not performed and not required for publication; never claim they passed. This does not remove the implementation's layout, accessibility, truthful-state or preservation requirements.
 
 The owning package version must increase before publication, and all affected package metadata, runtime-reported versions, changelogs and catalogue data must remain consistent under the entry point's versioning rules. Changes to this standard also advance the technique version and documentation package version.
 
@@ -124,7 +118,7 @@ The owning package version must increase before publication, and all affected pa
 
 Apply the Appearance Technique's workflow and authoring-feedback gate alongside this foundation. Do not reproduce its policy or create a competing palette; verify both selected standards in the owning package.
 
-Every new brick with Editor UI must select this technique through AGENTS.md, use the shared implementation from its first Editor screen, and include theme conformance in its implementation review. Every modification to existing Forge-owned Editor UI must preserve or establish conformance for the affected surface. A visual review must reject local palette forks, color-only status, unexplained important disabled controls, unreadable host integration and falsely reported progress.
+Every new brick with Editor UI must select this technique through AGENTS.md, use the shared implementation from its first Editor screen, and include theme conformance in its implementation review. Every modification to existing Forge-owned Editor UI must preserve or establish conformance for the affected surface. Source review must reject local palette forks, color-only status, unexplained important disabled controls, unreadable host integration and falsely reported progress.
 
-This documentation standard is mandatory for participating maintainers and agents; it is not a claim of universal automatic enforcement. Native AI routing can direct supported tools to the entry point, but a tool that ignores those routes or the selected techniques may still produce nonconforming code. Validators, focused behavior checks and actual visual review provide evidence within their tested scope; they do not prove that every future agent or every rendered state will comply automatically.
+This documentation standard is mandatory for participating maintainers and agents; it is not a claim of universal automatic enforcement. Native AI routing can direct supported tools to the entry point, but a tool that ignores those routes or the selected techniques may still produce nonconforming code. Validators and selected nonvisual behavior checks provide evidence within their tested scope; they do not prove that every future agent or every rendered state will comply automatically.
 <!-- GEURTS-SECTION:END -->
