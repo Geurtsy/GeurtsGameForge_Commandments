@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Authoring Technical Topic
 
-**Version:** 0.1.3
+**Version:** 0.1.4
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsAuthoringTechnique.md`
@@ -16,7 +16,7 @@ For new custom UXML controls, use `[UxmlElement]` on a partial class and `[UxmlA
 
 ## ScriptableObject and Reference Authoring
 
-Follow the [Code topic's ScriptableObject and object-reference rules](GeurtsCodeTechnique.md#scriptableobjects-and-object-references) for asset composition, typed drag-and-drop/object-picker connections, required-reference feedback and state ownership. Provide these connections through the supported Inspector workflow; do not require users to type string IDs for ordinary object wiring. The Code topic owns boundary exceptions and migration rules.
+Follow the [Code topic's ScriptableObject and object-reference rules](GeurtsCodeTechnique.md#scriptableobjects-and-object-references) for asset composition, typed drag-and-drop/object-picker connections, required-reference feedback and state ownership. Provide these connections through the supported Inspector workflow; do not require users to type string IDs for ordinary object wiring. Expose typed serialized Unity object/asset fields on ScriptableObjects and components for drag-and-drop assignment; store those references rather than asset paths. Validate missing assignments plainly, with no path/name/scan fallback. The Code topic owns boundary exceptions and migration rules.
 
 ## Odin Inspector Usage
 

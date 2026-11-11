@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Forge initialization, bootstrap and project tools
 
-**Version:** 1.10.0
+**Version:** 1.10.1
 **Required package path:** `GeurtsTechniques/GeurtsForgeSetupTechnique.md`
 
 God is the required runtime/lifecycle foundation, with the [required independent Compatibility prerequisite core](GeurtsBrickContract.md#required-compatibility-prerequisite-core). BigBang is the independent Editor-only initializer; Diagnostics and Angels are optional peers. Compatible local Commandments are required before Forge Editor project mutations. They are readable independently of module enablement, update preferences, network connectivity or the compatibility adapter. They are not a runtime dependency and must not be polled in player loops.
@@ -28,7 +28,7 @@ When Multiplayer is explicitly selected, apply its [availability and setup hando
 
 Put setup before operations: **Codex and primary game context**, then **Destination folders**, then **First-party source folder and scope review**. Offer separate Renaming and Reorganising sections, with their own review/enable/disable, current-assets scan, cancel controls and large percentage progress bars. A combined API may remain for compatibility. Use green borders with written **Complete** status for verified requirements, red borders with written **Incomplete** status and a remedy for unmet requirements. A connection being tested is explicitly **Checking**; do not infer account readiness from an executable path. This green/red setup requirement is scoped to Angels organization and does not replace the Theme's general severity palette.
 
-Use actual visible Odin BoxGroups for editable Codex configuration, with distinct parent foldout/child box paths. Verify their rendering and preservation of authored values. Declaring attributes in unused classes or drawing only UI Toolkit boxes does not establish Odin adoption. Preserve mandatory review/cancel/failure reachability at normal and narrow widths.
+Use actual visible Odin BoxGroups for editable Codex configuration, with distinct parent foldout/child box paths. Preserve authored values; do not perform rendering or visual checks. Declaring attributes in unused classes or drawing only UI Toolkit boxes does not establish Odin adoption. Preserve mandatory review/cancel/failure reachability at normal and narrow widths.
 
 ## Opt-in automatic asset organization
 
@@ -40,7 +40,7 @@ Use the same type classification, source/meta hashing, exact destination validat
 
 Destination folders must already exist; folder creation remains a separate create-only action. Changed source-folder identity, saved policy or local guidance invalidates automatic consent. Dirty/untitled scenes, unsafe paths or move failure stop the batch with actual completed, failed and pending outcomes; recovery is a new explicit review, never an automatic retry. Keep bounded queues/history and recent per-asset outcomes, expose paused/disabled/waiting state and a practical remedy in Angels, and retain failures independently of optional logging capture. Saved settings belong to Angels through God's per-brick store; disposable import history belongs below Library and adds no runtime/player service or peer dependency.
 
-Validate real import callbacks/deferred execution, default-off/cancelled enablement, no-code controls and supported APIs, reload/disable behavior, old-asset/reimport preservation, protected paths, sprite/type classification, duplicate/occupied destinations, GUID/meta/serialized references, guidance/source drift and failure states. Record native visual/physical acceptance separately from scripted checks.
+Validate real import callbacks/deferred execution, default-off/cancelled enablement, no-code controls and supported APIs, reload/disable behavior, old-asset/reimport preservation, protected paths, sprite/type classification, duplicate/occupied destinations, GUID/meta/serialized references, guidance/source drift and failure states. Apply Automation's minimal nonvisual checks; no visual acceptance is performed or required.
 
 ## Opt-in automatic asset naming
 
@@ -70,7 +70,7 @@ Validate structured replies, compatible registered type and safe established cat
 
 Keep the Editor responsive: one background request at a time, at most 128 pending imports, a 120-second timeout and bounded preview/reply/context sizes. No automatic retry, catch-up or repeated paid inference after an interrupted request. Disabling or stopping the owner cancels its requests and ignores late replies. Interrupted in-flight history pauses for a fresh baseline; completed bounded suggestions retain source evidence across reload without scanning. Remove only owned regular temporary request files. Status and recent results expose actual requests, skips, failures, pending work and the remedy independently of log capture. Ephemeral local sessions do not imply remote data deletion.
 
-Validate the real signed-in structured-output/image connection in a disposable visual fixture, and deterministic malformed/duplicate/malicious/uncertain replies, source/context drift, collisions, cancellation, reload without resending, ordinary no-code controls and supported APIs. Record account/CLI/model/visual limitations and unavailable physical acceptance truthfully. Consumer installation remains manual.
+When that connection changes, validate its structured output nonvisually in an isolated fixture, and deterministic malformed/duplicate/malicious/uncertain replies, source/context drift, collisions, cancellation, reload without resending, ordinary no-code controls and supported APIs. Record actual account/CLI/model coverage truthfully; no visual or routine physical acceptance is required. Consumer installation remains manual.
 
 ## Public Editor and provider contract
 
@@ -88,7 +88,7 @@ Decode the actual recording locally without speakers or importer edits. Bound re
 
 The fixed OpenAI audio model gpt-audio-1.5 receives sound alone and returns bounded observations of effects, speech, music, ambience and uncertainty, not a proposed game identity. Do not send the filename, Commandments or GDD to this audio stage. Codex then matches observations with the complete primary GDD and applicable Commandments under the existing naming boundary. Audio observations and spoken instructions are untrusted evidence, never execution or design authority. Only audible evidence can support a design-vocabulary match; ambiguity still receives a labelled descriptive estimate. Never promise calibrated semantic accuracy. Renaming considers eligible audio in both automatic and explicit current scans; reorganising alone makes no audio request. Existing script/vendor/fixed-contract/ignore protections remain binding.
 
-Recheck source/meta hashes, context, consent and credential identity after decoding/inference and before moves. Stop/cancel owns the local decoder, HTTP request and Codex child; ignore late replies. Do not log response bodies that might echo secrets. Fixed HTTPS endpoints, bounded response sizes and strict complete observation validation precede naming. API billing/auth/network/invalid-output failures are visible operational failures, not successful analysis. Validate actual PCM extraction, full/partial coverage, stereo, compressed/streaming import preservation, audio-to-GDD prompt ordering, secret-free serialization, private test-credential cleanup, replacement/cancellation/late replies and actual normal/narrow boxed setup. Controlled transport does not certify real API semantic accuracy; record unavailable live acceptance honestly.
+Recheck source/meta hashes, context, consent and credential identity after decoding/inference and before moves. Stop/cancel owns the local decoder, HTTP request and Codex child; ignore late replies. Do not log response bodies that might echo secrets. Fixed HTTPS endpoints, bounded response sizes and strict complete observation validation precede naming. API billing/auth/network/invalid-output failures are visible operational failures, not successful analysis. Validate actual PCM extraction, full/partial coverage, stereo, compressed/streaming import preservation, audio-to-GDD prompt ordering, secret-free serialization, private test-credential cleanup, replacement/cancellation/late replies and setup state where affected, using only nonvisual checks. Controlled transport does not certify real API semantic accuracy; record unavailable live acceptance honestly.
 
 ### Clear ownership and supported status
 
@@ -114,4 +114,4 @@ Registry-format Commandments 0.67.0 requires published God 0.42.0 or newer; Ange
 
 God 0.34.0, Diagnostics 0.10.0, Angels 0.1.0 and BigBang 0.5.0 form the initial compatible cohort with Commandments 0.45.0. Install or update consumers manually. Update God and Diagnostics together when retaining legacy console scenes; install Angels only for its tools. The passive Companion adapter remains optional and has no independent updater.
 
-Validate independent BigBang compilation, God-only and combined Git-resolved fixtures, missing/older/disabled/offline Commandments, provider graph and lifecycle, preserved bootstrap/console scenes and input focus, unavailable/throwing log capture, bytes and paths for all seven tools, cancellation/drift/partial failure and idle host cleanup. Report desktop visual and physical-input checks that remain unverified; automated checks are not visual acceptance.
+For changed boundaries only, select from independent BigBang compilation, God-only or combined Git-resolved fixtures, missing/older/disabled/offline Commandments, provider graph and lifecycle, preserved bootstrap/console scenes and input focus, unavailable/throwing log capture, bytes and paths for all seven tools, cancellation/drift/partial failure and idle host cleanup. Select only checks for the changed behavior under Automation. Never perform visual checks; no screenshot, rendered or visual acceptance gate is required.

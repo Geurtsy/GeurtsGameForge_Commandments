@@ -1,5 +1,7 @@
-# Version: 2.0.1
+# Version: 2.0.2
 Set-StrictMode -Version Latest
+$script:ValidatedRegistryManifest = $null
+$script:ValidatedRegistryJson = $null
 
 # Registry parsing is shared by the reader and source validator. No legacy fallback:
 # released God table consumers need a coordinated owner release before publication.
@@ -40,6 +42,12 @@ function Read-GeurtsDocumentationRegistry {
     $version = [regex]::Matches($manifest, '(?m)^\*\*Version:\*\*[ \t]+((?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*))[ \t]*\r?$')
     if ($version.Count -ne 1) { throw 'AGENTS.md must declare exactly one package version.' }
     $json = [IO.File]::ReadAllText((Get-GeurtsLocalPackageFile $RepositoryRoot $relative))
+    # Cache only successful structural validation for identical raw inputs. Read
+    # and resolve both paths on every call; timestamps cannot hide changed bytes
+    # or junctions. Parse a fresh result so callers cannot mutate cached authority.
+    if ($manifest -ceq $script:ValidatedRegistryManifest -and $json -ceq $script:ValidatedRegistryJson) {
+        return ($json | ConvertFrom-Json -ErrorAction Stop)
+    }
     # ConvertFrom-Json in Windows PowerShell silently accepts duplicate properties.
     # Inspect decoded object keys first, including escaped and case-variant aliases.
     $objects = New-Object 'System.Collections.Generic.Stack[object]'
@@ -101,6 +109,8 @@ function Read-GeurtsDocumentationRegistry {
             $section.whenRequired -isnot [string] -or [string]::IsNullOrWhiteSpace($section.whenRequired) -or
             -not $headings.Add($section.document + '|' + $section.heading)) { throw 'Empty condition or ambiguous controlled heading.' }
     }
+    $script:ValidatedRegistryManifest = $manifest
+    $script:ValidatedRegistryJson = $json
     return $registry
 }
 

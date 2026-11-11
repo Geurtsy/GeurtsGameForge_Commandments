@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Agent Instructions
 
-**Version:** 0.71.3
+**Version:** 0.72.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package instructions
 **Publication policy:** Validated main is the content feed; immutable versioned releases. Draft describes specification maturity, not whether a Git release exists.
@@ -21,7 +21,7 @@ A local snapshot alone cannot prove it is latest. Report Known outdated only whe
 
 ## Mandatory Reading and Version Bumps
 
-Before planning or editing any part of Geurts Game Forge, read this file and every selected owner, including for code, Editor/runtime, tests, tools, catalogue, configuration and documentation. Memory is no substitute. Documentation Maintenance applies to every approved change, including BigBang. AI-only documentation prioritizes efficiency and Forge integration; Technical retains runtime priorities.
+Before planning or editing any part of Geurts Game Forge, read this file and every selected owner, including for code, Editor/runtime, tests, tools, catalogue, configuration and documentation. Memory is no substitute. Documentation Maintenance applies to every approved change, including BigBang. AI-only documentation prioritizes efficiency and Forge integration; Technical retains runtime priorities. Apply Automation's [minimal proportionate validation](GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md#proportionate-testing) to every project technical design and change. Never perform visual checks; no visual acceptance gate applies. The Code owner requires typed serialized drag-and-drop asset references rather than asset-path strings.
 
 **Bump every affected independent package and changed documentation package, no matter how small. Never publish changed content under the same version.** Bump before delivery; one unreleased change's intermediate edits share its version. `MAJOR.MINOR.PATCH`: incompatible public contracts / compatible functionality / compatible fixes or corrections; reset lower parts. Pre-1.0 advances and documents breaking changes.
 
@@ -96,7 +96,7 @@ Use the local read-only helper with an AGENTS-selected relative Markdown path:
 
 Preview returns only document/version/role, conditional section IDs, exact headings, when-required conditions, source lines and planned character counts. It never counts as reading the rules. Select every applicable conditional section; `core` selects shared rules alone. Omit Sections for a full audience-filtered read; uncertainty requires that full read. There is no output cap or silent truncation. Counts are characters, not tokens. IncludeHuman includes explicitly needed history/reference/migration, never Forge sections.
 
-The reader accesses only this package's registered Markdown and local supporting registry: no project/GDD discovery, writes, Git/network checks, installation or automatic repair. God never executes copied scripts. Entry files, exact installer techniques, templates, JSON and code cannot be partially selected; payloads remain intact. Malformed audience tags/fences/maps and missing, unsafe, malformed, duplicate, unsupported or mismatched registry data fail visibly. A new unlisted section is required by default. Dependency/version/consent/project-design ownership/failure rules stay shared. Audience-only annotations bump the package, not unchanged subject/payload versions. Validate using Tools/ValidateGeurtsDocumentation.ps1 -RunAutomationTests.
+The reader accesses only this package's registered Markdown and local supporting registry: no project/GDD discovery, writes, Git/network checks, installation or automatic repair. God never executes copied scripts. Entry files, exact installer techniques, templates, JSON and code cannot be partially selected; payloads remain intact. Malformed audience tags/fences/maps and missing, unsafe, malformed, duplicate, unsupported or mismatched registry data fail visibly. A new unlisted section is required by default. Dependency/version/consent/project-design ownership/failure rules stay shared. Audience-only annotations bump the package, not unchanged subject/payload versions. Validate source content using Tools/ValidateGeurtsDocumentation.ps1; select regressions through the contribution workflow and Automation's minimal-testing policy.
 
 Without PowerShell: read AGENTS.md fully, retrieve only selected documents' file/version and controlled-section records from the declared same-copy JSON, apply the same audience/source-boundary rules, then read every required section. Metadata is not a rule read. If applicability is uncertain, read the whole selected document. Do not load the full inventory routinely or fetch another copy to repair missing data.
 
