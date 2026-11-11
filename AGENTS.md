@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Agent Instructions
 
-**Version:** 0.73.4
+**Version:** 0.74.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package instructions
 **Publication policy:** Validated main is the content feed; immutable versioned releases. Draft describes specification maturity, not whether a Git release exists.
@@ -37,7 +37,7 @@ Explicit use without GameForge selects this file's StandardsOnly profile and [St
 
 `Geurtsy/GeurtsGameForge_Commandments` alone owns generic documentation. God owns the Editor service; [Companion](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md) owns lifecycle/adapter transition, [Brick](GeurtsTechniques/GeurtsBrickContract.md#identity-and-dependencies) dependencies. Markdown requires no God. Brick implementation stays outside this repository; package Documentation~/ is implementation-specific.
 
-Installed content: `<ProjectRoot>/GeurtsGameForgeCommandments/`. Project design: `<ProjectRoot>/Docs/GameDesign/`. Select files/registry from the active package's single validated commit. Confirmed content Update replaces only that complete content folder and exactly three contract AI routes; no unlisted path, especially Docs/GameDesign, may be inspected/changed by the service.
+Installed content: `<ProjectRoot>/GeurtsGameForgeCommandments/`. Project design: `<ProjectRoot>/Docs/GameDesign/`. Select files/registry from the active package's single validated commit. Confirmed content Update replaces only that complete content folder and exactly three Copilot files plus the preserved root AGENTS.md managed block; no unlisted path, especially Docs/GameDesign, may be inspected/changed by the service.
 
 ## Session Boundary
 
@@ -64,7 +64,7 @@ Use this normative file read sequence; omit unselected subjects:
 6. When Brick Contract/Catalogue apply, read the shared Brick AI Usage Guide and only its task-relevant brick sections, then the pinned owning guides. Read selected project-specific game-design facts before player-facing implementation; the GDD manifest's declared primary document is the primary source of context about the game; technical design and implementation guidance still come from the selected Forge techniques.
 7. Apply relevant product- or plugin-owned conditional policy last, subordinate within Forge subjects.
 
-Installed copies live at `<ProjectRoot>/GeurtsGameForgeCommandments/`; native routes start at AGENTS.md. Session initialization stays local/offline. Installed updates require the Brick/Companion owners' current explicit Update action and confirmation, never saved automatic consent. Read-only checks and authorized source-publication queues remain separate. See Migrations/v0.64.0.md only for implementation adoption. Codex-guide installation is separate and excluded from content Update.
+Installed copies live at `<ProjectRoot>/GeurtsGameForgeCommandments/`; native routes start at AGENTS.md. Session initialization stays local/offline. Installed updates require the Brick/Companion owners' current explicit Update action and confirmation, never saved automatic consent. Read-only checks and authorized source-publication queues remain separate. See Migrations/v0.64.0.md only for implementation adoption. Schema-4 content installation and Update include the portable root guide; selected-folder guide installation remains separate.
 
 ### 1.1 Audience tags and efficient reading
 
@@ -162,7 +162,7 @@ For Forge render-pipeline support, package provenance and future adoption, apply
 - Apply the current user's explicit instruction in scope; it is task authority, not an alternate package resolver.
 - Use the selected subject owner. Surface and ask about an unresolved material conflict instead of inventing precedence.
 - Use GDD authority/precedence for design facts; ask before establishing missing or conflicting design intent. Reversible technical assumptions must not create design facts.
-- Preserve user-authored instructions at every unlisted path. The content Update exception replaces only its three exact routes after their cancel-default confirmation; the separate guide installer replaces only the explicitly chosen guide. Surface any conflict outside that authority.
+- Preserve user-authored instructions at every unlisted path. The schema-4 content Update replaces its three exact Copilot files and preserves root AGENTS.md outside its managed block after the cancel-default confirmation; the separate guide installer replaces only the explicitly chosen guide. Surface any conflict outside that authority.
 - Product/plugin policy cannot replace a selected Forge owner. Technical trade-offs use the Technical core's priorities without copying another list.
 
 ## 3. Package File Registry

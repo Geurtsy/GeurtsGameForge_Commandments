@@ -1,5 +1,5 @@
 # ValidateGeurtsDocumentation.ps1
-# Version: 0.73.0
+# Version: 0.74.0
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot,
@@ -759,12 +759,13 @@ try {
     $expectedRouteMappings = @(
         [pscustomobject]@{ Template = "Tools/AIAgentInstructionTemplates/copilot-instructions.md"; Target = ".github/copilot-instructions.md" },
         [pscustomobject]@{ Template = "Tools/AIAgentInstructionTemplates/instructions/geurts-unity.instructions.md"; Target = ".github/instructions/geurts-unity.instructions.md" },
-        [pscustomobject]@{ Template = "Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md"; Target = ".github/instructions/geurts-game-design.instructions.md" }
+        [pscustomobject]@{ Template = "Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md"; Target = ".github/instructions/geurts-game-design.instructions.md" },
+        [pscustomobject]@{ Template = "GeurtsTechniques/GeurtsAgentTechnique.md"; Target = "AGENTS.md" }
     )
 
     if ($companionContract) {
         if (-not (Test-ExactPropertySet -Object $companionContract -Expected @("schemaVersion", "packageVersion", "source", "destination", "validationEntries", "updateUi", "routeMappings"))) { $companionContractFailures.Add("top-level property set is not closed") | Out-Null }
-        if ([string]$companionContract.schemaVersion -cne "3.0.0" -or [string]$companionContract.packageVersion -cne [string]$packageVersion) { $companionContractFailures.Add("schemaVersion, current packageVersion, or manifest parity is invalid") | Out-Null }
+        if ([string]$companionContract.schemaVersion -cne "4.0.0" -or [string]$companionContract.packageVersion -cne [string]$packageVersion) { $companionContractFailures.Add("schemaVersion, current packageVersion, or manifest parity is invalid") | Out-Null }
 
         if (-not (Test-ExactPropertySet -Object $companionContract.source -Expected @("repository", "branch", "selection"))) { $companionContractFailures.Add("source property set is not closed") | Out-Null }
         elseif ([string]$companionContract.source.repository -cne "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -or [string]$companionContract.source.branch -cne "main" -or [string]$companionContract.source.selection -cne "exact-resolved-head-commit-archive") { $companionContractFailures.Add("official repository/main exact-commit archive source differs") | Out-Null }
@@ -783,12 +784,12 @@ try {
         elseif ([string]$companionContract.updateUi.actionLabel -cne "Update Geurts Game Forge Commandments" -or [string]$companionContract.updateUi.confirmationDefault -cne "cancel" -or [string]$companionContract.updateUi.cancelResult -cne "no-network-or-filesystem-change") { $companionContractFailures.Add("Update action or cancel behavior differs") | Out-Null }
 
         $confirmationTargets = @($companionContract.updateUi.confirmationTargets)
-        if ($confirmationTargets.Count -ne 4) { $companionContractFailures.Add("confirmation target count is not exactly four") | Out-Null }
+        if ($confirmationTargets.Count -ne 5) { $companionContractFailures.Add("confirmation target count is not exactly five") | Out-Null }
         else {
             $expectedConfirmationPaths = @("GeurtsGameForgeCommandments") + @($expectedRouteMappings | ForEach-Object { $_.Target })
             for ($confirmationIndex = 0; $confirmationIndex -lt $confirmationTargets.Count; $confirmationIndex++) {
                 $confirmationTarget = $confirmationTargets[$confirmationIndex]
-                $expectedEffect = if ($confirmationIndex -eq 0) { "replace-complete-directory" } else { "replace-complete-file" }
+                $expectedEffect = if ($confirmationIndex -eq 0) { "replace-complete-directory" } elseif ($confirmationIndex -eq 4) { "replace-managed-block" } else { "replace-complete-file" }
                 if (-not (Test-ExactPropertySet -Object $confirmationTarget -Expected @("path", "effect")) -or [string]$confirmationTarget.path -cne $expectedConfirmationPaths[$confirmationIndex] -or [string]$confirmationTarget.effect -cne $expectedEffect) { $companionContractFailures.Add("confirmation target $confirmationIndex differs from the exact path/effect list") | Out-Null }
             }
         }
@@ -796,7 +797,7 @@ try {
         $routeMappings = @($companionContract.routeMappings)
         $routeTargets = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
         $routeTemplates = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
-        if ($routeMappings.Count -ne 3) { $companionContractFailures.Add("route mapping count is not exactly three") | Out-Null }
+        if ($routeMappings.Count -ne 4) { $companionContractFailures.Add("route mapping count is not exactly four") | Out-Null }
         else {
             for ($routeIndex = 0; $routeIndex -lt $routeMappings.Count; $routeIndex++) {
                 $routeMapping = $routeMappings[$routeIndex]
@@ -823,10 +824,10 @@ try {
     }
     Add-Check "Git-only brick delivery and downgrade boundary" ($gitOnlyFailures.Count -eq 0) $(if ($gitOnlyFailures.Count) { $gitOnlyFailures -join '; ' } else { 'Released bricks use immutable Git sources; remote-first delivery and downgrade/source preservation rules are present.' })
 
-    $companionForwardCompatibilityValid = $companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)valid version and exactly match the AGENTS.md package version in the same archive' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release while schema 3\.0\.0 remains supported' -and $companionTechniqueText -match '(?i)`validationEntries` is the archive.?s closed current completeness list' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative before mutation' -and $companionTechniqueText -match '(?i)Validation entries grant no project-read or project-write authority'
+    $companionForwardCompatibilityValid = $companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)valid version and exactly match the AGENTS.md package version in the same archive' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release while schema 4\.0\.0 remains supported' -and $companionTechniqueText -match '(?i)`validationEntries` is the archive.?s closed current completeness list' -and $companionTechniqueText -match '(?i)schema-4\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative before mutation' -and $companionTechniqueText -match '(?i)Validation entries grant no project-read or project-write authority'
     Add-Check "Companion schema forward compatibility" $companionForwardCompatibilityValid "Schema 3.0.0 pins mutation paths, not documentation releases: packageVersion must match the same archive AGENTS.md, and later safe validation-entry lists remain consumable without a companion release."
 
-    $companionTechniqueRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md' '3.3.2'
+    $companionTechniqueRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md' '4.0.0'
     $companionContractRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionContract.json' $packageVersion
     $companionOwnerRow = [regex]::Match($manifestText, '(?m)^\| God-owned Windows Unity Editor Commandments source, metadata check, confirmed replacement, project-boundary, and AI-routing lifecycle \| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $companionContractOwnerRow = [regex]::Match($manifestText, '(?m)^\| Exact companion source, documentation destination, validation entries, confirmation targets, and template-to-route mappings \| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| (?<When>[^|]+) \|\r?$')
@@ -947,16 +948,16 @@ try {
         $companionUpdateBody.IndexOf("Perform basic pre-mutation validation", [System.StringComparison]::Ordinal),
         $companionUpdateBody.IndexOf('Delete any existing `<ProjectRoot>/GeurtsGameForgeCommandments/`', [System.StringComparison]::Ordinal),
         $companionUpdateBody.IndexOf("Directly replace each of the three AI target files", [System.StringComparison]::Ordinal),
-        $companionUpdateBody.IndexOf("Verify that the complete documentation destination and all three mapped target files were written successfully", [System.StringComparison]::Ordinal),
+        $companionUpdateBody.IndexOf("Verify that the documentation destination, all three Copilot files and root route were written successfully", [System.StringComparison]::Ordinal),
         $companionUpdateBody.IndexOf("After every managed-target verification passes", [System.StringComparison]::Ordinal),
         $companionUpdateBody.IndexOf("Remove temporary acquisition content on a best-effort basis", [System.StringComparison]::Ordinal)
     )
     $companionUpdateOrderValid = $companionUpdateSection.Success -and $companionUpdatePositions[0] -ge 0
     for ($positionIndex = 1; $positionIndex -lt $companionUpdatePositions.Count; $positionIndex++) { if ($companionUpdatePositions[$positionIndex] -le $companionUpdatePositions[$positionIndex - 1]) { $companionUpdateOrderValid = $false } }
     $downloadedContractExpansionContradiction = $companionActiveSurfaceText -match '(?i)downloaded contract may (?:change|expand|add)[^\r\n]{0,100}(?:mutation|destination|effect|mapping|target)'
-    $companionConfirmationValid = $companionTechniqueText -match '(?i)exposes exactly one lifecycle action' -and $companionTechniqueText.Contains("Update Geurts Game Forge Commandments") -and $companionTechniqueText -match '(?i)Selecting it immediately shows one confirmation dialog' -and $companionTechniqueText -match '(?i)There is no earlier preview, dry run, check phase, setup screen, or second confirmation' -and $companionTechniqueText -match '(?i)Cancel is the initially focused and default response' -and $companionTechniqueText -match '(?i)declining must cause no network or filesystem change' -and $companionTechniqueText -match '(?i)confirmation must identify all four destructive targets and no implied broader scope' -and $companionTechniqueText -match '(?i)every local change in those targets will be overwritten and lost' -and $companionTechniqueText -match '(?i)`Docs/GameDesign/` and every unlisted project path will not be accessed or changed' -and $companionTechniqueText -match '(?i)No archive acquisition or project mutation may begin before affirmative confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition[^\r\n]{0,220}must carry this exact supported destination, four-target list, and three template-to-target mappings' -and $companionTechniqueText -match '(?i)After confirmation and download[^\r\n]{0,120}parse the archive.?s contract' -and $companionTechniqueText -match '(?i)pre-approved source selection, destination, action, confirmation behavior[^\r\n]{0,180}mapping order before the first project mutation' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set' -and -not $downloadedContractExpansionContradiction
+    $companionConfirmationValid = $companionTechniqueText -match '(?i)exposes exactly one lifecycle action' -and $companionTechniqueText.Contains("Update Geurts Game Forge Commandments") -and $companionTechniqueText -match '(?i)Selecting it immediately shows one confirmation dialog' -and $companionTechniqueText -match '(?i)There is no earlier preview, dry run, check phase, setup screen, or second confirmation' -and $companionTechniqueText -match '(?i)Cancel is the initially focused and default response' -and $companionTechniqueText -match '(?i)declining must cause no network or filesystem change' -and $companionTechniqueText -match '(?i)confirmation must identify the four destructive replacements and the preservation-based root route, with no implied broader scope' -and $companionTechniqueText -match '(?i)every local change in the four complete-replacement targets will be overwritten and lost' -and $companionTechniqueText -match '(?i)`Docs/GameDesign/` and every unlisted project path will not be accessed or changed' -and $companionTechniqueText -match '(?i)No archive acquisition or project mutation may begin before affirmative confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition[^\r\n]{0,220}must carry this exact supported destination, five-target list, and four template-to-target mappings' -and $companionTechniqueText -match '(?i)After confirmation and download[^\r\n]{0,120}parse the archive.?s contract' -and $companionTechniqueText -match '(?i)pre-approved source selection, destination, action, confirmation behavior[^\r\n]{0,180}mapping order before the first project mutation' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set' -and -not $downloadedContractExpansionContradiction
     $comparisonStateFailureContradiction = $companionActiveSurfaceText -match '(?i)comparison-state (?:write|persistence) failure[^\r\n]{0,120}(?:reclassifies|invalidates|undoes|rolls back)[^\r\n]{0,80}(?:content|managed-target|replacement|Update)'
-    $companionCompletionValid = $companionUpdateOrderValid -and $companionTechniqueText -match '(?i)exact resolved main-head commit' -and $companionTechniqueText -match '(?i)archive pinned to that exact commit' -and $companionTechniqueText -match '(?i)readability of every contract-listed validation entry' -and $companionTechniqueText -match '(?i)support for contract schema 3\.0\.0' -and $companionTechniqueText -match '(?i)equality between the contract and AGENTS.md package versions' -and $companionTechniqueText -match '(?i)directly materialize the complete validated archive tree' -and $companionTechniqueText -match '(?i)result contains no `\.git` metadata or continuing repository, worktree, branch, remote, or synchronization connection' -and $companionTechniqueText -match '(?i)After every managed-target verification passes, report the content Update as successful and attempt to write' -and $companionTechniqueText -match '(?i)comparison-state write fails, report a warning[^\r\n]{0,160}do not reclassify, undo, or repair the successful four-target replacement' -and $companionTechniqueText -match '(?i)reports failure plainly and never reports partial completion as success' -and $companionTechniqueText -match '(?i)no automatic repair or recovery flow' -and -not $comparisonStateFailureContradiction
+    $companionCompletionValid = $companionUpdateOrderValid -and $companionTechniqueText -match '(?i)exact resolved main-head commit' -and $companionTechniqueText -match '(?i)archive pinned to that exact commit' -and $companionTechniqueText -match '(?i)readability of every contract-listed validation entry' -and $companionTechniqueText -match '(?i)support for contract schema 4\.0\.0' -and $companionTechniqueText -match '(?i)equality between the contract and AGENTS.md package versions' -and $companionTechniqueText -match '(?i)directly materialize the complete validated archive tree' -and $companionTechniqueText -match '(?i)result contains no `\.git` metadata or continuing repository, worktree, branch, remote, or synchronization connection' -and $companionTechniqueText -match '(?i)After every managed-target verification passes, report the content Update as successful and attempt to write' -and $companionTechniqueText -match '(?i)comparison-state write fails, report a warning[^\r\n]{0,160}do not reclassify, undo, or repair the successful five-target installation' -and $companionTechniqueText -match '(?i)reports failure plainly and never reports partial completion as success' -and $companionTechniqueText -match '(?i)no automatic repair or recovery flow' -and -not $comparisonStateFailureContradiction
     Add-Check "Companion confirmation and complete update" ($companionConfirmationValid -and $companionCompletionValid) "One cancel-default confirmation authorizes only the four listed replacements; content success requires all four targets, while later comparison-state persistence failure warns without undoing that success."
 
     $companionBoundaryValid = $companionTechniqueText -match '(?i)complete replacement of those three files from the exact template mappings' -and $companionTechniqueText -match '(?i)may create only the missing parent directories required to materialize the listed targets' -and $companionTechniqueText -match '(?i)preserve every unlisted file and directory within those parents' -and $companionTechniqueText -match '(?i)Every other project path is outside the lifecycle' -and $companionTechniqueText -match '(?i)must not enumerate, inspect, create, validate, hash, modify, or delete anything under' -and $companionTechniqueText.Contains("<ProjectRoot>/Docs/GameDesign/") -and $companionTechniqueText -match '(?i)must not discover additional work from repository contents' -and $companionTechniqueText -match '(?i)scan for or execute `\.bat`, `\.cmd`, `\.ps1`, or any other script from either the documentation package or the Unity project' -and $companionTechniqueText -match '(?i)complete documentation tree is copied as inert content' -and $companionTechniqueText -match '(?i)presence of tools within that tree does not authorize their execution'
@@ -982,13 +983,14 @@ try {
     }
     Add-Check "Codex guide template and retired routes" $codexValid "The sole technique template has one exact-entry placeholder and mandatory manifest/version guidance; deprecated standalone guides are absent."
 
-    $portableTemplate = [regex]::Matches($codexTechnique, '(?ms)^<!-- GEURTS-CODEX-ROOT-TEMPLATE:BEGIN version="1\.1\.0" -->\r?\n```markdown\r?\n(?<Body>.*?)^```\r?\n<!-- GEURTS-CODEX-ROOT-TEMPLATE:END -->')
-    $portableValid = $portableTemplate.Count -eq 1 -and @($documentationRegistry.files | Where-Object { $_.path -ceq 'GeurtsTechniques/GeurtsAgentTechnique.md' -and $_.version -ceq '1.4.0' }).Count -eq 1 -and $codexTechnique.Contains('byte-for-byte') -and $codexTechnique.Contains('Reinstallation is idempotent') -and $codexTechnique.Contains('Never install on startup or as part of Commandments Update') -and $codexTechnique.Contains('Unsupported or duplicate markers') -and $codexTechnique.Contains('Recheck source/target bytes after review')
+    $portableTemplate = [regex]::Matches($codexTechnique, '(?ms)^<!-- GEURTS-CODEX-ROOT-TEMPLATE:BEGIN version="1\.2\.0" -->\r?\n```markdown\r?\n(?<Body>.*?)^```\r?\n<!-- GEURTS-CODEX-ROOT-TEMPLATE:END -->')
+    $portableValid = $portableTemplate.Count -eq 1 -and @($documentationRegistry.files | Where-Object { $_.path -ceq 'GeurtsTechniques/GeurtsAgentTechnique.md' -and $_.version -ceq '1.5.0' }).Count -eq 1 -and $codexTechnique.Contains('byte-for-byte') -and $codexTechnique.Contains('Reinstallation is idempotent') -and $codexTechnique.Contains('Schema-4 Commandments installation and Update include this managed block') -and $codexTechnique.Contains('Unsupported or duplicate markers') -and $codexTechnique.Contains('Recheck source/target bytes after review')
     if ($portableTemplate.Count -eq 1) {
         $body = $portableTemplate[0].Groups['Body'].Value
         $portableValid = $portableValid -and [regex]::Matches($body, [regex]::Escape('./GeurtsGameForgeCommandments/AGENTS.md')).Count -eq 1 -and $body -notmatch '[A-Za-z]:[\\/]' -and $body.Contains('relative to the directory containing this AGENTS.md')
     }
-    Add-Check "Portable root onboarding boundary" $portableValid "Portable routing is separately versioned, project-relative, preserving, explicit, cancel-default and outside Commandments Update."
+    $portableValid = $portableValid -and $body.Contains('regular conversations') -and $companionTechniqueText.Contains('Preflight the root guide before the first destructive mutation') -and $companionTechniqueText.Contains('replace-managed-block')
+    Add-Check "Portable root onboarding boundary" $portableValid "Portable routing is separately versioned, project-relative, preserving, explicit, cancel-default and included in confirmed schema-4 Commandments installation and Update."
     $automationPolicy = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md'))
     $capabilityPolicy = $automationPolicy.Contains('ForgeCapabilities.json') -and $automationPolicy.Contains('exact package identity/version') -and $automationPolicy.Contains('Planned features never acquire supported operations') -and $automationPolicy.Contains('actual installed')
     # Installed observations, outcome vocabulary and the mandatory release gate are distinct requirements.
@@ -2009,7 +2011,7 @@ try {
     $draftStatusValid = @(
         @{ Path = "GeurtsTechniques/GeurtsFolderStructureTechnique.md"; Version = '0.17.1' },
         @{ Path = "GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md"; Version = '0.16.4' },
-        @{ Path = "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md"; Version = '3.3.2' }
+        @{ Path = "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md"; Version = '4.0.0' }
     ) | ForEach-Object {
         $record = Find-RegistryFile $_.Path $_.Version
         ([IO.File]::ReadAllText((Join-Path $RepositoryRoot $_.Path)) -match '(?im)^\*\*Status:\*\* Draft normative technique\s*$') -and
@@ -2173,12 +2175,12 @@ try {
         $companionTechniqueText.Contains('It carries documentation 0.61.1') -and
         $companionTechniqueText.Contains('It refuses differing existing documentation and does not replace Copilot routes.') -and
         $companionTechniqueText.Contains('Approved replacement requirement; implementation not verified') -and
-        $companionTechniqueText.Contains('exactly the current schema-3 documentation folder and three AI files') -and
+        $companionTechniqueText.Contains('exactly the current schema-4 documentation folder, three Copilot files and preserved root route') -and
         $companionTechniqueText.Contains('one cancel-default confirmation before acquisition or mutation') -and
         $companionTechniqueText.Contains('no backup or rollback') -and
         $companionTechniqueText.Contains('There is no earlier preview/dry run or second confirmation.') -and
         $companionTechniqueText.Contains('Every unlisted path stays untouched and uninspected, particularly Docs/GameDesign.') -and
-        $companionTechniqueText.Contains('AGENTS.md installation stays separate') -and
+        $companionTechniqueText.Contains('portable root AGENTS.md managed block belongs in this same confirmation') -and
         $companionTechniqueText.Contains('does not block the primary Forge workflow')
     Add-Check 'Secondary standalone scope and availability' $standaloneValid 'The existing preservation artifact and unverified replacement requirement retain separate availability, dependency, consent and target boundaries.'
 

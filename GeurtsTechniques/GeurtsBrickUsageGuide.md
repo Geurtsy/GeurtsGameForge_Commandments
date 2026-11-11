@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.11.4
+**Version:** 1.11.5
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -9,7 +9,7 @@
 
 AGENTS.md selects this index with the Brick Contract and Catalogue. Read the shared rules here and only the relevant brick sections through the AGENTS-owned controlled section reader. Game Forge integration is primary; StandardsOnly does not select bricks unless explicitly adopted.
 
-The [Catalogue](GeurtsBrickCatalogue.json) alone selects current installable identities, versions, immutable sources, Unity bounds and dependency minimums. Released sections below record evidence at their catalogue pin, not a second installation target. Multiplayer is released; its declared stack alone is not installation or compatibility evidence. Planned features within released bricks remain unavailable. Planned entries require purpose, limits and an explicit unavailable state, with no invented API, action, installation source or executable example.
+The [Catalogue](GeurtsBrickCatalogue.json) alone selects current installable identities, versions, immutable sources, Unity bounds and dependency minimums. Released sections below record evidence at their catalogue pin, not a second installation target. Multiplayer is planned and unavailable; its required stack is not installation or compatibility evidence. Planned features within released bricks remain unavailable. Planned entries require purpose, limits and an explicit unavailable state, with no invented API, action, installation source or executable example.
 
 **Declared requirements** come from the [Brick Contract](GeurtsBrickContract.md) and selected techniques. **Source evidence** below was checked read-only at exact pins: package.json, ForgeCapabilities.json, guide paths, operation provider declarations and linked recipe bytes where available. **Runtime evidence** remains the owner's source-matched validation; no Unity build, installer, native service or gameplay workflow was executed for this index. A declaration or passing documentation check does not certify functionality. Recheck the actual installed graph and available providers before use; unknown/mismatched evidence blocks the affected action.
 
@@ -111,6 +111,8 @@ Multiplayer dependency installation resolves the release-qualified stable source
 
 This dependency-installation cohort passed 18 focused Unity cases, 21 host safety checks and complete default-policy compilation of 84 assemblies with zero diagnostics. Native Steam, optional standalone-provider/account/device acceptance and live consumer adoption remain separate. Earlier results retain their original source/scope.
 
+Current root-onboarding evidence: God 0.46.0 supports schema 4. The confirmed content installation includes a portable root AGENTS.md managed block pointing to `./GeurtsGameForgeCommandments/AGENTS.md`; outside instructions are preserved. Schema-3 content retains its original targets. The actual exact-commit archive, initial installation, preservation, idempotence, conflicts and concurrent edits passed native checks; 34 source-bearing assemblies qualified with zero diagnostics. Source publication does not install consumer updates.
+
 ## Steam
 
 **Catalogue ID:** `com.geurts.gameforge.steam`
@@ -175,8 +177,8 @@ Confirmation focus maintenance: defer modal review until the requesting UI event
 ## Angels
 
 **Catalogue ID:** `com.geurts.gameforge.angels`
-**Evidence version:** `0.12.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/Documentation~/GameIntegration.md).
+**Evidence version:** `0.12.1`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/1a32153bbd7a2d809f9a8e96bd2c2137792e342e/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/1a32153bbd7a2d809f9a8e96bd2c2137792e342e/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/1a32153bbd7a2d809f9a8e96bd2c2137792e342e/Documentation~/GameIntegration.md).
 
 - **Use:** Optional Editor project maintenance: folders, guides, Git, scoped asset organization and explicit design imports.
 - **Prerequisites:** God, both licensed libraries and compatible local Commandments. Codex naming/audio are separate optional account/tool integrations with explicit sharing and billing consent.
@@ -186,13 +188,16 @@ Confirmation focus maintenance: defer modal review until the requesting UI event
 - **Verify:** Check cancellation, stale source/guidance refusal, GUID/meta preservation and actual/partial outcomes; choose a fresh review for retry.
 - **Limits:** Source/meta checks stream full file hashes; assets above 64 MiB do not fail solely because of source size. Preview, prompt and optional audio-decoding limits remain owner-defined. No Execute All, automatic primary GDD choice or startup scan. Documentation maintenance gives no GDD access. Optional paid inference is never implied by installation.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/Documentation~/AIUsabilityValidation.json). Fourteen focused native functional cases passed in Unity 6000.6.3f1, including actual multi-file/single-file picker acceptance and cancellation with Unicode/spaced paths, batch preservation and the public integration recipe. Both owning assemblies and literal supported examples compiled with zero diagnostics under warnings as errors; recorded compiler inputs remained unchanged. Native dialog commands ran on an unselected private Windows desktop without controlling the user desktop. Visual checks are not performed or required under current Automation policy. External dependency releases retain their documented acceptance scope; no new player/account/Steam or live-consumer acceptance is claimed.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/1a32153bbd7a2d809f9a8e96bd2c2137792e342e/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/1a32153bbd7a2d809f9a8e96bd2c2137792e342e/Documentation~/AIUsabilityValidation.json). Fourteen focused native functional cases passed in Unity 6000.6.3f1, including actual multi-file/single-file picker acceptance and cancellation with Unicode/spaced paths, batch preservation and the public integration recipe. Both owning assemblies and literal supported examples compiled with zero diagnostics under warnings as errors; recorded compiler inputs remained unchanged. Native dialog commands ran on an unselected private Windows desktop without controlling the user desktop. Visual checks are not performed or required under current Automation policy. External dependency releases retain their documented acceptance scope; no new player/account/Steam or live-consumer acceptance is claimed.
 
-Angels 0.11.0 requires God 0.44.0 and uses that shared reader for setup, guides, Git payloads and naming context. Reviewed guidance and context identity include raw registry bytes; prompts include only metadata for the existing selected documents. Current selected-folder guide 1.2.0 and portable-root guide 1.1.0 route directly to AGENTS.md. Exact historical guide 1.1.0/root 1.0.0 bytes remain available for safe migration; consent boundaries are unchanged.
+Angels 0.11.0 requires God 0.44.0 and uses that shared reader for setup, guides, Git payloads and naming context. Reviewed guidance and context identity include raw registry bytes; prompts include only metadata for the existing selected documents. Current selected-folder guide 1.2.0 and portable-root guide 1.2.0 route directly to AGENTS.md. Exact historical guide 1.1.0/root 1.0.0 bytes remain available for safe migration; consent boundaries are unchanged.
 
 Current selected-folder and portable-root guide installations route directly to Commandments/AGENTS.md. Exact known legacy payload migration, unowned-content preservation and current confirmation remain required; the earlier single-entry cohort passed 98 native owner regressions.
 
-Historical confirmation focus maintenance: defer modal review until the requesting UI event finishes and prevent duplicate queued work. Nine combined Angels/Diagnostics native checks passed in both Unity 6000.6.3f1 and 6000.6.8f1 with zero focus warnings and compiler diagnostics. [Owner evidence](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/Documentation~/Validation/ConfirmationFocus/summary.json) distinguishes fresh Editor checks from unchanged runtime/recipe acceptance reused at its original tested revision; physical input and new player acceptance are not claimed. Consumer updates remain explicit.
+Historical confirmation focus maintenance: defer modal review until the requesting UI event finishes and prevent duplicate queued work. Nine combined Angels/Diagnostics native checks passed in both Unity 6000.6.3f1 and 6000.6.8f1 with zero focus warnings and compiler diagnostics. [Owner evidence](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/1a32153bbd7a2d809f9a8e96bd2c2137792e342e/Documentation~/Validation/ConfirmationFocus/summary.json) distinguishes fresh Editor checks from unchanged runtime/recipe acceptance reused at its original tested revision; physical input and new player acceptance are not claimed. Consumer updates remain explicit.
+
+
+Current root-onboarding evidence: Angels 0.12.1 accepts Agent technique 1.5.0 and portable template 1.2.0. Fifteen portable-guide native checks passed, including relocation, BOM/newline preservation, cancellation, concurrent changes and historical migration. God owns the root route within confirmed schema-4 content installation; optional selected-folder installation remains an Angels action. Unchanged organization-recipe evidence is explicitly retained at its original tested revision.
 
 ## Archangels
 
