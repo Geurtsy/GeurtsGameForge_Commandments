@@ -2,7 +2,7 @@
 # Geurts AI Agent Setup Technique
 
 **Native AI Instruction Setup - Copilot and supported scoped routes**
-**Version:** 3.1.4
+**Version:** 3.2.0
 **Status:** Draft normative technique
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsAIAgentSetupTechnique.md`
@@ -33,7 +33,7 @@ The Commandments Companion's closed whole-file mappings are:
 
 `GeurtsTechniques/GeurtsCommandmentsCompanionContract.json` owns the machine-readable copy of this exact mapping. The companion must not infer or discover any additional route.
 
-The AGENTS.md Technique owns the separately installed Codex guide. The legacy manual manager handles only the three Copilot routes and must leave Codex guide files untouched.
+The AGENTS.md Technique owns the portable root block included in schema-4 content installation and the separately selected Codex guide. The legacy manual manager handles only the three Copilot routes and must leave Codex guide files untouched.
 
 These routes can guide only AI tools that support the applicable native instruction surface or have been explicitly instructed to read and follow `AGENTS.md`. Creating the files does not make every AI product discover or obey the Geurts documentation automatically.
 
@@ -47,13 +47,13 @@ See [Commandments lifecycle](GeurtsCommandmentsCompanionTechnique.md) and [depen
 
 Authoritative Markdown content remains readable without God. The content action grants no additional project access. Never use a generic template as the target game's design authority.
 
-When the user selects `Update Geurts Game Forge Commandments`, the companion immediately shows one confirmation that identifies the complete `GeurtsGameForgeCommandments/` folder and all three exact route targets above as overwrite targets. Cancel is the initially focused default. There is no earlier preview or dry run and no second confirmation. After affirmative confirmation, the companion directly replaces each route as a complete file with the bytes of its mapped template from the same validated authoritative archive used for the documentation copy.
+When the user selects `Update Geurts Game Forge Commandments`, the companion immediately shows one confirmation that identifies the complete `GeurtsGameForgeCommandments/` folder and all three exact route targets above as overwrite targets and root AGENTS.md as a preserved managed-block target. Cancel is the initially focused default. There is no earlier preview or dry run and no second confirmation. After affirmative confirmation, the companion directly replaces each route as a complete file with the bytes of its mapped template from the same validated authoritative archive used for the documentation copy.
 
 Confirmation intentionally authorizes discarding every existing byte in those three files. Companion replacement does not merge managed regions, preserve surrounding content, honor `GEURTS-MANAGED-OPT-OUT`, migrate legacy payloads, create per-file backups, or inspect files other than the three declared targets. It may create only missing `.github/` and `.github/instructions/` parent directories required for those targets and must leave every unlisted file and directory under those parents untouched.
 
-The companion reports Update success only after the complete documentation destination and all three route files are present and complete. A failure after mutation begins may leave a partial result; it must be reported as failure, and the only retry is another explicit confirmed Update. The companion must not inspect or change `Docs/GameDesign/`, run the manual manager, create GDD scaffolds, update the GDD manifest, create the full folder structure, or provision `.gitignore`.
+The service reports Update success only after the complete documentation destination, all three Copilot files and the portable root guide verify. The Companion contract additionally maps the Agent technique to the root managed block; its source must be rendered through the Agent owner, never copied wholesale. A failure after mutation begins may leave a partial result; it must be reported as failure, and the only retry is another explicit confirmed Update. The companion must not inspect or change `Docs/GameDesign/`, run the manual manager, create GDD scaffolds, update the GDD manifest, create the full folder structure, or provision `.gitignore`.
 
-This deliberately bounded whole-file authority applies to the God service and the separately specified standalone replacement mode in the Companion owner. That standalone requirement is not implemented by the legacy manual manager or preservation installer. AGENTS.md remains separate; all other manual operations retain the preservation rules below.
+This deliberately bounded whole-file authority applies to the God service and the separately specified standalone replacement mode in the Companion owner. That standalone requirement is not implemented by the legacy manual manager or preservation installer. Schema-4 content installation includes the portable root managed block; all other manual operations retain the preservation rules below.
 
 ## Legacy Manual Manager Preservation
 

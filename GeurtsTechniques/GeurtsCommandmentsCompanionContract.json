@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "3.0.0",
-  "packageVersion": "0.73.3",
+  "schemaVersion": "4.0.0",
+  "packageVersion": "0.74.0",
   "source": {
     "repository": "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git",
     "branch": "main",
@@ -52,6 +52,10 @@
       {
         "path": ".github/instructions/geurts-game-design.instructions.md",
         "effect": "replace-complete-file"
+      },
+      {
+        "path": "AGENTS.md",
+        "effect": "replace-managed-block"
       }
     ]
   },
@@ -67,6 +71,10 @@
     {
       "template": "Tools/AIAgentInstructionTemplates/instructions/geurts-game-design.instructions.md",
       "target": ".github/instructions/geurts-game-design.instructions.md"
+    },
+    {
+      "template": "GeurtsTechniques/GeurtsAgentTechnique.md",
+      "target": "AGENTS.md"
     }
   ]
 }
