@@ -24,8 +24,8 @@ The instruction-metadata patch cohort adds Unity-generated `AGENTS.md.meta` and 
 ## Compatibility
 
 **Catalogue ID:** `com.geurts.gameforge.compatibility`
-**Evidence version:** `0.4.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/fbc1ec9c5697860c1d668dcd4be89bda2fc903a1/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/fbc1ec9c5697860c1d668dcd4be89bda2fc903a1/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/fbc1ec9c5697860c1d668dcd4be89bda2fc903a1/README.md).
+**Evidence version:** `0.4.1`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/dc87a2d5cc1f4b1fe4bc777512abf006883214c0/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/dc87a2d5cc1f4b1fe4bc777512abf006883214c0/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.compatibility/blob/dc87a2d5cc1f4b1fe4bc777512abf006883214c0/README.md).
 
 - **Prerequisites:** Windows and Unity 6000.6.3f1 or newer; selected source must meet its owning profile. God and licensed vendor assemblies are not compile prerequisites.
 - **Entry points:** The pinned Compatibility owner task table and supported Compatibility tool; direct public APIs remain owned there.
@@ -42,6 +42,8 @@ Historical qualification:29host checks,28native Core checks, complete raw C#/Pyt
 The new exact optional profiles prepare official FishNet tag 4.7.3 and Steamworks.NET 2025.165.0. Outputs are 4.7.3-geurts.1 and 2025.165.1-geurts.1. Native/host preparation matches all 2300 members, with originals and metadata retained. The full 25-profile inventory has 307 reviewed file records. Other versions/custom sources remain unqualified.
 
 The initial dependency-installation cohort passed 18 focused Unity cases, 21 host safety checks and complete default-policy compilation of 84 assemblies with zero diagnostics. Native Steam, optional standalone-provider/account/device acceptance and live consumer adoption remain separate. Earlier results retain their original source/scope.
+
+The 0.4.1 optional Unity Pipeline 1.0.0-pre.1 profile guards the verifier declaration used only in Player builds. All 778 members are preserved with two intended changes and unchanged metadata; three malformed-context cases are refused. Original/prepared Player-branch response recipes pass, as do the actual Unity 6000.6.8f1 106-assembly default-diagnostic closure and existing menu assertions. These response recipes are not native Player builds or push/network acceptance. A separate custom native preparation helper launch was blocked by automatic review; no native Prepare parity pass is claimed. See the owner's current validation record. The inventory is 26 profiles/309 reviewed file records. Other prior profile evidence retains its historical scope.
 
 ## BigBang
 

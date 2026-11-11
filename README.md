@@ -103,7 +103,7 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 ### 0.74.2
 
-- Catalogue released GitFlow 0.5.1 and its saved-credential private HTTPS queue viewing. Record focused native/host acceptance and retain manual consumer installation. Other brick pins and contracts remain unchanged.
+- Catalogue released GitFlow 0.5.1 and its saved-credential private HTTPS queue viewing. Record focused native/host acceptance and retain manual consumer installation. Also catalogue Compatibility 0.4.1 for the qualified Unity Pipeline Player-only declaration repair. Other brick pins and contracts remain unchanged.
 
 ### 0.74.1
 
