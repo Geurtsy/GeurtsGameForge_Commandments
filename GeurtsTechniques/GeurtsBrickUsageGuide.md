@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.8.2
+**Version:** 1.8.3
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -133,26 +133,28 @@ Steam 0.4.1 retains the backend for both exact official 2025.164.1 and reviewed 
 ## Diagnostics
 
 **Catalogue ID:** `com.geurts.gameforge.diagnostics`
-**Evidence version:** `0.11.7`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/246bf9625f6b8036fafcdd46c35620fbf3750461/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/246bf9625f6b8036fafcdd46c35620fbf3750461/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/246bf9625f6b8036fafcdd46c35620fbf3750461/Documentation~/GameIntegration.md).
+**Evidence version:** `0.11.8`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/d4c32a1a91f35c95a4f03ba97cdd335d9661ff22/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/d4c32a1a91f35c95a4f03ba97cdd335d9661ff22/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/d4c32a1a91f35c95a4f03ba97cdd335d9661ff22/Documentation~/GameIntegration.md).
 
 - **Use:** Optional logging, health/inspection, history, metrics and console tooling.
-- **Prerequisites:** God, runtime UIElements and separately licensed Odin Inspector/Quantum Console. The verified QC 2.6.7 baseline requires the explicit [owner compatibility repair](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/246bf9625f6b8036fafcdd46c35620fbf3750461/Documentation~/QuantumConsoleUnity66Compatibility.md). Runtime console implantation remains optional and separately confirmed.
+- **Prerequisites:** God, runtime UIElements and separately licensed Odin Inspector/Quantum Console. The verified QC 2.6.7 baseline requires the explicit [owner compatibility repair](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/d4c32a1a91f35c95a4f03ba97cdd335d9661ff22/Documentation~/QuantumConsoleUnity66Compatibility.md). Runtime console implantation remains optional and separately confirmed.
 - **Entry points:** Use Diagnostics' Editor views; inspect_sources and install_console are declared operations. Extend health/inspection through the linked GameTargetDiagnostics recipe.
 - **Example:** Register one game-owned read-only health check and inspection callback; inspect failing then recovered target state, and dispose its registration. Install a console only if requested.
 - **Lifecycle/settings:** God owns shared logging/session contracts; Diagnostics supplies capture. Ordinary uncaptured logs are no-ops; actual failures remain visible in owner status. Release only owned registrations. The open retained-bootstrap console stays above later-created and persistent game screen UI; closing it restores temporary priorities.
 - **Verify:** Exercise failure, recovery and teardown independently of capture; console input/presentation needs its own acceptance.
 - **Limits:** No parallel command UI or logging framework. Command filters do not confer gameplay or host/server authority.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/246bf9625f6b8036fafcdd46c35620fbf3750461/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/246bf9625f6b8036fafcdd46c35620fbf3750461/Documentation~/AIUsabilityValidation.json). Owner evidence covers the recipe, graphics Play Mode and rendered Windows Mono release/development plus stripped IL2CPP acceptance, including independent native PanelRenderer and legacy UIDocument surfaces, pointer priority and close restoration. It distinguishes the Geurts-maintained QC repair and final incremental builds from unmodified stock QC, warning-free cold IL2CPP builds, physical input and live-consumer acceptance.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/d4c32a1a91f35c95a4f03ba97cdd335d9661ff22/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/d4c32a1a91f35c95a4f03ba97cdd335d9661ff22/Documentation~/AIUsabilityValidation.json). Reused earlier owner evidence covers the recipe, graphics Play Mode and rendered Windows Mono release/development plus stripped IL2CPP acceptance, including independent native PanelRenderer and legacy UIDocument surfaces, pointer priority and close restoration. It distinguishes the Geurts-maintained QC repair and final incremental builds from unmodified stock QC, warning-free cold IL2CPP builds, physical input and live-consumer acceptance.
 
 The unlisted Diagnostics 0.11.6 candidate remains blocked by three real cold IL2CPP compiler warnings; visual waiver does not waive them. The 0.11.5 entry is a published identity, not cold-AOT zero-warning certification. Detailed compatibility findings remain in the Compatibility owner.
+
+Confirmation focus maintenance: defer modal review until the requesting UI event finishes and prevent duplicate queued work. Nine combined Angels/Diagnostics native checks passed in both Unity 6000.6.3f1 and 6000.6.8f1 with zero focus warnings and compiler diagnostics. [Owner evidence](https://github.com/Geurtsy/com.geurts.gameforge.diagnostics/blob/d4c32a1a91f35c95a4f03ba97cdd335d9661ff22/Documentation~/Validation/ConfirmationFocus/summary.json) distinguishes fresh Editor checks from unchanged runtime/recipe acceptance reused at its original tested revision; physical input and new player acceptance are not claimed. Consumer updates remain explicit.
 
 ## Angels
 
 **Catalogue ID:** `com.geurts.gameforge.angels`
-**Evidence version:** `0.11.1`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29b797c0780d248f967d8fb25c878b8df6a01f47/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29b797c0780d248f967d8fb25c878b8df6a01f47/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29b797c0780d248f967d8fb25c878b8df6a01f47/Documentation~/GameIntegration.md).
+**Evidence version:** `0.11.2`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/0a0148b5a1f5036a0335c8435bf052a74c6d94d6/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/0a0148b5a1f5036a0335c8435bf052a74c6d94d6/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/0a0148b5a1f5036a0335c8435bf052a74c6d94d6/Documentation~/GameIntegration.md).
 
 - **Use:** Optional Editor project maintenance: folders, guides, Git, scoped asset organization and explicit design imports.
 - **Prerequisites:** God, both licensed libraries and compatible local Commandments. Codex naming/audio are separate optional account/tool integrations with explicit sharing and billing consent.
@@ -162,11 +164,13 @@ The unlisted Diagnostics 0.11.6 candidate remains blocked by three real cold IL2
 - **Verify:** Check cancellation, stale source/guidance refusal, GUID/meta preservation and actual/partial outcomes; choose a fresh review for retry.
 - **Limits:** Source/meta checks stream full file hashes; assets above 64 MiB do not fail solely because of source size. Preview, prompt and optional audio-decoding limits remain owner-defined. No Execute All, automatic primary GDD choice or startup scan. Documentation maintenance gives no GDD access. Optional paid inference is never implied by installation.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29b797c0780d248f967d8fb25c878b8df6a01f47/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/29b797c0780d248f967d8fb25c878b8df6a01f47/Documentation~/AIUsabilityValidation.json). Ten focused EditMode checks passed in Unity 6000.6.3f1 with zero compiler diagnostics and warnings as errors, including real older-CLI image naming, safe failures, cancellation, the 120-second timeout and the GUID/meta-preserving recipe. The licensed Quantum Console 2.6.7 dependency uses the separately published private Dreadvault repair at adf27643807633516b6a2b54cf5b57346837b700, with all eight repaired files verified against that commit. Vendor source is not part of Angels and these results do not certify unmodified stock Quantum Console. Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/0a0148b5a1f5036a0335c8435bf052a74c6d94d6/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/0a0148b5a1f5036a0335c8435bf052a74c6d94d6/Documentation~/AIUsabilityValidation.json). Reused earlier owner evidence: ten focused EditMode checks passed in Unity 6000.6.3f1 with zero compiler diagnostics and warnings as errors, including real older-CLI image naming, safe failures, cancellation, the 120-second timeout and the GUID/meta-preserving recipe. The licensed Quantum Console 2.6.7 dependency uses the separately published private Dreadvault repair at adf27643807633516b6a2b54cf5b57346837b700, with all eight repaired files verified against that commit. Vendor source is not part of Angels and these results do not certify unmodified stock Quantum Console. Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
 
 Angels 0.11.0 requires God 0.44.0 and uses that shared reader for setup, guides, Git payloads and naming context. Reviewed guidance and context identity include raw registry bytes; prompts include only metadata for the existing selected documents. Current selected-folder guide 1.2.0 and portable-root guide 1.1.0 route directly to AGENTS.md. Exact historical guide 1.1.0/root 1.0.0 bytes remain available for safe migration; consent boundaries are unchanged.
 
-Current selected-folder and portable-root guide installations route directly to Commandments/AGENTS.md. Exact known legacy payload migration, unowned-content preservation and current confirmation remain required;98 native owner regressions passed.
+Current selected-folder and portable-root guide installations route directly to Commandments/AGENTS.md. Exact known legacy payload migration, unowned-content preservation and current confirmation remain required; the earlier single-entry cohort passed 98 native owner regressions.
+
+Confirmation focus maintenance: defer modal review until the requesting UI event finishes and prevent duplicate queued work. Nine combined Angels/Diagnostics native checks passed in both Unity 6000.6.3f1 and 6000.6.8f1 with zero focus warnings and compiler diagnostics. [Owner evidence](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/0a0148b5a1f5036a0335c8435bf052a74c6d94d6/Documentation~/Validation/ConfirmationFocus/summary.json) distinguishes fresh Editor checks from unchanged runtime/recipe acceptance reused at its original tested revision; physical input and new player acceptance are not claimed. Consumer updates remain explicit.
 
 ## Archangels
 

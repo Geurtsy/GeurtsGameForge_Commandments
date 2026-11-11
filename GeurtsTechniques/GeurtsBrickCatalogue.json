@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.71.0",
+  "packageVersion": "0.71.1",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -115,11 +115,11 @@
       "name": "Geurts Game Forge Diagnostics",
       "description": "Optional game diagnostics: logs, health checks, inspected values, session history, commands and Windows metrics. Runtime console installation is a separate opt-in action.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics",
-      "version": "0.11.7",
+      "version": "0.11.8",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#246bf9625f6b8036fafcdd46c35620fbf3750461",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#d4c32a1a91f35c95a4f03ba97cdd335d9661ff22",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -138,11 +138,11 @@
       "name": "Geurts Game Forge Angels",
       "description": "Optional Editor tools for project organization, reviewed naming, sorting and game-design document import. Paid Codex/audio analysis requires explicit setup and consent; scans preserve completed work on cancellation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
-      "version": "0.11.1",
+      "version": "0.11.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#29b797c0780d248f967d8fb25c878b8df6a01f47",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#0a0148b5a1f5036a0335c8435bf052a74c6d94d6",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
