@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.74.4",
+  "packageVersion": "0.74.5",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -43,11 +43,11 @@
       "name": "Geurts Game Forge God",
       "description": "Required foundation for brick lifecycle, shared services, retained bootstrap, package management and Editor-only Commandments tools. Does not require optional peer bricks.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.47.2",
+      "version": "0.47.3",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#d2c985b1f11454a5917edc2a6729deb2bfaf0f5d",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -230,11 +230,11 @@
       "name": "Geurts Game Forge Audio",
       "description": "Game sound playback using built-in Unity audio by default, with owned handles, mixing and reusable authoring. FMOD is optional; listening, device and native-backend acceptance remain separate.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.audio",
-      "version": "0.9.7",
+      "version": "0.9.8",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#04c750e7392f028ca696f44b1dc569387b995e9c",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.audio.git#4bd99bae22e79e2e4f56096becbd527aeb2feb12",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -276,11 +276,11 @@
       "name": "Geurts Game Forge Object Pooling",
       "description": "Reusable prefab pooling with bounded growth, prewarming, generation-bound leases and explicit reset/return ownership. Game adapters retain responsibility for their object lifetimes.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling",
-      "version": "0.8.5",
+      "version": "0.8.6",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#9f97c7a1475acecaaa05cabb69cd25bd837cbc82",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.objectpooling.git#34be4d225eacb1b88a5d13287ef6c0d3d29965ba",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -383,5 +383,5 @@
       ]
     }
   ],
-  "publishedUtc": "2026-11-11T13:28:13Z"
+  "publishedUtc": "2026-11-11T23:20:58Z"
 }

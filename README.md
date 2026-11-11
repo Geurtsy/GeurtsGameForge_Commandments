@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.74.4
+**Version:** 0.74.5
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,10 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.74.5
+
+- Catalogue published God 0.47.3 shared Editor UI caching and bounded embedded repainting, Audio 0.9.8 change-driven navigation summaries, and Object Pooling 0.8.6 cached browser inventory. Review covers all 17 owners. Ten focused nonvisual checks pass; all 111 compiler assemblies have zero default-policy diagnostics. Consumer updates remain explicit.
 
 ### 0.74.4
 
