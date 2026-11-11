@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.74.0",
+  "packageVersion": "0.74.1",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -43,11 +43,11 @@
       "name": "Geurts Game Forge God",
       "description": "Required foundation for brick lifecycle, shared services, retained bootstrap, package management and Editor-only Commandments tools. Does not require optional peer bricks.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.46.0",
+      "version": "0.47.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#d50153193f6455fe4c16c4dbc4709c17cc020b44",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#d2c985b1f11454a5917edc2a6729deb2bfaf0f5d",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -57,7 +57,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.compatibility",
-          "minimumVersion": "0.1.1"
+          "minimumVersion": "0.4.0"
         }
       ]
     },
@@ -87,13 +87,13 @@
     {
       "id": "com.geurts.gameforge.multiplayer",
       "name": "Geurts Game Forge Multiplayer",
-      "description": "Reusable FishNet client-host sessions, bounded protocol lanes and built-in FishySteamworks/Steamworks.NET integration. Local Tugboat validation is separate from unverified native Steam/account/device acceptance.",
-      "website": "https://github.com/Geurtsy/GeurtsGameForge/tree/dcc5473f229cc133b4775be92fea9181d4c1a512/Packages/com.geurts.gameforge.multiplayer",
-      "version": "0.4.0",
+      "description": "Reusable FishNet Client-Host sessions with built-in FishySteamworks support. God installs reviewed compatible networking dependencies in one confirmed transaction. Native Steam/account/device acceptance remains unverified.",
+      "website": "https://github.com/Geurtsy/GeurtsGameForge/tree/d1dd1d7e05c6838c33fc1621a853fb9b3ca328fc/Packages/com.geurts.gameforge.multiplayer",
+      "version": "0.5.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/GeurtsGameForge.git?path=Packages/com.geurts.gameforge.multiplayer#dcc5473f229cc133b4775be92fea9181d4c1a512",
+      "source": "https://github.com/Geurtsy/GeurtsGameForge.git?path=Packages/com.geurts.gameforge.multiplayer#d1dd1d7e05c6838c33fc1621a853fb9b3ca328fc",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -106,7 +106,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.44.4"
+          "minimumVersion": "0.47.0"
         }
       ]
     },
@@ -324,11 +324,11 @@
       "name": "Geurts Game Forge Compatibility",
       "description": "Required independent Editor compatibility core. Reviewed fixes run automatically when Unity opens and packages change; project pause/status, private originals and project-relative package adoption. No God/vendor/runtime-host dependency; unknown sources and unsupported Editors remain visible.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.compatibility",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.compatibility.git#3a84986c1695d214eb09eb4f0bfcc3c15b660f41",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.compatibility.git#fbc1ec9c5697860c1d668dcd4be89bda2fc903a1",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [],

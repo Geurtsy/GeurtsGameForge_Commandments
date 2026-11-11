@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.74.0
+**Version:** 0.74.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -33,7 +33,7 @@ Installed Forge packages/bricks and managed Commandments/documentation must neve
 
 Current brick versions and immutable installation sources belong only in the Catalogue. The usage guide records pinned source evidence, not alternative installation targets. Planned features are unavailable. Documentation validation does not certify Unity compilation, native services, rendered interfaces or gameplay.
 
-Multiplayer is planned and unavailable. Its specification always includes Steam networking inside the kit through FishNet, FishySteamworks and Steamworks.NET. The released standalone Steam brick remains available for its separate platform services and release preparation; it is not an optional multiplayer transport kit. See the Multiplayer owner for required dependencies, shared native ownership and outstanding implementation evidence.
+Multiplayer is released. Its installation includes the newest verified compatible FishNet and Steamworks.NET dependencies plus bundled FishySteamworks. The released standalone Steam brick remains available for its separate platform services and release preparation; it is not an optional multiplayer transport kit. See the Multiplayer owner for required dependencies, shared native ownership and outstanding implementation evidence.
 
 ## Installing Forge: BigBang or manual
 
@@ -101,11 +101,15 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
 
+### 0.74.1
+
+- Catalogue God 0.47.2, Multiplayer 0.5.0 and Compatibility 0.4.0 for reviewed dependency installation with the newest verified compatible stable SDK sources. Preserve the published schema-4 root-onboarding and Angels updates. Consumer updates remain explicit.
+
 ### 0.74.0
 
 - Include the portable root AGENTS.md route in the schema-4 confirmed Commandments installation and Update; retain project instructions outside the block and start at the normal installed AGENTS.md authority. Older schema-3 consumers reject the expanded contract before mutation.
 
-### 0.74.0
+### 0.73.3
 
 - Publish the immutable GitFlow 0.5.0 catalogue pin and usage guidance for automatic publisher setup and the full Queue Panel.
 - Retain scoped nonvisual acceptance and the user's visual-check waiver. Consumer updates remain manual; unrelated pins, schemas and tool versions stay unchanged.
