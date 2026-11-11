@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.27.0
+**Version:** 1.28.0
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. AGENTS.md continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -103,9 +103,24 @@ For a planned/unavailable entry, set `released: false` and leave unverified `ver
 
 God loads cached data immediately and combines it with Unity's installed package state. Unity startup, restored windows and default God openings do not request the catalogue or check remote updates. Package registration notifications rebuild local state only. Online checks require an explicit Refresh or Check action, or an opted-in deliberate God menu opening. Offline/unavailable/malformed data must retain useful cache contents and display an explanation. Unknown availability must not be labelled up to date.
 
+### Unity package metadata release gate
+
+Every current and future Forge UPM package, including independent tools and adapters, must commit Unity-generated `.meta` sidecars for every imported file and folder before its first release and every later release. This includes root `AGENTS.md`, package JSON, code, assembly definitions, documentation and assets outside Unity-ignored paths. Preserve existing GUIDs when moving/renaming assets through supported Unity APIs. Generate missing metadata in an isolated writable Unity authoring/import fixture; never rely on an immutable installed Git package to repair itself, invent replacement GUIDs, or patch `Library/PackageCache`.
+
+Before publishing an owning candidate, run the shared read-only gate from one complete validated Commandments source copy:
+
+```powershell
+& '<CommandmentsSource>/Tools/ValidateGeurtsBrickSources.ps1' -MetadataRepository '<BrickSource>' -MetadataRef '<full-candidate-commit>'
+# For a nested UPM package, also pass -MetadataPackagePath 'Packages~/Example'.
+```
+
+Wire this gate into each new brick's release validation/CI and retain its exact candidate commit and successful result. An uncommitted, ignored or untracked sidecar cannot satisfy it. Nonzero exit blocks publication; fix the owning source and rerun against the final committed candidate. The same check runs for every released Catalogue pin through `-SourceRepositories`, so new entries receive it without a per-brick allowlist. Source publication remains separate from confirmed consumer updates.
+
+The check requires committed sidecars, one nonzero 32-hex GUID per imported sidecar, unique GUIDs within the package, matching folder markers and no orphan file sidecars. A folder sidecar may represent an empty Git folder. It derives import participation from Unity's [name-based hidden-asset rules](https://docs.unity3d.com/6000.6/Documentation/Manual/SpecialFolders.html): dot-prefixed names (except beneath StreamingAssets), tilde-suffixed names, `cvs`, and `.tmp` files are ignored with their ignored parent subtrees; `.meta` files do not need sidecars of their own. `Documentation~` and `Tools~` therefore require no sidecars. The package root itself is excluded. Git does not preserve Windows hidden attributes; an OS-only hidden flag is no exemption. Symlinks/submodules in imported content fail closed. This static check does not certify importer settings, cross-package GUID uniqueness, compilation or actual Unity import; retain those owning release checks. See Unity's [UPM layout](https://docs.unity3d.com/6000.6/Documentation/Manual/cus-layout.html).
+
 ### Publish before installing or updating
 
-Before publishing a catalogue, run `Tools/ValidateGeurtsDocumentation.ps1 -SourceRepositories <owning-source-checkouts>` as described in README's Source-Repository Validation. The gate reads each released entry's pinned Git `package.json` and `ForgeCapabilities.json`: identities, versions and required Forge dependency sets/minimums must agree exactly; required capability fields, unique IDs, feature/action links and pinned operation source declarations must also validate, and the catalogue must offer a released provider satisfying every minimum. Missing checkouts, commits or manifests block publication. Fetch missing objects separately; the gate executes no package code, performs no network requests and changes no checkout files. Ordinary local reading and validation do not require this publication-only evidence.
+Before publishing a catalogue, run `Tools/ValidateGeurtsDocumentation.ps1 -SourceRepositories <owning-source-checkouts>` as described in README's Source-Repository Validation. The gate reads each released entry's pinned Git `package.json` and `ForgeCapabilities.json`: identities, versions and required Forge dependency sets/minimums must agree exactly; required capability fields, unique IDs, feature/action links and pinned operation source declarations must also validate, and the catalogue must offer a released provider satisfying every minimum. The Unity package metadata release gate above also checks every pinned package tree. Missing checkouts, commits, manifests or required metadata block publication. Fetch missing objects separately; the gate executes no package code, performs no network requests and changes no checkout files. Ordinary local reading and validation do not require this publication-only evidence.
 
 Keep the consuming computer/project on its previous published Git version throughout feature development. Develop changes in a separate owning source checkout, increase its version and push the candidate to Git for isolated validation. Merge appropriately validated work to remote `main`, publish the newer immutable Git release, then update the authoritative catalogue to that exact identity/version/commit. Only after remote verification may the consuming project update through Unity Package Manager. Verify its actual resolved source is Git and its version and commit match the published target; installation alone does not prove compilation or behavior.
 

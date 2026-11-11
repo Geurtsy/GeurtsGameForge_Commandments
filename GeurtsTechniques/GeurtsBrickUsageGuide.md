@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.8.1
+**Version:** 1.8.2
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -56,8 +56,8 @@ BigBang 0.9 targets actual released God 0.44, requires Core 0.1 first and perfor
 ## Commandments Compatibility
 
 **Catalogue ID:** `com.geurts.gameforge.documentation`
-**Evidence version:** `0.16.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/705d00078f8b5bad797dd297f99296fd59476451/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/705d00078f8b5bad797dd297f99296fd59476451/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/705d00078f8b5bad797dd297f99296fd59476451/Documentation~/AIUsability.md).
+**Evidence version:** `0.16.1`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/51b56c2703f96e72705da9f1bbcfee6993a2b49c/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/51b56c2703f96e72705da9f1bbcfee6993a2b49c/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/51b56c2703f96e72705da9f1bbcfee6993a2b49c/Documentation~/AIUsability.md).
 
 - **Use:** Retain existing legacy Companion Editor callers during migration to God. Excluded from fresh installations and Install All.
 - **Prerequisites:** No God/vendor compile dependency; compatible God is required to perform delegated content work and God requires both licensed libraries.
@@ -67,7 +67,9 @@ BigBang 0.9 targets actual released God 0.44, requires Core 0.1 first and perfor
 - **Verify:** Check actual installed identities and callable God owner. Confirm an absent owner reports unavailable, automatic calls refuse without invoking consent callbacks, and the adapter starts no acquisition.
 - **Limits:** Updating this adapter cannot disable an older God dashboard updater. Paired God acceptance remains outstanding; the adapter's standalone tests do not establish it. The pinned owner guides now agree with release 0.16.0.
 
-[Owner validation](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/705d00078f8b5bad797dd297f99296fd59476451/Documentation~/AIUsabilityValidation.json) records four standalone Unity 6000.6.3f1 tests passed, zero failed/skipped, warnings treated as errors, and the supported example compiled with God absent. This review matched the released C# fingerprint, four evidence-file digests and [example](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/705d00078f8b5bad797dd297f99296fd59476451/Tools~/Examples/AutomationExample.cs) to its guide. Unity was not rerun here; see the [scoped adoption record](../Migrations/v0.64.0.md#verified-adapter-adoption).
+[Owner validation](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/51b56c2703f96e72705da9f1bbcfee6993a2b49c/Documentation~/AIUsabilityValidation.json) records four standalone Unity 6000.6.3f1 tests passed, zero failed/skipped, warnings treated as errors, and the supported example compiled with God absent. This review matched the released C# fingerprint, four evidence-file digests and [example](https://github.com/Geurtsy/com.geurts.gameforge.commandments/blob/51b56c2703f96e72705da9f1bbcfee6993a2b49c/Tools~/Examples/AutomationExample.cs) to its guide. Unity was not rerun here; see the [scoped adoption record](../Migrations/v0.64.0.md#verified-adapter-adoption).
+
+The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared committed-tree gate passes; all six C# files and dependency inputs match 0.16.0. Prior source-matched compiler/test results retain their original tested commit and limits in the owner's `Documentation~/Validation/AssetMetadata/` record. No consumer update or fresh Unity behavior execution is claimed.
 
 ## God
 

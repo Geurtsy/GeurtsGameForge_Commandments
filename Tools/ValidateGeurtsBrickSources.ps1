@@ -1,7 +1,7 @@
-# Version: 1.1.0
+# Version: 1.2.0
 <#
 .SYNOPSIS
-Checks released catalogue entries against their exact Git package and capability manifests.
+Checks committed Unity package metadata and released catalogue source declarations.
 .DESCRIPTION
 Supply source checkouts whose origin remotes match the catalogue repositories. Read only
 committed objects, never checkout files or execute package code. Missing objects fail closed;
@@ -9,11 +9,18 @@ fetch them separately before publication. This tool performs no network requests
 .EXAMPLE
 & ./Tools/ValidateGeurtsBrickSources.ps1 -SourceRepositories @('C:/src/God', 'C:/src/Audio')
 Supply a checkout for every released entry, including independent tools and the legacy adapter.
+.EXAMPLE
+& ./Tools/ValidateGeurtsBrickSources.ps1 -MetadataRepository C:/src/NewBrick -MetadataRef <candidate-commit>
+Validate a committed candidate before its first release, without adding it to the catalogue.
+MetadataPackagePath selects a nested package; the repository/package root itself needs no sidecar.
 #>
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot,
     [string[]]$SourceRepositories = @(),
+    [string]$MetadataRepository,
+    [string]$MetadataRef = 'HEAD',
+    [string]$MetadataPackagePath = '',
     [ValidateSet('Text', 'Json')][string]$OutputFormat = 'Text'
 )
 $ErrorActionPreference = 'Stop'
@@ -43,7 +50,7 @@ function Get-GeurtsPinnedSource([string]$Source) {
     }
 }
 
-function Invoke-GeurtsGitRead([string]$Root, [string[]]$GitArguments) {
+function Invoke-GeurtsGitRead([string]$Root, [string[]]$GitArguments, [int[]]$AllowedExitCodes = @(0)) {
     $previousPreference = $ErrorActionPreference
     try {
         $ErrorActionPreference = 'Continue'
@@ -51,8 +58,80 @@ function Invoke-GeurtsGitRead([string]$Root, [string[]]$GitArguments) {
         $gitExit = $LASTEXITCODE
     }
     finally { $ErrorActionPreference = $previousPreference }
-    if ($gitExit -ne 0) { throw "Git read failed (exit $gitExit). Verify the source checkout and fetch the pinned objects separately." }
+    if ($gitExit -notin $AllowedExitCodes) { throw "Git read failed (exit $gitExit). Verify the source checkout and fetch the pinned objects separately." }
     return ($gitOutput -join "`n")
+}
+
+
+function Test-GeurtsImportedPath([string]$Path, [bool]$IsDirectory = $false) {
+    # Git has no portable hidden attribute. Use Unity's name-based exclusions only.
+    $streaming = $false
+    $parts = $Path.Split('/')
+    for ($index = 0; $index -lt $parts.Count; $index++) {
+        $part = $parts[$index]
+        if (($part.StartsWith('.') -and -not $streaming) -or $part.EndsWith('~') -or $part -ieq 'cvs') { return $false }
+        if (-not $IsDirectory -and $index -eq $parts.Count - 1 -and $part.EndsWith('.tmp', [StringComparison]::OrdinalIgnoreCase)) { return $false }
+        if ($part -ceq 'StreamingAssets') { $streaming = $true }
+    }
+    return $true
+}
+
+function Get-GeurtsMetadataIssues([string]$Root, [string]$Commit, [string]$Prefix = '') {
+    $issues = New-Object 'System.Collections.Generic.List[string]'
+    $tree = $Commit + ':' + $Prefix.TrimEnd('/')
+    $entries = New-Object 'System.Collections.Generic.Dictionary[string,string]' ([StringComparer]::Ordinal)
+    $inventory = Invoke-GeurtsGitRead $Root @('-c', 'core.quotePath=false', 'ls-tree', '-r', '-t', $tree)
+    foreach ($line in @($inventory -split "`n" | Where-Object { $_ })) {
+        if ($line -notmatch '^(?<Mode>[0-9]{6}) (?:blob|tree|commit) [a-f0-9]{40}\t(?<Path>.+)$' -or $Matches.Path.StartsWith('"')) {
+            throw 'Package tree contains an unsupported or escaped Git path.'
+        }
+        $entries.Add($Matches.Path, $Matches.Mode)
+    }
+    if (-not $entries.ContainsKey('package.json')) { throw 'Selected package tree has no committed package.json.' }
+    $metas = New-Object 'System.Collections.Generic.Dictionary[string,object]' ([StringComparer]::Ordinal)
+    foreach ($path in $entries.Keys) {
+        $isMeta = $path.EndsWith('.meta', [StringComparison]::OrdinalIgnoreCase)
+        $importPath = if ($isMeta) { $path.Substring(0, $path.Length - 5) } else { $path }
+        $isDirectory = $entries[$path] -eq '040000' -or ($isMeta -and $entries.ContainsKey($importPath) -and $entries[$importPath] -eq '040000')
+        if (-not (Test-GeurtsImportedPath $importPath $isDirectory)) { continue }
+        if ($entries[$path] -notin @('040000', '100644', '100755')) { $issues.Add("Unsupported imported Git object: $path"); continue }
+        if ($isMeta) {
+            if ($entries[$path] -eq '040000') { $issues.Add("Unsupported metadata directory: $path"); continue }
+            $metas.Add($path, (New-Object 'System.Collections.Generic.List[string]'))
+        }
+        elseif (-not $entries.ContainsKey($path + '.meta')) { $issues.Add("Missing committed Unity metadata: $path.meta") }
+    }
+    if ($metas.Count) {
+        # One Git read per package, rather than starting one process for every sidecar.
+        $lines = Invoke-GeurtsGitRead $Root @('-c', 'core.quotePath=false', 'grep', '-I', '-n', '-E', '^(guid:|folderAsset:)', $tree, '--', '*.meta') @(0, 1)
+        foreach ($line in @($lines -split "`n" | Where-Object { $_ })) {
+            if (-not $line.StartsWith($tree + ':', [StringComparison]::Ordinal)) { throw 'Unexpected metadata grep output.' }
+            $record = $line.Substring($tree.Length + 1)
+            if ($record -notmatch '^(?<Path>.+?):[0-9]+:(?<Value>.*)$') { throw 'Unsupported metadata path in Git output.' }
+            if ($metas.ContainsKey($Matches.Path)) { $metas[$Matches.Path].Add($Matches.Value.TrimEnd("`r")) }
+        }
+    }
+    $guids = @{}
+    foreach ($path in $metas.Keys) {
+        $guidLines = @($metas[$path] | Where-Object { $_ -cmatch '^guid:' })
+        if ($guidLines.Count -ne 1 -or $guidLines[0] -cnotmatch '^guid: [a-fA-F0-9]{32}$' -or $guidLines[0] -match '^guid: 0{32}$') {
+            $issues.Add("Invalid Unity metadata GUID: $path")
+        }
+        else {
+            $guid = $guidLines[0].Substring(6).ToLowerInvariant()
+            if ($guids.ContainsKey($guid)) { $issues.Add("Duplicate Unity metadata GUID: $path and $($guids[$guid])") }
+            else { $guids[$guid] = $path }
+        }
+        $asset = $path.Substring(0, $path.Length - 5)
+        $folderLines = @($metas[$path] | Where-Object { $_ -cmatch '^folderAsset:' })
+        $folder = $folderLines.Count -eq 1 -and $folderLines[0] -ceq 'folderAsset: yes'
+        if ($entries.ContainsKey($asset)) {
+            if (($entries[$asset] -eq '040000') -ne $folder -or $folderLines.Count -gt 1) { $issues.Add("Unity metadata folder marker disagrees with asset: $path") }
+        }
+        elseif (-not $folder) { $issues.Add("Orphan Unity file metadata: $path") }
+        # A folderAsset sidecar can represent an intentionally empty folder: Git stores no empty trees.
+    }
+    return @($issues.ToArray() | Sort-Object)
 }
 
 function Get-GeurtsCapabilityIssues($Capabilities) {
@@ -159,50 +238,63 @@ $previousOptionalLocks = $env:GIT_OPTIONAL_LOCKS
 try {
     $env:GIT_NO_LAZY_FETCH = '1'
     $env:GIT_OPTIONAL_LOCKS = '0'
-    if (-not $SourceRepositories.Count) { throw 'SourceRepositories is required for publication. Supply cached owning Git checkouts for every released catalogue entry.' }
-    $cataloguePath = Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsBrickCatalogue.json'
-    $catalogue = [System.IO.File]::ReadAllText($cataloguePath) | ConvertFrom-Json
-    if ($catalogue.schemaVersion -ne 1) { throw 'Unsupported catalogue schema.' }
-    $released = @($catalogue.bricks | Where-Object { $_.released -eq $true })
-    if (-not $released.Count -or @($catalogue.bricks.id | Select-Object -Unique).Count -ne @($catalogue.bricks).Count) { throw 'Catalogue must have released entries and unique identities.' }
-    $repositories = @{}
-    foreach ($sourceRoot in $SourceRepositories) {
-        $fullRoot = [System.IO.Path]::GetFullPath($sourceRoot)
-        if ($fullRoot.Length -ge 260) { throw "Source path is $($fullRoot.Length) characters (maximum 259): $fullRoot" }
-        $origin = Invoke-GeurtsGitRead $fullRoot @('remote', 'get-url', 'origin')
-        $identity = Get-GeurtsRepositoryIdentity $origin
-        if ($repositories.ContainsKey($identity)) { throw "Duplicate checkout for $identity." }
-        $repositories[$identity] = $fullRoot
+    if ($MetadataRepository) {
+        if ($SourceRepositories.Count) { throw 'MetadataRepository and SourceRepositories are separate validation modes.' }
+        if ($MetadataRef -notmatch '^[A-Za-z0-9][A-Za-z0-9._/-]*$') { throw 'MetadataRef must be a safe Git revision, preferably a full candidate commit.' }
+        if ($MetadataPackagePath -and ($MetadataPackagePath -notmatch '^[A-Za-z0-9_.~/-]+$' -or @($MetadataPackagePath.Split('/') | Where-Object { $_ -in @('', '.', '..') }).Count)) { throw 'MetadataPackagePath must be a safe package-relative directory without leading/trailing slashes.' }
+        $metadataRoot = [IO.Path]::GetFullPath($MetadataRepository)
+        if ($metadataRoot.Length -ge 260) { throw "Metadata repository path exceeds 259 characters: $metadataRoot" }
+        $commit = Invoke-GeurtsGitRead $metadataRoot @('rev-parse', '--verify', ($MetadataRef + '^{commit}'))
+        $entryIssues = @(Get-GeurtsMetadataIssues $metadataRoot $commit $MetadataPackagePath)
+        foreach ($issue in $entryIssues) { $failures.Add($issue) }
+        $checks.Add([pscustomobject]@{ id='unity_metadata'; version=''; source=$MetadataPackagePath; commit=$commit; passed=($entryIssues.Count -eq 0); issues=$entryIssues })
     }
-    foreach ($brick in $released) {
-        $commit = $null
-        $entryIssues = @()
-        try {
-            if ($brick.sourceKind -cne 'git') { throw 'Released installation source is not Git.' }
-            $pin = Get-GeurtsPinnedSource $brick.source
-            $sourceRoot = $repositories[$pin.Repository]
-            if (-not $sourceRoot) { throw "Missing owning source checkout for $($pin.Repository)." }
-            $commit = Invoke-GeurtsGitRead $sourceRoot @('rev-parse', '--verify', ($pin.Ref + '^{commit}'))
-            if ($pin.Ref -match '^[a-fA-F0-9]{40}$' -and $commit -cne $pin.Ref.ToLowerInvariant()) { throw 'Resolved commit differs from the exact source pin.' }
-            foreach ($file in @('package.json', 'ForgeCapabilities.json')) {
-                $logicalPath = [System.IO.Path]::GetFullPath((Join-Path $sourceRoot ($pin.Prefix + $file)))
-                if ($logicalPath.Length -ge 260) { throw "Manifest path is $($logicalPath.Length) characters (maximum 259): $logicalPath" }
-            }
-            $package = (Invoke-GeurtsGitRead $sourceRoot @('show', ($commit + ':' + $pin.Prefix + 'package.json'))) | ConvertFrom-Json
-            $capabilities = (Invoke-GeurtsGitRead $sourceRoot @('show', ($commit + ':' + $pin.Prefix + 'ForgeCapabilities.json'))) | ConvertFrom-Json
-            $entryIssues = @(Get-GeurtsBrickSourceIssues $brick $package $capabilities $catalogue)
-            if (-not $entryIssues.Count) {
-                foreach ($operation in @($capabilities.operations)) {
-                    $logicalPath = [System.IO.Path]::GetFullPath((Join-Path $sourceRoot ($pin.Prefix + $operation.source)))
-                    if ($logicalPath.Length -ge 260) { throw "Operation source path is $($logicalPath.Length) characters (maximum 259): $logicalPath" }
-                    $code = Invoke-GeurtsGitRead $sourceRoot @('show', ($commit + ':' + $pin.Prefix + $operation.source))
-                    if (-not $code.Contains([string]$operation.symbol)) { throw "Capability operation symbol is absent from its pinned source: $($operation.id)." }
+    else {
+        if (-not $SourceRepositories.Count) { throw 'SourceRepositories is required for publication. Supply cached owning Git checkouts for every released catalogue entry.' }
+        $cataloguePath = Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsBrickCatalogue.json'
+        $catalogue = [System.IO.File]::ReadAllText($cataloguePath) | ConvertFrom-Json
+        if ($catalogue.schemaVersion -ne 1) { throw 'Unsupported catalogue schema.' }
+        $released = @($catalogue.bricks | Where-Object { $_.released -eq $true })
+        if (-not $released.Count -or @($catalogue.bricks.id | Select-Object -Unique).Count -ne @($catalogue.bricks).Count) { throw 'Catalogue must have released entries and unique identities.' }
+        $repositories = @{}
+        foreach ($sourceRoot in $SourceRepositories) {
+            $fullRoot = [System.IO.Path]::GetFullPath($sourceRoot)
+            if ($fullRoot.Length -ge 260) { throw "Source path is $($fullRoot.Length) characters (maximum 259): $fullRoot" }
+            $origin = Invoke-GeurtsGitRead $fullRoot @('remote', 'get-url', 'origin')
+            $identity = Get-GeurtsRepositoryIdentity $origin
+            if ($repositories.ContainsKey($identity)) { throw "Duplicate checkout for $identity." }
+            $repositories[$identity] = $fullRoot
+        }
+        foreach ($brick in $released) {
+            $commit = $null
+            $entryIssues = @()
+            try {
+                if ($brick.sourceKind -cne 'git') { throw 'Released installation source is not Git.' }
+                $pin = Get-GeurtsPinnedSource $brick.source
+                $sourceRoot = $repositories[$pin.Repository]
+                if (-not $sourceRoot) { throw "Missing owning source checkout for $($pin.Repository)." }
+                $commit = Invoke-GeurtsGitRead $sourceRoot @('rev-parse', '--verify', ($pin.Ref + '^{commit}'))
+                if ($pin.Ref -match '^[a-fA-F0-9]{40}$' -and $commit -cne $pin.Ref.ToLowerInvariant()) { throw 'Resolved commit differs from the exact source pin.' }
+                foreach ($file in @('package.json', 'ForgeCapabilities.json')) {
+                    $logicalPath = [System.IO.Path]::GetFullPath((Join-Path $sourceRoot ($pin.Prefix + $file)))
+                    if ($logicalPath.Length -ge 260) { throw "Manifest path is $($logicalPath.Length) characters (maximum 259): $logicalPath" }
+                }
+                $package = (Invoke-GeurtsGitRead $sourceRoot @('show', ($commit + ':' + $pin.Prefix + 'package.json'))) | ConvertFrom-Json
+                $capabilities = (Invoke-GeurtsGitRead $sourceRoot @('show', ($commit + ':' + $pin.Prefix + 'ForgeCapabilities.json'))) | ConvertFrom-Json
+                $entryIssues = @(Get-GeurtsBrickSourceIssues $brick $package $capabilities $catalogue) + @(Get-GeurtsMetadataIssues $sourceRoot $commit $pin.Prefix)
+                if (-not $entryIssues.Count) {
+                    foreach ($operation in @($capabilities.operations)) {
+                        $logicalPath = [System.IO.Path]::GetFullPath((Join-Path $sourceRoot ($pin.Prefix + $operation.source)))
+                        if ($logicalPath.Length -ge 260) { throw "Operation source path is $($logicalPath.Length) characters (maximum 259): $logicalPath" }
+                        $code = Invoke-GeurtsGitRead $sourceRoot @('show', ($commit + ':' + $pin.Prefix + $operation.source))
+                        if (-not $code.Contains([string]$operation.symbol)) { throw "Capability operation symbol is absent from its pinned source: $($operation.id)." }
+                    }
                 }
             }
+            catch { $entryIssues = @($_.Exception.Message) }
+            foreach ($issue in $entryIssues) { $failures.Add("$($brick.id): $issue") }
+            $checks.Add([pscustomobject]@{ id = $brick.id; version = $brick.version; source = $brick.source; commit = $commit; passed = ($entryIssues.Count -eq 0); issues = $entryIssues })
         }
-        catch { $entryIssues = @($_.Exception.Message) }
-        foreach ($issue in $entryIssues) { $failures.Add("$($brick.id): $issue") }
-        $checks.Add([pscustomobject]@{ id = $brick.id; version = $brick.version; source = $brick.source; commit = $commit; passed = ($entryIssues.Count -eq 0); issues = $entryIssues })
     }
 }
 catch { $failures.Add($_.Exception.Message) }
