@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.72.1",
+  "packageVersion": "0.72.2",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -159,13 +159,13 @@
     {
       "id": "com.geurts.gameforge.settings",
       "name": "Geurts Game Forge Settings System",
-      "description": "Game settings with authored panels, typed providers, reviewed Stage/Apply/Cancel and local persistence. Supports built-in sound controls and optional Audio/UI integrations; game-specific settings use public provider APIs.",
+      "description": "Game settings with reviewed automatic Unity definitions and provider wiring, typed game-owned adapters, Stage/Apply/Cancel and local persistence. Supports conditional URP and optional Audio/UI integrations; the game connects its UI.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.settings",
-      "version": "0.7.6",
+      "version": "0.8.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#ff7f1180168872032ca48e7a45ad8f25b6093826",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.settings.git#8b75c62bfc9edfc996b5e018f49e5a47df344ce7",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -383,5 +383,5 @@
       ]
     }
   ],
-  "publishedUtc": "2026-11-11T04:10:34Z"
+  "publishedUtc": "2026-11-11T04:55:08.644893Z"
 }

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.72.1
+**Version:** 0.72.2
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.72.2
+
+- Pin released Settings 0.8.0 and document automatic Unity setup, explicit UI ownership, source-repair qualification and nonvisual evidence limits.
+
 
 ### 0.72.1 - 11 November 2026
 
