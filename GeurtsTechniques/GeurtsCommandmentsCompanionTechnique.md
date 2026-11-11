@@ -1,8 +1,8 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Commandments Service and Companion Compatibility Technique
 
-**Version:** 3.3.2
-**Contract schema:** 3.0.0
+**Version:** 4.0.0
+**Contract schema:** 4.0.0
 **Status:** Draft normative technique
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md`
@@ -51,7 +51,7 @@ The adapter retains UPM ID `com.geurts.gameforge.documentation`, assembly `Geurt
 
 The catalogue marks the adapter `compatibilityOnly: true`: it is available as an update for existing installations but excluded from fresh installs and Install All. Keep it while custom Editor assemblies reference the old API; migrate those references to God's Editor assembly and supported APIs, then remove it through UPM. No automatic custom-code or guide rewrite is allowed. Existing God GUIDs and retained adapter identities remain stable; moved internal scripts receive new God GUIDs so both old packages can coexist during transition.
 
-Keep local edits outside the four managed targets or preserve them manually before accepting content replacement. Never automatically rewrite AGENTS.md, migrate the older GeurtsGameForgeDocumentation folder, or touch Docs/GameDesign. See [v0.41.0 migration](../Migrations/v0.41.0.md) for the exact transition and ownership map.
+Keep local edits outside the five managed targets or preserve them manually before accepting content replacement. Never rewrite AGENTS.md on startup, migrate the older GeurtsGameForgeDocumentation folder, or touch Docs/GameDesign. Confirmed schema-4 content actions apply only the portable managed-block exception below. See [v0.41.0 migration](../Migrations/v0.41.0.md) for the exact transition and ownership map.
 
 ### Current action, confirmation and legacy automatic callers
 
@@ -71,13 +71,13 @@ Read-only metadata checks keep their existing explicit or opted-in deliberate Go
 - the one project-local documentation destination;
 - the entries required during basic candidate validation;
 - the Update action and confirmation targets; and
-- the three exact documentation-template-to-project-target mappings.
+- the three exact Copilot mappings and the Agent-technique-to-root-managed-block mapping.
 
 It is not a general setup-plan format, script manifest, extensible task engine, or permission catalogue. An implementation must reject an unsupported schema, a missing or unknown field, a duplicate mapping or target, an unsafe validation path, or any source, destination, template, target, action label, or confirmation behavior that differs from the supported schema contract. It must not discover additional work from repository contents.
 
-Because the confirmation occurs before archive acquisition, a schema-3.0.0 companion must carry this exact supported destination, four-target list, and three template-to-target mappings for the dialog and mutation boundary. After confirmation and download, it must parse the archive's contract and require the pre-approved source selection, destination, action, confirmation behavior, target paths and effects, template paths, target paths, and mapping order before the first project mutation. The earlier approval does not authorize a changed or expanded managed target set. `packageVersion` and `validationEntries` follow the forward-compatible rules in the next paragraph rather than being pinned to the initial v0.11.0 values.
+Because the confirmation occurs before archive acquisition, a schema-4.0.0 service must carry this exact supported destination, five-target list, and four template-to-target mappings for the dialog and mutation boundary. After confirmation and download, it must parse the archive's contract and require the pre-approved source selection, destination, action, confirmation behavior, target paths and effects, template paths, target paths, and mapping order before the first project mutation. The earlier approval does not authorize a changed or expanded managed target set. `packageVersion` and `validationEntries` follow the forward-compatible rules in the next paragraph rather than being pinned to the initial v0.11.0 values.
 
-`packageVersion` is source-release metadata, not a companion compatibility gate: it must be a valid version and exactly match the AGENTS.md package version in the same archive, but a later package version alone must not require a companion release while schema 3.0.0 remains supported. `validationEntries` is the archive's closed current completeness list; a schema-3.0.0 consumer may read a later list rather than pinning v0.11.0, but every entry must be unique, safe, readable, and archive-root-relative before mutation. Validation entries grant no project-read or project-write authority. Mapping `template` values are also archive-root-relative; `destination.projectRelativePath`, confirmation `path` values, and mapping `target` values are Unity-project-root-relative. All contract paths use `/` separators and contain no rooted path, empty segment, `.` segment, or `..` segment.
+`packageVersion` is source-release metadata, not a companion compatibility gate: it must be a valid version and exactly match the AGENTS.md package version in the same archive, but a later package version alone must not require a companion release while schema 4.0.0 remains supported. `validationEntries` is the archive's closed current completeness list; a schema-4.0.0 consumer may read a later list rather than pinning v0.11.0, but every entry must be unique, safe, readable, and archive-root-relative before mutation. Validation entries grant no project-read or project-write authority. Mapping `template` values are also archive-root-relative; `destination.projectRelativePath`, confirmation `path` values, and mapping `target` values are Unity-project-root-relative. All contract paths use `/` separators and contain no rooted path, empty segment, `.` segment, or `..` segment.
 
 ## 3. Project and Source Boundaries
 
@@ -107,6 +107,8 @@ The three managed project AI targets are exactly:
 
 Within the companion Update, this technique owns complete replacement of those three files from the exact template mappings in the selected contract. The action does not merge managed regions, preserve content in those files, honor a native-entry opt-out, migrate legacy content, or invoke `ManageGeurtsAgentInstructions.ps1`. If `.github/` or `.github/instructions/` is absent, the companion may create only the missing parent directories required to materialize the listed targets. It must preserve every unlisted file and directory within those parents.
 
+The fourth route maps `GeurtsTechniques/GeurtsAgentTechnique.md` to `<ProjectRoot>/AGENTS.md` with effect `replace-managed-block`. Extract its one current portable-root template; never copy the complete technique into the project guide. Apply the [Agent owner's portable onboarding](GeurtsAgentTechnique.md#portable-project-root-onboarding), including preservation, conflict, concurrency and verification rules and its bounded adjacent temporary-file exception for atomic replacement. Preflight the root guide before the first destructive mutation. This is required on initial installation and every confirmed Update; existing matching routes remain unchanged. Its relative route starts at `./GeurtsGameForgeCommandments/AGENTS.md`, the normal entry point, including regular game-design conversations.
+
 Every other project path is outside the lifecycle. In particular, the companion must not enumerate, inspect, create, validate, hash, modify, or delete anything under:
 
 ```text
@@ -123,7 +125,7 @@ An Update is available when the last-successful-installed commit value is missin
 
 Ordinary AI-session initialization performs no additional remote check.
 
-The last-successful-installed value contains only the exact commit ID selected by the most recent Update that completed and verified all four managed targets. It is comparison-only, non-authoritative, and non-blocking. It is not a receipt, package-version record, compatibility state, local-integrity assertion, drift record, backup pointer, rollback marker, recovery metadata, journal, or state-machine gate. Its write is attempted only after full managed-target success and never authorizes, blocks, repairs, or expands project mutation. If persistence fails, the managed-target Update remains successful, the companion reports a comparison-state warning, and a later explicit check may offer the same Update again. An implementation must not claim that mutable local files are certified current merely from this value or from package-version ordering.
+The last-successful-installed value contains only the exact commit ID selected by the most recent Update that completed and verified all five managed targets. It is comparison-only, non-authoritative, and non-blocking. It is not a receipt, package-version record, compatibility state, local-integrity assertion, drift record, backup pointer, rollback marker, recovery metadata, journal, or state-machine gate. Its write is attempted only after full managed-target success and never authorizes, blocks, repairs, or expands project mutation. If persistence fails, the managed-target Update remains successful, the companion reports a comparison-state warning, and a later explicit check may offer the same Update again. An implementation must not claim that mutable local files are certified current merely from this value or from package-version ordering.
 
 ### Troubleshooting explicit checks and updates
 
@@ -149,16 +151,17 @@ Update Geurts Game Forge Commandments
 
 Selecting it immediately shows one confirmation dialog. There is no earlier preview, dry run, check phase, setup screen, or second confirmation. Cancel is the initially focused and default response. Closing or dismissing the dialog, pressing Escape, or otherwise declining must cause no network or filesystem change from the Update action.
 
-The confirmation must identify all four destructive targets and no implied broader scope:
+The confirmation must identify the four destructive replacements and the preservation-based root route, with no implied broader scope:
 
 ```text
 GeurtsGameForgeCommandments/                                                     entire folder replaced
 .github/copilot-instructions.md                                                   entire file replaced
 .github/instructions/geurts-unity.instructions.md                                 entire file replaced
 .github/instructions/geurts-game-design.instructions.md                           entire file replaced
+AGENTS.md                                                                        portable managed block; outside bytes preserved
 ```
 
-It must state that every local change in those targets will be overwritten and lost, that there is no backup or rollback, and that `Docs/GameDesign/` and every unlisted project path will not be accessed or changed.
+It must state that every local change in the four complete-replacement targets will be overwritten and lost, that root AGENTS.md preserves instructions outside its managed block, that there is no backup or rollback, and that `Docs/GameDesign/` and every unlisted project path will not be accessed or changed.
 
 No archive acquisition or project mutation may begin before affirmative confirmation.
 
@@ -168,11 +171,11 @@ After affirmative confirmation, the companion performs this bounded sequence:
 
 1. Resolve the official repository's current `main` head commit and capture its exact commit ID.
 2. Download an archive pinned to that exact commit into a temporary location outside the Unity project. Do not require a checksum or content-digest match; apply the Brick Contract source/release/download validation policy.
-3. Perform basic pre-mutation validation: confirm the configured official source, the selected exact commit, safe relative archive paths, supported regular-file and directory entries, absence of Git metadata, readability of every contract-listed validation entry, readable single-authority entry `AGENTS.md`, support for contract schema 3.0.0, and equality between the contract and AGENTS.md package versions.
+3. Perform basic pre-mutation validation: confirm the configured official source, the selected exact commit, safe relative archive paths, supported regular-file and directory entries, absence of Git metadata, readability of every contract-listed validation entry, readable single-authority entry `AGENTS.md`, support for contract schema 4.0.0, and equality between the contract and AGENTS.md package versions.
 4. Delete any existing `<ProjectRoot>/GeurtsGameForgeCommandments/` and directly materialize the complete validated archive tree at that exact destination. The result contains no `.git` metadata or continuing repository, worktree, branch, remote, or synchronization connection.
 5. Directly replace each of the three AI target files with the bytes of its mapped template from the same validated candidate. Create only a missing `.github/` or `.github/instructions/` parent needed for those exact files.
-6. Verify that the complete documentation destination and all three mapped target files were written successfully.
-7. After every managed-target verification passes, report the content Update as successful and attempt to write the selected exact commit ID as the companion-owned last-successful-installed value. If that comparison-state write fails, report a warning and allow a later explicit check to offer the Update again; do not reclassify, undo, or repair the successful four-target replacement.
+6. Install or refresh the root portable managed block using the reviewed pre-mutation target state. Preserve its UTF-8 BOM, newline style and every byte outside the block; reject concurrent changes. Atomically replace only that guide and verify the complete expected result. Verify that the documentation destination, all three Copilot files and root route were written successfully.
+7. After every managed-target verification passes, report the content Update as successful and attempt to write the selected exact commit ID as the companion-owned last-successful-installed value. If that comparison-state write fails, report a warning and allow a later explicit check to offer the Update again; do not reclassify, undo, or repair the successful five-target installation.
 8. Remove temporary acquisition content on a best-effort basis. It is never a backup, rollback source, quarantine, journal, recovery state, or prerequisite for a later Update.
 
 Validation must finish before the first destructive project mutation. After mutation begins, any failure or interruption may leave the documentation destination or one or more AI targets missing, incomplete, or from different attempts. The companion reports failure plainly and never reports partial completion as success. The only retry is another user-invoked Update with the same confirmation; there is no automatic repair or recovery flow.
@@ -183,19 +186,19 @@ There is no automatic-update exception. These exclusions apply even after an exp
 
 - automatically download, install, replace, repair, or synchronize documentation or AI routes on Unity open;
 - scan for or execute `.bat`, `.cmd`, `.ps1`, or any other script from either the documentation package or the Unity project;
-- run folder creation, GDD scaffolding, GDD manifest maintenance, `.gitignore` provisioning, native-entry management, migration, or any other setup action;
+- run folder creation, GDD scaffolding, GDD manifest maintenance, `.gitignore` provisioning, native-entry management, migration, or any other setup action beyond the declared root managed block;
 - inspect or preserve local drift in the documentation destination or three managed AI targets;
-- create a preview, dry run, backup, snapshot, rollback, quarantine, journal, recovery gate, last-valid copy, merge, opt-out, or migration path for this Update;
-- modify any project file beyond the documentation destination and three mapped AI files; or
+- create a preview, dry run, backup, snapshot, rollback, quarantine, journal, recovery gate, last-valid copy, merge, opt-out, or migration path for the four complete replacements; the declared root managed block retains its preservation rules;
+- modify any project file beyond the documentation destination, three Copilot files and root AGENTS.md managed block; or
 - treat a newly discovered repository file, script, manifest entry, or directory as executable work.
 
 The complete documentation tree is copied as inert content. The presence of tools within that tree does not authorize their execution.
 
 ## 8. AI Routing Limitation
 
-The three managed AI files route supported tools to `GeurtsGameForgeCommandments/AGENTS.md`, which directly selects the required specialist owners. They do not make every AI product obey the documentation automatically.
+The three Copilot files and portable root AGENTS.md route supported tools to `GeurtsGameForgeCommandments/AGENTS.md`, which directly selects the required specialist owners. They do not make every AI product obey the documentation automatically.
 
-Each source template explicitly tells an agent to read that installed entry before any Geurts Game Forge project work and to treat the installed, AGENTS-selected documentation as the source of truth for the work. The companion copies that instruction only through the three declared mappings and does not discover or alter any other agent configuration.
+Each source template explicitly tells an agent to read that installed entry before any Geurts Game Forge project work and to treat the installed, AGENTS-selected documentation as the source of truth for the work. The companion copies that instruction only through the four declared mappings and does not discover or alter any other agent configuration.
 
 An AI tool must support the applicable native instruction file or be explicitly instructed to read and follow `AGENTS.md`. Tools that ignore those instruction surfaces may not discover or follow the Geurts documentation. The companion must present this limitation accurately and must not claim universal AI control or compliance.
 
@@ -206,11 +209,11 @@ A conforming companion:
 
 - is implemented in God's existing Windows Editor assembly outside this content repository, retaining God's separately installed licensed Odin Inspector and Quantum Console assemblies; the optional passive adapter owns no independent service;
 - performs no remote checks or catalogue refresh at Unity startup or when restoring a window; explicit metadata checks never mutate managed targets;
-- reports an Update available when its comparison-only last-successful-installed commit value is missing or differs from the remote head, and attempts to write that value only after all four managed targets verify successfully;
-- exposes the one exact in-Editor Update action and one cancel-default confirmation listing the documentation folder and three AI files;
+- reports an Update available when its comparison-only last-successful-installed commit value is missing or differs from the remote head, and attempts to write that value only after all five managed targets verify successfully;
+- exposes the one exact in-Editor Update action and one cancel-default confirmation listing the documentation folder, three Copilot files and preserved root guide;
 - acquires and validates one exact-commit archive only after confirmation;
-- directly replaces the complete documentation destination followed by the three exact contract-mapped AI files;
-- reports success only when the documentation copy and all three route targets are complete;
+- directly replaces the complete documentation destination followed by the three exact Copilot files and preserved root managed block;
+- reports success only when the documentation copy and all four route targets are complete;
 - treats the managed documentation copy as logically read-only and discards local edits on confirmed Update;
 - never accesses `Docs/GameDesign/`, executes scripts, performs setup, or changes any unlisted project file; and
 - explains the native AI routing limitation without promising universal enforcement.
@@ -218,11 +221,11 @@ A conforming companion:
 
 ## Separate Codex guide installation
 
-The AGENTS.md Technique owns the separate **Install Codex guide** action. Documentation Update excludes Codex guides. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AGENTS.md. No project guide is automatically created at the project root or shipped as a standalone template; the package-root AGENTS.md is the documentation authority. Angels owns this helper; God navigates to the installed owner and its compatibility setup API forwards to Angels. Missing Angels reports an actionable owner explanation. The supported installer and template rules remain in the AGENTS.md Technique. Earlier Companion 0.14.0 introduced schema-3.0.0 support. Schema 2 consent is not valid for the renamed target.
+The AGENTS.md Technique owns the separate **Install Codex guide** action. Schema-4 content installation and Update include the portable project-root managed block. The separate selected-folder action remains available for a user-selected guide. The user chooses a folder and confirms replacement of only its AGENTS.md; that guide points directly to the installed AGENTS.md. No guide is created on startup or shipped as a standalone template; the package-root AGENTS.md is the documentation authority. Angels owns this helper; God navigates to the installed owner and its compatibility setup API forwards to Angels. Missing Angels reports an actionable owner explanation. The supported installer and template rules remain in the AGENTS.md Technique. Earlier Companion 0.14.0 introduced schema-3.0.0 support. Schema 2 consent is not valid for the renamed target.
 
 ## Independent module preference
 
-God 0.29.0 exposes **Module enabled** in its Commandments view and public **ModuleEnabled**, **SetModuleEnabled(bool)** and **ModuleToggleUnavailableReason** Editor integration members. These retain the preference introduced by Companion 0.12.0 and the API previously used by God 0.24.0; the passive adapter forwards to this same service. The preference defaults on and is keyed by the normalized Unity project root in Editor preference storage, outside the project filesystem and installed package. It is independent of the last-successful commit signal and automatic-update consent. Turning it off blocks new metadata checks, content updates and setup writes, including queued window actions; installed package, guidance, routes and existing saved preferences remain untouched. Active Commandments Companion, host or Unity work must finish before switching; do not cancel in-flight work or introduce cleanup/deletion. Its window remains reachable for information and re-enabling. Turning it on starts no network or installation work. Preserve the normal explicit menu/check actions and all Update consent, validation and four-target boundaries. This preference changes neither contract schema 3.0.0 nor the Update target set.
+God 0.29.0 exposes **Module enabled** in its Commandments view and public **ModuleEnabled**, **SetModuleEnabled(bool)** and **ModuleToggleUnavailableReason** Editor integration members. These retain the preference introduced by Companion 0.12.0 and the API previously used by God 0.24.0; the passive adapter forwards to this same service. The preference defaults on and is keyed by the normalized Unity project root in Editor preference storage, outside the project filesystem and installed package. It is independent of the last-successful commit signal and automatic-update consent. Turning it off blocks new metadata checks, content updates and setup writes, including queued window actions; installed package, guidance, routes and existing saved preferences remain untouched. Active Commandments Companion, host or Unity work must finish before switching; do not cancel in-flight work or introduce cleanup/deletion. Its window remains reachable for information and re-enabling. Turning it on starts no network or installation work. Preserve the normal explicit menu/check actions and all Update consent, validation and five-target boundaries. This preference does not change the active contract or its Update target set.
 
 ## Secondary standalone documentation routes
 
@@ -233,10 +236,14 @@ The secondary standalone Windows documentation installer requires neither Odin I
 Two distinct standalone modes must not be conflated:
 
 - **Existing preservation installer:** [StandardsOnly installer 1.0.0](../Tools/StandardsOnlyInstaller/README.md) is the verified versioned offline artifact. It carries documentation 0.61.1, creates a complete initial copy and preserves a managed block in root AGENTS.md. It refuses differing existing documentation and does not replace Copilot routes. Its current behavior is not the replacement mode below. Preserve its immutable archive and own consent/preservation rules.
-- **Approved replacement requirement; implementation not verified:** a future standalone replacement mode uses exactly the current schema-3 documentation folder and three AI files listed in sections 3 and 5, with the same template bytes and one cancel-default confirmation before acquisition or mutation. The confirmation lists every exact target, loss of all local additions/edits, and no backup or rollback. There is no earlier preview/dry run or second confirmation. Declining changes nothing. Validate the complete candidate and unchanged supported target contract before replacement; report success only after all four targets verify. An interrupted replacement is partial/failed, never successful or automatically repaired. Every unlisted path stays untouched and uninspected, particularly Docs/GameDesign. Only necessary missing route parents may be created. AGENTS.md installation stays separate under its owning technique and requires its own explicit action; do not bundle it into this confirmation.
+- **Approved replacement requirement; implementation not verified:** a future standalone replacement mode uses exactly the current schema-4 documentation folder, three Copilot files and preserved root route listed in sections 3 and 5, with the same template bytes and one cancel-default confirmation before acquisition or mutation. The confirmation lists every exact target, loss of all local additions/edits, and no backup or rollback. There is no earlier preview/dry run or second confirmation. Declining changes nothing. Validate the complete candidate and unchanged supported target contract before replacement; report success only after all five targets verify. An interrupted replacement is partial/failed, never successful or automatically repaired. Every unlisted path stays untouched and uninspected, particularly Docs/GameDesign. Only necessary missing route parents may be created. The portable root AGENTS.md managed block belongs in this same confirmation and must verify before success. Separately selected guide destinations retain their own explicit action.
 
-This specification does not implement or release a replacement installer, grant startup/update consent or change the existing God service, three route mappings, schemas, frozen templates or legacy manual manager. Standalone adoption remains secondary and does not block the primary Forge workflow. Verify an owning implementation and its acceptance evidence before presenting replacement mode as available.
+This specification does not implement or release a replacement installer, grant startup/update consent or certify an unreleased God implementation or modify frozen installer artifacts or the legacy manual manager. Standalone adoption remains secondary and does not block the primary Forge workflow. Verify an owning implementation and its acceptance evidence before presenting replacement mode as available.
 
 ## Single-entry consumer adoption
 
 Package 0.68.0 makes AGENTS.md the only startup authority. The contract adds AGENTS.md to validationEntries while retaining both legacy redirect paths, schema 3.0.0, source, destination, confirmation and three route mappings. A consumer must accept package-root AGENTS.md as inert content, read its version/registry declaration, and validate the current v1.4.0 route templates without requiring the retired two-file authority chain. Existing God/Angels releases must be checked in their owning source; this documentation change alone does not establish their compatibility. Current Codex guide templates route directly to AGENTS.md. Exact historical guide payloads remain under LEGACY markers solely for recognition and migration; their old entry paths reach the authority through compatibility redirects. The passive adapter forwards to God and needs no independent startup resolver. No consumer or installed content updates automatically.
+
+## Schema-4 root-route adoption
+
+Schema 4 adds the mandatory portable root managed block to confirmed Commandments installation and Update. Publish compatible God and Angels consumers before the schema-4 content feed. God must accept schema 3 with its original boundaries and schema 4 with exactly five confirmation targets; an older consumer must reject schema 4 before mutation. Existing installations require explicit package and content updates. No package installation, startup or saved consent authorizes content installation. The immutable StandardsOnly installer 1.0.0 remains historical and retains its own root routing and documentation 0.61.1; it is not the current schema-4 installer.

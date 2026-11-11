@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.11.3
+**Version:** 1.11.4
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -78,8 +78,8 @@ The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared co
 ## God
 
 **Catalogue ID:** `com.geurts.gameforge.god`
-**Evidence version:** `0.45.1`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/3168fe9e57b20ca4d4bcfaa04c250ec13e519f89/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/3168fe9e57b20ca4d4bcfaa04c250ec13e519f89/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/3168fe9e57b20ca4d4bcfaa04c250ec13e519f89/Documentation~/GameIntegration.md).
+**Evidence version:** `0.46.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d50153193f6455fe4c16c4dbc4709c17cc020b44/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d50153193f6455fe4c16c4dbc4709c17cc020b44/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d50153193f6455fe4c16c4dbc4709c17cc020b44/Documentation~/GameIntegration.md).
 
 - **Use:** Foundation for every dependent brick: lifecycle, shared capabilities/settings, bootstrap, packages and Commandments.
 - **Prerequisites:** Licensed Odin Inspector and Quantum Console, resolved Unity dependencies and the Forge Steamworks.NET prerequisite. No optional peer brick or passive adapter is required.
@@ -89,7 +89,7 @@ The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared co
 - **Verify:** Check bootstrap/readiness independently of package presence; test absent, available, withdrawn and re-enabled capability states plus subscription disposal.
 - **Limits:** No second host/registry in a game. Editor APIs stay outside player assemblies; optional providers may be unavailable.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/3168fe9e57b20ca4d4bcfaa04c250ec13e519f89/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/3168fe9e57b20ca4d4bcfaa04c250ec13e519f89/Documentation~/AIUsabilityValidation.json). God 0.44.3 records 99 passing focused native checks, the integration recipe, actual authoritative catalogue refresh and 31 compiled assemblies with zero default-policy diagnostics. Its pinned cancellation and expanded local Help were rendered at 560 and 760 points; other display scales/skins and player/native-service behavior remain unverified. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d50153193f6455fe4c16c4dbc4709c17cc020b44/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d50153193f6455fe4c16c4dbc4709c17cc020b44/Documentation~/AIUsabilityValidation.json). God 0.44.3 records 99 passing focused native checks, the integration recipe, actual authoritative catalogue refresh and 31 compiled assemblies with zero default-policy diagnostics. Its pinned cancellation and expanded local Help were rendered at 560 and 760 points; other display scales/skins and player/native-service behavior remain unverified. Consumer installation and updates remain separate explicit actions.
 
 Update policy requires a current explicit action and confirmation. Legacy automatic entry-point names do not grant update consent; a documentation edit does not change installed handlers.
 
@@ -99,9 +99,12 @@ God retains SDK-neutral native-session reservations and revocable leases. Provid
 
 God retains single-AGENTS startup and legacy package support. The God manifest retains its Compatibility 0.1.1 minimum; the Catalogue selects published Compatibility 0.2.0 for automatic local repairs. The earlier minimum release's uGUI metadata evidence remains historical; current automatic-repair, native UI and reviewed-Editor evidence belongs to the pinned Compatibility owner. Consumer installation and game/native-service acceptance remain separate.
 
-Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/3168fe9e57b20ca4d4bcfaa04c250ec13e519f89/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
+Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/d50153193f6455fe4c16c4dbc4709c17cc020b44/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
 
 This update removes owning release/archive digest gates. Native tests and the complete combined156-assembly default-diagnostic qualification pass with zero diagnostics. God additionally fixes missing-metadata information-panel reload; Steam preserves account-pinned cloud contracts. Native Steam acceptance remains unverified; visual checks are not required.
+
+
+Current root-onboarding evidence: God 0.46.0 supports schema 4. The confirmed content installation includes a portable root AGENTS.md managed block pointing to `./GeurtsGameForgeCommandments/AGENTS.md`; outside instructions are preserved. Schema-3 content retains its original targets. The actual exact-commit archive, initial installation, preservation, idempotence, conflicts and concurrent edits passed native checks; 34 source-bearing assemblies qualified with zero diagnostics. Source publication does not install consumer updates.
 
 ## Steam
 
@@ -163,8 +166,8 @@ Confirmation focus maintenance: defer modal review until the requesting UI event
 ## Angels
 
 **Catalogue ID:** `com.geurts.gameforge.angels`
-**Evidence version:** `0.12.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/Documentation~/GameIntegration.md).
+**Evidence version:** `0.12.1`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/1a32153bbd7a2d809f9a8e96bd2c2137792e342e/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/1a32153bbd7a2d809f9a8e96bd2c2137792e342e/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/1a32153bbd7a2d809f9a8e96bd2c2137792e342e/Documentation~/GameIntegration.md).
 
 - **Use:** Optional Editor project maintenance: folders, guides, Git, scoped asset organization and explicit design imports.
 - **Prerequisites:** God, both licensed libraries and compatible local Commandments. Codex naming/audio are separate optional account/tool integrations with explicit sharing and billing consent.
@@ -174,13 +177,16 @@ Confirmation focus maintenance: defer modal review until the requesting UI event
 - **Verify:** Check cancellation, stale source/guidance refusal, GUID/meta preservation and actual/partial outcomes; choose a fresh review for retry.
 - **Limits:** Source/meta checks stream full file hashes; assets above 64 MiB do not fail solely because of source size. Preview, prompt and optional audio-decoding limits remain owner-defined. No Execute All, automatic primary GDD choice or startup scan. Documentation maintenance gives no GDD access. Optional paid inference is never implied by installation.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/Documentation~/AIUsabilityValidation.json). Fourteen focused native functional cases passed in Unity 6000.6.3f1, including actual multi-file/single-file picker acceptance and cancellation with Unicode/spaced paths, batch preservation and the public integration recipe. Both owning assemblies and literal supported examples compiled with zero diagnostics under warnings as errors; recorded compiler inputs remained unchanged. Native dialog commands ran on an unselected private Windows desktop without controlling the user desktop. Visual checks are not performed or required under current Automation policy. External dependency releases retain their documented acceptance scope; no new player/account/Steam or live-consumer acceptance is claimed.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/1a32153bbd7a2d809f9a8e96bd2c2137792e342e/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/1a32153bbd7a2d809f9a8e96bd2c2137792e342e/Documentation~/AIUsabilityValidation.json). Fourteen focused native functional cases passed in Unity 6000.6.3f1, including actual multi-file/single-file picker acceptance and cancellation with Unicode/spaced paths, batch preservation and the public integration recipe. Both owning assemblies and literal supported examples compiled with zero diagnostics under warnings as errors; recorded compiler inputs remained unchanged. Native dialog commands ran on an unselected private Windows desktop without controlling the user desktop. Visual checks are not performed or required under current Automation policy. External dependency releases retain their documented acceptance scope; no new player/account/Steam or live-consumer acceptance is claimed.
 
-Angels 0.11.0 requires God 0.44.0 and uses that shared reader for setup, guides, Git payloads and naming context. Reviewed guidance and context identity include raw registry bytes; prompts include only metadata for the existing selected documents. Current selected-folder guide 1.2.0 and portable-root guide 1.1.0 route directly to AGENTS.md. Exact historical guide 1.1.0/root 1.0.0 bytes remain available for safe migration; consent boundaries are unchanged.
+Angels 0.11.0 requires God 0.44.0 and uses that shared reader for setup, guides, Git payloads and naming context. Reviewed guidance and context identity include raw registry bytes; prompts include only metadata for the existing selected documents. Current selected-folder guide 1.2.0 and portable-root guide 1.2.0 route directly to AGENTS.md. Exact historical guide 1.1.0/root 1.0.0 bytes remain available for safe migration; consent boundaries are unchanged.
 
 Current selected-folder and portable-root guide installations route directly to Commandments/AGENTS.md. Exact known legacy payload migration, unowned-content preservation and current confirmation remain required; the earlier single-entry cohort passed 98 native owner regressions.
 
-Historical confirmation focus maintenance: defer modal review until the requesting UI event finishes and prevent duplicate queued work. Nine combined Angels/Diagnostics native checks passed in both Unity 6000.6.3f1 and 6000.6.8f1 with zero focus warnings and compiler diagnostics. [Owner evidence](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/fa251f87f19c7e2bba34a900e8d1d087b1d743fc/Documentation~/Validation/ConfirmationFocus/summary.json) distinguishes fresh Editor checks from unchanged runtime/recipe acceptance reused at its original tested revision; physical input and new player acceptance are not claimed. Consumer updates remain explicit.
+Historical confirmation focus maintenance: defer modal review until the requesting UI event finishes and prevent duplicate queued work. Nine combined Angels/Diagnostics native checks passed in both Unity 6000.6.3f1 and 6000.6.8f1 with zero focus warnings and compiler diagnostics. [Owner evidence](https://github.com/Geurtsy/com.geurts.gameforge.angels/blob/1a32153bbd7a2d809f9a8e96bd2c2137792e342e/Documentation~/Validation/ConfirmationFocus/summary.json) distinguishes fresh Editor checks from unchanged runtime/recipe acceptance reused at its original tested revision; physical input and new player acceptance are not claimed. Consumer updates remain explicit.
+
+
+Current root-onboarding evidence: Angels 0.12.1 accepts Agent technique 1.5.0 and portable template 1.2.0. Fifteen portable-guide native checks passed, including relocation, BOM/newline preservation, cancellation, concurrent changes and historical migration. God owns the root route within confirmed schema-4 content installation; optional selected-folder installation remains an Angels action. Unchanged organization-recipe evidence is explicitly retained at its original tested revision.
 
 ## Archangels
 

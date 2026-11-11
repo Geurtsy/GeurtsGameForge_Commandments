@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.73.3
+**Version:** 0.74.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -64,7 +64,7 @@ Use Windows, Unity **6000.6.3f1 or newer**, and the [current catalogue](GeurtsTe
 
 ## Separate actions and secondary routes
 
-Angels owns **Install Codex guide**. Documentation Update replaces the complete `GeurtsGameForgeCommandments/` folder and exactly three Copilot routes after one cancel-default confirmation. AGENTS.md remains a separate explicit installation. Every unlisted path stays untouched; content Update must not inspect or modify `Docs/GameDesign/`.
+Angels owns **Install Codex guide**. Documentation Update replaces the complete `GeurtsGameForgeCommandments/` folder and exactly three Copilot routes and the portable root AGENTS.md managed block after one cancel-default confirmation. Existing project instructions outside the root block are preserved. Every unlisted path stays untouched; content Update must not inspect or modify `Docs/GameDesign/`.
 
 Game Forge integration is the primary supported workflow. The optional [StandardsOnly profile](GeurtsTechniques/GeurtsStandardsOnlyTechnique.md) applies general standards without Forge packages; Steam, Odin Inspector and Quantum Console remain optional in that profile. The [existing offline Windows installer](Tools/StandardsOnlyInstaller/README.md) preserves its immutable 1.0.0 artifact and pinned documentation 0.61.1. It is an initial preservation installer, not the separately approved managed-replacement requirement. Neither standalone route installs additional software or packages. Do not claim the requested replacement implementation is available.
 
@@ -101,7 +101,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
 
-### 0.73.3
+### 0.74.0
+
+- Include the portable root AGENTS.md route in the schema-4 confirmed Commandments installation and Update; retain project instructions outside the block and start at the normal installed AGENTS.md authority. Older schema-3 consumers reject the expanded contract before mutation.
+
+### 0.74.0
 
 - Publish the immutable GitFlow 0.5.0 catalogue pin and usage guidance for automatic publisher setup and the full Queue Panel.
 - Retain scoped nonvisual acceptance and the user's visual-check waiver. Consumer updates remain manual; unrelated pins, schemas and tool versions stay unchanged.
