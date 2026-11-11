@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Editor Appearance Technique
 
-**Version:** 0.1.6
+**Version:** 0.2.0
 **Status:** Normative mandatory standard
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsEditorAppearanceTechnique.md`
@@ -20,7 +20,7 @@ The independent BigBang installer must use supported Unity/UI Toolkit equivalent
 
 Editor appearance is a first-class quality requirement and a Definition of Done gate for every affected Forge-owned Editor surface. A tool is not complete merely because its controls compile or its actions work: users must be able to find the right workflow, understand the controls and discover problems without searching the Console.
 
-This is a quality gate within the existing Technical Technique. It does not add, duplicate or reorder technical priorities, change the multiplayer override or justify unnecessary runtime cost. Review appearance alongside proportionate behavior checks and record any unavailable acceptance evidence honestly.
+This is a quality gate within the existing Technical Technique. It does not add, duplicate or reorder technical priorities, change the multiplayer override or justify unnecessary runtime cost. Apply design requirements through source review and minimal nonvisual behavior checks; never run visual checks or require visual acceptance evidence.
 
 ## 3. Shared visual foundation
 
@@ -48,9 +48,9 @@ Inactive tabs must expose warning/error indicators with the same discoverability
 
 Every content section must have a visible descriptive header and collapsible content. Its header remains visible when collapsed. Use sections to group related controls and actions; reserve the always-visible window title, navigation and required operation/consent controls for their existing host responsibilities. Collapsing a content section must never hide a required confirmation or block access to cancellation and failure reporting.
 
-Use Odin `BoxGroup` extensively for clear grouping in applicable Odin authoring. A BoxGroup alone is not collapsible. Combine boxed grouping and a supported foldout through distinct hierarchical group paths, or use a supported custom group/Editor adapter with the same behavior. Do not stack BoxGroup and FoldoutGroup at the same group path and assume they combine. Follow the installed Odin version's supported group hierarchy; verify the visible header and collapsed state in Unity.
+Use Odin `BoxGroup` extensively for clear grouping in applicable Odin authoring. A BoxGroup alone is not collapsible. Combine boxed grouping and a supported foldout through distinct hierarchical group paths, or use a supported custom group/Editor adapter with the same behavior. Do not stack BoxGroup and FoldoutGroup at the same group path and assume they combine. Follow the installed Odin version's supported group hierarchy; retain the header and collapsed-state contract through supported controls.
 
-Verify actual visible Odin BoxGroups on the affected screen, with editable fields and retained authored values. Attributes in an unused class or UI Toolkit-only panel styling do not prove Odin adoption. Include rendered evidence and report any unverified native interaction explicitly.
+Use Odin BoxGroups in the actual affected implementation, with editable fields and retained authored values. Attributes in an unused class or UI Toolkit-only styling do not establish Odin adoption. No rendered evidence or visual checks are required.
 
 For example, a conceptual parent foldout `configuration` can own the child box `configuration/values`. These are distinct paths describing a hierarchy, not a drop-in C# implementation. Give the user-facing parent a meaningful label and avoid a duplicate unlabeled or misleading child header. In UI Toolkit, use an equivalent labelled foldout with the shared panel styling. A tab does not replace the section's collapsible header requirement.
 
@@ -77,9 +77,9 @@ Be especially wary of layout regressions after Commandments-compliance edits. Ad
 - Reserve the full rendered height of each message and control, including wrapped text, icons, padding and the gap before the next element. Recalculate layout when the available width, displayed message, validation state or expansion state changes. Never allocate a single-line or fixed short height for content that can wrap or grow.
 - Use the shared Theme spacing and supported Odin/Unity layout mechanisms. Custom drawers and manually positioned controls must report and reserve the same complete area they draw. Do not layer manual rectangles over automatically laid-out Odin fields, use negative spacing or margins to squeeze content together, or draw the same content twice through base and custom rendering.
 - Leave clear vertical gaps between messages and their associated fields, and sufficient inner padding around boxed sections. If the current shared spacing is inadequate, improve the canonical layout through its owning package rather than creating a private spacing system. Allow the inspector to grow and scroll instead of compressing messages or reducing text readability to fit.
-- Check supported normal and narrow Inspector widths, long and multiple simultaneous messages, nested/expanded sections, and messages appearing or clearing during editing. Confirm labels, fields and clickable controls remain fully visible and usable; hiding guidance, truncating essential text or requiring a wider Inspector is not an overlap fix.
+- Design for supported normal and narrow Inspector widths, long and simultaneous messages, nested/expanded sections and changing findings. Keep labels, fields and clickable controls reachable; hiding guidance, truncating essential text or requiring a wider Inspector is not an overlap fix.
 
-Overlapping content is a failed appearance review, even when the inspector compiles and its actions work. Apply the native visual checks in section 10 and the Theme Technique; a source-only compliance pass cannot establish that spacing is sufficient.
+Prevent overlapping content through supported layout and complete content sizing. Section 10 requires only proportionate nonvisual evidence; never perform visual checks.
 
 ## 8. Inline authoring findings and logging boundary
 
@@ -101,15 +101,13 @@ Distinguish Not checked, Unavailable and genuinely checked/clean states. An unch
 
 ## 10. Verification, adoption and Definition of Done
 
-Before publishing an implementation or executable example, compile it with the Technical Technique's exact Unity and resolved dependency versions, and run proportionate focused Editor checks. Verify inline findings, correction/clearing, collapsed headers, inactive tabs, checks before first opening, unchecked states, object changes, Undo/Redo, multi-object editing, prefab/asset persistence and affected lifecycle cleanup. Confirm no repeat logs are emitted by routine invalid data or repaint, while genuine failures still reach the established logging route. Test BigBang without God and vendor assemblies if that surface is touched; no runtime assembly may gain an Editor documentation dependency.
+Apply [Automation's minimal-testing policy](GeurtsGameForgeAutomationTechnique.md#proportionate-testing). Compile changed implementation in one selected supported Editor under the zero-warning gate, reusing evidence for unchanged relevant inputs. Select only nonvisual functional checks justified by the changed behavior, such as preserved authored values, Undo, finding-state changes, cancellation or lifecycle cleanup. Do not automatically run the complete authoring/state matrix or multiple Editors for cosmetic changes. Test BigBang's independent compilation only when that boundary is affected.
 
-Inspect the actual native Unity UI using the Theme Technique's normal/narrow sizes, floating/docked layout, light/dark host skins and normal/high scaling requirements. Verify each affected major component has reachable Help with accurate setup/use instructions and readable expanded content. Check useful callouts and distinct icons, expanded/collapsed sections, inactive tabs, long messages, scrolling, keyboard focus and affected enabled/disabled/busy/failure controls. Explicitly verify the Theme Technique's spacious-layout baseline on every affected surface, ample inspector spacing and no overlap between instructions/callouts and fields, including when multiple messages wrap or appear after a validation change. A standalone and God-embedded view must both retain reachable content and host navigation where supported.
-
-Follow the Automation Technique's computer-control policy. This standard does not authorize interactive desktop tests or disturbing the user's live Unity project. Prefer isolated fixtures and supported background checks; request explicit authorization only when required interactive control cannot be replaced, or record a human verification path and the exact unverified surface. Text validation, source review and successful compilation do not establish rendered UI acceptance.
+**Never perform visual checks.** Rendered UI inspection, screenshots/video, screen-size/skin/scaling matrices and visual acceptance gates are not performed and not required. Preserve the design, spacing, grouping, Help, accessibility and truthful-state requirements in implementation/source review. This standard does not authorize interactive desktop tests or disturbing the user's live Unity project. Do not claim visual acceptance passed.
 
 Existing installations are adopted deliberately as their affected surfaces are maintained; do not automatically rewrite scripts, assets, settings, layouts or user content. See [the 0.44.0 adoption note](../Migrations/v0.44.0.md). This documentation release specifies the gate; it does not retrofit released bricks or certify their native appearance. Record actual conformance, exceptions and missing evidence within each owning package's validation report, increase its version and publish through the existing release workflow.
 
-An affected Editor surface is done only when its shared theme, useful Odin/equivalent authoring, appropriate tabs, labelled collapsible sections, component Help, meaningful severity callouts, inline findings, discoverable hidden problems, preserved authoring behavior and native visual acceptance have been verified in their applicable scope. This is a maintainer/agent standard, not universal automatic enforcement.
+An affected Editor surface is done only when its shared theme, useful Odin/equivalent authoring, appropriate tabs, labelled collapsible sections, component Help, meaningful severity callouts, inline findings, discoverable hidden problems, preserved authoring behavior have been implemented, source-reviewed and covered by only the justified nonvisual checks. No visual acceptance gate applies. This is a maintainer/agent standard, not universal automatic enforcement.
 
 ## Reference material
 

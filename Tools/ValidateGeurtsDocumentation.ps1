@@ -1,5 +1,5 @@
 # ValidateGeurtsDocumentation.ps1
-# Version: 0.71.2
+# Version: 0.72.0
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot,
@@ -14,9 +14,11 @@ $checks = New-Object System.Collections.Generic.List[object]
 $failures = New-Object System.Collections.Generic.List[string]
 $automationTests = $null
 $publishedSources = $null
+$phaseClock = [Diagnostics.Stopwatch]::StartNew()
 
 function Add-Check([string]$Name, [bool]$Passed, [string]$Message) {
-    $checks.Add([pscustomobject]@{ name = $Name; passed = $Passed; message = $Message }) | Out-Null
+    $checks.Add([pscustomobject]@{ name = $Name; elapsedSeconds = $phaseClock.Elapsed.TotalSeconds; passed = $Passed; message = $Message }) | Out-Null
+    $phaseClock.Restart()
     if (-not $Passed) { $failures.Add("$Name - $Message") | Out-Null }
     if ($OutputFormat -eq "Text") {
         $label = if ($Passed) { "PASS" } else { "FAIL" }
@@ -173,7 +175,7 @@ try {
         $workflow.Contains('name: Validate Commandments') -and $workflow.Contains('runs-on: windows-2025') -and
         $workflow -match 'actions/checkout@[0-9a-f]{40}' -and $workflow.Contains('fetch-depth: 0') -and
         $workflow.Contains('persist-credentials: false') -and $workflow.Contains('./Tools/ValidateGeurtsPublication.ps1') -and
-        $workflow.Contains('shell: powershell') -and $workflow.Contains('./Tools/ValidateGeurtsDocumentation.ps1 -RunAutomationTests')
+        $workflow.Contains('shell: powershell') -and $workflow.Contains('./Tools/GetGeurtsValidationScope.ps1') -and $workflow.Contains('./Tools/Tests/RunAutomationTests.ps1') -and $workflow.Contains("if: steps.scope.outputs.regressions != 'Content'")
     Add-Check 'Publication workflow' $workflowValid 'Windows CI has the required check, complete history, read-only permissions and publication/static/automation gates.'
     $contributorPath = Join-Path $RepositoryRoot 'CONTRIBUTING.md'
     $contributors = if (Test-Path -LiteralPath $contributorPath -PathType Leaf) { [IO.File]::ReadAllText($contributorPath) } else { '' }
@@ -806,7 +808,7 @@ try {
             }
         }
     }
-    Add-Check "Documentation companion closed contract" ($companionContractFailures.Count -eq 0) $(if ($companionContractFailures.Count) { $companionContractFailures -join "; " } else { "The current schema-3.0.0/package-v0.71.2 source contract fixes the official exact-commit archive, one managed directory, nineteen validation entries, one four-target confirmation, and three exact full-file route mappings." })
+    Add-Check "Documentation companion closed contract" ($companionContractFailures.Count -eq 0) $(if ($companionContractFailures.Count) { $companionContractFailures -join "; " } else { "The current schema-3.0.0/package-v$packageVersion source contract fixes the official exact-commit archive, one managed directory, nineteen validation entries, one four-target confirmation, and three exact full-file route mappings." })
 
     $gitOnlyFailures = New-Object System.Collections.Generic.List[string]
     $gitBrickCatalogue = [System.IO.File]::ReadAllText((Join-Path $RepositoryRoot "GeurtsTechniques/GeurtsBrickCatalogue.json")) | ConvertFrom-Json
@@ -825,7 +827,7 @@ try {
     Add-Check "Companion schema forward compatibility" $companionForwardCompatibilityValid "Schema 3.0.0 pins mutation paths, not documentation releases: packageVersion must match the same archive AGENTS.md, and later safe validation-entry lists remain consumable without a companion release."
 
     $companionTechniqueRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md' '3.3.1'
-    $companionContractRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionContract.json' '0.71.2'
+    $companionContractRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionContract.json' $packageVersion
     $companionOwnerRow = [regex]::Match($manifestText, '(?m)^\| God-owned Windows Unity Editor Commandments source, metadata check, confirmed replacement, project-boundary, and AI-routing lifecycle \| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $companionContractOwnerRow = [regex]::Match($manifestText, '(?m)^\| Exact companion source, documentation destination, validation entries, confirmation targets, and template-to-route mappings \| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| (?<When>[^|]+) \|\r?$')
     $companionArchitectureValid = ($null -ne $companionTechniqueRegistryRow) -and ($null -ne $companionContractRegistryRow) -and
@@ -1297,7 +1299,7 @@ try {
         $topicPath = Join-Path $RepositoryRoot $topicRelative
         if (-not (Test-Path -LiteralPath $topicPath -PathType Leaf)) { $topicFailures.Add("Topic is missing: $topicRelative") | Out-Null; continue }
         $topicText = [IO.File]::ReadAllText($topicPath)
-        $topicVersion = if ($topic -ceq 'Unity') { '0.4.0' } elseif ($topic -ceq 'Code') { '0.2.0' } elseif ($topic -ceq 'Authoring') { '0.1.3' } elseif ($topic -ceq 'Naming') { '0.2.0' } elseif ($topic -ceq 'Commands') { '0.2.0' } elseif ($topic -ceq 'GameAI') { '0.2.1' } elseif ($topic -ceq 'Multiplayer') { '0.4.0' } elseif ($topic -ceq 'Bootstrap') { '0.1.3' } else { '0.1.2' }
+        $topicVersion = if ($topic -ceq 'Unity') { '0.5.0' } elseif ($topic -ceq 'Code') { '0.3.0' } elseif ($topic -ceq 'Authoring') { '0.1.4' } elseif ($topic -ceq 'Naming') { '0.2.0' } elseif ($topic -ceq 'Commands') { '0.2.0' } elseif ($topic -ceq 'GameAI') { '0.2.1' } elseif ($topic -ceq 'Multiplayer') { '0.4.0' } elseif ($topic -ceq 'Bootstrap') { '0.1.3' } else { '0.1.2' }
         if ($topicText -notmatch ('(?m)^\*\*Version:\*\* ' + [regex]::Escape($topicVersion) + '\r?$') -or $topicText -notmatch '(?m)^<!-- GEURTS-AUDIENCE: AI-READ -->\r?$') { $topicFailures.Add("Topic metadata is invalid: $topicRelative") | Out-Null }
         $topicTexts += $topicText
     }
@@ -1307,7 +1309,7 @@ try {
     foreach ($rule in @('Every first-party C# class, regardless of accessibility', '/// <summary>', 'partial class', 'Major Component Help', '^[a-z0-9]+(?:_[a-z0-9]+)*$', '[Tooltip]', 'Every first-party C# method, regardless of accessibility', 'Complex routines must contain explanatory comments')) {
         if (-not $codeText.Contains($rule)) { $topicFailures.Add("Code topic omits required rule: $rule") | Out-Null }
     }
-    $referenceRules = @('Use ScriptableObjects extensively as the default', 'strongly typed serialized object references', 'assigned by drag and drop or an object picker', 'Avoid string IDs, object names, hierarchy paths and string-keyed lookups', 'Do not substitute a hash of a string for a direct reference', 'reusable assets must not depend on a particular scene instance', 'Keep authored shared data separate from mutable per-instance/session state', 'IDs are exceptions when', 'avoid repeated lookup work in frame/tick loops', 'Do not serialize raw Unity object references across processes', 'naming rules below do not require introducing IDs')
+    $referenceRules = @('Use ScriptableObjects extensively as the default', 'strongly typed serialized object references', 'assigned by drag and drop or an object picker', 'Avoid string IDs, object names, hierarchy paths and string-keyed lookups', 'Do not substitute a hash of a string for a direct reference', 'reusable assets must not depend on a particular scene instance', 'Keep authored shared data separate from mutable per-instance/session state', 'IDs are exceptions when', 'avoid repeated lookup work in frame/tick loops', 'Do not serialize raw Unity object references across processes', 'naming rules below do not require introducing IDs', 'Do not store an asset path string instead of a reference', 'ScriptableObjects and components', 'Do not introduce Addressables or another dependency', 'Paths for actual file I/O, diagnostics and supported Unity authoring operations remain legitimate')
     foreach ($rule in $referenceRules) {
         if (-not $codeText.Contains($rule)) { $topicFailures.Add("Reference-first Code policy omits required rule: $rule") | Out-Null }
     }
@@ -1315,7 +1317,10 @@ try {
     $authoringText = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsAuthoringTechnique.md'))
     if (-not $technicalCoreText.Contains($referenceRoute) -or -not $authoringText.Contains($referenceRoute) -or -not $manifestText.Contains('owns reference-first design and identity-boundary exceptions')) { $topicFailures.Add('ScriptableObject/reference policy is not routed through its Code owner') | Out-Null }
     $automationPolicyText = [IO.File]::ReadAllText((Join-Path $RepositoryRoot 'GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md'))
-    foreach ($rule in @('Do not write, expand or run unit tests unless absolutely necessary', 'Briefly record the risk, why cheaper evidence is insufficient, and the smallest useful unit test or subset', 'A changed method, new class or generic best-practice claim alone does not establish necessity', 'Add tests for distinct behaviour or credible regression risks', 'Inspect and reuse existing coverage', 'Do not add automated tests solely for reversible, low-impact prose', 'successful required CI can supply that evidence without a duplicate local full-suite run', 'identical source tree, relevant inputs and tested environment', 'Required repository, platform and publication gates remain binding', 'Batch independent searches and reads', 'Detect truncation and retrieve missing relevant content', 'bounded waits and backoff or change notifications')) {
+    foreach ($rule in @('Validation must be minimal and proportionate to the change', 'smallest meaningful relevant checks',
+        'stop after the selected checks pass', 'Do not automatically run broad multi-Editor',
+        'save preservation', 'account isolation', 'Reuse existing results when relevant source, inputs, dependencies and environment are unchanged',
+        'duplicate or implementation-mirroring', 'Never perform visual checks', 'Visual checks are not required for completion or publication')) {
         if (-not $automationPolicyText.Contains($rule)) { $topicFailures.Add("Automation efficiency policy omits required rule: $rule") | Out-Null }
     }
     foreach ($rule in @('Git is the only permitted source-control system', 'including parallel VCS tracking of the same work', 'Git LFS is permitted as a Git extension', 'stop the affected source-control operation and report the blocker', 'Initialization or migration requires its own authorized scope', 'this rule adds no Git metadata or installation prerequisite')) {
@@ -1326,7 +1331,7 @@ try {
         if (-not $technicalCoreText.Contains($route) -or -not $contributors.Contains($route)) { $topicFailures.Add("Efficiency policy is not routed through its Automation owner: $route") | Out-Null }
     }
     if ($codeText -match '(?i)XML documentation is not required for private methods') { $topicFailures.Add('Code topic exempts private methods from required XML summaries') | Out-Null }
-    if ($technicalCoreText -notmatch '(?m)^\*\*Version:\*\* 0\.20\.14\r?$' -or $technicalCoreText.Length -gt 24000 -or
+    if ($technicalCoreText -notmatch '(?m)^\*\*Version:\*\* 0\.21\.0\r?$' -or $technicalCoreText.Length -gt 24000 -or
         -not $technicalCoreText.Contains('No-Code Module Use and Code Extensions') -or
         -not $technicalCoreText.Contains('every full absolute file and folder path below 260 characters') -or
         $technicalCoreText -match '(?m)^## (?:Game Audio and Sound Design|Command Rules|Multiplayer Efficiency Rule|Odin Inspector Usage)\r?$') {
@@ -1409,7 +1414,7 @@ try {
         'Provide a separate **Get Latest Git Source** button', 'A successful current compilation must not be requested again just to discover source',
         'Use a normal incremental compilation request', 'A successful cached-only cycle must not wait for a script reload',
         'read inputs through supported extended-length paths', 'A fingerprint read failure leaves evidence Unknown and must show the affected path',
-        'Removing BigBang through UPM must leave God and project content functional', 'missing coverage remains an explicit acceptance gap')) {
+        'Removing BigBang through UPM must leave God and project content functional', 'Never perform visual checks')) {
         if (-not $bigBangText.Contains($rule)) { $bigBangFailures.Add("BigBang requirement missing: $rule") | Out-Null }
     }
     if (-not $technicalText.Contains('[BigBang Technique](GeurtsBigBangTechnique.md)') -or
@@ -1458,8 +1463,8 @@ try {
     $themeText = if (Test-Path -LiteralPath $themePath -PathType Leaf) { [System.IO.File]::ReadAllText($themePath) } else { "" }
     $themeRoutingFailures = New-Object System.Collections.Generic.List[string]
     $themeRegistryRows = @($listedRecords | Where-Object { $_.Path -ceq $themeRelative })
-    if ($themeRegistryRows.Count -ne 1 -or $themeRegistryRows[0].Version -cne "1.5.4" -or -not $trackedSet.Contains($themeRelative)) {
-        $themeRoutingFailures.Add("theme technique 1.5.4 must be registered exactly once and tracked") | Out-Null
+    if ($themeRegistryRows.Count -ne 1 -or $themeRegistryRows[0].Version -cne "1.6.0" -or -not $trackedSet.Contains($themeRelative)) {
+        $themeRoutingFailures.Add("theme technique 1.6.0 must be registered exactly once and tracked") | Out-Null
     }
     $themeOwner = [regex]::Match($manifestText, '(?m)^\| Shared visual foundation for all existing and future Forge Editor UI \| `GeurtsTechniques/GeurtsEditorUIThemeTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     if (-not $themeOwner.Success -or $themeOwner.Groups['When'].Value -notmatch '(?i)Before creating, changing, reviewing or validating' -or
@@ -1504,17 +1509,17 @@ try {
         'God **0.14.0** introduces this API', 'Commandments must reuse God''s canonical theme directly',
         'passive Companion adapter has no independent dashboard or generated theme', 'Tools~/SyncEditorTheme.ps1',
         'Preserve meaningful Odin configuration', 'Use the shared USS and supported UI Toolkit controls for new custom Editor UI',
-        'narrow docked size', 'light and dark host skins', 'normal and high display scaling',
+        'Never perform visual checks', 'Visual checks are not performed and not required for publication',
         'not a claim of universal automatic enforcement'
     )) {
         if (-not $themeText.Contains($requiredThemeRule)) { $themeFailures.Add("theme requirement missing: $requiredThemeRule") | Out-Null }
     }
-    if ($themeText -notmatch '(?im)^\*\*Version:\*\*\s*1\.5\.4\s*$' -or
+    if ($themeText -notmatch '(?im)^\*\*Version:\*\*\s*1\.6\.0\s*$' -or
         $themeText -notmatch '^<!-- GEURTS-AUDIENCE: AI-READ -->' -or
         -not $themeText.Contains('<!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->')) {
         $themeFailures.Add("theme version or shared/Forge-development audience boundary is absent") | Out-Null
     }
-    Add-Check "Editor UI theme contract" ($themeFailures.Count -eq 0) $(if ($themeFailures.Count) { $themeFailures -join "; " } else { "Exact dark/green tokens, semantic severity, actionable states, shared API/USS, independent generated companion, truthful progress and bounded visual review are required. This check does not certify rendered Unity UI." })
+    Add-Check "Editor UI theme contract" ($themeFailures.Count -eq 0) $(if ($themeFailures.Count) { $themeFailures -join "; " } else { "Exact dark/green tokens, semantic severity, actionable states, shared API/USS, independent generated companion, truthful progress and proportionate nonvisual review are required. This check does not certify rendered Unity UI." })
 
     # Validate the declared Appearance policy and discovery, never rendered Unity behavior.
     $appearanceRelative = 'GeurtsTechniques/GeurtsEditorAppearanceTechnique.md'
@@ -1522,8 +1527,8 @@ try {
     $appearanceText = if (Test-Path -LiteralPath $appearancePath -PathType Leaf) { [IO.File]::ReadAllText($appearancePath) } else { '' }
     $appearanceRoutingFailures = New-Object 'System.Collections.Generic.List[string]'
     $appearanceRows = @($listedRecords | Where-Object { $_.Path -ceq $appearanceRelative })
-    if ($appearanceRows.Count -ne 1 -or $appearanceRows[0].Version -cne '0.1.6' -or -not $trackedSet.Contains($appearanceRelative)) {
-        $appearanceRoutingFailures.Add('Appearance 0.1.6 must be registered exactly once and tracked') | Out-Null
+    if ($appearanceRows.Count -ne 1 -or $appearanceRows[0].Version -cne '0.2.0' -or -not $trackedSet.Contains($appearanceRelative)) {
+        $appearanceRoutingFailures.Add('Appearance 0.2.0 must be registered exactly once and tracked') | Out-Null
     }
     $appearanceOwner = [regex]::Match($manifestText, '(?m)^\| Forge-owned Editor workflow presentation, tabs, collapsible sections, callouts and inline authoring validation \| `GeurtsTechniques/GeurtsEditorAppearanceTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     if (-not $appearanceOwner.Success -or $appearanceOwner.Groups['When'].Value -notmatch 'Before creating, changing, reviewing or validating' -or
@@ -1551,7 +1556,7 @@ try {
     Add-Check 'Editor Appearance routing' ($appearanceRoutingFailures.Count -eq 0) $(if ($appearanceRoutingFailures.Count) { $appearanceRoutingFailures -join '; ' } else { 'The manifest selects Appearance after Theme; existing owners, README, archive completeness and adoption guidance retain their own boundaries.' })
 
     $appearanceFailures = New-Object 'System.Collections.Generic.List[string]'
-    if ($appearanceText -notmatch '(?m)^\*\*Version:\*\* 0\.1\.6\r?$' -or
+    if ($appearanceText -notmatch '(?m)^\*\*Version:\*\* 0\.2\.0\r?$' -or
         $appearanceText -notmatch '(?m)^\*\*Status:\*\* Normative mandatory standard\r?$' -or
         $appearanceText -notmatch '\A<!-- GEURTS-AUDIENCE: AI-READ -->') {
         $appearanceFailures.Add('Appearance version, normative status or shared AI audience is invalid') | Out-Null
@@ -1596,7 +1601,7 @@ try {
         'Do not validate only drawn controls', 'clear stale findings',
         'Distinguish Not checked, Unavailable and genuinely checked/clean states',
         'standard Odin attributes', 'verify the actual behavior',
-        'Inspect the actual native Unity UI', 'Text validation, source review and successful compilation do not establish rendered UI acceptance',
+        'Never perform visual checks', 'not performed and not required',
         'This standard does not authorize interactive desktop tests',
         'do not automatically rewrite scripts, assets, settings, layouts or user content',
         'it does not retrofit released bricks or certify their native appearance'
@@ -1894,7 +1899,7 @@ try {
     $organizationSetupValid = $setupText.Contains('Always consider images and audio') -and $setupText.Contains('Codex mode reconsiders all three segments') -and
         $setupText.Contains('descendants of incoming moved folders') -and $setupText.Contains('Scripts and vendor files remain excluded') -and
         $setupText.Contains('separate Renaming and Reorganising sections') -and $setupText.Contains('green borders with written **Complete**') -and
-        $setupText.Contains('red borders with written **Incomplete**') -and $appearanceText.Contains('Verify actual visible Odin BoxGroups on the affected screen')
+        $setupText.Contains('red borders with written **Incomplete**') -and $appearanceText.Contains('Use Odin BoxGroups in the actual affected implementation')
     Add-Check 'Asset organization setup and complete naming' $organizationSetupValid 'Incoming moves, all Codex name segments, mandatory image/audio inclusion, combined enablement and actual Odin/setup state presentation retain preservation boundaries.'
 
     $estimatedNamingValid = $setupText.Contains('Always estimate each eligible file') -and $setupText.Contains('legacy skip reply') -and

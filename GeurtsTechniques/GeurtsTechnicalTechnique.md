@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Technical Technique
 
-**Version:** 0.20.14
+**Version:** 0.21.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsTechnicalTechnique.md`
@@ -68,7 +68,7 @@ For new modules and materially changed workflows, verify representative setup/us
 
 Develop, test and build **on Windows for Windows, using Unity and Codex**. Use the supported Unity Editor, Codex-assisted implementation/validation and Windows PowerShell-compatible host automation. Another host or player target requires an explicit user change.
 
-Select the **Windows Build Profile**, scene list, architecture and scripting backend explicitly. Validate affected behaviour in the Windows Editor and, for runtime/build changes, the resulting Windows player. Preserve unrelated settings, profiles and open scenes.
+Select the **Windows Build Profile**, scene list, architecture and scripting backend explicitly. Select only the nonvisual checks justified by the affected behavior under Automation; a runtime edit alone does not require a player build. Preserve unrelated settings, profiles and open scenes.
 
 Apply AGENTS.md's [primary game target](../AGENTS.md#13-primary-game-target) when choosing release platforms. The AGENTS-selected [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) owns preparation, Steamworks.NET prerequisites, optional platform services and evidence. Prepare projects before AppID/store/depot/release-pipeline setup; keep unconfigured local development usable. Steam Deck, Proton, SteamOS and other operating systems are outside this target. This policy does not certify or retrofit released bricks.
 
@@ -122,7 +122,9 @@ Design every new or materially changed first-party component so humans and Codex
 
 ## Verification and completion
 
-Implement the complete authorized outcome, including affected registration, references, tests and documentation. Verify normal/failure paths, repeatability, cleanup, compatibility and relevant performance. Report actual evidence and unavailable checks honestly; compilation alone does not establish rendered UI, physical input or Windows-player acceptance. Follow [Automation](GeurtsGameForgeAutomationTechnique.md#proportionate-testing) for proportionate tests, [efficient AI tools](GeurtsGameForgeAutomationTechnique.md#efficient-ai-tool-use), questions, delivery and computer control.
+**Every project's technical design must use minimal, proportionate validation: choose the smallest meaningful relevant checks, reuse unchanged relevant evidence, then stop after success.** Apply [Automation's testing owner](GeurtsGameForgeAutomationTechnique.md#proportionate-testing). Small reversible changes require no full suite. Broader checks need a concrete failure, dependency change, material risk or user request. Protect affected data/account boundaries; avoid duplicate tests.
+
+**Never perform visual checks.** Apply [Automation's no-visual rule](GeurtsGameForgeAutomationTechnique.md#no-visual-checks) and [efficient tools](GeurtsGameForgeAutomationTechnique.md#efficient-ai-tool-use). No visual acceptance gate applies; never claim it passed. Keep zero-warning compilation.
 
 For changed C# scripts, apply the Code topic's naming, tooltips, XML summaries for all classes/methods, complex-logic comments and Major Component Help. The [Unity topic](GeurtsUnityTechnique.md) owns physics, scheduling and Unity compile/test/build checks; [Automation](GeurtsGameForgeAutomationTechnique.md#zero-warning-compilation-gate) owns the generic compilation gate. Validate no-code/API use and avoid per-frame allocations. Select other affected topics through AGENTS.md.
 

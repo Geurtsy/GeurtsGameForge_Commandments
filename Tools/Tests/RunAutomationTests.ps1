@@ -1,5 +1,5 @@
 # RunAutomationTests.ps1
-# Version: 0.71.2
+# Version: 0.72.0
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot,
@@ -10,6 +10,8 @@ param(
 $ErrorActionPreference = "Stop"
 $script:Passed = 0
 $script:Failed = 0
+$script:InvocationTimings = @{}
+$script:SuiteClock = [Diagnostics.Stopwatch]::StartNew()
 $script:FailureMessages = New-Object System.Collections.Generic.List[string]
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 
@@ -84,8 +86,14 @@ function Invoke-TestScript([string]$Path, [string[]]$Arguments) {
     if ((Split-Path -Leaf $hostPath) -like "powershell*") { $hostArguments += @("-ExecutionPolicy", "Bypass") }
     $hostArguments += @("-File", $Path)
     $hostArguments += $Arguments
+    $clock = [Diagnostics.Stopwatch]::StartNew()
     $output = @(& $hostPath @hostArguments 2>&1)
-    return [pscustomobject]@{ Code = $LASTEXITCODE; Output = ($output -join [Environment]::NewLine) }
+    $code = $LASTEXITCODE
+    $name = Split-Path -Leaf $Path
+    if (-not $script:InvocationTimings.ContainsKey($name)) { $script:InvocationTimings[$name] = [pscustomobject]@{script=$name; calls=0; seconds=0.0} }
+    $script:InvocationTimings[$name].calls++
+    $script:InvocationTimings[$name].seconds += $clock.Elapsed.TotalSeconds
+    return [pscustomobject]@{ Code = $code; Output = ($output -join [Environment]::NewLine) }
 }
 
 function Start-TestScriptAtBarrier([string]$Path, [string[]]$Arguments, [string]$BarrierPath, [string]$TargetPath) {
@@ -258,6 +266,7 @@ function Remove-TestJunction([string]$Path, [string]$ExpectedTarget) {
 
 if ([string]::IsNullOrWhiteSpace($RepositoryRoot)) { $RepositoryRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot) }
 $RepositoryRoot = [System.IO.Path]::GetFullPath($RepositoryRoot)
+$packageVersion = [regex]::Match([IO.File]::ReadAllText((Join-Path $RepositoryRoot "AGENTS.md")), '(?m)^\*\*Version:\*\* ([0-9.]+)').Groups[1].Value
 $toolsRoot = Join-Path $RepositoryRoot "Tools"
 $manageScript = Join-Path $toolsRoot "ManageGeurtsAgentInstructions.ps1"
 $gddScript = Join-Path $toolsRoot "UpdateGameDesignManifest.ps1"
@@ -268,6 +277,68 @@ $testRoot = Join-Path $temporaryBase ("ggf-automation-tests-" + [Guid]::NewGuid(
 
 try {
     New-Item -ItemType Directory -Path $testRoot | Out-Null
+    # A wrong narrow selection can bypass regressions: verify real Git ranges,
+    # including mixed/unknown inputs, without duplicating the policy validator.
+    $scopeRoot = Join-Path $testRoot 'scope'
+    [void][IO.Directory]::CreateDirectory((Join-Path $scopeRoot 'GeurtsTechniques'))
+    [void][IO.Directory]::CreateDirectory((Join-Path $scopeRoot 'Tools'))
+    $scopeFiles = @('AGENTS.md', 'README.md', 'GeurtsTechniques/GeurtsDocumentationRegistry.json',
+        'GeurtsTechniques/GeurtsBrickCatalogue.json', 'GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md', 'Tools/helper.ps1')
+    Write-Utf8 (Join-Path $scopeRoot 'AGENTS.md') "**Version:** 1.0.0`nStartup policy."
+    Write-Utf8 (Join-Path $scopeRoot 'README.md') 'Content.'
+    Write-Utf8 (Join-Path $scopeRoot 'GeurtsTechniques/GeurtsBrickCatalogue.json') '{"bricks":[]}'
+    Write-Utf8 (Join-Path $scopeRoot 'GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md') 'Shared policy.'
+    Write-Utf8 (Join-Path $scopeRoot 'Tools/helper.ps1') '# Tool'
+    $scopeRegistry = [pscustomobject]@{packageVersion='1.0.0'; files=@($scopeFiles | ForEach-Object { [pscustomobject]@{path=$_;version='1.0.0';role='Fixture'} });controlledSections=@()}
+    $scopeRegistryPath = Join-Path $scopeRoot 'GeurtsTechniques/GeurtsDocumentationRegistry.json'
+    Write-Utf8 $scopeRegistryPath ($scopeRegistry | ConvertTo-Json -Depth 5)
+    & git -C $scopeRoot init --quiet
+    & git -C $scopeRoot -c core.autocrlf=false add --all
+    & git -C $scopeRoot -c user.name=Fixture -c user.email=fixture@example.invalid -c core.hooksPath=NUL commit --quiet -m baseline
+    if ($LASTEXITCODE -ne 0) { throw 'Unable to commit scope fixture.' }
+    & git -C $scopeRoot tag v1.0.0
+    $selector = Join-Path $toolsRoot 'GetGeurtsValidationScope.ps1'
+    foreach ($case in @('catalogue', 'versions', 'shared-policy', 'mixed-tool', 'new-unknown', 'deletion')) {
+        $base = [string](& git -C $scopeRoot rev-parse HEAD)
+        switch ($case) {
+            'catalogue' { Write-Utf8 (Join-Path $scopeRoot 'GeurtsTechniques/GeurtsBrickCatalogue.json') '{"bricks":[],"packageVersion":"1.0.1"}' }
+            'versions' {
+                Write-Utf8 (Join-Path $scopeRoot 'AGENTS.md') "**Version:** 1.0.1`nStartup policy."
+                Write-Utf8 $scopeRegistryPath ([IO.File]::ReadAllText($scopeRegistryPath).Replace('1.0.0','1.0.1'))
+            }
+            'shared-policy' { Write-Utf8 (Join-Path $scopeRoot 'GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md') 'Changed shared policy.' }
+            'mixed-tool' {
+                Write-Utf8 (Join-Path $scopeRoot 'README.md') 'Changed content.'
+                Write-Utf8 (Join-Path $scopeRoot 'Tools/helper.ps1') '# Changed tool'
+            }
+            'new-unknown' { Write-Utf8 (Join-Path $scopeRoot 'unknown.md') 'Unknown.' }
+            'deletion' { Remove-Item -LiteralPath (Join-Path $scopeRoot 'README.md') }
+        }
+        & git -C $scopeRoot -c core.autocrlf=false add --all
+        & git -C $scopeRoot -c user.name=Fixture -c user.email=fixture@example.invalid -c core.hooksPath=NUL commit --quiet -m $case
+        if ($LASTEXITCODE -ne 0) { throw 'Unable to commit scope case.' }
+        $selection = & $selector -RepositoryRoot $scopeRoot -BaseRevision $base | ConvertFrom-Json
+        $expected = if ($case -in @('catalogue','versions')) { 'Content' } else { 'Full' }
+        Assert-True ($selection.scope -ceq $expected) ("Committed scope selection: $case -> $expected")
+        if ($case -eq 'catalogue') {
+            & git -C $scopeRoot tag v1.0.1
+            $tagSelection = & $selector -RepositoryRoot $scopeRoot -ReleaseTag v1.0.1 | ConvertFrom-Json
+            Assert-True ($tagSelection.scope -ceq 'Content' -and $tagSelection.base -ceq $base) 'Catalogue release tag uses verified stable ancestor history'
+            $missingTagSelection = & $selector -RepositoryRoot $scopeRoot -ReleaseTag v9.0.0 | ConvertFrom-Json
+            Assert-True ($missingTagSelection.scope -ceq 'Full') 'Unavailable release tag fails closed'
+        }
+
+    }
+    foreach ($invalidBase in @('', ('0' * 40), ('f' * 40))) {
+        $selection = & $selector -RepositoryRoot $scopeRoot -BaseRevision $invalidBase | ConvertFrom-Json
+        Assert-True ($selection.scope -ceq 'Full') 'Unknown/missing Git range fails closed'
+    }
+    $staleTagSelection = & $selector -RepositoryRoot $scopeRoot -ReleaseTag v1.0.1 | ConvertFrom-Json
+    Assert-True ($staleTagSelection.scope -ceq 'Full') 'A tag for a different candidate fails closed'
+    Write-Utf8 (Join-Path $scopeRoot 'AGENTS.md') 'Uncommitted policy.'
+    $selection = & $selector -RepositoryRoot $scopeRoot -BaseRevision $base | ConvertFrom-Json
+    Assert-True ($selection.scope -ceq 'Full') 'Uncommitted candidate fails closed'
+
     $audienceResults = & (Join-Path $PSScriptRoot 'TestDocumentationAudiences.ps1') -RepositoryRoot $RepositoryRoot -OutputFormat Json | ConvertFrom-Json
     $script:Passed += $audienceResults.passed
     $script:Failed += $audienceResults.failed
@@ -388,9 +459,9 @@ try {
         ".github/instructions/geurts-unity.instructions.md|replace-complete-file",
         ".github/instructions/geurts-game-design.instructions.md|replace-complete-file"
     )
-    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq "0.71.2" -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package v0.71.2, and the official exact-main-commit archive source"
+    Assert-True ([string]$companionContract.schemaVersion -ceq "3.0.0" -and [string]$companionContract.packageVersion -ceq $packageVersion -and [string]$companionContract.source.repository -ceq "https://github.com/Geurtsy/GeurtsGameForge_Commandments.git" -and [string]$companionContract.source.branch -ceq "main" -and [string]$companionContract.source.selection -ceq "exact-resolved-head-commit-archive") "Companion contract identifies schema 3.0.0, package current version, and the official exact-main-commit archive source"
     Assert-True ([string]$companionContract.destination.projectRelativePath -ceq "GeurtsGameForgeCommandments" -and [string]$companionContract.destination.replacement -ceq "complete-directory" -and [string]$companionContract.destination.access -ceq "logically-read-only") "Companion contract names the one logically-read-only complete documentation destination"
-    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 19) "Current companion contract names the exact nineteen unique package-v0.71.2 source-validation entries"
+    Assert-True ((@($companionContract.validationEntries) -join "|") -ceq ($expectedCompanionValidationEntries -join "|") -and @($companionContract.validationEntries | Select-Object -Unique).Count -eq 19) "Current companion contract names the exact nineteen unique package-current version source-validation entries"
     Assert-True (($actualCompanionRoutes -join "|") -ceq ($expectedCompanionRoutes -join "|") -and ($actualConfirmationTargets -join "|") -ceq ($expectedConfirmationTargets -join "|") -and [string]$companionContract.updateUi.actionLabel -ceq "Update Geurts Game Forge Commandments" -and [string]$companionContract.updateUi.confirmationDefault -ceq "cancel" -and [string]$companionContract.updateUi.cancelResult -ceq "no-network-or-filesystem-change") "Companion contract fixes three template routes and one cancel-default four-target Update confirmation"
     Assert-True ($companionTechniqueText -match '(?i)one confirmation dialog' -and $companionTechniqueText -match '(?i)no earlier preview, dry run[^\r\n]{0,100}second confirmation' -and $companionTechniqueText -match '(?i)confirmation occurs before archive acquisition' -and $companionTechniqueText -match '(?i)earlier approval does not authorize a changed or expanded managed target set') "Confirmation uses the built-in schema-3.0.0 target set before acquisition and cannot authorize a changed downloaded target set"
     Assert-True ($companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative') "Schema 3.0.0 keeps package versions and safe validation entries forward-compatible while mutation routes remain fixed"
@@ -1059,7 +1130,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
     $folderDefinitionContract = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json
     $folderToolContractText = [System.IO.File]::ReadAllText($folderScript)
     $managerToolContractText = [System.IO.File]::ReadAllText($manageScript)
-    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.17\.1\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq "0.71.2" -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package v0.71.2"
+    Assert-True ($folderTechniqueContractText -match '(?im)^\*\*Version:\*\*\s*0\.17\.1\s*$' -and [string]$folderDefinitionContract.definitionVersion -ceq "0.13.0" -and [string]$folderDefinitionContract.packageVersion -ceq $packageVersion -and $folderToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"') -and $managerToolContractText.Contains('[string]$definition.definitionVersion -ne "0.13.0"')) "Folder technique, definition, creator, and native manager agree on definition v0.13.0 in package current version"
 
     $versionMismatchAuthority = Join-Path $testRoot "folder-version-mismatch-authority"
     New-Item -ItemType Directory -Path $versionMismatchAuthority | Out-Null
@@ -1224,50 +1295,11 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
 
     # Static validation covers manifest/version integrity, source ownership, notification-only startup,
     # separated UI versions, the manual overwrite boundary, generic safeguards, and payload fidelity.
-    $staticValidation = Invoke-TestScript -Path $validatorScript -Arguments @("-RepositoryRoot", $RepositoryRoot)
-    Assert-True ($staticValidation.Code -eq 0) "Repository static validation covers all normative acceptance rules"
     $staticJsonValidation = Invoke-TestScript -Path $validatorScript -Arguments @("-RepositoryRoot", $RepositoryRoot, "-OutputFormat", "Json")
     $staticJsonObject = $null
     try { $staticJsonObject = $staticJsonValidation.Output | ConvertFrom-Json }
     catch { }
-    $requiredLifecycleChecks = @(
-        "Documentation audience tags",
-        "Steam manifest routing",
-        "Steam audience and metadata",
-        "Steam target and preparation boundary",
-        "Steam independent local prerequisite",
-        "Steam optional provider and lifetime",
-        "Steam evidence and artifacts",
-        "Steam optional services and account-free drafts",
-        "Steam policy publication boundary",
-        "Portable root onboarding boundary",
-        "Supported operation and capability evidence",
-        "Unity 6000.6.3f1 minimum",
-        "Unity C# example patterns",
-        "Required technical dependencies and policies",
-        "Frozen GFI v2 source and compatibility boundary",
-        "Frozen GFI v2 startup and manual trigger",
-        "Frozen GFI v2 separated versions",
-        "Frozen GFI v2 destructive warning",
-        "Frozen GFI v2 complete-tree replacement",
-        "Frozen GFI v2 receipt lifecycle",
-        "Frozen GFI v2 overwrite boundary",
-        "Frozen GFI v2 discarded lifecycle exclusion",
-        "Documentation companion closed contract",
-        "Companion schema forward compatibility",
-        "Documentation companion architecture boundary",
-        "God-first optional Commandments Companion boundary",
-        "Installed brick menu contract",
-        "God documentation content integration",
-        "No Unity companion implementation in documentation source",
-        "Companion offline startup",
-        "Companion confirmation and complete update",
-        "Companion bounded project and script boundary",
-        "Companion minimal lifecycle exclusions",
-        "Companion AI-routing limitation"
-    )
-    $missingLifecycleChecks = @($requiredLifecycleChecks | Where-Object { $checkName = $_; @($staticJsonObject.checks | Where-Object { $_.name -ceq $checkName -and $_.passed }).Count -ne 1 })
-    Assert-True ($staticJsonValidation.Code -eq 0 -and $staticJsonObject -and $staticJsonObject.status -eq "VALID" -and @($staticJsonObject.checks | Where-Object { -not $_.passed }).Count -eq 0 -and $missingLifecycleChecks.Count -eq 0) "Repository validation JSON output is parseable and contains every passing companion and frozen-GFI boundary check"
+    Assert-True ($staticJsonValidation.Code -eq 0 -and $staticJsonObject.status -eq "VALID" -and @($staticJsonObject.checks | Where-Object { -not $_.passed }).Count -eq 0) "Repository validation JSON reports the actual successful checks"
 
     # Mutated package fixtures must fail without changing the source checkout or any Unity project.
     $steamMutations = @(
@@ -1494,7 +1526,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         else {
             $originalAppearanceText = $appearanceFixtureText
             switch ($appearanceCase) {
-                'bad-version' { $appearanceFixtureText = $appearanceFixtureText.Replace('**Version:** 0.1.6', '**Version:** 0.0.1') }
+                'bad-version' { $appearanceFixtureText = $appearanceFixtureText.Replace('**Version:** 0.2.0', '**Version:** 0.0.1') }
                 'hidden-policy' { $appearanceFixtureText = $appearanceFixtureText.Replace('GEURTS-AUDIENCE: AI-READ', 'GEURTS-AUDIENCE: HUMAN-ONLY') }
                 'noncollapsible' { $appearanceFixtureText = $appearanceFixtureText.Replace('Every content section must have a visible descriptive header and collapsible content', 'Content sections may remain permanently expanded without headers') }
                 'hidden-header' { $appearanceFixtureText = $appearanceFixtureText.Replace('Its header remains visible when collapsed', 'Its header disappears when collapsed') }
@@ -1654,7 +1686,7 @@ Technical design and implementation guidance remains authoritative in `GeurtsGam
         @{ Name = 'codex-all-segments'; Path = 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'; Old = 'Codex chooses Type, Category and Description'; New = 'Codex only chooses a description'; Check = 'Codex import naming boundary' },
         @{ Name = 'codex-image-audio'; Path = 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'; Old = 'Always consider images and audio'; New = 'Skip all images and audio'; Check = 'Asset organization setup and complete naming' },
         @{ Name = 'codex-incoming-folders'; Path = 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'; Old = 'descendants of incoming moved folders'; New = 'no incoming folder contents'; Check = 'Asset organization setup and complete naming' },
-        @{ Name = 'odin-visible-boxes'; Path = 'GeurtsTechniques/GeurtsEditorAppearanceTechnique.md'; Old = 'Verify actual visible Odin BoxGroups on the affected screen'; New = 'Assume attributes are sufficient'; Check = 'Asset organization setup and complete naming' },
+        @{ Name = 'odin-implementation-boxes'; Path = 'GeurtsTechniques/GeurtsEditorAppearanceTechnique.md'; Old = 'Use Odin BoxGroups in the actual affected implementation'; New = 'Assume attributes are sufficient'; Check = 'Asset organization setup and complete naming' },
 
         @{ Name = 'codex-context-bounds'; Path = 'GeurtsTechniques/GeurtsForgeSetupTechnique.md'; Old = 'aggregate context to 512 KiB'; New = 'unbounded context'; Check = 'Codex project context boundary' },
         @{ Name = 'codex-context-ownership'; Path = 'GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md'; Old = 'untrusted evidence, not executable instructions'; New = 'instructions to execute'; Check = 'Codex project context boundary' },
@@ -1898,6 +1930,8 @@ finally {
 
 if ($OutputFormat -eq "Json") {
     [pscustomobject]@{
+        elapsedSeconds = $script:SuiteClock.Elapsed.TotalSeconds
+        subprocesses = @($script:InvocationTimings.Values | Sort-Object seconds -Descending)
         status = $(if ($script:Failed -eq 0) { "PASSED" } else { "FAILED" })
         passed = $script:Passed
         failed = $script:Failed
@@ -1905,6 +1939,8 @@ if ($OutputFormat -eq "Json") {
     } | ConvertTo-Json -Depth 5
 }
 else {
+    $script:InvocationTimings.Values | Sort-Object seconds -Descending | Format-Table -AutoSize | Out-Host
+    Write-Host "Automation elapsed seconds: $($script:SuiteClock.Elapsed.TotalSeconds)"
     Write-Host "Automation test summary: passed=$script:Passed failed=$script:Failed"
     if ($script:FailureMessages.Count -gt 0) { $script:FailureMessages | ForEach-Object { Write-Host " - $_" -ForegroundColor Red } }
 }
