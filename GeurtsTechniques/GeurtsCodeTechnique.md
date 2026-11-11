@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Code Technical Topic
 
-**Version:** 0.2.0
+**Version:** 0.3.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative technique
 **Required package path:** `GeurtsTechniques/GeurtsCodeTechnique.md`
@@ -21,6 +21,10 @@ Use full words in new class, method, property, field, parameter, enumeration and
 **Use ScriptableObjects extensively as the default for reusable, Inspector-authored game definitions, shared configuration, action assets and event channels.** Compose suitable existing asset types through typed references and thin components, retaining normal no-code setup. Keep per-instance behaviour on components; avoid assets for every transient value and hidden shared global state.
 
 **Connect Unity assets, prefabs, components and scene objects through strongly typed serialized object references, assigned by drag and drop or an object picker in the Editor.** Prefer direct references to ScriptableObject definitions over string content IDs and registries. Avoid string IDs, object names, hierarchy paths and string-keyed lookups for connections that can be represented by object references. Do not substitute a hash of a string for a direct reference or add a lookup layer merely to avoid exposing a reference field.
+
+**Store the actual typed serialized Unity reference on ScriptableObjects and components, with an Inspector field assignable by drag and drop or object picker. Do not store an asset path string instead of a reference.** Avoid hardcoded asset paths, filenames, handwritten GUID strings, object-name searches and folder/global scans for ordinary asset discovery or linking. Moving or renaming an asset through Unity while preserving its `.meta` identity keeps its serialized references; deleting and recreating an asset does not preserve that identity.
+
+When a direct reference genuinely cannot serve an existing content-delivery or external boundary, use the project's established stable typed asset-reference mechanism and document the concrete necessity. Do not introduce Addressables or another dependency merely to avoid direct drag-and-drop authoring. Paths for actual file I/O, diagnostics and supported Unity authoring operations remain legitimate; they must not become a hidden fallback for missing asset assignments.
 
 Expose required references clearly, with tooltips and actionable authoring validation. Report missing, incompatible or invalid references before use; do not silently fall back to a name search. Respect asset/scene ownership and lifetime: reusable assets must not depend on a particular scene instance; provide scene-local connections through an owning component. Keep authored shared data separate from mutable per-instance/session state, with explicit state ownership and reset/cleanup. Do not use authored asset mutation as player-save storage.
 

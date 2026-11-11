@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.72.0
+**Version:** 0.73.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -79,11 +79,10 @@ Historical release records are in [History/Changelog.md](History/Changelog.md) a
 <!-- GEURTS-SECTION:BEGIN FORGE-DEVELOPMENT-ONLY -->
 ## Source-Repository Validation
 
-From a source checkout, run the read-only package validator and isolated automation harness; neither command accepts or mutates a real Unity project:
+From a source checkout, run the read-only package validator; select the isolated regression harness through [CONTRIBUTING.md](CONTRIBUTING.md) only when required; neither command accepts or mutates a real Unity project:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File ".\Tools\ValidateGeurtsDocumentation.ps1"
-powershell -NoProfile -ExecutionPolicy Bypass -File ".\Tools\Tests\RunAutomationTests.ps1"
 ```
 
 PowerShell 7 may replace `powershell` with `pwsh`. The validator checks package, registry, authority, lifecycle, schema, template, and payload rules without writing repository content. The automation harness uses guarded temporary fixtures outside the checkout and includes negative lifecycle-boundary regressions. Both commands accept `-OutputFormat Json`; `-RepositoryRoot` is an optional explicit source-checkout override.
@@ -95,14 +94,14 @@ $sources = @('C:/src/God', 'C:/src/Audio') # Extend to every released catalogue 
 & .\Tools\ValidateGeurtsDocumentation.ps1 -SourceRepositories $sources -OutputFormat Json
 ```
 
-Each checkout's `origin` must match its catalogue source repository. Fetch the pinned commits and their manifest blobs beforehand; stable release tags must already have been verified against the owning immutable release. The publication gate reads `package.json` and `ForgeCapabilities.json` from those exact commits, regardless of working-tree edits. It rejects identity/version drift, missing or extra required Forge dependencies, unequal minimums, and unavailable catalogue providers. Missing evidence is a failure. Every pinned package also passes the [Brick Contract metadata gate](GeurtsTechniques/GeurtsBrickContract.md#unity-package-metadata-release-gate); use its standalone candidate command for a new brick before catalogue registration. It does not fetch, execute package code, change checkouts, acquire documentation or update consumers. Run `Tools/Tests/TestGeurtsBrickSources.ps1` for the focused isolated regressions; the full harness includes them. Normal validation without `-SourceRepositories` remains local and offline.
+Each checkout's `origin` must match its catalogue source repository. Fetch the pinned commits and their manifest blobs beforehand; stable release tags must already have been verified against the owning immutable release. The publication gate reads `package.json` and `ForgeCapabilities.json` from those exact commits, regardless of working-tree edits. It rejects identity/version drift, missing or extra required Forge dependencies, unequal minimums, and unavailable catalogue providers. Missing evidence is a failure. Every pinned package also passes the [Brick Contract metadata gate](GeurtsTechniques/GeurtsBrickContract.md#unity-package-metadata-release-gate); use its standalone candidate command for a new brick before catalogue registration. It does not fetch, execute package code, change checkouts, acquire documentation or update consumers. Run `Tools/Tests/TestGeurtsBrickSources.ps1` only when its source-validator behavior changes or a concrete risk requires it; the full harness includes it. Normal validation without `-SourceRepositories` remains local and offline.
 
 <!-- GEURTS-SECTION:END -->
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
 
-### 0.72.0
+### 0.73.0
 
 - Remove content-hash gates for Compatibility source/preparation, release evidence and software/archive downloads. Retain identity/version/Git selection, bounded patch contexts, safe paths, file observations and actual zero-warning/functional acceptance. - 11 November 2026
 
@@ -110,6 +109,14 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 - Separates native Steam/account/device acceptance from Multiplayer implementation and catalogue publication. Unperformed checks stay explicitly unverified; other validation gates remain mandatory.
 - Publishes the exact-source Multiplayer catalogue entry and owner usage route after implementation qualification.
+
+### 0.72.0 - 11 November 2026
+
+- Make minimal, proportionate nonvisual validation the shared default for every Forge project's technical design and work; remove automatic multi-Editor/full-suite and visual acceptance requirements.
+- Require actual typed serialized drag-and-drop asset references on ScriptableObjects/components instead of path strings; preserve legitimate I/O and necessary content-delivery boundaries.
+- Scope CI, including verified release-tag ranges, to known content changes while retaining complete static checks on both PowerShell hosts and fail-closed full regressions for shared tooling/policy or unknown inputs.
+- Reuse successful registry structural validation only for identical authority text, with fresh safe-path checks and independent returned objects; remove duplicate positive static text validation and implementation-mirroring check-name inventories.
+- Preserve existing catalogue pins, immutable payloads, account/data/consent checks and manual consumer adoption.
 
 ### 0.71.2 - 11 November 2026
 

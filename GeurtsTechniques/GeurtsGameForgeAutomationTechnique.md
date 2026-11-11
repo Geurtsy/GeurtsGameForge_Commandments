@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.13.0
+**Version:** 0.14.0
 **Status:** Draft normative technique
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md`
@@ -45,15 +45,19 @@ Fetched documentation snapshots and offline installers remain inert content; thi
 
 ## Proportionate Testing
 
-**Do not write, expand or run unit tests unless absolutely necessary.** Reduce AI tool compute by preferring existing evidence, inspection, static validation, compilation or a small smoke/integration check when these adequately verify the change at lower cost.
+**Validation must be minimal and proportionate to the change across every Forge project and package, including StandardsOnly projects. Use the smallest meaningful relevant checks, then stop after the selected checks pass.** This is the default for project technical design, implementation, CI and release work.
 
-An exception must address a concrete material correctness or regression risk that adequate lower-cost checks cannot cover, or an unavoidable required acceptance gate. Briefly record the risk, why cheaper evidence is insufficient, and the smallest useful unit test or subset. Reuse existing tests where possible. Do not create test infrastructure, chase coverage percentages or run a whole unit suite by habit. A changed method, new class or generic best-practice claim alone does not establish necessity.
+Do not write, expand or run unit tests unless absolutely necessary. Prefer inspection, existing evidence, a static check, required compilation or one focused functional check when sufficient. Small reversible text, UI, formatting and metadata changes must not trigger full regression suites by routine. Do not automatically run broad multi-Editor, full-dependency-graph, Edit Mode plus Play Mode, player-build or native-service suites for every patch.
 
-**Add tests for distinct behaviour or credible regression risks, not to increase test counts.** Inspect and reuse existing coverage before writing a new case. Extend an existing test or use representative parameterized cases when they exercise the same contract. Retain separate cases for meaningfully different boundaries, failure modes, lifecycle or supported environments; do not duplicate assertions under different names or mirror implementation details.
+Expand validation only for a concrete failure, changed relevant dependency, material correctness risk or explicit user request. Briefly record that reason and select the smallest useful existing subset. Protect consequential behavior with focused checks where affected: save preservation, data corruption/loss, account isolation, authorization and security boundaries. A code edit or generic best practice alone is not a reason for a broader suite. This rule does not waive the zero-warning compilation gate or bypass required branch/publication checks; change excessive owning CI policy through a reviewed update.
 
-Do not add automated tests solely for reversible, low-impact prose, formatting or cosmetic changes when inspection and existing checks adequately verify them. For behaviour changes, choose the smallest useful checks of observable outcomes and relevant failures. A bug regression should fail when the bug is reintroduced. Avoid speculative test infrastructure and exhaustive combinations without a concrete risk.
+Reuse existing results when relevant source, inputs, dependencies and environment are unchanged. An unrelated version stamp or upstream change does not invalidate them. Successful required CI supplies final evidence without a duplicate local full-suite run. Run an affected check again only when its inputs changed, it failed, or a concrete unresolved risk requires it. Record the scope actually covered.
 
-Use focused checks while editing. Run required final validation once for the completed candidate in an accepted environment; successful required CI can supply that evidence without a duplicate local full-suite run. Reuse evidence only for the identical source tree, relevant inputs and tested environment. Changes, failures, stale evidence or an unresolved concern justify affected reruns or broader checks; repeating an unchanged successful run needs a concrete reason. Keep actual source/environment coverage explicit. Required repository, platform and publication gates remain binding; do not delete useful coverage or bypass checks to reduce compute.
+Add tests for distinct behaviour or credible regression risks. Inspect and reuse existing coverage; do not create duplicate or implementation-mirroring checks, tests of incidental wording, coverage quotas or new test infrastructure for routine changes. Remove duplication when it adds no distinct protection. Keep distinct preservation and failure boundaries; failures remain failures.
+
+### No visual checks
+
+**Never perform visual checks.** Do not inspect rendered UI, request screenshots, capture screenshot/video evidence, compare images or run visual acceptance gates. Visual checks are not required for completion or publication. Retain design and usability requirements in implementation, and use only proportionate nonvisual source, functional or compiler checks where justified. Report visual checks as not performed and not required; never claim visual acceptance passed or leave work waiting for it. This rule applies across all Forge projects and takes precedence over older visual-review instructions and historical adoption records.
 
 ## Efficient AI Tool Use
 
@@ -164,7 +168,7 @@ For queue implementations, validate real Git auto-committed and conflicted merge
 
 Require completed successful compilation, complete logs and no warning/error diagnostics, including resolved dependencies. Third-party warnings also block publication: resolve them through supported dependency updates or the owning source. Do not edit vendor/generated files, suppress warnings, lower warning levels or add exclusions to obtain a pass. Missing tooling/logs, skipped compilation or unverified dependencies are blockers. Revalidate the combined candidate when upstream integration changes compilation inputs.
 
-Reuse compilation evidence only for identical relevant source, inputs, dependencies and environment; proportionate checks never waive this gate. Documentation-only repositories without compiled implementation run their documentation checks and report compilation as not applicable, never as a verified Unity build. This policy does not configure or certify existing projects automatically.
+Reuse compilation evidence for unchanged relevant source, inputs, dependencies and environment; proportionate checks never waive this gate. Documentation-only repositories without compiled implementation run their documentation checks and report compilation as not applicable, never as a verified Unity build. This policy does not configure or certify existing projects automatically.
 
 ## Codex Delivery to Main
 

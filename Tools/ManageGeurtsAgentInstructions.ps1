@@ -1,5 +1,5 @@
 # ManageGeurtsAgentInstructions.ps1
-# Version: 0.72.0
+# Version: 0.73.0
 [CmdletBinding()]
 param(
     [string]$ProjectRoot,
@@ -356,8 +356,12 @@ function Get-ManagedFolderDefinition([string]$Root, [bool]$IncludeGameDesign) {
 
     try { $definition = Get-Content -LiteralPath $definitionPath -Raw | ConvertFrom-Json }
     catch { throw "The authoritative folder definition is invalid JSON: $($_.Exception.Message)" }
-    if ([string]$definition.definitionVersion -ne "0.13.0" -or [string]$definition.packageVersion -ne "0.72.0") {
-        throw "Managed setup requires folder definition v0.13.0 from package v0.72.0."
+    $sourceEntry = Join-Path (Split-Path -Parent $PSScriptRoot) 'AGENTS.md'
+    $sourceVersion = [regex]::Matches([IO.File]::ReadAllText($sourceEntry), '(?m)^\*\*Version:\*\* ([0-9]+\.[0-9]+\.[0-9]+)\r?$')
+    if ($sourceVersion.Count -ne 1) { throw 'The same-copy AGENTS.md must declare exactly one package version.' }
+    $expectedPackageVersion = $sourceVersion[0].Groups[1].Value
+    if ([string]$definition.definitionVersion -ne "0.13.0" -or [string]$definition.packageVersion -cne $expectedPackageVersion) {
+        throw "Managed setup requires folder definition v0.13.0 from the same-copy package v$expectedPackageVersion."
     }
 
     $requiredProfiles = @("native-entry")
