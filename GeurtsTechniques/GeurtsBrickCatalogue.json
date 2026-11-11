@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.72.0",
+  "packageVersion": "0.72.1",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -43,11 +43,11 @@
       "name": "Geurts Game Forge God",
       "description": "Required foundation for brick lifecycle, shared services, retained bootstrap, package management and Editor-only Commandments tools. Does not require optional peer bricks.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.god",
-      "version": "0.44.4",
+      "version": "0.45.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#057ac66731a9bc461d03790e6d55d074888512fd",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.god.git#6fff35857e31095cded277ad87021c1fdaa6d994",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -64,13 +64,13 @@
     {
       "id": "com.geurts.gameforge.steam",
       "name": "Geurts Game Forge Steam",
-      "description": "Optional Windows x64 Steam platform provider and release preparation, separate from Multiplayer's required built-in Steam networking. Local development starts without native Steam. Native account, overlay and depot acceptance remain unverified.",
+      "description": "Optional Windows x64 Steam platform provider, account-pinned cloud bytes and release preparation. Save and Load owns optional slot transfer. Local development starts without native Steam; real account/server and distribution acceptance remain unverified.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.steam",
-      "version": "0.4.2",
+      "version": "0.6.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#e13b7cdee7fd7278957e2b61f777eae6884aa484",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.steam.git#b87a9bf66e079f79af1a49754672940bfbbf3366",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -80,7 +80,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.43.0"
+          "minimumVersion": "0.45.0"
         }
       ]
     },
@@ -205,13 +205,13 @@
     {
       "id": "com.geurts.gameforge.saveload",
       "name": "Geurts Game Forge Save and Load",
-      "description": "Local gameplay saves with profiles, named slots, explicit participants, bounded atomic files and transactional restore. Includes no-code bindings and code extensions; cloud and network transport remain outside this module.",
+      "description": "Local gameplay saves with optional reviewed Steam Cloud slot transfer. Use profiles, explicit participants and named slots; local saving works without Steam. Cloud is off by default and requires an explicit account/copy choice.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.saveload",
-      "version": "0.4.3",
+      "version": "0.6.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#cab71f4ce9c0cdfcffda989bba0c45063adc6b68",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.saveload.git#5b59241423dbe7bda3bf910e533c8adc814e4cd3",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -221,7 +221,7 @@
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.38.4"
+          "minimumVersion": "0.45.0"
         }
       ]
     },
@@ -382,5 +382,6 @@
         }
       ]
     }
-  ]
+  ],
+  "publishedUtc": "2026-11-11T04:10:34Z"
 }

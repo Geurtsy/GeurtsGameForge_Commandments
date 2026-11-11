@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.72.0
+**Version:** 0.72.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,13 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.72.1 - 11 November 2026
+
+- Pin the published optional cloud-saving cohort: Save and Load 0.6.0, Steam 0.6.0 and God 0.45.0 at their verified immutable source commits.
+- Route account/copy review, guarded transfer and protected local import to Save and Load; Steam supplies account-pinned bytes through God. Local saving works without Steam.
+- Record focused passing checks and the explicit user authorization to publish without real Steam-server/second-device checks. No visual checks or live consumer/account changes.
+- Preserve the merged minimal-testing/no-visual/drag-and-drop policy, its scoped CI and every unrelated brick pin. No tool or regression-script changes.
 
 ### 0.72.0 - 11 November 2026
 

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.8.4
+**Version:** 1.9.0
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -74,8 +74,8 @@ The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared co
 ## God
 
 **Catalogue ID:** `com.geurts.gameforge.god`
-**Evidence version:** `0.44.4`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/057ac66731a9bc461d03790e6d55d074888512fd/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/057ac66731a9bc461d03790e6d55d074888512fd/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/057ac66731a9bc461d03790e6d55d074888512fd/Documentation~/GameIntegration.md).
+**Evidence version:** `0.45.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/6fff35857e31095cded277ad87021c1fdaa6d994/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/6fff35857e31095cded277ad87021c1fdaa6d994/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/6fff35857e31095cded277ad87021c1fdaa6d994/Documentation~/GameIntegration.md).
 
 - **Use:** Foundation for every dependent brick: lifecycle, shared capabilities/settings, bootstrap, packages and Commandments.
 - **Prerequisites:** Licensed Odin Inspector and Quantum Console, resolved Unity dependencies and the Forge Steamworks.NET prerequisite. No optional peer brick or passive adapter is required.
@@ -85,7 +85,7 @@ The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared co
 - **Verify:** Check bootstrap/readiness independently of package presence; test absent, available, withdrawn and re-enabled capability states plus subscription disposal.
 - **Limits:** No second host/registry in a game. Editor APIs stay outside player assemblies; optional providers may be unavailable.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/057ac66731a9bc461d03790e6d55d074888512fd/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/057ac66731a9bc461d03790e6d55d074888512fd/Documentation~/AIUsabilityValidation.json). God 0.44.3 records 99 passing focused native checks, the integration recipe, actual authoritative catalogue refresh and 31 compiled assemblies with zero default-policy diagnostics. Its pinned cancellation and expanded local Help were rendered at 560 and 760 points; other display scales/skins and player/native-service behavior remain unverified. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/6fff35857e31095cded277ad87021c1fdaa6d994/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/6fff35857e31095cded277ad87021c1fdaa6d994/Documentation~/AIUsabilityValidation.json). God 0.44.3 records 99 passing focused native checks, the integration recipe, actual authoritative catalogue refresh and 31 compiled assemblies with zero default-policy diagnostics. Its pinned cancellation and expanded local Help were rendered at 560 and 760 points; other display scales/skins and player/native-service behavior remain unverified. Consumer installation and updates remain separate explicit actions.
 
 Update policy requires a current explicit action and confirmation. Legacy automatic entry-point names do not grant update consent; a documentation edit does not change installed handlers.
 
@@ -95,13 +95,15 @@ God retains SDK-neutral native-session reservations and revocable leases. Provid
 
 God retains single-AGENTS startup and legacy package support. The God manifest retains its Compatibility 0.1.1 minimum; the Catalogue selects published Compatibility 0.2.0 for automatic local repairs. The earlier minimum release's uGUI metadata evidence remains historical; current automatic-repair, native UI and reviewed-Editor evidence belongs to the pinned Compatibility owner. Consumer installation and game/native-service acceptance remain separate.
 
-Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/057ac66731a9bc461d03790e6d55d074888512fd/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
+Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/6fff35857e31095cded277ad87021c1fdaa6d994/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
+
+God 0.45.0 adds the optional vendor-neutral IForgeAccountCloudStorage contract without Steamworks types or native activation. The focused Steam adapter case exercises it; existing registry/configuration recipe evidence is reused only for unchanged relevant code. See [PlatformContracts](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/6fff35857e31095cded277ad87021c1fdaa6d994/Documentation~/PlatformContracts.md#account-pinned-cloud-transfers) and the owning source-bound validation for exact scope.
 
 ## Steam
 
 **Catalogue ID:** `com.geurts.gameforge.steam`
-**Evidence version:** `0.4.2`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/e13b7cdee7fd7278957e2b61f777eae6884aa484/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/e13b7cdee7fd7278957e2b61f777eae6884aa484/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/e13b7cdee7fd7278957e2b61f777eae6884aa484/Documentation~/GameIntegration.md).
+**Evidence version:** `0.6.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/b87a9bf66e079f79af1a49754672940bfbbf3366/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/b87a9bf66e079f79af1a49754672940bfbbf3366/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/b87a9bf66e079f79af1a49754672940bfbbf3366/Documentation~/GameIntegration.md).
 
 - **Use:** Optional Windows x64 platform provider and Steam release preparation; distinguish wrapper readiness from native service readiness. Preserve this brick separately from Multiplayer's required built-in Steam networking; see the [Multiplayer owner](GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support).
 - **Prerequisites:** God, both licensed libraries, supported Steamworks.NET and its Windows plugin configuration. Native testing additionally needs an explicitly owned app context.
@@ -111,11 +113,13 @@ Catalogue-only refresh and selected/bulk checks retain separate explicit control
 - **Verify:** Verify review causes no write/native startup, stale review blocks save, and explicit save reads back correctly. Native status must be observed separately.
 - **Limits:** Real account, overlay, cloud/server and depot/customer-distribution acceptance remains separately unverified. A distribution draft is not deployment; no automatic Save and Load slot synchronization.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/e13b7cdee7fd7278957e2b61f777eae6884aa484/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/e13b7cdee7fd7278957e2b61f777eae6884aa484/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/b87a9bf66e079f79af1a49754672940bfbbf3366/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/b87a9bf66e079f79af1a49754672940bfbbf3366/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
 
 Steam 0.4.0 requires God 0.43.0 for native sharing. It borrows a matching Multiplayer-owned context or reserves first and initializes its own driver. Borrower release preserves the native owner; withdrawal invalidates services and closes registered callbacks before shutdown. The AppID-free fixture exercises managed cooperation and reloads; actual native sharing, P2P, accounts/devices and overlay remain unverified.
 
 Steam 0.4.1 retains the backend for both exact official 2025.164.1 and reviewed maintained 2025.164.2-geurts.1 source versions. The maintained profile requires fresh central Windows x64 admission. Passive source/API checks and managed regressions do not certify native Steam account or session services.
+
+The optional IForgeAccountCloudStorage provider pins reads and create/replacement writes to the selected actual Steam account, including files with no prior remote revision. Save and Load owns the slot/copy review and local import. Its one targeted controlled-backend account-contract case and affected-source compilation passed; native/server/device acceptance remains unverified under explicit user publication authorization. See [the owning account contract](https://github.com/Geurtsy/com.geurts.gameforge.steam/blob/b87a9bf66e079f79af1a49754672940bfbbf3366/Documentation~/OptionalServices.md#account-pinned-slot-integration).
 
 ## Multiplayer
 
@@ -223,16 +227,18 @@ Confirmation focus maintenance: defer modal review until the requesting UI event
 ## Save and Load
 
 **Catalogue ID:** `com.geurts.gameforge.saveload`
-**Evidence version:** `0.4.3`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/cab71f4ce9c0cdfcffda989bba0c45063adc6b68/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/cab71f4ce9c0cdfcffda989bba0c45063adc6b68/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/cab71f4ce9c0cdfcffda989bba0c45063adc6b68/Documentation~/AIUsability.md).
+**Evidence version:** `0.6.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/5b59241423dbe7bda3bf910e533c8adc814e4cd3/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/5b59241423dbe7bda3bf910e533c8adc814e4cd3/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/5b59241423dbe7bda3bf910e533c8adc814e4cd3/Documentation~/AIUsability.md).
 
-- **Use:** Local named gameplay slots with explicit participants and transactional restore.
-- **Prerequisites:** God, both licensed libraries, authored Save Profile and exactly its required participant set; no optional peer brick.
-- **Entry points:** Use Saved Transform/Saved Value and Save Load Binding. create_profile accepts SaveProfileDraft; custom state implements ISaveParticipant and ISaveRestoreStep.
+- **Use:** Local named gameplay slots with explicit participants and transactional restore, plus optional reviewed complete-slot cloud saving.
+- **Prerequisites:** God, both licensed libraries, authored Save Profile and exactly its required participant set; no optional peer brick for local saving. Cloud uses the optional Steam account-pinned provider through God.
+- **Entry points:** Use Saved Transform/Saved Value and Save Load Binding. Optional Cloud Save Binding / ISaveCloudService support explicit account selection, both-copy review, upload and local import. create_profile accepts SaveProfileDraft; custom state implements ISaveParticipant and ISaveRestoreStep.
 - **Example:** Create a profile with one explicit participant, wire Save/Load result events, save its value to a named slot, change the value and load after targets are ready. Await the actual result; autosave stays off unless deliberately configured.
 - **Lifecycle/settings:** Use the active bootstrap service. Slot files live under Application.persistentDataPath/GeurtsGameForge/SaveLoad/<profile>/, separate from module settings. Dispose migration/owner tokens and cancel pending work through the owner.
 - **Verify:** Check real file roundtrip, corrupt/newer input preservation and participant failure/partial restore. Use the linked concrete gameplay recipe and its isolated test.
-- **Limits:** No implicit scene loading, arbitrary object graph serialization, cloud/network transport or automatic recovery. PARTIAL restore needs game-owned recovery; checksums do not authenticate data.
+- **Limits:** No implicit scene loading, arbitrary object graph serialization, background cloud sync, automatic conflict winner or automatic recovery. PARTIAL restore needs game-owned recovery; checksums do not authenticate data.
+
+Cloud saving stays off by default. Review both local/cloud copies and the explicitly selected Steam account; the game/player chooses which copy to transfer. Stale local/remote revisions, account/provider changes, corrupt/newer schemas and forbidden provenance block mutation. Import uses the protected local writer and retains its backup; normal Load applies gameplay later. Cache acknowledgement is not server synchronization. [Owning cloud guide](https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/5b59241423dbe7bda3bf910e533c8adc814e4cd3/Documentation~/CloudSaving.md) and [source-bound evidence](https://github.com/Geurtsy/com.geurts.gameforge.saveload/blob/5b59241423dbe7bda3bf910e533c8adc814e4cd3/Documentation~/AIUsabilityValidation.json) record sixteen focused cloud cases and the existing local recipe passed. Real Steam server/account/second-device checks are explicitly deferred for publication; visual checks are not required and were not performed. No live consumer or account configuration changes.
 
 ## Audio
 
