@@ -380,7 +380,7 @@
     {
       "path": "GeurtsTechniques/GeurtsMultiplayerTechnique.md",
       "version": "0.5.0",
-      "role": "Multiplayer kit ownership, FishNet/FishySteamworks client-host topology, explicit activation and separately scoped native acceptance."
+      "role": "Planned Multiplayer kit with required built-in Steam networking; FishNet, FishySteamworks/Steamworks.NET, Client-Host and acceptance."
     },
     {
       "path": "Migrations/v0.46.0.md",

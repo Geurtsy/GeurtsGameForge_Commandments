@@ -111,6 +111,18 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - Separates native Steam/account/device acceptance from Multiplayer implementation and catalogue publication. Unperformed checks stay explicitly unverified; other validation gates remain mandatory.
 - Publishes the exact-source Multiplayer catalogue entry and owner usage route after implementation qualification.
 
+### 0.71.2 - 11 November 2026
+
+- Publish the GitFlow 0.3.0 catalogue pin and current owning usage/evidence links after its immutable release. Synchronize God minimum and Python prerequisites; preserve manual consumer updates.
+- Record the release-specific user removal of visual acceptance as a requirement without changing generic appearance standards. Compiler and functional evidence remain required and source-bound.
+- Preserve the concurrent published 0.71.1 Diagnostics/Angels updates and all unrelated brick pins, schemas, frozen payloads and projects.
+
+### 0.71.1 - 11 November 2026
+
+- Pin published Angels 0.11.2 and Diagnostics 0.11.8 confirmation-focus fixes.
+- Record nine native checks in both supported validation Editors, zero focus/compiler diagnostics, and the exact unchanged-runtime evidence reuse boundary.
+- Preserve independent confirmations, current explicit updates, existing dependencies and frozen installer payloads.
+
 ### 0.71.0 - 11 November 2026
 
 - Require Unity-generated committed metadata for all existing and future UPM bricks, with a reusable candidate release gate and automatic checks for every released Catalogue entry.

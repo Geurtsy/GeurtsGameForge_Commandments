@@ -115,11 +115,11 @@
       "name": "Geurts Game Forge Diagnostics",
       "description": "Optional game diagnostics: logs, health checks, inspected values, session history, commands and Windows metrics. Runtime console installation is a separate opt-in action.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics",
-      "version": "0.11.7",
+      "version": "0.11.8",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#246bf9625f6b8036fafcdd46c35620fbf3750461",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.diagnostics.git#d4c32a1a91f35c95a4f03ba97cdd335d9661ff22",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -138,11 +138,11 @@
       "name": "Geurts Game Forge Angels",
       "description": "Optional Editor tools for project organization, reviewed naming, sorting and game-design document import. Paid Codex/audio analysis requires explicit setup and consent; scans preserve completed work on cancellation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.angels",
-      "version": "0.11.1",
+      "version": "0.11.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#29b797c0780d248f967d8fb25c878b8df6a01f47",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.angels.git#0a0148b5a1f5036a0335c8435bf052a74c6d94d6",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -297,24 +297,25 @@
     {
       "id": "com.geurts.gameforge.gitflow",
       "name": "Geurts Game Forge GitFlow",
-      "description": "Editor-only read-only queue, lease, processor and receipt viewer. Refresh is explicit; it cannot submit, publish, retry or recover work. Supports public HTTPS and absolute local remotes.",
+      "description": "Editor saved-change capture, strict explicitly configured integration publisher and paged read-only queue console. Optional authorized local Codex repair; no automatic Forge updates or live-project migration.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow",
-      "version": "0.1.2",
+      "version": "0.3.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#a74071830b7aab17c47a10dbdb8eddc482625ddd",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#18c8ae508a9a9cd8154c6af957811356ab5cefd7",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
         "Odin Inspector",
         "Quantum Console",
-        "Git for Windows"
+        "Git for Windows",
+        "Python 3.10+"
       ],
       "dependencies": [
         {
           "id": "com.geurts.gameforge.god",
-          "minimumVersion": "0.39.3"
+          "minimumVersion": "0.44.4"
         }
       ]
     },
