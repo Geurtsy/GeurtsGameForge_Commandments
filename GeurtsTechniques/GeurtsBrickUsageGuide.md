@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.9.0
+**Version:** 1.10.0
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -195,18 +195,18 @@ Confirmation focus maintenance: defer modal review until the requesting UI event
 ## Settings
 
 **Catalogue ID:** `com.geurts.gameforge.settings`
-**Evidence version:** `0.7.6`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/ff7f1180168872032ca48e7a45ad8f25b6093826/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/ff7f1180168872032ca48e7a45ad8f25b6093826/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/ff7f1180168872032ca48e7a45ad8f25b6093826/Documentation~/GameIntegration.md).
+**Evidence version:** `0.8.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/8b75c62bfc9edfc996b5e018f49e5a47df344ce7/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/8b75c62bfc9edfc996b5e018f49e5a47df344ce7/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/8b75c62bfc9edfc996b5e018f49e5a47df344ce7/Documentation~/GameIntegration.md).
 
 - **Use:** Authored game settings, typed providers, staged changes and local preference persistence.
 - **Prerequisites:** God and both licensed libraries; actual package.json lists Unity dependencies. Audio/UI peers remain optional.
-- **Entry points:** Use authored Settings panels/providers; commit_setup takes the owner's reviewed draft. Custom game settings use the linked GameEffectSetting recipe.
+- **Entry points:** Settings System > Your Settings > Automatic Unity settings setup creates definitions, a Resources catalogue and explicit providers. Select the owning scope/camera/authored gameplay maps, Review Automatic Setup, then Create and Connect All; save the scene and connect the game UI. `commit_automatic_setup` accepts the owner-generated `SettingsAutomaticSetupPlan`; stale targets/reviews are rejected. Individual `commit_setup` remains available. See the [exact authoring inputs](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/8b75c62bfc9edfc996b5e018f49e5a47df344ce7/Documentation~/Authoring.md#automatic-unity-setup).
 - **Example:** Configure an authored setting, stage a value and verify the target stays unchanged. Cancel discards the draft; apply only the reviewed complete draft, then inspect effective and persisted values.
 - **Lifecycle/settings:** Dispose provider registration when its target disappears. Settings owns saved preferences separately from God's module configuration and gameplay saves; apply includes all pending providers.
 - **Verify:** Inspect Saved, Error, Conflicts and per-setting Outcomes; exercise Stage/Cancel, Apply, withdrawal and reload against isolated storage.
 - **Limits:** Do not create another settings service in a live game. Real display-device confirmation and platform storage permissions require separate evidence.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/ff7f1180168872032ca48e7a45ad8f25b6093826/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/ff7f1180168872032ca48e7a45ad8f25b6093826/Documentation~/AIUsabilityValidation.json). Current source-bound default-diagnostic C# qualification passes with unchanged inputs; the owning release record states its functional scope and dependency limits. Visual acceptance for this cohort was explicitly user-waived, not passed. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/8b75c62bfc9edfc996b5e018f49e5a47df344ce7/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.settings/blob/8b75c62bfc9edfc996b5e018f49e5a47df344ce7/Documentation~/AIUsabilityValidation.json). The owning 0.8.0 evidence records six focused checks and complete 74-assembly default-diagnostic qualification. URP/Core/Shader Graph qualification uses explicitly user-approved private unused-declaration repairs, with serialized data/defaults retained. Stock Unity sources are not certified warning-free, and Settings does not distribute or automatically install those repairs. Visual checks were skipped and are not required. Consumer installation and updates remain separate explicit actions.
 
 ## Scene Loading
 
