@@ -1,5 +1,5 @@
 # CreateGeurtsFolderStructure.ps1
-# Version: 0.73.0
+# Version: 0.73.1
 [CmdletBinding()]
 param(
     [string]$ProjectRoot,
