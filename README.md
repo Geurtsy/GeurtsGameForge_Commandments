@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.74.2
+**Version:** 0.74.4
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,10 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.74.4
+
+- Catalogue immutable GitFlow 0.5.3 with labelled read-only queue fields, grouped source/dependency/validation details and retained nested expansion. Preserve private HTTPS access, larger repair context and manual consumer updates. Record the focused native and zero-diagnostic compiler evidence. Other brick pins and contracts remain unchanged.
 
 ### 0.74.2
 
