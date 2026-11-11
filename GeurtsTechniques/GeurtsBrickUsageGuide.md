@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.8.3
+**Version:** 1.8.4
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -287,16 +287,18 @@ The 0.13.4 release retains the two original graphics-bound EditorWindow failures
 ## GitFlow
 
 **Catalogue ID:** `com.geurts.gameforge.gitflow`
-**Evidence version:** `0.1.2`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/a74071830b7aab17c47a10dbdb8eddc482625ddd/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/a74071830b7aab17c47a10dbdb8eddc482625ddd/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/a74071830b7aab17c47a10dbdb8eddc482625ddd/Documentation~/AIUsability.md).
+**Evidence version:** `0.3.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/18c8ae508a9a9cd8154c6af957811356ab5cefd7/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/18c8ae508a9a9cd8154c6af957811356ab5cefd7/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/18c8ae508a9a9cd8154c6af957811356ab5cefd7/Documentation~/AIUsability.md).
 
-- **Use:** Observe an existing integration queue, lease, processor evidence and receipts without controlling them.
-- **Prerequisites:** Enabled God/GitFlow, both licensed libraries and Git for Windows; an existing checkout and supported public HTTPS or absolute local remote.
-- **Entry points:** Open GitFlow and Refresh queue once, or await GitFlowBrick.Service.RefreshAsync(GitFlowTarget). inspect_queue is the only declared operation; discovery is passive.
-- **Example:** Choose the existing checkout/remote, explicitly refresh once, then read the snapshot's target, timestamp, findings and unavailable evidence. Closing a view only detaches it; stop/disable cancels the shared operation.
-- **Lifecycle/settings:** Editor-only shared lifecycle service; transient scope fields are not saved module configuration. Prior results keep their original observation time.
-- **Verify:** Check read completeness and actual findings. A receipt/PID/lease display does not prove current-main ancestry, check success, processor ownership or delivery.
-- **Limits:** Submission/publisher and recovery/repair are Planned and unavailable: no supported actions or installable separate source. Private authentication/SSH are unsupported. Pinned README says 0.1.1 while package/capabilities declare 0.1.2; owner correction is outstanding.
+- **Use:** Capture saved task-owned changes while preserving the live branch/index, operate an explicitly configured strict reusable integration queue, and read bounded dated queue/owner/validation/publication records. The legacy viewer remains read-only.
+- **Prerequisites:** God minimum 0.44.4, licensed Odin Inspector/Quantum Console, Git for Windows and explicit native Python 3.10+. The independent Compatibility prerequisite comes through God; the owner's exact Editor/dependency preparation and compiler evidence remain mandatory. Local Codex/sign-in is required only for optional model/repair functions.
+- **Entry points:** Standalone or God-embedded GitFlow panel; Help renders the local QueueLocalChanges guide. Modern controls use GitFlowBrick.Host and ExecuteQueueAsync. inspect_queue is still the only declared God operation and remains the legacy read-only path; do not invent modern operation IDs.
+- **Example:** In a supported project, inspect the selected repository, review its required policy and configure one separate short publisher workspace. Publisher start and optional repair each retain their explicit authorization. Choose a narrow task-owned Assets scope, use Queue local changes, retain its exact waiting-list ID, and end the worker handoff. Queued is not delivery; the independent publisher owns required checks, version, publication and synchronization. Use the pinned owner recipe and guards for native policy/identity integration.
+- **Lifecycle/settings:** God-owned per-brick preferences retain tools, model/effort and scope. Opening/repainting performs no queue action. Fields freeze per panel request; cancel/close affects owned bridge work and does not stop the independent publisher or undo dispatched writes. Disabling stops lifecycle-owned requests. Forge/content updates remain manual.
+- **Verify:** Read exact source/candidate, required checks, receipt and synchronization scope. Compiler gates require native full rebuild plus complete default-severity qualification from the installed Compatibility owner; flat summaries are portable, full inventories/derived binaries stay private. A PID or lease display never proves process ownership or expiry. Preserve uncertain outcomes and consult the named owner rather than retrying blindly.
+- **Limits:** The recorded modern inspection transport supports public HTTPS and absolute local remotes; private authentication/SSH and arbitrary native identity adapters are unsupported. Live paid inference, physical multi-machine/real 30-minute soak and whole-game/player/rendering graphs are unverified. This release's full visual/physical matrix is incomplete and user-waived as a publication requirement; generic appearance standards are unchanged. No consumer installation follows from publication.
+
+[Source-bound release acceptance](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/18c8ae508a9a9cd8154c6af957811356ab5cefd7/Documentation~/AIUsabilityValidation.json) records 20/20 native tests and 31/31 zero-default-diagnostic compiler-response closures separately for Unity 6000.6.3f1 and 6000.6.8f1, unchanged post-test inputs and exact compiled example. Real-Git evidence is a 25-test run over unchanged queue sources plus five affected regressions, not 30 unique tests. The source and current guides were checked at the immutable release pin; publication of this index does not rerun Unity or install GitFlow.
 
 ## Automatic Git LFS
 

@@ -109,6 +109,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 - Reuse successful registry structural validation only for identical raw authority bytes, with fresh safe-path checks and independent returned objects; remove duplicate positive static text validation and implementation-mirroring check-name inventories.
 - Preserve existing catalogue pins, immutable payloads, account/data/consent checks and manual consumer adoption.
 
+### 0.71.2 - 11 November 2026
+
+- Publish the GitFlow 0.3.0 catalogue pin and current owning usage/evidence links after its immutable release. Synchronize God minimum and Python prerequisites; preserve manual consumer updates.
+- Record the release-specific user removal of visual acceptance as a requirement without changing generic appearance standards. Compiler and functional evidence remain required and source-bound.
+- Preserve the concurrent published 0.71.1 Diagnostics/Angels updates and all unrelated brick pins, schemas, frozen payloads and projects.
+
 ### 0.71.1 - 11 November 2026
 
 - Pin published Angels 0.11.2 and Diagnostics 0.11.8 confirmation-focus fixes.
