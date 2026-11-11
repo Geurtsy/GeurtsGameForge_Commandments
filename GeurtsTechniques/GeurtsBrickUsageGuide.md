@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.11.5
+**Version:** 1.11.6
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -317,8 +317,8 @@ Cloud saving stays off by default. Review both local/cloud copies and the explic
 ## GitFlow
 
 **Catalogue ID:** `com.geurts.gameforge.gitflow`
-**Evidence version:** `0.5.0`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/5273af8587136906429b4e28980a84a4fbd6ef64/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/5273af8587136906429b4e28980a84a4fbd6ef64/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/5273af8587136906429b4e28980a84a4fbd6ef64/Documentation~/AIUsability.md).
+**Evidence version:** `0.5.1`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/7302bbffeada8a6ce79698603ddba08a0dc472e0/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/7302bbffeada8a6ce79698603ddba08a0dc472e0/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/7302bbffeada8a6ce79698603ddba08a0dc472e0/Documentation~/AIUsability.md).
 
 - **Use:** Capture saved task-owned changes without changing the live branch/index; configure/start a strict publisher and inspect every modern queue item/status. Legacy viewing stays separate and read-only.
 - **Prerequisites:** God minimum 0.44.4, licensed Odin Inspector/Quantum Console, Git for Windows and explicit native Python 3.10+. The independent Compatibility prerequisite comes through God; the owner's exact Editor/dependency preparation and compiler evidence remain mandatory. Local Codex/sign-in is required only for optional model/repair functions.
@@ -326,9 +326,9 @@ Cloud saving stays off by default. Review both local/cloud copies and the explic
 - **Example:** Select the repository/remote, click Auto-fill fields and start processor, review the filled values and confirm. New setup needs the project's exact installed Unity version, an initial queue version record already committed on remote main, and every Edit Mode test. Existing policy/root/repair budget is retained; a stale runner requires explicit stopped-owner adoption. Refresh Queue Panel collects all pages and shows statuses, complete-empty or local publisher-stopped messages. Live updates are opt-in reads. For submission, choose a narrow saved Assets scope, Queue local changes once, retain its exact ID and end the worker handoff. Queued is not delivered.
 - **Lifecycle/settings:** God-owned preferences retain paths/model/effort/scope. Opening and ordinary repaint stay offline. Opted-in live reads serialize with actions and end on view teardown; cancel/close never stops the independent publisher or undoes dispatched writes. Start/resume checks the reviewed configuration identity under the existing guard. Forge/content updates remain manual.
 - **Verify:** Read target, UTC, coverage, source/candidate, required checks and receipt/pull scope. The panel compares queue identities across pages and reports drift as partial. Windows process lifetime rejects stale/reused PIDs; it does not prove shared ownership or lease expiry. Preserve uncertain outcomes rather than retrying writes blindly.
-- **Limits:** Modern inspection supports public HTTPS and absolute local remotes; private/SSH transport, legacy migration and arbitrary native identity adapters remain unsupported. Live paid inference, physical multi-machine/real lease soak and whole-game/player/rendering graphs are unverified. Visual checks were not performed; the user explicitly waived them for this update. Publication installs nothing in a consumer.
+- **Limits:** Modern inspection supports public/private HTTPS and absolute local remotes. Private reads use the selected repository's saved Git credential helper noninteractively; credentials stay in scoped child-process memory and HTTP redirects are disabled. SSH transport, legacy migration and arbitrary native identity adapters remain unsupported. Live paid inference, physical multi-machine/real lease soak and whole-game/player/rendering graphs are unverified. Rendered and physical checks were not performed; current Commandments prohibit rendered checks. Publication installs nothing in a consumer.
 
-[Source-bound acceptance](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/5273af8587136906429b4e28980a84a4fbd6ef64/Documentation~/AIUsabilityValidation.json) records 4 focused Unity tests and 9 disposable real-Git/Windows checks, plus actual windowless publisher idle/stop/resume. Unity 6000.6.3f1 full compilation and all 31 default-diagnostic compiler response closures passed with zero diagnostics; all 1,858 inputs stayed unchanged after tests. The supported example and all 34 installed executable files match the candidate. Broader unchanged queue/lease evidence remains historical; this index does not rerun Unity.
+[Source-bound acceptance](https://github.com/Geurtsy/com.geurts.gameforge.gitflow/blob/7302bbffeada8a6ce79698603ddba08a0dc472e0/Documentation~/AIUsabilityValidation.json) records 4 fresh Unity presentation checks, 12 disposable real-Git/Windows checks and an actual private HTTPS queue observation. Unity 6000.6.3f1 full compilation and all 31 default-diagnostic compiler assemblies passed with zero diagnostics. Broader unchanged publisher/lease acceptance remains historical. Publication installs nothing in a consumer.
 
 ## Automatic Git LFS
 
@@ -348,7 +348,7 @@ Cloud saving stays off by default. Review both local/cloud copies and the explic
 
 ## Review dependencies
 
-The adapter owner corrected its guides in published 0.16.0; its current pin and scoped evidence are recorded above. GitFlow's 0.5.0 owning guides and declarations match its release pin. Both pinned package manifests/capabilities match the Catalogue. This coordinated update retains those two released sources and lists the newly published God/Angels cohort with the evidence above. Angels' Catalogue requiredTools includes Quantum Console, matching its pinned capability declaration and God dependency. Existing owner guides also retain human-audience wording; adopt the AI-only maintenance rule in each affected owner's next authorized documentation update. Generic standards belong here; exact implementation corrections and recipe acceptance belong to those owners.
+The adapter owner corrected its guides in published 0.16.0; its current pin and scoped evidence are recorded above. GitFlow's 0.5.1 owning guides and declarations match its release pin. Both pinned package manifests/capabilities match the Catalogue. This coordinated update retains those two released sources and lists the newly published God/Angels cohort with the evidence above. Angels' Catalogue requiredTools includes Quantum Console, matching its pinned capability declaration and God dependency. Existing owner guides also retain human-audience wording; adopt the AI-only maintenance rule in each affected owner's next authorized documentation update. Generic standards belong here; exact implementation corrections and recipe acceptance belong to those owners.
 
 The optional Audio FMOD integration is not a separate current catalogue brick. Its owning Audio guide governs explicit adoption; do not invent a catalogue entry or source. Source inspection does not refresh consumer packages or their local Commandments copies.
 
