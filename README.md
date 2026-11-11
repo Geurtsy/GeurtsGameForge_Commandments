@@ -102,7 +102,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
 
-### 0.72.0 - 11 November 2026
+### 0.72.0
+
+- Remove content-hash gates for Compatibility source/preparation, release evidence and software/archive downloads. Retain identity/version/Git selection, bounded patch contexts, safe paths, file observations and actual zero-warning/functional acceptance. - 11 November 2026
+
+- Allows exact reviewed URP/Core and required Shader Graph repairs through Compatibility with retained originals, unchanged GUIDs and the complete zero-warning/native acceptance gates.
 
 - Separates native Steam/account/device acceptance from Multiplayer implementation and catalogue publication. Unperformed checks stay explicitly unverified; other validation gates remain mandatory.
 - Publishes the exact-source Multiplayer catalogue entry and owner usage route after implementation qualification.

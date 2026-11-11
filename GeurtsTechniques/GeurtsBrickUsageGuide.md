@@ -34,10 +34,10 @@ The instruction-metadata patch cohort adds Unity-generated `AGENTS.md.meta` and 
 - **Example:** Keep automatic repairs enabled, open Unity or change a selected dependency, then inspect the owner's Compatibility status. Unknown or edited sources are preserved with a reason; normal known repairs require no executable/folder selection or Apply action.
 - **Lifecycle/settings:** Editor-only independent core with no IBrick/runtime host. Reviewed local repairs and exact native API/warning-visibility settings run automatically in idle Edit Mode. Project pause stops new work; a dispatched UPM request may finish. Forge release/content updates retain current-action confirmation.
 - **Use:** Required independent Editor prerequisite before God and BigBang on Unity 6000.6.3f1 or newer. It has no God, licensed-vendor or runtime-host dependency and no IBrick lifecycle requirement.
-- **Input:** Actually installed exact supported dependencies; absent optional or licensed sources are not acquired. Read the pinned owner's selected profile guidance; transforms, hashes and evidence stay in that package.
+- **Input:** Actually installed exact supported dependencies; absent optional or licensed sources are not acquired. Read the pinned owner's selected profile guidance; transforms, patch contexts and evidence stay in that package.
 - **Workflow:** Automatic startup/package-change checks, private preparation, project-relative native local-source adoption or exact licensed C# repair with original/metadata retention. Status and pause are primary; advanced manual Validate/Prepare and host bootstrap remain for exceptional recovery. A first domain blocked before the core loads cannot execute its automation.
 - **Verify:** Source identity, supported target and complete dependency/compiler gates; source admission alone is not whole-build acceptance.
-- **Limits:** No automatic Forge release updates, cache rewriting, paid-source redistribution, uploads, warning filters or private Unity rendering replacements. Source admission is not full project/compiler/runtime acceptance; historical appearance waivers do not validate this feature.
+- **Limits:** No automatic Forge release updates, cache rewriting, paid-source redistribution, uploads, warning filters, unreviewed rendering forks or pipeline migration. Exact reviewed URP/Core and required Shader Graph repairs belong to Compatibility. Source admission is not full project/compiler/runtime acceptance; historical appearance waivers do not validate this feature.
 
 ## BigBang
 

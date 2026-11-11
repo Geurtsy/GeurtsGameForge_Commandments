@@ -439,7 +439,7 @@ try {
     $steamText = if (Test-Path -LiteralPath $steamPath -PathType Leaf) { [IO.File]::ReadAllText($steamPath) } else { '' }
     $steamOwner = [regex]::Match($subjectSection.Value, '(?m)^\| Steam preparation, platform services and Windows release evidence \| `GeurtsTechniques/GeurtsSteamIntegrationTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $steamRoutingValid = $steamOwner.Success -and $registrySet.Contains($steamRelative) -and
-        ($null -ne (Find-RegistryFile $steamRelative '0.5.1')) -and
+        ($null -ne (Find-RegistryFile $steamRelative '0.5.2')) -and
         $resolverBody.Contains('Technical; Unity; Steam Integration; Code;')
     foreach ($topic in @('Steamworks.NET', 'BigBang', 'platform-service', 'bootstrap/native', 'build/distribution')) {
         if (-not $steamOwner.Groups['When'].Value.Contains($topic)) { $steamRoutingValid = $false }
@@ -449,7 +449,7 @@ try {
     }
     Add-Check 'Steam manifest routing' $steamRoutingValid 'One Steam owner follows Unity, covers prerequisites/services/builds, and is referenced by the affected subject owners.'
 
-    $steamAudienceValid = $steamText -match '(?im)^\*\*Version:\*\*\s*0\.5\.1\s*$' -and $steamText.StartsWith('<!-- GEURTS-AUDIENCE: AI-READ -->')
+    $steamAudienceValid = $steamText -match '(?im)^\*\*Version:\*\*\s*0\.5\.2\s*$' -and $steamText.StartsWith('<!-- GEURTS-AUDIENCE: AI-READ -->')
     foreach ($mode in @('GameUse', 'ForgeDevelopment')) {
         try {
             $steamRead = Read-GeurtsAudienceDocument -RepositoryRoot $RepositoryRoot -Document $steamRelative -Mode $mode
@@ -525,7 +525,7 @@ try {
     $steamExtendedValid = $steamText.Contains('## Account-free distribution preparation') -and
         $steamText -match '(?i)unresolved placeholders, Preview=1, no SetLive' -and
         $steamText -match '(?i)partner AppID/depot IDs remain zero' -and
-        $steamText -match '(?i)matching clean customer-build receipt and unchanged complete artifact inventory' -and
+        $steamText -match '(?i)matching clean customer-build receipt and a complete artifact inventory' -and
         $steamText -match '(?i)cache changes and server acknowledgements are separate outcomes' -and
         $steamText -match '(?i)cache review is not a cross-device atomic transaction' -and
         $steamText -match '(?i)must never claim native writes were undone' -and
@@ -824,7 +824,7 @@ try {
     $companionForwardCompatibilityValid = $companionTechniqueText -match '(?i)`packageVersion` is source-release metadata, not a companion compatibility gate' -and $companionTechniqueText -match '(?i)valid version and exactly match the AGENTS.md package version in the same archive' -and $companionTechniqueText -match '(?i)later package version alone must not require a companion release while schema 3\.0\.0 remains supported' -and $companionTechniqueText -match '(?i)`validationEntries` is the archive.?s closed current completeness list' -and $companionTechniqueText -match '(?i)schema-3\.0\.0 consumer may read a later list rather than pinning v0\.11\.0' -and $companionTechniqueText -match '(?i)every entry must be unique, safe, readable, and archive-root-relative before mutation' -and $companionTechniqueText -match '(?i)Validation entries grant no project-read or project-write authority'
     Add-Check "Companion schema forward compatibility" $companionForwardCompatibilityValid "Schema 3.0.0 pins mutation paths, not documentation releases: packageVersion must match the same archive AGENTS.md, and later safe validation-entry lists remain consumable without a companion release."
 
-    $companionTechniqueRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md' '3.3.1'
+    $companionTechniqueRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md' '3.3.2'
     $companionContractRegistryRow = Find-RegistryFile 'GeurtsTechniques/GeurtsCommandmentsCompanionContract.json' '0.72.0'
     $companionOwnerRow = [regex]::Match($manifestText, '(?m)^\| God-owned Windows Unity Editor Commandments source, metadata check, confirmed replacement, project-boundary, and AI-routing lifecycle \| `GeurtsTechniques/GeurtsCommandmentsCompanionTechnique\.md` \| (?<When>[^|]+) \|\r?$')
     $companionContractOwnerRow = [regex]::Match($manifestText, '(?m)^\| Exact companion source, documentation destination, validation entries, confirmation targets, and template-to-route mappings \| `GeurtsTechniques/GeurtsCommandmentsCompanionContract\.json` \| (?<When>[^|]+) \|\r?$')
@@ -1297,7 +1297,7 @@ try {
         $topicPath = Join-Path $RepositoryRoot $topicRelative
         if (-not (Test-Path -LiteralPath $topicPath -PathType Leaf)) { $topicFailures.Add("Topic is missing: $topicRelative") | Out-Null; continue }
         $topicText = [IO.File]::ReadAllText($topicPath)
-        $topicVersion = if ($topic -ceq 'Unity') { '0.4.0' } elseif ($topic -ceq 'Code') { '0.2.0' } elseif ($topic -ceq 'Authoring') { '0.1.3' } elseif ($topic -ceq 'Naming') { '0.2.0' } elseif ($topic -ceq 'Commands') { '0.2.0' } elseif ($topic -ceq 'GameAI') { '0.2.1' } elseif ($topic -ceq 'Multiplayer') { '0.5.0' } elseif ($topic -ceq 'Bootstrap') { '0.1.3' } else { '0.1.2' }
+        $topicVersion = if ($topic -ceq 'Unity') { '0.5.0' } elseif ($topic -ceq 'Code') { '0.2.0' } elseif ($topic -ceq 'Authoring') { '0.1.3' } elseif ($topic -ceq 'Naming') { '0.2.0' } elseif ($topic -ceq 'Commands') { '0.2.0' } elseif ($topic -ceq 'GameAI') { '0.2.1' } elseif ($topic -ceq 'Multiplayer') { '0.5.0' } elseif ($topic -ceq 'Bootstrap') { '0.1.3' } else { '0.1.2' }
         if ($topicText -notmatch ('(?m)^\*\*Version:\*\* ' + [regex]::Escape($topicVersion) + '\r?$') -or $topicText -notmatch '(?m)^<!-- GEURTS-AUDIENCE: AI-READ -->\r?$') { $topicFailures.Add("Topic metadata is invalid: $topicRelative") | Out-Null }
         $topicTexts += $topicText
     }
@@ -1848,9 +1848,15 @@ try {
         $brickContractText.Contains('project-local pause control and precise status') -and
         $brickContractText.Contains('It never authorizes automatic Forge release installation/update, Commandments content Update') -and
         $brickContractText.Contains('an unrelated compilation block preventing that first domain load needs the independent advanced host/bootstrap route') -and
-        $brickContractText.Contains('this exception never permits private rendering replacements or pipeline migration') -and
+        $brickContractText.Contains('this exception permits only exact reviewed rendering repairs through Compatibility, never unreviewed forks or pipeline migration') -and
         $brickContractText.Contains('legacy false-confirmation native APIs remain non-mutating')
-    Add-Check 'Automatic Compatibility repair boundary' $automaticCompatibilityValid 'Automatic reviewed local repairs preserve manual Forge/content updates, project pause/status, first-load recovery limits, official rendering and canceled manual API behavior.'
+    $hashFreeGatesValid = $brickContractText.Contains('Do not use content hashes, checksums or digest equality as gates') -and
+        $brickContractText.Contains('Compatibility source admission/preparation, release evidence or software/archive downloads') -and
+        $brickContractText.Contains('bounded patch contexts and expected match counts') -and
+        $brickContractText.Contains('actual functional/compiler acceptance') -and
+        $brickContractText.Contains('these observations do not certify byte integrity')
+    Add-Check 'Hash-free source release and download gates' $hashFreeGatesValid 'Source/preparation, release evidence and downloads retain identity/context/path/compiler checks without content-digest acceptance gates.'
+    Add-Check 'Automatic Compatibility repair boundary' $automaticCompatibilityValid 'Automatic reviewed local repairs preserve manual Forge/content updates, project pause/status, first-load recovery limits, exact reviewed rendering repairs and canceled manual API behavior.'
     $requiresReleasedCompatibility = @($brickCatalogue.bricks | Where-Object {
         $_.released -and (($_.id -ceq 'com.geurts.gameforge.god' -and [version]$_.version -ge [version]'0.44.0') -or
             ($_.id -ceq 'com.geurts.gameforge.bigbang' -and [version]$_.version -ge [version]'0.9.0'))
@@ -1998,7 +2004,7 @@ try {
     $draftStatusValid = @(
         @{ Path = "GeurtsTechniques/GeurtsFolderStructureTechnique.md"; Version = '0.17.1' },
         @{ Path = "GeurtsTechniques/GeurtsGameDesignDocumentationTechnique.md"; Version = '0.16.4' },
-        @{ Path = "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md"; Version = '3.3.1' }
+        @{ Path = "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md"; Version = '3.3.2' }
     ) | ForEach-Object {
         $record = Find-RegistryFile $_.Path $_.Version
         ([IO.File]::ReadAllText((Join-Path $RepositoryRoot $_.Path)) -match '(?im)^\*\*Status:\*\* Draft normative technique\s*$') -and

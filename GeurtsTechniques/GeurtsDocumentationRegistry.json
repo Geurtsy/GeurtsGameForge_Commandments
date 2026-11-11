@@ -84,7 +84,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsSteamIntegrationTechnique.md",
-      "version": "0.5.1",
+      "version": "0.5.2",
       "role": "Windows x64 Steam preparation, independent prerequisites, optional provider and separate native/release evidence."
     },
     {
@@ -94,7 +94,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsBrickContract.md",
-      "version": "1.28.0",
+      "version": "1.29.0",
       "role": "Brick reuse, dependencies, lifecycle, settings and package operations."
     },
     {
@@ -109,7 +109,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsBigBangTechnique.md",
-      "version": "1.7.0",
+      "version": "1.7.1",
       "role": "Independent initial installer, verified God handoff and confirmed whole-Forge BigCrunch removal."
     },
     {
@@ -159,7 +159,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md",
-      "version": "3.3.1",
+      "version": "3.3.2",
       "role": "Normative God-owned content service and passive-adapter transition."
     },
     {
@@ -344,7 +344,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsUnityTechnique.md",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "role": "Normative task-specific technical topic."
     },
     {
@@ -380,7 +380,7 @@
     {
       "path": "GeurtsTechniques/GeurtsMultiplayerTechnique.md",
       "version": "0.5.0",
-      "role": "Planned Multiplayer kit with required built-in Steam networking; FishNet, FishySteamworks/Steamworks.NET, Client-Host and acceptance."
+      "role": "Multiplayer kit ownership, FishNet/FishySteamworks client-host topology, explicit activation and separately scoped native acceptance."
     },
     {
       "path": "Migrations/v0.46.0.md",

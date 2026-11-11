@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts BigBang Technique
 
-**Version:** 1.7.0
+**Version:** 1.7.1
 **Status:** Normative installation and removal boundary
 **Required package path:** `GeurtsTechniques/GeurtsBigBangTechnique.md`
 
@@ -51,7 +51,7 @@ Successful supported compilation events and reload provide session evidence afte
 
 Use a normal incremental compilation request. A successful cached-only cycle must not wait for a script reload that Unity does not schedule; require reload when newly compiled assemblies need loading. Cached participation alone must not turn an incomplete or failed cycle into successful evidence. Input changes still invalidate previous evidence and failures still block installation.
 
-Fingerprint all relevant compilation inputs using their normalized absolute paths as identities. On Windows, read inputs through supported extended-length paths so valid long project or package paths do not invalidate otherwise successful compilation. Keep the input identity independent of the file-opening path spelling. A fingerprint read failure leaves evidence Unknown and must show the affected path and useful error; never silently discard the error or infer success from loaded assemblies.
+Observe all relevant compilation inputs using their normalized absolute paths, file sizes and modification times. Do not hash file contents; the legacy fingerprint member carries a readable metadata snapshot and does not certify byte integrity. On Windows, read inputs through supported extended-length paths so valid long project or package paths do not invalidate otherwise successful compilation. Keep the input identity independent of the file-opening path spelling. A fingerprint read failure leaves evidence Unknown and must show the affected path and useful error; never silently discard the error or infer success from loaded assemblies.
 
 ## Operation ownership and recovery
 
