@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.71.0
+**Version:** 0.71.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -101,6 +101,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.71.1 - 11 November 2026
+
+- Pin published Angels 0.11.2 and Diagnostics 0.11.8 confirmation-focus fixes.
+- Record nine native checks in both supported validation Editors, zero focus/compiler diagnostics, and the exact unchanged-runtime evidence reuse boundary.
+- Preserve independent confirmations, current explicit updates, existing dependencies and frozen installer payloads.
 
 ### 0.71.0 - 11 November 2026
 
