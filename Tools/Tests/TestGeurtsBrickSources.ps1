@@ -1,4 +1,4 @@
-# Version: 1.1.0
+# Version: 1.2.0
 [CmdletBinding()]
 param(
     [string]$RepositoryRoot,
@@ -149,6 +149,24 @@ try {
         }
         Write-SourceFixture (Join-Path $packageRoot 'package.json') $sample.package
         Write-SourceFixture (Join-Path $packageRoot 'ForgeCapabilities.json') $sample.capabilities
+        [IO.Directory]::CreateDirectory((Join-Path $packageRoot 'Content.tmp')) | Out-Null
+        [IO.File]::WriteAllText((Join-Path $packageRoot 'Content.tmp/file with space.asset'), 'Imported directory ending in .tmp is not a temporary file.')
+        [IO.File]::WriteAllText((Join-Path $packageRoot 'Content.tmp.meta'), ("fileFormatVersion: 2`nguid: " + [Guid]::NewGuid().ToString('N') + "`nfolderAsset: yes`n"))
+        # Synthetic metadata is fixture input only, never a shipped Unity asset.
+        [IO.File]::WriteAllText((Join-Path $packageRoot 'AGENTS.md'), 'Fixture instructions.')
+        foreach ($file in @(Get-ChildItem -LiteralPath $packageRoot -File -Recurse | Where-Object { $_.Extension -ne '.meta' })) {
+            [IO.File]::WriteAllText(($file.FullName + '.meta'), ("fileFormatVersion: 2`nguid: " + [Guid]::NewGuid().ToString('N') + "`n"))
+        }
+        if ($owner -eq 'god') {
+            [IO.File]::WriteAllText((Join-Path $packageRoot 'Editor.meta'), ("fileFormatVersion: 2`nguid: " + [Guid]::NewGuid().ToString('N') + "`nfolderAsset: yes`n"))
+            # Unity exclusions must not hide a missing metadata error on their normal parent.
+            foreach ($ignored in @('Documentation~/Guide.md', '.github/workflows/release.yml', 'cvs/private.txt', 'Cache~/skip.asset', 'notes.tmp', 'notes.tmp.meta', 'backup~', 'backup~.meta', '.hidden')) {
+                $ignoredPath = Join-Path $packageRoot $ignored
+                [IO.Directory]::CreateDirectory((Split-Path -Parent $ignoredPath)) | Out-Null
+                [IO.File]::WriteAllText($ignoredPath, 'Ignored fixture content.')
+            }
+            [IO.File]::WriteAllText((Join-Path $packageRoot 'Empty.meta'), ("fileFormatVersion: 2`nguid: " + [Guid]::NewGuid().ToString('N') + "`nfolderAsset: yes`n"))
+        }
         Invoke-GeurtsGitRead $root @('init', '-q', '-b', 'main') | Out-Null
         Invoke-GeurtsGitRead $root @('remote', 'add', 'origin', "https://github.com/fixture/$owner.git") | Out-Null
         Invoke-GeurtsGitRead $root @('add', '--', '.') | Out-Null
@@ -171,6 +189,66 @@ try {
     $check = Invoke-FixtureGate $sourceRoots
     Assert-Source ($check.Code -eq 0 -and $check.Result.status -ceq 'VALID' -and $check.Result.checks.Count -eq 2) 'CLI validates exact pinned commits including a nested package'
     Assert-Source ((Get-FileHash -LiteralPath $workingPackage).Hash -ceq $workingHash) 'CLI preserves uncommitted checkout files'
+    # Missing committed metadata is the original immutable-package regression.
+    # Cheap static inspection cannot prove the gate rejects it; exercise real Git commits.
+    $metadataRoot = $sourceRoots[0]
+    $goodCommit = Invoke-GeurtsGitRead $metadataRoot @('rev-parse', 'HEAD')
+    foreach ($case in @('missing_instruction', 'missing_folder', 'malformed_guid', 'duplicate_guid', 'wrong_folder', 'orphan_file', 'streaming_dot')) {
+        Invoke-GeurtsGitRead $metadataRoot @('reset', '--hard', $goodCommit) | Out-Null
+        $instructionMeta = Join-Path $metadataRoot 'AGENTS.md.meta'
+        switch ($case) {
+            'missing_instruction' { Invoke-GeurtsGitRead $metadataRoot @('rm', '-q', '--', 'AGENTS.md.meta') | Out-Null }
+            'missing_folder' { Invoke-GeurtsGitRead $metadataRoot @('rm', '-q', '--', 'Editor.meta') | Out-Null }
+            'malformed_guid' { [IO.File]::WriteAllText($instructionMeta, "fileFormatVersion: 2`nguid: invalid`n") }
+            'duplicate_guid' { [IO.File]::WriteAllText($instructionMeta, [IO.File]::ReadAllText((Join-Path $metadataRoot 'package.json.meta'))) }
+            'wrong_folder' { [IO.File]::WriteAllText((Join-Path $metadataRoot 'Editor.meta'), [IO.File]::ReadAllText($instructionMeta)) }
+            'orphan_file' { [IO.File]::WriteAllText((Join-Path $metadataRoot 'Orphan.txt.meta'), [IO.File]::ReadAllText($instructionMeta).Replace('guid: ', 'guid: 0')) }
+            'streaming_dot' {
+                [IO.Directory]::CreateDirectory((Join-Path $metadataRoot 'StreamingAssets')) | Out-Null
+                [IO.File]::WriteAllText((Join-Path $metadataRoot 'StreamingAssets/.config'), 'Imported dot file must not be excluded.')
+            }
+        }
+        Invoke-GeurtsGitRead $metadataRoot @('add', '--', '.') | Out-Null
+        Invoke-GeurtsGitRead $metadataRoot @('-c','user.name=Forge Tests','-c','user.email=tests@example.invalid','commit','-qm',"Metadata $case") | Out-Null
+        $badCommit = Invoke-GeurtsGitRead $metadataRoot @('rev-parse', 'HEAD')
+        # Restoring only working-tree metadata cannot repair an immutable committed tree.
+        if ($case -eq 'missing_instruction') { Invoke-GeurtsGitRead $metadataRoot @('restore', ('--source=' + $goodCommit), '--', 'AGENTS.md.meta') | Out-Null }
+        $issues = @(Get-GeurtsMetadataIssues $metadataRoot $badCommit)
+        $expected = switch ($case) {
+            'missing_instruction' { 'Missing committed Unity metadata: AGENTS.md.meta' }
+            'missing_folder' { 'Missing committed Unity metadata: Editor.meta' }
+            'malformed_guid' { 'Invalid Unity metadata GUID: AGENTS.md.meta' }
+            'duplicate_guid' { 'Duplicate Unity metadata GUID:' }
+            'wrong_folder' { 'folder marker disagrees' }
+            'orphan_file' { 'Orphan Unity file metadata: Orphan.txt.meta' }
+            'streaming_dot' { 'Missing committed Unity metadata: StreamingAssets/.config.meta' }
+        }
+        Assert-Source ([bool]($issues -match [regex]::Escape($expected))) "Committed metadata $case fails with an actionable path"
+        if ($case -eq 'missing_instruction') {
+            $output = & $gateScript -MetadataRepository $metadataRoot -MetadataRef $badCommit -OutputFormat Json
+            $metadataCode = $LASTEXITCODE
+            $metadataResult = $output | ConvertFrom-Json
+            Assert-Source ($metadataCode -ne 0 -and $metadataResult.status -ceq 'INVALID') 'New-brick standalone release gate rejects missing committed sidecar'
+            $entries[0].source = $entries[0].source -replace '#[a-f0-9]{40}$', ('#' + $badCommit)
+            Write-SourceFixture $fixtureCataloguePath $fixtureCatalogue
+            $check = Invoke-FixtureGate $sourceRoots
+            Assert-Source ($check.Code -ne 0 -and [bool]($check.Result.failures -match 'AGENTS.md.meta')) 'Catalogue source publication gate rejects missing metadata automatically'
+            $entries[0].source = $entries[0].source -replace '#[a-f0-9]{40}$', ('#' + $goodCommit)
+            Write-SourceFixture $fixtureCataloguePath $fixtureCatalogue
+        }
+        # Clean task-owned disposable additions before the next fixture case.
+        foreach ($extra in @('Orphan.txt.meta', 'StreamingAssets')) {
+            $extraPath = [IO.Path]::GetFullPath((Join-Path $metadataRoot $extra))
+            if (-not $extraPath.StartsWith([IO.Path]::GetFullPath($fixture).TrimEnd('\','/') + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase)) { throw "Unsafe fixture cleanup: $extraPath" }
+            if (Test-Path -LiteralPath $extraPath) { Remove-Item -LiteralPath $extraPath -Recurse -Force }
+        }
+    }
+    Invoke-GeurtsGitRead $metadataRoot @('reset', '--hard', $goodCommit) | Out-Null
+    $output = & $gateScript -MetadataRepository $sourceRoots[1] -MetadataRef HEAD -MetadataPackagePath 'Packages~/Peer' -OutputFormat Json
+    $metadataCode = $LASTEXITCODE
+    $metadataResult = $output | ConvertFrom-Json
+    Assert-Source ($metadataCode -eq 0 -and $metadataResult.checks[0].commit -ceq ($entries[1].source.Split('#')[1])) 'Standalone gate checks nested package contents, not its ignored repository parent'
+    [IO.File]::WriteAllText((Join-Path $metadataRoot 'Editor/Provider.cs'), 'Uncommitted source without the claimed provider must not be read.')
     $beforeSource = $entries[0].source
     $root = $sourceRoots[0]
     Invoke-GeurtsGitRead $root @('add', '--', 'Editor/Provider.cs') | Out-Null

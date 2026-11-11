@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.70.2",
+  "packageVersion": "0.71.0",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -27,11 +27,11 @@
       "name": "Geurts Game Forge Commandments Compatibility",
       "description": "Legacy Companion API adapter forwarding to God. For existing integrations only; offers no independent documentation viewer or updater.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.commandments",
-      "version": "0.16.0",
+      "version": "0.16.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.commandments.git#705d00078f8b5bad797dd297f99296fd59476451",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.commandments.git#51b56c2703f96e72705da9f1bbcfee6993a2b49c",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [],
@@ -382,5 +382,5 @@
       ]
     }
   ],
-  "publishedUtc": "2026-11-10T23:30:01Z"
+  "publishedUtc": "2026-11-11T00:15:15Z"
 }

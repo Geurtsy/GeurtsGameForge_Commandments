@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.70.2
+**Version:** 0.71.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -95,12 +95,19 @@ $sources = @('C:/src/God', 'C:/src/Audio') # Extend to every released catalogue 
 & .\Tools\ValidateGeurtsDocumentation.ps1 -SourceRepositories $sources -OutputFormat Json
 ```
 
-Each checkout's `origin` must match its catalogue source repository. Fetch the pinned commits and their manifest blobs beforehand; stable release tags must already have been verified against the owning immutable release. The publication gate reads `package.json` and `ForgeCapabilities.json` from those exact commits, regardless of working-tree edits. It rejects identity/version drift, missing or extra required Forge dependencies, unequal minimums, and unavailable catalogue providers. Missing evidence is a failure. It does not fetch, execute package code, change checkouts, acquire documentation or update consumers. Run `Tools/Tests/TestGeurtsBrickSources.ps1` for the focused isolated regressions; the full harness includes them. Normal validation without `-SourceRepositories` remains local and offline.
+Each checkout's `origin` must match its catalogue source repository. Fetch the pinned commits and their manifest blobs beforehand; stable release tags must already have been verified against the owning immutable release. The publication gate reads `package.json` and `ForgeCapabilities.json` from those exact commits, regardless of working-tree edits. It rejects identity/version drift, missing or extra required Forge dependencies, unequal minimums, and unavailable catalogue providers. Missing evidence is a failure. Every pinned package also passes the [Brick Contract metadata gate](GeurtsTechniques/GeurtsBrickContract.md#unity-package-metadata-release-gate); use its standalone candidate command for a new brick before catalogue registration. It does not fetch, execute package code, change checkouts, acquire documentation or update consumers. Run `Tools/Tests/TestGeurtsBrickSources.ps1` for the focused isolated regressions; the full harness includes them. Normal validation without `-SourceRepositories` remains local and offline.
 
 <!-- GEURTS-SECTION:END -->
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.71.0 - 11 November 2026
+
+- Require Unity-generated committed metadata for all existing and future UPM bricks, with a reusable candidate release gate and automatic checks for every released Catalogue entry.
+- Reject missing file/folder sidecars, invalid/duplicate GUIDs and mismatched/orphan metadata; preserve Unity-ignored paths, existing identities and explicit consumer updates.
+- Pin compatibility adapter 0.16.1 with its missing instruction sidecar; all sixteen released packages now pass the committed-tree metadata check.
+- Extend isolated Git regressions for metadata failures and exact candidate/prefix behavior. No Unity implementation or consumer installation changes.
 
 ### 0.70.2 - 11 November 2026
 
