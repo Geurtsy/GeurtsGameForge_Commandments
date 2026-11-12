@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.74.9
+**Version:** 0.75.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.75.0
+
+- Pin published GitFlow 0.7.0 and its project-wide repair, real tool/review smoke evidence and unchanged independent acceptance boundaries.
+- Permit explicitly authorized project-wide, disk-backed queue repair with independent artifact review, no arbitrary repair size/edit-count ceilings, and preserved original budgets, validation and publisher ownership.
 
 ### 0.74.9
 
