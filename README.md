@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.75.0
+**Version:** 0.75.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.75.1 — 13 November 2026
+
+- Pin published GitFlow 0.7.1 and its source-bound preflight/recovery guide.
+- Record private-index formatting checks before candidate mutation, retry diagnostics within the original budget, and native Unity overlay payload preservation. Shared repair policy, independent checks, schemas, other brick pins and installed documentation remain unchanged.
 
 ### 0.75.0
 
