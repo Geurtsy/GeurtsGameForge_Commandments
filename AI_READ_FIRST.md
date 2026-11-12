@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Moved: Geurts Game Forge startup
 
-**Version:** 0.74.6
+**Version:** 0.74.7
 **Required package path:** `AI_READ_FIRST.md`
 **Status:** Non-normative compatibility redirect
 

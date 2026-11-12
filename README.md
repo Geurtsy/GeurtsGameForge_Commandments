@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.74.6
+**Version:** 0.74.7
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,10 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.74.7
+
+- Catalogue UI Foundations 0.15.0 shared Inspector-authored Sprite skin for button states, panels/frames and native scrollbar artwork. Synchronize the usage guide with typed assignments, fallbacks, ownership and focused nonvisual evidence. No consumer installation.
 
 ### 0.74.6
 

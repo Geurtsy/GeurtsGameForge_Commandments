@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.74.6",
+  "packageVersion": "0.74.7",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -251,13 +251,13 @@
     {
       "id": "com.geurts.gameforge.userinterface",
       "name": "Geurts Game Forge User Interface Foundations",
-      "description": "UI Toolkit menus, navigation, typed actions and shared appearance, with editable stacked keybinding-conflict dialogs and alternate control lists. New hosts use PanelRenderer; existing UIDocument setups remain supported.",
+      "description": "UI Toolkit menus, typed actions, shared colours/fonts and optional Inspector-authored button, panel/frame and native scrollbar Sprite artwork. Includes editable stacked keybinding-conflict dialogs. New hosts use PanelRenderer; existing UIDocument setups remain supported.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface",
-      "version": "0.14.1",
+      "version": "0.15.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#2bd0d4b96bca6ea32e537ca6f40a4bc79e903afc",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.userinterface.git#58da5e6f36973fcb59209e5ae31b42d4f6c1a70e",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -383,5 +383,5 @@
       ]
     }
   ],
-  "publishedUtc": "2026-11-11T23:20:58Z"
+  "publishedUtc": "2026-11-12T01:59:10Z"
 }
