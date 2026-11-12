@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "packageVersion": "0.74.6",
+  "packageVersion": "0.74.7",
   "files": [
     {
       "path": "Tools/GetGeurtsValidationScope.ps1",
@@ -14,22 +14,22 @@
     },
     {
       "path": "AGENTS.md",
-      "version": "0.74.6",
+      "version": "0.74.7",
       "role": "Single startup authority: session/version rules, selection, applicability, order, precedence and registry ownership."
     },
     {
       "path": "AI_READ_FIRST.md",
-      "version": "0.74.6",
+      "version": "0.74.7",
       "role": "Non-normative compatibility redirect; never required startup reading."
     },
     {
       "path": "GeurtsTechniqueManifest.md",
-      "version": "0.74.6",
+      "version": "0.74.7",
       "role": "Non-normative compatibility redirect; never required startup reading. Legacy registry locator only."
     },
     {
       "path": "README.md",
-      "version": "0.74.6",
+      "version": "0.74.7",
       "role": "Optional AI package index and primary installation route."
     },
     {
@@ -64,7 +64,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsBrickUsageGuide.md",
-      "version": "1.11.10",
+      "version": "1.11.11",
       "role": "Selective per-brick usage, actual pinned sources, examples and evidence limits."
     },
     {
@@ -109,7 +109,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsForgeSetupContract.json",
-      "version": "0.74.6",
+      "version": "0.74.7",
       "role": "Schema 1.0.0; setup Editor API 1.3, independent Compatibility prerequisite and contribution version 1."
     },
     {
@@ -134,7 +134,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsBrickCatalogue.json",
-      "version": "0.74.6",
+      "version": "0.74.7",
       "role": "Current published packages and immutable Git targets."
     },
     {
@@ -149,7 +149,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsFolderStructureDefinition.json",
-      "version": "0.74.6",
+      "version": "0.74.7",
       "role": "Exact folder registry and creation profiles."
     },
     {
@@ -169,7 +169,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsCommandmentsCompanionContract.json",
-      "version": "0.74.6",
+      "version": "0.74.7",
       "role": "Schema 4.0.0; exact acquisition, consent and route mappings, including preserved root AGENTS.md."
     },
     {
@@ -449,7 +449,7 @@
     },
     {
       "path": "GeurtsTechniques/GeurtsDocumentationRegistry.json",
-      "version": "0.74.6",
+      "version": "0.74.7",
       "role": "AGENTS-owned package inventory and conditional section data; targeted retrieval only."
     },
     {

@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.11.10
+**Version:** 1.11.11
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -291,18 +291,18 @@ Editor UI performance: Audio tab summaries refresh after actual finding or navig
 ## User Interface
 
 **Catalogue ID:** `com.geurts.gameforge.userinterface`
-**Evidence version:** `0.14.1`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2bd0d4b96bca6ea32e537ca6f40a4bc79e903afc/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2bd0d4b96bca6ea32e537ca6f40a4bc79e903afc/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2bd0d4b96bca6ea32e537ca6f40a4bc79e903afc/Documentation~/GameIntegration.md).
+**Evidence version:** `0.15.0`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/58da5e6f36973fcb59209e5ae31b42d4f6c1a70e/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/58da5e6f36973fcb59209e5ae31b42d4f6c1a70e/ForgeCapabilities.json), [owning authoring guide](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/58da5e6f36973fcb59209e5ae31b42d4f6c1a70e/Documentation~/Authoring.md#help-shared-sprite-skin).
 
-- **Use:** UI Toolkit menus/screens, typed actions, shared appearance and stacked editable keybinding-conflict popups.
-- **Prerequisites:** God and both licensed libraries; game-owned rendering host and menu/action assets. Settings remains optional; its 0.9.0 binding lists enable Add Binding and per-control removal through neutral God contracts.
-- **Entry points:** Existing UI Foundations authoring and Auto Settings Menu connection; code extensions use UiSettingsBinding and UiSettingsPresenter with the existing service. See [mapping controls, no-code setup and popup ownership](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2bd0d4b96bca6ea32e537ca6f40a4bc79e903afc/Documentation~/AutoSettingsMenu.md#help-key-mapping-and-conflict-popups).
-- **Example:** Rebind a control to a used key. Both named controls, current/selected bindings and editable Change/Remove actions appear. Creating another collision opens a new foreground editor while retaining the exact earlier view and pending draft. Resolve and Continue to return; Apply remains blocked until every collision is resolved.
-- **Lifecycle/settings:** Dialogs share the service's one draft. Dismissal keeps edits; disposal withdraws only owned views and preserves unrelated popup layers. Existing navigator focus/modality/depth rules apply. Add/remove remains pending until Apply. No automatic swap, unbind, save or package update occurs.
-- **Verify:** Five focused UI checks cover nested editors, retained view identity, binding rows, withdrawal/readiness and the integration recipe. Nine release-guard controls pass.
-- **Limits:** Physical devices and rendered layout remain unverified. Existing UIDocument hosts remain supported without automatic conversion. Navigator depth and Settings storage bounds remain enforced.
+- **Use:** UI Toolkit menus/screens, typed actions, shared colours/fonts, optional shared Sprite artwork and stacked editable keybinding-conflict popups.
+- **Prerequisites:** God and both licensed libraries; game-owned rendering host, Menu/Theme/action assets and optional imported Sprites. Settings remains optional. Existing UIDocument hosts remain supported without automatic conversion.
+- **Entry points:** The Theme Inspector's **Sprite skin** section exposes typed Sprite assignments for button states, panel/frame backgrounds and separate horizontal/vertical scrollbar tracks, thumbs and arrow buttons. Existing menu hosts and built-in Settings/Appearance views share the same attachment path. Code extensions compose `UiSpriteStates`, `UiScrollbarSprites`, `UiSpriteSkin` and call `UiTheme.ConfigureSpriteSkin`; retain/dispose the `UiAppearanceService.Attach` token.
+- **Example:** Assign Normal and Pressed button Sprites in the Menu's shared Theme, then assign a Vertical scrollbar Thumb Sprite. Existing attached menus use those assets; primary pointer/keyboard activation changes the button artwork. Empty states use Normal; an empty role retains existing artwork. A Theme without sprite assignments preserves existing colour/font behaviour. No asset-path entry or game code is required.
+- **Lifecycle/settings:** Game assets retain their ownership. Player appearance preferences never store/mutate Sprite references. Sprite bindings restore original image/tint/slice overrides on removal, opt-out or disposal. Event callbacks refresh pointer/keyboard/focus state; a panel-owned 100ms refresh covers descendant additions and inherited enabled changes. Existing navigation, settings draft, conflict popup and input ownership remain unchanged.
+- **Verify:** Focused native Editor checks cover typed Inspector reference save/reload, state fallback, inherited disable, both native scrollbar orientations, custom opt-out and cleanup; runtime panel checks cover pointer/keyboard/focus state, automatic disabled refresh, new controls and disposal. Exact Git operation declarations and zero-default-diagnostic compiler qualification are recorded in the [owning evidence](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/58da5e6f36973fcb59209e5ae31b42d4f6c1a70e/Documentation~/AIUsabilityValidation.json).
+- **Limits:** Rendered appearance and physical device acceptance are unverified. Sprite borders supply nine-slicing; a single element has one background image, so separate panel/frame artwork uses nested elements. Layout, scrollbar dimensions and scrolling stay with native controls/USS. Gamepad submit uses focused artwork rather than a held pressed state. Custom layouts may opt out with `ggf-no-skin`. Existing private dependency-profile limits remain explicit. Source publication never updates a consumer automatically.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2bd0d4b96bca6ea32e537ca6f40a4bc79e903afc/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/2bd0d4b96bca6ea32e537ca6f40a4bc79e903afc/Documentation~/AIUsabilityValidation.json). The 0.14.1 patch ships logs-only evidence. All 80 compiler assemblies in the shared graph qualify with zero default-policy diagnostics; the owner records 14 requalified and 66 input-identical reused assemblies, functional reuse for version-only code changes, exact Git pins and the existing reviewed private dependency-profile limit. No visual checks were performed or required. Consumer updates remain explicit.
+The [existing game integration recipe](https://github.com/Geurtsy/com.geurts.gameforge.userinterface/blob/58da5e6f36973fcb59209e5ae31b42d4f6c1a70e/Tools~/Examples/GameIntegrationRecipe.cs) remains supported and was compiled/exercised with the candidate. Prior keymapping evidence retains its own source and scope. No visual checks were performed or required; consumer updates remain explicit.
 
 ## Object Pooling
 
