@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.74.8
+**Version:** 0.74.9
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,10 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.74.9
+
+- Catalogue published God 0.47.4: verify approved Multiplayer dependency tags through noninteractive Git when GitHub API access is limited. Latest upstream availability stays unknown; exact-source, cancellation and explicit-install review guards remain. Twenty-two focused checks pass; one unchanged fixture-specific case is skipped. Final 112-assembly compiler closure has zero default-policy diagnostics. Consumer adoption remains explicit.
 
 ### 0.74.8
 
