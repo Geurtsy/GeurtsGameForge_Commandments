@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.75.0",
+  "packageVersion": "0.75.1",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -299,11 +299,11 @@
       "name": "Geurts Game Forge GitFlow",
       "description": "Editor saved-change capture and strict shared queue. Optional project-wide tool-enabled repair uses isolated saved-file copies and an independent read-only review; no fixed repair size/edit-count ceilings, three-stall cutoff or ten-minute call ceiling. Preserves original three-hour budget, active work, independent gates and fenced publication. Consumer updates/adoption remain explicit.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#4de89f5eb9d25bc14ab8552e13f941f16a84479e",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#345c3995c8a650dec9cb0d278c8045ef1fa86866",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -383,5 +383,5 @@
       ]
     }
   ],
-  "publishedUtc": "2026-11-12T03:05:16Z"
+  "publishedUtc": "2026-11-12T23:20:12Z"
 }
