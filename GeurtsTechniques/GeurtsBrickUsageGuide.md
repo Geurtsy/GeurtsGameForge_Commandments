@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Brick AI Usage Guide
 
-**Version:** 1.11.12
+**Version:** 1.11.13
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsBrickUsageGuide.md`
 
@@ -84,8 +84,8 @@ The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared co
 ## God
 
 **Catalogue ID:** `com.geurts.gameforge.god`
-**Evidence version:** `0.47.3`
-**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7/Documentation~/GameIntegration.md).
+**Evidence version:** `0.47.4`
+**Source:** [package manifest](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/16f422d8b39f6d95ad1f3d12dbe2f6189398c33e/package.json), [capabilities](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/16f422d8b39f6d95ad1f3d12dbe2f6189398c33e/ForgeCapabilities.json), [owner usage](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/16f422d8b39f6d95ad1f3d12dbe2f6189398c33e/Documentation~/GameIntegration.md).
 
 - **Use:** Foundation for every dependent brick: lifecycle, shared capabilities/settings, bootstrap, packages and Commandments.
 - **Prerequisites:** Licensed Odin Inspector and Quantum Console, resolved Unity dependencies and the Forge Steamworks.NET prerequisite. No optional peer brick or passive adapter is required.
@@ -95,7 +95,7 @@ The metadata-only patch includes Unity-generated `AGENTS.md.meta`. The shared co
 - **Verify:** Check bootstrap/readiness independently of package presence; test absent, available, withdrawn and re-enabled capability states plus subscription disposal.
 - **Limits:** No second host/registry in a game. Editor APIs stay outside player assemblies; optional providers may be unavailable.
 
-[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7/Documentation~/AIUsabilityValidation.json). God 0.44.3 records 99 passing focused native checks, the integration recipe, actual authoritative catalogue refresh and 31 compiled assemblies with zero default-policy diagnostics. Its pinned cancellation and expanded local Help were rendered at 560 and 760 points; other display scales/skins and player/native-service behavior remain unverified. Consumer installation and updates remain separate explicit actions.
+[Exact owner recipe](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/16f422d8b39f6d95ad1f3d12dbe2f6189398c33e/Tools~/Examples/GameIntegrationRecipe.cs) and [owner validation](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/16f422d8b39f6d95ad1f3d12dbe2f6189398c33e/Documentation~/AIUsabilityValidation.json). God 0.44.3 records 99 passing focused native checks, the integration recipe, actual authoritative catalogue refresh and 31 compiled assemblies with zero default-policy diagnostics. Its pinned cancellation and expanded local Help were rendered at 560 and 760 points; other display scales/skins and player/native-service behavior remain unverified. Consumer installation and updates remain separate explicit actions.
 
 Update policy requires a current explicit action and confirmation. Legacy automatic entry-point names do not grant update consent; a documentation edit does not change installed handlers.
 
@@ -105,7 +105,7 @@ God retains SDK-neutral native-session reservations and revocable leases. Provid
 
 God retains single-AGENTS startup and legacy package support. Its current manifest requires Compatibility 0.4.0, also selected by the Catalogue for the reviewed SDK preparation profiles and local repairs. The earlier minimum release's uGUI metadata evidence remains historical; current automatic-repair, native UI and reviewed-Editor evidence belongs to the pinned Compatibility owner. Consumer installation and game/native-service acceptance remain separate.
 
-Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
+Catalogue-only refresh and selected/bulk checks retain separate explicit controls. Failed refreshes stop before checking stale pins; bounded cancellable requests reject late results. See the pinned owner [catalogue/check Help](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/16f422d8b39f6d95ad1f3d12dbe2f6189398c33e/Documentation~/GettingStarted.md#help-catalogue-refresh-and-update-checks), including one-time Package Manager recovery for older readers that reject independent Compatibility.
 
 The earlier recorded cohort removed owning release/archive digest gates. Native tests and the complete combined156-assembly default-diagnostic qualification pass with zero diagnostics. God additionally fixes missing-metadata information-panel reload; Steam preserves account-pinned cloud contracts. Native Steam acceptance remains unverified; visual checks are not required.
 
@@ -117,7 +117,9 @@ Current root-onboarding evidence: God 0.46.0 supports schema 4. The confirmed co
 
 God 0.47.2 permits a reviewed upgrade from exact Compatibility-managed SDK outputs, retaining the old folders and rejecting unmanaged copies. Its real queue admits only the two official SDK destinations. Private dependency declarations use existing noninteractive saved Git access at the selected commit after 403/404. Fourteen God cases and nine unchanged Multiplayer cases establish 23 distinct focused Unity checks; a real grouped UPM installation and automatic Compatibility adoption pass, as does production private-source lookup. The 84-assembly closure has zero default-policy diagnostics, with 11 affected assemblies requalified and 73 reused after complete input verification.
 
-Editor UI performance: Shared summaries and display strings reuse immutable evaluated results; unchanged warning controls and the canonical stylesheet are retained. Embedded Odin fallback redraws are bounded at four per second while native input still draws immediately. The review covers all 17 owners; independent installers and adapters retain their boundaries. The [current owner evidence](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/67fa7bf7c2f46fa11fb1ecd6288bebd4cce32ef7/Documentation~/AIUsabilityValidation.json) records ten focused nonvisual cohort checks, zero measured allocations for 10,000 cached shared-summary reads and a complete 111-assembly compiler closure with zero default-policy diagnostics. Failed fixture attempts and the corrected checks are retained separately. Unchanged runtime/recipe behavior retains its original source-bound scope; no visual checks, player/native acceptance or consumer installation is claimed.
+Editor UI performance: Shared summaries and display strings reuse immutable evaluated results; unchanged warning controls and the canonical stylesheet are retained. Embedded Odin fallback redraws are bounded at four per second while native input still draws immediately. The review covers all 17 owners; independent installers and adapters retain their boundaries. The [current owner evidence](https://github.com/Geurtsy/com.geurts.gameforge.god/blob/16f422d8b39f6d95ad1f3d12dbe2f6189398c33e/Documentation~/AIUsabilityValidation.json) records ten focused nonvisual cohort checks, zero measured allocations for 10,000 cached shared-summary reads and a complete 111-assembly compiler closure with zero default-policy diagnostics. Failed fixture attempts and the corrected checks are retained separately. Unchanged runtime/recipe behavior retains its original source-bound scope; no visual checks, player/native acceptance or consumer installation is claimed.
+
+God 0.47.4 recovers from GitHub API access limits (403/429) by fetching each official release-qualified tag through existing noninteractive Git. Its commit must still match the reviewed declaration. The install review marks upstream latest unknown; changed/missing tags, unavailable Git and cancellation block before package dispatch. Twenty-two focused Unity checks pass, including the real three-tag fallback without manifest mutation; one unchanged prepared-SDK scenario is skipped. The final 112-assembly native compiler closure has zero default-policy diagnostics (37 requalified, 75 reused after complete input checks). Consumer updates remain explicit.
 
 ## Steam
 
@@ -155,6 +157,8 @@ This update removes owning release/archive digest gates. Native tests and the co
 - **Example:** Read the literal [status binding](https://github.com/Geurtsy/GeurtsGameForge/blob/d1dd1d7e05c6838c33fc1621a853fb9b3ca328fc/Packages/com.geurts.gameforge.multiplayer/Tools~/Examples/MultiplayerGameRecipe.cs). The binding observes the existing God capability and follows disable/re-enable without creating another host.
 - **Verify:** Read [owner evidence](https://github.com/Geurtsy/GeurtsGameForge/blob/d1dd1d7e05c6838c33fc1621a853fb9b3ca328fc/Packages/com.geurts.gameforge.multiplayer/Documentation~/AIUsabilityValidation.json) for actual executed compiler, local runtime and nonvisual player cases and dependency limits. Only actually executed cases count as passes.
 - **Limits:** Native FishySteamworks/account/device routing, overlay, Steam distribution and the combined native-owner path remain unverified until tested. Two-PC Steam testing is recommended before relying on it and is not an implementation/catalogue publication prerequisite. Local results do not establish native success. Invitations/matchmaking, game state replication, host migration and dedicated servers are not supplied by simple transport selection.
+
+For API-limit errors, explicitly update God to 0.47.4 before retrying Multiplayer; it verifies the existing qualified tags through Git and reports latest upstream availability as unknown.
 
 Select Multiplayer Install/Update in God: the complete reviewed plan includes official FishNet release tag 4.7.3 (UPM 4.7.2), Steamworks.NET 2025.165.0 and included FishySteamworks 4.1.1. Newer unqualified upstream releases are reported; FishNet 4.7.4 was rejected for upstream Yak compiler errors. Compatibility 0.4.0 prepares the two external sources privately with original/metadata preservation. Cancellation, failed/offline resolution and stale review start no package request; custom/manual imports are preserved. Direct UPM installation outside God requires explicit external preparation.
 
