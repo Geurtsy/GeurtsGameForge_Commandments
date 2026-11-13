@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.30.1
+**Version:** 1.31.0
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. AGENTS.md continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -183,6 +183,16 @@ The forge icon is an activity indicator and must have a clean silhouette without
 Previously saved consent is never an exception. A deliberate God menu opening, startup, restored window, layout application, option toggle, module enablement, timer, schedule or read-only check completion cannot authorize package installation/update or documentation replacement. Remove or supersede the former **Automatically update packages and documentation** permission. Preserve compatible legacy settings and the `commandments_schema_3` token where needed for compatibility, but never consume them as mutation authority or reset unrelated settings.
 
 A current manual transaction may complete its already confirmed bounded plan. Same-session script reload may resume only that explicitly invoked and confirmed transaction after revalidating its exact targets and guards. Dormant or legacy automatic-opening records must never dispatch pending updates. An already dispatched Unity/UPM request may finish; its completion does not authorize another request, documentation replacement or an automatic retry. A new Update attempt requires a new current user action and the owning confirmation. Preserve partial/failure evidence and existing downgrade, source, dependency and operation guards.
+
+### AI-managed background package updates
+
+A current explicit user request to an AI system to update named bricks or all installed bricks counts as the explicit package Update action. Its one-invocation authorization may satisfy the owning package API's confirmation without displaying an Editor dialog. This is user-requested background execution, not unsolicited automatic updating. Never infer authorization from ordinary project work, saved preferences, an AI session starting, a timer or a successful check. A later retry needs a new authorized request.
+
+God alone owns the shared background package updater for every installed brick, including God self-update, independent Compatibility/BigBang and an installed passive adapter. Reuse that supported Editor API and the existing native UPM queue; bricks must not add duplicate updaters, model dependencies or mandatory peer dependencies. Read the pinned God owner's BackgroundUpdates guide for actual entry points, minimum API version and source-matched evidence. A consumer must first install a God release exposing those APIs. Documentation publication alone adds no installed capability or connector.
+
+Freeze the requested installed scope, refresh/check the relevant sources, resolve only required dependency changes, and dispatch through the same source/version/dependency/tool/busy guards as manual updates. Empty or missing named selections, failed checks, unsupported local/embedded sources, stale plans and downgrades cannot silently become Update All or partial dispatch. Compatibility warnings requiring review remain blocked in the unattended path. Preserve settings, local source folders and unrelated content. This permission does not install unrequested optional bricks, remove packages, migrate game content, change module enablement or replace managed Commandments content/AI routes; content keeps the Companion owner's separate confirmation and exact targets.
+
+Run without foreground windows, credential prompts or keyboard/mouse takeover under Automation's background-process boundary. Record the accepted operation identity and truthful progress/outcome through script reload, including self-update. Queue acceptance is not installation success; verify the resolved native package result and compiler diagnostics separately. Preserve failure/partial evidence. Cancellation may stop preparation or undispatched work but cannot cancel an active native Unity request. Do not silently retry, claim rollback or start recurring AI monitoring. The caller needs its own authorized supported way to invoke Editor APIs; this contract installs no AI connector or listener.
 
 ### Read-only checks remain separate
 

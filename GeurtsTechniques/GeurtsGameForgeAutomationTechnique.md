@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.17.0
+**Version:** 0.18.0
 **Status:** Draft normative technique
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md`
@@ -76,6 +76,8 @@ Apply the [Technical Technique's complete path preflight](GeurtsTechnicalTechniq
 ## Installed Forge updates versus source delivery
 
 Installed Forge packages/bricks and managed Commandments/documentation never update automatically. The Brick Contract and Companion Technique require a current explicit user Update action and the owning confirmation; saved consent is not an exception. This does not stop the already-authorized background game-change integration queue or its publication after a user submits work. Source commits, repository publication and release creation do not authorize installing package/content updates into a consumer project. Read-only availability checks retain their existing owner-defined trigger and consent boundaries.
+
+For a current explicit user request to update installed bricks through an AI system, apply the Brick owner's [AI-managed background package updates](GeurtsBrickContract.md#ai-managed-background-package-updates). Its scoped invocation authorization can satisfy the package API confirmation without a foreground dialog; source publication and managed content updates retain their separate owners. Use the existing shared updater and persistent result, not a second updater or recurring AI polling.
 
 ## Shared Integration Queue
 

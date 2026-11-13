@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Moved: Geurts Technique Package Manifest
 
-**Version:** 0.79.0
+**Version:** 0.80.0
 **Required package path:** `GeurtsTechniqueManifest.md`
 **Status:** Non-normative compatibility redirect and legacy registry locator
 
