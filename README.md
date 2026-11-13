@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.79.0
+**Version:** 0.79.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.79.1 — 14 November 2026
+
+- Select published GitFlow 0.9.0 and its source-matched usage/evidence for explicitly authorized documentation-only queue processing.
+- Preserve current shared policy and God 0.48.0 pins; the separately reviewed generic applicability amendment remains independent.
 
 ### 0.79.0
 
