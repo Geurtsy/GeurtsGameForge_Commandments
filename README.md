@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.78.1
+**Version:** 0.79.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -101,7 +101,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
 
-### 0.78.1 — 13 November 2026
+### 0.79.0
+
+- Authorize current explicit AI requests for background updates of all installed bricks through God's shared API and reload-safe native queue. Keep source/dependency/warning guards, truthful operation status and separate managed-content confirmation.
+
+### 0.79.0 — 13 November 2026
 
 - Select released God 0.47.5: Install All and Update All filter eligible targets before Multiplayer dependency review; unchanged and unavailable cards no longer cause a false stale-review refusal.
 - Synchronize Usage Guide 1.15.1, exact source/evidence links and release metadata. Consumer updates stay explicit.
