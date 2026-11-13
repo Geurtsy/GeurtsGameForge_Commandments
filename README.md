@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.75.1
+**Version:** 0.75.2
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.75.2 — 13 November 2026
+
+- Pin published GitFlow 0.7.2 and its repair throughput/phase-timing evidence.
+- Record parallel complete-file validation/capture, focused model work and prompt native-access failure reporting, with unchanged configured model, original budget and independent acceptance. No consumer documentation update or unrelated package change.
 
 ### 0.75.1 — 13 November 2026
 
