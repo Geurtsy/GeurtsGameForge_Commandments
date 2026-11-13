@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.77.0
+**Version:** 0.78.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.78.0 — 13 November 2026
+
+- Pin published GitFlow 0.8.1 and Compatibility 0.5.0 compiler-verification performance updates.
+- Record bounded complete qualification, native original batch verification and the matched zero-diagnostic timing sample; preserve all existing zero-warning, ownership and manual-update rules.
 
 ### 0.77.0 — 13 November 2026
 
