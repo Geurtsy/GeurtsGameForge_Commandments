@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Brick Contract
 
-**Version:** 1.30.0
+**Version:** 1.30.1
 **Required package path:** `GeurtsTechniques/GeurtsBrickContract.md`
 
 This document owns the shared brick contract and catalogue schema. AGENTS.md continues to own document selection and precedence. Catalogue entries become actionable only when their real installation sources are verified; appearance in this document alone does not publish a release.
@@ -49,7 +49,7 @@ Never patch generated PackageCache, redistribute paid vendor code, hide diagnost
 
 The [Steam Integration Technique](GeurtsSteamIntegrationTechnique.md) makes the Steam API through Steamworks.NET a mandatory external project prerequisite, including BigBang Install God and existing-God handoff admission. The shared required prerequisite graph remains owned by the Compatibility boundary below; Steam remains an optional peer. BigBang compiles/opens without the wrapper so it can explain and explicitly acquire the missing prerequisite; its readiness check verifies local managed APIs and Windows x64 plugin files without Steam/native initialization. The Steam runtime provider remains optional; God owns vendor-neutral shared contracts only, while the provider owns SDK types, native calls and lifecycle. Generic peers retain compile independence and local use without a running Steam service. Never add false released capabilities, Git dependency URLs in package.json or a wrapper compile reference to God/BigBang. Published releases retain their actual verified metadata until the consumer adopts newer packages manually.
 
-Selecting the Multiplayer kit requires its [built-in Steam networking stack](GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support). Keep that integration inside Multiplayer, not in an optional separate kit. FishNet, FishySteamworks and Steamworks.NET are its external dependencies; the standalone Steam brick stays optional for platform services/release preparation. Multiplayer must support its Steam path without that peer and satisfy the owner's single-native-session contract when both are present. This bounded ownership rule neither adds a mandatory shared peer nor changes other integrations. Planned Multiplayer remains unavailable until its real source, dependencies and acceptance evidence are published.
+Selecting the Multiplayer kit requires its [built-in Steam networking stack](GeurtsMultiplayerTechnique.md#multiplayer-kit-and-built-in-steam-support). Keep that integration inside Multiplayer, not in an optional separate kit. FishNet, FishySteamworks and Steamworks.NET are its external dependencies; the standalone Steam brick stays optional for platform services/release preparation. Multiplayer must support its Steam path without that peer and satisfy the owner's single-native-session contract when both are present. This bounded ownership rule neither adds a mandatory shared peer nor changes other integrations. Unpublished Multiplayer features remain unavailable until their real source, dependencies and required acceptance evidence are published; the Catalogue selects released implementation.
 
 ## Independent BigBang initial installer
 

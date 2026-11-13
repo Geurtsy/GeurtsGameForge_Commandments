@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.75.2
+**Version:** 0.76.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,14 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.76.0 — 13 November 2026
+
+- Publish one standalone FishNet Multiplayer brick combining general bounded messaging and Steam transport with small-party admission, spawning, predicted movement, controls and observations.
+- Point the Catalogue and usage guide to its exact new repository release; retire the separate Multiplayer Prayers candidate and monorepo authoring location.
+- Publish Compatibility 0.4.2 with reviewed Core Input System field preservation and native/host preparation parity; update its exact Catalogue source.
+- Synchronize Usage Guide 1.13.0 and Brick Contract 1.30.1 with released Multiplayer availability.
+- Keep explicit consumer adoption and native Steam/device acceptance separate from source publication.
 
 ### 0.75.2 — 13 November 2026
 
