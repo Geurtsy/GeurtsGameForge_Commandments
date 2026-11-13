@@ -103,9 +103,14 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 ### 0.80.0 — 14 November 2026
 
-- Define proven non-imported documentation-only queue applicability while retaining zero-warning gates for code, mixed, repaired and unknown inputs.
-- Select published GitFlow 0.9.0 and record truthful portable applicability proof and native version-only verification.
-- Preserve the preceding God 0.48.0 background-update release and its published package pins.
+- Define complete non-imported documentation-only queue applicability, truthful portable evidence and native version-only verification.
+- Retain zero-warning gates for code, mixed, imported, repaired and unknown inputs, and preserve required documentation checks.
+- Preserve the published GitFlow 0.9.0 catalogue pin and preceding God 0.48.0 background-update guidance.
+
+### 0.79.1 — 14 November 2026
+
+- Select published GitFlow 0.9.0 and its source-matched usage/evidence for explicitly authorized documentation-only queue processing.
+- Preserve current shared policy and God 0.48.0 pins; the separately reviewed generic applicability amendment remains independent.
 
 ### 0.79.0
 
