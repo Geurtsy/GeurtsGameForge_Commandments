@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Agent Instructions
 
-**Version:** 0.78.1
+**Version:** 0.79.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package instructions
 **Publication policy:** Validated main is the content feed; immutable versioned releases. Draft describes specification maturity, not whether a Git release exists.
@@ -42,6 +42,8 @@ Installed content: `<ProjectRoot>/GeurtsGameForgeCommandments/`. Project design:
 ## Session Boundary
 
 Before implementation select one current checkout/local copy; record its commit when available. AI/session initialization stays local/offline; direct source/other hosts require no companion. Apply [offline startup/views/checks](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#4-offline-startup-and-explicit-metadata-checks). Before installed updates apply [explicit-only updates](GeurtsTechniques/GeurtsBrickContract.md#explicit-updates-only), [manual confirmation](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#5-explicit-in-editor-update) and [legacy-caller limits](GeurtsTechniques/GeurtsCommandmentsCompanionTechnique.md#current-action-confirmation-and-legacy-automatic-callers): Every update requires a current explicit user Update action and its owning confirmation. This entry grants no consent/project writes. Do not inspect or select project GDD files here; the applicability table below first decides whether the GDD Technique applies.
+
+A current explicit AI package-update request may use the Brick owner's [background package update contract](GeurtsTechniques/GeurtsBrickContract.md#ai-managed-background-package-updates) as its one-invocation package action/confirmation. Managed Commandments content retains its separate owning confirmation. This does not authorize unsolicited updates or install a connector.
 
 ## Pre-Code Lock
 
