@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.76.0
+**Version:** 0.77.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.77.0 — 13 November 2026
+
+- Specify exact-owner reconciliation for completed rejected heartbeat-only pushes; retain delivery/timeout/unknown-owner fencing and the old deadline.
+- Require durable parent-owned native session originals when child cancellation bypasses cleanup.
+- Pin published GitFlow 0.8.0 with explicit stopped-owner reasoning/session configuration and measured review-latency evidence. Preserve the 0.76.0 Multiplayer/Compatibility catalogue upgrades and all other pins.
 
 ### 0.76.0 — 13 November 2026
 
