@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.17.0
+**Version:** 0.18.0
 **Status:** Draft normative technique
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md`
@@ -172,7 +172,7 @@ For queue implementations, validate real Git auto-committed and conflicted merge
 
 Require completed successful compilation, complete logs and no warning/error diagnostics, including resolved dependencies. Third-party warnings also block publication: resolve them through supported dependency updates or the owning source. Necessary vendor-source corrections require explicit owning-project authorization, retained originals/notices and independent validation; repair the owning source rather than transient generated caches. Never suppress warnings, lower warning levels or add exclusions to obtain a pass. Missing tooling/logs, skipped compilation or unverified dependencies are blockers. Revalidate the combined candidate when upstream integration changes compilation inputs.
 
-Reuse compilation evidence for unchanged relevant source, inputs, dependencies and environment; proportionate checks never waive this gate. Documentation-only repositories without compiled implementation run their documentation checks and report compilation as not applicable, never as a verified Unity build. This policy does not configure or certify existing projects automatically.
+Reuse compilation evidence for unchanged relevant source, inputs, dependencies and environment; proportionate checks never waive this gate. Under explicit owning-project/user policy, a complete merged change containing only non-imported documentation may instead record compilation as `not_applicable`. Prove the actual base-to-candidate file types, modes and paths; reject code, imported assets, dependencies, compiler/build settings, binary/link/executable changes and unknown or mixed inputs. Native versioning remains owned by its adapter; allow only independently verified version-only metadata, otherwise run full validation. Preserve required documentation checks and exact portable applicability proof, rechecked during published-receipt recovery. Final/runtime checks remain required unless explicitly classified code-only by that policy. Repaired candidates and unproven classifications run the unchanged zero-warning gates. Never label a non-executed compiler as passed or weaken code diagnostics. Documentation-only repositories without compiled implementation run their documentation checks and report compilation as not applicable, never as a verified Unity build. This policy does not configure or certify existing projects automatically.
 
 ## Codex Delivery to Main
 

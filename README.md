@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.79.1
+**Version:** 0.80.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,12 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.80.0 — 14 November 2026
+
+- Define complete non-imported documentation-only queue applicability, truthful portable evidence and native version-only verification.
+- Retain zero-warning gates for code, mixed, imported, repaired and unknown inputs, and preserve required documentation checks.
+- Preserve the published GitFlow 0.9.0 catalogue pin and preceding God 0.48.0 background-update guidance.
 
 ### 0.79.1 — 14 November 2026
 
