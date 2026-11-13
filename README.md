@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.78.1
+**Version:** 0.79.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.79.0 — 14 November 2026
+
+- Define proven non-imported documentation-only applicability for compiled project queues; retain zero-warning gates for code, mixed, repaired and unknown inputs.
+- Select GitFlow 0.9.0 and document portable applicability proof, native version-only verification and explicit code-only runtime checks.
 
 ### 0.78.1 — 13 November 2026
 
