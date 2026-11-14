@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.80.0
+**Version:** 0.80.1
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.80.1 — 14 November 2026
+
+- Select published GitFlow 0.10.0 native folder metadata recovery and source-matched usage/evidence.
+- Preserve shared policies, zero-warning checks, original repair deadlines and explicit consumer adoption.
 
 ### 0.80.0 — 14 November 2026
 
