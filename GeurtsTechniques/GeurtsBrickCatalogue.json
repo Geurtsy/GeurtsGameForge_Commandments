@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.80.3",
+  "packageVersion": "0.81.0",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -297,13 +297,13 @@
     {
       "id": "com.geurts.gameforge.gitflow",
       "name": "Geurts Game Forge GitFlow",
-      "description": "Editor saved-change capture and strict shared queue. Optional project-wide tool-enabled repair uses isolated saved-file copies and an independent read-only review; no fixed repair size/edit-count ceilings, three-stall cutoff or ten-minute call ceiling. Preserves original three-hour budget, active work, independent gates and fenced publication. Consumer updates/adoption remain explicit. Recovers only proven Unity-created folder sidecars before paid repair, preserving native GUIDs and zero-warning gates. Recovers remote verification reads and preserves clean heartbeat-interrupted candidates for fresh-lease continuation. Ten-minute ownership leases preserve exact older timing records and full publication reserves.",
+      "description": "Commit saved local changes before queue submission, run strict serialized integration and inspect complete queue status. Scoped submissions preserve unrelated work; publisher startup and Forge installation remain explicit.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow",
-      "version": "0.12.0",
+      "version": "0.13.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#64b53ffd114e7ee3ab1a25f87792108882d9a6c5",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#c8f3f1a23a1f371a8e5df59802bf64748c1344a4",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -383,5 +383,5 @@
       ]
     }
   ],
-  "publishedUtc": "2026-11-15T03:13:42Z"
+  "publishedUtc": "2026-11-15T13:41:46Z"
 }

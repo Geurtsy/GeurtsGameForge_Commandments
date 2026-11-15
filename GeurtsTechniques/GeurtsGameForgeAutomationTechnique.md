@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Automation Technique
 
-**Version:** 0.18.0
+**Version:** 0.19.0
 **Status:** Draft normative technique
 **Audience:** AI agents only
 **Required package path:** `GeurtsTechniques/GeurtsGameForgeAutomationTechnique.md`
@@ -87,8 +87,9 @@ Use the repository's documented queue commands or contributor procedure. A scope
 
 ### Contributor handoff
 
-- Work on a focused task branch in an isolated worktree or clone, preserving the original checkout, index, uncommitted changes and live Unity state.
-- Submit the exact source commit, base/dependencies, scope, proposed version increment and reason, implementation details, validation results and evidence, tested inputs/environment, and every unverified check with its next step.
+- Work on a focused task branch in an isolated worktree or clone, preserving unrelated checkout/index edits and live Unity state.
+- By default, commit the saved local changes in the selected task scope on that branch before queue submission, then submit that exact commit. Reuse an existing committed source; do not create empty commits on retry. Preserve outside-scope staged and working edits, asset identities and ignored content. Unsaved Editor memory is not committed. A failed commit stops submission; a failed submission retains the local commit for an exact-source retry. Use snapshot-only capture only when explicitly selected.
+- Include the exact source commit, base/dependencies, scope, proposed version increment and reason, implementation details, validation results and evidence, tested inputs/environment, and every unverified check with its next step.
 - After the submission is confirmed, report its ID as **Queued - awaiting integration** and end the worker turn. If that snapshot was already submitted, reuse its ID rather than resubmitting or repeating unchanged validation. Do not operate a processor, poll its status, wait through unrelated integrations, automatically retry/requeue failures, or create replacement processor checkouts. This handoff ends the worker turn; it does not claim the game update is delivered.
 - Leave the final version assignment, shared release metadata/history and publication to the integrator. Task-specific documentation remains part of the task. Every update still needs its own appropriate higher version before delivery, including small edits without a build; use the entry point's SemVer rules or an explicit owning-project version policy.
 - Continue independent work without repeatedly rebasing, renumbering or rerunning unchanged checks solely because unrelated `main` work landed. Refresh a queued submission when its own content, relevant dependencies, acceptance conditions or required checks change. Respect required branch-current gates.

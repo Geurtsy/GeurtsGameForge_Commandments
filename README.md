@@ -1,7 +1,7 @@
 <!-- GEURTS-AUDIENCE: AI-READ -->
 # Geurts Game Forge Commandments
 
-**Version:** 0.80.3
+**Version:** 0.81.0
 **Unity minimum:** Unity 6.6 (6000.6.3f1) or newer
 **Status:** Draft normative package; publication and implementation evidence are separate
 **Audience:** AI agents only
@@ -100,6 +100,11 @@ Each checkout's `origin` must match its catalogue source repository. Fetch the p
 
 <!-- GEURTS-SECTION:BEGIN HUMAN-ONLY -->
 ## Changelog
+
+### 0.81.0 — 15 November 2026
+
+- Make committing saved scoped local changes before queue submission the default contributor workflow; preserve unrelated work and exact-source retries.
+- Select published GitFlow 0.13.1 and its source-matched default-commit, preservation and native compiler evidence.
 
 ### 0.80.3 — 15 November 2026
 
