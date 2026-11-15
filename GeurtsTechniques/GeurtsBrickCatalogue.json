@@ -299,11 +299,11 @@
       "name": "Geurts Game Forge GitFlow",
       "description": "Commit saved local changes before queue submission, run strict serialized integration and inspect complete queue status. Scoped submissions preserve unrelated work; publisher startup and Forge installation remain explicit.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow",
-      "version": "0.13.0",
+      "version": "0.13.1",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#593723fb3a6ab6e1e66add1646d299058597de5a",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#c8f3f1a23a1f371a8e5df59802bf64748c1344a4",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
