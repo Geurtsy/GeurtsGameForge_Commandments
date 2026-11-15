@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.80.1",
+  "packageVersion": "0.80.2",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -297,13 +297,13 @@
     {
       "id": "com.geurts.gameforge.gitflow",
       "name": "Geurts Game Forge GitFlow",
-      "description": "Editor saved-change capture and strict shared queue. Optional project-wide tool-enabled repair uses isolated saved-file copies and an independent read-only review; no fixed repair size/edit-count ceilings, three-stall cutoff or ten-minute call ceiling. Preserves original three-hour budget, active work, independent gates and fenced publication. Consumer updates/adoption remain explicit. Recovers only proven Unity-created folder sidecars before paid repair, preserving native GUIDs and zero-warning gates.",
+      "description": "Editor saved-change capture and strict shared queue. Optional project-wide tool-enabled repair uses isolated saved-file copies and an independent read-only review; no fixed repair size/edit-count ceilings, three-stall cutoff or ten-minute call ceiling. Preserves original three-hour budget, active work, independent gates and fenced publication. Consumer updates/adoption remain explicit. Recovers only proven Unity-created folder sidecars before paid repair, preserving native GUIDs and zero-warning gates. Recovers remote verification reads and preserves clean heartbeat-interrupted candidates for fresh-lease continuation.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow",
-      "version": "0.10.0",
+      "version": "0.11.0",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#1ec0389665572d910d5c1d884718ecc81ab40b4e",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#91500850972c21bb51470c0f49a7092eebc05871",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
@@ -383,5 +383,5 @@
       ]
     }
   ],
-  "publishedUtc": "2026-11-14T12:56:49Z"
+  "publishedUtc": "2026-11-15T01:27:21Z"
 }
