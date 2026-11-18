@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "packageVersion": "0.81.0",
+  "packageVersion": "0.81.1",
   "bricks": [
     {
       "id": "com.geurts.gameforge.bigbang",
@@ -297,13 +297,13 @@
     {
       "id": "com.geurts.gameforge.gitflow",
       "name": "Geurts Game Forge GitFlow",
-      "description": "Commit saved local changes before queue submission, run strict serialized integration and inspect complete queue status. Scoped submissions preserve unrelated work; publisher startup and Forge installation remain explicit.",
+      "description": "Commit saved local changes before queue submission, run strict serialized integration, recover supported scene references through Unity, and inspect queue status. Scoped submissions preserve unrelated work; publisher startup and Forge installation remain explicit.",
       "website": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow",
-      "version": "0.13.1",
+      "version": "0.13.2",
       "released": true,
       "developmentOnly": false,
       "sourceKind": "git",
-      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#c8f3f1a23a1f371a8e5df59802bf64748c1344a4",
+      "source": "https://github.com/Geurtsy/com.geurts.gameforge.gitflow.git#aba683e70083b71a68988c2024a0b3f67bb702ec",
       "minimumUnity": "6000.6",
       "maximumUnity": "",
       "requiredTools": [
